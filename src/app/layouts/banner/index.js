@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Banner = () => {
     return (
-        <div className='max-w-[78vw] mx-auto relative mb-[5vh] flex items-center justify-center h-[80vh]'>
+        <div className='max-w-[78vw] mx-auto relative mb-[5vh] flex items-center justify-center xl:h-[80vh] h-[300px]'>
             <Image
                 src='/background-banner.svg'
                 alt='Background Banner'
@@ -13,15 +13,15 @@ const Banner = () => {
             />
 
             <div className='relative z-10 flex flex-col pt-[3vh]'>
-                <p className='font-medium text-[#C65741] tracking-widest uppercase text-center futura-book text-[6vw] leading-[6vw]'>
+                <p className='font-medium text-[#C65741] tracking-widest uppercase text-center futura-book xl:text-[6vw] xl:leading-[6vw] leading-[40px] text-[32px]'>
                     Metaoptics
                 </p>
 
-                <p className='text-center futura-book text-[1.8vw]'>
+                <p className='text-center futura-book xl:text-[1.8vw] text-[16px]'>
                     Redefining what&lsquo;s possible in optical applications.
                 </p>
 
-                <button className='px-[2vw] py-3 bg-[#C65741] text-white futura-book w-fit mx-auto uppercase text-[1.25vw] mt-[5vh] rounded-br-[32px]'>
+                <button className='xl:px-[2vw] px-[24px] py-3 bg-[#C65741] text-white futura-book w-fit mx-auto uppercase xl:text-[1.25vw] text-[12px] xl:mt-[5vh] mt-[24px] rounded-br-[32px]'>
                     Show More
                 </button>
             </div>
