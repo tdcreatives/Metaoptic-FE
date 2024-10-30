@@ -1,6 +1,6 @@
 const WhatWeDo = () => {
     return (
-        <div className='w-full bg-what-we-do xl:py-[18.5vh] py-[32px] flex flex-col justify-center items-center overflow-hidden bg-contain bg-repeat-round'>
+        <div className='w-full bg-what-we-do xl:py-[18.5vh] py-[32px] flex flex-col justify-center items-center overflow-hidden sm:bg-cover xl:bg-contain bg-contain bg-repeat-round'>
             <p className='futura-book text-white uppercase tracking-widest xl:text-[4.45vw] xl:leading-[4.45vw] text-[24px] leading-[24px]'>
                 What we do
             </p>
