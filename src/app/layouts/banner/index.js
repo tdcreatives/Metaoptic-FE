@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Banner = () => {
     return (
-        <div className='max-w-[78vw] mx-auto relative my-[11vh] flex items-center justify-center'>
+        <div className='max-w-[78vw] mx-auto relative my-[11vh] flex items-center justify-center h-[134vh]'>
             <Image
                 src='/background-banner.svg'
                 alt='Logo'
@@ -13,13 +13,12 @@ const Banner = () => {
             />
 
             {/* Content */}
-            <div className='relative z-10 flex flex-col mt-[45vh]'>
+            <div className='relative z-10 flex flex-col pt-[8vh]'>
                 <p
                     className='font-medium text-[#C65741] tracking-widest uppercase text-center futura-book'
                     style={{
-                        fontSize: 'calc((164 / 1920) * 100vw)', // Responsive font size
-                        lineHeight: 'calc((160 / 1920) * 100vw)', // Adjust line height accordingly
-                        marginTop: '9vh',
+                        fontSize: 'calc((164 / 1920) * 100vw)',
+                        lineHeight: 'calc((160 / 1920) * 100vw)',
                     }}>
                     Metaoptics
                 </p>
