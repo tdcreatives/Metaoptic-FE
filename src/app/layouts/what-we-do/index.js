@@ -9,11 +9,7 @@ const WhatWeDo = () => {
                 }}>
                 What we do
             </p>
-            <div
-                className='text-white futura-book text-center mt-[9.26vh]'
-                style={{
-                    fontSize: 'calc((55 / 1920) * 100vw)', // ≈ 2.86vw
-                }}>
+            <div className='text-white futura-book text-center mt-[4vh] text-[1.8vw]'>
                 <p>At Metaoptics Technologies, we are breaking through</p>
                 <p>current lens limitations in consumer and IoT</p>
                 <p>applications. Our high-throughput meta lens</p>
