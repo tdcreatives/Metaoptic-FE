@@ -2,7 +2,7 @@ const WhatWeDo = () => {
     return (
         <div className='w-full bg-what-we-do py-[18.5vh] flex flex-col justify-center items-center overflow-hidden bg-contain bg-repeat-round'>
             <p
-                className='futura-book text-white uppercase'
+                className='futura-book text-white uppercase tracking-widest'
                 style={{
                     fontSize: 'calc((85.4 / 1920) * 100vw)', // ≈ 4.45vw
                     lineHeight: 'calc((85.4 / 1920) * 100vw)', // ≈ 4.45vw
