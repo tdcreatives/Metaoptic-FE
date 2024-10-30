@@ -2,26 +2,41 @@ import Image from 'next/image';
 
 const Banner = () => {
     return (
-        <div className='max-w-[78vw] mx-auto relative my-[120px] h-[1450px] flex items-center justify-center'>
-            {/* Background Image */}
-            <div
-                className='absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat'
-                style={{ backgroundImage: "url('/background-banner.svg')" }}
+        <div className='max-w-[78vw] mx-auto relative my-[11vh] flex items-center justify-center'>
+            <Image
+                src='/background-banner.svg'
+                alt='Logo'
+                width='0'
+                height='0'
+                className='w-full h-auto cursor-pointer absolute top-0 left-0'
+                priority
             />
 
             {/* Content */}
-            <div className='relative z-10 flex flex-col'>
-                <p className='text-[164px] font-medium text-[#C65741] tracking-widest uppercase text-center futura-book leading-[160px] mt-[100px]'>
+            <div className='relative z-10 flex flex-col mt-[45vh]'>
+                <p
+                    className='font-medium text-[#C65741] tracking-widest uppercase text-center futura-book'
+                    style={{
+                        fontSize: 'calc((164 / 1920) * 100vw)', // Responsive font size
+                        lineHeight: 'calc((160 / 1920) * 100vw)', // Adjust line height accordingly
+                        marginTop: '9vh',
+                    }}>
                     Metaoptics
                 </p>
 
-                <p className='text-[50px] text-center futura-book'>
+                <p
+                    className='text-center futura-book'
+                    style={{
+                        fontSize: 'calc((50 / 1920) * 100vw)', // Responsive font size for subheading
+                    }}>
                     Redefining what&lsquo;s possible in optical applications.
                 </p>
 
                 <button
-                    className='mt-[100px] px-[60px] py-3 bg-[#C65741] text-white text-[40px] futura-book w-fit mx-auto uppercase'
+                    className='px-[60px] py-3 bg-[#C65741] text-white futura-book w-fit mx-auto uppercase'
                     style={{
+                        fontSize: 'calc((40 / 1920) * 100vw)', // Responsive button text size
+                        marginTop: '9vh',
                         borderBottomRightRadius: '32px',
                     }}>
                     Show More

@@ -51,3 +51,8 @@ body {
 .futura-book {
     font-family: 'FuturaPTBook', sans-serif;
 }
+
+.scale-container {
+    transform: scale(calc(100vw / 1920));
+    transform-origin: top center;
+}

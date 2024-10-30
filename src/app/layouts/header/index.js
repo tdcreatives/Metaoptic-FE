@@ -8,7 +8,6 @@ const Header = () => {
                 alt='Logo'
                 width='0'
                 height='0'
-                sizes='19.5vw'
                 className='w-[19.5vw] h-auto cursor-pointer'
                 priority
             />
@@ -18,7 +17,6 @@ const Header = () => {
                 alt='Logo'
                 width='0'
                 height='0'
-                sizes='100vw'
                 className='w-[5vw] h-auto cursor-pointer'
                 priority
             />
