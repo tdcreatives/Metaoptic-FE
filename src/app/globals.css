@@ -2,20 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTLight.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTMedium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTSemi.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTHeavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FuturaPTBook';
+    src: url('/fonts/FuturaPTBook.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: 'FuturaPT', sans-serif;
+}
+
+.futura-book {
+    font-family: 'FuturaPTBook', sans-serif;
 }
