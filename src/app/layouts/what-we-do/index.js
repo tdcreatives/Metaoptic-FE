@@ -1,15 +1,10 @@
 const WhatWeDo = () => {
     return (
-        <div className='w-full bg-what-we-do py-[18.5vh] flex flex-col justify-center items-center overflow-hidden bg-contain bg-repeat-round'>
-            <p
-                className='futura-book text-white uppercase tracking-widest'
-                style={{
-                    fontSize: 'calc((85.4 / 1920) * 100vw)', // ≈ 4.45vw
-                    lineHeight: 'calc((85.4 / 1920) * 100vw)', // ≈ 4.45vw
-                }}>
+        <div className='w-full bg-what-we-do xl:py-[18.5vh] py-[32px] flex flex-col justify-center items-center overflow-hidden bg-contain bg-repeat-round'>
+            <p className='futura-book text-white uppercase tracking-widest xl:text-[4.45vw] xl:leading-[4.45vw] text-[24px] leading-[24px]'>
                 What we do
             </p>
-            <div className='text-white futura-book text-center mt-[4vh] text-[1.8vw]'>
+            <div className='text-white futura-book text-center xl:mt-[4vh] mt-[16px] xl:text-[1.8vw] text-[16px]'>
                 <p>At Metaoptics Technologies, we are breaking through</p>
                 <p>current lens limitations in consumer and IoT</p>
                 <p>applications. Our high-throughput meta lens</p>

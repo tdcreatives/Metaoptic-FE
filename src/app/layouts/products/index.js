@@ -2,16 +2,12 @@ import Image from 'next/image';
 
 const Products = () => {
     return (
-        <div className='px-[2.6vw] py-[10vh] px-[2.6vw]'>
-            <p
-                className='furuta-book uppercase text-[#C65741] text-center tracking-widest'
-                style={{
-                    fontSize: '4.45vw',
-                }}>
+        <div className='px-[2.6vw] xl:py-[10vh] py-[48px]'>
+            <p className='furuta-book uppercase text-[#C65741] text-center tracking-widest xl:text-[4.45vw] text-[24px]'>
                 Our products
             </p>
 
-            <div className='grid grid-cols-2 gap-[2.7vw] mt-[10vh]'>
+            <div className='grid grid-cols-2 gap-[2.7vw] xl:mt-[10vh] mt-[48px]'>
                 <Image
                     src='/product-1.png'
                     alt='Product 1'
