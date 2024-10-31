@@ -3,7 +3,7 @@ import Image from 'next/image';
 const Products = () => {
     return (
         <div className='px-[2.6vw] xl:py-[10vh] py-[48px]'>
-            <p className='furuta-book uppercase text-[#C65741] text-center tracking-widest xl:text-[4.45vw] text-[24px]'>
+            <p className='futura-book uppercase text-[#C65741] text-center tracking-widest xl:text-[4.45vw] text-[24px]'>
                 Our products
             </p>
 
