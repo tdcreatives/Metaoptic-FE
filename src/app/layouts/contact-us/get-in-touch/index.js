@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const GetInTouch = () => {
     return (
-        <div className='xl:py-[200px]'>
+        <div className='xl:pt-[200px]'>
             <p className='font-medium text-[#d44c39] tracking-wide uppercase text-center futura-book xl:text-[55px] xl:leading-[6vw] leading-[40px] text-[32px]'>
                 GET IN TOUCH WITH US
             </p>
