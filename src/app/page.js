@@ -1,8 +1,8 @@
-import Header from './layouts/header';
-import Banner from './layouts/banner';
-import WhatWeDo from './layouts/what-we-do';
-import Products from './layouts/products';
-import Footer from './layouts/footer';
+import Header from './layouts/main/header';
+import Banner from './layouts/homepage/banner';
+import WhatWeDo from './layouts/homepage/what-we-do';
+import Products from './layouts/homepage/products';
+import Footer from './layouts/main/footer';
 
 const Home = () => {
     return (
