@@ -10,7 +10,7 @@ const Footer = () => {
                     </p>
 
                     <div className='futura-book xl:text-[1.25vw] text-[12px]'>
-                        <p className='text-[#C05540]'>Metaoptics Technologies Pte Ltd</p>
+                        <p className='text-[#d44c39]'>Metaoptics Technologies Pte Ltd</p>
 
                         <p className='text-[#E0E1E0]'>
                             <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
