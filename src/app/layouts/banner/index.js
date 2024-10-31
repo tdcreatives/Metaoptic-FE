@@ -21,7 +21,7 @@ const Banner = () => {
                     Redefining what&lsquo;s possible in optical applications.
                 </p>
 
-                <button className='xl:px-[2vw] px-[24px] py-3 bg-[#C65741] text-white futura-book w-fit mx-auto uppercase xl:text-[1.25vw] text-[12px] xl:mt-[5vh] mt-[24px] rounded-br-[32px]'>
+                <button className='xl:px-[2vw] px-[24px] py-3 bg-[#d44c39] text-white futura-book w-fit mx-auto uppercase xl:text-[1.25vw] text-[12px] xl:mt-[5vh] mt-[24px] rounded-br-[32px]'>
                     Show More
                 </button>
             </div>

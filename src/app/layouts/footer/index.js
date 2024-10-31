@@ -13,11 +13,16 @@ const Footer = () => {
                         <p className='text-[#C05540]'>Metaoptics Technologies Pte Ltd</p>
 
                         <p className='text-[#E0E1E0]'>
-                            81 Ayer Rajah Crescent 01-45 Singapore 139967
+                            <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
+                            Crescent 01-45 Singapore 139967
                         </p>
 
                         <a href='mailto:sales@metaoptics.com.sg'>
-                            <p className='text-[#E0E1E0]'>sales@metaoptics.com.sg</p>
+                            <p className='text-[#E0E1E0]'>
+                                {' '}
+                                <span className='text-[#888888]'>Email: </span>
+                                sales@metaoptics.com.sg
+                            </p>
                         </a>
                     </div>
                 </div>
@@ -35,7 +40,6 @@ const Footer = () => {
                     alt='Footer Element'
                 />
             </div>
-
             <div className='flex xl:flex-row flex-col justify-between xl:text-[1.1vw] text-[12px] text-[#f0efef] xl:mt-[11.1vh] mt-[48px]'>
                 <div className='flex gap-[5vw]'>
                     <a href='#'>
