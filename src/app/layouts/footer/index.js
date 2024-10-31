@@ -32,8 +32,8 @@ const Footer = () => {
                     width='0'
                     height='0'
                     priority
-                    sizes='100vw'
                     className='h-auto'
+                    unoptimized
                     style={{
                         width: '40vw',
                         objectFit: 'contain',
