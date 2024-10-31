@@ -14,7 +14,7 @@ const Products = () => {
                     width='0'
                     height='0'
                     priority
-                    sizes='100vw'
+                    unoptimized
                     className='w-full h-auto'
                 />
                 <Image
@@ -23,7 +23,7 @@ const Products = () => {
                     width='0'
                     height='0'
                     priority
-                    sizes='100vw'
+                    unoptimized
                     className='w-full h-auto'
                 />
                 <Image
@@ -32,7 +32,7 @@ const Products = () => {
                     width='0'
                     height='0'
                     priority
-                    sizes='100vw'
+                    unoptimized
                     className='w-full h-auto'
                 />
                 <Image
@@ -41,7 +41,7 @@ const Products = () => {
                     width='0'
                     height='0'
                     priority
-                    sizes='100vw'
+                    unoptimized
                     className='w-full h-auto'
                 />
             </div>
