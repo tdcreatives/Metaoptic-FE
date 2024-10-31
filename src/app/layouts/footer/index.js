@@ -28,14 +28,15 @@ const Footer = () => {
                 </div>
 
                 <Image
-                    src='/footer-element.svg'
+                    src='/footer.png'
                     width='0'
                     height='0'
                     priority
                     sizes='100vw'
                     className='h-auto'
                     style={{
-                        width: '33.3vw',
+                        width: '40vw',
+                        objectFit: 'contain',
                     }}
                     alt='Footer Element'
                 />

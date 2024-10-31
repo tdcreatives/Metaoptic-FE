@@ -13,7 +13,7 @@ const Banner = () => {
             />
 
             <div className='relative z-10 flex flex-col pt-[3vh]'>
-                <p className='font-medium text-[#C65741] tracking-widest uppercase text-center futura-book xl:text-[6vw] xl:leading-[6vw] leading-[40px] text-[32px]'>
+                <p className='font-medium text-[#d44c39] tracking-widest uppercase text-center futura-book xl:text-[6vw] xl:leading-[6vw] leading-[40px] text-[32px]'>
                     Metaoptics
                 </p>
 
