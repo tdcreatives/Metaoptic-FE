@@ -42,7 +42,7 @@ const Footer = () => {
                 />
             </div>
             <div className='flex xl:flex-row flex-col justify-between xl:text-[1.1vw] text-[12px] text-[#f0efef] xl:mt-[11.1vh] mt-[48px]'>
-                <div className='flex gap-[5vw]'>
+                <div className='flex gap-[5vw] hidden'>
                     <a href='#'>
                         <p>Privacy & Legal</p>
                     </a>
@@ -55,7 +55,7 @@ const Footer = () => {
                     </a>
                 </div>
 
-                <div className='flex xl:justify-center xl:w-[33.3vw] xl:mt-0 mt-2'>
+                <div className='flex xl:justify-start xl:w-full xl:mt-0 mt-0'>
                     <a href='#'>
                         <p>Follow Us</p>
                     </a>
