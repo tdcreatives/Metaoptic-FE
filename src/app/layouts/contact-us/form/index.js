@@ -1,9 +1,9 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const ContactUsForm = () => {
     return (
         <>
-            <div className='xl:w-[40vw] mx-auto w-[90vw]'>
+            <div className='xl:w-[40vw] mx-auto w-[90vw] xl:pb-[118px] pb-[48px]'>
                 <form className='xl:space-y-[32px] space-y-4'>
                     <div className='flex space-x-4'>
                         <input
@@ -40,7 +40,7 @@ const ContactUsForm = () => {
                 </form>
             </div>
 
-            <div className='flex justify-center gap-[48px] xl:py-[118px] py-[48px]'>
+            {/* <div className='flex justify-center gap-[48px] xl:py-[118px] py-[48px]'>
                 {' '}
                 <Image
                     width='0'
@@ -69,7 +69,7 @@ const ContactUsForm = () => {
                     alt='Instagram'
                     src='/instagram.svg'
                 />
-            </div>
+            </div> */}
         </>
     );
 };
