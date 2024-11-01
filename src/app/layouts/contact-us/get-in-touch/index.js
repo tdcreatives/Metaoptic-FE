@@ -24,7 +24,7 @@ const GetInTouch = () => {
                     </p>
                 </div>
 
-                <div className='flex flex-col items-center gap-[24px] px-[72px] xl:py-4 py-6 xl:border-l-[2px] xl:border-l-[#d44c39] xl:border-r-[2px] xl:border-r-[#d44c39] border-t-[2px] border-t-[#d44c39] border-b-[2px] border-b-[#d44c39] xl:border-t-[0px] xl:border-b-[0px] xl:w-[auto] w-[90vw] xl:mx-[0px] mx-auto xl:border-r-[0px] border-b-[0]'>
+                <div className='flex flex-col items-center gap-[24px] px-[72px] xl:py-4 py-6 xl:border-l-[2px] xl:border-l-[#d44c39] border-t-[2px] border-t-[#d44c39] border-b-[2px] border-b-[#d44c39] xl:border-t-[0px] xl:border-b-[0px] xl:w-[auto] w-[90vw] xl:mx-[0px] mx-auto xl:border-r-[0px] border-b-[0]'>
                     <Image
                         width='0'
                         height='0'
