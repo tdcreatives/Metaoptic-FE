@@ -62,7 +62,7 @@ const Header = () => {
 
             {/* Sidebar Menu */}
             <div
-                className={`sidebar fixed top-[4vh] right-[4vw] h-fit max-w-[400px] bg-[#e2e2d4] transform transition-width duration-500 ease-in-out overflow-hidden py-6 rounded-[2px] ${
+                className={`sidebar fixed top-[4vh] right-[4vw] h-fit max-w-[400px] bg-[#f4f4f5] transform transition-width duration-500 ease-in-out overflow-hidden py-6 rounded-[2px] ${
                     isMenuOpen ? 'ml:w-[400px] w-[300px]' : 'w-0'
                 }`}
                 style={{
