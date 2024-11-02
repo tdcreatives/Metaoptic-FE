@@ -11,6 +11,10 @@ module.exports = {
                 'what-we-do': "url('/what-we-do.png')",
                 'contact-us': "url('/contact-banner.png')",
             },
+            content: {
+                before: '"("',
+                after: '")"',
+            },
         },
     },
     plugins: [],
