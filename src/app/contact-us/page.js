@@ -5,6 +5,11 @@ import ContactUsForm from '../layouts/contact-us/form';
 import ContactUsMap from '../layouts/contact-us/map';
 import Footer from '@/app/layouts/main/footer';
 
+export const metadata = {
+    title: 'Contact Us',
+    description: 'Metaoptics is a design system for building modern web applications.',
+};
+
 const ContactUs = () => {
     return (
         <>
