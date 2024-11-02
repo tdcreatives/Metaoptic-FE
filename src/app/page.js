@@ -5,8 +5,10 @@ import Products from './layouts/homepage/products';
 import Footer from './layouts/main/footer';
 
 export const metadata = {
-    title: 'Homepage',
-    description: 'Metaoptics is a design system for building modern web applications.',
+    title: 'Metaoptics Technologies | Leading Metalens Manufacturer Singapore',
+    description: 'Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech',
+    keywords: 'Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer'
+
 };
 
 const Home = () => {

@@ -3,6 +3,7 @@ import './globals.css';
 export const metadata = {
     title: 'Metaoptics Technologies | Leading Metalens Manufacturer Singapore',
     description: 'Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech',
+    keywords: 'Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer'
 };
 
 export default function RootLayout({ children }) {
