@@ -143,7 +143,7 @@ const ContactUsForm = () => {
                         className={`text-center mt-4 ${
                             status.isSuccess ? 'text-green-600' : 'text-red-600'
                         }`}>
-                        {status.message}
+                        {{ __html: status.message }}
                     </p>
                 )}
             </form>
