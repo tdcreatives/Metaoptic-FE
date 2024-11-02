@@ -64,7 +64,7 @@ const ContactUsForm = () => {
             });
 
             if (response.ok) {
-                setStatus({ message: 'Form submitted successfully!', isSuccess: true });
+                setStatus({ message: 'Thank you for your submission!. Please give us up to 1-3 business days to get back to you.', isSuccess: true });
                 setFormData({
                     firstName: '',
                     lastName: '',
