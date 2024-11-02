@@ -26,12 +26,12 @@ const ContactUsForm = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!firstName || !lastName || !email || !subject || !message) {
-            setStatus({ message: 'All fields are required.', isSuccess: false });
+            setStatus({ message: 'Please complete all required fields.', isSuccess: false });
             return false;
         }
 
         if (!emailRegex.test(email)) {
-            setStatus({ message: 'Invalid email format.', isSuccess: false });
+            setStatus({ message: 'Please enter a valid email address.', isSuccess: false });
             return false;
         }
 
@@ -46,11 +46,12 @@ const ContactUsForm = () => {
         const data = {
             access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
             email: formData.email,
-            subject: formData.subject || process.env.NEXT_PUBLIC_SUBJECT,
+            subject: process.env.NEXT_PUBLIC_SUBJECT,
+            customer_subject: formData.subject || process.env.NEXT_PUBLIC_SUBJECT,
             message: formData.message,
             replyto: process.env.NEXT_PUBLIC_REPLY_TO,
-            firstname: formData.firstName,
-            lastname: formData.lastName,
+            first_name: formData.firstName,
+            last_name: formData.lastName,
             redirect: process.env.NEXT_PUBLIC_REDIRECT_URL,
         };
 
@@ -64,7 +65,7 @@ const ContactUsForm = () => {
             });
 
             if (response.ok) {
-                setStatus({ message: 'Thank you for your submission!. Please give us up to 1-3 business days to get back to you.', isSuccess: true });
+                setStatus({ message: 'Thank you for your submission!. <br/>Please give us up to 1-3 business days to get back to you.', isSuccess: true });
                 setFormData({
                     firstName: '',
                     lastName: '',
@@ -74,14 +75,14 @@ const ContactUsForm = () => {
                 });
             } else {
                 setStatus({
-                    message: 'Failed to submit the form. Please try again.',
+                    message: 'Oops! Something went wrong. Please try submitting the form again.',
                     isSuccess: false,
                 });
             }
         } catch (error) {
             console.error('Error:', error);
             setStatus({
-                message: 'An error occurred. Please try again.',
+                message: 'Something went wrong. Please try again.',
                 isSuccess: false,
             });
         }
