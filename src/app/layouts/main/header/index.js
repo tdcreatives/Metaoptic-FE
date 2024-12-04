@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -12,11 +12,11 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const closeMenuOnOutsideClickOrScroll = (e) => {
+    const closeMenuOnOutsideClickOrScroll = useCallback(() => {
         if (isMenuOpen) {
             setIsMenuOpen(false);
         }
-    };
+    }, [isMenuOpen]);
 
     useEffect(() => {
         const handleOutsideClick = (e) => {
@@ -36,7 +36,7 @@ const Header = () => {
             document.removeEventListener('click', handleOutsideClick);
             window.removeEventListener('scroll', closeMenuOnOutsideClickOrScroll);
         };
-    }, [isMenuOpen]);
+    }, [isMenuOpen, closeMenuOnOutsideClickOrScroll]);
 
     return (
         <div className='font-bold flex justify-between max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
