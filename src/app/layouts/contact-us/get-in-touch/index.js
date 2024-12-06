@@ -20,7 +20,7 @@ const GetInTouch = () => {
                     />
 
                     <p className='xl:text-[24px] text-[18px] text-[#121212]'>
-                        sales@metaoptics.com.sg
+                        sales@metaoptics.sg
                     </p>
                 </div>
 

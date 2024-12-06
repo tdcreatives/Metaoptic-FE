@@ -17,11 +17,11 @@ const Footer = () => {
                             Crescent 01-45 Singapore 139967
                         </p>
 
-                        <a href='mailto:sales@metaoptics.com.sg'>
+                        <a href='mailto:sales@metaoptics.sg'>
                             <p className='text-[#E0E1E0] mt-2'>
                                 {' '}
                                 <span className='text-[#888888]'>Email: </span>
-                                sales@metaoptics.com.sg
+                                sales@metaoptics.sg
                             </p>
                         </a>
                     </div>
