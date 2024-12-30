@@ -45,7 +45,7 @@ const Header = () => {
                 alt='Logo'
                 width='0'
                 height='0'
-                className='xl:w-[9vw] w-[84px] h-auto cursor-pointer'
+                className='xl:w-[20vw] w-[120px] h-auto cursor-pointer'
                 priority
                 onClick={() => router.push('/')}
             />
