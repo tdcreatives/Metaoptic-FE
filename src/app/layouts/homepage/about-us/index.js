@@ -37,7 +37,7 @@ const AboutUs = () => {
                 <div className='grid grid-cols-2 gap-5'>
                     <div className='flex flex-col gap-5'>
                         <Image
-                            src='/about-1.jpg'
+                            src='/about-1.png'
                             alt='About 1'
                             width={0}
                             height='500'
@@ -47,7 +47,7 @@ const AboutUs = () => {
                         />
 
                         <Image
-                            src='/about-3.jpg'
+                            src='/about-3.png'
                             alt='About 3'
                             width={0}
                             height={0}
@@ -59,7 +59,7 @@ const AboutUs = () => {
 
                     <div className='flex flex-col gap-5 mb-[-48px] mt-[52px]'>
                         <Image
-                            src='/about-2.jpg'
+                            src='/about-2.png'
                             alt='About 2'
                             width={0}
                             height={0}
@@ -68,7 +68,7 @@ const AboutUs = () => {
                             className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
                         />
                         <Image
-                            src='/about-4.jpg'
+                            src='/about-4.png'
                             alt='About 4'
                             width={0}
                             height={0}

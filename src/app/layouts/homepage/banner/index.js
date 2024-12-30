@@ -17,19 +17,19 @@ const Banner = () => {
             />
 
             {/* "View More" Button */}
-            <div className='absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center'>
+            <div className='absolute bottom-[72px] left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center'>
                 <Image
                     src='/view-more.svg'
                     alt='View more'
                     width='0'
                     height='0'
-                    className='w-[90px] h-auto cursor-pointer'
+                    className='w-[40px] h-auto cursor-pointer'
                 />
 
                 <div
-                    className='uppercase text-[20px] mt-[-16px] text-[#d34c39] ml-2'
+                    className='uppercase text-[20px] text-[#000] ml-2'
                     style={{
-                        letterSpacing: '6px',
+                        letterSpacing: '4px',
                     }}>
                     View more
                 </div>
