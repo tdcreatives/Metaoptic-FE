@@ -2,57 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Futura Book */
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTLight.otf') format('opentype');
-    font-weight: 300;
+    font-family: 'Futura Book';
+    src: url('/fonts/futura-book.ttf') format('truetype');
+    font-weight: 400;
     font-style: normal;
 }
 
+/* Futura Condensed Medium */
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTMedium.otf') format('opentype');
+    font-family: 'Futura CondensedMedium';
+    src: url('/fonts/Futura-CondensedMedium-04.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
+/* Futura Condensed Extra Bold */
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTSemi.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTBold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTHeavy.otf') format('opentype');
+    font-family: 'Futura CondensedExtraBold';
+    src: url('/fonts/Futura-CondensedExtraBold-05.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
 }
 
+/* Futura Medium */
 @font-face {
-    font-family: 'FuturaPTBook';
-    src: url('/fonts/FuturaPTBook.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'Futura Medium';
+    src: url('/fonts/Futura-Medium-01.ttf') format('truetype');
+    font-weight: 500;
     font-style: normal;
 }
 
-body {
-    font-family: 'FuturaPT', sans-serif;
+/* Futura Medium Italic */
+@font-face {
+    font-family: 'Futura Medium Italic';
+    src: url('/fonts/Futura-MediumItalic-02.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
 }
 
-.futura-book {
-    font-family: 'FuturaPTBook', sans-serif;
+/* Futurah */
+@font-face {
+    font-family: 'Futurah';
+    src: url('/fonts/futurah.TTF') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Futura Bold */
+@font-face {
+    font-family: 'Futura Bold';
+    src: url('/fonts/Futura-Bold-03.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 .scale-container {
     transform: scale(calc(100vw / 1920));
     transform-origin: top center;
+}
+
+body {
+    font-family: 'Futura Book', sans-serif;
+}
+
+.futura-condensed-medium {
+    font-family: 'Futura CondensedMedium', sans-serif;
 }
