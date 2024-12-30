@@ -3,9 +3,9 @@ import Image from 'next/image';
 const Products = () => {
     return (
         <div className='px-[2.6vw] xl:py-[10vh] py-[48px]'>
-            <p className='futura-book uppercase text-[#d44c39] text-center tracking-widest xl:text-[4.45vw] text-[24px]'>
-                Our products
-            </p>
+            <h2 className='text-[150px] text-[#d34c39] uppercase futura-condensed-medium ml-16 text-center'>
+                OUR PRODUCTS
+            </h2>
 
             <div className='grid grid-cols-2 gap-[2.7vw] xl:mt-[10vh] mt-[48px]'>
                 <Image

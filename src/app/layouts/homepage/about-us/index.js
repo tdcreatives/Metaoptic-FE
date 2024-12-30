@@ -37,40 +37,44 @@ const AboutUs = () => {
                 <div className='grid grid-cols-2 gap-5'>
                     <div className='flex flex-col gap-5'>
                         <Image
-                            src='/about-1.svg'
+                            src='/about-1.jpg'
                             alt='About 1'
                             width={0}
-                            height={0}
+                            height='500'
                             sizes='100vw'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px]'
+                            objectFit='cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
                         />
 
                         <Image
-                            src='/about-3.png'
+                            src='/about-3.jpg'
                             alt='About 3'
                             width={0}
                             height={0}
                             sizes='100vw'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px]'
+                            objectFit='cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
                         />
                     </div>
 
-                    <div className='flex flex-col gap-5 mb-[-40px] mt-10'>
+                    <div className='flex flex-col gap-5 mb-[-48px] mt-[52px]'>
                         <Image
-                            src='/about-2.png'
+                            src='/about-2.jpg'
                             alt='About 2'
                             width={0}
                             height={0}
                             sizes='100vw'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px]'
+                            objectFit='cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
                         />
                         <Image
-                            src='/about-4.png'
+                            src='/about-4.jpg'
                             alt='About 4'
                             width={0}
                             height={0}
                             sizes='100vw'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px]'
+                            objectFit='cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
                         />
                     </div>
                 </div>
