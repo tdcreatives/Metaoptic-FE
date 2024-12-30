@@ -1,22 +1,22 @@
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <div className='bg-[#131313] futura-book px-[5.2vw] xl:py-[12.31vh] py-[48px] relative'>
+        <div className='bg-[#131313] futura-book px-[5.2vw] pt-4 pb-8 relative'>
             <div className='flex justify-between'>
-                <div className='flex flex-col xl:gap-[5.6vh] gap-4'>
-                    <p className='text-[#888888] tracking-wider xl:text-[3.77vw] text-[24px]'>
+                <div className='flex flex-col'>
+                    <p className='text-[#888888] tracking-wider xl:text-[150px] text-[24px] futura-condensed-medium uppercase'>
                         Connect with us
                     </p>
 
-                    <div className='futura-book xl:text-[1.25vw] text-[12px]'>
-                        <p className='text-[#d44c39]'>Metaoptics Technologies Pte Ltd</p>
+                    <p className='text-[#d44c39] futura-medium text-[30px] mt-[-16px]'>
+                        Metaoptics Technologies Pte Ltd
+                    </p>
 
-                        <p className='text-[#E0E1E0]'>
-                            <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
-                            Crescent 01-45 Singapore 139967
-                        </p>
-
+                    <div className='futura-book text-[25px] mt-16'>
                         <a href='mailto:sales@metaoptics.sg'>
                             <p className='text-[#E0E1E0] mt-2'>
                                 {' '}
@@ -24,60 +24,59 @@ const Footer = () => {
                                 sales@metaoptics.sg
                             </p>
                         </a>
+                        <p className='text-[#E0E1E0]'>
+                            <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
+                            Crescent 01-45 Singapore 139967
+                        </p>
                     </div>
                 </div>
-
-                <Image
-                    src='/footer.png'
-                    width='0'
-                    height='0'
-                    priority
-                    className='h-auto xl:block hidden'
-                    unoptimized
-                    style={{
-                        width: '40vw',
-                        objectFit: 'contain',
-                    }}
-                    alt='Footer Element'
-                />
-            </div>
-            <div className='flex xl:flex-row flex-col justify-between xl:text-[1.1vw] text-[12px] text-[#f0efef] xl:mt-[11.1vh] mt-[48px]'>
-                <div className='flex gap-[5vw] hidden'>
-                    <a href='#'>
-                        <p>Privacy & Legal</p>
-                    </a>
-
-                    <a href='#'>
-                        <p>Cookies Policy</p>
-                    </a>
-                    <a href='#'>
-                        <p>Data Privacy</p>
-                    </a>
-                </div>
-
-                <div className='flex xl:justify-start xl:w-full xl:mt-0 mt-0'>
-                    <a href='#'>
-                        <p>Follow Us</p>
-                    </a>
-                </div>
             </div>
 
-            <div className='text-center xl:text-[1.1vw] text-[12px] text-[#888888] xl:mt-[17.6vh] mt-[72px]'>
+            <div className='flex justify-between mt-[160px] w-full'>
+                <div className='flex gap-5 text-white text-[25px] futura-medium'>
+                    <div>Back to Top</div>
+                    <div>Our Products</div>
+                    <div>Our Story</div>
+                    <div>Gallery</div>
+                    <div>Contact Us</div>
+                </div>
+
+                <div className='flex gap-8 text-white text-[25px] futura-medium'>
+                    <div>Connect</div>
+                    <Image
+                        src='/facebook.svg'
+                        alt='Facebook'
+                        width={0}
+                        height={0}
+                        sizes='100vw'
+                        className='w-[16px]'
+                    />
+
+                    <Image
+                        src='/instagram.svg'
+                        alt='Facebook'
+                        width={0}
+                        height={0}
+                        sizes='100vw'
+                        className='w-[32px]'
+                    />
+
+                    <Image
+                        src='/twitter.svg'
+                        alt='Facebook'
+                        width={0}
+                        height={0}
+                        sizes='100vw'
+                        className='w-[32px]'
+                    />
+                </div>
+            </div>
+
+            <div className='w-full h-[2px] my-4 bg-white'></div>
+
+            <div className='text-center text-[#868686] text-[20px] uppercase tracking-widest'>
                 Metaoptics Technologies Pte Ltd. All rights reserved
             </div>
-
-            <Image
-                src='/footer.png'
-                width='0'
-                height='0'
-                priority
-                className='h-auto w-[70vw] sm:w-[50vw] xl:relative absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] xl:hidden block'
-                unoptimized
-                style={{
-                    objectFit: 'contain',
-                }}
-                alt='Footer Element'
-            />
         </div>
     );
 };

@@ -3,9 +3,9 @@
   <g id="Layer-1" serif:id="Layer 1">
     <g id="Logo-icon" serif:id="Logo icon"></g>
     <g id="menu">
-      <path d="M251.247,251.247l405.883,-0" style="fill:none;fill-rule:nonzero;stroke:#d44c39;stroke-width:50px;" />
-      <path d="M251.247,388.592l405.883,-0" style="fill:none;fill-rule:nonzero;stroke:#d44c39;stroke-width:50px;" />
-      <path d="M251.247,525.935l405.883,0" style="fill:none;fill-rule:nonzero;stroke:#d44c39;stroke-width:50px;" />
+      <path d="M251.247,251.247l405.883,-0" style="fill:none;fill-rule:nonzero;stroke:#000;stroke-width:50px;" />
+      <path d="M251.247,388.592l405.883,-0" style="fill:none;fill-rule:nonzero;stroke:#000;stroke-width:50px;" />
+      <path d="M251.247,525.935l405.883,0" style="fill:none;fill-rule:nonzero;stroke:#000;stroke-width:50px;" />
     </g>
   </g>
 </svg>
