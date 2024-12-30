@@ -2,6 +2,7 @@ import Header from './layouts/main/header';
 import Banner from './layouts/homepage/banner';
 import AboutUs from './layouts/homepage/about-us';
 import Products from './layouts/homepage/products';
+import Quote from './layouts/homepage/quote';
 import Footer from './layouts/main/footer';
 
 export const metadata = {
@@ -19,6 +20,7 @@ const Home = () => {
             <Banner />
             <AboutUs />
             <Products />
+            <Quote />
             <Footer />
         </>
     );

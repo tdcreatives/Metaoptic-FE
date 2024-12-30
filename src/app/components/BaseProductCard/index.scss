@@ -1,0 +1,14 @@
+.product-card {
+    background: #ebebeb;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background: #d34c39;
+
+        .product-card__id,
+        .product-card__title {
+            color: white;
+        }
+    }
+}
