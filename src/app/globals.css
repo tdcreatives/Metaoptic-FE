@@ -70,3 +70,8 @@ body {
 .futura-condensed-medium {
     font-family: 'Futura CondensedMedium', sans-serif;
 }
+
+.futura-medium {
+    font-family: 'Futura Medium', sans-serif;
+    font-weight: 500;
+}
