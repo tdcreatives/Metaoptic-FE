@@ -58,7 +58,7 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-contain'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
                         />
                     </div>
 
