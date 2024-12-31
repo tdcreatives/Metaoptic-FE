@@ -5,37 +5,42 @@ import Image from 'next/image';
 
 const AboutUs = () => {
     return (
-        <section className='relative flex h-[140vh] snap-start pt-16' id='about-us'>
+        <section
+            className='relative flex xl:flex-row flex-col xl:h-[140vh] h-auto snap-start xl:pt-16 pt-8'
+            id='about-us'>
             {/* Left Content */}
             <div className='flex flex-col'>
-                <h2 className='text-[150px] text-[#d34c39] uppercase futura-condensed-medium ml-16'>
+                <h2 className='xl:text-[150px] text-[72px] text-[#d34c39] uppercase futura-condensed-medium xl:ml-16 ml-0 xl:text-start text-center'>
                     About Us
                 </h2>
 
                 {/* Content with Background */}
-                <div className='bg-gray-200 p-16 rounded-lg'>
-                    <p className='text-[20px] mb-6 max-w-[39%]'>
+                <div className='bg-[#ebebeb] xl:p-16 p-8 rounded-lg'>
+                    <p className='text-[20px] mb-6 xl:max-w-[39%] max-w-full'>
                         At Metaoptics Technologies, we are breaking through current lens
                         limitations in consumer and IoT applications.
                     </p>
 
-                    <p className='text-[20px] leading-relaxed mb-6 max-w-[39%]'>
+                    <p className='text-[20px] leading-relaxed mb-6 xl:max-w-[39%] max-w-full'>
                         Our high-throughput meta lens production ensures efficiency and
                         cost-effectiveness. <br />
                         As AR/VR and HUD technologies rapidly expands, our innovative meta
                         lens are essential to provideminiaturization in supporting this
                         market growth.
                     </p>
-                    <button className='bg-[#d34c39] text-white font-bold text-lg ml-10 px-10 py-3 rounded-full futura-medium tracking-[4px] mt-6 text-[20px]'>
-                        FIND OUT MORE
-                    </button>
+
+                    <div className='flex xl:justify-start justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
+                        <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
+                            FIND OUT MORE
+                        </button>
+                    </div>
                 </div>
             </div>
 
             {/* Right Section with Overlapping Images */}
-            <div className='absolute right-0 top- w-[58%] h-full'>
-                <div className='grid grid-cols-2 gap-5'>
-                    <div className='flex flex-col gap-5'>
+            <div className='xl:absolute relative right-0 xl:w-[58%] w-[95%] mx-auto h-full xl:mt-0 mt-10'>
+                <div className='grid grid-cols-2 xl:gap-5 gap-3'>
+                    <div className='flex flex-col xl:gap-5 gap-3'>
                         <Image
                             src='/about-1.png'
                             alt='About 1'
@@ -57,7 +62,7 @@ const AboutUs = () => {
                         />
                     </div>
 
-                    <div className='flex flex-col gap-5 mb-[-48px] mt-[52px]'>
+                    <div className='flex flex-col xl:gap-5 gap-3 mb-[-48px] mt-[52px] '>
                         <Image
                             src='/about-2.png'
                             alt='About 2'
