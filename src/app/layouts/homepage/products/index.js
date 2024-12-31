@@ -31,8 +31,8 @@ const products = [
 
 const Products = () => {
     return (
-        <div className='xl:pt-[10vh] pt-[48px]'>
-            <h2 className='text-[150px] text-[#d34c39] uppercase futura-condensed-medium ml-16 text-center'>
+        <div className='xl:pt-[10vh] pt-[100px]'>
+            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
                 OUR PRODUCTS
             </h2>
 
@@ -42,8 +42,8 @@ const Products = () => {
                 ))}
             </div>
 
-            <div className='flex justify-center mt-10'>
-                <button className='bg-[#d34c39] text-white font-bold text-lg px-10 py-3 rounded-full futura-medium tracking-[4px] mt-6 text-[20px]'>
+            <div className='flex xl:justify-start justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
+                <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
                     SEE ALL PRODUCTS
                 </button>
             </div>

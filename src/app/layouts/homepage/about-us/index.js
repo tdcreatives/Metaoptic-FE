@@ -10,7 +10,7 @@ const AboutUs = () => {
             id='about-us'>
             {/* Left Content */}
             <div className='flex flex-col'>
-                <h2 className='xl:text-[150px] text-[72px] text-[#d34c39] uppercase futura-condensed-medium xl:ml-16 ml-0 xl:text-start text-center'>
+                <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium xl:ml-16 ml-0 xl:text-start text-center'>
                     About Us
                 </h2>
 
