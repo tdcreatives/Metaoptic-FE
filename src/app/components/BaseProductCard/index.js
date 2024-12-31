@@ -7,7 +7,7 @@ import './index.scss';
 
 const BaseProductCard = ({ product }) => {
     return (
-        <div className='px-4 py-[90px] product-card'>
+        <div className='px-4 xl:py-[90px] py-[48px] xl:w-full w-[90%] mx-auto product-card'>
             <div className='futura-condensed-medium text-[90px] product-card__id'>
                 {product.id}
             </div>

@@ -36,7 +36,7 @@ const Products = () => {
                 OUR PRODUCTS
             </h2>
 
-            <div className='grid grid-cols-5 mt-16'>
+            <div className='grid xl:grid-cols-5 grid-cols-1 mt-16'>
                 {products.map((product) => (
                     <BaseProductCard key={product.id} product={product} />
                 ))}
