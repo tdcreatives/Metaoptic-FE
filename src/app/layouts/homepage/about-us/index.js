@@ -47,8 +47,8 @@ const AboutUs = () => {
                             width={0}
                             height='500'
                             sizes='100vw'
-                            objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
+                            objectFit='contain'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
                         />
 
                         <Image
@@ -58,7 +58,7 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-contain'
                         />
                     </div>
 
@@ -70,7 +70,7 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
                         />
                         <Image
                             src='/about-4.jpg'
@@ -79,7 +79,7 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px]'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
                         />
                     </div>
                 </div>
