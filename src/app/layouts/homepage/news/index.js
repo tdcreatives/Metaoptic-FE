@@ -8,7 +8,7 @@ const newsItems = [
         title: 'MetaOptics coming to CES 2025 in Las Vegas',
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
-        image: 'news-1.png',
+        image: 'news-1.jpg',
     },
     {
         title: 'Pico Projector using MEMS laser scanner',
@@ -26,7 +26,7 @@ const newsItems = [
         title: 'MetaOptics coming to CES 2025 in Las Vegas',
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
-        image: 'news-3.jpg',
+        image: 'news-4.jpg',
     },
 ];
 
