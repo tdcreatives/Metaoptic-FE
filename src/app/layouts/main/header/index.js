@@ -45,7 +45,7 @@ const Header = () => {
                 alt='Logo'
                 width='0'
                 height='0'
-                className='xl:w-[20vw] w-[120px] h-auto cursor-pointer'
+                className='xl:w-[20vw] w-[200px] h-auto cursor-pointer'
                 priority
                 onClick={() => router.push('/')}
             />
@@ -55,7 +55,7 @@ const Header = () => {
                 alt='Menu'
                 width='0'
                 height='0'
-                className='xl:w-[4vw] w-[32px] h-auto cursor-pointer'
+                className='xl:w-[4vw] w-[40px] h-auto cursor-pointer'
                 priority
                 onClick={toggleMenu}
             />

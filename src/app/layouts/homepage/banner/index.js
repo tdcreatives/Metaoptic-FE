@@ -8,7 +8,7 @@ const Banner = () => {
         <div className='relative w-full h-[calc(100vh-100px)] overflow-hidden'>
             {/* Video Element */}
             <video
-                className='absolute inset-0 w-full h-[70%] object-cover'
+                className='absolute inset-0 w-full h-[70%] xl:object-cover object-contain'
                 src='/animation.mp4'
                 autoPlay
                 muted
@@ -23,11 +23,11 @@ const Banner = () => {
                     alt='View more'
                     width='0'
                     height='0'
-                    className='w-[40px] h-auto cursor-pointer'
+                    className='xl:w-[40px] w-[32px] h-auto cursor-pointer'
                 />
 
                 <div
-                    className='uppercase text-[20px] text-[#000] ml-2'
+                    className='uppercase xl:text-[20px] text-[16px] text-[#000] ml-2'
                     style={{
                         letterSpacing: '4px',
                     }}>
