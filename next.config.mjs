@@ -1,5 +1,8 @@
 const nextConfig = {
     output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+    images: {
+        unoptimized: true,
+    },
 };
 
 if (!process.env.NODE_ENV) {
