@@ -6,26 +6,31 @@ const products = [
         id: '01',
         title: 'IoT Metalens Color Camera',
         image: 'landing-product-1.png',
+        objectPosition: 'left',
     },
     {
         id: '02',
         title: 'Colour Imaging Metalens',
         image: 'landing-product-2.png',
+        objectPosition: 'left',
     },
     {
         id: '03',
         title: 'Ultra-light weight Pico Projector',
         image: 'landing-product-3.png',
+        objectPosition: 'left',
     },
     {
         id: '04',
         title: 'Collimating Metalens For Pico Projector',
         image: 'landing-product-4.png',
+        objectPosition: 'left',
     },
     {
         id: '05',
         title: '3D Biometrics Metalens Sensor',
-        image: 'landing-product-4.png',
+        image: 'landing-product-5.png',
+        objectPosition: 'center',
     },
 ];
 

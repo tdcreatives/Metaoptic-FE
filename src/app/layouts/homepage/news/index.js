@@ -14,19 +14,19 @@ const newsItems = [
         title: 'Pico Projector using MEMS laser scanner',
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
-        image: 'news-2.png',
+        image: 'news-2.jpg',
     },
     {
         title: 'All about meta-tech you need to know',
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
-        image: 'news-3.png',
+        image: 'news-3.jpg',
     },
     {
         title: 'MetaOptics coming to CES 2025 in Las Vegas',
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
-        image: 'news-4.png',
+        image: 'news-3.jpg',
     },
 ];
 

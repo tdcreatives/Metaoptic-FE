@@ -10,7 +10,7 @@ const BaseNewsCard = ({ news }) => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                className='w-full cursor-pointer'
+                className='w-full cursor-pointer h-[250px]'
                 src={`/${news?.image}`}
                 alt='News'
             />

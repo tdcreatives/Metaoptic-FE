@@ -23,6 +23,8 @@ const BaseProductCard = ({ product }) => {
                         width: '90%',
                         marginLeft: 'auto',
                         height: '350px',
+                        objectFit: 'cover',
+                        objectPosition: product?.objectPosition,
                     }}
                 />
             </div>
