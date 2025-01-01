@@ -30,6 +30,7 @@ const Banner = () => {
                     className='uppercase xl:text-[20px] text-[16px] text-[#000] ml-2'
                     style={{
                         letterSpacing: '4px',
+                        cursor: 'pointer',
                     }}>
                     View more
                 </div>

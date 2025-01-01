@@ -1,11 +1,42 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const AboutUs = () => {
+    const imagesRef = useRef([]); // Reference to track all images
+    const sectionRef = useRef(null); // Reference for the AboutUs section
+
+    useEffect(() => {
+        // Register GSAP ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Apply fade-in and fade-out animation to each image
+        imagesRef.current.forEach((image) => {
+            gsap.fromTo(
+                image,
+                { opacity: 0, y: 50 }, // Initial hidden state
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: image, // Trigger per image
+                        start: 'top 90%', // Start animation when image is 90% into the viewport
+                        end: 'top 30%', // End animation when image leaves viewport
+                        toggleActions: 'play reverse play reverse', // Play animation when in view, reverse when out
+                    },
+                }
+            );
+        });
+    }, []);
+
     return (
         <section
+            ref={sectionRef}
             className='relative flex xl:flex-row flex-col xl:h-[140vh] h-auto snap-start xl:pt-16 pt-8'
             id='about-us'>
             {/* Left Content */}
@@ -25,7 +56,7 @@ const AboutUs = () => {
                         Our high-throughput meta lens production ensures efficiency and
                         cost-effectiveness. <br />
                         As AR/VR and HUD technologies rapidly expands, our innovative meta
-                        lens are essential to provideminiaturization in supporting this
+                        lens are essential to provide miniaturization in supporting this
                         market growth.
                     </p>
 
@@ -45,10 +76,11 @@ const AboutUs = () => {
                             src='/about-1.jpg'
                             alt='About 1'
                             width={0}
-                            height='500'
+                            height={500}
                             sizes='100vw'
                             objectFit='contain'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover opacity-0' // Initially hidden
+                            ref={(el) => (imagesRef.current[0] = el)} // Add to refs
                         />
 
                         <Image
@@ -58,11 +90,12 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover opacity-0' // Initially hidden
+                            ref={(el) => (imagesRef.current[1] = el)} // Add to refs
                         />
                     </div>
 
-                    <div className='flex flex-col xl:gap-5 gap-3 mb-[-48px] mt-[52px] '>
+                    <div className='flex flex-col xl:gap-5 gap-3 mb-[-48px] mt-[52px]'>
                         <Image
                             src='/about-2.jpg'
                             alt='About 2'
@@ -70,7 +103,8 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover opacity-0' // Initially hidden
+                            ref={(el) => (imagesRef.current[2] = el)} // Add to refs
                         />
                         <Image
                             src='/about-4.jpg'
@@ -79,7 +113,8 @@ const AboutUs = () => {
                             height={0}
                             sizes='100vw'
                             objectFit='cover'
-                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover'
+                            className='rounded-lg shadow-lg w-full h-full rounded-[30px] min-h-[450px] object-cover opacity-0' // Initially hidden
+                            ref={(el) => (imagesRef.current[3] = el)} // Add to refs
                         />
                     </div>
                 </div>
