@@ -43,7 +43,7 @@ const News = () => {
                 ))}
             </div>
 
-            <div className='flex xl:justify-start justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
+            <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
                 <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
                     VIEW ALL NEWS
                 </button>
