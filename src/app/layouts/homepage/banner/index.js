@@ -17,7 +17,7 @@ const Banner = () => {
             />
 
             {/* "View More" Button */}
-            <div className='absolute bottom-[72px] left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center'>
+            <div className='absolute bottom-[72px] left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center' onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
                 <Image
                     src='/view-more.svg'
                     alt='View more'
