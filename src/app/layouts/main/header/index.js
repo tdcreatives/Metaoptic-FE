@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { gsap } from 'gsap';
@@ -52,6 +52,13 @@ const Header = () => {
             },
         });
     };
+
+    useEffect(() => {
+        gsap.set(menuItemRef.current, {
+            x: '100%', // Move offscreen to the right
+            autoAlpha: 0, // Ensure the menu starts hidden
+        });
+    }, []);
 
     return (
         <div className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
