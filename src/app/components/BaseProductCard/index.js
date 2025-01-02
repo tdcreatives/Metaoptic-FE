@@ -11,6 +11,75 @@ const BaseProductCard = ({
     onMouseEnter,
     onMouseLeave,
 }) => {
+    const renderTextWhenHovering = () => {
+        if (isHovered) {
+            return (
+                <>
+                    <div className='text-[200px] text-white futura-condensed-medium absolute top-[120px] left-[-20px] z-1 w-[300%]'>
+                        <div
+                            style={{
+                                lineHeight: '1',
+                            }}>
+                            IOT METALENS
+                        </div>
+
+                        <div className='mt-[-60px]'>COLOR CAMERA</div>
+                    </div>
+
+                    <div className='absolute top-[120px] left-[50%] transform translate-x-[-50%] z-10'>
+                        <Image
+                            width={0}
+                            height={0}
+                            sizes='100vh'
+                            src={`/${product?.image}`}
+                            alt='Product'
+                            style={{
+                                width: 'fit-content',
+                                marginLeft: 'auto',
+                                height: '500px',
+                                objectFit: isHovered ? 'contain' : 'cover',
+                                objectPosition: product?.objectPosition,
+                                marginRight: isHovered ? 'auto' : '0',
+                            }}
+                        />
+                    </div>
+                </>
+            );
+        }
+    };
+
+    const renderLabelWhenHovering = () => {
+        if (isHovered) {
+            return (
+                <>
+                    {/* Green Chip */}
+                    <div className='bg-transparent text-white px-4 py-1 text-[14px] rounded-full font-semibold mb-2 mt-[340px] text-[24px] w-fit border-[2px] border-white'>
+                        Metalens IoT Products
+                    </div>
+
+                    {/* Title */}
+                    <h2 className='text-white text-[70px] futura-condensed-medium mt-[-12px]'>
+                        IoT Metalens Color Camera
+                    </h2>
+
+                    {/* Description */}
+                    <p className='text-[#ffffffcc] text-[20px] mt-[-20px] w-[70%]'>
+                        Leading edge mass producible meta lens using 12&quot; Glass Wafer
+                        DUV Immersion Photolithography Manufacturing Process . Designed
+                        for color imaging or non-contact fingerprint sensing.
+                    </p>
+
+                    {/* Button */}
+                    <div className='mt-2 ml-auto flex justify-end'>
+                        <button className='bg-black text-white px-6 py-3 rounded-full hover:bg-[#d44c39] transition-all text-[26px] futura-condensed-medium hover:border-[2px] hover:border-white border-[2px] border-[transparent] mt-[-30px]'>
+                            FIND OUT MORE
+                        </button>
+                    </div>
+                </>
+            );
+        }
+    };
+
     return (
         <div
             className={`relative px-4 py-[32px] xl:w-full w-[90%] mx-auto product-card ${
@@ -25,9 +94,15 @@ const BaseProductCard = ({
                 {product.id}
             </div>
 
+            {renderTextWhenHovering()}
+
+            {renderLabelWhenHovering()}
             {/* Product Image */}
-            {!isAnyHovered || isHovered ? (
-                <div className='mt-10'>
+
+            {isAnyHovered || isHovered ? (
+                <></>
+            ) : (
+                <div className={`${isHovered ? 'mt-0' : 'mt-10'} z-10 relative flex`}>
                     <Image
                         width={0}
                         height={0}
@@ -35,33 +110,56 @@ const BaseProductCard = ({
                         src={`/${product?.image}`}
                         alt='Product'
                         style={{
-                            width: '90%',
+                            width: isHovered ? 'fit-content' : '90%',
                             marginLeft: 'auto',
-                            height: '300px',
-                            objectFit: 'cover',
+                            height: isHovered ? '400px' : '300px',
+                            objectFit: isHovered ? 'contain' : 'cover',
                             objectPosition: product?.objectPosition,
+                            marginRight: isHovered ? 'auto' : '0',
                         }}
                     />
                 </div>
-            ) : null}
+            )}
 
             {!isAnyHovered && (
-                <div
-                    className={`mt-16 futura-condensed-medium text-[32px] product-card__title ${
-                        isHovered ? 'text-white' : ''
-                    }`}>
-                    {product.title}
-                </div>
+                <>
+                    <div
+                        className={`mt-16 futura-condensed-medium text-[32px] product-card__title ${
+                            isHovered ? 'text-white' : ''
+                        }`}>
+                        {product.title}
+                    </div>
+
+                    <Image
+                        width='0'
+                        height='0'
+                        sizes='100vw'
+                        src='/next-orange.svg'
+                        alt='Next'
+                        className='w-[50px]'
+                    />
+                </>
             )}
 
             {isAnyHovered && !isHovered && (
-                <div
-                    className={`futura-condensed-medium text-[40px] rotate-[-90deg] text-[#808285]`}
-                    style={{
-                        whiteSpace: 'pre',
-                        marginTop: '100%',
-                    }}>
-                    {product.title}
+                <div>
+                    <div
+                        className={`futura-condensed-medium text-[40px] rotate-[-90deg] text-[#808285]`}
+                        style={{
+                            whiteSpace: 'pre',
+                            marginTop: '100%',
+                        }}>
+                        {product.title}
+                    </div>
+
+                    <Image
+                        width='0'
+                        height='0'
+                        sizes='100vw'
+                        src='/next-orange.svg'
+                        alt='Next'
+                        className='w-[50px]'
+                    />
                 </div>
             )}
         </div>
