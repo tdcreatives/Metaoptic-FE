@@ -1,14 +1,59 @@
 .product-card {
+    position: relative;
+    transition: all 0.5s ease;
+    width: 20%;
     background: #ebebeb;
-    transition: all 0.3s;
     cursor: pointer;
+    height: 95vh;
+    overflow: hidden;
 
-    &:hover {
-        background: #d34c39;
+    &--shrink {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-        .product-card__id,
-        .product-card__title {
-            color: white;
-        }
+    &--hovered {
+        width: 290%;
+        z-index: 10;
+        background-color: #d34c39;
+    }
+
+    &__id,
+    &__title {
+        z-index: 10; // Ensure text is on top
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    &__id {
+        font-size: 90px;
+        color: #d34c39;
+    }
+
+    &__title {
+        font-size: 32px;
+        margin-top: 16px;
+    }
+
+    // Change text color to white on hover
+    &--hovered &__id,
+    &--hovered &__title {
+        color: white;
+    }
+
+    .product-card__background {
+        position: absolute;
+        inset: 0;
+        background-color: #d34c39;
+        z-index: 0; // Place behind text
+        opacity: 0;
+        transition: all 0.5s ease;
+        transform: scale(1);
+    }
+
+    &--hovered .product-card__background {
+        opacity: 1;
+        transform: scale(1.05);
     }
 }

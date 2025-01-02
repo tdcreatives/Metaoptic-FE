@@ -27,7 +27,7 @@ const AboutUs = () => {
                         trigger: image, // Trigger per image
                         start: 'top 90%', // Start animation when image is 90% into the viewport
                         end: 'top 30%', // End animation when image leaves viewport
-                        toggleActions: 'play reverse play reverse', // Play animation when in view, reverse when out
+                        toggleActions: 'play', // Play animation when in view, reverse when out
                     },
                 }
             );

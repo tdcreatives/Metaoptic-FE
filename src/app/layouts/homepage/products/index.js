@@ -1,4 +1,6 @@
-import Image from 'next/image';
+'use client';
+
+import React, { useState } from 'react';
 import BaseProductCard from '@/app/components/BaseProductCard';
 
 const products = [
@@ -35,20 +37,37 @@ const products = [
 ];
 
 const Products = () => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    const handleMouseEnter = (index) => {
+        setHoveredIndex(index);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredIndex(null);
+    };
+
     return (
         <div className='xl:pt-[10vh] pt-[100px]'>
             <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
                 OUR PRODUCTS
             </h2>
 
-            <div className='grid xl:grid-cols-5 grid-cols-1 mt-16'>
-                {products.map((product) => (
-                    <BaseProductCard key={product.id} product={product} />
+            <div className='flex xl:flex-row flex-col mt-16'>
+                {products.map((product, index) => (
+                    <BaseProductCard
+                        key={product.id}
+                        product={product}
+                        isHovered={hoveredIndex === index}
+                        isAnyHovered={hoveredIndex !== null}
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={handleMouseLeave}
+                    />
                 ))}
             </div>
 
             <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
-                <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
+                <button className='bg-[#d34c39] text-white font-bolxd px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
                     SEE ALL PRODUCTS
                 </button>
             </div>
