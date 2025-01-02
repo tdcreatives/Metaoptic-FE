@@ -71,7 +71,7 @@ const BaseProductCard = ({
 
                     {/* Button */}
                     <div className='mt-2 ml-auto flex justify-end'>
-                        <button className='bg-black text-white px-6 py-3 rounded-full hover:bg-[#d44c39] transition-all text-[26px] futura-condensed-medium hover:border-[2px] hover:border-white border-[2px] border-[transparent] mt-[-30px]'>
+                        <button className='bg-black text-white px-6 py-3 rounded-full hover:bg-[#d44c39] transition-all text-[26px] futura-condensed-medium hover:border-[2px] hover:border-white border-[2px] border-[transparent] mt-[-60px]'>
                             FIND OUT MORE
                         </button>
                     </div>
