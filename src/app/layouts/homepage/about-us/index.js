@@ -13,25 +13,35 @@ const AboutUs = () => {
         // Register GSAP ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // Apply fade-in and fade-out animation to each image
-        imagesRef.current.forEach((image) => {
-            gsap.fromTo(
-                image,
-                { opacity: 0, y: 50 }, // Initial hidden state
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1.5,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: image, // Trigger per image
-                        start: 'top 90%', // Start animation when image is 90% into the viewport
-                        end: 'top 30%', // End animation when image leaves viewport
-                        toggleActions: 'play', // Play animation when in view, reverse when out
-                    },
-                }
-            );
-        });
+        // Clear previous animations (if any)
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+        // Ensure imagesRef.current is not empty
+        if (imagesRef.current.length > 0) {
+            // Apply animations to each image
+            imagesRef.current.forEach((image) => {
+                gsap.fromTo(
+                    image,
+                    { opacity: 0, y: 50 }, // Initial hidden state
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.5,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: image, // Trigger per image
+                            scroller: window, // Default scroller
+                            start: 'top 90%', // Start animation when image is 90% into the viewport
+                            end: 'top 30%', // End animation when image leaves viewport
+                            toggleActions: 'play', // Replay animation when re-entering view
+                        },
+                    }
+                );
+            });
+
+            // Refresh ScrollTrigger on load
+            ScrollTrigger.refresh();
+        }
     }, []);
 
     return (
