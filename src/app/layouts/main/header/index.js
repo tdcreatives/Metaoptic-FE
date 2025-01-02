@@ -1,45 +1,61 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { gsap } from 'gsap';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+    const menuBtnRef = useRef(null);
+    const menuItemRef = useRef(null);
+
+    const handleMenuShow = () => {
+        gsap.to(menuBtnRef.current, {
+            autoAlpha: 0, // Make the hamburger button invisible
+            duration: 0.2, // Animation duration for hiding
+            ease: 'power2.in', // Smooth easing
+            onComplete: () => {
+                // After the hamburger button is hidden, slide in the menu
+                gsap.set(menuItemRef.current, {
+                    x: '100%', // Start offscreen to the right
+                    autoAlpha: 0, // Ensure the menu starts hidden
+                });
+
+                gsap.to(menuItemRef.current, {
+                    x: '0%', // Slide into its original position
+                    autoAlpha: 1, // Make it visible
+                    duration: 0.5, // Animation duration for showing
+                    ease: 'power2.out', // Smooth easing
+                });
+            },
+        });
+    };
+    const handleMenuHidden = () => {
+        // Animate the navigation menu out of view
+        gsap.to(menuItemRef.current, {
+            x: '100%', // Move offscreen to the right
+            autoAlpha: 0, // Hide it
+            duration: 0.5, // Animation duration
+            ease: 'power2.in', // Smooth easing
+            onComplete: () => {
+                // After the menu is hidden, update state and re-show the hamburger button
+                setIsMenuOpen(false);
+
+                gsap.to(menuBtnRef.current, {
+                    autoAlpha: 1, // Make the hamburger button visible again
+                    duration: 0.2, // Animation duration for showing
+                    ease: 'power2.out', // Smooth easing
+                });
+            },
+        });
     };
 
-    const closeMenuOnOutsideClickOrScroll = useCallback(() => {
-        if (isMenuOpen) {
-            setIsMenuOpen(false);
-        }
-    }, [isMenuOpen]);
-
-    useEffect(() => {
-        const handleOutsideClick = (e) => {
-            if (isMenuOpen && !e.target.closest('.sidebar')) {
-                setIsMenuOpen(false);
-            }
-        };
-
-        if (isMenuOpen) {
-            document.addEventListener('click', handleOutsideClick);
-            window.addEventListener('scroll', closeMenuOnOutsideClickOrScroll);
-        } else {
-            document.removeEventListener('click', handleOutsideClick);
-            window.removeEventListener('scroll', closeMenuOnOutsideClickOrScroll);
-        }
-        return () => {
-            document.removeEventListener('click', handleOutsideClick);
-            window.removeEventListener('scroll', closeMenuOnOutsideClickOrScroll);
-        };
-    }, [isMenuOpen, closeMenuOnOutsideClickOrScroll]);
-
     return (
-        <div className='font-bold flex justify-between max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
+        <div className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
+            {/* Logo */}
             <Image
                 src='/logo.svg'
                 alt='Logo'
@@ -50,52 +66,45 @@ const Header = () => {
                 onClick={() => router.push('/')}
             />
 
-            <Image
-                src='/menu.svg'
-                alt='Menu'
-                width='0'
-                height='0'
-                className='xl:w-[4vw] w-[40px] h-auto cursor-pointer'
-                priority
-                onClick={toggleMenu}
-            />
-
-            {/* Sidebar Menu */}
             <div
-                className={`sidebar fixed top-[4vh] right-[4vw] h-fit max-w-[400px] bg-[#f4f4f5] transform transition-width duration-500 ease-in-out overflow-hidden py-6 rounded-[2px] ${
-                    isMenuOpen ? 'ml:w-[400px] w-[300px]' : 'w-0'
-                }`}
-                style={{
-                    zIndex: 1000,
-                }}>
-                <div
-                    className={`flex justify-end items-center px-6 ${
-                        isMenuOpen ? 'opacity-100' : 'opacity-0'
-                    } transition-opacity duration-200`}>
+                className='flex justify-between items-center space-x-4'
+                onMouseEnter={handleMenuShow}
+                onMouseLeave={handleMenuHidden}>
+                {/* Navigation Bar */}
+                <nav
+                    className='hidden xl:flex space-x-8 text-[20px] uppercase'
+                    ref={menuItemRef}>
+                    <a
+                        href='#'
+                        className='relative text-[#d44c39] hover:text-[#d44c39] after:block after:h-1 after:w-2 after:bg-[#d44c39] after:rounded-full after:mx-auto'>
+                        ABOUT US
+                    </a>
+                    <a href='#' className='text-black hover:text-[#d44c39]'>
+                        PRODUCTS
+                    </a>
+                    <a href='#' className='text-black hover:text-[#d44c39]'>
+                        NEWS
+                    </a>
+                    <a href='#' className='text-black hover:text-[#d44c39]'>
+                        CONTACT
+                    </a>
+                    <a href='#' className='text-black hover:text-[#d44c39]'>
+                        SHOP
+                    </a>
+                </nav>
+
+                {/* Hamburger/Close Button */}
+                <div className='cursor-pointer'>
                     <Image
-                        src='/close-icon.svg'
-                        alt='Close'
+                        src='/menu.svg' // Hamburger icon
+                        alt='Menu'
                         width='0'
                         height='0'
-                        className='xl:w-[32px] xl:h-[32px] w-[24px] h-[24px] cursor-pointer'
-                        onClick={toggleMenu}
+                        className='w-[40px] h-auto mb-1'
+                        ref={menuBtnRef}
+                        onClick={handleMenuShow}
                     />
                 </div>
-                <ul
-                    className={`futura-book px-6 space-y-[2px] ${
-                        isMenuOpen ? 'opacity-100' : 'opacity-0'
-                    } transition-opacity duration-200`}>
-                    <li
-                        className='relative xl:text-[24px] text-[20px] cursor-pointer text-[#d44c39] duration-200 rounded-sm whitespace-nowrap hover:after:content-after hover:before:content-before transition-all after:text-[16px] before:text-[16px] before:absolute before:top-[50%] before:-translate-y-1/2 after:absolute after:top-[50%] after:-translate-y-1/2 before:left-[-8px] after:right-[-8px] w-fit'
-                        onClick={() => router.push('/')}>
-                        Home
-                    </li>
-                    <li
-                        className='relative xl:text-[24px] text-[20px] cursor-pointer text-[#d44c39] duration-200 rounded-sm whitespace-nowrap hover:after:content-after hover:before:content-before transition-all after:text-[16px] before:text-[16px] before:absolute before:top-[50%] before:-translate-y-1/2 after:absolute after:top-[50%] after:-translate-y-1/2 before:left-[-8px] after:right-[-8px] w-fit'
-                        onClick={() => router.push('/contact-us')}>
-                        Contact Us
-                    </li>
-                </ul>
             </div>
         </div>
     );
