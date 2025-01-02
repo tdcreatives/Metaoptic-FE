@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const BaseNewsCard = ({ news }) => {
     return (
-        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5 cursor-pointer hover:transform hover:scale-105 transition-transform transition-duration-300'>
             <Image
                 width={0}
                 height={0}
