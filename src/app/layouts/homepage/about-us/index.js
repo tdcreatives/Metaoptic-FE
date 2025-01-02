@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { isMobile } from '@/app/utils';
+
 const AboutUs = () => {
     const imagesRef = useRef([]); // Reference to track all images
     const sectionRef = useRef(null); // Reference for the AboutUs section
@@ -17,8 +19,9 @@ const AboutUs = () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
         // Ensure imagesRef.current is not empty
-        if (imagesRef.current.length > 0) {
+        if (imagesRef.current.length > 0 && !isMobile()) {
             // Apply animations to each image
+
             imagesRef.current.forEach((image) => {
                 gsap.fromTo(
                     image,

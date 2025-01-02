@@ -85,6 +85,10 @@ const Header = () => {
         });
     }, []);
 
+    useEffect(() => {
+        gsap.set(menuRef.current, { x: '100%', autoAlpha: 0 });
+    }, []);
+
     return (
         <div className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
             {/* Logo */}
