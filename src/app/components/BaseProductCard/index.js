@@ -13,6 +13,11 @@ const BaseProductCard = ({
 }) => {
     const renderTextWhenHovering = () => {
         if (isHovered) {
+            // Split title into two parts if it contains a space
+            const titleParts = product.title.split(' ');
+            const firstHalf = titleParts.slice(0, Math.ceil(titleParts.length / 2)).join(' ');
+            const secondHalf = titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ');
+
             return (
                 <>
                     <div className='text-[200px] text-white futura-condensed-medium absolute top-[120px] left-[-20px] z-1 w-[300%]'>
@@ -20,10 +25,10 @@ const BaseProductCard = ({
                             style={{
                                 lineHeight: '1',
                             }}>
-                            IOT METALENS
+                            {firstHalf.toUpperCase()}
                         </div>
 
-                        <div className='mt-[-60px]'>COLOR CAMERA</div>
+                        <div className='mt-[-60px]'>{secondHalf.toUpperCase()}</div>
                     </div>
 
                     <div className='absolute top-[120px] left-[50%] transform translate-x-[-50%] z-10'>
@@ -59,14 +64,12 @@ const BaseProductCard = ({
 
                     {/* Title */}
                     <h2 className='text-white text-[70px] futura-condensed-medium mt-[-12px]'>
-                        IoT Metalens Color Camera
+                        {product.title}
                     </h2>
 
                     {/* Description */}
                     <p className='text-[#ffffffcc] text-[20px] mt-[-20px] w-[70%]'>
-                        Leading edge mass producible meta lens using 12&quot; Glass Wafer
-                        DUV Immersion Photolithography Manufacturing Process . Designed
-                        for color imaging or non-contact fingerprint sensing.
+                        {product.description}
                     </p>
 
                     {/* Button */}
