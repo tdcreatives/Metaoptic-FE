@@ -9,6 +9,7 @@ import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
 
 import ProductDetailsBanner from '@/layouts/product-details/banner';
+import ProductDetailsSpecifications from '@/layouts/product-details/specifications';
 
 const ProductDetails = () => {
     const { slug } = useParams();
@@ -24,6 +25,7 @@ const ProductDetails = () => {
                     className='mt-4 bg-[#d34c39] text-white px-4 py-2 rounded-lg'>
                     Go Back to Home
                 </button>
+                x
             </div>
         );
     }
@@ -33,6 +35,10 @@ const ProductDetails = () => {
             <Header background='#f0f0f0' />
 
             <ProductDetailsBanner product={product} />
+
+            <ProductDetailsSpecifications
+                specifications={product?.details?.specifications}
+            />
 
             <Footer />
         </>
