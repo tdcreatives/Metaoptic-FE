@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 import BaseProductCard from '@/components/BaseProductCard';
 
+import { useRouter } from 'next/navigation';
+
+import BaseButton from '@/components/BaseButton';
+
 const products = [
     {
         id: '01',
@@ -52,6 +56,7 @@ const products = [
 ];
 
 const Products = () => {
+    const router = useRouter();
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const handleMouseEnter = (index) => {
@@ -81,11 +86,11 @@ const Products = () => {
                 ))}
             </div>
 
-            <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
-                <button className='bg-[#d34c39] text-white font-bolxd px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
-                    SEE ALL PRODUCTS
-                </button>
-            </div>
+            <BaseButton
+                label='See all products'
+                classNameBtn='uppercase'
+                onClick={() => router.push('/products')}
+            />
         </div>
     );
 };
