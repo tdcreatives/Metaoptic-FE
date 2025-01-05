@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import { isMobile } from '@/app/utils';
+import { isMobile } from '@/utils';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

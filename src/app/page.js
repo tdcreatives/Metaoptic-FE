@@ -1,10 +1,10 @@
-import Header from './layouts/main/header';
-import Banner from './layouts/homepage/banner';
-import AboutUs from './layouts/homepage/about-us';
-import Products from './layouts/homepage/products';
-import Quote from './layouts/homepage/quote';
-import News from './layouts/homepage/news';
-import Footer from './layouts/main/footer';
+import Header from '../layouts/main/header';
+import Banner from '../layouts/homepage/banner';
+import AboutUs from '../layouts/homepage/about-us';
+import Products from '../layouts/homepage/products';
+import Quote from '../layouts/homepage/quote';
+import News from '../layouts/homepage/news';
+import Footer from '../layouts/main/footer';
 
 export const metadata = {
     title: 'Metaoptics Technologies | Leading Metalens Manufacturer Singapore',

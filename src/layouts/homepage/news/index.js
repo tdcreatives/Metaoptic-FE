@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import BaseNewsCard from '@/app/components/BaseNewsCard';
+import BaseNewsCard from '@/components/BaseNewsCard';
 
 const newsItems = [
     {

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { isMobile } from '@/app/utils';
+import { isMobile } from '@/utils';
 
 const AboutUs = () => {
     const imagesRef = useRef([]); // Reference to track all images
