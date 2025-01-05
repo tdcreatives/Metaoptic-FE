@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { isMobile } from '@/utils';
@@ -9,47 +10,53 @@ import { isMobile } from '@/utils';
 const Header = ({ background = '#fff' }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
+    const pathName = usePathname();
 
     const menuBtnRef = useRef(null);
     const menuRef = useRef(null);
     const menuItemRef = useRef(null);
 
+    // Navigation links array
+    const headers = [
+        { label: 'ABOUT US', path: '/about-us' },
+        { label: 'PRODUCTS', path: '/products' },
+        { label: 'NEWS', path: '/news' },
+        { label: 'CONTACT', path: '/contact' },
+        { label: 'SHOP', path: '/shop' },
+    ];
+
     const handleMenuShow = () => {
         gsap.to(menuBtnRef.current, {
-            autoAlpha: 0, // Make the hamburger button invisible
-            duration: 0.2, // Animation duration for hiding
-            ease: 'power2.in', // Smooth easing
+            autoAlpha: 0,
+            duration: 0.2,
+            ease: 'power2.in',
             onComplete: () => {
-                // After the hamburger button is hidden, slide in the menu
                 gsap.set(menuItemRef.current, {
-                    x: '100%', // Start offscreen to the right
-                    autoAlpha: 0, // Ensure the menu starts hidden
+                    x: '100%',
+                    autoAlpha: 0,
                 });
-
                 gsap.to(menuItemRef.current, {
-                    x: '0%', // Slide into its original position
-                    autoAlpha: 1, // Make it visible
-                    duration: 0.5, // Animation duration for showing
-                    ease: 'power2.out', // Smooth easing
+                    x: '0%',
+                    autoAlpha: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
                 });
             },
         });
     };
-    const handleMenuHidden = () => {
-        // Animate the navigation menu out of view
-        gsap.to(menuItemRef.current, {
-            x: '100%', // Move offscreen to the right
-            autoAlpha: 0, // Hide it
-            duration: 0.5, // Animation duration
-            ease: 'power2.in', // Smooth easing
-            onComplete: () => {
-                // After the menu is hidden, update state and re-show the hamburger button
-                setIsMenuOpen(false);
 
+    const handleMenuHidden = () => {
+        gsap.to(menuItemRef.current, {
+            x: '100%',
+            autoAlpha: 0,
+            duration: 0.5,
+            ease: 'power2.in',
+            onComplete: () => {
+                setIsMenuOpen(false);
                 gsap.to(menuBtnRef.current, {
-                    autoAlpha: 1, // Make the hamburger button visible again
-                    duration: 0.2, // Animation duration for showing
-                    ease: 'power2.out', // Smooth easing
+                    autoAlpha: 1,
+                    duration: 0.2,
+                    ease: 'power2.out',
                 });
             },
         });
@@ -57,22 +64,20 @@ const Header = ({ background = '#fff' }) => {
 
     const handleMobileMenuToggle = () => {
         if (isMenuOpen) {
-            // Hide the mobile menu
             gsap.to(menuRef.current, {
-                x: '100%', // Move offscreen to the right
-                autoAlpha: 0, // Hide it
-                duration: 0.5, // Animation duration
-                ease: 'power2.in', // Smooth easing
+                x: '100%',
+                autoAlpha: 0,
+                duration: 0.5,
+                ease: 'power2.in',
                 onComplete: () => setIsMenuOpen(false),
             });
         } else {
-            // Show the mobile menu
-            gsap.set(menuRef.current, { x: '100%', autoAlpha: 0 }); // Ensure it starts offscreen
+            gsap.set(menuRef.current, { x: '100%', autoAlpha: 0 });
             gsap.to(menuRef.current, {
-                x: '0%', // Slide into view
-                autoAlpha: 1, // Make it visible
-                duration: 0.5, // Animation duration
-                ease: 'power2.out', // Smooth easing
+                x: '0%',
+                autoAlpha: 1,
+                duration: 0.5,
+                ease: 'power2.out',
                 onStart: () => setIsMenuOpen(true),
             });
         }
@@ -80,14 +85,22 @@ const Header = ({ background = '#fff' }) => {
 
     useEffect(() => {
         gsap.set(menuItemRef.current, {
-            x: '100%', // Move offscreen to the right
-            autoAlpha: 0, // Ensure the menu starts hidden
+            x: '100%',
+            autoAlpha: 0,
         });
     }, []);
 
     useEffect(() => {
         gsap.set(menuRef.current, { x: '100%', autoAlpha: 0 });
     }, []);
+
+    const handleNavigation = (path) => {
+        if (path.startsWith('/')) {
+            router.push(path);
+        } else {
+            window.location.href = path; // For external or anchor links
+        }
+    };
 
     return (
         <div
@@ -115,29 +128,24 @@ const Header = ({ background = '#fff' }) => {
                     <nav
                         className='hidden xl:flex space-x-8 text-[20px] uppercase'
                         ref={menuItemRef}>
-                        <a
-                            href='#'
-                            className='relative text-[#d44c39] hover:text-[#d44c39] after:block after:h-1 after:w-2 after:bg-[#d44c39] after:rounded-full after:mx-auto'>
-                            ABOUT US
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            PRODUCTS
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            NEWS
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            CONTACT
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            SHOP
-                        </a>
+                        {headers.map((header) => (
+                            <a
+                                key={header.label}
+                                className={`relative text-black hover:text-[#d44c39] cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                                    pathName === header.path
+                                        ? 'after:!w-2 !text-[#d44c39]'
+                                        : ''
+                                }`}
+                                onClick={() => handleNavigation(header.path)}>
+                                {header.label}
+                            </a>
+                        ))}
                     </nav>
 
                     {/* Hamburger/Close Button */}
                     <div className='cursor-pointer'>
                         <Image
-                            src='/menu.svg' // Hamburger icon
+                            src='/menu.svg'
                             alt='Menu'
                             width='0'
                             height='0'
@@ -175,21 +183,14 @@ const Header = ({ background = '#fff' }) => {
                             className='w-[40px] h-auto mb-1 absolute top-4 right-4'
                             onClick={handleMobileMenuToggle}
                         />
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            ABOUT US
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            PRODUCTS
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            NEWS
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            CONTACT
-                        </a>
-                        <a href='#' className='text-black hover:text-[#d44c39]'>
-                            SHOP
-                        </a>
+                        {headers.map((header) => (
+                            <a
+                                key={header.label}
+                                className='text-black hover:text-[#d44c39] cursor-pointer'
+                                onClick={() => handleNavigation(header.path)}>
+                                {header.label}
+                            </a>
+                        ))}
                     </nav>
                 </>
             )}
