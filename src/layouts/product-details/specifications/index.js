@@ -4,6 +4,8 @@ import React, { useEffect, useCallback, useState } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 
+import BaseButton from '@/components/BaseButton';
+
 const ProductDetailsSpecifications = ({ specifications }) => {
     const [isExpanded, setIsExpanded] = useState(true); // Controls all sections' visibility
 
@@ -117,11 +119,13 @@ const ProductDetailsSpecifications = ({ specifications }) => {
                     </div>
                 ))}
             </div>
-            <div className='flex justify-center mt-10'>
-                <button className='bg-white text-[#d34c39] px-6 py-3 text-lg font-medium rounded-full shadow-lg hover:bg-[#f0f0f0] transition-all duration-300'>
-                    Download Brochure
-                </button>
-            </div>
+
+            <BaseButton
+                label='Download Brochure'
+                classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                bgDefault='#fff'
+                className='!mt-[80px]'
+            />
         </div>
     );
 };

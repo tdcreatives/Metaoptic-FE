@@ -2,6 +2,8 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import BaseButton from '@/components/BaseButton';
+
 const ProductDetailsBanner = ({ product }) => {
     return (
         <div className='relative w-full min-h-[calc(100vh-100px)] overflow-hidden bg-[#F0F0F0]'>
@@ -36,11 +38,7 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.details?.description}
                 </div>
 
-                <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 mb-[60px]'>
-                    <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
-                        BUY
-                    </button>
-                </div>
+                <BaseButton label='BUY' />
             </div>
         </div>
     );
