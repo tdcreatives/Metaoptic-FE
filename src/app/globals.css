@@ -72,6 +72,17 @@ body {
     font-family: 'Futura Book', sans-serif;
 }
 
+input,
+input:focus,
+textarea,
+textarea:focus {
+    outline: 0; /* I have also tried outline:none */
+    -webkit-appearance: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 .futura-condensed-medium {
     font-family: 'Futura CondensedMedium', sans-serif;
 }

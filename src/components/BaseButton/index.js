@@ -8,11 +8,13 @@ const BaseButton = ({
     classNameBtn,
     onClick,
     bgDefault = '#d34c39',
+    type = 'button',
 }) => {
     return (
         <div
             className={`flex xl:justify-center justify-center xl:mt-10 mt-6 mb-[60px] ${className}`}>
             <button
+                type={type}
                 className={`relative overflow-hidden text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px] transition-all duration-300 group ${classNameBtn}`}
                 onClick={onClick}>
                 <span className='z-10 relative'>{label}</span>

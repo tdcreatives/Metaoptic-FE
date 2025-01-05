@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import BaseButton from '@/components/BaseButton';
 
 const ContactUsForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         subject: '',
         message: '',
     });
@@ -22,16 +24,31 @@ const ContactUsForm = () => {
     };
 
     const validateForm = () => {
-        const { firstName, lastName, email, subject, message } = formData;
+        const { firstName, lastName, email, subject, message, phone } = formData;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneNumberRegex = /^\+?[0-9\s\-().]{10,15}$/;
 
-        if (!firstName || !lastName || !email || !subject || !message) {
-            setStatus({ message: 'Please complete all required fields.', isSuccess: false });
+        if (!firstName || !lastName || !email || !subject || !message || !phone) {
+            setStatus({
+                message: 'Please complete all required fields.',
+                isSuccess: false,
+            });
             return false;
         }
 
         if (!emailRegex.test(email)) {
-            setStatus({ message: 'Please enter a valid email address.', isSuccess: false });
+            setStatus({
+                message: 'Please enter a valid email address.',
+                isSuccess: false,
+            });
+            return false;
+        }
+
+        if (!phoneNumberRegex.test(phone)) {
+            setStatus({
+                message: 'Please enter a valid phone number.',
+                isSuccess: false,
+            });
             return false;
         }
 
@@ -46,6 +63,7 @@ const ContactUsForm = () => {
         const data = {
             access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
             email: formData.email,
+            phone: formData.phone,
             subject: process.env.NEXT_PUBLIC_SUBJECT,
             customer_subject: formData.subject || process.env.NEXT_PUBLIC_SUBJECT,
             message: formData.message,
@@ -65,17 +83,23 @@ const ContactUsForm = () => {
             });
 
             if (response.ok) {
-                setStatus({ message: 'Thank you for your submission!. <br/>Please give us up to 1-3 business days to get back to you.', isSuccess: true });
+                setStatus({
+                    message:
+                        'Thank you for your submission!. <br/>Please give us up to 1-3 business days to get back to you.',
+                    isSuccess: true,
+                });
                 setFormData({
                     firstName: '',
                     lastName: '',
                     email: '',
                     subject: '',
                     message: '',
+                    phone: '',
                 });
             } else {
                 setStatus({
-                    message: 'Oops! Something went wrong. Please try submitting the form again.',
+                    message:
+                        'Oops! Something went wrong. Please try submitting the form again.',
                     isSuccess: false,
                 });
             }
@@ -89,55 +113,102 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div className='xl:w-[40vw] mx-auto w-[90vw] xl:pb-[118px] pb-[48px]'>
+        <div className='xl:w-[60vw] mx-auto w-[90vw] xl:p-[60px] p-[48px] bg-[#F5F5F5] rounded-[100px]'>
             <form onSubmit={handleSubmit} className='xl:space-y-[32px] space-y-4'>
                 <div className='flex space-x-4'>
+                    <div className='w-full'>
+                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                            FIRST NAME
+                        </div>
+                        <input
+                            type='text'
+                            name='firstName'
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            placeholder='Enter you first name'
+                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                        />
+                    </div>
+
+                    <div className='w-full'>
+                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                            LAST NAME
+                        </div>
+                        <input
+                            type='text'
+                            name='lastName'
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            placeholder='Enter you last name'
+                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                        />
+                    </div>
+                </div>
+
+                <div className='flex space-x-4'>
+                    <div className='w-full'>
+                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                            Email
+                        </div>
+
+                        <input
+                            type='email'
+                            name='email'
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder='Enter your email'
+                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                        />
+                    </div>
+
+                    <div className='w-full'>
+                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                            Phone
+                        </div>
+
+                        <input
+                            type='tel'
+                            name='phone'
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder='Enter your phone'
+                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                        />
+                    </div>
+                </div>
+
+                <div className='w-full'>
+                    <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                        Subject
+                    </div>
+
                     <input
                         type='text'
-                        name='firstName'
-                        value={formData.firstName}
+                        name='subject'
+                        value={formData.subject}
                         onChange={handleChange}
-                        placeholder='First Name'
-                        className='futura-book xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[#F5F5F5] w-full p-4 rounded-sm'
-                    />
-                    <input
-                        type='text'
-                        name='lastName'
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        placeholder='Last Name'
-                        className='futura-book xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[#F5F5F5] w-full p-4 rounded-sm'
+                        placeholder='Enter your subject'
+                        className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
                     />
                 </div>
-                <input
-                    type='email'
-                    name='email'
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder='Email'
-                    className='futura-book xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[#F5F5F5] w-full p-4 rounded-sm'
-                />
-                <input
-                    type='text'
-                    name='subject'
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder='Subject'
-                    className='futura-book xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[#F5F5F5] w-full p-4 rounded-sm'
-                />
-                <textarea
-                    name='message'
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder='Message'
-                    className='futura-book xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[#F5F5F5] w-full p-4 h-32 rounded-sm'></textarea>
-                <div className='flex justify-center'>
-                    <button
-                        type='submit'
-                        className='futura-book bg-[#D95442] text-white xl:text-[24px] text-[18px] py-2 xl:px-8 px-6 rounded-sm'>
-                        SUBMIT
-                    </button>
+
+                <div className='w-full'>
+                    <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
+                        Message
+                    </div>
+
+                    <textarea
+                        name='message'
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows='5'
+                        placeholder='Enter your message'
+                        className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                    />
                 </div>
+
+                <BaseButton label='SUBMIT' type='submit' />
+
                 {status.message && (
                     <p
                         className={`text-center mt-4 ${

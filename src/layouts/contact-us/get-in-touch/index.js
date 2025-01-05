@@ -2,12 +2,17 @@ import Image from 'next/image';
 
 const GetInTouch = () => {
     return (
-        <div className='xl:pt-[200px] pt-[32px]'>
-            <p className='font-medium text-[#d44c39] tracking-wide uppercase text-center futura-book xl:text-[55px] xl:leading-[6vw] leading-[40px] text-[32px]'>
-                GET IN TOUCH WITH US
-            </p>
+        <div className='xl:pt-[120px] pt-[32px]'>
+            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
+                CONTACT US
+            </h2>
 
-            <div className='xl:py-[84px] flex xl:gap-[72px] gap-[24px] justify-center futura-book py-[32px] xl:flex-row flex-col'>
+            <div className='xl:mt-0 mt-8 mb-10 xl:max-w-[60%] max-w-[90%] mx-auto text-center text-[24px] futura-medium text-[#121212]'>
+                Feel free to contact us any time. <br /> We will get back to you as soon
+                as we can!
+            </div>
+
+            {/* <div className='xl:py-[84px] flex xl:gap-[72px] gap-[24px] justify-center futura-book py-[32px] xl:flex-row flex-col'>
                 <div className='flex flex-col items-center gap-[24px] py-4 xl:pl-[120px]'>
                     <Image
                         width='0'
@@ -41,7 +46,7 @@ const GetInTouch = () => {
                     </p>
                 </div>
 
-                {/* <div className='flex flex-col items-center gap-[24px] py-4'>
+                <div className='flex flex-col items-center gap-[24px] py-4'>
                     <Image
                         width='0'
                         height='0'
@@ -55,8 +60,8 @@ const GetInTouch = () => {
                     <p className='xl:text-[24px] text-[18px] text-[#121212]'>
                         +00 123 45 6789
                     </p>
-                </div> */}
-            </div>
+                </div>
+            </div> */}
         </div>
     );
 };

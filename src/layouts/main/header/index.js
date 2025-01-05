@@ -21,7 +21,7 @@ const Header = ({ background = '#fff' }) => {
         { label: 'ABOUT US', path: '/about-us' },
         { label: 'PRODUCTS', path: '/products' },
         { label: 'NEWS', path: '/news' },
-        { label: 'CONTACT', path: '/contact' },
+        { label: 'CONTACT', path: '/contact-us' },
         { label: 'SHOP', path: '/shop' },
     ];
 

@@ -1,5 +1,5 @@
 import Header from '@/layouts/main/header';
-import ContactBanner from '@/layouts/contact-us/banner';
+// import ContactBanner from '@/layouts/contact-us/banner';
 import GetInTouch from '@/layouts/contact-us/get-in-touch';
 import ContactUsForm from '@/layouts/contact-us/form';
 import ContactUsMap from '@/layouts/contact-us/map';
@@ -17,10 +17,10 @@ const ContactUs = () => {
     return (
         <>
             <Header />
-            <ContactBanner />
+            {/* <ContactBanner /> */}
             <GetInTouch />
             <ContactUsForm />
-            <ContactUsMap />
+            {/* <ContactUsMap /> */}
             <Footer />
         </>
     );
