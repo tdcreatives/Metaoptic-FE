@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BaseProduct from '@/components/BaseProduct';
 import { gsap } from 'gsap';
-import data from './data.json';
+import data from '@/constants/data.json';
 
 const categories = ['All', 'Camera', 'Projector', 'Sensor', '3D'];
 
@@ -39,7 +39,7 @@ const ProductList = () => {
     return (
         <div className='flex flex-col items-center gap-8'>
             {/* Title */}
-            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium xl:ml-16 ml-0 mb-[-60px]'>
+            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium mb-[-60px]'>
                 Our Products
             </h2>
 

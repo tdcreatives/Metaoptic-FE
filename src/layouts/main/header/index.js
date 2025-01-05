@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { isMobile } from '@/utils';
 
-const Header = () => {
+const Header = ({ background = '#fff' }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
 
@@ -90,7 +90,11 @@ const Header = () => {
     }, []);
 
     return (
-        <div className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'>
+        <div
+            className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'
+            style={{
+                background,
+            }}>
             {/* Logo */}
             <Image
                 src='/logo.svg'

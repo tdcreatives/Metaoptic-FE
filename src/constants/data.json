@@ -2,9 +2,41 @@
     "products": [
         {
             "name": "3D Biometrics Metalens Sensor",
+            "nameDom": "3D Biometrics <br /> <div style='margin-top: -100px; margin-left: 30%;'>Sensor</div>",
             "slug": "3d-biometrics-metalens-sensor",
             "image": "/products/product-1.png",
-            "category": "Sensor"
+            "category": "Sensor",
+            "details": {
+                "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
+                "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "36mm",
+                        "length": "81mm",
+                        "width": "81mm"
+                    },
+                    "cameraSpecifications": {
+                        "focalLength": "1.53mm",
+                        "fieldOfView": "70 degrees",
+                        "sensorType": "Monochrome CMOS",
+                        "peakQuantumEfficiency": "65% @ 535 nm",
+                        "resolution": "1.6 MP",
+                        "activePixels": "1440 x 1080",
+                        "pixelSize": "3.45 µm x 3.45 µm",
+                        "sensorShutterType": "Global",
+                        "exposureTime": "0.04 ms - 26.843 ms",
+                        "usbPowerConsumption": "1.17 W",
+                        "ambientOperatingTemperature": "10 °C - 40 °C",
+                        "storageTemperature": "0 °C - 55 °C"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "120 nm",
+                        "pitchBetweenPillars": "320 nm",
+                        "heightOfPillars": "650 nm",
+                        "lensDiameter": "2mm"
+                    }
+                }
+            }
         },
         {
             "name": "Collimating Meta Lens for Pico Projector",
