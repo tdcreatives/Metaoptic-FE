@@ -6,6 +6,7 @@
             "slug": "3d-biometrics-metalens-sensor",
             "image": "/products/product-1.png",
             "category": "Sensor",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
                 "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
@@ -70,6 +71,7 @@
             "slug": "collimating-meta-lens-pico-projector",
             "image": "/products/product-2.png",
             "category": "Projector",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
                 "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
@@ -125,6 +127,7 @@
             "slug": "iot-metalens-color-camera",
             "image": "/products/product-3.png",
             "category": "Camera",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
                 "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
@@ -191,6 +194,7 @@
             "slug": "color-imaging-meta-lens",
             "image": "/products/product-4.png",
             "category": "Camera",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
                 "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
@@ -250,6 +254,7 @@
             "slug": "pico-projector",
             "image": "/products/product-5.png",
             "category": "Projector",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
                 "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
@@ -309,6 +314,7 @@
             "slug": "ultra-wide-fov-ir-metalens",
             "image": "/products/product-6.png",
             "category": "3D",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
                 "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
@@ -364,6 +370,7 @@
             "slug": "direct-laser-writer",
             "image": "/products/product-7.png",
             "category": "3D",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Leading Edge Deep UV Direct Laser Writer",
                 "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
@@ -423,6 +430,7 @@
             "slug": "ultra-wide-fov-metalens-monochromatic-ir-camera",
             "image": "/products/product-8.png",
             "category": "Camera",
+            "buyNow": "https://www.luxrobo.com/product/3d-biometrics-metalens-sensor",
             "details": {
                 "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
                 "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
@@ -489,6 +497,7 @@
             "slug": "metalens-color-camera-module",
             "image": "/products/product-9.png",
             "category": "Camera",
+            "buyNow": "",
             "details": {
                 "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
                 "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",

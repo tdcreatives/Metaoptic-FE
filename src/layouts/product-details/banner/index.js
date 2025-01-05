@@ -7,8 +7,12 @@ import BaseButton from '@/components/BaseButton';
 import './index.scss';
 
 const ProductDetailsBanner = ({ product }) => {
+    const handleOnBuyNow = () => {
+        window.location.href = product?.buyNow;
+    };
+
     return (
-        <div className='relative w-full min-h-[calc(100vh-100px)] overflow-hidden bg-[#F0F0F0]'>
+        <div className='relative w-full min-h-[calc(100vh-100px)] overflow-hidden bg-[#F0F0F0] pb-[60px]'>
             <div
                 className='absolute text-white xl:text-[300px] text-[140px] xl:left-[-30px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase tracking-widest'
                 dangerouslySetInnerHTML={{ __html: product?.nameDom }}
@@ -40,7 +44,9 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.details?.description}
                 </div>
 
-                <BaseButton label='BUY' />
+                {product?.buyNow && (
+                    <BaseButton label='BUY' onClick={handleOnBuyNow} className='!mb-0' />
+                )}
             </div>
         </div>
     );
