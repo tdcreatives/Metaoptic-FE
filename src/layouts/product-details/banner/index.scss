@@ -1,0 +1,13 @@
+.name-dom-sensor {
+    margin-top: -100px;
+    margin-left: 30%;
+}
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .name-dom-sensor {
+        margin-top: -48px; /* Remove the negative margin on mobile */
+        margin-left: 0; /* Center-align if necessary */
+        text-align: center;
+    }
+}

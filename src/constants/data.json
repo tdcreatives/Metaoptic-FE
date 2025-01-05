@@ -2,7 +2,7 @@
     "products": [
         {
             "name": "3D Biometrics Metalens Sensor",
-            "nameDom": "3D Biometrics <br /> <div style='margin-top: -100px; margin-left: 30%;'>Sensor</div>",
+            "nameDom": "3D Biometrics <br /> <div class='name-dom-sensor'>Sensor</div>",
             "slug": "3d-biometrics-metalens-sensor",
             "image": "/products/product-1.png",
             "category": "Sensor",

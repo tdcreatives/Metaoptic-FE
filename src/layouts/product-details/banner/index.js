@@ -4,11 +4,13 @@ import Image from 'next/image';
 
 import BaseButton from '@/components/BaseButton';
 
+import './index.scss';
+
 const ProductDetailsBanner = ({ product }) => {
     return (
         <div className='relative w-full min-h-[calc(100vh-100px)] overflow-hidden bg-[#F0F0F0]'>
             <div
-                className='absolute text-white xl:text-[300px] text-[120px] xl:left-[-30px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase tracking-widest'
+                className='absolute text-white xl:text-[300px] text-[140px] xl:left-[-30px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase tracking-widest'
                 dangerouslySetInnerHTML={{ __html: product?.nameDom }}
                 style={{
                     whiteSpace: 'nowrap',
