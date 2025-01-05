@@ -11,14 +11,16 @@ const products = [
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-1.png',
         objectPosition: 'left',
+        slug: 'iot-metalens-color-camera',
     },
     {
         id: '02',
-        title: 'Colour Imaging Metalens',
+        title: 'Color Imaging Metalens',
         description:
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-2.png',
         objectPosition: 'left',
+        slug: 'color-imaging-meta-lens',
     },
     {
         id: '03',
@@ -27,6 +29,7 @@ const products = [
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-3.png',
         objectPosition: 'left',
+        slug: 'pico-projector',
     },
     {
         id: '04',
@@ -35,6 +38,7 @@ const products = [
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-4.png',
         objectPosition: 'left',
+        slug: 'collimating-meta-lens-pico-projector',
     },
     {
         id: '05',
@@ -43,6 +47,7 @@ const products = [
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-5.png',
         objectPosition: 'center',
+        slug: '3d-biometrics-metalens-sensor',
     },
 ];
 

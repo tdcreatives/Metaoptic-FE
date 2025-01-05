@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import './index.scss';
 
 const BaseProductCard = ({
@@ -11,12 +12,18 @@ const BaseProductCard = ({
     onMouseEnter,
     onMouseLeave,
 }) => {
+    const router = useRouter();
+
     const renderTextWhenHovering = () => {
         if (isHovered) {
             // Split title into two parts if it contains a space
             const titleParts = product.title.split(' ');
-            const firstHalf = titleParts.slice(0, Math.ceil(titleParts.length / 2)).join(' ');
-            const secondHalf = titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ');
+            const firstHalf = titleParts
+                .slice(0, Math.ceil(titleParts.length / 2))
+                .join(' ');
+            const secondHalf = titleParts
+                .slice(Math.ceil(titleParts.length / 2))
+                .join(' ');
 
             return (
                 <>
@@ -88,6 +95,7 @@ const BaseProductCard = ({
             className={`relative px-4 py-[32px] xl:w-full w-[90%] mx-auto product-card ${
                 isHovered ? 'product-card--hovered' : ''
             } ${isAnyHovered && !isHovered ? 'product-card--shrink' : ''}`}
+            onClick={() => router.push(`/product/${product.slug}`)}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}>
             <div
