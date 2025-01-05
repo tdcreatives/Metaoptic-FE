@@ -63,7 +63,7 @@ const BaseProduct = ({ name, image }) => {
 
             <h2
                 ref={nameRef}
-                className='text-[#231f20] text-[32px] futura-condensed-medium mt-3'>
+                className='text-[#231f20] xl:text-[32px] text-[24px] futura-condensed-medium mt-3'>
                 {name}
             </h2>
         </div>

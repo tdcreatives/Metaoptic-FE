@@ -44,7 +44,7 @@ const ProductDetailsSpecifications = ({ specifications }) => {
                         width='0'
                         height='0'
                         sizes='100vw'
-                        className='xl:w-[64px] w-[32px] h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                        className='xl:w-[64px] w-[48px] xl:h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
                     />
                 );
 
@@ -56,7 +56,7 @@ const ProductDetailsSpecifications = ({ specifications }) => {
                         width='0'
                         height='0'
                         sizes='100vw'
-                        className='xl:w-[48px] w-[32px] h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                        className='xl:w-[48px] w-[32px] xl:h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
                     />
                 );
 
@@ -69,7 +69,7 @@ const ProductDetailsSpecifications = ({ specifications }) => {
         <div className='w-full bg-[#d34c39] py-16 px-8 rounded-lg text-white'>
             {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-5'>
-                <h2 className='text-[60px] uppercase futura-condensed-medium tracking-wide'>
+                <h2 className='xl:text-[60px] text-[32px] uppercase futura-condensed-medium tracking-wide'>
                     Specifications
                 </h2>
                 <div

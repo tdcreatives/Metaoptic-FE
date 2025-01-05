@@ -11,7 +11,7 @@ const RelatedProducts = ({ relatedProducts }) => {
 
     return (
         <div className='mt-12 w-[80%] mx-auto mb-[80px]'>
-            <h2 className='text-[60px] text-start text-[#d34c39] uppercase futura-condensed-medium mb-8'>
+            <h2 className='xl:text-[60px] text-[32px] text-start text-[#d34c39] uppercase futura-condensed-medium mb-8'>
                 Related Products
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6'>
