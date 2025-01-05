@@ -1,0 +1,58 @@
+{
+    "products": [
+        {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
+        },
+        {
+            "name": "Collimating Meta Lens for Pico Projector",
+            "slug": "collimating-meta-lens-pico-projector",
+            "image": "/products/product-2.png",
+            "category": "Projector"
+        },
+        {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+        },
+        {
+            "name": "Color Imaging Meta Lens",
+            "slug": "color-imaging-meta-lens",
+            "image": "/products/product-4.png",
+            "category": "Camera"
+        },
+        {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+        },
+        {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+        },
+        {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+        },
+        {
+            "name": "Ultra-wide FoV Metalens Monochromatic IR Camera",
+            "slug": "ultra-wide-fov-metalens-monochromatic-ir-camera",
+            "image": "/products/product-8.png",
+            "category": "Camera"
+        },
+        {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+        }
+    ]
+}
