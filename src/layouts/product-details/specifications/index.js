@@ -69,7 +69,7 @@ const ProductDetailsSpecifications = ({ specifications }) => {
         <div className='w-full bg-[#d34c39] py-16 px-8 rounded-lg text-white'>
             {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-5'>
-                <h2 className='text-[48px] uppercase futura-condensed-medium tracking-wide'>
+                <h2 className='text-[60px] uppercase futura-condensed-medium tracking-wide'>
                     Specifications
                 </h2>
                 <div

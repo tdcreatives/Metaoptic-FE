@@ -35,7 +35,33 @@
                         "heightOfPillars": "650 nm",
                         "lensDiameter": "2mm"
                     }
-                }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
             }
         },
         {

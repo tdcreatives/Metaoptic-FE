@@ -10,6 +10,7 @@ import Footer from '@/layouts/main/footer';
 
 import ProductDetailsBanner from '@/layouts/product-details/banner';
 import ProductDetailsSpecifications from '@/layouts/product-details/specifications';
+import RelatedProducts from '@/layouts/product-details/related-products';
 
 const ProductDetails = () => {
     const { slug } = useParams();
@@ -39,6 +40,8 @@ const ProductDetails = () => {
             <ProductDetailsSpecifications
                 specifications={product?.details?.specifications}
             />
+
+            <RelatedProducts relatedProducts={product?.details?.relatedProducts || []} />
 
             <Footer />
         </>
