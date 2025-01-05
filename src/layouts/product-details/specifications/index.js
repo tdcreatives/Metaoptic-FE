@@ -93,9 +93,13 @@ const ProductDetailsSpecifications = ({ specifications }) => {
                     <div key={index} className='spec-section flex flex-col gap-4'>
                         <div className='flex flex-col items-center'>
                             {renderImage(section)}
-                            <h3 className='text-[24px] font-semibold text-center uppercase mt-5 futura-medium'>
-                                {section.replace(/([A-Z])/g, ' $1')}
-                            </h3>
+
+                            {section !== 'optionalSpecifications' &&
+                                section !== 'empty' && (
+                                    <h3 className='text-[24px] font-semibold text-center uppercase mt-5 futura-medium'>
+                                        {section.replace(/([A-Z])/g, ' $1')}
+                                    </h3>
+                                )}
                         </div>
 
                         {/* Collapsible Content */}

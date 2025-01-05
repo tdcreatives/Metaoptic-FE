@@ -65,52 +65,489 @@
             }
         },
         {
-            "name": "Collimating Meta Lens for Pico Projector",
+            "name": "Collimating Meta Lens For Pico Projector",
+            "nameDom": "Collimating Meta Lens <br /> <div class='name-dom-sensor'>For Pico Projector</div>",
             "slug": "collimating-meta-lens-pico-projector",
             "image": "/products/product-2.png",
-            "category": "Projector"
+            "category": "Projector",
+            "details": {
+                "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
+                "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "0.75mm ± 0.015mm",
+                        "length": "3.55mm ± 0.05mm",
+                        "width": "3.55mm ± 0.05mm"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "120nm",
+                        "pitchBetweenPillars": "320nm",
+                        "heightOfPillars": "650nm – 800nm",
+                        "lensDiameter": "1.4mm – 1.5mm",
+                        "blueWavelengthRange": "450nm ± 5nm",
+                        "greenWavelengthRange": "520nm ± 5nm",
+                        "redWavelengthRange": "640nm ± 5nm",
+                        "focusingDistance": "1.827 – 1.857mm",
+                        "ldDivergenceCollimationAngle": "18–25 degrees"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         },
         {
             "name": "IoT Metalens Color Camera",
+            "nameDom": "IoT <br /> <div class='name-dom-sensor'>Metalens Color Camera</div>",
             "slug": "iot-metalens-color-camera",
             "image": "/products/product-3.png",
-            "category": "Camera"
+            "category": "Camera",
+            "details": {
+                "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
+                "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "10mm",
+                        "length": "47mm",
+                        "width": "44mm"
+                    },
+                    "cameraSpecifications": {
+                        "focalLength": "1.53mm",
+                        "fieldOfView": "70 degrees",
+                        "sensorType": "Monochrome CMOS",
+                        "peakQuantumEfficiency": "65% @ 535 nm",
+                        "resolution": "1.6 MP",
+                        "activePixels": "1440 x 1080",
+                        "pixelSize": "3.45 µm x 3.45 µm",
+                        "imagingArea": "4.968 mm x 3.726 mm",
+                        "adcResolution": "10 bits",
+                        "sensorShutterType": "Global",
+                        "exposureTime": "0.04 ms – 26.843 ms",
+                        "usbPowerConsumption": "1.17 W",
+                        "ambientOperatingTemperature": "10 °C – 40 °C",
+                        "storageTemperature": "0 °C – 55 °C"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "120 nm",
+                        "pitchBetweenPillars": "320 nm",
+                        "heightOfPillars": "650 nm",
+                        "lensDiameter": "2mm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "3D Biometrics Metalens Sensor",
+                        "slug": "3d-biometrics-metalens-sensor",
+                        "image": "/products/product-1.png",
+                        "category": "Sensor"
+                    },
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         },
         {
             "name": "Color Imaging Meta Lens",
+            "nameDom": "Color Imaging <br /> <div class='name-dom-sensor'>Meta Lens</div>",
             "slug": "color-imaging-meta-lens",
             "image": "/products/product-4.png",
-            "category": "Camera"
+            "category": "Camera",
+            "details": {
+                "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+                "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "0.75mm ± 0.015mm",
+                        "length": "9.22mm ± 0.05mm",
+                        "width": "7.98mm ± 0.05mm"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "120nm",
+                        "pitchBetweenPillars": "320nm",
+                        "heightOfPillars": "650nm",
+                        "lensDiameter": "2mm",
+                        "blueWavelengthRange": "450nm ± 5nm",
+                        "greenWavelengthRange": "540nm ± 5nm",
+                        "redWavelengthRange": "635nm ± 5nm",
+                        "imagingArea": "18.13mm²",
+                        "focalLength": "1.53mm",
+                        "fieldOfView": "70 degrees",
+                        "psfFWHMNormalIncidence": "1.5 µm PSF",
+                        "fwhmAtMaxAOL": "2.5 µm",
+                        "activeImagingArea": "4.968 mm x 3.726 mm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "3D Biometrics Metalens Sensor",
+                        "slug": "3d-biometrics-metalens-sensor",
+                        "image": "/products/product-1.png",
+                        "category": "Sensor"
+                    }
+                ]
+            }
         },
         {
             "name": "Pico Projector",
+            "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
             "slug": "pico-projector",
             "image": "/products/product-5.png",
-            "category": "Projector"
+            "category": "Projector",
+            "details": {
+                "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
+                "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
+                "specifications": {
+                    "empty": {},
+                    "optionalSpecifications": {
+                        "MEMS Mirror / Drive Force": " 2D Single Mirror / Electrostatics",
+                        "resolution": "720p / 60 frames per second (input source)",
+                        "projectedFOV": "x-axis 39 degrees ; y-axis 23 degrees",
+                        "contrast": "10,000: 1 (FOFO Test)",
+                        "focus": "Free Focus",
+                        "brightness": "34 ± 3lm (measured at 400mm from MEMS Mirror)",
+                        "colorGamut": "< 150%",
+                        "throwRatio": "< 1.5",
+                        "keystone": "± 15 degrees (vertical)",
+                        "flip": "Horizontal/Vertical",
+                        "operationTemperature": "0 – 35 °C",
+                        "powerInput": "DC 4.75V – 5.25V",
+                        "videoInput": "MIPI DSI",
+                        "powerConsumption": "Peak 5W, Normal Operation <4W",
+                        "relativeHumidity": "40–60%",
+                        "size": "45mm x 58mm x 30mm",
+                        "weight": "80g"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         },
         {
             "name": "Ultra-wide FoV IR Metalens",
+            "nameDom": "Ultra-wide FoV <br /> <div class='name-dom-sensor'>IR Metalens</div>",
             "slug": "ultra-wide-fov-ir-metalens",
             "image": "/products/product-6.png",
-            "category": "3D"
+            "category": "3D",
+            "details": {
+                "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
+                "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "0.75mm ± 0.015mm",
+                        "length": "9.98mm ± 0.05mm",
+                        "width": "9.98mm ± 0.05mm"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "80nm",
+                        "pitchBetweenPillars": "320nm",
+                        "heightOfPillars": "350nm",
+                        "lensDiameter": "5mm",
+                        "wavelength": "740nm ± 5nm",
+                        "focalLength": "2mm",
+                        "fieldOfView": "179 degrees",
+                        "psfFWHMNormalIncidence": "4.85 µm",
+                        "fwhmAtMaxAOL": "1.85 µm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         },
         {
             "name": "Direct Laser Writer",
+            "nameDom": "Direct <br /> <div class='name-dom-sensor'>Laser Writer</div>",
             "slug": "direct-laser-writer",
             "image": "/products/product-7.png",
-            "category": "3D"
+            "category": "3D",
+            "details": {
+                "subtitle": "Leading Edge Deep UV Direct Laser Writer",
+                "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
+                "specifications": {
+                    "systemDimensions": {
+                        "dimensions": "L: 0.65m x W: 0.60m x H: 0.95m"
+                    },
+                    "writingSpecifications": {
+                        "minimumCriticalDimensions": "120 - 150nm",
+                        "minimumLinewidth": "90nm",
+                        "laserSource": "266nm",
+                        "maximumWritingSpeed": "100mm/s",
+                        "maximumExposureArea": "135mm x 85mm",
+                        "autofocusCompensationRange": "±100nm",
+                        "minimumSurfaceRoughness": "≤20nm",
+                        "repeatability": "±2 / ±2 / ±3nm",
+                        "substrateSize": "Min 1cm x 1cm or 1cm, Max 4'' x 4'' or Ø4''"
+                    },
+                    "facilityRequirements": {
+                        "voltageRating": "230VAC, 50/60Hz, Single phase, L+N+E Rated Current: 5.75A",
+                        "facilityACProtection": "13.0A C Curve AIC Rating of Main Breaker: 10kA",
+                        "shortCircuitRating": "29kA",
+                        "cdaPressure": "80 PSI"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Ultra-wide FoV IR Metalens",
+                        "slug": "ultra-wide-fov-ir-metalens",
+                        "image": "/products/product-6.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Pico Projector",
+                        "slug": "pico-projector",
+                        "image": "/products/product-5.png",
+                        "category": "Projector"
+                    },
+                    {
+                        "name": "Collimating Meta Lens",
+                        "slug": "collimating-meta-lens-pico-projector",
+                        "image": "/products/product-2.png",
+                        "category": "Projector"
+                    }
+                ]
+            }
         },
         {
             "name": "Ultra-wide FoV Metalens Monochromatic IR Camera",
+            "nameDom": "Ultra-wide FoV Metalens <br /> <div class='name-dom-sensor'>Monochromatic IR Camera</div>",
             "slug": "ultra-wide-fov-metalens-monochromatic-ir-camera",
             "image": "/products/product-8.png",
-            "category": "Camera"
+            "category": "Camera",
+            "details": {
+                "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
+                "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "10mm",
+                        "length": "47mm",
+                        "width": "44mm"
+                    },
+                    "cameraSpecifications": {
+                        "focalLength": "2mm",
+                        "fieldOfView": "179° ± 1.2°",
+                        "sensorType": "Monochrome CMOS",
+                        "peakQuantumEfficiency": "65% @ 535 nm",
+                        "resolution": "1.6 MP",
+                        "activePixels": "1440 x 1080",
+                        "pixelSize": "3.45 µm x 3.45 µm",
+                        "imagingArea": "4.968 mm x 3.726 mm",
+                        "adcResolution": "10 bits",
+                        "sensorShutterType": "Global",
+                        "exposureTime": "0.04 ms – 26.843 ms",
+                        "usbPowerConsumption": "1.17 W",
+                        "ambientOperatingTemperature": "10 °C – 40 °C",
+                        "storageTemperature": "0 °C – 55 °C"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "80nm",
+                        "pitchBetweenPillars": "300nm",
+                        "heightOfPillars": "350nm",
+                        "lensDiameter": "5mm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "3D Biometrics Metalens Sensor",
+                        "slug": "3d-biometrics-metalens-sensor",
+                        "image": "/products/product-1.png",
+                        "category": "Sensor"
+                    },
+                    {
+                        "name": "Metalens Color Camera Module",
+                        "slug": "metalens-color-camera-module",
+                        "image": "/products/product-9.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         },
         {
             "name": "Metalens Color Camera Module",
+            "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
             "slug": "metalens-color-camera-module",
             "image": "/products/product-9.png",
-            "category": "Camera"
+            "category": "Camera",
+            "details": {
+                "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
+                "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
+                "specifications": {
+                    "mechanicalDimensions": {
+                        "thickness": "8.8mm",
+                        "length": "16mm",
+                        "width": "14mm"
+                    },
+                    "cameraSpecifications": {
+                        "focalLength": "3mm",
+                        "fieldOfView": "85°",
+                        "sensorType": "Color CMOS",
+                        "peakQuantumEfficiency": "70% @ 550 nm",
+                        "resolution": "2MP / 5MP",
+                        "activePixels": "1920 x 1080",
+                        "pixelSize": "1.75 µm x 1.75 µm",
+                        "imagingArea": "3.36 mm x 2.52 mm",
+                        "adcResolution": "12 bits",
+                        "sensorShutterType": "Global",
+                        "exposureTime": "0.03 ms – 30.0 ms",
+                        "usbPowerConsumption": "1.5 W",
+                        "ambientOperatingTemperature": "5 °C – 40 °C",
+                        "storageTemperature": "-20 °C – 60 °C"
+                    },
+                    "metalensSpecifications": {
+                        "minimumPillarDiameter": "120nm",
+                        "pitchBetweenPillars": "300nm",
+                        "heightOfPillars": "450nm",
+                        "lensDiameter": "3mm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "3D Biometrics Metalens Sensor",
+                        "slug": "3d-biometrics-metalens-sensor",
+                        "image": "/products/product-1.png",
+                        "category": "Sensor"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "Color Imaging Meta Lens",
+                        "slug": "color-imaging-meta-lens",
+                        "image": "/products/product-4.png",
+                        "category": "Camera"
+                    }
+                ]
+            }
         }
     ]
 }
