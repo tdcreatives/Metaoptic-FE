@@ -4,7 +4,11 @@ import React from 'react';
 import BaseButton from '@/components/BaseButton';
 import BaseProduct from '@/components/BaseProduct';
 
+import { useRouter } from 'next/navigation';
+
 const RelatedProducts = ({ relatedProducts }) => {
+    const router = useRouter();
+
     if (!relatedProducts || relatedProducts.length === 0) {
         return null; // Return nothing if there are no related products
     }
@@ -29,6 +33,7 @@ const RelatedProducts = ({ relatedProducts }) => {
                 label='See all products'
                 classNameBtn='uppercase'
                 className='!mt-[60px]'
+                onClick={() => router.push('/products')}
             />
         </div>
     );

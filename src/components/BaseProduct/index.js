@@ -3,11 +3,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { gsap } from 'gsap';
 
-const BaseProduct = ({ name, image }) => {
+const BaseProduct = ({ name, image, slug }) => {
     const productRef = React.useRef(null);
     const nameRef = React.useRef(null);
+    const router = useRouter();
 
     const handleMouseEnter = () => {
         if (productRef.current && nameRef.current) {
@@ -41,8 +43,12 @@ const BaseProduct = ({ name, image }) => {
         }
     };
 
+    const handleOnNavigate = () => {
+        router.push(`/product/${slug}`);
+    };
+
     return (
-        <div>
+        <div onClick={handleOnNavigate}>
             <div
                 ref={productRef}
                 className='rounded-lg p-6 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300'
