@@ -22,7 +22,7 @@ const Header = ({ background = '#fff' }) => {
         { label: 'PRODUCTS', path: '/products' },
         { label: 'NEWS', path: '/news' },
         { label: 'CONTACT', path: '/contact-us' },
-        { label: 'SHOP', path: '/shop' },
+        { label: 'SHOP', path: 'https://metaoptics.shop/' },
     ];
 
     const handleMenuShow = () => {
