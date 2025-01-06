@@ -6,6 +6,7 @@ import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
 
 import AboutUsBanner from '@/layouts/about-us/banner';
+import FindMore from '@/layouts/about-us/find-more';
 
 const AboutUs = () => {
     return (
@@ -13,6 +14,8 @@ const AboutUs = () => {
             <Header />
 
             <AboutUsBanner />
+
+            <FindMore />
             <Footer />
         </>
     );
