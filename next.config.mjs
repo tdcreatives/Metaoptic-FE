@@ -3,6 +3,9 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
+    sassOptions: {
+        silenceDeprecations: ['legacy-js-api'],
+    },
 };
 
 if (!process.env.NODE_ENV) {

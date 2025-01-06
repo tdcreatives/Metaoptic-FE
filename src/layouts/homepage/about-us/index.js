@@ -5,9 +5,14 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { isMobile } from '@/utils';
+import { useRouter } from 'next/navigation';
+
+import BaseButton from '@/components/BaseButton';
+
+import { isMobile } from 'react-device-detect';
 
 const AboutUs = () => {
+    const router = useRouter();
     const imagesRef = useRef([]); // Reference to track all images
     const sectionRef = useRef(null); // Reference for the AboutUs section
 
@@ -22,7 +27,7 @@ const AboutUs = () => {
         if (imagesRef.current.length > 0) {
             // Apply animations to each image
             imagesRef.current.forEach((image) => {
-                if (isMobile()) {
+                if (isMobile) {
                     // Always show images immediately if mobile
                     gsap.set(image, { opacity: 1, y: 0 });
                 } else {
@@ -80,11 +85,12 @@ const AboutUs = () => {
                         market growth.
                     </p>
 
-                    <div className='flex xl:justify-start justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
-                        <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
-                            FIND OUT MORE
-                        </button>
-                    </div>
+                    <BaseButton
+                        label='Find out more'
+                        classNameBtn='uppercase'
+                        className='xl:!justify-start !justify-center xl:!ml-10 !ml-0'
+                        onClick={() => router.push('/about-us')}
+                    />
                 </div>
             </div>
 

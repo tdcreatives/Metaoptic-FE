@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import { isMobile } from '@/utils';
+import { isMobile } from 'react-device-detect';
 
 const Header = ({ background = '#fff' }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -104,7 +104,7 @@ const Header = ({ background = '#fff' }) => {
 
     return (
         <div
-            className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'
+            className='font-bold flex justify-between items-center mx-auto px-[5.2vw] py-[4.44vh]'
             style={{
                 background,
             }}>
@@ -119,7 +119,7 @@ const Header = ({ background = '#fff' }) => {
                 onClick={() => router.push('/')}
             />
 
-            {!isMobile() && (
+            {!isMobile && (
                 <div
                     className='flex justify-between items-center space-x-4'
                     onMouseEnter={handleMenuShow}
@@ -157,7 +157,7 @@ const Header = ({ background = '#fff' }) => {
                 </div>
             )}
 
-            {isMobile() && (
+            {isMobile && (
                 <>
                     {/* Hamburger Button */}
                     <div className='cursor-pointer'>
