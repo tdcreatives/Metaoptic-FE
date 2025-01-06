@@ -37,21 +37,21 @@ const products = [
     },
     {
         id: '04',
-        title: 'Collimating Metalens For Pico Projector',
-        description:
-            'Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).',
-        image: 'landing-product-4.png',
-        objectPosition: 'left',
-        slug: 'collimating-meta-lens-pico-projector',
-    },
-    {
-        id: '05',
         title: '3D Biometrics Metalens Sensor',
         description:
             'Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.',
         image: 'landing-product-5.png',
         objectPosition: 'center',
         slug: '3d-biometrics-metalens-sensor',
+    },
+    {
+        id: '05',
+        title: 'Collimating Metalens For Pico Projector',
+        description:
+            'Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).',
+        image: 'landing-product-4.png',
+        objectPosition: 'left',
+        slug: 'collimating-meta-lens-pico-projector',
     },
 ];
 
