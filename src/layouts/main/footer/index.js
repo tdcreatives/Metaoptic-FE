@@ -35,10 +35,14 @@ const Footer = () => {
             <div className='flex xl:flex-row flex-col xl:gap-0 gap-10 justify-between xl:mt-[160px] mt-10 w-full'>
                 <div className='flex gap-5 xl:flex-row flex-col text-white xl:text-[25px] text-[18px] futura-medium'>
                     <div>Back to Top</div>
-                    <div>Our Products</div>
+                    <div>
+                        <a href='/products'>Our Products</a>
+                    </div>
                     {/* <div>Our Story</div>
                     <div>Gallery</div> */}
-                    <div>Contact Us</div>
+                    <div>
+                        <a href='/contact-us'>Contact Us</a>
+                    </div>
                 </div>
 
                 {/* <div className='flex xl:gap-8 gap-5 text-white xl:text-[25px] text-[18px] futura-medium'>
