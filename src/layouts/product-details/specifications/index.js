@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
 
-const ProductDetailsSpecifications = ({ specifications }) => {
+const ProductDetailsSpecifications = ({ specifications, brochure }) => {
     const [isExpanded, setIsExpanded] = useState(true); // Controls all sections' visibility
 
     useEffect(() => {
@@ -129,6 +129,7 @@ const ProductDetailsSpecifications = ({ specifications }) => {
                 classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
                 bgDefault='#fff'
                 className='!mt-[80px]'
+                onClick={() => window.open(brochure, '_blank')}
             />
         </div>
     );
