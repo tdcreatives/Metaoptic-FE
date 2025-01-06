@@ -40,16 +40,6 @@ const products = [
     },
     {
         id: '04',
-        title: '3D Biometrics Metalens Sensor',
-        category: "Sensor",
-        description:
-            'Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.',
-        image: 'landing-product-5.png',
-        objectPosition: 'center',
-        slug: '3d-biometrics-metalens-sensor',
-    },
-    {
-        id: '05',
         title: 'Collimating Metalens For Pico Projector',
         category: "Projector",
         description:
@@ -57,6 +47,16 @@ const products = [
         image: 'landing-product-4.png',
         objectPosition: 'left',
         slug: 'collimating-meta-lens-pico-projector',
+    },
+    {
+        id: '05',
+        title: '3D Biometrics Metalens Sensor',
+        category: "Sensor",
+        description:
+            'Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.',
+        image: 'landing-product-5.png',
+        objectPosition: 'center',
+        slug: '3d-biometrics-metalens-sensor',
     },
 ];
 
