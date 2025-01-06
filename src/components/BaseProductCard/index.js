@@ -66,7 +66,7 @@ const BaseProductCard = ({
                 <>
                     {/* Green Chip */}
                     <div className='bg-transparent text-white px-4 py-1 text-[14px] rounded-full font-semibold mb-2 mt-[340px] text-[24px] w-fit border-[2px] border-white'>
-                        Metalens IoT Products
+                        {product.category}
                     </div>
 
                     {/* Title */}
