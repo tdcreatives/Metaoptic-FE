@@ -72,7 +72,9 @@ const AboutUs = () => {
 
                     <p className='text-[20px] leading-relaxed mb-6 xl:max-w-[39%] max-w-full'>
                         Our high-throughput meta lens production ensures efficiency and
-                        cost-effectiveness. <br />
+                        cost-effectiveness.
+                    </p>
+                    <p className='text-[20px] leading-relaxed mb-6 xl:max-w-[39%] max-w-full'>
                         As AR/VR and HUD technologies rapidly expands, our innovative meta
                         lens are essential to provide miniaturization in supporting this
                         market growth.

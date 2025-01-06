@@ -28,7 +28,7 @@ const products = [
     },
     {
         id: '03',
-        title: 'Ultra-light weight Pico Projector',
+        title: 'Ultra-light Weight Pico Projector',
         description:
             'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-3.png',

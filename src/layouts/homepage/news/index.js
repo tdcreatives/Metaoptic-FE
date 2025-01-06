@@ -9,25 +9,27 @@ const newsItems = [
         desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
         date: 'January 15, 2025',
         image: 'news-1.jpg',
+        path: 'https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view',
+        external: true,
     },
-    {
-        title: 'Pico Projector using MEMS laser scanner',
-        desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
-        date: 'January 15, 2025',
-        image: 'news-2.jpg',
-    },
-    {
-        title: 'All about meta-tech you need to know',
-        desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
-        date: 'January 15, 2025',
-        image: 'news-3.jpg',
-    },
-    {
-        title: 'MetaOptics coming to CES 2025 in Las Vegas',
-        desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
-        date: 'January 15, 2025',
-        image: 'news-4.jpg',
-    },
+    // {
+    //     title: 'Pico Projector using MEMS laser scanner',
+    //     desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
+    //     date: 'January 15, 2025',
+    //     image: 'news-2.jpg',
+    // },
+    // {
+    //     title: 'All about meta-tech you need to know',
+    //     desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
+    //     date: 'January 15, 2025',
+    //     image: 'news-3.jpg',
+    // },
+    // {
+    //     title: 'MetaOptics coming to CES 2025 in Las Vegas',
+    //     desc: 'MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions',
+    //     date: 'January 15, 2025',
+    //     image: 'news-4.jpg',
+    // },
 ];
 
 const News = () => {
@@ -43,11 +45,11 @@ const News = () => {
                 ))}
             </div>
 
-            <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
+            {/* <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
                 <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
                     VIEW ALL NEWS
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 };
