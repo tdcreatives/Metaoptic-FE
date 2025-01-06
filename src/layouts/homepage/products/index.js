@@ -12,7 +12,7 @@ const products = [
         id: '01',
         title: 'IoT Metalens Color Camera',
         description:
-            'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
+            'Leading edge camera to capture a color image using meta lens. 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.',
         image: 'landing-product-1.png',
         objectPosition: 'left',
         slug: 'iot-metalens-color-camera',
@@ -21,7 +21,7 @@ const products = [
         id: '02',
         title: 'Color Imaging Metalens',
         description:
-            'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
+            'Leading edge mass producible meta lens using 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-2.png',
         objectPosition: 'left',
         slug: 'color-imaging-meta-lens',
@@ -30,7 +30,7 @@ const products = [
         id: '03',
         title: 'Ultra-light Weight Pico Projector',
         description:
-            'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
+            'Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.',
         image: 'landing-product-3.png',
         objectPosition: 'left',
         slug: 'pico-projector',
@@ -39,7 +39,7 @@ const products = [
         id: '04',
         title: 'Collimating Metalens For Pico Projector',
         description:
-            'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
+            'Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).',
         image: 'landing-product-4.png',
         objectPosition: 'left',
         slug: 'collimating-meta-lens-pico-projector',
@@ -48,7 +48,7 @@ const products = [
         id: '05',
         title: '3D Biometrics Metalens Sensor',
         description:
-            'Leading edge mass producible meta lens using 12&quot; Glass Wafer DUV Immersion Photolithography Manufacturing Process . Designed for color imaging or non-contact fingerprint sensing.',
+            'Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.',
         image: 'landing-product-5.png',
         objectPosition: 'center',
         slug: '3d-biometrics-metalens-sensor',
