@@ -44,7 +44,7 @@ const ProductList = () => {
             </h2>
 
             {/* Tabs */}
-            <div
+            {/* <div
                 className='pt-10 flex gap-4 flex-wrap justify-center'
                 ref={productListRef}>
                 {categories.map((category) => (
@@ -59,7 +59,7 @@ const ProductList = () => {
                         {category}
                     </button>
                 ))}
-            </div>
+            </div> */}
 
             {/* Products Grid */}
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-6 gap-5 w-full max-w-6xl mt-8 mb-[100px] xl:px-0 px-10'>

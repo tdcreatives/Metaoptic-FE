@@ -30,7 +30,7 @@ const products = [
     },
     {
         id: '03',
-        title: 'Ultra-light Weight Pico Projector',
+        title: 'Ultra-Light Weight Pico Projector',
         category: "Projector",
         description:
             'Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.',
