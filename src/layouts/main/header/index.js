@@ -104,7 +104,7 @@ const Header = ({ background = '#fff' }) => {
 
     return (
         <div
-            className='font-bold flex justify-between items-center max-w-[1920px] mx-auto px-[4.5vw] py-[4.44vh]'
+            className='font-bold flex justify-between items-center mx-auto px-[5.2vw] py-[4.44vh]'
             style={{
                 background,
             }}>

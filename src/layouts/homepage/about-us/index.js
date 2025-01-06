@@ -5,11 +5,14 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { useRouter } from 'next/navigation';
+
 import BaseButton from '@/components/BaseButton';
 
 import { isMobile } from '@/utils';
 
 const AboutUs = () => {
+    const router = useRouter();
     const imagesRef = useRef([]); // Reference to track all images
     const sectionRef = useRef(null); // Reference for the AboutUs section
 
@@ -86,6 +89,7 @@ const AboutUs = () => {
                         label='Find out more'
                         classNameBtn='uppercase'
                         className='xl:!justify-start !justify-center xl:!ml-10 !ml-0'
+                        onClick={() => router.push('/about-us')}
                     />
                 </div>
             </div>
