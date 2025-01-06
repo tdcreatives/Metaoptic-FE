@@ -1,6 +1,9 @@
-import Image from 'next/image';
+'use client';
+
 import React from 'react';
 import { Timeline } from '@/components/ui/timeline';
+
+import { isDesktop } from 'react-device-detect';
 
 const MileStone = () => {
     const data = [
@@ -8,11 +11,11 @@ const MileStone = () => {
             title: '2022',
             content: (
                 <div>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium text-[48px]'>
+                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
 
-                    <div className='text-[#A7A9AC] text-[24px] mt-6'>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
                         Incepted in June 2021 <br /> Launched Direct Laser Writer in 2022
                     </div>
                 </div>
@@ -22,13 +25,14 @@ const MileStone = () => {
             title: '2023',
             content: (
                 <div>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium text-[48px]'>
+                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
 
-                    <div className='text-[#A7A9AC] text-[24px] mt-6'>
-                        Developed color lens and delivered its <br />
-                        1st 12 inches glass wafer of color camera <br />
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Developed color lens and delivered its {isDesktop ? <br /> : ' '}
+                        1st 12 inches glass wafer of color camera{' '}
+                        {isDesktop ? <br /> : ' '}
                         with DUV immersion lithographic systems.
                     </div>
                 </div>
@@ -38,19 +42,21 @@ const MileStone = () => {
             title: '2024',
             content: (
                 <div>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium text-[48px]'>
+                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
 
-                    <div className='text-[#A7A9AC] text-[24px] mt-6'>
-                        Fulfill pipeline projects, to produce and <br />
-                        deliver IoT devices with meta lens color <br />
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Fulfill pipeline projects, to produce and{' '}
+                        {isDesktop ? <br /> : ' '}
+                        deliver IoT devices with meta lens color{' '}
+                        {isDesktop ? <br /> : ' '}
                         computational cameras into the market in 2024.
                     </div>
 
-                    <div className='text-[#A7A9AC] text-[24px] mt-6'>
-                        Ramp up production capacity with both <br />
-                        DLW machine farm and the DUV <br />
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Ramp up production capacity with both {isDesktop ? <br /> : ' '}
+                        DLW machine farm and the DUV {isDesktop ? <br /> : ' '}
                         immersion lithographic line.
                     </div>
                 </div>
@@ -59,13 +65,13 @@ const MileStone = () => {
     ];
     return (
         <div className='relative w-full bg-milestone bg-center bg-no-repeat'>
-            <div className=' grid grid-cols-2 gap-4 items-center w-[90%] mx-auto'>
+            <div className='grid xl:grid-cols-2 grid-cols-1 gap-4 items-center w-[90%] mx-auto ml:py-0 py-10'>
                 <div className='flex flex-col'>
-                    <div className='uppercase text-[40px] tracking-[0.4rem] font-normal text-[#d34c39]'>
+                    <div className='uppercase xl:text-[40px] text-[24px] tracking-[0.4rem] font-normal text-[#d34c39]'>
                         MILESTONES OF
                     </div>
 
-                    <div className='uppercase xl:text-[80px] text-[60px] tracking-[1rem] futura-condensed-medium text-white'>
+                    <div className='uppercase xl:text-[80px] text-[48px] tracking-[1rem] futura-condensed-medium text-white'>
                         METAOPTICS
                     </div>
                 </div>

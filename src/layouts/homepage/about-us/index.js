@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 
 import BaseButton from '@/components/BaseButton';
 
-import { isMobile } from '@/utils';
+import { isMobile } from 'react-device-detect';
 
 const AboutUs = () => {
     const router = useRouter();
@@ -27,7 +27,7 @@ const AboutUs = () => {
         if (imagesRef.current.length > 0) {
             // Apply animations to each image
             imagesRef.current.forEach((image) => {
-                if (isMobile()) {
+                if (isMobile) {
                     // Always show images immediately if mobile
                     gsap.set(image, { opacity: 1, y: 0 });
                 } else {

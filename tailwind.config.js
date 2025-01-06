@@ -18,6 +18,7 @@ module.exports = {
                 'what-we-do': "url('/what-we-do.png')",
                 'contact-us': "url('/contact-banner.png')",
                 milestone: "url('/about-us/milestone.png')",
+                'find-more': "url('/about-us/find-more.png')",
             },
             content: {
                 before: '"("',

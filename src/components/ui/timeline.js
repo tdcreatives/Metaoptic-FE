@@ -30,13 +30,13 @@ export const Timeline = ({ data }) => {
                         key={index}
                         className='flex justify-start pt-10 md:pt-40 flex-col'>
                         <div className='flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
-                            <div className='absolute left-[40px] w-[32px] h-[2px] bg-[#fff] opacity-50'></div>
-                            <h3 className='hidden md:block md:pl-[100px] font-bold  text-[#d34c39] tracking-widest futura-condensed-medium text-[100px]'>
+                            <div className='xl:absolute hidden left-[40px] w-[32px] h-[2px] bg-[#fff] opacity-50'></div>
+                            <h3 className='md:pl-[100px] pl-[60px] font-bold text-[#d34c39] tracking-widest futura-condensed-medium xl:text-[100px] text-[40px]'>
                                 {item.title}
                             </h3>
                         </div>
 
-                        <div className='relative pr-4 md:pl-[100px] w-full'>
+                        <div className='relative pr-4 md:pl-[100px] pl-[60px] w-full'>
                             {item.content}{' '}
                         </div>
                     </div>
