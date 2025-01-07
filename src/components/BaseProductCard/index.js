@@ -28,14 +28,14 @@ const BaseProductCard = ({
             return (
                 <>
                     <div className='text-[200px] text-white futura-condensed-medium absolute top-[120px] left-[-20px] z-1 w-[300%]'>
-                        <div
+                        {/* <div
                             style={{
                                 lineHeight: '1',
                             }}>
                             {firstHalf.toUpperCase()}
                         </div>
 
-                        <div className='mt-[-60px]'>{secondHalf.toUpperCase()}</div>
+                        <div className='mt-[-60px]'>{secondHalf.toUpperCase()}</div> */}
                     </div>
 
                     <div className='absolute top-[120px] left-[50%] transform translate-x-[-50%] z-10'>
