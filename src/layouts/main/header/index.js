@@ -18,7 +18,7 @@ const Header = ({ background = '#fff' }) => {
 
     // Navigation links array
     const headers = [
-        // { label: 'ABOUT US', path: '/about-us' },
+        { label: 'ABOUT US', path: '/about-us' },
         { label: 'PRODUCTS', path: '/products' },
         // { label: 'NEWS', path: '/news' },
         { label: 'CONTACT', path: '/contact-us' },
