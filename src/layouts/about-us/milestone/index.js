@@ -64,7 +64,7 @@ const MileStone = () => {
         },
     ];
     return (
-        <div className='relative w-full bg-milestone bg-center bg-no-repeat'>
+        <div className='relative w-full bg-milestone bg-center bg-no-repeat bg-cover'>
             <div className='grid xl:grid-cols-2 grid-cols-1 gap-4 items-center w-[90%] mx-auto ml:py-0 py-10'>
                 <div className='flex flex-col'>
                     <div className='uppercase xl:text-[40px] text-[24px] tracking-[0.4rem] font-normal text-[#d34c39]'>
