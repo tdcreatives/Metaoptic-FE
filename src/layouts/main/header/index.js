@@ -6,9 +6,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { isMobile } from 'react-device-detect';
+import BaseHamburger from '@/components/BaseHamburger';
+import BaseMobileHamburger from '@/components/BaseHamburger/MobileHamburger';
 
 const Header = ({ background = '#fff' }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isHoveringMenu, setIsHoveringMenu] = useState(false);
     const router = useRouter();
     const pathName = usePathname();
 
@@ -26,42 +29,28 @@ const Header = ({ background = '#fff' }) => {
     ];
 
     const handleMenuShow = () => {
-        gsap.to(menuBtnRef.current, {
-            autoAlpha: 0,
-            duration: 0.2,
-            ease: 'power2.in',
-            onComplete: () => {
-                gsap.set(menuItemRef.current, {
-                    x: '100%',
-                    autoAlpha: 0,
-                });
-                gsap.to(menuItemRef.current, {
-                    x: '0%',
-                    autoAlpha: 1,
-                    duration: 0.5,
-                    ease: 'power2.out',
-                });
-            },
+        // Change to close icon and animate menu in
+        setIsHoveringMenu(true);
+        gsap.set(menuItemRef.current, { x: '100%', autoAlpha: 0 });
+        gsap.to(menuItemRef.current, {
+            x: '0%',
+            autoAlpha: 1,
+            duration: 0.5,
+            ease: 'power2.out',
         });
     };
-
     const handleMenuHidden = () => {
+        // Animate menu out and revert icon
         gsap.to(menuItemRef.current, {
             x: '100%',
             autoAlpha: 0,
             duration: 0.5,
             ease: 'power2.in',
             onComplete: () => {
-                setIsMenuOpen(false);
-                gsap.to(menuBtnRef.current, {
-                    autoAlpha: 1,
-                    duration: 0.2,
-                    ease: 'power2.out',
-                });
+                setIsHoveringMenu(false); // Switch back to hamburger icon
             },
         });
     };
-
     const handleMobileMenuToggle = () => {
         if (isMenuOpen) {
             gsap.to(menuRef.current, {
@@ -98,7 +87,7 @@ const Header = ({ background = '#fff' }) => {
         if (path.startsWith('/')) {
             router.push(path);
         } else {
-            window.location.href = path; // For external or anchor links
+            window.location.href = path;
         }
     };
 
@@ -120,10 +109,7 @@ const Header = ({ background = '#fff' }) => {
             />
 
             {!isMobile && (
-                <div
-                    className='flex justify-between items-center space-x-4'
-                    onMouseEnter={handleMenuShow}
-                    onMouseLeave={handleMenuHidden}>
+                <div className='flex justify-between items-center space-x-4 overflow-hidden'>
                     {/* Navigation Bar */}
                     <nav
                         className='hidden xl:flex space-x-8 text-[20px] uppercase'
@@ -141,48 +127,27 @@ const Header = ({ background = '#fff' }) => {
                             </a>
                         ))}
                     </nav>
-
-                    {/* Hamburger/Close Button */}
-                    <div className='cursor-pointer'>
-                        <Image
-                            src='/menu.svg'
-                            alt='Menu'
-                            width='0'
-                            height='0'
-                            className='w-[40px] h-auto mb-1'
-                            ref={menuBtnRef}
-                            onClick={handleMenuShow}
-                        />
-                    </div>
+                    <BaseHamburger onShow={handleMenuShow} onHide={handleMenuHidden} />
                 </div>
             )}
 
             {isMobile && (
                 <>
                     {/* Hamburger Button */}
-                    <div className='cursor-pointer'>
-                        <Image
-                            src='/menu.svg'
-                            alt='Menu'
-                            width='0'
-                            height='0'
-                            className='w-[40px] h-auto mb-1'
-                            onClick={handleMobileMenuToggle}
-                        />
+                    <div className='cursor-pointer relative'>
+                        <BaseMobileHamburger onClick={handleMobileMenuToggle} />
                     </div>
 
                     {/* Mobile Navigation Menu */}
                     <nav
                         className='fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-50'
                         ref={menuRef}>
-                        <Image
-                            src='/close-icon.svg'
-                            alt='Menu'
-                            width='0'
-                            height='0'
-                            className='w-[40px] h-auto mb-1 absolute top-4 right-4'
-                            onClick={handleMobileMenuToggle}
-                        />
+                        <div className='absolute top-[4.4vh] right-[5.2vh] cursor-pointer'>
+                            <BaseMobileHamburger
+                                className='open'
+                                onClick={handleMobileMenuToggle}
+                            />
+                        </div>
                         {headers.map((header) => (
                             <a
                                 key={header.label}
