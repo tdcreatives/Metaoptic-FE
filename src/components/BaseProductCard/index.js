@@ -70,12 +70,12 @@ const BaseProductCard = ({
                     </div>
 
                     {/* Title */}
-                    <h2 className='text-white text-[70px] futura-condensed-medium mt-[-12px]'>
+                    <h2 className='text-white text-[70px] futura-condensed-medium mt-[-12px] w-[1000px]'>
                         {product.title}
                     </h2>
 
                     {/* Description */}
-                    <p className='text-[#ffffffcc] text-[20px] mt-[-20px] w-[70%]'>
+                    <p className='text-[#ffffffcc] text-[20px] mt-[-20px] w-[700px] overflow-hidden'>
                         {product.description}
                     </p>
 
