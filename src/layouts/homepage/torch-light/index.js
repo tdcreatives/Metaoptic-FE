@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './index.scss';
 
+import { isMobile } from 'react-device-detect';
+
 const TorchlightText = () => {
     const containerRef = useRef();
 
@@ -36,9 +38,9 @@ const TorchlightText = () => {
             <div ref={containerRef} className='torchlight-container'>
                 <h2 className='text'>
                     “Pushing the <span>boundaries</span> of what is possible
-                    <br />
+                    {!isMobile && <br />}
                     in optics, <span>combining</span> portability,
-                    <br />
+                    {!isMobile && <br />}
                     precision, and performance”
                 </h2>
             </div>

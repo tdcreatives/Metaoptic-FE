@@ -4,6 +4,12 @@
     --spotlight-size: 100px;
 }
 
+@media (max-width: 768px) {
+    :root {
+        --spotlight-size: 80px;
+    }
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -36,4 +42,8 @@
 
     background-clip: text;
     -webkit-background-clip: text;
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+    }
 }
