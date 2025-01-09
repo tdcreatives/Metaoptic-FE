@@ -18,7 +18,7 @@ const RelatedProducts = ({ relatedProducts }) => {
             <h2 className='xl:text-[60px] text-[32px] text-start text-[#d34c39] uppercase futura-condensed-medium mb-8'>
                 Related Products
             </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
                 {relatedProducts.map((product) => (
                     <BaseProduct
                         key={product.slug}
