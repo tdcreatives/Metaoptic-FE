@@ -7,11 +7,11 @@ import Image from 'next/image';
 const AboutUsBanner = () => {
     return (
         <div className='mx-auto px-[5.2vw] xl:py-[72px]'>
-            <div className='text-[#d34c39] uppercase xl:text-[48px] text-[32px] futura-medium'>
+            <div className='text-[#d34c39] uppercase xl:text-[48px] text-[32px] futura-medium text-center'>
                 ABOUT METAOPTICS
             </div>
 
-            <div className='xl:text-[105px] text-[60px] futura-condensed-medium leading-tight mt-6 text-[#231f20]'>
+            <div className='xl:text-[105px] text-[60px] futura-condensed-medium leading-tight mt-6 text-[#231f20] text-center'>
                 REDEFINING WHAT’S POSSIBLE IN OPTICAL APPLICATIONS
             </div>
 
