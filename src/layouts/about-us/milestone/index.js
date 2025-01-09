@@ -1,16 +1,26 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Timeline } from '@/components/ui/timeline';
 
 import { isDesktop } from 'react-device-detect';
+
+const fadeInVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const MileStone = () => {
     const data = [
         {
             title: '2022',
             content: (
-                <div>
+                <motion.div
+                    variants={fadeInVariants}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
@@ -18,13 +28,17 @@ const MileStone = () => {
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
                         Incepted in June 2021 <br /> Launched Direct Laser Writer in 2022
                     </div>
-                </div>
+                </motion.div>
             ),
         },
         {
             title: '2023',
             content: (
-                <div>
+                <motion.div
+                    variants={fadeInVariants}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
@@ -35,13 +49,17 @@ const MileStone = () => {
                         {isDesktop ? <br /> : ' '}
                         with DUV immersion lithographic systems.
                     </div>
-                </div>
+                </motion.div>
             ),
         },
         {
             title: '2024',
             content: (
-                <div>
+                <motion.div
+                    variants={fadeInVariants}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
                         EARLY DEVELOPMENT
                     </div>
@@ -59,7 +77,7 @@ const MileStone = () => {
                         DLW machine farm and the DUV {isDesktop ? <br /> : ' '}
                         immersion lithographic line.
                     </div>
-                </div>
+                </motion.div>
             ),
         },
     ];

@@ -2,6 +2,11 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 
+const fadeInVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export const Timeline = ({ data }) => {
     const ref = useRef(null);
     const containerRef = useRef(null);
@@ -29,12 +34,18 @@ export const Timeline = ({ data }) => {
                     <div
                         key={index}
                         className='flex justify-start pt-10 md:pt-40 flex-col'>
-                        <div className='flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
-                            <div className='absolute xl:block hidden left-[40px] w-[32px] h-[2px] bg-[#fff] opacity-50'></div>
-                            <h3 className='md:pl-[100px] pl-[60px] font-bold text-[#d34c39] tracking-widest futura-condensed-medium xl:text-[100px] text-[40px]'>
-                                {item.title}
-                            </h3>
-                        </div>
+                        <motion.div
+                            variants={fadeInVariants}
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{ once: true, amount: 0.3 }}>
+                            <div className='flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
+                                <div className='absolute xl:block hidden left-[40px] w-[32px] h-[2px] bg-[#fff] opacity-50'></div>
+                                <h3 className='md:pl-[100px] pl-[60px] font-bold text-[#d34c39] tracking-widest futura-condensed-medium xl:text-[100px] text-[40px]'>
+                                    {item.title}
+                                </h3>
+                            </div>
+                        </motion.div>
 
                         <div className='relative pr-4 md:pl-[100px] pl-[60px] w-full'>
                             {item.content}{' '}
