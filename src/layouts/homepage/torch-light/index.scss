@@ -1,0 +1,39 @@
+:root {
+    --default-text-color: #000;
+    --highlight-text-color: #d44c39;
+    --spotlight-size: 100px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; // White background
+}
+
+.torchlight-container {
+    position: relative;
+    padding: 2rem;
+    --x: 50%;
+    --y: 50%;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: transparent; // Transparent for background-clip to work
+    background-image: radial-gradient(
+        circle var(--spotlight-size) at var(--x) var(--y),
+        #d44c39,
+        #d44c39,
+        #d44c39,
+        #d44c39,
+        #d44c39,
+        rgba(0, 0, 0, 0.8)
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+}
