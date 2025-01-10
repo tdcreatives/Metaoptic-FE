@@ -19,8 +19,8 @@ const BaseHamburger = ({ onShow = () => {}, onHide = () => {} }) => {
 
     return (
         <div id='nav-icon3' className={isOpen ? 'open' : ''} onClick={handleClick}>
-            <span></span>
-            <span></span>
+            {/* <span></span> */}
+            {/* <span></span> */}
             <span></span>
             <span></span>
         </div>

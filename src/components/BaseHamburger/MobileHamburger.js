@@ -13,8 +13,6 @@ const BaseMobileHamburger = ({ className = '', onClick = () => {} }) => {
         <div id='nav-icon3' className={className} onClick={handleClick}>
             <span></span>
             <span></span>
-            <span></span>
-            <span></span>
         </div>
     );
 };
