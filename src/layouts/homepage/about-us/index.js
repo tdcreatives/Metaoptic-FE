@@ -60,7 +60,7 @@ const AboutUs = () => {
     return (
         <section
             ref={sectionRef}
-            className='relative flex xl:flex-row flex-col xl:h-[140vh] h-auto snap-start xl:pt-16 pt-8'
+            className='relative flex xl:flex-row flex-col xl:mb-[200px] snap-start'
             id='about-us'>
             {/* Left Content */}
             <div className='flex flex-col'>
@@ -95,7 +95,7 @@ const AboutUs = () => {
             </div>
 
             {/* Right Section with Overlapping Images */}
-            <div className='xl:absolute relative right-0 xl:w-[58%] w-[95%] mx-auto h-full xl:mt-0 mt-10'>
+            <div className='xl:absolute relative right-0 xl:w-[58%] w-[95%] mx-auto h-fit xl:mt-0 mt-10'>
                 <div className='grid grid-cols-2 xl:gap-5 gap-3'>
                     <div className='flex flex-col xl:gap-5 gap-3'>
                         <Image

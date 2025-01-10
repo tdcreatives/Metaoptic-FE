@@ -11,7 +11,7 @@ const products = [
     {
         id: '01',
         title: 'IoT Metalens Color Camera',
-        category: "Metalens IoT Product",
+        category: 'Metalens IoT Product',
         description:
             'Leading edge camera to capture a color image using meta lens. 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.',
         image: 'landing-product-1.png',
@@ -21,7 +21,7 @@ const products = [
     {
         id: '02',
         title: 'Color Imaging Metalens',
-        category: "Camera",
+        category: 'Camera',
         description:
             'Leading edge mass producible meta lens using 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.',
         image: 'landing-product-2.png',
@@ -31,7 +31,7 @@ const products = [
     {
         id: '03',
         title: 'Ultra-Light Weight Pico Projector',
-        category: "Projector",
+        category: 'Projector',
         description:
             'Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.',
         image: 'landing-product-3.png',
@@ -41,7 +41,7 @@ const products = [
     {
         id: '04',
         title: 'Collimating Metalens For Pico Projector',
-        category: "Projector",
+        category: 'Projector',
         description:
             'Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).',
         image: 'landing-product-4.png',
@@ -51,7 +51,7 @@ const products = [
     {
         id: '05',
         title: '3D Biometrics Metalens Sensor',
-        category: "Sensor",
+        category: 'Sensor',
         description:
             'Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.',
         image: 'landing-product-5.png',
@@ -94,6 +94,7 @@ const Products = () => {
             <BaseButton
                 label='See all products'
                 classNameBtn='uppercase'
+                className='mb-0'
                 onClick={() => router.push('/products')}
             />
         </div>
