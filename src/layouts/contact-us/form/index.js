@@ -113,7 +113,12 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div className='xl:w-[60vw] mx-auto w-[100vw] xl:p-[60px] p-[48px] bg-[#F5F5F5] xl:rounded-[100px] rounded-[60px]'>
+        <div
+            className='xl:w-[60vw] mx-auto w-[100vw] xl:p-[60px] p-[48px] bg-[#F5F5F5] xl:rounded-[100px] rounded-[60px]'
+            style={{
+                borderBottomRightRadius: '0',
+                borderBottomLeftRadius: '0',
+            }}>
             <form onSubmit={handleSubmit} className='xl:space-y-[32px] space-y-4'>
                 <div className='flex xl:space-x-4 space-x-0 xl:flex-row flex-col xl:space-y-0 space-y-4'>
                     <div className='w-full'>
