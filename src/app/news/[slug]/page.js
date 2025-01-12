@@ -3,7 +3,6 @@ import data from '@/constants/news.json';
 import NewsDetailsClientSide from './NewsDetailsClientSide';
 
 export const generateStaticParams = async () => {
-    console.log('data', data);
     return data.news.map((item) => ({
         slug: item.slug,
     }));

@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const BaseNewsCard = ({ news }) => {
+const BaseNewsCard = ({ news, className = '' }) => {
     const router = useRouter();
 
     const handleClick = () => {
@@ -17,7 +17,7 @@ const BaseNewsCard = ({ news }) => {
     };
     return (
         <div
-            className='flex flex-col gap-5 cursor-pointer hover:transform hover:scale-105 transition-transform transition-duration-300'
+            className={`flex flex-col gap-5 cursor-pointer hover:transform hover:scale-105 transition-transform transition-duration-300 ${className}`}
             onClick={handleClick}>
             <Image
                 width={0}

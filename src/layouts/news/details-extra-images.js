@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const NewsDetailsExtraImages = ({ news = {} }) => {
+const NewsDetailsExtraImages = ({ news = {}, className = '' }) => {
     const [firstImage, secondImage, thirdImage] = news.details.extraImages;
 
     return (
-        <div className='pb-[100px]'>
+        <div className={className}>
             <div className='grid xl:grid-cols-3 grid-cols-1 gap-4'>
                 {/* Left large image */}
                 <div className='xl:col-span-2 col-span-1 h-[40vw] max-h-[600px] relative rounded-lg overflow-hidden shadow-lg'>
