@@ -8,7 +8,16 @@
             "date": "January 15, 2025",
             "image": "news-1.jpg",
             "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
-            "external": true
+            "external": true,
+            "details": {
+                "images": ["news/news-1.png", "news/news-1.png", "news/news-1.png"],
+                "content": "<div>The highlight of MetaOptics' showcase will be its pico projector, an ultra-lightweight device weighing just 80 grams and compactly designed at 45mm x 58mm x 30mm.</div><br/><div>The projector operates directly from a mobile phone or laptop battery via a USB-C connection, eliminating the need for a built-in power source.</div><br/><div>This portability is complemented by effortless usability, making it an ideal Christmas and post-holiday present for on-the-go professionals, students, and entertainment enthusiasts.</div><br/><div>The pico projector delivers clear visuals with a resolution of 720p at 60 FPS and a brightness of 34±3 lumens (measured at 400mm). It features silent, fanless operation, ensuring a seamless user experience, while its energy-efficient design consumes less than 5W during peak operation and under 4W during normal use.</div>",
+                "extraImages": [
+                    "news/details/details-1-1.png",
+                    "news/details/details-1-2.png",
+                    "news/details/details-1-3.png"
+                ]
+            }
         }
     ]
 }
