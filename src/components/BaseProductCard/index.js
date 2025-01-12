@@ -33,8 +33,8 @@ const BaseProductCard = ({
                     exit={{ opacity: 0, y: -50 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className='text-[200px] text-white futura-condensed-medium absolute top-[120px] left-[-20px] z-1 w-[300%]'>
-                    <div style={{ lineHeight: '1' }}>{firstHalf.toUpperCase()}</div>
-                    <div className='mt-[-60px]'>{secondHalf.toUpperCase()}</div>
+                    {/* <div style={{ lineHeight: '1' }}>{firstHalf.toUpperCase()}</div>
+                    <div className='mt-[-60px]'>{secondHalf.toUpperCase()}</div> */}
                 </motion.div>
             );
         }
