@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import BaseButton from '@/components/BaseButton';
+import BaseInput from '@/components/BaseInput';
 
 const ContactUsForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
+        fullName: '',
         email: '',
         phone: '',
         subject: '',
@@ -24,11 +26,11 @@ const ContactUsForm = () => {
     };
 
     const validateForm = () => {
-        const { firstName, lastName, email, subject, message, phone } = formData;
+        const { fullName, email, subject, message, phone } = formData;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneNumberRegex = /^\+?[0-9\s\-().]{10,15}$/;
 
-        if (!firstName || !lastName || !email || !subject || !message || !phone) {
+        if (!fullName || !email || !subject || !message || !phone) {
             setStatus({
                 message: 'Please complete all required fields.',
                 isSuccess: false,
@@ -70,6 +72,7 @@ const ContactUsForm = () => {
             replyto: process.env.NEXT_PUBLIC_REPLY_TO,
             first_name: formData.firstName,
             last_name: formData.lastName,
+            full_name: formData.fullName,
             redirect: process.env.NEXT_PUBLIC_REDIRECT_URL,
         };
 
@@ -89,8 +92,7 @@ const ContactUsForm = () => {
                     isSuccess: true,
                 });
                 setFormData({
-                    firstName: '',
-                    lastName: '',
+                    fullName: '',
                     email: '',
                     subject: '',
                     message: '',
@@ -113,102 +115,78 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div
-            className='xl:w-[60vw] mx-auto w-[100vw] xl:p-[60px] p-[48px] bg-[#F5F5F5] xl:rounded-[100px] rounded-[60px]'
-            style={{
-                borderBottomRightRadius: '0',
-                borderBottomLeftRadius: '0',
-            }}>
-            <form onSubmit={handleSubmit} className='xl:space-y-[32px] space-y-4'>
+        <div className='xl:w-[60%] w-[90%] mx-auto max-w-[1150px] xl:my-[72px] my-[48px]'>
+            <div className='futura-condensed-medium xl:text-[72px] text-[40px] uppercase text-center text-[#121212]'>
+                {' '}
+                Write a message
+            </div>
+            <form
+                onSubmit={handleSubmit}
+                className='xl:space-y-[32px] space-y-4 xl:mt-[48px] mt-[32px] xl'>
                 <div className='flex xl:space-x-4 space-x-0 xl:flex-row flex-col xl:space-y-0 space-y-4'>
                     <div className='w-full'>
-                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                            FIRST NAME
-                        </div>
-                        <input
+                        <BaseInput
                             type='text'
-                            name='firstName'
-                            value={formData.firstName}
+                            name='fullName'
+                            value={formData.fullName}
                             onChange={handleChange}
-                            placeholder='Enter you first name'
-                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                            placeholder='Full name'
                         />
                     </div>
 
-                    <div className='w-full'>
-                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                            LAST NAME
-                        </div>
-                        <input
+                    {/* <div className='w-full'>
+                        <BaseInput
                             type='text'
                             name='lastName'
                             value={formData.lastName}
                             onChange={handleChange}
-                            placeholder='Enter you last name'
-                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                            placeholder='Last name'
+                        />
+                    </div> */}
+
+                    <div className='w-full'>
+                        <BaseInput
+                            type='email'
+                            name='email'
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder='Email address'
                         />
                     </div>
                 </div>
 
                 <div className='flex xl:space-x-4 space-x-0 xl:flex-row flex-col xl:space-y-0 space-y-4'>
                     <div className='w-full'>
-                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                            Email
-                        </div>
-
-                        <input
-                            type='email'
-                            name='email'
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder='Enter your email'
-                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
-                        />
-                    </div>
-
-                    <div className='w-full'>
-                        <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                            Phone
-                        </div>
-
-                        <input
+                        <BaseInput
                             type='tel'
                             name='phone'
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder='Enter your phone'
-                            className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                            placeholder='Phone'
+                        />
+                    </div>
+
+                    <div className='w-full'>
+                        <BaseInput
+                            type='text'
+                            name='subject'
+                            value={formData.subject}
+                            onChange={handleChange}
+                            placeholder='Subject'
                         />
                     </div>
                 </div>
 
                 <div className='w-full'>
-                    <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                        Subject
-                    </div>
-
-                    <input
-                        type='text'
-                        name='subject'
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder='Enter your subject'
-                        className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
-                    />
-                </div>
-
-                <div className='w-full'>
-                    <div className='xl:text-[32px] text-[18px] futura-condensed-medium tracking-wide'>
-                        Message
-                    </div>
-
-                    <textarea
-                        name='message'
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows='5'
+                    <BaseInput
                         placeholder='Enter your message'
-                        className='futura-medium xl:text-[24px] text-[16px] text-[#121212] placeholder-[#A7A7A7] bg-[transparent] w-full rounded-sm border-b-[1px] border-[#A7A7A7] p-2 pl-0'
+                        name='message'
+                        isTextarea
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) =>
+                            setFormData({ ...formData, message: e.target.value })
+                        }
                     />
                 </div>
 
