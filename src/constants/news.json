@@ -1,0 +1,40 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "title": "MetaOptics coming to CES 2025 in Las Vegas",
+            "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+            "date": "January 15, 2025",
+            "image": "news-1.jpg",
+            "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
+            "external": true
+        },
+        {
+            "id": 2,
+            "title": "MetaOptics coming to CES 2025 in Las Vegas",
+            "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+            "date": "January 15, 2025",
+            "image": "news-1.jpg",
+            "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
+            "external": true
+        },
+        {
+            "id": 3,
+            "title": "MetaOptics coming to CES 2025 in Las Vegas",
+            "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+            "date": "January 15, 2025",
+            "image": "news-1.jpg",
+            "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
+            "external": true
+        },
+        {
+            "id": 4,
+            "title": "MetaOptics coming to CES 2025 in Las Vegas",
+            "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+            "date": "January 15, 2025",
+            "image": "news-1.jpg",
+            "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
+            "external": true
+        }
+    ]
+}
