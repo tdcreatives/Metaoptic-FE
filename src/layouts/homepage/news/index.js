@@ -2,6 +2,9 @@
 
 import React from 'react';
 import BaseNewsCard from '@/components/BaseNewsCard';
+import BaseButton from '@/components/BaseButton';
+
+import { useRouter } from 'next/navigation';
 
 const newsItems = [
     {
@@ -33,6 +36,8 @@ const newsItems = [
 ];
 
 const News = () => {
+    const router = useRouter();
+
     return (
         <div className='xl:py-[10vh] py-[48px] bg-[#ebebeb]'>
             <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
@@ -45,11 +50,14 @@ const News = () => {
                 ))}
             </div>
 
-            {/* <div className='flex xl:justify-center justify-center xl:mt-10 mt-6 xl:ml-10 ml-0'>
-                <button className='bg-[#d34c39] text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[4px] tracking-[2px] xl:text-[20px] text-[16px]'>
-                    VIEW ALL NEWS
-                </button>
-            </div> */}
+            <BaseButton
+                label='View all news'
+                classNameBtn='uppercase'
+                className='mb-0'
+                onClick={() => {
+                    router.push('/news');
+                }}
+            />
         </div>
     );
 };
