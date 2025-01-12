@@ -18,7 +18,7 @@ const NewsList = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-6 gap-5 w-full max-w-6xl mt-8 mb-[100px] xl:px-0 px-10'>
                 {filteredNews.map((news, index) => (
                     <div
-                        key={news.index}
+                        key={news.id}
                         className={`${index % 3 === 1 ? 'xl:mt-[100px]' : ''}`}>
                         <BaseNewsCard news={news} />
                     </div>
