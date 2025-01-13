@@ -20,7 +20,7 @@ const ProductDetailsBanner = ({ product }) => {
                     whiteSpace: 'nowrap',
                 }}></div>
 
-            <div className='xl:mt-[-60px] mt-0 relative z-100'>
+            <div className='xl:mt-[0] mt-0 relative z-100'>
                 <div>
                     <Image
                         width='0'
@@ -28,7 +28,7 @@ const ProductDetailsBanner = ({ product }) => {
                         sizes='100vw'
                         src={product?.image}
                         alt='Next'
-                        className='xl:w-[50vw] w-[90%] relative z-100 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300'
+                        className='xl:w-[50vw] w-[90%] relative z-100 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300 object-cover'
                     />
                 </div>
 
