@@ -20,7 +20,7 @@ const ProductDetailsBanner = ({ product }) => {
                     whiteSpace: 'nowrap',
                 }}></div>
 
-            <div className='xl:mt-[0] mt-0 relative z-100'>
+            <div className='xl:mt-[40px] mt-0 relative z-100'>
                 <div>
                     <Image
                         width='0'
@@ -32,7 +32,7 @@ const ProductDetailsBanner = ({ product }) => {
                     />
                 </div>
 
-                <div className='xl:text-[72px] text-[48px] text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] max-w-[90%] mx-auto xl:mt-[-80px] mt-3'>
+                <div className='xl:text-[72px] text-[48px] text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] max-w-[90%] mx-auto xl:mt-[-50px] mt-3'>
                     {product?.name}
                 </div>
 
