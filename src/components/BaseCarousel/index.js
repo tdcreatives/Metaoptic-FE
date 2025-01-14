@@ -21,7 +21,7 @@ const Carousel = ({ images, interval = 3000 }) => {
     };
 
     return (
-        <div className='relative w-full mt-10'>
+        <div className='relative xl:w-[70%] mt-10 max-w-[1200px] mx-auto w-full'>
             <div
                 className='relative rounded-lg shadow-lg overflow-hidden'
                 onMouseEnter={() => setIsPaused(true)}
@@ -52,13 +52,13 @@ const Carousel = ({ images, interval = 3000 }) => {
 
             {/* Dot navigation */}
             <div
-                className='absolute bottom-[-50px] left-1/2 -translate-x-1/2 flex gap-3 z-20'
+                className='absolute bottom-[-30px] left-1/2 -translate-x-1/2 flex gap-3 z-20'
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}>
                 {images.map((_, index) => (
                     <motion.button
                         key={index}
-                        className={`w-4 h-4 rounded-full ${
+                        className={`w-3 h-3 rounded-full ${
                             currentIndex === index ? 'bg-[#D44C39]' : 'bg-gray-300'
                         }`}
                         onClick={() => handleDotClick(index)}

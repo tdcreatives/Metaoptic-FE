@@ -115,14 +115,14 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div className='xl:w-[60%] w-[90%] mx-auto max-w-[1150px] xl:my-[72px] my-[48px]'>
-            <div className='futura-condensed-medium xl:text-[72px] text-[40px] uppercase text-center text-[#121212]'>
+        <div className='xl:w-[60%] w-[90%] mx-auto max-w-[1150px] xl:pb-8 pb-4'>
+            <div className='futura-condensed-medium xl:text-[48px] text-[32px] uppercase text-center text-[#121212]'>
                 {' '}
                 Write a message
             </div>
             <form
                 onSubmit={handleSubmit}
-                className='xl:space-y-[32px] space-y-4 xl:mt-[48px] mt-[32px] xl'>
+                className='xl:space-y-[32px] space-y-4 xl:mt-[32px] mt-[16px]'>
                 <div className='flex xl:space-x-4 space-x-0 xl:flex-row flex-col xl:space-y-0 space-y-4'>
                     <div className='w-full'>
                         <BaseInput

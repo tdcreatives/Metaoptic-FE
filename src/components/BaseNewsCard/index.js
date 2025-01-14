@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const BaseNewsCard = ({ news, className = '' }) => {
     const router = useRouter();
@@ -17,16 +18,24 @@ const BaseNewsCard = ({ news, className = '' }) => {
     };
     return (
         <div
-            className={`flex flex-col gap-5 cursor-pointer hover:transform hover:scale-105 transition-transform transition-duration-300 ${className}`}
+            className={`flex flex-col gap-5 cursor-pointer ${className}`}
             onClick={handleClick}>
-            <Image
-                width={0}
-                height={0}
-                sizes='100vw'
+            <motion.div
                 className='w-full cursor-pointer h-[250px] rounded-[20px]'
-                src={`/${news?.image}`}
-                alt='News'
-            />
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.05 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}>
+                <Image
+                    width={0}
+                    height={0}
+                    sizes='100vw'
+                    src={`/${news?.image}`}
+                    alt='News'
+                    className='w-full h-full object-cover rounded-[20px]'
+                />
+            </motion.div>
 
             <div className='flex flex-col gap-3'>
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>

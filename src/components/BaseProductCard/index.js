@@ -205,8 +205,14 @@ const BaseProductCard = ({
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
                     className='flex flex-col gap-2'>
                     <div
-                        className='futura-condensed-medium xl:text-[28px] text-[20px] rotate-[-90deg] text-[#808285] ml-[-20px] mb-[12px]'
-                        style={{ whiteSpace: 'pre', marginTop: '100%' }}>
+                        className='futura-condensed-medium xl:text-[28px] text-[20px] text-[#808285]'
+                        style={{
+                            whiteSpace: 'normal',
+                            wordWrap: 'break-word',
+                            writingMode: 'vertical-rl',
+                            transform: 'rotate(180deg)',
+                            marginLeft: '-2px',
+                        }}>
                         {product.title}
                     </div>
                     <Image

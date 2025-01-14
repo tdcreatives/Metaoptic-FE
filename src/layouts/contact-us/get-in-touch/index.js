@@ -2,14 +2,17 @@
 
 import React from 'react';
 
+import BaseTitle from '@/components/BaseTitle';
+
 const GetInTouch = () => {
     return (
-        <div className='xl:pt-[72px] pt-[32px] xl:my-[40px] my-[20px]'>
-            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
-                CONTACT US
-            </h2>
+        <div className='xl:my-6 my-3'>
+            <BaseTitle
+                title='GET IN TOUCH'
+                className='!text-center futura-condensed-medium'
+            />
 
-            <div className='text-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] xl:py-[64px] xl:w-[83%] mx-auto max-w-[1600px] w-[90%] xl:mt-0 mt-8 py-[32px] xl:px-0 px-4 '>
+            {/* <div className='text-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] xl:py-[64px] xl:w-[83%] mx-auto max-w-[1600px] w-[90%] xl:mt-0 mt-8 py-[32px] xl:px-0 px-4 '>
                 <h3 className='xl:text-[72px] text-[40px] futura-condensed-medium mb-5'>
                     GET IN TOUCH
                 </h3>
@@ -30,7 +33,7 @@ const GetInTouch = () => {
                         sales@metaoptics.com.sg
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
