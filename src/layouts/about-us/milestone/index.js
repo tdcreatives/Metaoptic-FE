@@ -21,11 +21,11 @@ const MileStone = () => {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
+                    <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
                         EARLY DEVELOPMENT
                     </div>
 
-                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                    <div className='text-[#A7A9AC] xl:text-[20px] mt-6 text-[16px]'>
                         Incepted in June 2021 <br /> Launched Direct Laser Writer in 2022
                     </div>
                 </motion.div>
@@ -39,10 +39,9 @@ const MileStone = () => {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
+                    <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
                         EARLY DEVELOPMENT
                     </div>
-
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
                         Developed color lens and delivered its {isDesktop ? <br /> : ' '}
                         1st 12 inches glass wafer of color camera{' '}
@@ -60,7 +59,7 @@ const MileStone = () => {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
-                    <div className='text-white tracking-[0.5rem] futura-condensed-medium xl:text-[48px] text-[28px]'>
+                    <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
                         EARLY DEVELOPMENT
                     </div>
 
@@ -85,11 +84,11 @@ const MileStone = () => {
         <div className='relative w-full bg-milestone bg-center bg-no-repeat bg-cover'>
             <div className='grid xl:grid-cols-2 grid-cols-1 gap-4 items-center w-[90%] mx-auto ml:py-0 py-10'>
                 <div className='flex flex-col'>
-                    <div className='uppercase xl:text-[40px] text-[24px] tracking-[0.4rem] font-normal text-[#d34c39]'>
+                    <div className='uppercase xl:text-[40px] text-[24px] tracking-[0.3rem] font-normal text-[#d34c39]'>
                         MILESTONES OF
                     </div>
 
-                    <div className='uppercase xl:text-[80px] text-[48px] tracking-[1rem] futura-condensed-medium text-white'>
+                    <div className='uppercase xl:text-[72px] text-[48px] tracking-[0.5rem] futura-condensed-medium text-white'>
                         METAOPTICS
                     </div>
                 </div>

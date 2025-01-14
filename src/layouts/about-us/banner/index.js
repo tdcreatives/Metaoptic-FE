@@ -1,31 +1,42 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import BaseTitle from '@/components/BaseTitle';
 
 import Image from 'next/image';
 
 const AboutUsBanner = () => {
     return (
-        <div className='mx-auto px-[5.2vw] xl:py-[72px]'>
-            <div className='text-[#d34c39] uppercase xl:text-[48px] text-[32px] futura-medium text-center'>
-                ABOUT METAOPTICS
-            </div>
+        <div className='mx-auto xl:px-[72px] px-[48px] xl:py-[48px] py-[24px]'>
+            <BaseTitle
+                title='About Metaoptics'
+                className='!text-center futura-condensed-medium'
+            />
 
-            <div className='xl:text-[105px] text-[60px] futura-condensed-medium leading-tight mt-6 text-[#231f20] text-center'>
+            <div className='uppercase xl:text-[40px] text-[24px] tracking-[0.1rem] font-normal text-[#231f20] text-center'>
                 REDEFINING WHAT’S POSSIBLE IN OPTICAL APPLICATIONS
             </div>
 
-            <div className='xl:w-[80vw] w-[90vw] xl:mt-[108px] mt-[84px] mx-auto  max-w-[1660px]'>
-                <Image
-                    src='/about-us/banner.png'
-                    alt='Banner'
-                    width='0'
-                    height='0'
-                    blurDataURL='/about-us/banner.png'
-                    className='w-full'
-                />
+            <div className='xl:w-[80vw] w-[90vw] xl:mt-[60px] mt-[40px] mx-auto max-w-[1660px]'>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    whileHover={{
+                        opacity: 0.9,
+                        transition: { duration: 0.5, ease: 'easeInOut' },
+                    }}
+                    transition={{ duration: 0.5, delay: 0.2 }}>
+                    <Image
+                        src='/about-us/banner.png'
+                        alt='Banner'
+                        width='0'
+                        height='0'
+                        className='w-[70%] mx-auto max-w-[900px] cursor-pointer'
+                    />
+                </motion.div>
 
-                <div className='xl:w-[50%] w-full ml-auto flex flex-col gap-5 xl:text-[24px] text-[16px] my-10'>
+                <div className='xl:w-[50%] w-full ml-auto flex flex-col gap-5 xl:text-[20px] text-[16px] xl:my-8 my-4'>
                     <div>
                         We strive to become a global leader in metalens innovation,
                         combining advanced design expertise with scalable mass production

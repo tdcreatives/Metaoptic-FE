@@ -41,7 +41,7 @@ export const Timeline = ({ data }) => {
                             viewport={{ once: true, amount: 0.3 }}>
                             <div className='flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
                                 <div className='absolute xl:block hidden left-[40px] w-[32px] h-[2px] bg-[#fff] opacity-50'></div>
-                                <h3 className='md:pl-[100px] pl-[60px] font-bold text-[#d34c39] tracking-widest futura-condensed-medium xl:text-[100px] text-[40px]'>
+                                <h3 className='md:pl-[100px] pl-[60px] font-bold text-[#d34c39] tracking-widest futura-condensed-medium xl:text-[84px] text-[48px]'>
                                     {item.title}
                                 </h3>
                             </div>
