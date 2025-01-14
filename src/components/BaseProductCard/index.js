@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import './index.scss';
 
@@ -46,6 +46,7 @@ const BaseProductCard = ({
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}>
                     <div className='bg-transparent text-white px-4 py-1 rounded-full font-semibold mb-2 mt-[200px] xl:text-[16px] text-[16px] w-fit border-[2px] border-white'>
                         {product.category}
@@ -58,14 +59,14 @@ const BaseProductCard = ({
                     </p>
                     <div className='absolute bottom-5 right-2 w-[140px]'>
                         <motion.button
-                            initial={{ x: 200, opacity: 0 }} // Start 100px to the right and invisible
-                            animate={{ x: 0, opacity: 1 }} // Slide to its original position and become fully visible
-                            exit={{ x: 200, opacity: 0 }} // Slide out to the right when it disappears
+                            initial={{ x: 200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 200, opacity: 0 }}
                             transition={{
                                 duration: 0.3,
                                 ease: [0.37, 0, 0.63, 1],
                                 delay: 0.3,
-                            }} // Smooth transition timing
+                            }}
                             whileHover={{ scale: 1.05 }}
                             className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
                             FIND OUT MORE
@@ -77,30 +78,33 @@ const BaseProductCard = ({
     };
 
     const renderImageWhenHovering = () => {
-        if (isHovered) {
-            return (
-                <motion.div
-                    className='absolute inset-0 z-10 flex justify-center items-center top-[-150px]'
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}>
-                    <Image
-                        src={`/${product?.image || 'fallback-image.svg'}`} // Fallback if the image is missing
-                        alt='Product'
-                        width='0'
-                        height={0} // Fixed height
-                        className='rounded-lg h-[300px] w-auto'
-                        sizes='100vw'
-                        style={{
-                            objectFit: 'contain', // Ensures the image scales without cropping
-                            objectPosition: 'center', // Center horizontally and vertically
-                            maxWidth: '100%', // Prevent overflow
-                            maxHeight: '100%',
-                        }}
-                    />
-                </motion.div>
-            );
-        }
+        return (
+            <AnimatePresence>
+                {isHovered && (
+                    <motion.div
+                        className='absolute inset-0 z-10 flex justify-center items-center top-[-150px]'
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}>
+                        <Image
+                            src={`/${product?.image || 'fallback-image.svg'}`}
+                            alt='Product'
+                            width='0'
+                            height={0}
+                            className='rounded-lg h-[300px] w-auto'
+                            sizes='100vw'
+                            style={{
+                                objectFit: 'contain',
+                                objectPosition: 'center',
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                            }}
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        );
     };
 
     return (
@@ -130,15 +134,15 @@ const BaseProductCard = ({
                     <Image
                         width={0}
                         height={0}
-                        sizes='(max-width: 768px) 100vw, 50vw' // Adjusted for responsive sizes
-                        src={`/${product?.image || 'fallback-image.svg'}`} // Fallback if `product?.image` is undefined
+                        sizes='(max-width: 768px) 100vw, 50vw'
+                        src={`/${product?.image || 'fallback-image.svg'}`}
                         alt='Product'
                         style={{
                             width: isHovered ? 'fit-content' : '90%',
                             marginLeft: 'auto',
                             height: isHovered ? '300px' : '200px',
                             objectFit: isHovered ? 'contain' : 'cover',
-                            objectPosition: product?.objectPosition || 'center', // Default to 'center' if undefined
+                            objectPosition: product?.objectPosition || 'center',
                             marginRight: isHovered ? 'auto' : '0',
                         }}
                     />
@@ -156,7 +160,7 @@ const BaseProductCard = ({
                     transition={{
                         duration: 0.5,
                         ease: 'easeInOut',
-                        delay: isHovered ? 0 : 0.5, // Add delay for unhover to let the text fade out before resizing
+                        delay: isHovered ? 0 : 0.5,
                     }}
                     layout>
                     <motion.div
@@ -165,11 +169,10 @@ const BaseProductCard = ({
                         }`}
                         layout
                         style={{
-                            whiteSpace: 'normal', // Allow text to wrap
-                            wordWrap: 'break-word', // Prevent overflow for long words
+                            whiteSpace: 'normal',
+                            wordWrap: 'break-word',
                             lineHeight: '1.4',
-
-                            transition: 'opacity 0.3s ease-in-out', // Smooth fade-out for the text
+                            transition: 'opacity 0.3s ease-in-out',
                         }}>
                         {product.title}
                     </motion.div>
@@ -182,7 +185,7 @@ const BaseProductCard = ({
                         transition={{
                             duration: 0.3,
                             ease: 'easeInOut',
-                            delay: 0.1, // Add slight delay for smoother unhover animation
+                            delay: 0.1,
                         }}>
                         <Image
                             width='0'
