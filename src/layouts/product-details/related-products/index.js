@@ -3,6 +3,7 @@
 import React from 'react';
 import BaseButton from '@/components/BaseButton';
 import BaseProduct from '@/components/BaseProduct';
+import BaseTitle from '@/components/BaseTitle';
 
 import { useRouter } from 'next/navigation';
 
@@ -14,11 +15,13 @@ const RelatedProducts = ({ relatedProducts }) => {
     }
 
     return (
-        <div className='mt-12 w-[80%] mx-auto mb-[80px]'>
-            <h2 className='xl:text-[72px] text-[32px] text-[#d34c39] uppercase futura-condensed-medium mb-8 text-center'>
-                Related Products
-            </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
+        <div className='xl:mt-8 mt-4 w-[80%] mx-auto mb-[40px]'>
+            <BaseTitle
+                title='Related Products'
+                className='!text-center futura-condensed-medium'
+            />
+
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:mt-8 mt-4'>
                 {relatedProducts.map((product) => (
                     <BaseProduct
                         key={product.slug}

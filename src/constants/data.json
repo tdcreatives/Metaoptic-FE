@@ -113,7 +113,7 @@
         },
         {
             "name": "IoT Metalens Color Camera",
-            "nameDom": "IoT <br /> <div class='name-dom-sensor'>Metalens Color Camera</div>",
+            "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
             "slug": "iot-metalens-color-camera",
             "image": "/products/product-3.png",
             "category": "Camera",

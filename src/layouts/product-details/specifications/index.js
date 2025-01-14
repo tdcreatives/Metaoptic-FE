@@ -32,7 +32,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                         width='0'
                         height='0'
                         sizes='100vw'
-                        className='xl:w-[48px] w-[32px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                        className='xl:w-[40px] w-[32px] hover:scale-105 transition-transform duration-300 cursor-pointer'
                     />
                 );
 
@@ -44,7 +44,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                         width='0'
                         height='0'
                         sizes='100vw'
-                        className='xl:w-[64px] w-[48px] xl:h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                        className='xl:w-[56px] w-[48px] xl:h-[40px] hover:scale-105 transition-transform duration-300 cursor-pointer'
                     />
                 );
 
@@ -56,7 +56,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                         width='0'
                         height='0'
                         sizes='100vw'
-                        className='xl:w-[48px] w-[32px] xl:h-[48px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                        className='xl:w-[40px] w-[32px] xl:h-[40px] hover:scale-105 transition-transform duration-300 cursor-pointer'
                     />
                 );
 
@@ -66,12 +66,13 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
     }, []);
 
     return (
-        <div className='w-full bg-[#d34c39] py-16 px-8 rounded-lg text-white'>
+        <div className='w-full bg-[#d34c39] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-white'>
             {/* Specifications Title Row with Icon */}
-            <div className='flex justify-between items-center mb-5'>
-                <h2 className='xl:text-[60px] text-[32px] uppercase futura-condensed-medium tracking-wide'>
+            <div className='flex justify-between items-center mb-0'>
+                <div className='xl:text-[48px] text-[32px] uppercase relative z-30 futura-condensed-medium xl:mt-0 mt-3 text-start'>
                     Specifications
-                </h2>
+                </div>
+
                 <div
                     className={`transition-transform duration-300 ${
                         isExpanded ? 'rotate-180' : ''
@@ -80,9 +81,9 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                     <Image
                         src='/product-details/down.png'
                         alt='Expand/Collapse All'
-                        width={48}
-                        height={48}
-                        className='cursor-pointer'
+                        width={0}
+                        height={0}
+                        className='cursor-pointer xl:w-[40px] w-[32px] xl:h-[40px] h-[32px]'
                     />
                 </div>
             </div>
@@ -96,7 +97,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
 
                             {section !== 'optionalSpecifications' &&
                                 section !== 'empty' && (
-                                    <h3 className='text-[24px] font-semibold text-center uppercase mt-5 futura-medium'>
+                                    <h3 className='xl:text-[20px] text-[16px] font-semibold text-center uppercase mt-5 futura-medium'>
                                         {section.replace(/([A-Z])/g, ' $1')}
                                     </h3>
                                 )}
@@ -109,7 +110,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                                     ? 'max-h-[500px] opacity-100'
                                     : 'max-h-0 opacity-0'
                             }`}>
-                            <ul className='mt-4 space-y-2 text-center text-white/90'>
+                            <ul className='mt-0 space-y-2 text-center text-white/90'>
                                 {Object.entries(specs).map(([key, value]) => (
                                     <li key={key} className='capitalize'>
                                         <strong>
