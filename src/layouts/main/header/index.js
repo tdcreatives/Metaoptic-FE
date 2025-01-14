@@ -117,7 +117,7 @@ const Header = ({ background = '#fff' }) => {
                         {headers.map((header) => (
                             <a
                                 key={header.label}
-                                className={`relative text-black hover:text-[#d44c39] cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                                className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                                     pathName === header.path
                                         ? 'after:!w-2 !text-[#d44c39]'
                                         : ''
