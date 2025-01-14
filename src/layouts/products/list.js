@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import BaseProduct from '@/components/BaseProduct';
+import BaseTitle from '@/components/BaseTitle';
 import { gsap } from 'gsap';
 import data from '@/constants/data.json';
 
@@ -39,9 +40,11 @@ const ProductList = () => {
     return (
         <div className='flex flex-col items-center gap-8'>
             {/* Title */}
-            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium mb-[-60px]'>
-                Our Products
-            </h2>
+
+            <BaseTitle
+                title='Our Products'
+                className='futura-condensed-medium xl:ml-8 ml-0 !text-center'
+            />
 
             {/* Tabs */}
             {/* <div
