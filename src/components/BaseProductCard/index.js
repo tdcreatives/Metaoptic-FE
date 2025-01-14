@@ -47,16 +47,16 @@ const BaseProductCard = ({
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}>
-                    <div className='bg-transparent text-white px-4 py-1 text-[14px] rounded-full font-semibold mb-2 mt-[340px] text-[24px] w-fit border-[2px] border-white'>
+                    <div className='bg-transparent text-white px-4 py-1 rounded-full font-semibold mb-2 mt-[200px] xl:text-[16px] text-[16px] w-fit border-[2px] border-white'>
                         {product.category}
                     </div>
-                    <h2 className='text-white text-[70px] futura-condensed-medium mt-[-12px] w-[1000px]'>
+                    <h2 className='text-white xl:text-[48px] text-[32px] futura-condensed-medium w-[1000px]'>
                         {product.title}
                     </h2>
-                    <p className='text-[#ffffffcc] text-[20px] mt-[-10px] w-[700px] overflow-hidden'>
+                    <p className='text-[#ffffffcc] xl:text-[18px] w-[700px] overflow-hidden'>
                         {product.description}
                     </p>
-                    <div className='absolute bottom-5 right-5 w-[190px]'>
+                    <div className='absolute bottom-5 right-2 w-[140px]'>
                         <motion.button
                             initial={{ x: 200, opacity: 0 }} // Start 100px to the right and invisible
                             animate={{ x: 0, opacity: 1 }} // Slide to its original position and become fully visible
@@ -67,7 +67,7 @@ const BaseProductCard = ({
                                 delay: 0.3,
                             }} // Smooth transition timing
                             whileHover={{ scale: 1.05 }}
-                            className='bg-black text-white px-6 py-3 rounded-full hover:bg-[#d44c39] text-[26px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
+                            className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
                             FIND OUT MORE
                         </motion.button>
                     </div>
@@ -88,8 +88,8 @@ const BaseProductCard = ({
                         src={`/${product?.image || 'fallback-image.svg'}`} // Fallback if the image is missing
                         alt='Product'
                         width='0'
-                        height={400} // Fixed height
-                        className='rounded-lg h-[400px] w-auto'
+                        height={0} // Fixed height
+                        className='rounded-lg h-[300px] w-auto'
                         sizes='100vw'
                         style={{
                             objectFit: 'contain', // Ensures the image scales without cropping
@@ -105,7 +105,7 @@ const BaseProductCard = ({
 
     return (
         <motion.div
-            className={`relative px-4 py-[32px] xl:w-full w-[90%] mx-auto product-card ${
+            className={`relative px-4 xl:py-3 py-2 xl:w-full w-[90%] mx-auto product-card ${
                 isHovered ? 'product-card--hovered' : ''
             } ${isAnyHovered && !isHovered ? 'product-card--shrink' : ''}`}
             onClick={() => router.push(`/product/${product.slug}`)}
@@ -113,7 +113,7 @@ const BaseProductCard = ({
             onMouseLeave={onMouseLeave}
             layout>
             <motion.div
-                className={`futura-condensed-medium text-[90px] product-card__id ${
+                className={`futura-condensed-medium text-[48px] product-card__id ${
                     isHovered ? 'text-white' : ''
                 }`}
                 layout>
@@ -126,17 +126,17 @@ const BaseProductCard = ({
             {isAnyHovered || isHovered ? (
                 <></>
             ) : (
-                <div className={`${isHovered ? 'mt-0' : 'mt-10'} z-10 relative flex`}>
+                <div className={`${isHovered ? 'mt-0' : 'mt-5'} z-10 relative flex`}>
                     <Image
-                        width={600} // Set explicit width
-                        height={400} // Set explicit height
+                        width={0}
+                        height={0}
                         sizes='(max-width: 768px) 100vw, 50vw' // Adjusted for responsive sizes
                         src={`/${product?.image || 'fallback-image.svg'}`} // Fallback if `product?.image` is undefined
                         alt='Product'
                         style={{
                             width: isHovered ? 'fit-content' : '90%',
                             marginLeft: 'auto',
-                            height: isHovered ? '400px' : '300px',
+                            height: isHovered ? '300px' : '200px',
                             objectFit: isHovered ? 'contain' : 'cover',
                             objectPosition: product?.objectPosition || 'center', // Default to 'center' if undefined
                             marginRight: isHovered ? 'auto' : '0',
@@ -149,7 +149,7 @@ const BaseProductCard = ({
 
             {!isAnyHovered && (
                 <motion.div
-                    className='mt-16 w-full max-w-[300px] mx-auto text-center'
+                    className='mt-8 w-full max-w-[300px] mx-auto text-start'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -160,7 +160,7 @@ const BaseProductCard = ({
                     }}
                     layout>
                     <motion.div
-                        className={`futura-condensed-medium text-[32px] product-card__title ${
+                        className={`futura-condensed-medium xl:text-[24px] text-[18px] product-card__title ${
                             isHovered ? 'text-white' : ''
                         }`}
                         layout
@@ -168,14 +168,14 @@ const BaseProductCard = ({
                             whiteSpace: 'normal', // Allow text to wrap
                             wordWrap: 'break-word', // Prevent overflow for long words
                             lineHeight: '1.4',
-                            minHeight: '80px', // Keep consistent height for the text area
+
                             transition: 'opacity 0.3s ease-in-out', // Smooth fade-out for the text
                         }}>
                         {product.title}
                     </motion.div>
 
                     <motion.div
-                        className='mt-4 ml-3 flex justify-start'
+                        className='mt-4 flex justify-start'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -185,11 +185,11 @@ const BaseProductCard = ({
                             delay: 0.1, // Add slight delay for smoother unhover animation
                         }}>
                         <Image
-                            width='50'
-                            height='50'
+                            width='0'
+                            height='0'
                             src='/next-orange.svg'
                             alt='Next'
-                            className='w-[50px]'
+                            className='w-[40px]'
                         />
                     </motion.div>
                 </motion.div>
@@ -199,18 +199,19 @@ const BaseProductCard = ({
                 <motion.div
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}>
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    className='flex flex-col gap-2'>
                     <div
-                        className='futura-condensed-medium text-[40px] rotate-[-90deg] text-[#808285]'
+                        className='futura-condensed-medium xl:text-[28px] text-[20px] rotate-[-90deg] text-[#808285] ml-[-20px] mb-[12px]'
                         style={{ whiteSpace: 'pre', marginTop: '100%' }}>
                         {product.title}
                     </div>
                     <Image
-                        width='50'
-                        height='50'
+                        width='0'
+                        height='0'
                         src='/next-orange.svg'
                         alt='Next'
-                        className='w-[50px]'
+                        className='w-[36px]'
                     />
                 </motion.div>
             )}

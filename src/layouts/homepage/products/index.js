@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import BaseProductCard from '@/components/BaseProductCard';
+import BaseTitle from '@/components/BaseTitle';
 
 import { useRouter } from 'next/navigation';
 
@@ -73,12 +74,13 @@ const Products = () => {
     };
 
     return (
-        <div className='xl:pt-[10vh] pt-[100px]'>
-            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
-                OUR PRODUCTS
-            </h2>
+        <div className='xl:pt-[120px] pt-[100px]'>
+            <BaseTitle
+                title='OUR PRODUCTS'
+                className='futura-condensed-medium xl:ml-8 ml-0 !text-center'
+            />
 
-            <div className='flex xl:flex-row flex-col mt-16'>
+            <div className='flex xl:flex-row flex-col xl:mt-8 mt-4'>
                 {products.map((product, index) => (
                     <BaseProductCard
                         key={product.id}
