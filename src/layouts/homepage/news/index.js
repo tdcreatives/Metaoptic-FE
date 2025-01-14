@@ -3,6 +3,7 @@
 import React from 'react';
 import BaseNewsCard from '@/components/BaseNewsCard';
 import BaseButton from '@/components/BaseButton';
+import BaseTitle from '@/components/BaseTitle';
 
 import { useRouter } from 'next/navigation';
 
@@ -12,12 +13,13 @@ const News = () => {
     const router = useRouter();
 
     return (
-        <div className='xl:py-[10vh] py-[48px] bg-[#ebebeb]'>
-            <h2 className='xl:text-[150px] text-[64px] text-[#d34c39] uppercase futura-condensed-medium text-center'>
-                NEWS & STORIES
-            </h2>
+        <div className='xl:py-[24px] py-[16px] bg-[#ebebeb]'>
+            <BaseTitle
+                title='News & Stories'
+                className='futura-condensed-medium !text-center'
+            />
 
-            <div className='xl:p-16 p-8 grid xl:grid-cols-4 grid-cols-1 gap-4'>
+            <div className='xl:px-16 xl:py-8 px-8 py-4 grid xl:grid-cols-4 grid-cols-1 gap-4'>
                 {data.news.map((news, index) => (
                     <BaseNewsCard key={index} news={news} />
                 ))}

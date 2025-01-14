@@ -31,7 +31,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
             <div className='flex flex-col gap-3'>
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>
 
-                <div className='text-[32px] futura-condensed-medium'>
+                <div className='xl:text-[28px] text-[20px] futura-condensed-medium'>
                     <a href={`${news.path}`} target={news.external ? '_blank' : '_self'}>
                         {news.title}
                     </a>

@@ -1,7 +1,7 @@
 :root {
     --default-text-color: #000;
     --highlight-text-color: #d44c39;
-    --spotlight-size: 100px;
+    --spotlight-size: 50px;
 }
 
 @media (max-width: 768px) {
@@ -25,7 +25,8 @@
 }
 
 .text {
-    font-size: 2rem;
+    cursor: pointer;
+    font-size: 28px;
     font-weight: 700;
     line-height: 1.5;
     text-align: center;
