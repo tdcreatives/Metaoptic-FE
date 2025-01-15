@@ -32,7 +32,7 @@ const MobileProductCard = ({ product }) => {
                 alt='Product'
                 width='0'
                 height={0}
-                className={`rounded-lg h-[200px] right-[-10%] w-auto object-contain absolute top-1/2 -translate-y-1/2 ${
+                className={`rounded-lg h-[200px] left-[60%] w-auto object-contain absolute top-1/2 -translate-y-1/2 ${
                     product?.objectPosition
                         ? `object-${product.objectPosition}`
                         : 'object-center'
