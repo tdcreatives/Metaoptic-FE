@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import BaseProductCard from '@/components/BaseProductCard';
+import MobileProductCard from '@/components/BaseProductCard/MobileProductCard';
 import BaseTitle from '@/components/BaseTitle';
 
 import { useRouter } from 'next/navigation';
 
 import BaseButton from '@/components/BaseButton';
+import { isMobile } from 'react-device-detect';
 
 const products = [
     {
@@ -80,17 +82,23 @@ const Products = () => {
                 className='futura-condensed-medium xl:ml-8 ml-0 !text-center'
             />
 
-            <div className='flex xl:flex-row flex-col xl:mt-8 mt-4'>
-                {products.map((product, index) => (
-                    <BaseProductCard
-                        key={product.id}
-                        product={product}
-                        isHovered={hoveredIndex === index}
-                        isAnyHovered={hoveredIndex !== null}
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}
-                    />
-                ))}
+            <div className='flex xl:flex-row flex-col xl:mt-8 mt-4 xl:gap-0 gap-3'>
+                {products.map((product, index) => {
+                    if (isMobile) {
+                        return <MobileProductCard product={product} key={product.id} />;
+                    }
+
+                    return (
+                        <BaseProductCard
+                            key={product.id}
+                            product={product}
+                            isHovered={hoveredIndex === index}
+                            isAnyHovered={hoveredIndex !== null}
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={handleMouseLeave}
+                        />
+                    );
+                })}
             </div>
 
             <BaseButton

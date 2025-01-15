@@ -67,3 +67,10 @@
     transform: rotate(-45deg);
     top: 8px;
 }
+
+@media (max-width: 768px) {
+    #nav-icon3 {
+        width: 24px;
+        height: 20px;
+    }
+}

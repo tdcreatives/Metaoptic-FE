@@ -34,7 +34,7 @@ const TorchlightText = () => {
     }, []);
 
     return (
-        <div className='wrapper xl:h-[30vh] h-[40vh] flex items-center justify-center'>
+        <div className='wrapper xl:h-[30vh] h-fit flex items-center justify-center'>
             <div ref={containerRef} className='torchlight-container'>
                 <h2 className='text'>
                     “Pushing the <span>boundaries</span> of what is possible

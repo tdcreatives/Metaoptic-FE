@@ -21,7 +21,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
             className={`flex flex-col gap-5 cursor-pointer ${className}`}
             onClick={handleClick}>
             <motion.div
-                className='w-full cursor-pointer h-[250px] rounded-[20px]'
+                className='w-full cursor-pointer xl:h-[250px] h-[200px] rounded-[20px]'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 whileHover={{ scale: 1.05 }}
@@ -37,17 +37,17 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 />
             </motion.div>
 
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-3 xl:text-start text-center'>
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>
 
-                <div className='xl:text-[28px] text-[20px] futura-condensed-medium'>
+                <div className='xl:text-[28px] text-[24px] futura-condensed-medium xl:text-start text-center'>
                     <a href={`${news.path}`} target={news.external ? '_blank' : '_self'}>
                         {news.title}
                     </a>
                 </div>
             </div>
 
-            <div>{news.desc}</div>
+            <div className='xl:text-start text-center'>{news.desc}</div>
         </div>
     );
 };

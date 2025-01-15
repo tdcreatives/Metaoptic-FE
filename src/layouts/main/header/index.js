@@ -93,7 +93,7 @@ const Header = ({ background = '#fff' }) => {
 
     return (
         <div
-            className='font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[48px] py-[32px]'
+            className='font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px]'
             style={{
                 background,
             }}>
@@ -112,7 +112,7 @@ const Header = ({ background = '#fff' }) => {
                 <div className='flex justify-between items-center space-x-4 overflow-hidden'>
                     {/* Navigation Bar */}
                     <nav
-                        className='hidden xl:flex space-x-8 text-[20px] uppercase'
+                        className='hidden xl:flex space-x-8 text-[16px] uppercase'
                         ref={menuItemRef}>
                         {headers.map((header) => (
                             <a
@@ -142,7 +142,7 @@ const Header = ({ background = '#fff' }) => {
                     <nav
                         className='fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-50'
                         ref={menuRef}>
-                        <div className='absolute top-[4.4vh] right-[5.2vh] cursor-pointer'>
+                        <div className='absolute top-[24px] right-[24px] cursor-pointer'>
                             <BaseMobileHamburger
                                 className='open'
                                 onClick={handleMobileMenuToggle}
