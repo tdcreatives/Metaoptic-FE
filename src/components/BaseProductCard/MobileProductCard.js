@@ -32,16 +32,12 @@ const MobileProductCard = ({ product }) => {
                 alt='Product'
                 width='0'
                 height={0}
-                className='rounded-lg h-[200px] w-auto'
+                className={`rounded-lg h-[200px] right-[-10%] w-auto object-contain absolute top-1/2 -translate-y-1/2 ${
+                    product?.objectPosition
+                        ? `object-${product.objectPosition}`
+                        : 'object-center'
+                }`}
                 sizes='100vw'
-                style={{
-                    objectFit: 'contain',
-                    objectPosition: product?.objectPosition || 'center',
-                    position: 'absolute',
-                    right: '-20px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                }}
             />
         </div>
     );
