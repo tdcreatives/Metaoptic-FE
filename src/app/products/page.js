@@ -1,17 +1,16 @@
 import React from 'react';
 
-import Header from '@/layouts/main/header';
-import ProductList from '@/layouts/products/list';
-import Footer from '@/layouts/main/footer';
+import metadataJson from '@/constants/metadata.json';
 
-const Product = () => {
-    return (
-        <>
-            <Header />
-            <ProductList />
-            <Footer />
-        </>
-    );
+import ProductsClientSide from './ProductsClientSide';
+
+export const metadata = {
+    title: metadataJson.products.title,
+    description: metadataJson.products.description,
 };
 
-export default Product;
+const Products = () => {
+    return <ProductsClientSide />;
+};
+
+export default Products;

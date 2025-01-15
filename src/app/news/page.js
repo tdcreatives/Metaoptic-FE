@@ -1,17 +1,16 @@
 import React from 'react';
 
-import Header from '@/layouts/main/header';
-import NewsList from '@/layouts/news/list';
-import Footer from '@/layouts/main/footer';
+import metadataJson from '@/constants/metadata.json';
+
+import NewsClientSide from './NewsClientSide';
+
+export const metadata = {
+    title: metadataJson.news.title,
+    description: metadataJson.news.description,
+};
 
 const News = () => {
-    return (
-        <>
-            <Header />
-            <NewsList />
-            <Footer />
-        </>
-    );
+    return <NewsClientSide />;
 };
 
 export default News;

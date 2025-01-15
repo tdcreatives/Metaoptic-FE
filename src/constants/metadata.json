@@ -1,0 +1,23 @@
+{
+    "aboutUs": {
+        "title": "About Us | Metaoptics Technologies",
+        "description": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore."
+    },
+    "products": {
+        "title": "Products | Metaoptics Technologies",
+        "description": "Explore our range of metalens products, designed for precision and performance."
+    },
+    "contactUs": {
+        "title": "Contact Us | Metaoptics Technologies",
+        "description": "Get in touch with Metaoptics Technologies for any inquiries or support."
+    },
+    "news": {
+        "title": "News | Metaoptics Technologies",
+        "description": "Stay updated with the latest news and developments from Metaoptics Technologies."
+    },
+    "homepage": {
+        "title": "Metaoptics Technologies | Leading Metalens Manufacturer Singapore",
+        "description": "Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech",
+        "keywords": "Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer"
+    }
+}

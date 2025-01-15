@@ -1,24 +1,15 @@
-'use client';
-
 import React from 'react';
+import metadataJson from '@/constants/metadata.json';
 
-import Header from '@/layouts/main/header';
-import Footer from '@/layouts/main/footer';
+import AboutUsClientSide from './AboutUsClientSide';
 
-import AboutUsBanner from '@/layouts/about-us/banner';
-import Milestone from '@/layouts/about-us/milestone';
-import FindMore from '@/layouts/about-us/find-more';
+export const metadata = {
+    title: metadataJson.aboutUs.title,
+    description: metadataJson.aboutUs.description,
+};
 
 const AboutUs = () => {
-    return (
-        <>
-            <Header />
-            <AboutUsBanner />
-            <Milestone />
-            <FindMore />
-            <Footer />
-        </>
-    );
+    return <AboutUsClientSide />;
 };
 
 export default AboutUs;
