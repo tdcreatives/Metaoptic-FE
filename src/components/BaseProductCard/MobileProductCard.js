@@ -1,49 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const MobileProductCard = ({ product }) => {
-    const router = useRouter();
+const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) => {
     const [isTouched, setIsTouched] = useState(false);
-    const [touchCount, setTouchCount] = useState(0);
     const [lastTouchTime, setLastTouchTime] = useState(0);
+    const router = useRouter();
 
     const handleTouch = () => {
         const currentTime = new Date().getTime();
         const timeDiff = currentTime - lastTouchTime;
 
         if (timeDiff < 300) {
-            // Double tap detected (within 300ms)
-            handleOnNavigate();
-            setTouchCount(0);
-            setLastTouchTime(0);
+            // Double touch detected (within 300ms)
+            handleNavigate();
         } else {
-            setTouchCount(1);
-            setLastTouchTime(currentTime);
-            setIsTouched(true);
+            onTouch(product?.id);
         }
+        setLastTouchTime(currentTime);
     };
 
-    const handleTouchEnd = () => {
-        if (touchCount === 1) {
+    const handleNavigate = () => {
+        router.push(`/product/${product?.slug}`);
+    };
+
+    useEffect(() => {
+        if (productIdIsTouched && productIdIsTouched === product?.id) {
+            setIsTouched(true);
+        } else {
             setIsTouched(false);
         }
-    };
-
-    const handleOnNavigate = () => {
-        router.push(`/product/${product.slug}`);
-    };
+    }, [product?.id, productIdIsTouched]);
 
     return (
         <div
             className={`bg-[#ebebeb] px-4 py-5 relative h-[250px] overflow-hidden ${
                 isTouched ? '!bg-[#d34c39]' : ''
             }`}
-            onTouchStart={handleTouch}
-            onTouchEnd={handleTouchEnd}>
+            onTouchStart={handleTouch}>
             <div className='flex flex-col justify-between h-full'>
                 <motion.div
                     className={`futura-condensed-medium text-[28px] ${

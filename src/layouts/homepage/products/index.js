@@ -66,6 +66,7 @@ const products = [
 const Products = () => {
     const router = useRouter();
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [productIdIsTouched, setProductIdIsTouched] = useState(null);
 
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
@@ -85,7 +86,16 @@ const Products = () => {
             <div className='flex xl:flex-row flex-col xl:mt-8 mt-4 xl:gap-0 gap-3'>
                 {products.map((product, index) => {
                     if (isMobile) {
-                        return <MobileProductCard product={product} key={product.id} />;
+                        return (
+                            <MobileProductCard
+                                productIdIsTouched={productIdIsTouched}
+                                product={product}
+                                key={product.id}
+                                onTouch={(id) => {
+                                    setProductIdIsTouched(id);
+                                }}
+                            />
+                        );
                     }
 
                     return (
