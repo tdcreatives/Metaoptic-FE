@@ -1,7 +1,24 @@
 {
     "aboutUs": {
         "title": "About Us | Metaoptics Technologies",
-        "description": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore."
+        "description": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore.",
+        "keywords": "Metalens manufacturer, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "About Us | Metaoptics Technologies",
+        "twitterDescription": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore.",
+        "twitterImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "twitterImageAlt": "Metaoptics Technologies Logo",
+        "twitterImageWidth": 1200,
+        "twitterImageHeight": 630,
+        "twitterImageType": "image/png",
+        "twitterImageSize": "1200x630"
     },
     "products": {
         "title": "Products | Metaoptics Technologies",

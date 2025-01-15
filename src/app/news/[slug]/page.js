@@ -8,7 +8,8 @@ export const generateStaticParams = async () => {
     }));
 };
 
-export const generateMetadata = async ({ params }) => {
+export const generateMetadata = async (props) => {
+    const params = await props.params;
     const news = data.news.find((item) => item.slug === params.slug);
     return {
         title: news?.title,
