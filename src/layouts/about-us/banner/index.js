@@ -18,7 +18,7 @@ const AboutUsBanner = () => {
                 REDEFINING WHAT’S POSSIBLE IN OPTICAL APPLICATIONS
             </div>
 
-            <div className='xl:w-[80vw] w-[90vw] xl:mt-[60px] mt-[40px] mx-auto max-w-[1660px]'>
+            <div className='xl:w-[80vw] w-[100%] xl:mt-[60px] mt-[40px] mx-auto max-w-[1660px]'>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -32,11 +32,11 @@ const AboutUsBanner = () => {
                         alt='Banner'
                         width='0'
                         height='0'
-                        className='w-[70%] mx-auto max-w-[900px] cursor-pointer'
+                        className='xl:w-[70%] w-[100%] mx-auto max-w-[900px] cursor-pointer'
                     />
                 </motion.div>
 
-                <div className='xl:w-[50%] w-full ml-auto flex flex-col gap-5 xl:text-[20px] text-[16px] xl:my-8 my-4'>
+                <div className='xl:w-[50%] w-[100%] xl:ml-auto xl:mr-0 ml-auto mr-auto flex flex-col gap-5 xl:text-[20px] text-[16px] xl:my-8 my-4'>
                     <div>
                         We strive to become a global leader in metalens innovation,
                         combining advanced design expertise with scalable mass production
