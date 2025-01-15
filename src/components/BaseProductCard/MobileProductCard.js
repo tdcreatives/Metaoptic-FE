@@ -38,7 +38,7 @@ const MobileProductCard = ({ product }) => {
                     objectFit: 'contain',
                     objectPosition: product?.objectPosition || 'center',
                     position: 'absolute',
-                    right: '0%',
+                    right: '-10%',
                     top: '50%',
                     transform: 'translateY(-50%)',
                 }}
