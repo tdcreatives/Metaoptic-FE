@@ -12,29 +12,66 @@
         "twitterCreator": "@metaoptics",
         "twitterSite": "@metaoptics",
         "twitterTitle": "About Us | Metaoptics Technologies",
-        "twitterDescription": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore.",
-        "twitterImage": "https://metaoptics.com/images/metaoptics-logo.png",
-        "twitterImageAlt": "Metaoptics Technologies Logo",
-        "twitterImageWidth": 1200,
-        "twitterImageHeight": 630,
-        "twitterImageType": "image/png",
-        "twitterImageSize": "1200x630"
+        "twitterDescription": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore."
     },
     "products": {
         "title": "Products | Metaoptics Technologies",
-        "description": "Explore our range of metalens products, designed for precision and performance."
+        "description": "Explore our range of metalens products, designed for precision and performance.",
+        "keywords": "Metalens products, metalens solutions, metalens Singapore, metalens manufacturer",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Products | Metaoptics Technologies",
+        "twitterDescription": "Explore our range of metalens products, designed for precision and performance."
     },
     "contactUs": {
         "title": "Contact Us | Metaoptics Technologies",
-        "description": "Get in touch with Metaoptics Technologies for any inquiries or support."
+        "description": "Get in touch with Metaoptics Technologies for any inquiries or support.",
+        "keywords": "Contact Metaoptics Technologies, metalens manufacturer, metalens solutions, metalens products, metalens Singapore",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Contact Us | Metaoptics Technologies",
+        "twitterDescription": "Get in touch with Metaoptics Technologies for any inquiries or support."
     },
     "news": {
         "title": "News | Metaoptics Technologies",
-        "description": "Stay updated with the latest news and developments from Metaoptics Technologies."
+        "description": "Stay updated with the latest news and developments from Metaoptics Technologies.",
+        "keywords": "Metaoptics Technologies news, metalens news, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "News | Metaoptics Technologies",
+        "twitterDescription": "Stay updated with the latest news and developments from Metaoptics Technologies."
     },
     "homepage": {
         "title": "Metaoptics Technologies | Leading Metalens Manufacturer Singapore",
         "description": "Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech",
-        "keywords": "Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer"
+        "keywords": "Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Metaoptics Technologies | Leading Metalens Manufacturer Singapore",
+        "twitterDescription": "Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech"
     }
 }

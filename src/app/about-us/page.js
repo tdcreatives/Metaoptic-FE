@@ -17,10 +17,6 @@ export const metadata = {
     twitterSite: metadataJson.aboutUs.twitterSite,
     twitterTitle: metadataJson.aboutUs.twitterTitle,
     twitterDescription: metadataJson.aboutUs.twitterDescription,
-    twitterImage: metadataJson.aboutUs.twitterImage,
-    twitterImageAlt: metadataJson.aboutUs.twitterImageAlt,
-    twitterImageWidth: metadataJson.aboutUs.twitterImageWidth,
-    twitterImageHeight: metadataJson.aboutUs.twitterImageHeight,
 };
 
 const AboutUs = () => {
