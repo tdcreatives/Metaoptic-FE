@@ -37,7 +37,7 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
 
     return (
         <div
-            className={`bg-[#ebebeb] px-4 py-5 relative h-[250px] overflow-hidden ${
+            className={`bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden ${
                 isTouched ? '!bg-[#d34c39]' : ''
             }`}
             onTouchStart={handleTouch}>
@@ -75,6 +75,22 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
                             className='w-[28px]'
                         />
                     )}
+
+                    <div className='flex justify-start mt-5' onClick={handleNavigate}>
+                        <motion.button
+                            initial={{ x: 200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 200, opacity: 0 }}
+                            transition={{
+                                duration: 0.3,
+                                ease: [0.37, 0, 0.63, 1],
+                                delay: 0.3,
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
+                            FIND OUT MORE
+                        </motion.button>
+                    </div>
                 </div>
             </div>
 

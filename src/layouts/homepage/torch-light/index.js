@@ -39,8 +39,7 @@ const TorchlightText = () => {
                 <h2 className='text'>
                     “Pushing the <span>boundaries</span> of what is possible
                     {!isMobile && <br />}
-                    in optics, <span>combining</span> portability,
-                    {!isMobile && <br />}
+                    in optics, <span>combining</span> portability, {!isMobile && <br />}
                     precision, and performance”
                 </h2>
             </div>
