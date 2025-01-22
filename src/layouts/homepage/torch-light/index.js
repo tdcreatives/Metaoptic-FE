@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
-import './index.scss';
-
 import { isMobile } from 'react-device-detect';
+import './index.scss';
 
 const TorchlightText = () => {
     const containerRef = useRef();
@@ -33,15 +32,32 @@ const TorchlightText = () => {
         };
     }, []);
 
+    const renderText = useCallback(() => {
+        if (isMobile) {
+            return (
+                <h2 className='text'>
+                    “Pushing the <span>boundaries</span> of what is possible in optics,{' '}
+                    <span>combining</span> portability, {!isMobile && <br />}
+                    precision, and performance”
+                </h2>
+            );
+        } else {
+            return (
+                <h2 className='text'>
+                    “Pushing the <span>boundaries</span> of what is possible
+                    <br />
+                    in optics, <span>combining</span> portability,
+                    <br />
+                    precision, and performance”
+                </h2>
+            );
+        }
+    }, [isMobile]);
+
     return (
         <div className='wrapper xl:h-[30vh] h-fit flex items-center justify-center'>
             <div ref={containerRef} className='torchlight-container'>
-                <h2 className='text'>
-                    “Pushing the <span>boundaries</span> of what is possible
-                    {!isMobile && <br />}
-                    in optics, <span>combining</span> portability, {!isMobile && <br />}
-                    precision, and performance”
-                </h2>
+                {renderText()}
             </div>
         </div>
     );
