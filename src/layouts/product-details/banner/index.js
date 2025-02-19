@@ -45,9 +45,24 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.details?.description}
                 </div>
 
-                {product?.buyNow && (
-                    <BaseButton label='BUY' onClick={handleOnBuyNow} className='!mb-0' />
-                )}
+                <div className='flex flex-col w-fit mx-auto gap-5'>
+                    {product?.buyNow && (
+                        <BaseButton
+                            label='BUY'
+                            onClick={handleOnBuyNow}
+                            className='!mb-0 !w-full'
+                            classNameBtn='!w-full'
+                        />
+                    )}
+
+                    {product?.userGuide && (
+                        <BaseButton
+                            label='DOWNLOAD USER GUIDE'
+                            onClick={() => window.open(product?.userGuide, '_blank')}
+                            className='!mb-0 !mt-0'
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );
