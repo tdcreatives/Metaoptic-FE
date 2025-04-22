@@ -8,6 +8,18 @@
             "category": "Sensor",
             "buyNow": "https://metaoptics.shop/products/pocket-projector",
             "brochure": "https://drive.google.com/file/d/1Q1kTmlJWBqco5SJ86kP8Paz3lvRa9bYf/view?usp=drive_link",
+            "buttonLeft":
+                {
+                    "name": "MOTViewer User Guide",
+                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+                }
+            ,
+            "buttonRight":
+                {
+                    "name": "MOTViewer Installer Files",
+                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+                }
+            ,
             "details": {
                 "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
                 "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
@@ -119,6 +131,18 @@
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
             "brochure": "https://drive.google.com/file/d/1mW9SS80txPAiue1RPBa7BCtiXeArs4w2/view?usp=drive_link",
+            "buttonLeft":
+                {
+                    "name": "MOTViewer User Guide",
+                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+                }
+            ,
+            "buttonRight":
+                {
+                    "name": "MOTViewer Installer Files",
+                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+                }
+            ,
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
                 "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
@@ -472,7 +496,7 @@
                     "cameraSpecifications": {
                         "focalLength": "3mm",
                         "fieldOfView": "85°",
-                        "sensorType": "Color CMOS",
+                        "sensorType": "Monochrome CMOS",
                         "peakQuantumEfficiency": "70% @ 550 nm",
                         "resolution": "2MP / 5MP",
                         "activePixels": "1920 x 1080",

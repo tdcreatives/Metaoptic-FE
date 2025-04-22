@@ -40,6 +40,8 @@ const ProductDetailsClientSide = () => {
             <ProductDetailsSpecifications
                 specifications={product?.details?.specifications}
                 brochure={product?.brochure}
+                buttonLeft={product?.buttonLeft}
+                buttonRight={product?.buttonRight}
             />
 
             <RelatedProducts relatedProducts={product?.details?.relatedProducts || []} />

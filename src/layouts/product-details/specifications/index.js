@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
 
-const ProductDetailsSpecifications = ({ specifications, brochure }) => {
+const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, buttonRight }) => {
     const [isExpanded, setIsExpanded] = useState(true); // Controls all sections' visibility
 
     useEffect(() => {
@@ -125,13 +125,41 @@ const ProductDetailsSpecifications = ({ specifications, brochure }) => {
                 ))}
             </div>
 
-            <BaseButton
-                label='Download Brochure'
-                classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
-                bgDefault='#fff'
-                className='!mt-[80px]'
-                onClick={() => window.open(brochure, '_blank')}
-            />
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
+                <div className='spec-section flex flex-col gap-4'>
+                    {buttonLeft && (
+                    <BaseButton
+                            label={buttonLeft?.name}
+                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            bgDefault='#fff'
+                            className='!mt-[80px]'
+                            onClick={() => window.open(buttonLeft?.link, '_blank')}
+                        />
+                    )}
+                </div>
+                <div className='spec-section flex flex-col gap-4'>
+                    {brochure && (
+                        <BaseButton
+                            label='Download Brochure'
+                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            bgDefault='#fff'
+                            className='!mt-[80px]'
+                            onClick={() => window.open(brochure, '_blank')}
+                        />
+                    )}
+                </div>
+                <div className='spec-section flex flex-col gap-4'>
+                    {buttonRight && (
+                        <BaseButton
+                            label={buttonRight?.name}
+                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            bgDefault='#fff'
+                            className='!mt-[80px]'
+                            onClick={() => window.open(buttonRight?.link, '_blank')}
+                        />
+                    )}
+                </div>
+            </div>
         </div>
     );
 };
