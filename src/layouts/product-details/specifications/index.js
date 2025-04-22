@@ -130,7 +130,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
                     {buttonLeft && (
                     <BaseButton
                             label={buttonLeft?.name}
-                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            classNameBtn=' !text-[#d34c39] hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-[80px]'
                             onClick={() => window.open(buttonLeft?.link, '_blank')}
@@ -152,7 +152,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
                     {buttonRight && (
                         <BaseButton
                             label={buttonRight?.name}
-                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            classNameBtn=' !text-[#d34c39] hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-[80px]'
                             onClick={() => window.open(buttonRight?.link, '_blank')}
