@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect typo "contac-us" to "contact-us.html"
+  RewriteRule ^contac-us$ /contact-us.html [L,R=301]
+
+  # Serve static files if they exist
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Rewrite clean URLs to static files
+  RewriteRule ^(.*)/$ $1/index.html [L]
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
