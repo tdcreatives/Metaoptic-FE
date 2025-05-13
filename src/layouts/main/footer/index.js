@@ -24,7 +24,14 @@ const Footer = () => {
                                 sales@metaoptics.sg
                             </p>
                         </a>
-                        <p className='text-[#E0E1E0]'>
+                        <a href='tel:+6582180482'>
+                            <p className='text-[#E0E1E0] mt-2'>
+                                {' '}
+                                <span className='text-[#888888]'>Phone: </span>
+                                +65 8218 0482
+                            </p>
+                        </a>
+                        <p className='text-[#E0E1E0] mt-2'>
                             <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
                             Crescent 01-45 Singapore 139967
                         </p>
