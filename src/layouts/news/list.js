@@ -11,7 +11,7 @@ const NewsList = () => {
     return (
         <div className='flex flex-col items-center gap-8'>
             <BaseTitle
-                title='NEWS & STORIES'
+                title='NEWS & PRESS RELEASES'
                 className='!text-center futura-condensed-medium'
             />
 

@@ -15,7 +15,7 @@ const News = () => {
     return (
         <div className='xl:py-[24px] py-[16px] bg-[#ebebeb]'>
             <BaseTitle
-                title='News & Stories'
+                title='NEWS & PRESS RELEASES'
                 className='futura-condensed-medium !text-center'
             />
 
