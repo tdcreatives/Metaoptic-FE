@@ -9,7 +9,6 @@ const BaseNewsCard = ({ news, className = '' }) => {
     const router = useRouter();
 
     const handleClick = () => {
-        console.log(news.external);
         if (news.external) {
             window.open(news.path, '_blank');
         } else {

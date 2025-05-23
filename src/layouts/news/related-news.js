@@ -15,7 +15,7 @@ const RelatedNews = ({ relatedNews = [] }) => {
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-[60px] gap-0'>
                 {relatedNews.map((news, index) => (
                     <BaseNewsCard
-                        key={news.id}
+                        key={news.slug}
                         news={news}
                         className={index % 3 === 1 ? 'mt-[60px]' : ''}
                     />
