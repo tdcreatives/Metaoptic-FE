@@ -40,7 +40,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>
 
                 <div className='xl:text-[28px] text-[24px] futura-condensed-medium xl:text-start text-center'>
-                    <a href={`${news.path}`} target={news.external ? '_blank' : '_self'}>
+                    <a href={`${news.external ? news.path : `/news/${news.slug}`}`} target={news.external ? '_blank' : '_self'}>
                         {news.title}
                     </a>
                 </div>

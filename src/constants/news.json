@@ -8,7 +8,7 @@
             "date": "January 15, 2025",
             "image": "news-1.jpg",
             "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
-            "external": false,
+            "external": true,
             "details": {
                 "images": ["news/news-1.png", "news/news-1.png", "news/news-1.png"],
                 "content": "<div>The highlight of MetaOptics' showcase will be its pico projector, an ultra-lightweight device weighing just 80 grams and compactly designed at 45mm x 58mm x 30mm.</div><br/><div>The projector operates directly from a mobile phone or laptop battery via a USB-C connection, eliminating the need for a built-in power source.</div><br/><div>This portability is complemented by effortless usability, making it an ideal Christmas and post-holiday present for on-the-go professionals, students, and entertainment enthusiasts.</div><br/><div>The pico projector delivers clear visuals with a resolution of 720p at 60 FPS and a brightness of 34±3 lumens (measured at 400mm). It features silent, fanless operation, ensuring a seamless user experience, while its energy-efficient design consumes less than 5W during peak operation and under 4W during normal use.</div>",
@@ -25,7 +25,7 @@
             "slug": "spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
             "desc": "LAS VEGAS – The cameras in today’s smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
-            "date": "January 15, 2025",
+            "date": "January 10, 2025",
             "image": "news/news-2.jpg",
             "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "external": false,
@@ -39,8 +39,8 @@
                         "image": "news/news-3.jpg",
                         "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
-                        "external": true,
-                        "date": "January 15, 2025"
+                        "external": false,
+                        "date": "May 17, 2025"
                     }
                 ]
             }
@@ -57,7 +57,17 @@
             "details": {
                 "images": ["news/news-3.jpg"],
                 "content": "<div>[SINGAPORE] Local semiconductor optics startup MetaOptics Technologies is harnessing nanophotonics and artificial intelligence (AI) to overhaul traditional lens systems used in consumer electronics, augmented and virtual reality and scientific imaging.</div><br/><div>Its flagship innovation, the Advanced Color Metalens Imaging System, replaces multi-layer plastic lenses with a single-layer glass metalens.</div><br/><div>Using deep ultraviolet (DUV) immersion photolithography on 12-inch glass wafers – a standard process from semiconductor manufacturing – the system dramatically reduces the thickness and weight of camera modules, while offering enhanced durability and colour accuracy.</div><br/><div>The cameras in today’s smartphones and point-and-shoot devices typically rely on stacked layers of plastic or glass lenses to focus light.</div><br/><div><h3>Innovative lenses</h3></div><div>Metalenses are flat optical components that can perform the same function using just a single layer of intricately patterned nanostructures.</div><br/><div>MetaOptics uses semiconductor fabrication techniques to etch millions of microscopic pillars – each about 1/800th the width of a human hair – onto glass wafers. A 1.5 mm lens can contain more than six million of these nano-pillars, precisely engineered to manipulate light and focus images.</div>",
-                "relatedNews": []
+                "relatedNews": [
+                    {
+                        "slug": "spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
+                        "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
+                        "image": "news/news-2.jpg",
+                        "desc": "LAS VEGAS – The cameras in today’s smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
+                        "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
+                        "external": false,
+                        "date": "January 10, 2025"
+                    }
+                ]
             }
         }
     ]
