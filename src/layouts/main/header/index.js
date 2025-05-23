@@ -23,7 +23,7 @@ const Header = ({ background = '#fff' }) => {
     const headers = [
         { label: 'ABOUT US', path: '/about-us' },
         { label: 'PRODUCTS', path: '/products' },
-        // { label: 'NEWS', path: '/news' },
+        { label: 'NEWS', path: '/news' },
         { label: 'CONTACT', path: '/contact-us' },
         { label: 'SHOP', path: 'https://metaoptics.shop/' },
     ];
