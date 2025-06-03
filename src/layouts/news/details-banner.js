@@ -16,7 +16,7 @@ const NewsDetailsBanner = ({ news = {} }) => {
                     <div className='relative xl:w-[70%] mt-10 max-w-[1200px] mx-auto w-full'>
                         <div className='w-full aspect-[16/9] relative'>
                             <Image 
-                                src={`/${news?.details?.images[0]}`} 
+                                src={`${news?.details?.images[0]}`} 
                                 alt={news?.title} 
                                 fill 
                                 className='object-contain rounded-lg'

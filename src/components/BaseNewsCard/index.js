@@ -30,7 +30,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
                     width={0}
                     height={0}
                     sizes='100vw'
-                    src={`/${news?.image}`}
+                    src={`${news?.image}`}
                     alt='News'
                     className='w-full h-full object-cover rounded-[20px]'
                 />

@@ -39,7 +39,7 @@ const Carousel = ({ images, interval = 3000 }) => {
                                 ease: [0.17, 0.67, 0.83, 0.67], // Smooth cubic bezier for fluid motion
                             }}>
                             <Image
-                                src={`/${images[currentIndex]}`}
+                                src={`${images[currentIndex]}`}
                                 alt={`Slide ${currentIndex + 1}`}
                                 layout='fill'
                                 objectFit='cover'

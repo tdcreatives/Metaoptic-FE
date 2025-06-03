@@ -10,7 +10,7 @@
             "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
             "external": true,
             "details": {
-                "images": ["news/news-1.jpeg"],
+                "images": ["/news/news-1.jpeg"],
                 "contentPath": "/content/news/metaoptics-coming-to-ces-2025-in-las-vegas.mdx",
                 "extraImages": [
                     "/news/details/details-1-1.png",
@@ -26,7 +26,7 @@
             "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
             "desc": "LAS VEGAS – The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
             "date": "January 10, 2025",
-            "image": "news/news-2.jpeg",
+            "image": "/news/news-2.jpeg",
             "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "external": false,
             "details": {
@@ -98,7 +98,7 @@
             "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
             "external": false,
             "details": {
-                "images": ["news/news-5.jpg"],
+                "images": ["/news/news-5.jpg"],
                 "contentPath": "/content/news/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards.mdx",
                 "extraImages": [
                    
