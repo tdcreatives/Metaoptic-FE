@@ -1,0 +1,37 @@
+/* MDX Content Styles */
+.mdx-content {
+  @apply  mx-auto;
+}
+
+/* Video Container */
+.video-container {
+  @apply relative w-full pt-[56.25%] mb-8; /* 16:9 Aspect Ratio */
+}
+
+.video-container iframe {
+  @apply absolute top-0 left-0 w-full h-full rounded-lg shadow-lg;
+}
+
+/* Image Styles */
+.mdx-image {
+  @apply w-full max-w-4xl mx-auto rounded-lg shadow-lg mb-4;
+}
+
+.mdx-image-caption {
+  @apply text-center text-sm text-gray-600 mt-2 mb-8;
+}
+
+/* Text Content */
+.mdx-text {
+  @apply mb-6 leading-relaxed;
+}
+
+/* Headings */
+.mdx-h3 {
+  @apply text-2xl font-bold mb-4 mt-8;
+}
+
+/* Links */
+.mdx-link {
+  @apply underline;
+} 

@@ -11,6 +11,15 @@ import data from '@/constants/news.json';
 
 const News = () => {
     const router = useRouter();
+    
+    // Sort news by date in descending order (newest first) and get latest 4
+    const latestNews = [...data.news]
+        .sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB - dateA;
+        })
+        .slice(0, 4);
 
     return (
         <div className='xl:py-[24px] py-[16px] bg-[#ebebeb]'>
@@ -20,7 +29,7 @@ const News = () => {
             />
 
             <div className='xl:px-16 xl:py-8 px-8 py-4 grid xl:grid-cols-4 grid-cols-1 gap-4'>
-                {data.news.map((news, index) => (
+                {latestNews.map((news, index) => (
                     <BaseNewsCard key={index} news={news} />
                 ))}
             </div>

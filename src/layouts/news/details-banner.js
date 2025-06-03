@@ -14,8 +14,14 @@ const NewsDetailsBanner = ({ news = {} }) => {
                     <BaseCarousel images={news?.details?.images || []} />
                 ) : (
                     <div className='relative xl:w-[70%] mt-10 max-w-[1200px] mx-auto w-full'>
-                        <div className='w-full xl:h-[30vw] h-[300px] relative max-h-[500px]'>
-                            <Image src={`/${news?.details?.images[0]}`} alt={news?.title} fill className='h-auto max-w-lg mx-auto' /> 
+                        <div className='w-full aspect-[16/9] relative'>
+                            <Image 
+                                src={`/${news?.details?.images[0]}`} 
+                                alt={news?.title} 
+                                fill 
+                                className='object-contain rounded-lg'
+                                priority
+                            /> 
                         </div>
                     </div>                    
                 )

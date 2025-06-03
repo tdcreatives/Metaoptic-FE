@@ -6,7 +6,12 @@ import BaseNewsCard from '@/components/BaseNewsCard';
 import BaseTitle from '@/components/BaseTitle';
 
 const NewsList = () => {
-    const filteredNews = data.news;
+    // Sort news by date in descending order (newest first)
+    const filteredNews = [...data.news].sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+    });
 
     return (
         <div className='flex flex-col items-center gap-8'>
