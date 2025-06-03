@@ -6,16 +6,16 @@
             "title": "MetaOptics coming to CES 2025 in Las Vegas",
             "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
             "date": "January 15, 2025",
-            "image": "news/news-1.jpeg",
+            "image": "/news/news-1.jpeg",
             "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
             "external": true,
             "details": {
                 "images": ["news/news-1.jpeg"],
                 "contentPath": "/content/news/metaoptics-coming-to-ces-2025-in-las-vegas.mdx",
                 "extraImages": [
-                    "news/details/details-1-1.png",
-                    "news/details/details-1-2.png",
-                    "news/details/details-1-3.png"
+                    "/news/details/details-1-1.png",
+                    "/news/details/details-1-2.png",
+                    "/news/details/details-1-3.png"
                 ],
                 "relatedNews": []
             }
@@ -30,7 +30,7 @@
             "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "external": false,
             "details": {
-                "images": ["news/news-2.jpeg", "news/news-2.jpg"],
+                "images": ["/news/news-2.jpeg", "/news/news-2.jpg"],
                 "contentPath": "/content/news/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas.mdx",
                 "extraImages": [                    
                 ],
@@ -38,7 +38,7 @@
                     {
                         "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
-                        "image": "news/news-3.jpg",
+                        "image": "/news/news-3.jpg",
                         "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "external": false,
@@ -53,17 +53,17 @@
             "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
             "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
             "date": "May 17, 2025",
-            "image": "news/news-3.jpg",
+            "image": "/news/news-3.jpg",
             "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
             "external": false,
             "details": {
-                "images": ["news/news-3.jpg"],
+                "images": ["/news/news-3.jpg"],
                 "contentPath": "/content/news/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability.mdx",
                 "relatedNews": [
                     {
                         "slug": "spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
                         "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
-                        "image": "news/news-2.jpeg",
+                        "image": "/news/news-2.jpeg",
                         "desc": "LAS VEGAS – The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
                         "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
                         "external": false,
@@ -78,7 +78,7 @@
             "title": "Automatic Metalens Tester to Improve Mass Production Sorting Capabilities",
             "desc": "MetaOptics today announced the launch of its new Automatic Metalens Tester, an advanced system developed in collaboration with Elsoft Research Bhd (KLSE:0090.KL), a manufacturer of testing equipment for leading global technology brands.",
             "date": "May 20, 2025",
-            "image": "news/news-4.jpg",
+            "image": "/news/news-4.jpg",
             "path": "https://drive.google.com/file/d/1j7YcCGrB6VnKNF5MCEEQ6NM54-aeGuaw/view",
             "external": true,
             "details": {
@@ -94,7 +94,7 @@
             "title": "A startup, a scale-up and a hospital bag top accolades at maiden Design AI and Tech Awards",
             "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
             "date": "June 2, 2025",
-            "image": "news/news-5.jpg",
+            "image": "/news/news-5.jpg",
             "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
             "external": false,
             "details": {
@@ -107,7 +107,7 @@
                     {
                         "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
-                        "image": "news/news-3.jpg",
+                        "image": "/news/news-3.jpg",
                         "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "external": false,
