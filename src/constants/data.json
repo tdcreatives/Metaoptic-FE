@@ -8,18 +8,14 @@
             "category": "Sensor",
             "buyNow": "https://metaoptics.shop/products/pocket-projector",
             "brochure": "https://drive.google.com/file/d/1Q1kTmlJWBqco5SJ86kP8Paz3lvRa9bYf/view?usp=drive_link",
-            "buttonLeft":
-                {
-                    "name": "MOTViewer User Guide",
-                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
-                }
-            ,
-            "buttonRight":
-                {
-                    "name": "MOTViewer Installer Files",
-                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
-                }
-            ,
+            "buttonLeft": {
+                "name": "MOTViewer User Guide",
+                "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+            },
+            "buttonRight": {
+                "name": "MOTViewer Installer Files",
+                "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+            },
             "details": {
                 "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
                 "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
@@ -131,18 +127,14 @@
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
             "brochure": "https://drive.google.com/file/d/1mW9SS80txPAiue1RPBa7BCtiXeArs4w2/view?usp=drive_link",
-            "buttonLeft":
-                {
-                    "name": "MOTViewer User Guide",
-                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
-                }
-            ,
-            "buttonRight":
-                {
-                    "name": "MOTViewer Installer Files",
-                    "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
-                }
-            ,
+            "buttonLeft": {
+                "name": "MOTViewer User Guide",
+                "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+            },
+            "buttonRight": {
+                "name": "MOTViewer Installer Files",
+                "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+            },
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
                 "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
@@ -514,6 +506,60 @@
                         "pitchBetweenPillars": "300nm",
                         "heightOfPillars": "450nm",
                         "lensDiameter": "3mm"
+                    }
+                },
+                "relatedProducts": [
+                    {
+                        "name": "3D Biometrics Metalens Sensor",
+                        "slug": "3d-biometrics-metalens-sensor",
+                        "image": "/products/product-1.png",
+                        "category": "Sensor"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Direct Laser Writer",
+                        "slug": "direct-laser-writer",
+                        "image": "/products/product-7.png",
+                        "category": "3D"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Metalens Tester",
+            "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Tester</div>",
+            "slug": "metalens-tester",
+            "image": "/products/product-10.png",
+            "category": "3D",
+            "buyNow": "",
+            "brochure": "https://drive.google.com/file/d/1u43BwZry3WlfG0SOE5J3NXyJ8AphUdkT/view?usp=drive_link",
+            "details": {
+                "subtitle": "Precision Optical Characterization System",
+                "description": "The Metalens Tester is a precision optical characterization system designed to evaluate the performance of advanced metalens components under both infinite and finite working distances. It supports a wide range of measurement configurations and wavelengths for comprehensive testing of various metalens types.",
+                "specifications": {
+                    "testerDimensions": {
+                        "dimensions: ": "1650 mm (W) × 1310 mm (D) × 2020 mm (H)"
+                    },
+                    "supportedMetalensTypes": {
+                        "list": [
+                            "Collimator Metalenses",
+                            "Imaging RGB Metalenses",
+                            "Wide FoV Mono Metalenses",
+                            "Multilayer Metalenses",
+                            "Metalens Array Dot Projectors"
+                        ]
+                    },
+                    "facilityRequirements": {
+                        "voltageRating": "230VAC, 50/60Hz, Single Phase (L+N+E)",
+                        "fullLoadContent": "20A",
+                        "ratedCurrent": "10A",
+                        "interruptingCapacity": "10 KA",
+                        "compressedDryAirPressure": "0.5 MPa"
                     }
                 },
                 "relatedProducts": [

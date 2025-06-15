@@ -6,7 +6,12 @@ import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
 
-const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, buttonRight }) => {
+const ProductDetailsSpecifications = ({
+    specifications,
+    brochure,
+    buttonLeft,
+    buttonRight,
+}) => {
     const [isExpanded, setIsExpanded] = useState(true); // Controls all sections' visibility
 
     useEffect(() => {
@@ -65,6 +70,16 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
         }
     }, []);
 
+    const renderList = useCallback((list = []) => {
+        return (
+            <ul className='mt-0 space-y-2 text-center text-white/90 list-disc list-inside'>
+                {list.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        );
+    }, []);
+
     return (
         <div className='w-full bg-[#d34c39] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-white'>
             {/* Specifications Title Row with Icon */}
@@ -83,7 +98,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
                         alt='Expand/Collapse All'
                         width={0}
                         height={0}
-                        className='cursor-pointer xl:w-[40px] w-[32px] xl:h-[40px] h-[32px]'
+                        className='cursor-pointer xl:w-[40px] w-[32px] xl:h-[40px] h-[32px] xl:min-w-[40px] min-w-[32px] object-contain'
                     />
                 </div>
             </div>
@@ -113,10 +128,12 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
                             <ul className='mt-0 space-y-2 text-center text-white/90'>
                                 {Object.entries(specs).map(([key, value]) => (
                                     <li key={key} className='capitalize'>
-                                        <strong>
-                                            {key.replace(/([A-Z])/g, ' $1')}:{' '}
-                                        </strong>
-                                        {value}
+                                        {key !== 'list' && (
+                                            <strong>
+                                                {key.replace(/([A-Z])/g, ' $1')}:{' '}
+                                            </strong>
+                                        )}
+                                        {Array.isArray(value) ? renderList(value) : value}
                                     </li>
                                 ))}
                             </ul>
@@ -128,7 +145,7 @@ const ProductDetailsSpecifications = ({ specifications, brochure, buttonLeft, bu
             <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
                 <div className='spec-section flex flex-col gap-4'>
                     {buttonLeft && (
-                    <BaseButton
+                        <BaseButton
                             label={buttonLeft?.name}
                             classNameBtn=' !text-[#d34c39] hover:!text-white'
                             bgDefault='#fff'
