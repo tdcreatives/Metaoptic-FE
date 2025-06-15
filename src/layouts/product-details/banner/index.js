@@ -45,6 +45,14 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.details?.description}
                 </div>
 
+                {product?.details?.subtitleItems && (
+                    <div className='xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5'>
+                        {product?.details?.subtitleItems.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </div>
+                )}
+
                 <div className='flex flex-col w-fit mx-auto gap-5'>
                     {product?.buyNow && (
                         <BaseButton

@@ -27,7 +27,6 @@ const ProductDetailsClientSide = () => {
                     className='mt-4 bg-[#d34c39] text-white px-4 py-2 rounded-lg'>
                     Go Back to Home
                 </button>
-                x
             </div>
         );
     }

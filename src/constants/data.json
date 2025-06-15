@@ -540,6 +540,15 @@
             "brochure": "https://drive.google.com/file/d/1u43BwZry3WlfG0SOE5J3NXyJ8AphUdkT/view?usp=drive_link",
             "details": {
                 "subtitle": "Precision Optical Characterization System",
+                "subtitleItems": [
+                    "Fully Enclosed Test System",
+                    "Class 10K Cleanroom Environment with Integrated HEPA Filtration",
+                    "PC-Based Control System",
+                    "Input: 12” Wafer Frame",
+                    "Integrated Metalens pick &amp; place transfer system with vision alignment",
+                    "Dual test stations: VIS and NIR for coverage of multiple wavelengths",
+                    "Output: JEDEC Tray"
+                ],
                 "description": "The Metalens Tester is a precision optical characterization system designed to evaluate the performance of advanced metalens components under both infinite and finite working distances. It supports a wide range of measurement configurations and wavelengths for comprehensive testing of various metalens types.",
                 "specifications": {
                     "testerDimensions": {
