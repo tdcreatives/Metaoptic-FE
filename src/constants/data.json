@@ -532,7 +532,7 @@
         },
         {
             "name": "Metalens Tester",
-            "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Tester</div>",
+            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester'>Tester</div>",
             "slug": "metalens-tester",
             "image": "/products/product-10.png",
             "category": "3D",
@@ -600,10 +600,10 @@
                 },
                 "relatedProducts": [
                     {
-                        "name": "3D Biometrics Metalens Sensor",
-                        "slug": "3d-biometrics-metalens-sensor",
-                        "image": "/products/product-1.png",
-                        "category": "Sensor"
+                        "name": "Ultra-wide FoV IR Metalens",
+                        "slug": "ultra-wide-fov-ir-metalens",
+                        "image": "/products/product-6.png",
+                        "category": "3D"
                     },
                     {
                         "name": "IoT Metalens Color Camera",
@@ -612,10 +612,10 @@
                         "category": "Camera"
                     },
                     {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
+                        "name": "Pico Projector",
+                        "slug": "pico-projector",
+                        "image": "/products/product-5.png",
+                        "category": "Projector"
                     }
                 ]
             }

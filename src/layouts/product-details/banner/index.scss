@@ -4,9 +4,21 @@
     right: -10%;
 }
 
+.name-dom-metalens-tester {
+    position: absolute;
+    bottom: -250px;
+    right: -3%;
+}
+
 @media (max-width: 768px) {
     /* For mobile screens */
     .name-dom-sensor {
+        margin-top: -48px; /* Remove the negative margin on mobile */
+        margin-left: 0; /* Center-align if necessary */
+        text-align: center;
+    }
+
+    .name-dom-metalens-tester {
         margin-top: -48px; /* Remove the negative margin on mobile */
         margin-left: 0; /* Center-align if necessary */
         text-align: center;
