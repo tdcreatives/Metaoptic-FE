@@ -6,6 +6,28 @@ import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
 
+// Helper function to format keys
+function formatKey(str) {
+    let result = '';
+    let inParens = false;
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (char === '(') {
+            if (!inParens && i > 0 && str[i - 1] !== ' ') result += ' ';
+            inParens = true;
+            result += char;
+        } else if (char === ')') {
+            inParens = false;
+            result += char;
+        } else if (!inParens && char === char.toUpperCase() && /[A-Z]/.test(char) && i > 0 && str[i - 1] !== ' ' && str[i - 1] !== '(') {
+            result += ' ' + char;
+        } else {
+            result += char;
+        }
+    }
+    return result.trim();
+}
+
 const ProductDetailsSpecifications = ({
     specifications,
     brochure,
@@ -130,7 +152,7 @@ const ProductDetailsSpecifications = ({
                                     <li key={key} className='capitalize'>
                                         {key !== 'list' && (
                                             <strong>
-                                                {key.replace(/([A-Z])/g, ' $1')}:{' '}
+                                                {formatKey(key)}:{' '}
                                             </strong>
                                         )}
                                         {Array.isArray(value) ? renderList(value) : value}

@@ -537,7 +537,7 @@
             "image": "/products/product-10.png",
             "category": "3D",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1u43BwZry3WlfG0SOE5J3NXyJ8AphUdkT/view?usp=drive_link",
+            "brochure": "https://metaoptics.sg/data/Metalens-Tester.pdf",
             "details": {
                 "subtitle": "Precision Optical Characterization System",
                 "subtitleItems": [
@@ -568,7 +568,7 @@
                         "fullLoadContent": "20A",
                         "ratedCurrent": "10A",
                         "interruptingCapacity": "10 KA",
-                        "compressedDryAirPressure": "0.5 MPa"
+                        "compressedDryAir(CDA)Pressure": "0.5 MPa"
                     }
                 },
                 "testingCapabilities": {
