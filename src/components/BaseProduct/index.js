@@ -51,18 +51,17 @@ const BaseProduct = ({ name, image, slug }) => {
         <div onClick={handleOnNavigate}>
             <div
                 ref={productRef}
-                className='rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300'
+                className='rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden'
                 style={{ backgroundColor: '#F0F0F0' }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
-                <div className='relative w-[95%] mx-auto h-[250px]'>
+                <div className='relative w-full aspect-square'>
                     <Image
-                        width='0'
-                        height='0'
-                        sizes='100vw'
+                        fill
                         src={image}
                         alt={name}
-                        className='w-full h-full object-contain'
+                        className='object-contain'
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     />
                 </div>
             </div>
