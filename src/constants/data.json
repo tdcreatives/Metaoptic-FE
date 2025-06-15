@@ -562,6 +562,42 @@
                         "compressedDryAirPressure": "0.5 MPa"
                     }
                 },
+                "testingCapabilities": {
+                    "samplePositioning": {
+                        "list": [
+                            "High Precision X, Y, Z Positioning",
+                            "Step Size: 10–30 nm (Z), Micron-Level (X, Y)",
+                            "Closed-Loop Control for Z Predefined Positioning",
+                            "Sample Size up to 14mm x 14mm"
+                        ]
+                    },
+                    "angularAdjustment": {
+                        "list": [
+                            "Polar Angle (θ): 0° to 60°",
+                            "Azimuthal Angle (φ): 0° to 360°"
+                        ]
+                    },
+                    "workingDistanceModes": {
+                        "list": [
+                            "Collimator Metalenses",
+                            "Imaging RGB Metalenses",
+                            "Wide FoV Mono Metalenses",
+                            "Multilayer Metalenses",
+                            "Metalens Array Dot Projectors"
+                        ]
+                    },
+                    "measurements": {
+                        "list": [
+                            "Focal Distance (Absolute)",
+                            "PSF (Point Spread Function)",
+                            "BFP (Back Focal Plane)",
+                            "Efficiency",
+                            "FWHM",
+                            "MTF",
+                            "Dot Pattern Analysis"
+                        ]
+                    }
+                },
                 "relatedProducts": [
                     {
                         "name": "3D Biometrics Metalens Sensor",

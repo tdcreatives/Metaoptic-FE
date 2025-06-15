@@ -10,6 +10,7 @@ import Footer from '@/layouts/main/footer';
 
 import ProductDetailsBanner from '@/layouts/product-details/banner';
 import ProductDetailsSpecifications from '@/layouts/product-details/specifications';
+import ProductDetailsTestingCapabilities from '@/layouts/product-details/testing-capabilities';
 import RelatedProducts from '@/layouts/product-details/related-products';
 
 const ProductDetailsClientSide = () => {
@@ -43,6 +44,15 @@ const ProductDetailsClientSide = () => {
                 buttonLeft={product?.buttonLeft}
                 buttonRight={product?.buttonRight}
             />
+
+            {product?.details?.testingCapabilities && (
+                <ProductDetailsTestingCapabilities
+                    testingCapabilities={product?.details?.testingCapabilities}
+                    brochure={product?.brochure}
+                    buttonLeft={product?.buttonLeft}
+                    buttonRight={product?.buttonRight}
+                />
+            )}
 
             <RelatedProducts relatedProducts={product?.details?.relatedProducts || []} />
 

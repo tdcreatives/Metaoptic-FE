@@ -6,9 +6,8 @@ import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
 
-const ProductDetailsSpecifications = ({
-    specifications,
-    brochure,
+const ProductDetailsTestingCapabilities = ({
+    testingCapabilities,
     buttonLeft,
     buttonRight,
 }) => {
@@ -72,7 +71,7 @@ const ProductDetailsSpecifications = ({
 
     const renderList = useCallback((list = []) => {
         return (
-            <ul className='mt-0 space-y-2 text-center text-white/90 list-disc list-inside'>
+            <ul className='mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-disc list-inside'>
                 {list.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
@@ -81,11 +80,11 @@ const ProductDetailsSpecifications = ({
     }, []);
 
     return (
-        <div className='w-full bg-[#d34c39] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-white'>
+        <div className='w-full bg-[rgba(234,234,234,1)] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-[rgb(17,17,17)]'>
             {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-0'>
                 <div className='xl:text-[48px] text-[32px] uppercase relative z-30 futura-condensed-medium xl:mt-0 mt-3 text-start'>
-                    Specifications
+                    Testing Capabilities
                 </div>
 
                 <div
@@ -94,7 +93,7 @@ const ProductDetailsSpecifications = ({
                     }`}
                     onClick={toggleAllSections}>
                     <Image
-                        src='/product-details/up.svg'
+                        src='/product-details/up-orange.svg'
                         alt='Expand/Collapse All'
                         width={0}
                         height={0}
@@ -103,9 +102,9 @@ const ProductDetailsSpecifications = ({
                 </div>
             </div>
 
-            <div className='w-full h-[2px] bg-white opacity-50 mx-auto mb-8'></div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
-                {Object.entries(specifications).map(([section, specs], index) => (
+            <div className='w-full h-[2px] bg-[rgba(17,17,17,1)] mx-auto mb-8'></div>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-12'>
+                {Object.entries(testingCapabilities).map(([section, specs], index) => (
                     <div key={index} className='spec-section flex flex-col gap-4'>
                         <div className='flex flex-col items-center'>
                             {renderImage(section)}
@@ -125,9 +124,14 @@ const ProductDetailsSpecifications = ({
                                     ? 'max-h-[500px] opacity-100'
                                     : 'max-h-0 opacity-0'
                             }`}>
-                            <ul className='mt-0 space-y-2 text-center text-white/90'>
+                            <ul className='mt-0 space-y-2 text-center text-[rgb(17,17,17)]'>
                                 {Object.entries(specs).map(([key, value]) => (
-                                    <li key={key} className='capitalize'>
+                                    <li
+                                        key={key}
+                                        className='capitalize'
+                                        style={{
+                                            fontWeight: 500,
+                                        }}>
                                         {key !== 'list' && (
                                             <strong>
                                                 {key.replace(/([A-Z])/g, ' $1')}:{' '}
@@ -155,17 +159,6 @@ const ProductDetailsSpecifications = ({
                     )}
                 </div>
                 <div className='spec-section flex flex-col gap-4'>
-                    {brochure && (
-                        <BaseButton
-                            label='Download Brochure'
-                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
-                            bgDefault='#fff'
-                            className='!mt-[80px]'
-                            onClick={() => window.open(brochure, '_blank')}
-                        />
-                    )}
-                </div>
-                <div className='spec-section flex flex-col gap-4'>
                     {buttonRight && (
                         <BaseButton
                             label={buttonRight?.name}
@@ -181,4 +174,4 @@ const ProductDetailsSpecifications = ({
     );
 };
 
-export default ProductDetailsSpecifications;
+export default ProductDetailsTestingCapabilities;
