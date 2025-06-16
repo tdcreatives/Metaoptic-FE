@@ -4,10 +4,16 @@
     right: -10%;
 }
 
-.name-dom-metalens-tester {
+.name-dom-metalens-tester--first {
     position: absolute;
-    bottom: -250px;
-    right: -3%;
+    top: 200px;
+    left: 20%;
+}
+
+.name-dom-metalens-tester--second {
+    position: absolute;
+    top: 400px;
+    left: 60%;
 }
 
 @media (max-width: 768px) {
@@ -18,9 +24,15 @@
         text-align: center;
     }
 
-    .name-dom-metalens-tester {
-        margin-top: -48px; /* Remove the negative margin on mobile */
-        margin-left: 0; /* Center-align if necessary */
-        text-align: center;
+    .name-dom-metalens-tester--first {
+        left: 0;
+        top: 120px;
+        font-size: 100px;
+    }
+
+    .name-dom-metalens-tester--second {
+        left: 0;
+        top: 240px;
+        font-size: 100px;
     }
 }

@@ -532,7 +532,7 @@
         },
         {
             "name": "Metalens Automatic Tester",
-            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester'>Automatic Tester</div>",
+            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester--first'>Automatic </div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
             "slug": "metalens-automatic-tester",
             "image": "/products/product-10.png",
             "category": "3D",

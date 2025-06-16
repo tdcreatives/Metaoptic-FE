@@ -22,7 +22,7 @@ const ProductDetailsBanner = ({ product }) => {
                 }}></div>
 
             <div className='relative z-100'>
-                <div className='w-full flex justify-center'>
+                <div className='w-full flex justify-center xl:h-[600px] h-fit pb-[72px]'>
                     <div className='xl:h-[450px] xl:w-auto w-[90%] '>
                         <Image
                             width='0'
@@ -49,10 +49,10 @@ const ProductDetailsBanner = ({ product }) => {
 
                 {product?.details?.subtitleItems && (
                     <div className='xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5'>
-                        <ul class="mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-disc list-inside">
-                        {product?.details?.subtitleItems.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
+                        <ul class='mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-disc list-inside'>
+                            {product?.details?.subtitleItems.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
                         </ul>
                     </div>
                 )}
