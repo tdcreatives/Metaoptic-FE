@@ -49,9 +49,11 @@ const ProductDetailsBanner = ({ product }) => {
 
                 {product?.details?.subtitleItems && (
                     <div className='xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5'>
+                        <ul class="mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-disc list-inside">
                         {product?.details?.subtitleItems.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))}
+                        </ul>
                     </div>
                 )}
 
