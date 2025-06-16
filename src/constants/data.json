@@ -531,9 +531,9 @@
             }
         },
         {
-            "name": "Metalens Tester",
-            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester'>Tester</div>",
-            "slug": "metalens-tester",
+            "name": "Metalens Automatic Tester",
+            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester'>Automatic Tester</div>",
+            "slug": "metalens-automatic-tester",
             "image": "/products/product-10.png",
             "category": "3D",
             "buyNow": "",
@@ -545,7 +545,7 @@
                     "Class 10K Cleanroom Environment with Integrated HEPA Filtration",
                     "PC-Based Control System",
                     "Input: 12” Wafer Frame",
-                    "Integrated Metalens pick &amp; place transfer system with vision alignment",
+                    "Integrated Metalens pick & place transfer system with vision alignment",
                     "Dual test stations: VIS and NIR for coverage of multiple wavelengths",
                     "Output: JEDEC Tray"
                 ],
