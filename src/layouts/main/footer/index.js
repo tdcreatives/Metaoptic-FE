@@ -94,6 +94,7 @@ const Footer = () => {
                 <div>
                     Site by{' '}
                     <a
+                        className='text-[#868686] hover:text-[#fff] hover:underline'
                         href='https://tdcreatives.asia/'
                         target='_blank'
                         rel='noopener noreferrer'>
