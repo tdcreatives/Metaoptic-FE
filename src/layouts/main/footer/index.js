@@ -89,8 +89,17 @@ const Footer = () => {
 
             <div className='w-full h-[2px] my-2 bg-white'></div>
 
-            <div className='text-center text-[#868686] xl:text-[16px] text-[14px] uppercase tracking-widest'>
-                Metaoptics Technologies Pte Ltd. All rights reserved
+            <div className='flex xl:flex-row flex-col xl:justify-between justify-start text-[#868686] xl:text-[16px] text-[14px] uppercase tracking-widest'>
+                <div>Metaoptics Technologies Pte Ltd. All rights reserved</div>
+                <div>
+                    Site by{' '}
+                    <a
+                        href='https://tdcreatives.asia/'
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        TDCreatives.asia
+                    </a>
+                </div>
             </div>
         </div>
     );
