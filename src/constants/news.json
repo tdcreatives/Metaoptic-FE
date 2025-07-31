@@ -115,6 +115,43 @@
                     }
                 ]
             }
+        },
+        {
+            "id": 6,
+            "slug": "metaoptics-lodges-preliminary-offer-document-for-catalist-listing",
+            "title": "MetaOptics lodges preliminary offer document for Catalist listing",
+            "desc": "Singapore-headquartered MetaOptics has lodged a preliminary offer document to list its shares on the Singapore Exchange’s (SGX) Catalist board.",
+            "date": "July 30, 2025",
+            "image": "/news/news-6.jpg",
+            "path": "https://www.theedgesingapore.com/news/ipo/metaoptics-lodges-preliminary-offer-document-catalist-listing",
+            "external": false,
+            "details": {
+                "images": ["/news/news-6.jpg"],
+                "contentPath": "/content/news/metaoptics-lodges-preliminary-offer-document-for-catalist-listing.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    {
+                        "slug": "startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
+                        "title": "A startup, a scale-up and a hospital bag top accolades at maiden Design AI and Tech Awards",
+                        "image": "/news/news-5.jpg",
+                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "date": "June 2, 2025",
+                        "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
+                        "external": false
+                    },
+                    {
+                        "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
+                        "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
+                        "image": "/news/news-3.jpg",
+                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
+                        "external": false,
+                        "date": "May 17, 2025"
+                    }
+                ]
+            }
         }
     ]
 }
