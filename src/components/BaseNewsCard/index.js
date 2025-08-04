@@ -15,6 +15,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
             router.push(`/news/${news.slug}`);
         }
     };
+    const thumbImage = news.thumbnail || news.image;
     return (
         <div
             className={`flex flex-col gap-5 cursor-pointer ${className}`}
@@ -30,7 +31,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
                     width={0}
                     height={0}
                     sizes='100vw'
-                    src={`${news?.image}`}
+                    src={`${thumbImage}`}
                     alt='News'
                     className='w-full h-full object-cover rounded-[20px]'
                 />
