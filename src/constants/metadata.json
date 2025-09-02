@@ -73,5 +73,20 @@
         "twitterSite": "@metaoptics",
         "twitterTitle": "Metaoptics Technologies | Leading Metalens Manufacturer Singapore",
         "twitterDescription": "Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech"
+    },
+    "investorrelations": {
+        "title": "Investor Relations | Metaoptics Technologies",
+        "description": "Stay updated with the latest investor relations from Metaoptics Technologies.",
+        "keywords": "Metaoptics Technologies news, metalens news, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "ogImage": "https://metaoptics.com/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.com",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Investor Relations  | Metaoptics Technologies",
+        "twitterDescription": "Stay updated with the latest investor relations from Metaoptics Technologies."
     }
 }

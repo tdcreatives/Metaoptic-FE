@@ -1,0 +1,38 @@
+.name-dom-sensor {
+    position: absolute;
+    bottom: -250px;
+    right: -10%;
+}
+
+.name-dom-first-line {
+    position: absolute;
+    left: 20%;
+}
+
+
+.name-dom-second-line {
+    position: absolute;
+    left: 40%;
+}
+
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .name-dom-sensor {
+        margin-top: -48px; /* Remove the negative margin on mobile */
+        margin-left: 0; /* Center-align if necessary */
+        text-align: center;
+    }
+
+    .name-dom-first-line {
+        left: 0;
+        font-size: 100px;
+    }
+
+    .name-dom-second-line {
+        left: 0;
+        top: 120px;
+        font-size: 100px;
+    }
+
+}
