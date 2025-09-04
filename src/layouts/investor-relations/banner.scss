@@ -1,38 +1,45 @@
-.name-dom-sensor {
-    position: absolute;
-    bottom: -250px;
-    right: -10%;
+/* Investor Relations Banner Styles */
+
+.investor-relations-banner {
+    position: relative;
+    overflow: hidden;
 }
 
-.name-dom-first-line {
-    position: absolute;
-    left: 20%;
+/* Background logo animations */
+.banner-logo {
+    transition: all 0.3s ease-in-out;
 }
 
-
-.name-dom-second-line {
-    position: absolute;
-    left: 40%;
+.banner-logo:hover {
+    opacity: 0.3;
+    transform: scale(1.05);
 }
 
+/* Text animations */
+.banner-text {
+    animation: fadeInUp 0.8s ease-out;
+}
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    /* For mobile screens */
-    .name-dom-sensor {
-        margin-top: -48px; /* Remove the negative margin on mobile */
-        margin-left: 0; /* Center-align if necessary */
-        text-align: center;
+    .banner-text {
+        animation: fadeInUp 0.6s ease-out;
     }
+}
 
-    .name-dom-first-line {
-        left: 0;
-        font-size: 100px;
+@media (max-width: 480px) {
+    .banner-text {
+        animation: fadeInUp 0.4s ease-out;
     }
-
-    .name-dom-second-line {
-        left: 0;
-        top: 120px;
-        font-size: 100px;
-    }
-
 }

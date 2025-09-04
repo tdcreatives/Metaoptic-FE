@@ -21,7 +21,7 @@ const AnnualInterimReport = () => {
                     <div
                         key={item.id}
                         className='xl:mt-[10px] border-b-2 border-[#b5b5b5] pb-10'>
-                        <div className='text-[24px] font-bold text-[#111111]'>{item.title}</div>
+                        <div className='text-center text-[24px] font-bold text-[#111111]'>{item.title}</div>
                         <BaseButton
                         label='DOWNLOAD PDF'
                         classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
