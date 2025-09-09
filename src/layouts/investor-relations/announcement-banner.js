@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useEffect, useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { gsap } from 'gsap';
 import './banner.scss';
 import BaseButton from '@/components/BaseButton';
 
 const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
     const [line1, line2] = bannerTitle.split('<br/>');
-
+    const router = useRouter();
     return (
         <div className='relative w-full bg-[#F0F0F0] pb-20 overflow-hidden investor-relations-banner'>
             {/* Background logo images */}
