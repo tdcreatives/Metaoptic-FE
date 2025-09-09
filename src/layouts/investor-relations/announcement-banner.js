@@ -3,8 +3,9 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
 import './banner.scss';
+import BaseButton from '@/components/BaseButton';
 
-const InvestorRelationsBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
+const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
     const [line1, line2] = bannerTitle.split('<br/>');
 
     return (
@@ -22,13 +23,20 @@ const InvestorRelationsBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => 
 
                 {/* Main text content */}
                 <div className='relative flex flex-col justify-center px-[40px] md:px-[60px] lg:px-[80px] xl:px-[40px]'>
+                    <BaseButton
+                            label={'Listing announcements'}
+                            classNameBtn='uppercase'
+                            bgDefault='#d34c39'
+                            className='!mt-[10px] !xl:justify-start !justify-start'                        
+                            onClick={() => router.push('/investor-relations')}
+                        />
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[150px] leading-[1.1] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-center sm:text-left'
+                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[120px] leading-[1.1] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-center sm:text-left'
                         dangerouslySetInnerHTML={{ __html: line1 }}
                     />
                 
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[150px] leading-[0.95] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] banner-text whitespace-normal break-words text-center sm:text-left sm:pl-[calc(0.8*var(--line1-width))]'
+                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[120px] leading-[0.95] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] banner-text whitespace-normal break-words text-center sm:text-left sm:pl-[calc(0.8*var(--line1-width))]'
                         style={{ '--line1-width': `${line1.length}ch` }}
                         dangerouslySetInnerHTML={{ __html: line2 }}
                     />
@@ -38,4 +46,4 @@ const InvestorRelationsBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => 
     );
 };
 
-export default InvestorRelationsBanner;
+export default AnnouncementBanner;

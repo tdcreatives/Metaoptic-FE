@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "GENERAL ANNOUNCEMENT::PLACEMENT RESULTS",
+        "title_btn": "GENERAL<br/>ANNOUNCEMENT::PLACEMENT<br/>RESULTS",
+        "slug": "general-announcement-placement-results",
+        "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+        "date": "08 Sep 2025 05:30 PM"
+    },       
+    {
+        "id": 2,
+        "title": "GENERAL ANNOUNCEMENT::SGX SECURITIES WELCOMES METAOPTICS LTD TO CATALIST",
+        "title_btn": "GENERAL ANNOUNCEMENT::SGX<br/>SECURITIES WELCOMES METAOPTICS<br/>LTD TO CATALIST",
+        "slug": "general-announcement-sgx-securities-welcomes-metaoptics-ltd-to-catalist",
+        "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+        "date": "08 Sep 2025 05:30 PM"
+    },      
+    {
+        "id": 3,
+        "title": "EQUITY - LISTING CONFIRMATION::ADMISSION TO THE OFFICIAL LIST OF SGX-CATALIST",
+        "title_btn": "EQUITY - LISTING<br/>CONFIRMATION::ADMISSION TO THE<br/>OFFICIAL LIST OF SGX-CATALIST",
+        "title_banner": "EQUITY - LISTING<br/>CONFIRMATION",
+        "slug": "equity-listing-confirmation-admission-to-the-official-list-of-sgx-catalist",
+        "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
+        "date": "08 Sep 2025 05:30 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "announcement": {
+                "subTitle": "Admission to the Official List of SGX-Catalist",
+                "title": "Equity - Listing Confirmation",
+                "dateTime": "08-Sep-2025 16:19:52",
+                "status": "New",
+                "reference": "SG250908OTHRHC4T",
+                "submittedBy": "Securities Market Control",
+                "designation": "SGX-ST",
+                "effectiveStartDate": "09/09/2025 09:00:00",
+                "description": "1. The above shares will be granted listing and quotation in the Official List of SGX-Catalist. Trading in the shares will commence on Ready basis with effect from 9.00 a.m., 09-Sep-2025.\n\n2. The short name is '$ METAOPTICS LTD'. The ISIN Code is KYG93Y1D1074.\n\n3. The shares will be quoted in board lots of 100 shares. Settlement for trades in the shares will be effected by book entries in the securities accounts which buyers and sellers must maintain with The Central Depository (Pte) Ltd (CDP).",
+                "disclaimer": "This announcement was prepared and issued by the named Issuer/ Manager to the Exchange The Exchange assumes no responsibility for the correctness of any of the statements made, opinions expressed or reports contained in this announcement and is posting this announcement on SGXNet for the sole purpose of dissemination only. In the event of any queries or clarification required in respect of any matters arising from this announcement, such queries are to be made to the named Issuer/ Manager directly and not to the Exchange. The Exchange shall not be liable for any losses or damages howsoever arising as a result of the circulation, publication and dissemination of this announcement."
+            }
+        }
+    }  
+]

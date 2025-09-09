@@ -1,13 +1,12 @@
 import React from 'react';
 
 import metadataJson from '@/constants/metadata.json';
+import items from '@/constants/announcements.json';
 
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
-import News from '@/layouts/homepage/news';
-import Announcements from '@/layouts/investor-relations/announcements';
-import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
-
+import AnnouncementDetailContent from '@/layouts/investor-relations/announcement-detail-content';
+import AnnouncementBanner from '@/layouts/investor-relations/announcement-banner';
 
 export const metadata = {
     title: metadataJson.investorrelations.title,
@@ -25,16 +24,24 @@ export const metadata = {
     twitterDescription: metadataJson.investorrelations.twitterDescription,
 };
 
-const InvestorRelations = () => {
+export async function generateStaticParams() {
+    return items.map((item) => ({
+        slug: item.slug,
+    }));
+}
+
+const Announcement = async (props) => {
+    const params = await props.params;
+
+    const announcement = items.find((item) => item.slug === params.slug);
     return (
         <>
             <Header />
-            <InvestorRelationsBanner />
-            <Announcements />
-            <News />
+            <AnnouncementBanner bannerTitle={announcement?.title_banner} />
+            <AnnouncementDetailContent />
             <Footer />
         </>
     );
 };
 
-export default InvestorRelations;
+export default Announcement;
