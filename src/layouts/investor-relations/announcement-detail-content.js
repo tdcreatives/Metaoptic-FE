@@ -243,6 +243,7 @@ const AnnouncementDetailContent = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
                     {details.attachments.map((item, index) => (
                         <div
+                            key={index}
                             className='xl:mt-[10px] pb-10'
                         >
                             {/* Date */}
