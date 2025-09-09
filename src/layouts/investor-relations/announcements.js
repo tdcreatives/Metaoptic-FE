@@ -42,7 +42,7 @@ const Announcements = () => {
                         {/* Title Container */}
                         <IconButton
                             label={item.title_btn}
-                            icon={<Image src={arrowIcon} alt='arrow' width={16} height={16} />}
+                            icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
                             classNameBtn='uppercase !text-black hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-[10px]'                        

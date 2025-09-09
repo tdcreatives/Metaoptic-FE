@@ -1,19 +1,76 @@
 [
     {
         "id": 1,
-        "title": "GENERAL ANNOUNCEMENT::PLACEMENT RESULTS",
-        "title_btn": "GENERAL<br/>ANNOUNCEMENT::PLACEMENT<br/>RESULTS",
-        "slug": "general-announcement-placement-results",
-        "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
-        "date": "08 Sep 2025 05:30 PM"
+        "title": "GENERAL ANNOUNCEMENT::SGX SECURITIES WELCOMES METAOPTICS LTD TO CATALIST",
+        "title_btn": "GENERAL ANNOUNCEMENT::SGX<br/>SECURITIES WELCOMES METAOPTICS<br/>LTD TO CATALIST",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-sgx-securities-welcomes-metaoptics-ltd-to-catalist",
+        "desc": "",
+        "date": "09 Sep 2025 09:45 AM",
+        "details": {
+            "issuer": {
+                "name": "SINGAPORE EXCHANGE LIMITED"
+            },
+            "securities": {
+                "name": "SINGAPORE EXCHANGE LIMITED - SG1J26887955 - S68"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "SGX Securities welcomes MetaOptics Ltd to Catalist",
+                "title": "General Announcement",
+                "dateTime": "09-Sep-2025 09:54:22",
+                "status": "New",
+                "reference": "SG250909OTHRB0CV",
+                "submittedBy": "Belle Yeo",
+                "designation": "Vice President",
+                "description": "SGX Securities today congratulates MetaOptics Ltd on its successful Catalist listing under the stock code \"9MT\".\n\nEstablished in 2021, MetaOptics Ltd (MetaOptics) is a semiconductor optics company that pioneers in glass-based metalens with artificial intelligence (AI)-enhanced imaging. Its products include metalens camera modules, metalens manufacturing equipment, and Internet of Things (IoT) devices such as infrared cameras, pico projectors and colour cameras. MetaOptics was a recent winner at the inaugural Design AI and Tech Awards 2025, jointly organised by The Business Times and the Singapore University of Technology and Design (SUTD).\n\n Aloysius Chua Hao Peng, Deputy Chief Executive Officer, MetaOptics Ltd, said, \"Listing on the Singapore Exchange marks a landmark moment for MetaOptics Ltd as the world's first pure-play metalens company to take this step onto the publicly listed stage. Positioned at the intersection of photonics and nanofabrication, we are driving the future of optics - from powering smart devices and AR/VR devices to enabling next-generation biometrics and automotive systems. This milestone is not just a celebration, but a launchpad: we are committed to accelerating R&D, expanding globally, and delivering breakthrough, high-performance optical solutions for tomorrow's technology. Our heartfelt thanks go to our investors, partners, and team whose belief in MetaOptics fuels our journey. We look forward to creating lasting value together.\"\n\n Koh Jin Hoe, Head of Capital Markets, Global Sales and Origination, SGX Group, said, \"We are delighted to welcome MetaOptics Ltd to SGX. As a pioneer in advanced optical technology, MetaOptics brings a fresh dimension to our market with its focus on innovation and cutting-edge solutions. The company's listing reflects the growing diversity of sectors choosing Singapore as a launchpad for regional and global growth.\"\n\n  Koh Jin Hoe, Head of Capital Markets, Global Sales and Origination, SGX Group, said, \"We are delighted to welcome MetaOptics Ltd to SGX. As a pioneer in advanced optical technology, MetaOptics brings a fresh dimension to our market with its focus on innovation and cutting-edge solutions. The company's listing reflects the growing diversity of sectors choosing Singapore as a launchpad for regional and global growth.\"\n\n  MetaOptics Ltd joins SGX's growing Technology cluster with a total market capitalisation of S$113 billion. MetaOptics Ltd opened at S$0.21 today."                
+            },
+            "attachments":[
+                {            
+                    "name": "SGX Securities welcomes MetaOptics to Catalist.pdf",
+                    "url": "https://links.sgx.com/FileOpen/20250909%20-SGX%20Securities%20welcomes%20MetaOptics%20to%20Catalist.ashx?App=Announcement&FileID=858537"                
+                }
+            ]
+
+        }
     },       
     {
         "id": 2,
-        "title": "GENERAL ANNOUNCEMENT::SGX SECURITIES WELCOMES METAOPTICS LTD TO CATALIST",
-        "title_btn": "GENERAL ANNOUNCEMENT::SGX<br/>SECURITIES WELCOMES METAOPTICS<br/>LTD TO CATALIST",
-        "slug": "general-announcement-sgx-securities-welcomes-metaoptics-ltd-to-catalist",
-        "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
-        "date": "08 Sep 2025 05:30 PM"
+        "title": "GENERAL ANNOUNCEMENT::PLACEMENT RESULTS",
+        "title_btn": "GENERAL<br/>ANNOUNCEMENT::PLACEMENT<br/>RESULTS",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-placement-results",
+        "desc": "",
+        "date": "08 Sep 2025 05:30 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Placement Results",
+                "title": "General Announcement",
+                "dateTime": "08-Sep-2025 17:47:00",
+                "status": "New",
+                "reference": "SG250908OTHRMEOR",
+                "submittedBy": "Thng Chong Kimt",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\n This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\n This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\n The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                
+            },
+            "attachments":[
+                {            
+                    "name": "MetaOptics Ltd - Placement Results.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20Ltd%20-%20Placement%20Results.ashx?App=Announcement&FileID=858463"                
+                }
+            ]
+        }
     },      
     {
         "id": 3,
@@ -22,7 +79,7 @@
         "title_banner": "EQUITY - LISTING<br/>CONFIRMATION",
         "slug": "equity-listing-confirmation-admission-to-the-official-list-of-sgx-catalist",
         "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
-        "date": "08 Sep 2025 05:30 PM",
+        "date": "08 Sep 2025 04:20 PM",
         "details": {
             "issuer": {
                 "name": "METAOPTICS LTD"
