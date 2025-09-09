@@ -24,6 +24,7 @@ const Header = ({ background = '#fff' }) => {
         { label: 'ABOUT US', path: '/about-us' },
         { label: 'PRODUCTS', path: '/products' },
         { label: 'NEWS', path: '/news' },
+        { label: 'INVESTOR RELATIONS', path: '/investor-relations' },
         { label: 'CONTACT', path: '/contact-us' },
         { label: 'SHOP', path: 'https://metaoptics.shop/' },
     ];
