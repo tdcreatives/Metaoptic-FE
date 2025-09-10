@@ -26,7 +26,7 @@ const Announcements = () => {
             </div>
 
             {/* Announcements List */}
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px]'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px] flex flex-col justify-center'>
                 {items.map((item, index) => (
                     <div
                         key={item.id}
