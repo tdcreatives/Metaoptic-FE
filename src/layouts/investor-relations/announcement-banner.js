@@ -21,10 +21,10 @@ const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
             />
             
             {/* Main container with proper padding and dimensions */}
-            <div className='relative flex px-4 md:px-8 lg:px-16 xl:px-[40px] py-8 md:py-12 lg:py-16 xl:py-[52px] w-full max-w-[1920px] mx-auto min-h-[400px] md:min-h-[500px] lg:min-h-[567px]'>
+            <div className='relative flex items-center justify-center px-4 md:px-8 lg:px-16 xl:px-[40px] py-8 md:py-12 lg:py-16 xl:py-[52px] w-full max-w-[1920px] mx-auto min-h-[400px] md:min-h-[500px] lg:min-h-[567px]'>
 
                 {/* Main text content */}
-                <div className='relative flex flex-col justify-center px-[40px] md:px-[60px] lg:px-[80px] xl:px-[40px]'>
+                <div className='relative flex flex-col justify-center w-full max-w-[1200px]'>
                     <BaseButton
                         label={'Listing announcements'}
                         classNameBtn='uppercase'

@@ -45,7 +45,7 @@ const Announcements = () => {
                             icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
                             classNameBtn='uppercase !text-black hover:!text-white'
                             bgDefault='#fff'
-                            className='!mt-[10px]'                        
+                            className='!mt-[10px] !xl:justify-start !justify-start'                        
                             onClick={() => handleOnNavigate(item.slug)}
                         />
                         
