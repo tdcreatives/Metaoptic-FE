@@ -7,8 +7,25 @@ import IconButton from '@/components/IconButton';
 import arrowIcon from '@/assets/images/arrow.png';
 import Image from 'next/image';
 
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        // Set initial value
+        setIsMobile(window.innerWidth < 768);
+        // Add resize listener
+        window.addEventListener('resize', handleResize);
+        // Cleanup listener on unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return isMobile;
+};
+
 const Announcements = () => {
     const router = useRouter();
+    const isMobile = useIsMobile();
     const handleOnNavigate = (slug) => {
         router.push(`/annountcement/${slug}`);
     };
@@ -41,7 +58,7 @@ const Announcements = () => {
 
                         {/* Title Container */}
                         <IconButton
-                            label={item.title_btn}
+                            label={isMobile ? item.title_btn_sm : item.title_btn}
                             icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
                             classNameBtn='uppercase !text-black hover:!text-white'
                             bgDefault='#fff'

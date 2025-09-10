@@ -23,7 +23,7 @@ const InvestorRelationsBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => 
                 {/* Main text content */}
                 <div className='relative flex flex-col justify-center w-full max-w-[1200px]'>
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[150px] leading-[1.1] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-center sm:text-left'
+                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[150px] leading-[1.1] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-left sm:text-left'
                         dangerouslySetInnerHTML={{ __html: line1 }}
                     />
                 

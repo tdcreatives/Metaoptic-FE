@@ -2,7 +2,8 @@
     {
         "id": 1,
         "title": "GENERAL ANNOUNCEMENT::SGX SECURITIES WELCOMES METAOPTICS LTD TO CATALIST",
-        "title_btn": "GENERAL ANNOUNCEMENT::SGX<br/>SECURITIES WELCOMES METAOPTICS<br/>LTD TO CATALIST",
+        "title_btn": "GENERAL ANNOUNCEMENT::SGX<br/>SECURITIES WELCOMES<br/>ETAOPTICS LTD TO CATALIST",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::SGX SECURITIES WELCOMES METAOPTICS LTD TO CATALIST",
         "title_banner": "GENERAL<br/>ANNOUNCEMENT",
         "slug": "general-announcement-sgx-securities-welcomes-metaoptics-ltd-to-catalist",
         "desc": "",
@@ -40,6 +41,7 @@
         "id": 2,
         "title": "GENERAL ANNOUNCEMENT::PLACEMENT RESULTS",
         "title_btn": "GENERAL<br/>ANNOUNCEMENT::PLACEMENT<br/>RESULTS",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PLACEMENT RESULTS",
         "title_banner": "GENERAL<br/>ANNOUNCEMENT",
         "slug": "general-announcement-placement-results",
         "desc": "",
@@ -75,7 +77,8 @@
     {
         "id": 3,
         "title": "EQUITY - LISTING CONFIRMATION::ADMISSION TO THE OFFICIAL LIST OF SGX-CATALIST",
-        "title_btn": "EQUITY - LISTING<br/>CONFIRMATION::ADMISSION TO THE<br/>OFFICIAL LIST OF SGX-CATALIST",
+        "title_btn": "EQUITY - LISTING<br/>CONFIRMATION::ADMISSION TO<br/>THE OFFICIAL LIST OF SGX-CATALIST",
+        "title_btn_sm": "EQUITY - LISTING CONFIRMATION::ADMISSION TO THE OFFICIAL LIST OF SGX-CATALIST",
         "title_banner": "EQUITY - LISTING<br/>CONFIRMATION",
         "slug": "equity-listing-confirmation-admission-to-the-official-list-of-sgx-catalist",
         "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
