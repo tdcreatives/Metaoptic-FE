@@ -40,8 +40,8 @@ const AnnouncementDetailContent = () => {
             <div className='px-2 md:px-4 lg:px-8 xl:px-[99px] py-8'>
 
                 <div className='mb-8'>
-                    <div className='flex justify-between items-center mb-4'>
-                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5]'>
+                    <div className='flex justify-between items-center mb-4 text-wrap'>
+                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5] wrap-anywhere'>
                             {announcement.title}
                         </h1>
                     </div>
