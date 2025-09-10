@@ -52,7 +52,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[48px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
                                 Issuer & Securities
                             </h2>
                         </div>
@@ -232,7 +232,7 @@ const AnnouncementDetailContent = () => {
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
-                                <h2 className='text-[48px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
                                     Attachments
                                 </h2>
                             </div>
