@@ -41,7 +41,7 @@ const AnnouncementDetailContent = () => {
 
                 <div className='mb-8'>
                     <div className='flex justify-between items-center mb-4 text-wrap'>
-                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5] wrap-anywhere'>
+                        <h1 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5] wrap-anywhere'>
                             {announcement.title}
                         </h1>
                     </div>
