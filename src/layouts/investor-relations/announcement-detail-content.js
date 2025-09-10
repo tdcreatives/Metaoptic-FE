@@ -41,7 +41,7 @@ const AnnouncementDetailContent = () => {
 
                 <div className='mb-8'>
                     <div className='flex justify-between items-center mb-4'>
-                        <h1 className='text-[48px] font-medium uppercase futura-medium text-[#111111] leading-[1.5]'>
+                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium  text-[#111111] leading-[1.5]'>
                             {announcement.title}
                         </h1>
                     </div>
@@ -52,7 +52,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[48px] font-medium uppercase futura-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[48px] font-medium uppercase futura-condensed-medium  text-[#616161] leading-[1.5]'>
                                 Issuer & Securities
                             </h2>
                         </div>
@@ -63,20 +63,20 @@ const AnnouncementDetailContent = () => {
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
                             {/* Issuer/Manager */}
                             <div className='flex gap-4'>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                     Issuer/ Manager:
                                 </div>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.55]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.55]'>
                                     {details.issuer.name}
                                 </div>
                             </div>
 
                             {/* Securities */}
                             <div className='flex gap-4'>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                     Securities:
                                 </div>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.55]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.55]'>
                                     {details.securities.name}
                                 </div>
                             </div>
@@ -84,10 +84,10 @@ const AnnouncementDetailContent = () => {
                             {/*Stapled Security: */}
                             {details?.stapledSecurity?.name && (
                             <div className='flex gap-4'>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                 Stapled Security:
                                 </div>
-                                <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.55]'>
+                                <div className='text-[20px] font-medium  text-[#111111] leading-[1.55]'>
                                         {details.stapledSecurity.name}
                                 </div>
                             </div>
@@ -100,7 +100,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[48px] font-medium uppercase futura-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[48px] font-medium uppercase futura-condensed-medium  text-[#616161] leading-[1.5]'>
                                 Announcement Details
                             </h2>
                         </div>
@@ -115,40 +115,40 @@ const AnnouncementDetailContent = () => {
                                 <div className='space-y-6'>
                                     {/* Announcement Title */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Announcement Title:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.title}
                                         </div>
                                     </div>
 
                                     {/* Status */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Status:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.status}
                                         </div>
                                     </div>
 
                                     {/* Announcement Reference */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Announcement Reference:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.reference}
                                         </div>
                                     </div>
 
                                     {/* Designation */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Designation:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.designation}
                                         </div>
                                     </div>                    
@@ -159,30 +159,30 @@ const AnnouncementDetailContent = () => {
                                 <div className='space-y-6'>
                                     {/* Date & Time */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Date &Time of Broadcast:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.dateTime}
                                         </div>
                                     </div>
 
                                     {/* Announcement Sub Title */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Announcement Sub Title:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.subTitle}
                                         </div>
                                     </div>
 
                                     {/* Submitted By */}
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Submitted By (Co./ Ind. Name):
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.submittedBy}
                                         </div>
                                     </div>
@@ -190,10 +190,10 @@ const AnnouncementDetailContent = () => {
                                     {/* Effective Start Date */}
                                     {details?.announcement?.effectiveStartDate && (
                                     <div className='flex gap-4'>
-                                        <div className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5] min-w-[200px]'>
+                                        <div className='text-[20px] font-medium  text-[#111111] leading-[1.5] min-w-[200px]'>
                                             Effective Start Date of the Event:
                                         </div>
-                                        <div className='text-[20px] font-medium futura-medium text-[rgba(17,17,17,0.9)] leading-[1.55]'>
+                                        <div className='text-[20px] font-medium  text-[rgba(17,17,17,0.9)] leading-[1.55]'>
                                             {details.announcement.effectiveStartDate}
                                         </div>
                                     </div>
@@ -206,12 +206,12 @@ const AnnouncementDetailContent = () => {
                             {/* Description Section */}
                             <div className='mt-8'>
                                 <div className='mb-4'>
-                                    <h3 className='text-[20px] font-medium futura-medium text-[#111111] leading-[1.5]'>
+                                    <h3 className='text-[20px] font-medium  text-[#111111] leading-[1.5]'>
                                         Description (Please provide a detailed description of the event in the box below):
                                     </h3>
                                 </div>
                                 <div className=''>
-                                    <div className='text-[20px] font-medium futura-medium text-[#676767] leading-[1] whitespace-pre-line'>
+                                    <div className='text-[20px] font-medium  text-[#676767] leading-[1] whitespace-pre-line'>
                                         {details.announcement.description}
                                     </div>
                                 </div>
@@ -221,7 +221,7 @@ const AnnouncementDetailContent = () => {
                             {/** DISCLAIMER */}
                             {details?.announcement?.disclaimer && (
                             <div className='mt-8'>
-                                <div className='mb-4 text-[20px] font-medium futura-medium text-[#676767] leading-[1] whitespace-pre-line'>
+                                <div className='mb-4 text-[20px] font-medium  text-[#676767] leading-[1] whitespace-pre-line'>
                                     DISCLAIMER:  {details.announcement.disclaimer}
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[48px] font-medium uppercase futura-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[48px] font-medium uppercase futura-condensed-medium  text-[#616161] leading-[1.5]'>
                             Attachments
                             </h2>
                         </div>
@@ -248,8 +248,8 @@ const AnnouncementDetailContent = () => {
                         >
                             {/* Date */}
                             <div className='flex items-center gap-2 py-2'>
-                                <span className='text-[20px] font-medium futura-medium text-black leading-[1.2] '><Image src={downloadIcon} alt='arrow' width={32} height={32} /></span>
-                                <span className='text-[20px] font-medium futura-medium text-black leading-[1.2] '>
+                                <span className='text-[20px] font-medium  text-black leading-[1.2] '><Image src={downloadIcon} alt='arrow' width={32} height={32} /></span>
+                                <span className='text-[20px] font-medium  text-black leading-[1.2] '>
                                     {item.name}
                                 </span>                           
                             </div>
