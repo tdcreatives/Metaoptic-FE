@@ -209,7 +209,7 @@ const AnnouncementDetailContent = () => {
                                     </h3>
                                 </div>
                                 <div className=''>
-                                    <div className='text-[20px] font-medium text-[#676767] leading-[1] whitespace-pre-line'>
+                                    <div className='text-[20px] font-medium text-[#676767] leading-[1.5] whitespace-pre-line'>
                                         {details.announcement.description}
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@ const AnnouncementDetailContent = () => {
                             {/** DISCLAIMER */}
                             {details?.announcement?.disclaimer && (
                                 <div className='mt-8'>
-                                    <div className='mb-4 text-[20px] font-medium text-[#676767] leading-[1] whitespace-pre-line'>
+                                    <div className='mb-4 text-[20px] font-medium text-[#676767] leading-[1.5] whitespace-pre-line'>
                                         DISCLAIMER: {details.announcement.disclaimer}
                                     </div>
                                 </div>
