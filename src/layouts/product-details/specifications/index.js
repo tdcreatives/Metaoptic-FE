@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
+import IconButton from '@/components/IconButton';
+import arrowDownIcon from '@/assets/images/arrow-down.png';
 
 // Helper function to format keys
 function formatKey(str) {
@@ -164,41 +166,145 @@ const ProductDetailsSpecifications = ({
                 ))}
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
-                <div className='spec-section flex flex-col gap-4'>
-                    {buttonLeft && (
-                        <BaseButton
-                            label={buttonLeft?.name}
-                            classNameBtn=' !text-[#d34c39] hover:!text-white'
-                            bgDefault='#fff'
-                            className='!mt-[80px]'
-                            onClick={() => window.open(buttonLeft?.link, '_blank')}
-                        />
-                    )}
+            
+            <div className='grid grid-cols-3 gap-12'>
+    <div className='spec-section flex justify-center items-center'>
+        {buttonLeft && (
+            Array.isArray(buttonLeft?.link) ? (
+                <div className='relative group w-full max-w-xs'>
+                    <IconButton
+                        label={`${buttonLeft?.name}`}
+                        icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
+                        classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                        bgDefault='#fff'
+                        className='w-full'
+                    />
+                    <div className='absolute top-full mt-2 w-full bg-white shadow-lg rounded-md z-10 hidden group-hover:block'>
+                        {buttonLeft.link.map((item, index) => (
+                            <button
+                                key={index}
+                                className='block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100'
+                                onClick={() => {
+                                    if (item.link.toLowerCase().endsWith('.pdf')) {
+                                        const link = document.createElement('a');
+                                        link.href = item.link;
+                                        link.download = item?.name || `file-${index + 1}`;
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    } else {
+                                        window.open(item.link, '_blank');
+                                    }
+                                }}
+                            >
+                                {item?.name || `Link ${index + 1}`}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-                <div className='spec-section flex flex-col gap-4'>
-                    {brochure && (
-                        <BaseButton
-                            label='Download Brochure'
-                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
-                            bgDefault='#fff'
-                            className='!mt-[80px]'
-                            onClick={() => window.open(brochure, '_blank')}
-                        />
-                    )}
+            ) : (
+                <BaseButton
+                    label={buttonLeft?.name}
+                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                    bgDefault='#fff'
+                    className='w-full max-w-xs'
+                    onClick={() => {
+                        if (buttonLeft?.link.toLowerCase().endsWith('.pdf')) {
+                            const link = document.createElement('a');
+                            link.href = buttonLeft?.link;
+                            link.download = buttonLeft?.name || 'file';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        } else {
+                            window.open(buttonLeft?.link, '_blank');
+                        }
+                    }}
+                />
+            )
+        )}
+    </div>
+    <div className='spec-section flex justify-center items-center'>
+        {brochure && (
+            <BaseButton
+                label='Download Brochure'
+                classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                bgDefault='#fff'
+                className='w-full max-w-xs'
+                onClick={() => {
+                    if (brochure.toLowerCase().endsWith('.pdf')) {
+                        const link = document.createElement('a');
+                        link.href = brochure;
+                        link.download = 'brochure';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } else {
+                        window.open(brochure, '_blank');
+                    }
+                }}
+            />
+        )}
+    </div>
+    <div className='spec-section flex justify-center items-center'>
+        {buttonRight && (
+            Array.isArray(buttonRight?.link) ? (
+                <div className='relative group w-full max-w-xs'>
+                    <IconButton
+                        label={`${buttonRight?.name}`}
+                        icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
+                        classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                        bgDefault='#fff'
+                        className='w-full'
+                    />
+                    <div className='absolute top-full w-full bg-white shadow-lg rounded-md z-10 hidden group-hover:block'>
+                        {buttonRight.link.map((item, index) => (
+                            <button
+                                key={index}
+                                className='block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100'
+                                onClick={() => {
+                                    if (item?.link.toLowerCase().endsWith('.pdf')) {
+                                        const link = document.createElement('a');
+                                        link.href = item.link;
+                                        link.download = item?.name || `file-${index + 1}`;
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    } else {
+                                        window.open(item.link, '_blank');
+                                    }
+                                }}
+                            >
+                                {item?.name || `Link ${index + 1}`}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-                <div className='spec-section flex flex-col gap-4'>
-                    {buttonRight && (
-                        <BaseButton
-                            label={buttonRight?.name}
-                            classNameBtn=' !text-[#d34c39] hover:!text-white'
-                            bgDefault='#fff'
-                            className='!mt-[80px]'
-                            onClick={() => window.open(buttonRight?.link, '_blank')}
-                        />
-                    )}
-                </div>
-            </div>
+            ) : (
+                <BaseButton
+                    label={buttonRight?.name}
+                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                    bgDefault='#fff'
+                    className='w-full max-w-xs'
+                    onClick={() => {
+                        if (buttonRight?.link.toLowerCase().endsWith('.pdf')) {
+                            const link = document.createElement('a');
+                            link.href = buttonRight?.link;
+                            link.download = buttonRight?.name || 'file';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        } else {
+                            window.open(buttonRight?.link, '_blank');
+                        }
+                    }}
+                />
+            )
+        )}
+    </div>
+</div>
+
+
         </div>
     );
 };

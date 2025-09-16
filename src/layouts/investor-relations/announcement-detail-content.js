@@ -41,7 +41,7 @@ const AnnouncementDetailContent = () => {
 
                 <div className='mb-8'>
                     <div className='flex justify-between items-center mb-4 text-wrap'>
-                        <h1 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5] wrap-anywhere'>
+                        <h1 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5]  wrap-anywhere'>
                             {announcement.title}
                         </h1>
                     </div>
@@ -52,7 +52,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] xl:leading-[1.5] leading-[17px]'>
                                 Issuer & Securities
                             </h2>
                         </div>
@@ -63,20 +63,20 @@ const AnnouncementDetailContent = () => {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             {/* Issuer/Manager */}
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                     Issuer/ Manager:
                                 </div>
-                                <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                     {details.issuer.name}
                                 </div>
                             </div>
                         
                             {/* Securities */}
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                     Securities:
                                 </div>
-                                <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                     {details.securities.name}
                                 </div>
                             </div>
@@ -84,10 +84,10 @@ const AnnouncementDetailContent = () => {
                             {/* Stapled Security */}
                             {details?.stapledSecurity?.name && (
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                    <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                    <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                         Stapled Security:
                                     </div>
-                                    <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                    <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                         {details.stapledSecurity.name}
                                     </div>
                                 </div>
@@ -115,40 +115,40 @@ const AnnouncementDetailContent = () => {
                                 <div className='space-y-6'>
                                     {/* Announcement Title */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Announcement Title:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.title}
                                         </div>
                                     </div>
 
                                     {/* Status */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Status:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.status}
                                         </div>
                                     </div>
 
                                     {/* Announcement Reference */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Announcement Reference:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.reference}
                                         </div>
                                     </div>
 
                                     {/* Designation */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Designation:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.designation}
                                         </div>
                                     </div>                    
@@ -158,30 +158,30 @@ const AnnouncementDetailContent = () => {
                                 <div className='space-y-6'>
                                     {/* Date & Time */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Date &Time of Broadcast:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.dateTime}
                                         </div>
                                     </div>
 
                                     {/* Announcement Sub Title */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Announcement Sub Title:
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.subTitle}
                                         </div>
                                     </div>
 
                                     {/* Submitted By */}
                                     <div className='flex flex-col md:flex-row gap-4'>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Submitted By (Co./ Ind. Name):
                                         </div>
-                                        <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                             {details.announcement.submittedBy}
                                         </div>
                                     </div>
@@ -189,10 +189,10 @@ const AnnouncementDetailContent = () => {
                                     {/* Effective Start Date */}
                                     {details?.announcement?.effectiveStartDate && (
                                         <div className='flex flex-col md:flex-row gap-4'>
-                                            <div className='text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
+                                            <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] leading-[1.5] w-[200px] flex-shrink-0'>
                                                 Effective Start Date of the Event:
                                             </div>
-                                            <div className='text-[20px] font-medium text-[#111111] leading-[1.55] flex-grow'>
+                                            <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] leading-[1.5] flex-grow'>
                                                 {details.announcement.effectiveStartDate}
                                             </div>
                                         </div>
@@ -204,12 +204,12 @@ const AnnouncementDetailContent = () => {
                             {/* Description Section */}
                             <div className='mt-8'>
                                 <div className='mb-4'>
-                                    <h3 className='text-[20px] font-medium text-[#111111] leading-[1.5]'>
+                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
                                         Description (Please provide a detailed description of the event in the box below):
                                     </h3>
                                 </div>
                                 <div className=''>
-                                    <div className='text-[20px] font-medium text-[#676767] leading-[1.5] whitespace-pre-line'>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
                                         {details.announcement.description}
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@ const AnnouncementDetailContent = () => {
                             {/** DISCLAIMER */}
                             {details?.announcement?.disclaimer && (
                                 <div className='mt-8'>
-                                    <div className='mb-4 text-[20px] font-medium text-[#676767] leading-[1.5] whitespace-pre-line'>
+                                    <div className='mb-4 text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
                                         DISCLAIMER: {details.announcement.disclaimer}
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import items from '@/constants/announcements.json';
 import IconButton from '@/components/IconButton';
@@ -30,46 +30,93 @@ const Announcements = () => {
         router.push(`/annountcement/${slug}`);
     };
 
+    const videoRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlay = () => {
+        if (videoRef.current) {
+        videoRef.current.play().catch((error) => {
+            console.error('Video playback failed:', error);
+        });
+        setIsPlaying(true);
+        }
+    };
+
     return (
-        <div className='w-full bg-[#D34C39] rounded-t-lg px-6 py-8'>
-            {/* Header Section */}
-            <div className='mb-8'>
-                <div className='flex justify-between items-center mb-4'>
-                    <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-white leading-[1.5]'>
-                        Listing ANNOUNCEMENTS
-                    </h1>
-                </div>
-                <div className='w-full h-[2px] bg-white opacity-50'></div>
-            </div>
-
-            {/* Announcements List */}
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px] flex flex-col justify-center'>
-                {items.map((item, index) => (
-                    <div
-                        key={item.id}
-                        className='xl:mt-[10px] pb-10'
-                    >
-                        {/* Date */}
-                        <div className='flex items-center gap-2 px-10 py-2'>
-                            <div className='text-[20px] font-medium futura-condensed-medium text-white leading-[1.2] text-center'>
-                                {item.date}
-                            </div>
-                        </div>
-
-                        {/* Title Container */}
-                        <IconButton
-                            label={isMobile ? item.title_btn_sm : item.title_btn}
-                            icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
-                            classNameBtn='uppercase !text-black hover:!text-white'
-                            bgDefault='#fff'
-                            className='!mt-[10px] !xl:justify-start !justify-start'                        
-                            onClick={() => handleOnNavigate(item.slug)}
-                        />
-                        
+        <>
+            <div className="w-full bg-[#fff] rounded-t-lg px-6 py-8 flex flex-col items-center">
+                <div className="w-full max-w-6xl">
+                    {/* Header Section */}
+                    <div className="mb-8">
+                    <div className="flex justify-between items-center mb-4">
+                        <h1 className="text-[48px] font-medium uppercase futura-condensed-medium text-black leading-[1.5]">
+                        SGX Listing Celebration
+                        </h1>
                     </div>
-                ))}
+                    <div className="w-full relative">
+                        <video
+                        ref={videoRef}
+                        className="w-full"
+                        controls
+                        poster="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.jpg"
+                        >
+                        <source src="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                        </video>
+                        {!isPlaying && (
+                        <button
+                            onClick={handlePlay}
+                            className="absolute inset-0 m-auto w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-opacity"
+                        >
+                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                        )}
+                    </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div className='w-full bg-[#D34C39] rounded-t-lg px-6 py-8'>
+                {/* Header Section */}
+                <div className='mb-8'>
+                    <div className='flex justify-between items-center mb-4'>
+                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-white leading-[1.5]'>
+                            Listing ANNOUNCEMENTS
+                        </h1>
+                    </div>
+                    <div className='w-full h-[2px] bg-white opacity-50'></div>
+                </div>
+
+                {/* Announcements List */}
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px] flex flex-col justify-center'>
+                    {items.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className='xl:mt-[10px] pb-10'
+                        >
+                            {/* Date */}
+                            <div className='flex items-center gap-2 px-10 py-2'>
+                                <div className='text-[20px] font-medium futura-condensed-medium text-white leading-[1.2] text-center'>
+                                    {item.date}
+                                </div>
+                            </div>
+
+                            {/* Title Container */}
+                            <IconButton
+                                label={isMobile ? item.title_btn_sm : item.title_btn}
+                                icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
+                                classNameBtn='uppercase !text-black hover:!text-white'
+                                bgDefault='#fff'
+                                className='!mt-[10px] !xl:justify-start !justify-start'                        
+                                onClick={() => handleOnNavigate(item.slug)}
+                            />
+                            
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };
 

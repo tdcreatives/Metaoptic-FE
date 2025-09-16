@@ -7,14 +7,23 @@
             "image": "/products/product-1.png",
             "category": "Sensor",
             "buyNow": "https://metaoptics.shop/products/pocket-projector",
-            "brochure": "https://drive.google.com/file/d/1Q1kTmlJWBqco5SJ86kP8Paz3lvRa9bYf/view?usp=drive_link",
+            "brochure": "/download/3d-biometric-sensor.pdf",
             "buttonLeft": {
                 "name": "MOTViewer User Guide",
-                "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
             },
             "buttonRight": {
-                "name": "MOTViewer Installer Files",
-                "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+                "name": "MOTViewer Installer",
+                "link": [
+                    {
+                        "name": "MOTViewer Installer Files",
+                        "link": "/download/software/MOTViewerInstaller.exe"
+                    },
+                    {
+                        "name": "Thorlabs Scientific Imaging Software",
+                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+                    }
+                ]
             },
             "details": {
                 "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
@@ -75,7 +84,7 @@
             "image": "/products/product-2.png",
             "category": "Projector",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1vvl2P-dUsx7BGqT0NLw1FlTzgEEpE7bK/view?usp=drive_link",
+            "brochure": "/download/collimating-meta-lens.pdf",
             "details": {
                 "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
                 "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
@@ -126,14 +135,23 @@
             "image": "/products/product-3.png",
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
-            "brochure": "https://drive.google.com/file/d/1mW9SS80txPAiue1RPBa7BCtiXeArs4w2/view?usp=drive_link",
+            "brochure": "/download/iot-meta-lens-color-camera.pdf",
             "buttonLeft": {
                 "name": "MOTViewer User Guide",
-                "link": "https://1drv.ms/u/c/9B2BA786E6847600/ARwBag0cdtdEnC5yutftDsk?e=t6dfBy"
+                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
             },
             "buttonRight": {
-                "name": "MOTViewer Installer Files",
-                "link": "https://1drv.ms/u/c/9B2BA786E6847600/Af7_-PB_n6JLl9_Aq3_zWKM?e=dQBQab"
+                "name": "MOTViewer Installer",
+                "link": [
+                    {
+                        "name": "MOTViewer Installer Files",
+                        "link": "/download/software/MOTViewerInstaller.exe"
+                    },
+                    {
+                        "name": "Thorlabs Scientific Imaging Software",
+                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+                    }
+                ]
             },
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
@@ -196,7 +214,7 @@
             "image": "/products/product-4.png",
             "category": "Camera",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1QPaVAgNQP-zrOv1mvtqvoxDzdwPVeILG/view?usp=drive_link",
+            "brochure": "/download/color-imaging-meta-lens.pdf",
             "details": {
                 "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
                 "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
@@ -251,8 +269,8 @@
             "image": "/products/product-5.png",
             "category": "Projector",
             "buyNow": "https://metaoptics.shop/products/pico-projector",
-            "brochure": "https://drive.google.com/file/d/1jVSDNiBcTuTsr72Nc0ap9waVgcqFoKZI/view?usp=drive_link",
-            "userGuide": "https://drive.google.com/file/d/1_whgvrVi6wvIx2P_eSRBuSQ2954IuJun/view?usp=drive_link",
+            "brochure": "/download/pico-projector.pdf",
+            "userGuide": "/download/pico-projector-user-guiderev42.pdf",
             "details": {
                 "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
                 "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
@@ -307,7 +325,7 @@
             "image": "/products/product-6.png",
             "category": "3D",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1XgF6Nr1C33Udl6phahHhdSp2FlojAehI/view?usp=drive_link",
+            "brochure": "/download/ultra-wide-fov-brochure.pdf",
             "details": {
                 "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
                 "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
@@ -358,7 +376,7 @@
             "image": "/products/product-7.png",
             "category": "3D",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1D3qgYwlgQp6ZG-WtX6Mjoh7FhxCTN4ut/view?usp=drive_link",
+            "brochure": "/download/direct-laser-writer.pdf",
             "details": {
                 "subtitle": "Leading Edge Deep UV Direct Laser Writer",
                 "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
@@ -413,7 +431,7 @@
             "image": "/products/product-8.png",
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
-            "brochure": "https://drive.google.com/file/d/1S3qS68h4XBeqhcpa1UfpdYpcTBl8cYlR/view?usp=drive_link",
+            "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera.pdf",
             "details": {
                 "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
                 "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
@@ -475,7 +493,7 @@
             "image": "/products/product-9.png",
             "category": "Camera",
             "buyNow": "",
-            "brochure": "https://drive.google.com/file/d/1u43BwZry3WlfG0SOE5J3NXyJ8AphUdkT/view?usp=drive_link",
+            "brochure": "/download/metalens-color-camera-module.pdf",
             "details": {
                 "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
                 "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
@@ -537,7 +555,7 @@
             "image": "/products/product-10.png",
             "category": "3D",
             "buyNow": "",
-            "brochure": "https://metaoptics.sg/data/Metalens-Tester.pdf",
+            "brochure": "/download/metalens-tester.pdf",
             "details": {
                 "subtitle": "Precision Optical & Characterization System",
                 "subtitleItems": [
