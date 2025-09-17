@@ -326,6 +326,10 @@
             "category": "3D",
             "buyNow": "",
             "brochure": "/download/ultra-wide-fov-brochure.pdf",
+            "buttonLeft": {
+                "name": "MOTViewer User Guide",
+                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+            },
             "details": {
                 "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
                 "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
