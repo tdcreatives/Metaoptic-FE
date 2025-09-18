@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import BaseButton from '@/components/BaseButton';
 import BaseTitle from '@/components/BaseTitle';
+import IconButton from '@/components/IconButton';
+import arrowDownIcon from '@/assets/images/arrow-down.png';
 
 import './index.scss';
 
@@ -57,23 +59,92 @@ const ProductDetailsBanner = ({ product }) => {
                     </div>
                 )}
 
-                <div className='flex flex-col w-fit mx-auto gap-5'>
+                <div className='flex flex-col mx-auto gap-5 w-80'>
                     {product?.buyNow && (
                         <BaseButton
                             label='BUY'
                             onClick={handleOnBuyNow}
                             className='!mb-0 !w-full'
-                            classNameBtn='!w-full'
+                            classNameBtn='!w-full uppercase'
                         />
+                    )}                    
+
+                    {product?.userGuide && (                        
+                        <BaseButton
+                                label={product?.userGuide?.name}
+                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                bgDefault='#fff'
+                                className='!mb-0 !w-full'
+                                onClick={() => {
+                                    if (product?.userGuide?.link.toLowerCase().endsWith('.pdf')) {
+                                        const link = document.createElement('a');
+                                        link.href = product?.userGuide?.link;
+                                        link.download = product?.userGuide?.name || 'file';
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    } else {
+                                        window.open(product?.userGuide?.link, '_blank');
+                                    }
+                                }}
+                            />
+                    )}                   
+
+                    {product?.installer && (
+                        Array.isArray(product?.installer.link) ? (
+                            <div className='relative group w-full max-w-xs'>
+                                <IconButton
+                                    label={`${product?.installer?.name}`}
+                                    icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
+                                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                    bgDefault='#fff'
+                                    className='!mb-0 !w-full'
+                                />
+                                <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
+                                    {product?.installer?.link.map((item, index) => (
+                                        <button
+                                            key={index}
+                                            className='block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100'
+                                            onClick={() => {
+                                                if (item.link.toLowerCase().endsWith('.pdf')) {
+                                                    const link = document.createElement('a');
+                                                    link.href = item.link;
+                                                    link.download = item?.name || `file-${index + 1}`;
+                                                    document.body.appendChild(link);
+                                                    link.click();
+                                                    document.body.removeChild(link);
+                                                } else {
+                                                    window.open(item.link, '_blank');
+                                                }
+                                            }}
+                                        >
+                                            {item?.name || `Link ${index + 1}`}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            <BaseButton
+                                label={product?.installer?.name}
+                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                bgDefault='#fff'
+                                className='!mb-0 !w-full'
+                                onClick={() => {
+                                    if (product?.installer?.link.toLowerCase().endsWith('.pdf')) {
+                                        const link = document.createElement('a');
+                                        link.href = product?.installer?.link;
+                                        link.download = product?.installer?.name || 'file';
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    } else {
+                                        window.open(product?.installer?.link, '_blank');
+                                    }
+                                }}
+                            />
+                        )
                     )}
 
-                    {product?.userGuide && (
-                        <BaseButton
-                            label='DOWNLOAD USER GUIDE'
-                            onClick={() => window.open(product?.userGuide, '_blank')}
-                            className='!mb-0 !mt-0'
-                        />
-                    )}
                 </div>
             </div>
         </div>

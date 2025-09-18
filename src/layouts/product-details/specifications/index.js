@@ -104,6 +104,11 @@ const ProductDetailsSpecifications = ({
         );
     }, []);
 
+    const activeButtons = [buttonLeft, brochure, buttonRight].filter(Boolean).length;
+    const specificationLength = Object.entries(specifications).length;
+    const column = activeButtons > specificationLength ? activeButtons : specificationLength;
+    const gridColsClass =  'grid-cols-1 md:grid-cols-'+column ;
+
     return (
         <div className='w-full bg-[#d34c39] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-white'>
             {/* Specifications Title Row with Icon */}
@@ -128,7 +133,7 @@ const ProductDetailsSpecifications = ({
             </div>
 
             <div className='w-full h-[2px] bg-white opacity-50 mx-auto mb-8'></div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
+            <div className={`grid grid-cols-1 md:grid-cols-${specificationLength} gap-12 gap-12`}>
                 {Object.entries(specifications).map(([section, specs], index) => (
                     <div key={index} className='spec-section flex flex-col gap-4'>
                         <div className='flex flex-col items-center'>
@@ -167,7 +172,7 @@ const ProductDetailsSpecifications = ({
             </div>
 
             
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
+            <div className={`grid grid-cols-1 md:grid-cols-${activeButtons} gap-12 gap-12`}>
                 <div className='spec-section flex justify-center items-center'>
                     {buttonLeft && (
                         Array.isArray(buttonLeft?.link) ? (
@@ -179,7 +184,7 @@ const ProductDetailsSpecifications = ({
                                     bgDefault='#fff'
                                     className='w-full'
                                 />
-                                <div className='absolute top-full mt-2 w-full bg-white shadow-lg rounded-md z-10 hidden group-hover:block'>
+                                <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
                                     {buttonLeft.link.map((item, index) => (
                                         <button
                                             key={index}
@@ -257,7 +262,7 @@ const ProductDetailsSpecifications = ({
                                     bgDefault='#fff'
                                     className='w-full'
                                 />
-                                <div className='absolute top-full mt-2 w-full bg-white shadow-lg rounded-md z-10 hidden group-hover:block'>
+                                <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
                                     {buttonRight.link.map((item, index) => (
                                         <button
                                             key={index}

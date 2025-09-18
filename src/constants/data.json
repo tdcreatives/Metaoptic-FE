@@ -8,11 +8,11 @@
             "category": "Sensor",
             "buyNow": "https://metaoptics.shop/products/pocket-projector",
             "brochure": "/download/3d-biometric-sensor.pdf",
-            "buttonLeft": {
+            "userGuide": {
                 "name": "MOTViewer User Guide",
                 "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
             },
-            "buttonRight": {
+            "installer": {
                 "name": "MOTViewer Installer",
                 "link": [
                     {
@@ -136,11 +136,11 @@
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
             "brochure": "/download/iot-meta-lens-color-camera.pdf",
-            "buttonLeft": {
+            "userGuide": {
                 "name": "MOTViewer User Guide",
                 "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
             },
-            "buttonRight": {
+            "installer": {
                 "name": "MOTViewer Installer",
                 "link": [
                     {
@@ -270,12 +270,14 @@
             "category": "Projector",
             "buyNow": "https://metaoptics.shop/products/pico-projector",
             "brochure": "/download/pico-projector.pdf",
-            "userGuide": "/download/pico-projector-user-guiderev42.pdf",
+            "userGuide": {
+                "name": "DOWNLOAD USER GUIDE",
+                "link": "/download/pico-projector-user-guiderev42.pdf"
+            },        
             "details": {
                 "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
                 "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
                 "specifications": {
-                    "empty": {},
                     "optionalSpecifications": {
                         "MEMS Mirror / Drive Force": " 2D Single Mirror / Electrostatics",
                         "resolution": "720p / 60 frames per second (input source)",
@@ -326,7 +328,7 @@
             "category": "3D",
             "buyNow": "",
             "brochure": "/download/ultra-wide-fov-brochure.pdf",
-            "buttonLeft": {
+            "userGuide": {
                 "name": "MOTViewer User Guide",
                 "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
             },
@@ -436,6 +438,23 @@
             "category": "Camera",
             "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
             "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera.pdf",
+            "userGuide": {
+                "name": "MOTViewer User Guide",
+                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+            },
+            "installer": {
+                "name": "MOTViewer Installer",
+                "link": [
+                    {
+                        "name": "MOTViewer Installer Files",
+                        "link": "/download/software/MOTViewerInstaller.exe"
+                    },
+                    {
+                        "name": "Thorlabs Scientific Imaging Software",
+                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+                    }
+                ]
+            },
             "details": {
                 "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
                 "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
