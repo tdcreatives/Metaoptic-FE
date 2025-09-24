@@ -49,8 +49,8 @@ const Announcements = () => {
                     {/* Header Section */}
                     <div className="mb-8">
                     <div className="flex justify-between items-center mb-4">
-                        <h1 className="text-[48px] font-medium uppercase futura-condensed-medium text-black leading-[1.5]">
-                        SGX Listing Celebration
+                        <h1 className="text-[32px] lg:text-[48px] font-medium uppercase futura-condensed-medium text-black leading-[1.5]">
+                        METAOPTICS LTD SGX LISTING
                         </h1>
                     </div>
                     <div className="w-full relative">
