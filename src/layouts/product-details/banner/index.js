@@ -92,13 +92,12 @@ const ProductDetailsBanner = ({ product }) => {
 
                     {product?.installer && (
                         Array.isArray(product?.installer.link) ? (
-                            <div className='relative group w-full max-w-xs'>
-                                <IconButton
+                            <div className='relative group w-full max-w-xs'>                                
+                                <BaseButton
                                     label={`${product?.installer?.name}`}
-                                    icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
                                     classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
                                     bgDefault='#fff'
-                                    className='!mb-0 !w-full'
+                                    className='!mb-0 !w-full !mt-0'
                                 />
                                 <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
                                     {product?.installer?.link.map((item, index) => (

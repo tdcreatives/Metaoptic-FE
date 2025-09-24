@@ -7,7 +7,7 @@
             "desc": "MetaOptics invites attendees to visit Booth 61015-1 to experience these cutting-edge products firsthand and explore its broader portfolio of metalens-powered solutions",
             "date": "January 15, 2025",
             "image": "/news/news-1.jpeg",
-            "path": "https://drive.google.com/file/d/1hNlMexABvVbvIh8IM3xZcrR4Qvv4jfqS/view",
+            "path": "/download/metaoptics-press-release-dc.pdf",
             "external": true,
             "details": {
                 "images": ["/news/news-1.jpeg"],
@@ -79,7 +79,7 @@
             "desc": "MetaOptics today announced the launch of its new Automatic Metalens Tester, an advanced system developed in collaboration with Elsoft Research Bhd (KLSE:0090.KL), a manufacturer of testing equipment for leading global technology brands.",
             "date": "May 20, 2025",
             "image": "/news/news-4.jpg",
-            "path": "https://drive.google.com/file/d/1j7YcCGrB6VnKNF5MCEEQ6NM54-aeGuaw/view",
+            "path": "/download/metaoptics-press-release-metalens-tester.pdf",
             "external": true,
             "details": {
                 "images": [],
@@ -152,6 +152,22 @@
                         "date": "May 17, 2025"
                     }
                 ]
+            }
+        },
+        {
+            "id": 7,
+            "slug": "metaoptics-deploys-direct-laser-writer-in-taiwan-to-power-prototyping-and-production",
+            "title": "MetaOptics Deploys Direct Laser Writer in Taiwan to Power Prototyping and Production",
+            "desc": "MetaOptics Ltd (Catalist: 9MT), a leading-edge semiconductor optics company, has deployed its Direct Laser Writer system at Pin-Jye Nano Technologies Co., Ltd. in Taoyuan, Taiwan. The installation brings metalens prototyping and fabrication closer to the regionʼs semiconductor supply chain and marks an important step in MetaOpticsʼ global expansion.",
+            "date": "Sep 24, 2025",
+            "image": "/news/news-7.jpg",
+            "path": "/download/metaoptics-deploys-direct-laser-writer-in-taiwan-to-power-prototyping-and-production",
+            "external": true,
+            "details": {
+                "images": [],
+                "contentPath": "",
+                "extraImages": [],
+                "relatedNews": []
             }
         }
     ]
