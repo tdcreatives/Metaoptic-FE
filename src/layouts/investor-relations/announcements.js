@@ -82,7 +82,7 @@ const Announcements = () => {
                 <div className='mb-8'>
                     <div className='flex justify-between items-center mb-4'>
                         <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-white leading-[1.5]'>
-                            Listing ANNOUNCEMENTS
+                            Company ANNOUNCEMENTS
                         </h1>
                     </div>
                     <div className='w-full h-[2px] bg-white opacity-50'></div>

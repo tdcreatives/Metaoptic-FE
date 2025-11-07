@@ -169,6 +169,112 @@
                 "extraImages": [],
                 "relatedNews": []
             }
+        },
+
+        {
+            "id": 8,
+            "slug": "2025-asia-innovation-cup",
+            "title": "《亞洲創新盃》最佳創新獎：MetaOptics Ltd. 攜手臺灣供應鏈瞄準晶片封裝光學商機",
+            "desc": "首屆《亞洲創新盃》從全球逾70組團隊參與徵件，來自新加坡MetaOptics Technologies Pte Ltd勇勇奪最佳創新獎。",
+            "date": "Mar 11, 2025",
+            "image": "/news/2025-asia-innovation-cup.webp",
+            "thumbnail": "/news/2025-asia-innovation-cup.webp",
+            "path": "https://www.bnext.com.tw/article/84960/2025asia-innovation-cup-2",
+            "external": false,
+            "details": {
+                "images": ["/news/2025-asia-innovation-cup.webp"],
+                "contentPath": "/content/news/2025-asia-innovation-cup.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "slug": "kopi-c-metaoptics-ceo-mark-thng-singaporean-company",
+            "title": "kopi-C with MetaOptics CEO Mark Thng: The Singaporean company that plans to end the camera bump",
+            "desc": "Mobile phones get thinner, sleeker, and lighter every few years. Yet no matter how slim the design, one feature remains, seemingly impossible for manufacturers to smooth away: the awkward camera “bump”.",
+            "date": "Nov 05, 2025",
+            "image": "/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg",
+            "thumbnail": "/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg",
+            "path": "https://www.sgx.com/research-education/market-dialogues/20251105-kopi-c-metaoptics-ceo-mark-thng-singaporean-company",
+            "external": false,
+            "details": {
+                "images": ["/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg"],
+                "contentPath": "/content/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        {
+            "id": 10,
+            "slug": "company-report-metaoptics-ltd-metao-sp-9mt-si",
+            "title": "Company Report: MetaOptics Ltd. (METAO SP / 9MT.SI)",
+            "desc": "MetaOptics Ltd is a metalens technology business and is involved in the design and manufacture of meta optics components and products, including metalens, metalens camera modules,..",
+            "date": "Oct 15, 2025",
+            "image": "/news/company-report-metaoptics-ltd-metao-sp-9mt-si.jpg",
+            "thumbnail": "/news/company-report-metaoptics-ltd-metao-sp-9mt-si.jpg",
+            "path": "https://www.kgieworld.sg/research/company-report-metaoptics-ltd-metao-sp-9mt-si/",
+            "external": false,
+            "details": {
+                "images": ["/news/company-report-metaoptics-ltd-metao-sp-9mt-si.jpg"],
+                "contentPath": "/content/news/company-report-metaoptics-ltd-metao-sp-9mt-si.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "slug": "redefining-industries-through-innovation-and-insight",
+            "title": "Redefining industries through innovation and insight",
+            "desc": "These Emerging Enterprise Awards finalists are applying technology and data to make businesses more efficient and improve lives",
+            "date": "Nov 15, 2025",
+            "image": "/news/redefining-industries-through-innovation-and-insight.jpg",
+            "thumbnail": "/news/redefining-industries-through-innovation-and-insight.jpg",
+            "path": "https://www.businesstimes.com.sg/events-awards/emerging-enterprise/redefining-industries-through-innovation-and-insight",
+            "external": false,
+            "details": {
+                "images": ["/news/redefining-industries-through-innovation-and-insight.jpg"],
+                "contentPath": "/content/news/redefining-industries-through-innovation-and-insight.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "slug": "2025-metaoptics",
+            "title": "告別手機「凸眼怪」！MetaOptics用奈米級「超穎透鏡」，改寫智慧裝置的光學未來！",
+            "desc": "利用半導體製程在玻璃晶圓上製造超薄、平面的「超穎透鏡」，取代傳統的多層鏡頭，有望解決手機鏡頭「凸眼怪」的設計痛點，被視為下一代光學元件的革命性解決方案",
+            "date": "Nov 05, 2025",
+            "image": "/news/2025-metaoptics.webp",
+            "thumbnail": "/news/2025-metaoptics.webp",
+            "path": "https://www.bnext.com.tw/article/84999/2025metaoptics",
+            "external": false,
+            "details": {
+                "images": ["/news/2025-metaoptics.webp"],
+                "contentPath": "/content/news/2025-metaoptics.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
         }
     ]
 }
