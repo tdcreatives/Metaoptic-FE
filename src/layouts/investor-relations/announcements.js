@@ -42,6 +42,13 @@ const Announcements = () => {
         }
     };
 
+     // Sort news by date in descending order (newest first)
+     const filteredItems = [...items].sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+    });
+
     return (
         <>
             <div className="w-full bg-[#fff] rounded-t-lg px-6 py-8 flex flex-col items-center">
@@ -90,7 +97,7 @@ const Announcements = () => {
 
                 {/* Announcements List */}
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px] flex flex-col justify-center'>
-                    {items.map((item, index) => (
+                    {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
                             className='xl:mt-[10px] pb-10'

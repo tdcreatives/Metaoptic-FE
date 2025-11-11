@@ -227,6 +227,25 @@ const AnnouncementDetailContent = () => {
                         </div>
                     )}
                 </div>
+
+                {details?.additional && (
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                    Additional Details
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>                                
+                            <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                {details.additional .description}
+                            </div>                                
+                        </div>
+                    </div>
+                )}
+
                 
                 {details?.attachments && (
                     <div className='mb-8'>
