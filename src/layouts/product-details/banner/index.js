@@ -72,7 +72,7 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.userGuide && (                        
                         <BaseButton
                                 label={product?.userGuide?.name}
-                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase !w-full'
                                 bgDefault='#fff'
                                 className='!mb-0 !w-full'
                                 onClick={() => {
@@ -95,7 +95,7 @@ const ProductDetailsBanner = ({ product }) => {
                             <div className='relative group w-full max-w-xs'>                                
                                 <BaseButton
                                     label={`${product?.installer?.name}`}
-                                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                    classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase !w-full'
                                     bgDefault='#fff'
                                     className='!mb-0 !w-full !mt-0'
                                 />
@@ -125,7 +125,7 @@ const ProductDetailsBanner = ({ product }) => {
                         ) : (
                             <BaseButton
                                 label={product?.installer?.name}
-                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase !w-full'
+                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase !w-full'
                                 bgDefault='#fff'
                                 className='!mb-0 !w-full'
                                 onClick={() => {

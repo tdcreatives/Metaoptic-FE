@@ -114,7 +114,7 @@ const Announcements = () => {
                             <IconButton
                                 label={isMobile ? item.title_btn_sm : item.title_btn}
                                 icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
-                                classNameBtn='uppercase !text-black hover:!text-white w-full min-h-[100px] flex items-center'
+                                classNameBtn='uppercase !text-black md:group-hover:!text-white w-full min-h-[100px] flex items-center'
                                 classNameLabel='line-clamp-3'
                                 bgDefault='#fff'
                                 className='!mt-[10px] !xl:justify-start !justify-start w-full flex-1'                        

@@ -180,7 +180,7 @@ const ProductDetailsSpecifications = ({
                                 <IconButton
                                     label={`${buttonLeft?.name}`}
                                     icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
-                                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                                    classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
                                     bgDefault='#fff'
                                     className='w-full'
                                 />
@@ -210,7 +210,7 @@ const ProductDetailsSpecifications = ({
                         ) : (
                             <BaseButton
                                 label={buttonLeft?.name}
-                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
                                 bgDefault='#fff'
                                 className='w-full max-w-xs'
                                 onClick={() => {
@@ -233,7 +233,7 @@ const ProductDetailsSpecifications = ({
                     {brochure && (
                         <BaseButton
                             label='Download Brochure'
-                            classNameBtn='uppercase !text-[#d34c39] hover:!text-white'
+                            classNameBtn='uppercase !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
                             className='w-full max-w-xs'
                             onClick={() => {
@@ -258,7 +258,7 @@ const ProductDetailsSpecifications = ({
                                 <IconButton
                                     label={`${buttonRight?.name}`}
                                     icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
-                                    classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                                    classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
                                     bgDefault='#fff'
                                     className='w-full'
                                 />
@@ -288,7 +288,7 @@ const ProductDetailsSpecifications = ({
                         ) : (
                             <BaseButton
                                 label={buttonRight?.name}
-                                classNameBtn='!text-[#d34c39] hover:!text-white uppercase'
+                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
                                 bgDefault='#fff'
                                 className='w-full max-w-xs'
                                 onClick={() => {

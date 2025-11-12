@@ -151,7 +151,7 @@ const ProductDetailsTestingCapabilities = ({
                     {buttonLeft && (
                         <BaseButton
                             label={buttonLeft?.name}
-                            classNameBtn=' !text-[#d34c39] hover:!text-white'
+                            classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-[80px]'
                             onClick={() => window.open(buttonLeft?.link, '_blank')}
@@ -162,7 +162,7 @@ const ProductDetailsTestingCapabilities = ({
                     {buttonRight && (
                         <BaseButton
                             label={buttonRight?.name}
-                            classNameBtn=' !text-[#d34c39] hover:!text-white'
+                            classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-[80px]'
                             onClick={() => window.open(buttonRight?.link, '_blank')}
