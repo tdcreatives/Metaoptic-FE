@@ -7,6 +7,7 @@ const IconButton = ({
     icon,
     className,
     classNameBtn,
+    classNameLabel,
     onClick,
     bgDefault = '#d34c39',
     type = 'button',
@@ -16,10 +17,10 @@ const IconButton = ({
             className={`flex xl:justify-center justify-center xl:mt-10 mt-6 ${className}`}>
             <button
                 type={type}
-                className={`relative overflow-hidden text-white font-bold py-3 rounded-full futura-medium xl:tracking-[2px] tracking-[2px] xl:text-[14px] text-[14px] transition-all duration-300 group ${classNameBtn}`}
+                className={`relative overflow-hidden text-white font-bold py-3 rounded-full futura-medium xl:tracking-[2px] tracking-[2px] xl:text-[14px] text-[14px] transition-all duration-300 group w-full h-full ${classNameBtn}`}
                 onClick={onClick}>
                 <div className="flex flex-col sm:flex-row items-center justify-between px-10">
-                    <span className='z-10 relative text-left w-full sm:w-auto' dangerouslySetInnerHTML={{ __html: label }}></span>
+                    <span className={`z-10 relative text-left w-full sm:w-auto ${classNameLabel || ''}`} dangerouslySetInnerHTML={{ __html: label }}></span>
                     <span className='z-10 relative mt-2 sm:mt-0 sm:ml-4 text-right w-full sm:w-auto'>{icon}</span>
                 </div>
                 {/* Default background */}

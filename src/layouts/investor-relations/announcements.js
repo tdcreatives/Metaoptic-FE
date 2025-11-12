@@ -6,6 +6,7 @@ import items from '@/constants/announcements.json';
 import IconButton from '@/components/IconButton';
 import arrowIcon from '@/assets/images/arrow.png';
 import Image from 'next/image';
+import { truncateString } from '@/utils/index';
 
 const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -96,11 +97,11 @@ const Announcements = () => {
                 </div>
 
                 {/* Announcements List */}
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px] flex flex-col justify-center'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-12 !mt-[80px]'>
                     {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
-                            className='xl:mt-[10px] pb-10'
+                            className='xl:mt-[10px] pb-10 flex flex-col'
                         >
                             {/* Date */}
                             <div className='flex items-center gap-2 px-10 py-2'>
@@ -113,9 +114,10 @@ const Announcements = () => {
                             <IconButton
                                 label={isMobile ? item.title_btn_sm : item.title_btn}
                                 icon={<Image src={arrowIcon} alt='arrow' width={32} height={32} />}
-                                classNameBtn='uppercase !text-black hover:!text-white'
+                                classNameBtn='uppercase !text-black hover:!text-white w-full min-h-[100px] flex items-center'
+                                classNameLabel='line-clamp-3'
                                 bgDefault='#fff'
-                                className='!mt-[10px] !xl:justify-start !justify-start'                        
+                                className='!mt-[10px] !xl:justify-start !justify-start w-full flex-1'                        
                                 onClick={() => handleOnNavigate(item.slug)}
                             />
                             
