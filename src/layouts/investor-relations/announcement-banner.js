@@ -32,7 +32,7 @@ const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
                 <div className='relative flex flex-col justify-center w-full max-w-[1440px]'>
 
                     <BaseButton
-                        label={'Listing announcements'}
+                        label={'Company announcements'}
                         classNameBtn='uppercase'
                         bgDefault='#d34c39'
                         className='!mt-[10px] !xl:justify-start !justify-start'

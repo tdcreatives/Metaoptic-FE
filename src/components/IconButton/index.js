@@ -20,8 +20,10 @@ const IconButton = ({
                 className={`relative overflow-hidden text-white font-bold py-3 rounded-full futura-medium xl:tracking-[2px] tracking-[2px] xl:text-[14px] text-[12px] transition-all duration-300 group w-full h-full ${classNameBtn}`}
                 onClick={onClick}>
                 <div className="flex flex-col sm:flex-row items-center justify-between px-10">
-                    <span className={`z-10 relative text-left w-full sm:w-auto ${classNameLabel || ''}`} dangerouslySetInnerHTML={{ __html: label }}></span>
-                    <span className='z-10 relative mt-2 sm:mt-0 sm:ml-4 text-right w-full sm:w-auto'>{icon}</span>
+                    <span className={`z-10 relative text-left w-full sm:w-auto md:group-hover:!text-white transition-colors duration-300 ${classNameLabel || ''}`} dangerouslySetInnerHTML={{ __html: label }}></span>
+                    <span className='z-10 relative mt-2 sm:mt-0 sm:ml-4 text-center sm:text-right w-full sm:w-auto md:group-hover:!text-white transition-colors duration-300 flex items-center justify-center sm:justify-end'>
+                        <span className='scale-100 sm:scale-[1.3] transition-transform duration-300'>{icon}</span>
+                    </span>
                 </div>
                 {/* Default background */}
                 <span
