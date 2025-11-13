@@ -125,6 +125,8 @@ const Announcements = () => {
                         </div>
                     ))}
                 </div>
+                <div className='gap-x-0 md:gap-x-12 gap-y-8 md:gap-y-[72px] !mt-[80px]'>
+                </div>
             </div>
         </>
     );
