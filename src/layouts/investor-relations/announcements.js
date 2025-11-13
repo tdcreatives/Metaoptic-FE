@@ -105,7 +105,7 @@ const Announcements = () => {
                             className='flex flex-col w-full items-center md:items-start'
                         >
                             {/* Date */}
-                            <div className='flex items-center justify-center md:justify-start gap-2 w-full px-0 md:px-10 py-2 mb-2 md:mb-0'>
+                            <div className='flex items-center justify-center md:justify-start gap-2 w-full px-0 md:px-10 py-2 mb-1 md:mb-0'>
                                 <div className='text-[14px] md:text-[20px] font-medium futura-condensed-medium text-white leading-[1.714] md:leading-[1.2] text-center md:text-left'>
                                     {item.date}
                                 </div>
@@ -119,7 +119,7 @@ const Announcements = () => {
                                     classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
                                     classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
                                     bgDefault='#fff'
-                                    className='!mt-[10px] !justify-start w-full h-full'                        
+                                    className='!mt-0 md:!mt-[10px] !justify-start w-full h-full'                        
                                     onClick={() => handleOnNavigate(item.slug)}
                                 />
                             </div>
