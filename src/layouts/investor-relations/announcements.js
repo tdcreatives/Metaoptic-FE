@@ -113,10 +113,10 @@ const Announcements = () => {
                             {/* Title Container */}
                             <div className='w-full md:h-[100px] flex-shrink-0'>
                                 <IconButton
-                                    label={isMobile ? truncateString(item.title_btn_sm, 80) : truncateString(item.title_btn,100)}
+                                    label={isMobile ? truncateString(item.title_btn_sm, 80) : item.title_btn}
                                     icon={<Image src={arrowIcon} alt='arrow' width={24} className='w-8 h-8 flex-shrink-0' />}
                                     classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
-                                    classNameLabel='line-clamp-2 overflow-hidden text-ellipsis break-words text-center md:text-left'
+                                    classNameLabel='line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
                                     bgDefault='#fff'
                                     className='!mt-[10px] !justify-start w-full h-full'                        
                                     onClick={() => handleOnNavigate(item.slug)}
