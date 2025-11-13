@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import items from '@/constants/announcements.json';
 import IconButton from '@/components/IconButton';
 import arrowIcon from '@/assets/images/arrow.png';
+import arrowMobileIcon from '@/assets/images/arrow-mobile.png';
 import Image from 'next/image';
 import { truncateString } from '@/utils/index';
 
@@ -113,10 +114,10 @@ const Announcements = () => {
                             {/* Title Container */}
                             <div className='w-full md:h-[100px] flex-shrink-0'>
                                 <IconButton
-                                    label={isMobile ? truncateString(item.title_btn_sm, 80) : item.title_btn}
-                                    icon={<Image src={arrowIcon} alt='arrow' width={24} className='w-8 h-8 flex-shrink-0' />}
+                                    label={isMobile ? item.title_btn_sm : item.title_btn}
+                                    icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={24} className='w-8 h-8 flex-shrink-0' />}
                                     classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
-                                    classNameLabel='line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
+                                    classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
                                     bgDefault='#fff'
                                     className='!mt-[10px] !justify-start w-full h-full'                        
                                     onClick={() => handleOnNavigate(item.slug)}
@@ -125,6 +126,7 @@ const Announcements = () => {
                         </div>
                     ))}
                 </div>
+                <div className='md:gap-x-12 md:gap-y-[72px] !mt-[80px]'></div>
             </div>
         </>
     );
