@@ -41,7 +41,7 @@ const AnnouncementDetailContent = () => {
 
                 <div className='mb-8'>
                     <div className='flex justify-between items-center mb-4 text-wrap'>
-                        <h1 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5]  wrap-anywhere'>
+                        <h1 className='text-[24px] lg:text-[48px] font-medium uppercase futura-condensed-medium text-[#111111] leading-[1.5]  wrap-anywhere'>
                             {announcement.title}
                         </h1>
                     </div>
@@ -52,7 +52,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] xl:leading-[1.5] leading-[17px]'>
+                            <h2 className='text-[22px] lg:text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] xl:leading-[1.5] leading-[17px]'>
                                 Issuer & Securities
                             </h2>
                         </div>
@@ -63,20 +63,20 @@ const AnnouncementDetailContent = () => {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             {/* Issuer/Manager */}
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                     Issuer/ Manager:
                                 </div>
-                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                     {details.issuer.name}
                                 </div>
                             </div>
                         
                             {/* Securities */}
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                     Securities:
                                 </div>
-                                <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                     {details.securities.name}
                                 </div>
                             </div>
@@ -84,10 +84,10 @@ const AnnouncementDetailContent = () => {
                             {/* Stapled Security */}
                             {details?.stapledSecurity?.name && (
                                 <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
-                                    <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                    <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                         Stapled Security:
                                     </div>
-                                    <div className='text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                    <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
                                         {details.stapledSecurity.name}
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@ const AnnouncementDetailContent = () => {
                 <div className='mb-8'>
                     <div className='mb-6'>
                         <div className='flex justify-between items-center mb-4'>
-                            <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                            <h2 className='text-[22px] lg:text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
                                 Announcement Details
                             </h2>
                         </div>
@@ -232,7 +232,7 @@ const AnnouncementDetailContent = () => {
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
-                                <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
                                     Additional Details
                                 </h2>
                             </div>
@@ -251,7 +251,7 @@ const AnnouncementDetailContent = () => {
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
-                                <h2 className='text-[40px] font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
                                     Attachments
                                 </h2>
                             </div>
