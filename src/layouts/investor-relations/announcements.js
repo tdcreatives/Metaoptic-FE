@@ -97,26 +97,30 @@ const Announcements = () => {
                 </div>
 
                 {/* Announcements List */}
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-x-0 md:gap-x-12 gap-y-8 md:gap-y-[72px] !mt-[80px]'>
+                <div className='flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-[72px] !mt-[80px]'>
                     {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
-                            className='flex flex-col w-full h-full'
+                            className='flex flex-col w-full items-center md:items-start'
                         >
                             {/* Date */}
-                            <div className='flex items-center justify-center md:justify-start gap-2 px-0 md:px-10 py-2 mb-2 md:mb-0'>
-                                <div className='text-[20px] font-medium futura-condensed-medium text-white leading-[1.2] text-center md:text-left'>
+                            <div className='flex items-center justify-center md:justify-start gap-2 w-full px-0 md:px-10 py-2 mb-2 md:mb-0'>
+                                <div className='text-[14px] md:text-[20px] font-medium futura-condensed-medium text-white leading-[1.714] md:leading-[1.2] text-center md:text-left'>
                                     {item.date}
                                 </div>
                             </div>
 
                             {/* Title Container */}
-                            <div className='w-full h-[100px] flex-shrink-0'>
+                            <div className='w-full md:h-[100px] flex-shrink-0'>
                                 <IconButton
                                     label={isMobile ? truncateString(item.title_btn_sm, 80) : truncateString(item.title_btn,100)}
-                                    icon={<Image src={arrowIcon} alt='arrow' width={24}  className='w-8 h-8 flex-shrink-0' />}
-                                    classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center'
-                                    classNameLabel='line-clamp-2 overflow-hidden text-ellipsis break-words'
+                                    icon={isMobile ? (
+                                        <div className='w-[28px] h-[2px] bg-[#D34C39]'></div>
+                                    ) : (
+                                        <Image src={arrowIcon} alt='arrow' width={24} className='w-8 h-8 flex-shrink-0' />
+                                    )}
+                                    classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
+                                    classNameLabel='line-clamp-2 overflow-hidden text-ellipsis break-words text-center md:text-left'
                                     bgDefault='#fff'
                                     className='!mt-[10px] !justify-start w-full h-full'                        
                                     onClick={() => handleOnNavigate(item.slug)}
@@ -124,8 +128,6 @@ const Announcements = () => {
                             </div>
                         </div>
                     ))}
-                </div>
-                <div className='gap-x-0 md:gap-x-12 gap-y-8 md:gap-y-[72px] !mt-[80px]'>
                 </div>
             </div>
         </>
