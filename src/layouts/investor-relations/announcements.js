@@ -106,7 +106,7 @@ const Announcements = () => {
                         >
                             {/* Date */}
                             <div className='flex items-center justify-center md:justify-start gap-2 w-full px-0 md:px-10 py-2 mb-1 md:mb-0'>
-                                <div className='text-[14px] md:text-[20px] font-medium futura-condensed-medium text-white leading-[1.714] md:leading-[1.2] text-center md:text-left'>
+                                <div className='text-[16px] md:text-[20px] lg:text-[20px] font-medium futura-condensed-medium text-white leading-[1.714] md:leading-[1.2] text-center md:text-left'>
                                     {item.date}
                                 </div>
                             </div>
