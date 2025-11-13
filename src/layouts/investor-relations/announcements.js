@@ -115,7 +115,7 @@ const Announcements = () => {
                             <div className='w-full md:h-[100px] flex-shrink-0'>
                                 <IconButton
                                     label={isMobile ? item.title_btn_sm : item.title_btn}
-                                    icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={24} className='w-8 h-8 flex-shrink-0' />}
+                                    icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} className={`${isMobile ? 'w-8 h-8' : 'w-[42px] h-[42px]'} flex-shrink-0 object-contain`} />}
                                     classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
                                     classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
                                     bgDefault='#fff'
