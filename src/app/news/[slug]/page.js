@@ -13,7 +13,8 @@ export const generateMetadata = async (props) => {
     const news = data.news.find((item) => item.slug === params.slug);
     return {
         title: news?.title,
-        description: news?.desc,
+        description: news?.desc,        
+        // ogImage: news?.image,
     };
 };
 
