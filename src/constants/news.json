@@ -275,6 +275,28 @@
                     
                 ]
             }
+        },
+
+        {
+            "id": 13,
+            "slug": "zaobao-20251110-stock-market-news",
+            "title": "今年有新股涨幅超过140% 市场展望继续受看好",
+            "desc": "今年来首次公开售股（IPO）上市的新股表现远胜近年，MetaOptics表现尤为突出，上市至今（11月10日，下同）股价累计上涨超过140％至0.485元，比0.20元的发售价高出0.285元。在利率走低趋势及提振新加坡股市措施的带动下，股票经纪和分析师普遍看好市场前景，但短期内股价翻倍的情况可能仅限于市值较小、市场需求强劲的个股。",
+            "date": "Nov 10, 2025",
+            "image": "/news/zaobao-20251110-stock-market-news.webp",
+            "thumbnail": "/news/zaobao-20251110-stock-market-news.webp",
+            "path": "https://www.zaobao.com.sg/finance/singapore/story20251110-7769709",
+            "external": false,
+            "details": {
+                "images": ["/news/zaobao-20251110-stock-market-news.webp"],
+                "contentPath": "/content/news/zaobao-20251110-stock-market-news.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
         }
     ]
 }
