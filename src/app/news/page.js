@@ -8,16 +8,20 @@ export const metadata = {
     title: metadataJson.news.title,
     description: metadataJson.news.description,
     keywords: metadataJson.news.keywords,
-    ogImage: metadataJson.news.ogImage,
-    ogUrl: metadataJson.news.ogUrl,
-    ogType: metadataJson.news.ogType,
-    ogSiteName: metadataJson.news.ogSiteName,
-    ogLocale: metadataJson.news.ogLocale,
-    twitterCard: metadataJson.news.twitterCard,
-    twitterCreator: metadataJson.news.twitterCreator,
-    twitterSite: metadataJson.news.twitterSite,
-    twitterTitle: metadataJson.news.twitterTitle,
-    twitterDescription: metadataJson.news.twitterDescription,
+    openGraph: {
+        images: [metadataJson.news.ogImage],
+        url: metadataJson.news.ogUrl,
+        type: metadataJson.news.ogType,
+        siteName: metadataJson.news.ogSiteName,
+        locale: metadataJson.news.ogLocale,
+    },
+    twitter: {
+        card: metadataJson.news.twitterCard,
+        creator: metadataJson.news.twitterCreator,
+        site: metadataJson.news.twitterSite,
+        title: metadataJson.news.twitterTitle,
+        description: metadataJson.news.twitterDescription,
+    },
 };
 
 const News = () => {

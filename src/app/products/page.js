@@ -8,16 +8,20 @@ export const metadata = {
     title: metadataJson.products.title,
     description: metadataJson.products.description,
     keywords: metadataJson.products.keywords,
-    ogImage: metadataJson.products.ogImage,
-    ogUrl: metadataJson.products.ogUrl,
-    ogType: metadataJson.products.ogType,
-    ogSiteName: metadataJson.products.ogSiteName,
-    ogLocale: metadataJson.products.ogLocale,
-    twitterCard: metadataJson.products.twitterCard,
-    twitterCreator: metadataJson.products.twitterCreator,
-    twitterSite: metadataJson.products.twitterSite,
-    twitterTitle: metadataJson.products.twitterTitle,
-    twitterDescription: metadataJson.products.twitterDescription,
+    openGraph: {
+        images: [metadataJson.products.ogImage],
+        url: metadataJson.products.ogUrl,
+        type: metadataJson.products.ogType,
+        siteName: metadataJson.products.ogSiteName,
+        locale: metadataJson.products.ogLocale,
+    },
+    twitter: {
+        card: metadataJson.products.twitterCard,
+        creator: metadataJson.products.twitterCreator,
+        site: metadataJson.products.twitterSite,
+        title: metadataJson.products.twitterTitle,
+        description: metadataJson.products.twitterDescription,
+    },
 };
 
 const Products = () => {

@@ -12,16 +12,20 @@ export const metadata = {
     title: metadataJson.investorrelations.title,
     description: metadataJson.investorrelations.description,
     keywords: metadataJson.investorrelations.keywords,
-    ogImage: metadataJson.investorrelations.ogImage,
-    ogUrl: metadataJson.investorrelations.ogUrl,
-    ogType: metadataJson.investorrelations.ogType,
-    ogSiteName: metadataJson.investorrelations.ogSiteName,
-    ogLocale: metadataJson.investorrelations.ogLocale,
-    twitterCard: metadataJson.investorrelations.twitterCard,
-    twitterCreator: metadataJson.investorrelations.twitterCreator,
-    twitterSite: metadataJson.investorrelations.twitterSite,
-    twitterTitle: metadataJson.investorrelations.twitterTitle,
-    twitterDescription: metadataJson.investorrelations.twitterDescription,
+    openGraph: {
+        images: [metadataJson.investorrelations.ogImage],
+        url: metadataJson.investorrelations.ogUrl,
+        type: metadataJson.investorrelations.ogType,
+        siteName: metadataJson.investorrelations.ogSiteName,
+        locale: metadataJson.investorrelations.ogLocale,
+    },
+    twitter: {
+        card: metadataJson.investorrelations.twitterCard,
+        creator: metadataJson.investorrelations.twitterCreator,
+        site: metadataJson.investorrelations.twitterSite,
+        title: metadataJson.investorrelations.twitterTitle,
+        description: metadataJson.investorrelations.twitterDescription,
+    },
 };
 
 export async function generateStaticParams() {

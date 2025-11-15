@@ -7,16 +7,20 @@ export const metadata = {
     title: metadataJson.aboutUs.title,
     description: metadataJson.aboutUs.description,
     keywords: metadataJson.aboutUs.keywords,
-    ogImage: metadataJson.aboutUs.ogImage,
-    ogUrl: metadataJson.aboutUs.ogUrl,
-    ogType: metadataJson.aboutUs.ogType,
-    ogSiteName: metadataJson.aboutUs.ogSiteName,
-    ogLocale: metadataJson.aboutUs.ogLocale,
-    twitterCard: metadataJson.aboutUs.twitterCard,
-    twitterCreator: metadataJson.aboutUs.twitterCreator,
-    twitterSite: metadataJson.aboutUs.twitterSite,
-    twitterTitle: metadataJson.aboutUs.twitterTitle,
-    twitterDescription: metadataJson.aboutUs.twitterDescription,
+    openGraph: {
+        images: [metadataJson.aboutUs.ogImage],
+        url: metadataJson.aboutUs.ogUrl,
+        type: metadataJson.aboutUs.ogType,
+        siteName: metadataJson.aboutUs.ogSiteName,
+        locale: metadataJson.aboutUs.ogLocale,
+    },
+    twitter: {
+        card: metadataJson.aboutUs.twitterCard,
+        creator: metadataJson.aboutUs.twitterCreator,
+        site: metadataJson.aboutUs.twitterSite,
+        title: metadataJson.aboutUs.twitterTitle,
+        description: metadataJson.aboutUs.twitterDescription,
+    },
 };
 
 const AboutUs = () => {
