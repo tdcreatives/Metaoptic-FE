@@ -66,6 +66,7 @@ const ProductDetailsTestingCapabilities = ({
                 return '';
         }
     }, []);
+    
 
     const renderList = useCallback((list = []) => {
         return (
