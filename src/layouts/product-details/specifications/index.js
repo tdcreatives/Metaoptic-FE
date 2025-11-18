@@ -108,8 +108,8 @@ const ProductDetailsSpecifications = ({
         return (
             <>
                 {list.map((item, index) => (
-                    <div key={index} className='flex flex-col space-y-1'>
-                        <strong className='block'>{item.title}</strong>
+                    <div key={index} className='flex flex-col space-y-1 mb-5'>
+                        <strong className='block uppercase'>{item.title}</strong>
                         <span className='block' dangerouslySetInnerHTML={{ __html: item.line }} />
                     </div>
                 ))}
@@ -148,7 +148,7 @@ const ProductDetailsSpecifications = ({
             <div className='w-full h-[2px] bg-white opacity-50 mx-auto mb-8'></div>
             <div className={`grid grid-cols-1 md:grid-cols-${specificationLength} gap-12 gap-12`}>
                 {Object.entries(specifications).map(([section, specs], index) => (
-                    <div key={index} className='spec-section flex flex-col gap-4'>
+                    <div key={index} className='spec-section flex flex-col gap-8'>
                         <div className='flex flex-col items-center'>
                             {renderImage(section)}
 

@@ -71,7 +71,7 @@ const ProductDetailsTestingCapabilities = ({
         return (
             <ul className='mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-none list-inside'>
                 {list.map((item, index) => (
-                    <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                    <li key={index} className='pb-3' dangerouslySetInnerHTML={{ __html: item }} />
                 ))}
             </ul>
         );
@@ -103,7 +103,7 @@ const ProductDetailsTestingCapabilities = ({
             <div className='w-full h-[2px] bg-[rgba(17,17,17,1)] mx-auto mb-8'></div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
                 {Object.entries(measuredParameters).map(([section, specs], index) => (
-                    <div key={index} className='spec-section flex flex-col gap-4'>
+                    <div key={index} className='spec-section flex flex-col gap-8'>
                         <div className='flex flex-col items-center'>
                             {renderImage(section)}
 
