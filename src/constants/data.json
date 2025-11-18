@@ -669,6 +669,148 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "Automated Metalens Camera Module Assembly and Test System (A&T) 2026",
+            "nameDom": "Automated <br /> <div class='name-dom-metalens-tester--first'>Assembly and Test</div> <br /> <div class='name-dom-metalens-tester--second'>System</div>",
+            "slug": "automated-metalens-camera-module-assembly-and-test-system",
+            "image": "/products/product-automated-metalens-camera-module-assembly-and-test-system.png",
+            "category": "3D",
+            "buyNow": "",
+            "brochure": "/download/automated-metalens-camera-module-assembly-and-test-system.pdf",
+            "details": {
+                "subtitle": "High Precision • Intelligent Automation • Scalable Performance",
+                "subtitleItems": [
+                    
+                ],
+                "descriptionHTML": [
+                    {
+                        "title" : "OVERVIEW",
+                        "html" : "<p>The A&T 2026 is a next-generation automated system designed for metalens-based camera module assembly and testing. It integrates precision XYZ pick-and-place motion, dual-vision alignment, and comprehensive optical–electrical testing within a compact production footprint.\n\nEngineered for cleanroom environments, the A&T 2026 achieves sub-10 µm lateral positioning repeatability and a throughput of up to 200 units/hour under continuous automated operation (excludes tray loading/unloading), providing manufacturers with consistent quality and reliable process performance.</p>"
+                    },
+                    {
+                        "title" : "KEY FEATURES",
+                        "html" : "<p class=\"mb-2\">ASSEMBLY PLATFORM</p><ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Three precision assembly stations, each equipped with:  <ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- XYZ pick-and-place motion stage for high-accuracy component handling</li><li class=\"pl-2\">- Flipper module for dual-side assembly operations<ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- Programmable to enable or disable depending on the incoming component</li></ol></li><li class=\"pl-2\">- High-precision vision alignment for accurate component placement</li><li class=\"pl-2\">- 2 components handled per station</li></ol></li><li>Supports shared input trays for compatible components (minor impact on throughput)</li><li>Cleanroom-compatible design — Class 10K with ESD-safe construction and optional HEPA filtration</li></ul><p class=\"mb-2\">OPTICAL & ELECTRICAL TESTING</p><p class=\"mb-8\">Integrated optical test module supports both Visible (VIS) and Near-Infrared (NIR) performance evaluation under controlled illumination</p><p class=\"mb-2\">TEST SETUP PARAMETERS:</p><ul class=\"mt-2 mb-4 space-y-2 list-disc list-inside\"><li>70° Field of View (FOV)</li><li>300 mm Working Distance (WD)</li><li>Enhanced eSFR ISO test chart for resolution and uniformity assessment</li></ul>"
+                    },{
+                        "title": "APPLICATIONS",
+                        "html": "<ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Smartphone and wearable camera modules</li><li>Metalens optical assemblies</li><li>Compact imaging systems for AR/VR and IoT devices</li></ul>"
+                    }
+                ],                    
+                "specifications": {
+                    "systemDimensions": {
+                        "height: ": "2,020 mm",
+                        "width: ": "3,500 mm",
+                        "depth: ": "1,000 mm"                        
+                    },
+                    "supportedMetalensTypes": {
+                        "list-line": [
+                            {
+                                "title" : "Integrated Assembly & Testing",
+                                "line":  "Combined process reduces handling and cycle time"
+                            },
+                            {
+                                "title" : "High-Precision XYZ Motion",
+                                "line":  "±10 µm lateral repeatability ensures consistent alignment"
+                            },
+
+                            {
+                                "title" : "Programmable Flipper Module",
+                                "line":  "Handles dual-side components selectively for flexibility"
+                            },
+                            {
+                                "title" : "Flexible Configuration",
+                                "line":  "Tray sharing and quick changeover for different product variants"
+                            },
+                            {
+                                "title" : "Cleanroom-Ready Design",
+                                "line":  "ESD-safe and Class 10K compliant"
+                            },                            
+                            {
+                                "title" : "Data-Driven Insight",
+                                "line":  "Comprehensive test logging for yield analysis and traceability"
+                            }
+                        ]
+                    },
+                    "Performance & Reliability": {
+                        "list-line": [
+                            {
+                                "title" : "Throughput",
+                                "line":  "Up to 200 units/hour under continuous automated<br/>operation (excludes tray loading/unloading)"
+                            },
+                            {
+                                "title" : "Lateral Positioning Repeatability",
+                                "line":  "±10 µm"
+                            },
+
+                            {
+                                "title" : "Vertical Positioning",
+                                "line":  "Defined by component tolerances and spacers"
+                            },
+                            {
+                                "title" : "Control system",
+                                "line":  "Windows-based software"
+                            },
+                            {
+                                "title" : "Safety features",
+                                "line":  "Interlocked covers, emergency stops"
+                            },                            
+                            {
+                                "title" : "Data-Driven Insight",
+                                "line":  "Preventive maintenance checklist provided"
+                            }                            
+                        ]
+                    }
+                    
+                },
+                "measuredParameters": {
+                    "testSetupParameters": {
+                        "list": [
+                            "300 mm Working Distance (WD)",
+                            "70° Field of View (FOV)",
+                            "Enhanced eSFR ISO test chart for resolution<br/>& uniformity assessment"                      
+                        ]
+                    },
+
+                    "electricalTests": {
+                        "list": [
+                            "Voltage & current supply testing under various modes",
+                            "Open/short detection & connectivity verification",
+                            "Functional testing, including I²C register read/write operations"
+                        ]
+                    },
+                    "opticalTests": {
+                        "list": [
+                            "MTF / Sharpness",
+                            "Chromatic aberration",
+                            "Distortion & uniformity",
+                            "Color accuracy",
+                            "Gamma response",
+                            "Field curvature",
+                            "SNR & dynamic range"   
+                        ]
+                    }                                  
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Ultra-wide FoV IR Metalens",
+                        "slug": "ultra-wide-fov-ir-metalens",
+                        "image": "/products/product-6.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Pico Projector",
+                        "slug": "pico-projector",
+                        "image": "/products/product-5.png",
+                        "category": "Projector"
+                    }
+                ]
+            }
         }
     ]
 }

@@ -45,9 +45,25 @@ const ProductDetailsBanner = ({ product }) => {
                     {product?.details?.subtitle}
                 </div>
 
+                {product?.details?.description && (
                 <div className='xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5'>
                     {product?.details?.description}
                 </div>
+                )}
+
+                {product?.details?.descriptionHTML && (
+                <div className='xl:text-[20px] text-[16px] text-left xl:max-w-[60%] max-w-[90%] mx-auto mt-5 space-y-8'>
+                    {product?.details?.descriptionHTML.map((item, index) => (
+                        <div key={index} className='space-y-8'>
+                            <strong class="text-[14px] lg:text-[20px] font-medium uppercase futura-medium text-[#616161] xl:leading-[1.5] leading-[17px]">{item?.title}</strong>
+                            <div class="text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify" dangerouslySetInnerHTML={{ __html: item?.html }} />
+                            {index !== product?.details?.descriptionHTML.length - 1 && (
+                                <div class="w-full h-[2px] bg-[#a9a9a9] opacity-50"></div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+                )}
 
                 {product?.details?.subtitleItems && (
                     <div className='xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5'>

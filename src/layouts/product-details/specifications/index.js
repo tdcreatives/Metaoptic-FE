@@ -104,6 +104,19 @@ const ProductDetailsSpecifications = ({
         );
     }, []);
 
+    const renderListLine = useCallback((list = []) => {
+        return (
+            <>
+                {list.map((item, index) => (
+                    <div key={index} className='flex flex-col space-y-1'>
+                        <strong className='block'>{item.title}</strong>
+                        <span className='block' dangerouslySetInnerHTML={{ __html: item.line }} />
+                    </div>
+                ))}
+            </>
+        );
+    }, []);
+
     const activeButtons = [buttonLeft, brochure, buttonRight].filter(Boolean).length;
     const specificationLength = Object.entries(specifications).length;
     const column = activeButtons > specificationLength ? activeButtons : specificationLength;
@@ -157,12 +170,20 @@ const ProductDetailsSpecifications = ({
                             <ul className='mt-0 space-y-2 text-center text-white/90'>
                                 {Object.entries(specs).map(([key, value]) => (
                                     <li key={key} className='capitalize'>
-                                        {key !== 'list' && (
-                                            <strong>
-                                                {formatKey(key)}:{' '}
-                                            </strong>
+                                        {key === 'list-line' ? (
+                                            <div className='space-y-3'>
+                                                {renderListLine(value)}
+                                            </div>
+                                        ) : (
+                                            <>
+                                                {key !== 'list' && (
+                                                    <strong>
+                                                        {formatKey(key)}:{' '}
+                                                    </strong>
+                                                )}
+                                                {Array.isArray(value) ? renderList(value) : value}
+                                            </>
                                         )}
-                                        {Array.isArray(value) ? renderList(value) : value}
                                     </li>
                                 ))}
                             </ul>
