@@ -32,6 +32,7 @@ function formatKey(str) {
 
 const ProductDetailsSpecifications = ({
     specifications,
+    brochureTitle,
     brochure,
     buttonLeft,
     buttonRight,
@@ -261,7 +262,9 @@ const ProductDetailsSpecifications = ({
                                 if (brochure.toLowerCase().endsWith('.pdf')) {
                                     const link = document.createElement('a');
                                     link.href = brochure;
-                                    link.download = 'brochure';
+                                    // Extract filename from path (e.g., "/download/file.pdf" -> "file.pdf")
+                                    const fileName = brochureTitle.split('/').pop() || 'brochure';
+                                    link.download = fileName;
                                     document.body.appendChild(link);
                                     link.click();
                                     document.body.removeChild(link);

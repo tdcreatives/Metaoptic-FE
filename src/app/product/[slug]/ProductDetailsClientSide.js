@@ -40,6 +40,7 @@ const ProductDetailsClientSide = () => {
 
             <ProductDetailsSpecifications
                 specifications={product?.details?.specifications}
+                brochureTitle={product?.name}
                 brochure={product?.brochure}
                 buttonLeft={product?.buttonLeft}
                 buttonRight={product?.buttonRight}
@@ -48,7 +49,6 @@ const ProductDetailsClientSide = () => {
             {product?.details?.testingCapabilities && (
                 <ProductDetailsTestingCapabilities
                     testingCapabilities={product?.details?.testingCapabilities}
-                    brochure={product?.brochure}
                     buttonLeft={product?.buttonLeft}
                     buttonRight={product?.buttonRight}
                 />
