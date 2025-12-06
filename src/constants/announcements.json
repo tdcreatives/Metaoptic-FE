@@ -592,5 +592,120 @@
                 }
             ]
         }
+    },
+
+    {
+        "id": 16,
+        "title": "GENERAL ANNOUNCEMENT:: INTENTION TO SEEK DUAL LISTING OF THE COMPANY ON THE NASDAQ STOCK MARKET",
+        "title_btn": "GENERAL ANNOUNCEMENT:: INTENTION TO SEEK DUAL LISTING OF THE COMPANY ON THE NASDAQ STOCK MARKET",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT:: INTENTION TO SEEK DUAL LISTING OF THE COMPANY ON THE NASDAQ STOCK MARKET",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-intention-to-seek-dual-listing-of-the-company-on-the-nasdaq-stock-market",
+        "desc": "",
+        "date": "17 Nov 2025 07:20 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Intention to Seek Dual Listing of the Company on the NASDAQ Stock Market",
+                "title": "General Announcement",
+                "dateTime": "17-Nov-2025 07:20:59",
+                "status": "New",
+                "reference": "SG251117OTHR4MGK",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                
+            },            
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Proposed Dual Listing Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Proposed%20Dual%20Listing%20Announcement.ashx?App=Announcement&FileID=867266"                
+                }
+            ]
+        }
+    },
+    {
+        "id": 17,
+        "title": "PLACEMENTS::PROPOSED PLACEMENT OF AN AGGREGATE OF 6,685,028 NEW ORDINARY SHARES IN THE CAPITAL OF THE COMPANY",
+        "title_btn": "PLACEMENTS::PROPOSED PLACEMENT OF AN AGGREGATE OF 6,685,028 NEW ORDINARY SHARES IN THE CAPITAL OF THE COMPANY",
+        "title_btn_sm": "PLACEMENTS::PROPOSED PLACEMENT OF AN AGGREGATE OF 6,685,028 NEW ORDINARY SHARES IN THE CAPITAL OF THE COMPANY",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "placementsproposed-placement-of-an-aggregate-of-6685028-new-ordinary-shares-in-the-capital-of-the-company",
+        "desc": "",
+        "date": "01 Dec 2025 07:26 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Proposed Placement of an Aggregate of 6,685,028 New Ordinary Shares in the Capital of the Company",
+                "title": "Placements",
+                "dateTime": "01-Dec-2025 07:26:48",
+                "status": "New",
+                "reference": "SG2512010THRC8C2",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                 
+            },    
+            "additional":{
+                "description": "Capital Amount-Old: SGD 9,367,639\nCapital Amount-New: SGD 14,217,639\nNo. of Existing Outstanding Shares: 235,963,232\nNew Shares Issued: 6,685,028\nOffer Price: SGD 0.7255"
+            },        
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Placement Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Placement%20Announcement.ashx?App=Announcement&FileID=868606"                
+                }
+            ]
+        }
+    },
+    {
+        "id": 18,
+        "title": "GENERAL ANNOUNCEMENT::METAOPTICS ANNOUNCES STRATEGIC SHARE PLACEMENT TO ACCELERATE GROWTH AND MEET RISING GLOBAL DEMAND",
+        "title_btn": "GENERAL ANNOUNCEMENT::METAOPTICS ANNOUNCES STRATEGIC SHARE PLACEMENT TO ACCELERATE GROWTH AND MEET RISING GLOBAL DEMAND",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::METAOPTICS ANNOUNCES STRATEGIC SHARE PLACEMENT TO ACCELERATE GROWTH AND MEET RISING GLOBAL DEMAND",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementmetaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand",
+        "desc": "",
+        "date": "01 Dec 2025 07:30 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MetaOptics Announces Strategic Share Placement to Accelerate Growth and Meet Rising Global Demand",
+                "title": "General Announcement",
+                "dateTime": "01-Dec-2025 07:30:31",
+                "status": "New",
+                "reference": "SG2512010THR67N7",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                 
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Placement Press Release.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Placement%20Press%20Release.ashx?App=Announcement&FileID=868607"                
+                }
+            ]
+        }
     }
 ]
