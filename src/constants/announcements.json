@@ -707,5 +707,42 @@
                 }
             ]
         }
+    },
+    {
+        "id": 19,
+        "title": "AN AR-FOCUSED PLATFORM BUILT FOR LOW-POWER, ON-DEVICE AI PROCESSING IN SMART GLASSES AND WEARABLES.",
+        "title_btn": "AN AR-FOCUSED PLATFORM BUILT FOR LOW-POWER, ON-DEVICE AI PROCESSING IN SMART GLASSES AND WEARABLES.",
+        "title_btn_sm": "AN AR-FOCUSED PLATFORM BUILT FOR LOW-POWER, ON-DEVICE AI PROCESSING IN SMART GLASSES AND WEARABLES.",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "an-ar-focused-platform-built-for-low-power-on-device-ai-processing-in-smart-glasses-and-wearables",
+        "desc": "",
+        "date": "08 Dec 2025 05:46 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MetaOptics to Showcase Five Breakthrough Metalens-Powered Products at CES 2026",
+                "title": "General Announcement",
+                "dateTime": "08-Dec-2025 17:46:56",
+                "status": "New",
+                "reference": "SG251208OTHRW8Y",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "PlePlease refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                 
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - CES 2026 Press Release SGX.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20CES%202026%20Press%20Release%20SGX.ashx?App=Announcement&FileID=869256"                
+                }
+            ]
+        }
     }
 ]

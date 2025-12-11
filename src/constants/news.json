@@ -297,6 +297,51 @@
                     
                 ]
             }
+        },
+
+        {
+            "id": 14,
+            "slug": "metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo",
+            "title": "MetaOptics finishes lower after a jump on proposed Nasdaq listing; up almost 300% since IPO",
+            "desc": "It started trading in Singapore in September at S$0.20 a share",
+            "date": "Nov 27, 2025",
+            "image": "/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.webp",
+            "thumbnail": "/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.webp",
+            "path": "https://www.businesstimes.com.sg/companies-markets/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo",
+            "external": false,
+            "details": {
+                "images": ["/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.webp"],
+                "contentPath": "/content/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+
+
+        {
+            "id": 15,
+            "slug": "metaoptics-shares-close-16-8-higher-proposed-share-placement",
+            "title": "MetaOptics shares close 16.8% higher on proposed share placement",
+            "desc": "Proceeds are expected to strengthen the group’s financial position and expand its capital base to support a growing pipeline of global orders",
+            "date": "Dec 01, 2025",
+            "image": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "thumbnail": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "path": "https://www.businesstimes.com.sg/companies-markets/metaoptics-shares-close-16-8-higher-proposed-share-placement",
+            "external": false,
+            "details": {
+                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
+                "contentPath": "/content/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.mdx",
+                "extraImages": [
+                   
+                ],
+                "relatedNews": [
+                    
+                ]
+            }
         }
     ]
 }
