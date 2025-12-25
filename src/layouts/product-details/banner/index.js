@@ -14,6 +14,11 @@ const ProductDetailsBanner = ({ product }) => {
         window.location.href = product?.buyNow;
     };
 
+    const handleOnPreOrder = () => {
+        window.location.href = product?.preOder;
+    };
+    
+
     return (
         <div className='relative w-full min-h-[calc(100vh-100px)]  bg-[#F0F0F0] pb-[60px]'>
             <div
@@ -84,6 +89,15 @@ const ProductDetailsBanner = ({ product }) => {
                             classNameBtn='!w-full uppercase'
                         />
                     )}                    
+
+                    {product?.preOder && (
+                        <BaseButton
+                            label='PRE ORDER NOW'
+                            onClick={handleOnPreOrder}
+                            className='!mb-0 !w-full'
+                            classNameBtn='!w-full uppercase'
+                        />
+                    )} 
 
                     {product?.userGuide && (                        
                         <BaseButton

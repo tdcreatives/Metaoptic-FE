@@ -342,6 +342,43 @@
                     
                 ]
             }
-        }
+        },
+
+        {
+            "id": 16,
+            "slug": "metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand",
+            "title": "MetaOptics Announces Strategic Share Placement to Accelerate Growth and Meet Rising Global Demand ",
+            "desc": "MetaOptics Ltd a leading-edge semiconductor optics company, announced that it is proposing to raise S$4.85 million through a placement of 6,685,028 new ordinary shares in the capital of the Company",
+            "date": "Dec 01, 2025",
+            "image": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "thumbnail": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "path": "https://en.prnasia.com/releases/apac/metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand-514071.shtml",
+            "external": false,
+            "details": {
+                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
+                "contentPath": "/content/news/metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "slug": "metaoptics-provides-year-end-business-review-and-update",
+            "title": "MetaOptics Provides Year-End Business Review and Update",
+            "desc": "As we approach the Christmas festive season and the close of 2025, MetaOptics would like to express its sincere appreciation to all stakeholders who have supported the Company's journey and growth.",
+            "date": "Dec 17, 2025",
+            "image": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "thumbnail": "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp",
+            "path": "https://en.prnasia.com/releases/apac/metaoptics-provides-year-end-business-review-and-update-516388.shtml",
+            "external": false,
+            "details": {
+                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
+                "contentPath": "/content/news/metaoptics-provides-year-end-business-review-and-update.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        }        
     ]
 }

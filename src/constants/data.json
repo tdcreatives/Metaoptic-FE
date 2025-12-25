@@ -211,7 +211,7 @@
             "name": "Color Imaging Meta Lens",
             "nameDom": "Color Imaging <br /> <div class='name-dom-sensor'>Meta Lens</div>",
             "slug": "color-imaging-meta-lens",
-            "image": "/products/product-4.png",
+            "image": "/products/color-imaging-meta-lens.png",
             "category": "Camera",
             "buyNow": "",
             "brochure": "/download/color-imaging-meta-lens.pdf",
@@ -789,6 +789,65 @@
                             "SNR & dynamic range"   
                         ]
                     }                                  
+                },
+                "relatedProducts": [
+                    {
+                        "name": "Ultra-wide FoV IR Metalens",
+                        "slug": "ultra-wide-fov-ir-metalens",
+                        "image": "/products/product-6.png",
+                        "category": "3D"
+                    },
+                    {
+                        "name": "IoT Metalens Color Camera",
+                        "slug": "iot-metalens-color-camera",
+                        "image": "/products/product-3.png",
+                        "category": "Camera"
+                    },
+                    {
+                        "name": "Pico Projector",
+                        "slug": "pico-projector",
+                        "image": "/products/product-5.png",
+                        "category": "Projector"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Pico Projector (2nd generation)",
+            "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
+            "slug": "pico-projector-2nd-generation",
+            "image": "/products/pico-projector-2nd-generation.png",
+            "category": "Projector",
+            "preOder": "https://metaoptics.shop/products/pico-projector",
+            "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",            
+            "details": {
+                "subtitle": "Pocket sized projection, ready to travel.",
+                "description": "The 2nd Generation MetaOptics Pico Projector debuts as one of the smallest and most portable projection solutions showcased at CES 2026. Approximately half the size of its predecessor, it is designed for easy carry in a bag or pocket while still delivering bright, clear projection for demos, presentations and on the go content sharing. USB C connectivity keeps setup simple with modern devices, and its silent, fanless design makes it suitable for quiet meeting rooms and personal spaces. With low power consumption, the projector sets a new benchmark for miniaturized projection technology and battery friendly use.",
+                "specifications": {
+                    "dimensions": {
+                        "width": "67.6mm",
+                        "height": "43.2mm",
+                        "depth": "20mm"
+                    },
+                    "performance": {
+                        "Brightness": "34 ± 3 <br/>(measured at 400 mm from MEMS Mirror)",
+                        "MEMS Mirror / Drive Force": "2D Single Mirror / Electrostatics",
+                        "Resolution": "720p / 60 frames per second (input source)",
+                        "Projected FOV": "x-axis 39°; y-axis 23°",
+                        "Contrast": "10,000:1 (FOFO Test)",
+                        "Keystone": "± 15° (vertical)",
+                        "Flip": "Horizontal / Vertical",
+                        "Color Gamut": "< 150%",
+                        "Throw Ratio": "< 1.5",
+                        "Focus": "Free Focus"
+                    },
+                    "Power & Operating Conditions":{
+                        "Power Consumption": "Peak 5 W, Normal Operation < 4 W",
+                        "Relative Humidity": "40–60%",
+                        "Power Input": "DC 4.75 V – 5.25 V",
+                        "Operating Temperature": "0 – 35 °C",
+                        "Video Input": "MIPI DSI"
+                    }
                 },
                 "relatedProducts": [
                     {

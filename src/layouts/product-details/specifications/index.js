@@ -182,7 +182,9 @@ const ProductDetailsSpecifications = ({
                                                         {formatKey(key)}:{' '}
                                                     </strong>
                                                 )}
-                                                {Array.isArray(value) ? renderList(value) : value}
+                                                {Array.isArray(value) ? renderList(value) : (
+                                                    <span dangerouslySetInnerHTML={{ __html: value }} />
+                                                )}
                                             </>
                                         )}
                                     </li>
