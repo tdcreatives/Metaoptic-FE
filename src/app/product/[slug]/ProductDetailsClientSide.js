@@ -13,6 +13,7 @@ import ProductDetailsSpecifications from "@/layouts/product-details/specificatio
 import ProductDetailsTestingCapabilities from "@/layouts/product-details/testing-capabilities";
 import ProductDetailsMeasuredParameters from "@/layouts/product-details/measured-parameters";
 import RelatedProducts from "@/layouts/product-details/related-products";
+import ProductDetailsKeyFeatures from "@/layouts/product-details/key-features";
 
 const ProductDetailsClientSide = () => {
   const { slug } = useParams();
@@ -41,13 +42,21 @@ const ProductDetailsClientSide = () => {
 
       <ProductDetailsBanner product={product} />
 
-      <ProductDetailsSpecifications
-        specifications={product?.details?.specifications}
-        brochureTitle={product?.name}
-        brochure={product?.brochure}
-        buttonLeft={product?.buttonLeft}
-        buttonRight={product?.buttonRight}
-      />
+      {product?.details?.keyFeatures && (
+        <ProductDetailsKeyFeatures
+          keyFeatures={product?.details?.keyFeatures}
+        />
+      )}
+
+      {product?.details?.specifications && (
+        <ProductDetailsSpecifications
+          specifications={product?.details?.specifications}
+          brochureTitle={product?.name}
+          brochure={product?.brochure}
+          buttonLeft={product?.buttonLeft}
+          buttonRight={product?.buttonRight}
+        />
+      )}
 
       {product?.details?.testingCapabilities && (
         <ProductDetailsTestingCapabilities

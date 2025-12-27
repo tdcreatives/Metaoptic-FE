@@ -37,3 +37,10 @@ export const removeAllBrTags = (html = "") => {
   }
   return html;
 };
+
+export const isEmptyObject = (obj) => {
+  if (typeof obj !== "object") {
+    return true;
+  }
+  return Object.keys(obj).length === 0;
+};

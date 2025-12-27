@@ -881,7 +881,36 @@
       "details": {
         "subtitle": "5G Smartphone with Metalens",
         "description": "MetaOptics’ 5G Smartphone showcases how metalenses can completely redefine the mobile camera stack. <br /> The device features an ultra thin metalens optical module that removes the traditional camera bump, <br /> enabling a clean, seamless back cover while maintaining high quality imaging performance. <br /> The glass based metalens architecture is engineered for high thermal stability, making it suitable for <br /> intensive 5G and edge processing workloads.",
-        "specifications": {}
+        "keyFeatures": {
+          "leftSection": {
+            "title": "Metalens Integration In A Flagship 5G Device",
+            "description": "Beyond imaging, the Smartphone debuts a breakthrough non contact metalens 3D biometric fingerprint module. This module captures a high resolution 3D fingerprint map through the display, enabling secure, touch free authentication and a smoother, more hygienic user experience. The platform is powered by the Qualcomm Dragonwing QCM6490, a robust processor optimised for IoT ready devices that require premium tier performance across multiple operating systems.",
+            "list": [
+              "Ultra thin metalens camera stack with no camera bump",
+              "Glass based, heat resistant metalens design",
+              "Non contact 3D fingerprint module for touch free biometrics",
+              "High quality imaging and sensing in a compact module",
+              "Qualcomm Dragonwing QCM6490 platform for 5G and IoT use cases",
+              "Designed as a reference platform for OEM metalens integration"
+            ]
+          },
+          "rightSection": {
+            "list": [
+              {
+                "image": "/product-details/metalens-5g/back.png",
+                "title": "zero bump",
+                "subtitle": "Ultra thin metalens camera,",
+                "description": "Flat metalens optics deliver a clean back design without compromising image quality."
+              },
+              {
+                "image": "/product-details/metalens-5g/front.png",
+                "title": "non-contact",
+                "subtitle": "3d fingerprint security",
+                "description": "Metalens 3D biometric module captures a high resolution fingerprint mapthrough the display for touch free unlock."
+              }
+            ]
+          }
+        }
       }
     }
   ]
