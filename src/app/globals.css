@@ -4,112 +4,117 @@
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Futura Book */
 @font-face {
-    font-family: 'Futura Book';
-    src: url('/fonts/futura-book.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Futura Book";
+  src: url("/fonts/futura-book.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Futura Condensed Medium */
 @font-face {
-    font-family: 'Futura CondensedMedium';
-    src: url('/fonts/Futura-CondensedMedium-04.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Futura CondensedMedium";
+  src: url("/fonts/Futura-CondensedMedium-04.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* Futura Condensed Extra Bold */
 @font-face {
-    font-family: 'Futura CondensedExtraBold';
-    src: url('/fonts/Futura-CondensedExtraBold-05.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
+  font-family: "Futura CondensedExtraBold";
+  src: url("/fonts/Futura-CondensedExtraBold-05.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
 }
 
 /* Futura Medium */
 @font-face {
-    font-family: 'Futura Medium';
-    src: url('/fonts/Futura-Medium-01.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Futura Medium";
+  src: url("/fonts/Futura-Medium-01.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* Futura Medium Italic */
 @font-face {
-    font-family: 'Futura Medium Italic';
-    src: url('/fonts/Futura-MediumItalic-02.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
+  font-family: "Futura Medium Italic";
+  src: url("/fonts/Futura-MediumItalic-02.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
 }
 
 /* Futurah */
 @font-face {
-    font-family: 'Futurah';
-    src: url('/fonts/futurah.TTF') format('truetype');
-    font-weight: 900;
-    font-style: normal;
+  font-family: "Futurah";
+  src: url("/fonts/futurah.TTF") format("truetype");
+  font-weight: 900;
+  font-style: normal;
 }
 
 /* Futura Bold */
 @font-face {
-    font-family: 'Futura Bold';
-    src: url('/fonts/Futura-Bold-03.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Futura Bold";
+  src: url("/fonts/Futura-Bold-03.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 .scale-container {
-    transform: scale(calc(100vw / 1920));
-    transform-origin: top center;
+  transform: scale(calc(100vw / 1920));
+  transform-origin: top center;
 }
 
 body {
-    font-family: 'Futura Book', sans-serif;
+  font-family: "Futura Book", sans-serif;
 }
 
 input,
 input:focus,
 textarea,
 textarea:focus {
-    outline: 0; /* I have also tried outline:none */
-    -webkit-appearance: none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
+  outline: 0; /* I have also tried outline:none */
+  -webkit-appearance: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .futura-condensed-medium {
-    font-family: 'Futura CondensedMedium', sans-serif;
+  font-family: "Futura CondensedMedium", sans-serif;
 }
 
 .futura-medium {
-    font-family: 'Futura Medium', sans-serif;
-    font-weight: 500;
+  font-family: "Futura Medium", sans-serif;
+  font-weight: 500;
+}
+
+.futura-bold {
+  font-family: "Futura Bold", sans-serif;
+  font-weight: bold;
 }
 
 @keyframes slideIn {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

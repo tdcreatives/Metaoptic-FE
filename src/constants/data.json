@@ -901,15 +901,104 @@
                 "image": "/product-details/metalens-5g/back.png",
                 "titleImage": "/product-details/metalens-5g/zero-bump.png",
                 "subtitleDom": "Ultra thin <br /> metalens camera,",
-                "description": "Flat metalens optics deliver a clean back design without compromising image quality.",
+                "description": "Flat metalens optics deliver a clean back design <br /> without compromising image quality.",
                 "isTitleBelowSubtitle": true
               },
               {
                 "image": "/product-details/metalens-5g/front.png",
                 "titleImage": "/product-details/metalens-5g/non-contact.png",
                 "subtitleDom": "3d fingerprint <br /> security",
-                "description": "Metalens 3D biometric module captures a high resolution fingerprint mapthrough the display for touch free unlock.",
+                "description": "Metalens 3D biometric module captures a high <br /> resolution fingerprint mapthrough the display for <br /> touch free unlock.",
                 "isTitleBelowSubtitle": false
+              }
+            ]
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens AI Glasses",
+      "nameDom": "Metalens <br /> <div class='name-dom-metalens-ai--first'>AI</div> <br /> <div class='name-dom-metalens-ai--second'>Glasses</div>",
+      "slug": "metalens-ai-glasses",
+      "image": "/products/metalens-ai-glasses.png",
+      "imageScale": 1.2,
+      "imageScaleMobile": 0.9,
+      "buyNow": "https://metaoptics.shop/products/metalens-ai-glasses",
+      "buyNowText": "Pre Order Now",
+      "category": "Glasses",
+      "brochure": "/download/metalens-ai-glasses.pdf",
+      "details": {
+        "subtitle": "Sport-ready AI glasses with metalens precision.",
+        "description": "Powered  by  the  Qualcomm  AR1  Snapdragon,  the  AI  Smart  Glasses  feature MetaOptics’  compact <br /> color  metalens  camera  system  enabling  precise  tracking  and  image  capture  for an  intuitive,  gesture <br /> control user experience with our fingers. ",
+        "keyFeatures": {
+          "leftSection": {
+            "list": [
+              "Precise hand and gesture tracking",
+              "Built for movement",
+              "Qualcomm AR1 Snapdragon inside",
+              "Reference platform for AI eyewear",
+              "Android Compatible"
+            ]
+          },
+          "rightSection": {
+            "list": [
+              {
+                "title": "use touchless <br /> gesture control",
+                "image": "/product-details/metalens-ai-glasses/touchless.png",
+                "description": "Increase/ decrease music volume, accept/ reject <br /> incoming calls",
+                "isTitleBelowSubtitle": false,
+                "cardStyle": {
+                  "paddingLeft": "80px",
+                  "paddingRight": "80px",
+                  "paddingLeftMobile": "20px",
+                  "paddingRightMobile": "20px",
+                  "gap": "96px",
+                  "gapMobile": "24px"
+                },
+
+                "imageMaxWidth": "250px",
+                "descriptionStyle": {
+                  "marginTop": "0"
+                }
+              },
+              {
+                "title": "Qualcomm Ar1 <br /> snapdragon inside",
+                "image": "/product-details/metalens-ai-glasses/snapdragon.png",
+                "description": "An AR-focused platform built for low-power, on-device AI <br /> processing in smart glasses and wearables.",
+                "isTitleBelowSubtitle": false,
+                "cardStyle": {
+                  "paddingLeft": "80px",
+                  "paddingRight": "80px",
+                  "paddingLeftMobile": "20px",
+                  "paddingRightMobile": "20px",
+                  "gap": "96px",
+                  "gapMobile": "24px"
+                },
+
+                "imageMaxWidth": "250px",
+                "descriptionStyle": {
+                  "marginTop": "0"
+                }
               }
             ]
           }

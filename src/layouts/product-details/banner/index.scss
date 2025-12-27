@@ -16,14 +16,16 @@
   left: 60%;
 }
 
-.name-dom-metalens-5g--first {
+.name-dom-metalens-5g--first,
+.name-dom-metalens-ai--first {
   position: absolute;
   top: 200px;
   left: 36%;
   transform: translateX(-50%);
 }
 
-.name-dom-metalens-5g--second {
+.name-dom-metalens-5g--second,
+.name-dom-metalens-ai--second {
   position: absolute;
   top: 380px;
   left: 70%;
@@ -56,8 +58,20 @@
     font-size: 100px;
   }
 
+  .name-dom-metalens-ai--first {
+    left: 30%;
+    top: 120px;
+    font-size: 100px;
+  }
+
   .name-dom-metalens-5g--second {
     left: 100%;
+    top: 240px;
+    font-size: 100px;
+  }
+
+  .name-dom-metalens-ai--second {
+    left: 70%;
     top: 240px;
     font-size: 100px;
   }

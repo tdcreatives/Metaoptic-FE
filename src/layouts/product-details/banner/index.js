@@ -5,14 +5,14 @@ import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
 import { removeAllBrTags } from "@/utils";
 import "./index.scss";
-
+import useMobile from "@/hooks/useMobile";
 const ProductDetailsBanner = ({ product }) => {
   const handleOnBuyNow = () => {
     window.location.href = product?.buyNow;
   };
-
+  const isMobile = useMobile();
   return (
-    <div className="relative w-full min-h-[calc(100vh-100px)]  bg-[#F0F0F0] pb-[60px]">
+    <div className="relative w-full xl:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
         className="absolute text-white xl:text-[200px] text-[100px] xl:left-[-20px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase tracking-[1rem] w-full"
         dangerouslySetInnerHTML={{ __html: product?.nameDom }}
@@ -22,11 +22,13 @@ const ProductDetailsBanner = ({ product }) => {
       ></div>
 
       <div className="relative z-100">
-        <div className="w-full flex justify-center xl:h-[600px] h-fit pb-[72px]">
+        <div className="w-full flex justify-center xl:h-[600px] h-fit pb-[72px] min-h-[400px]">
           <div
             className={clsx("xl:h-[450px] xl:w-auto w-[90%]")}
             style={{
-              transform: product?.imageScale
+              transform: isMobile
+                ? "scale(1)"
+                : product?.imageScale
                 ? `scale(${product?.imageScale})`
                 : "scale(1)",
             }}

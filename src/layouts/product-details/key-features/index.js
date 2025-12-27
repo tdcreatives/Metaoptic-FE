@@ -3,7 +3,7 @@ import ProductDetailsKeyFeaturesRightSection from "./right-section";
 
 const ProductDetailsKeyFeatures = ({ keyFeatures }) => {
   return (
-    <div className="xl:px-[104px] xl:py-[108px] bg-[#EAEAEA] flex xl:flex-row flex-col gap-20">
+    <div className="xl:px-[104px] xl:py-[108px] py-8 px-6 bg-[#EAEAEA] flex xl:flex-row flex-col gap-[80px]">
       <ProductDetailsKeyFeaturesLeftSection
         leftSection={keyFeatures.leftSection}
       />

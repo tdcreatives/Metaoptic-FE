@@ -1,31 +1,36 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 
 const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
   const { title, description, list } = leftSection;
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <div className="flex max-w-[640px] xl:sticky xl:top-[108px] xl:self-start">
+    <div className="flex xl:w-[640px] xl:sticky xl:top-[108px] xl:self-start">
       <div className="flex-1">
         {/* Main Title */}
-        <h1 className="xl:text-[28px] text-[32px] font-medium text-black mb-6 leading-tight futura-medium">
-          {title}
-        </h1>
+        {title && (
+          <h1 className="xl:text-[28px] text-[26px] font-medium text-black mb-6 leading-tight futura-medium">
+            {title}
+          </h1>
+        )}
 
         {/* Description Paragraph */}
-        <p className="xl:text-[18px] text-[16px] text-black mb-8 leading-relaxed text-justify">
-          {description}
-        </p>
+        {description && (
+          <p className="xl:text-[18px] text-[16px] text-black mb-8 leading-relaxed text-justify">
+            {description}
+          </p>
+        )}
 
         {/* KEY FEATURES Section */}
-        <div className="xl:mt-16">
+        <div className={clsx(title && "xl:mt-16")}>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center justify-between gap-4 group w-full border-b-2 border-[#313131] pb-3 "
           >
-            <h2 className="xl:text-[36px] text-[28px] font-medium text-black futura-condensed-medium">
+            <h2 className="xl:text-[48px] text-[44px] font-medium text-black futura-condensed-medium">
               KEY FEATURES
             </h2>
             {/* Red circular icon with chevron */}
@@ -50,7 +55,7 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
 
           {/* Bulleted List */}
           <div
-            className={`overflow-hidden transition-all duration-500 xl:mt-10 ${
+            className={`overflow-hidden transition-all duration-500 xl:mt-10 mt-8 ${
               isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
             }`}
           >
