@@ -874,6 +874,7 @@
       "nameDom": "Metalens <br /> <div class='name-dom-metalens-5g--first'>5G</div> <br /> <div class='name-dom-metalens-5g--second'>Smartphone</div>",
       "slug": "metalens-5g-smartphone",
       "image": "/products/metalens-5g-smartphone.png",
+      "imageScale": 1.2,
       "buyNow": "https://metaoptics.shop/products/metalens-5g-smartphone",
       "buyNowText": "Pre Order Now",
       "category": "Smartphone",
@@ -912,7 +913,27 @@
               }
             ]
           }
-        }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
       }
     }
   ]

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
-
+import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
 import { removeAllBrTags } from "@/utils";
 import "./index.scss";
@@ -23,7 +23,14 @@ const ProductDetailsBanner = ({ product }) => {
 
       <div className="relative z-100">
         <div className="w-full flex justify-center xl:h-[600px] h-fit pb-[72px]">
-          <div className="xl:h-[450px] xl:w-auto w-[90%] ">
+          <div
+            className={clsx("xl:h-[450px] xl:w-auto w-[90%]")}
+            style={{
+              transform: product?.imageScale
+                ? `scale(${product?.imageScale})`
+                : "scale(1)",
+            }}
+          >
             <Image
               width="0"
               height="0"
