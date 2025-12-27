@@ -898,15 +898,17 @@
             "list": [
               {
                 "image": "/product-details/metalens-5g/back.png",
-                "title": "zero bump",
-                "subtitle": "Ultra thin metalens camera,",
-                "description": "Flat metalens optics deliver a clean back design without compromising image quality."
+                "titleImage": "/product-details/metalens-5g/zero-bump.png",
+                "subtitleDom": "Ultra thin <br /> metalens camera,",
+                "description": "Flat metalens optics deliver a clean back design without compromising image quality.",
+                "isTitleBelowSubtitle": true
               },
               {
                 "image": "/product-details/metalens-5g/front.png",
-                "title": "non-contact",
-                "subtitle": "3d fingerprint security",
-                "description": "Metalens 3D biometric module captures a high resolution fingerprint mapthrough the display for touch free unlock."
+                "titleImage": "/product-details/metalens-5g/non-contact.png",
+                "subtitleDom": "3d fingerprint <br /> security",
+                "description": "Metalens 3D biometric module captures a high resolution fingerprint mapthrough the display for touch free unlock.",
+                "isTitleBelowSubtitle": false
               }
             ]
           }
