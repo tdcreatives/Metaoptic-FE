@@ -7,7 +7,7 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <div className="flex max-w-[640px]">
+    <div className="flex max-w-[640px] xl:sticky xl:top-[108px] xl:self-start">
       <div className="flex-1">
         {/* Main Title */}
         <h1 className="xl:text-[28px] text-[32px] font-medium text-black mb-6 leading-tight futura-medium">
