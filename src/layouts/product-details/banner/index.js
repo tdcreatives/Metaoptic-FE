@@ -65,7 +65,7 @@ const ProductDetailsBanner = ({ product }) => {
         <div className="flex flex-col mx-auto gap-5 w-80">
           {product?.buyNow && (
             <BaseButton
-              label="BUY"
+              label={product?.buyNowText || "BUY"}
               onClick={handleOnBuyNow}
               className="!mb-0 !w-full"
               classNameBtn="!w-full uppercase"

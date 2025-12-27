@@ -1,38 +1,64 @@
 .name-dom-sensor {
-    position: absolute;
-    bottom: -250px;
-    right: -10%;
+  position: absolute;
+  bottom: -250px;
+  right: -10%;
 }
 
 .name-dom-metalens-tester--first {
-    position: absolute;
-    top: 200px;
-    left: 20%;
+  position: absolute;
+  top: 200px;
+  left: 20%;
 }
 
 .name-dom-metalens-tester--second {
-    position: absolute;
-    top: 400px;
-    left: 60%;
+  position: absolute;
+  top: 400px;
+  left: 60%;
+}
+
+.name-dom-metalens-5g--first {
+  position: absolute;
+  top: 200px;
+  left: 36%;
+  transform: translateX(-50%);
+}
+
+.name-dom-metalens-5g--second {
+  position: absolute;
+  top: 380px;
+  left: 70%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
-    /* For mobile screens */
-    .name-dom-sensor {
-        margin-top: -48px; /* Remove the negative margin on mobile */
-        margin-left: 0; /* Center-align if necessary */
-        text-align: center;
-    }
+  /* For mobile screens */
+  .name-dom-sensor {
+    margin-top: -48px; /* Remove the negative margin on mobile */
+    margin-left: 0; /* Center-align if necessary */
+    text-align: center;
+  }
 
-    .name-dom-metalens-tester--first {
-        left: 0;
-        top: 120px;
-        font-size: 100px;
-    }
+  .name-dom-metalens-tester--first {
+    left: 0;
+    top: 120px;
+    font-size: 100px;
+  }
 
-    .name-dom-metalens-tester--second {
-        left: 0;
-        top: 240px;
-        font-size: 100px;
-    }
+  .name-dom-metalens-tester--second {
+    left: 0;
+    top: 240px;
+    font-size: 100px;
+  }
+
+  .name-dom-metalens-5g--first {
+    left: 20%;
+    top: 120px;
+    font-size: 100px;
+  }
+
+  .name-dom-metalens-5g--second {
+    left: 100%;
+    top: 240px;
+    font-size: 100px;
+  }
 }

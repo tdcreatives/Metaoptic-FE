@@ -1,875 +1,888 @@
 {
-    "products": [
-        {
-            "name": "3D Biometrics Metalens Sensor",
-            "nameDom": "3D Biometrics <br /> <div class='name-dom-sensor'>Sensor</div>",
-            "slug": "3d-biometrics-metalens-sensor",
-            "image": "/products/product-1.png",
-            "category": "Sensor",
-            "buyNow": "https://metaoptics.shop/products/pocket-projector",
-            "brochure": "/download/3d-biometric-sensor.pdf",
-            "userGuide": {
-                "name": "MOTViewer User Guide",
-                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
-            },
-            "installer": {
-                "name": "MOTViewer Installer File",
-                "link": [
-                    {
-                        "name": "MOTViewer Installer Files",
-                        "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
-                    },
-                    {
-                        "name": "Thorlabs Scientific Imaging Software",
-                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
-                    }
-                ]
-            },
-            "details": {
-                "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
-                "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "36mm",
-                        "length": "81mm",
-                        "width": "81mm"
-                    },
-                    "cameraSpecifications": {
-                        "focalLength": "1.53mm",
-                        "fieldOfView": "70 degrees",
-                        "sensorType": "Monochrome CMOS",
-                        "peakQuantumEfficiency": "65% @ 535 nm",
-                        "resolution": "1.6 MP",
-                        "activePixels": "1440 x 1080",
-                        "pixelSize": "3.45 µm x 3.45 µm",
-                        "sensorShutterType": "Global",
-                        "exposureTime": "0.04 ms - 26.843 ms",
-                        "usbPowerConsumption": "1.17 W",
-                        "ambientOperatingTemperature": "10 °C - 40 °C",
-                        "storageTemperature": "0 °C - 55 °C"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "120 nm",
-                        "pitchBetweenPillars": "320 nm",
-                        "heightOfPillars": "650 nm",
-                        "lensDiameter": "2mm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
+  "products": [
+    {
+      "name": "3D Biometrics Metalens Sensor",
+      "nameDom": "3D Biometrics <br /> <div class='name-dom-sensor'>Sensor</div>",
+      "slug": "3d-biometrics-metalens-sensor",
+      "image": "/products/product-1.png",
+      "category": "Sensor",
+      "buyNow": "https://metaoptics.shop/products/pocket-projector",
+      "brochure": "/download/3d-biometric-sensor.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "installer": {
+        "name": "MOTViewer Installer File",
+        "link": [
+          {
+            "name": "MOTViewer Installer Files",
+            "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
+          },
+          {
+            "name": "Thorlabs Scientific Imaging Software",
+            "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+          }
+        ]
+      },
+      "details": {
+        "subtitle": "Non-Contact 3D Fingerprint Metalens Camera",
+        "description": "Inclusive Of Advanced Software With AI Image Enhancement Algorithm. Camera Assembly Process Is Tunable To Fit Applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "36mm",
+            "length": "81mm",
+            "width": "81mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "65% @ 535 nm",
+            "resolution": "1.6 MP",
+            "activePixels": "1440 x 1080",
+            "pixelSize": "3.45 µm x 3.45 µm",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.04 ms - 26.843 ms",
+            "usbPowerConsumption": "1.17 W",
+            "ambientOperatingTemperature": "10 °C - 40 °C",
+            "storageTemperature": "0 °C - 55 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120 nm",
+            "pitchBetweenPillars": "320 nm",
+            "heightOfPillars": "650 nm",
+            "lensDiameter": "2mm"
+          }
         },
-        {
-            "name": "Collimating Meta Lens For Pico Projector",
-            "nameDom": "Collimating Meta Lens <br /> <div class='name-dom-sensor'>For Pico Projector</div>",
-            "slug": "collimating-meta-lens-pico-projector",
-            "image": "/products/product-2.png",
-            "category": "Projector",
-            "buyNow": "",
-            "brochure": "/download/collimating-meta-lens.pdf",
-            "details": {
-                "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
-                "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "0.75mm ± 0.015mm",
-                        "length": "3.55mm ± 0.05mm",
-                        "width": "3.55mm ± 0.05mm"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "120nm",
-                        "pitchBetweenPillars": "320nm",
-                        "heightOfPillars": "650nm – 800nm",
-                        "lensDiameter": "1.4mm – 1.5mm",
-                        "blueWavelengthRange": "450nm ± 5nm",
-                        "greenWavelengthRange": "520nm ± 5nm",
-                        "redWavelengthRange": "640nm ± 5nm",
-                        "focusingDistance": "1.827 – 1.857mm",
-                        "ldDivergenceCollimationAngle": "18–25 degrees"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IoT Metalens Color Camera",
-            "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
-            "category": "Camera",
-            "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
-            "brochure": "/download/iot-meta-lens-color-camera.pdf",
-            "userGuide": {
-                "name": "MOTViewer User Guide",
-                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
-            },
-            "installer": {
-                "name": "MOTViewer Installer File",
-                "link": [
-                    {
-                        "name": "MOTViewer Installer Files",
-                        "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
-                    },
-                    {
-                        "name": "Thorlabs Scientific Imaging Software",
-                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
-                    }
-                ]
-            },
-            "details": {
-                "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
-                "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "10mm",
-                        "length": "47mm",
-                        "width": "44mm"
-                    },
-                    "cameraSpecifications": {
-                        "focalLength": "1.53mm",
-                        "fieldOfView": "70 degrees",
-                        "sensorType": "Monochrome CMOS",
-                        "peakQuantumEfficiency": "65% @ 535 nm",
-                        "resolution": "1.6 MP",
-                        "activePixels": "1440 x 1080",
-                        "pixelSize": "3.45 µm x 3.45 µm",
-                        "imagingArea": "4.968 mm x 3.726 mm",
-                        "adcResolution": "10 bits",
-                        "sensorShutterType": "Global",
-                        "exposureTime": "0.04 ms – 26.843 ms",
-                        "usbPowerConsumption": "1.17 W",
-                        "ambientOperatingTemperature": "10 °C – 40 °C",
-                        "storageTemperature": "0 °C – 55 °C"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "120 nm",
-                        "pitchBetweenPillars": "320 nm",
-                        "heightOfPillars": "650 nm",
-                        "lensDiameter": "2mm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "3D Biometrics Metalens Sensor",
-                        "slug": "3d-biometrics-metalens-sensor",
-                        "image": "/products/product-1.png",
-                        "category": "Sensor"
-                    },
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Color Imaging Meta Lens",
-            "nameDom": "Color Imaging <br /> <div class='name-dom-sensor'>Meta Lens</div>",
-            "slug": "color-imaging-meta-lens",
-            "image": "/products/color-imaging-meta-lens.png",
-            "category": "Camera",
-            "buyNow": "",
-            "brochure": "/download/color-imaging-meta-lens.pdf",
-            "details": {
-                "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
-                "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "0.75mm ± 0.015mm",
-                        "length": "9.22mm ± 0.05mm",
-                        "width": "7.98mm ± 0.05mm"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "120nm",
-                        "pitchBetweenPillars": "320nm",
-                        "heightOfPillars": "650nm",
-                        "lensDiameter": "2mm",
-                        "blueWavelengthRange": "450nm ± 5nm",
-                        "greenWavelengthRange": "540nm ± 5nm",
-                        "redWavelengthRange": "635nm ± 5nm",
-                        "imagingArea": "18.13mm²",
-                        "focalLength": "1.53mm",
-                        "fieldOfView": "70 degrees",
-                        "psfFWHMNormalIncidence": "1.5 µm PSF",
-                        "fwhmAtMaxAOL": "2.5 µm",
-                        "activeImagingArea": "4.968 mm x 3.726 mm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Pico Projector",
-            "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
-            "slug": "pico-projector",
-            "image": "/products/product-5.png",
-            "category": "Projector",
-            "buyNow": "https://metaoptics.shop/products/pico-projector",
-            "brochure": "/download/pico-projector.pdf",
-            "userGuide": {
-                "name": "DOWNLOAD USER GUIDE",
-                "link": "/download/pico-projector-user-guiderev42.pdf"
-            },        
-            "details": {
-                "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
-                "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
-                "specifications": {
-                    "optionalSpecifications": {
-                        "MEMS Mirror / Drive Force": " 2D Single Mirror / Electrostatics",
-                        "resolution": "720p / 60 frames per second (input source)",
-                        "projectedFOV": "x-axis 39 degrees ; y-axis 23 degrees",
-                        "contrast": "10,000: 1 (FOFO Test)",
-                        "focus": "Free Focus",
-                        "brightness": "34 ± 3lm (measured at 400mm from MEMS Mirror)",
-                        "colorGamut": "< 150%",
-                        "throwRatio": "< 1.5",
-                        "keystone": "± 15 degrees (vertical)",
-                        "flip": "Horizontal/Vertical",
-                        "operationTemperature": "0 – 35 °C",
-                        "powerInput": "DC 4.75V – 5.25V",
-                        "videoInput": "MIPI DSI",
-                        "powerConsumption": "Peak 5W, Normal Operation <4W",
-                        "relativeHumidity": "40–60%",
-                        "size": "45mm x 58mm x 30mm",
-                        "weight": "80g"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Ultra-wide FoV IR Metalens",
-            "nameDom": "Ultra-wide FoV <br /> <div class='name-dom-sensor'>IR Metalens</div>",
-            "slug": "ultra-wide-fov-ir-metalens",
-            "image": "/products/product-6.png",
-            "category": "3D",
-            "buyNow": "",
-            "brochure": "/download/ultra-wide-fov-brochure.pdf",
-            "userGuide": {
-                "name": "MOTViewer User Guide",
-                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
-            },
-            "details": {
-                "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
-                "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "0.75mm ± 0.015mm",
-                        "length": "9.98mm ± 0.05mm",
-                        "width": "9.98mm ± 0.05mm"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "80nm",
-                        "pitchBetweenPillars": "320nm",
-                        "heightOfPillars": "350nm",
-                        "lensDiameter": "5mm",
-                        "wavelength": "740nm ± 5nm",
-                        "focalLength": "2mm",
-                        "fieldOfView": "179 degrees",
-                        "psfFWHMNormalIncidence": "4.85 µm",
-                        "fwhmAtMaxAOL": "1.85 µm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Direct Laser Writer",
-            "nameDom": "Direct <br /> <div class='name-dom-sensor'>Laser Writer</div>",
-            "slug": "direct-laser-writer",
-            "image": "/products/product-7.png",
-            "category": "3D",
-            "buyNow": "",
-            "brochure": "/download/direct-laser-writer.pdf",
-            "details": {
-                "subtitle": "Leading Edge Deep UV Direct Laser Writer",
-                "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
-                "specifications": {
-                    "systemDimensions": {
-                        "dimensions": "L: 0.65m x W: 0.60m x H: 0.95m"
-                    },
-                    "writingSpecifications": {
-                        "minimumCriticalDimensions": "120 - 150nm",
-                        "minimumLinewidth": "90nm",
-                        "laserSource": "266nm",
-                        "maximumWritingSpeed": "100mm/s",
-                        "maximumExposureArea": "135mm x 85mm",
-                        "autofocusCompensationRange": "±100nm",
-                        "minimumSurfaceRoughness": "≤20nm",
-                        "repeatability": "±2 / ±2 / ±3nm",
-                        "substrateSize": "Min 1cm x 1cm or 1cm, Max 4'' x 4'' or Ø4''"
-                    },
-                    "facilityRequirements": {
-                        "voltageRating": "230VAC, 50/60Hz, Single phase, L+N+E Rated Current: 5.75A",
-                        "facilityACProtection": "13.0A C Curve AIC Rating of Main Breaker: 10kA",
-                        "shortCircuitRating": "29kA",
-                        "cdaPressure": "80 PSI"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Ultra-wide FoV IR Metalens",
-                        "slug": "ultra-wide-fov-ir-metalens",
-                        "image": "/products/product-6.png",
-                        "category": "3D"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Pico Projector",
-                        "slug": "pico-projector",
-                        "image": "/products/product-5.png",
-                        "category": "Projector"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Ultra-wide FoV Metalens Monochromatic IR Camera",
-            "nameDom": "Ultra-wide FoV Metalens <br /> <div class='name-dom-sensor'>Monochromatic IR Camera</div>",
-            "slug": "ultra-wide-fov-metalens-monochromatic-ir-camera",
-            "image": "/products/product-8.png",
-            "category": "Camera",
-            "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
-            "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera.pdf",
-            "userGuide": {
-                "name": "MOTViewer User Guide",
-                "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
-            },
-            "installer": {
-                "name": "MOTViewer Installer File",
-                "link": [
-                    {
-                        "name": "MOTViewer Installer Files",
-                        "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
-                    },
-                    {
-                        "name": "Thorlabs Scientific Imaging Software",
-                        "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
-                    }
-                ]
-            },
-            "details": {
-                "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
-                "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "10mm",
-                        "length": "47mm",
-                        "width": "44mm"
-                    },
-                    "cameraSpecifications": {
-                        "focalLength": "2mm",
-                        "fieldOfView": "179° ± 1.2°",
-                        "sensorType": "Monochrome CMOS",
-                        "peakQuantumEfficiency": "65% @ 535 nm",
-                        "resolution": "1.6 MP",
-                        "activePixels": "1440 x 1080",
-                        "pixelSize": "3.45 µm x 3.45 µm",
-                        "imagingArea": "4.968 mm x 3.726 mm",
-                        "adcResolution": "10 bits",
-                        "sensorShutterType": "Global",
-                        "exposureTime": "0.04 ms – 26.843 ms",
-                        "usbPowerConsumption": "1.17 W",
-                        "ambientOperatingTemperature": "10 °C – 40 °C",
-                        "storageTemperature": "0 °C – 55 °C"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "80nm",
-                        "pitchBetweenPillars": "300nm",
-                        "heightOfPillars": "350nm",
-                        "lensDiameter": "5mm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "3D Biometrics Metalens Sensor",
-                        "slug": "3d-biometrics-metalens-sensor",
-                        "image": "/products/product-1.png",
-                        "category": "Sensor"
-                    },
-                    {
-                        "name": "Metalens Color Camera Module",
-                        "slug": "metalens-color-camera-module",
-                        "image": "/products/product-9.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
-        },
-        {
+        "relatedProducts": [
+          {
             "name": "Metalens Color Camera Module",
-            "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
             "slug": "metalens-color-camera-module",
             "image": "/products/product-9.png",
-            "category": "Camera",
-            "buyNow": "",
-            "brochure": "/download/metalens-color-camera-module.pdf",
-            "details": {
-                "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
-                "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
-                "specifications": {
-                    "mechanicalDimensions": {
-                        "thickness": "8.8mm",
-                        "length": "16mm",
-                        "width": "14mm"
-                    },
-                    "cameraSpecifications": {
-                        "focalLength": "3mm",
-                        "fieldOfView": "85°",
-                        "sensorType": "Monochrome CMOS",
-                        "peakQuantumEfficiency": "70% @ 550 nm",
-                        "resolution": "2MP / 5MP",
-                        "activePixels": "1920 x 1080",
-                        "pixelSize": "1.75 µm x 1.75 µm",
-                        "imagingArea": "3.36 mm x 2.52 mm",
-                        "adcResolution": "12 bits",
-                        "sensorShutterType": "Global",
-                        "exposureTime": "0.03 ms – 30.0 ms",
-                        "usbPowerConsumption": "1.5 W",
-                        "ambientOperatingTemperature": "5 °C – 40 °C",
-                        "storageTemperature": "-20 °C – 60 °C"
-                    },
-                    "metalensSpecifications": {
-                        "minimumPillarDiameter": "120nm",
-                        "pitchBetweenPillars": "300nm",
-                        "heightOfPillars": "450nm",
-                        "lensDiameter": "3mm"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "3D Biometrics Metalens Sensor",
-                        "slug": "3d-biometrics-metalens-sensor",
-                        "image": "/products/product-1.png",
-                        "category": "Sensor"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Direct Laser Writer",
-                        "slug": "direct-laser-writer",
-                        "image": "/products/product-7.png",
-                        "category": "3D"
-                    }
-                ]
-            }
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Collimating Meta Lens For Pico Projector",
+      "nameDom": "Collimating Meta Lens <br /> <div class='name-dom-sensor'>For Pico Projector</div>",
+      "slug": "collimating-meta-lens-pico-projector",
+      "image": "/products/product-2.png",
+      "category": "Projector",
+      "buyNow": "",
+      "brochure": "/download/collimating-meta-lens.pdf",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
+        "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "0.75mm ± 0.015mm",
+            "length": "3.55mm ± 0.05mm",
+            "width": "3.55mm ± 0.05mm"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120nm",
+            "pitchBetweenPillars": "320nm",
+            "heightOfPillars": "650nm – 800nm",
+            "lensDiameter": "1.4mm – 1.5mm",
+            "blueWavelengthRange": "450nm ± 5nm",
+            "greenWavelengthRange": "520nm ± 5nm",
+            "redWavelengthRange": "640nm ± 5nm",
+            "focusingDistance": "1.827 – 1.857mm",
+            "ldDivergenceCollimationAngle": "18–25 degrees"
+          }
         },
-        {
-            "name": "Metalens Automatic Tester",
-            "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester--first'>Automatic </div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
-            "slug": "metalens-automatic-tester",
-            "image": "/products/product-10.png",
-            "category": "3D",
-            "buyNow": "",
-            "brochure": "/download/metalens-tester.pdf",
-            "details": {
-                "subtitle": "Precision Optical & Characterization System",
-                "subtitleItems": [
-                    "Fully Enclosed Test System",
-                    "Class 10K Cleanroom Environment with Integrated HEPA Filtration",
-                    "PC-Based Control System",
-                    "Input: 12” Wafer Frame",
-                    "Integrated Metalens pick & place transfer system with vision alignment",
-                    "Dual test stations: VIS and NIR for coverage of multiple wavelengths",
-                    "Output: JEDEC Tray"
-                ],
-                "description": "The Metalens Tester is a precision optical characterization system designed to evaluate the performance of advanced metalens components under both infinite and finite working distances. It supports a wide range of measurement configurations and wavelengths for comprehensive testing of various metalens types.",
-                "specifications": {
-                    "testerDimensions": {
-                        "dimensions: ": "1650 mm (W) × 1310 mm (D) × 2020 mm (H)"
-                    },
-                    "supportedMetalensTypes": {
-                        "list": [
-                            "Collimator Metalenses",
-                            "Imaging RGB Metalenses",
-                            "Wide FoV Mono Metalenses",
-                            "Multilayer Metalenses",
-                            "Metalens Array Dot Projectors"
-                        ]
-                    },
-                    "facilityRequirements": {
-                        "voltageRating": "230VAC, 50/60Hz, Single Phase (L+N+E)",
-                        "fullLoadContent": "20A",
-                        "ratedCurrent": "10A",
-                        "interruptingCapacity": "10 KA",
-                        "compressedDryAir(CDA)Pressure": "0.5 MPa"
-                    }
-                },
-                "testingCapabilities": {
-                    "samplePositioning": {
-                        "list": [
-                            "High Precision X, Y, Z Positioning",
-                            "Step Size: 10–30 nm (Z), Micron-Level (X, Y)",
-                            "Closed-Loop Control for Z Predefined Positioning",
-                            "Sample Size up to 14mm x 14mm"
-                        ]
-                    },
-                    "angularAdjustment": {
-                        "list": [
-                            "Polar Angle (θ): 0° to 60°",
-                            "Azimuthal Angle (φ): 0° to 360°"
-                        ]
-                    },
-                    "workingDistanceModes": {
-                        "list": [
-                            "Collimator Metalenses",
-                            "Imaging RGB Metalenses",
-                            "Wide FoV Mono Metalenses",
-                            "Multilayer Metalenses",
-                            "Metalens Array Dot Projectors"
-                        ]
-                    },
-                    "measurements": {
-                        "list": [
-                            "Focal Distance (Absolute)",
-                            "PSF (Point Spread Function)",
-                            "BFP (Back Focal Plane)",
-                            "Efficiency",
-                            "FWHM",
-                            "MTF",
-                            "Dot Pattern Analysis"
-                        ]
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Ultra-wide FoV IR Metalens",
-                        "slug": "ultra-wide-fov-ir-metalens",
-                        "image": "/products/product-6.png",
-                        "category": "3D"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Pico Projector",
-                        "slug": "pico-projector",
-                        "image": "/products/product-5.png",
-                        "category": "Projector"
-                    }
-                ]
-            }
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IoT Metalens Color Camera",
+      "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
+      "slug": "iot-metalens-color-camera",
+      "image": "/products/product-3.png",
+      "category": "Camera",
+      "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
+      "brochure": "/download/iot-meta-lens-color-camera.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "installer": {
+        "name": "MOTViewer Installer File",
+        "link": [
+          {
+            "name": "MOTViewer Installer Files",
+            "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
+          },
+          {
+            "name": "Thorlabs Scientific Imaging Software",
+            "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+          }
+        ]
+      },
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
+        "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "10mm",
+            "length": "47mm",
+            "width": "44mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "65% @ 535 nm",
+            "resolution": "1.6 MP",
+            "activePixels": "1440 x 1080",
+            "pixelSize": "3.45 µm x 3.45 µm",
+            "imagingArea": "4.968 mm x 3.726 mm",
+            "adcResolution": "10 bits",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.04 ms – 26.843 ms",
+            "usbPowerConsumption": "1.17 W",
+            "ambientOperatingTemperature": "10 °C – 40 °C",
+            "storageTemperature": "0 °C – 55 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120 nm",
+            "pitchBetweenPillars": "320 nm",
+            "heightOfPillars": "650 nm",
+            "lensDiameter": "2mm"
+          }
         },
-        {
-            "name": "Automated Metalens Camera Module Assembly and Test System (A&T) 2026",
-            "nameDom": "Automated <br /> <div class='name-dom-metalens-tester--first'>Assembly and Test</div> <br /> <div class='name-dom-metalens-tester--second'>System</div>",
-            "slug": "automated-metalens-camera-module-assembly-and-test-system",
-            "image": "/products/product-automated-metalens-camera-module-assembly-and-test-system.png",
-            "category": "3D",
-            "buyNow": "",
-            "brochure": "/download/automated-metalens-camera-module-assembly-and-test-system.pdf",
-            "details": {
-                "subtitle": "High Precision • Intelligent Automation • Scalable Performance",
-                "subtitleItems": [
-                    
-                ],
-                "descriptionHTML": [
-                    {
-                        "title" : "OVERVIEW",
-                        "html" : "<p>The A&T 2026 is a next-generation automated system designed for metalens-based camera module assembly and testing. It integrates precision XYZ pick-and-place motion, dual-vision alignment, and comprehensive optical–electrical testing within a compact production footprint.\n\nEngineered for cleanroom environments, the A&T 2026 achieves sub-10 µm lateral positioning repeatability and a throughput of up to 200 units/hour under continuous automated operation (excludes tray loading/unloading), providing manufacturers with consistent quality and reliable process performance.</p>"
-                    },
-                    {
-                        "title" : "KEY FEATURES",
-                        "html" : "<p class=\"mb-2\">ASSEMBLY PLATFORM</p><ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Three precision assembly stations, each equipped with:  <ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- XYZ pick-and-place motion stage for high-accuracy component handling</li><li class=\"pl-2\">- Flipper module for dual-side assembly operations<ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- Programmable to enable or disable depending on the incoming component</li></ol></li><li class=\"pl-2\">- High-precision vision alignment for accurate component placement</li><li class=\"pl-2\">- 2 components handled per station</li></ol></li><li>Supports shared input trays for compatible components (minor impact on throughput)</li><li>Cleanroom-compatible design — Class 10K with ESD-safe construction and optional HEPA filtration</li></ul><p class=\"mb-2\">OPTICAL & ELECTRICAL TESTING</p><p class=\"mb-8\">Integrated optical test module supports both Visible (VIS) and Near-Infrared (NIR) performance evaluation under controlled illumination</p><p class=\"mb-2\">TEST SETUP PARAMETERS:</p><ul class=\"mt-2 mb-4 space-y-2 list-disc list-inside\"><li>70° Field of View (FOV)</li><li>300 mm Working Distance (WD)</li><li>Enhanced eSFR ISO test chart for resolution and uniformity assessment</li></ul>"
-                    },{
-                        "title": "APPLICATIONS",
-                        "html": "<ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Smartphone and wearable camera modules</li><li>Metalens optical assemblies</li><li>Compact imaging systems for AR/VR and IoT devices</li></ul>"
-                    }
-                ],                    
-                "specifications": {
-                    "systemDimensions": {
-                        "height: ": "2,020 mm",
-                        "width: ": "3,500 mm",
-                        "depth: ": "1,000 mm"                        
-                    },
-                    "supportedMetalensTypes": {
-                        "list-line": [
-                            {
-                                "title" : "Integrated Assembly & Testing",
-                                "line":  "Combined process reduces handling and cycle time"
-                            },
-                            {
-                                "title" : "High-Precision XYZ Motion",
-                                "line":  "±10 µm lateral repeatability ensures consistent alignment"
-                            },
-
-                            {
-                                "title" : "Programmable Flipper Module",
-                                "line":  "Handles dual-side components selectively for flexibility"
-                            },
-                            {
-                                "title" : "Flexible Configuration",
-                                "line":  "Tray sharing and quick changeover for different product variants"
-                            },
-                            {
-                                "title" : "Cleanroom-Ready Design",
-                                "line":  "ESD-safe and Class 10K compliant"
-                            },                            
-                            {
-                                "title" : "Data-Driven Insight",
-                                "line":  "Comprehensive test logging for yield analysis and traceability"
-                            }
-                        ]
-                    },
-                    "Performance & Reliability": {
-                        "list-line": [
-                            {
-                                "title" : "Throughput",
-                                "line":  "Up to 200 units/hour under continuous automated<br/>operation (excludes tray loading/unloading)"
-                            },
-                            {
-                                "title" : "Lateral Positioning Repeatability",
-                                "line":  "±10 µm"
-                            },
-
-                            {
-                                "title" : "Vertical Positioning",
-                                "line":  "Defined by component tolerances and spacers"
-                            },
-                            {
-                                "title" : "Control system",
-                                "line":  "Windows-based software"
-                            },
-                            {
-                                "title" : "Safety features",
-                                "line":  "Interlocked covers, emergency stops"
-                            },                            
-                            {
-                                "title" : "Data-Driven Insight",
-                                "line":  "Preventive maintenance checklist provided"
-                            }                            
-                        ]
-                    }
-                    
-                },
-                "measuredParameters": {
-                    "testSetupParameters": {
-                        "list": [
-                            "300 mm Working Distance (WD)",
-                            "70° Field of View (FOV)",
-                            "Enhanced eSFR ISO test chart for resolution<br/>& uniformity assessment"                      
-                        ]
-                    },
-
-                    "electricalTests": {
-                        "list": [
-                            "Voltage & current supply testing under various modes",
-                            "Open/short detection & connectivity verification",
-                            "Functional testing, including I²C register read/write operations"
-                        ]
-                    },
-                    "opticalTests": {
-                        "list": [
-                            "MTF / Sharpness",
-                            "Chromatic aberration",
-                            "Distortion & uniformity",
-                            "Color accuracy",
-                            "Gamma response",
-                            "Field curvature",
-                            "SNR & dynamic range"   
-                        ]
-                    }                                  
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Ultra-wide FoV IR Metalens",
-                        "slug": "ultra-wide-fov-ir-metalens",
-                        "image": "/products/product-6.png",
-                        "category": "3D"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Pico Projector",
-                        "slug": "pico-projector",
-                        "image": "/products/product-5.png",
-                        "category": "Projector"
-                    }
-                ]
-            }
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
+          },
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Color Imaging Meta Lens",
+      "nameDom": "Color Imaging <br /> <div class='name-dom-sensor'>Meta Lens</div>",
+      "slug": "color-imaging-meta-lens",
+      "image": "/products/color-imaging-meta-lens.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/color-imaging-meta-lens.pdf",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+        "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "0.75mm ± 0.015mm",
+            "length": "9.22mm ± 0.05mm",
+            "width": "7.98mm ± 0.05mm"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120nm",
+            "pitchBetweenPillars": "320nm",
+            "heightOfPillars": "650nm",
+            "lensDiameter": "2mm",
+            "blueWavelengthRange": "450nm ± 5nm",
+            "greenWavelengthRange": "540nm ± 5nm",
+            "redWavelengthRange": "635nm ± 5nm",
+            "imagingArea": "18.13mm²",
+            "focalLength": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "psfFWHMNormalIncidence": "1.5 µm PSF",
+            "fwhmAtMaxAOL": "2.5 µm",
+            "activeImagingArea": "4.968 mm x 3.726 mm"
+          }
         },
-        {
-            "name": "Pico Projector (2nd generation)",
-            "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
-            "slug": "pico-projector-2nd-generation",
-            "image": "/products/pico-projector-2nd-generation.png",
-            "category": "Projector",
-            "preOder": "https://metaoptics.shop/products/pico-projector",
-            "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",            
-            "details": {
-                "subtitle": "Pocket sized projection, ready to travel.",
-                "description": "The 2nd Generation MetaOptics Pico Projector debuts as one of the smallest and most portable projection solutions showcased at CES 2026. Approximately half the size of its predecessor, it is designed for easy carry in a bag or pocket while still delivering bright, clear projection for demos, presentations and on the go content sharing. USB C connectivity keeps setup simple with modern devices, and its silent, fanless design makes it suitable for quiet meeting rooms and personal spaces. With low power consumption, the projector sets a new benchmark for miniaturized projection technology and battery friendly use.",
-                "specifications": {
-                    "dimensions": {
-                        "width": "67.6mm",
-                        "height": "43.2mm",
-                        "depth": "20mm"
-                    },
-                    "performance": {
-                        "Brightness": "34 ± 3 <br/>(measured at 400 mm from MEMS Mirror)",
-                        "MEMS Mirror / Drive Force": "2D Single Mirror / Electrostatics",
-                        "Resolution": "720p / 60 frames per second (input source)",
-                        "Projected FOV": "x-axis 39°; y-axis 23°",
-                        "Contrast": "10,000:1 (FOFO Test)",
-                        "Keystone": "± 15° (vertical)",
-                        "Flip": "Horizontal / Vertical",
-                        "Color Gamut": "< 150%",
-                        "Throw Ratio": "< 1.5",
-                        "Focus": "Free Focus"
-                    },
-                    "Power & Operating Conditions":{
-                        "Power Consumption": "Peak 5 W, Normal Operation < 4 W",
-                        "Relative Humidity": "40–60%",
-                        "Power Input": "DC 4.75 V – 5.25 V",
-                        "Operating Temperature": "0 – 35 °C",
-                        "Video Input": "MIPI DSI"
-                    }
-                },
-                "relatedProducts": [
-                    {
-                        "name": "Ultra-wide FoV IR Metalens",
-                        "slug": "ultra-wide-fov-ir-metalens",
-                        "image": "/products/product-6.png",
-                        "category": "3D"
-                    },
-                    {
-                        "name": "IoT Metalens Color Camera",
-                        "slug": "iot-metalens-color-camera",
-                        "image": "/products/product-3.png",
-                        "category": "Camera"
-                    },
-                    {
-                        "name": "Pico Projector",
-                        "slug": "pico-projector",
-                        "image": "/products/product-5.png",
-                        "category": "Projector"
-                    }
-                ]
-            }
-        }
-    ]
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pico Projector",
+      "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
+      "slug": "pico-projector",
+      "image": "/products/product-5.png",
+      "category": "Projector",
+      "buyNow": "https://metaoptics.shop/products/pico-projector",
+      "brochure": "/download/pico-projector.pdf",
+      "userGuide": {
+        "name": "DOWNLOAD USER GUIDE",
+        "link": "/download/pico-projector-user-guiderev42.pdf"
+      },
+      "details": {
+        "subtitle": "Ultra-Light Weight Pico Projector Using MEMS Laser Scanner",
+        "description": "Auto focus pico projector with low power consumption. Ultra light weight — 80g. Seamless user experience & noiseless.",
+        "specifications": {
+          "optionalSpecifications": {
+            "MEMS Mirror / Drive Force": " 2D Single Mirror / Electrostatics",
+            "resolution": "720p / 60 frames per second (input source)",
+            "projectedFOV": "x-axis 39 degrees ; y-axis 23 degrees",
+            "contrast": "10,000: 1 (FOFO Test)",
+            "focus": "Free Focus",
+            "brightness": "34 ± 3lm (measured at 400mm from MEMS Mirror)",
+            "colorGamut": "< 150%",
+            "throwRatio": "< 1.5",
+            "keystone": "± 15 degrees (vertical)",
+            "flip": "Horizontal/Vertical",
+            "operationTemperature": "0 – 35 °C",
+            "powerInput": "DC 4.75V – 5.25V",
+            "videoInput": "MIPI DSI",
+            "powerConsumption": "Peak 5W, Normal Operation <4W",
+            "relativeHumidity": "40–60%",
+            "size": "45mm x 58mm x 30mm",
+            "weight": "80g"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ultra-wide FoV IR Metalens",
+      "nameDom": "Ultra-wide FoV <br /> <div class='name-dom-sensor'>IR Metalens</div>",
+      "slug": "ultra-wide-fov-ir-metalens",
+      "image": "/products/product-6.png",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "/download/ultra-wide-fov-brochure.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "details": {
+        "subtitle": "Ultra-wide FoV (179 degrees) at 740nm Wavelength",
+        "description": "Mass producible ultra-wide field of view meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for eye tracking, facial recognition, AR/VR applications, and monochromatic imaging.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "0.75mm ± 0.015mm",
+            "length": "9.98mm ± 0.05mm",
+            "width": "9.98mm ± 0.05mm"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "80nm",
+            "pitchBetweenPillars": "320nm",
+            "heightOfPillars": "350nm",
+            "lensDiameter": "5mm",
+            "wavelength": "740nm ± 5nm",
+            "focalLength": "2mm",
+            "fieldOfView": "179 degrees",
+            "psfFWHMNormalIncidence": "4.85 µm",
+            "fwhmAtMaxAOL": "1.85 µm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Direct Laser Writer",
+      "nameDom": "Direct <br /> <div class='name-dom-sensor'>Laser Writer</div>",
+      "slug": "direct-laser-writer",
+      "image": "/products/product-7.png",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "/download/direct-laser-writer.pdf",
+      "details": {
+        "subtitle": "Leading Edge Deep UV Direct Laser Writer",
+        "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
+        "specifications": {
+          "systemDimensions": {
+            "dimensions": "L: 0.65m x W: 0.60m x H: 0.95m"
+          },
+          "writingSpecifications": {
+            "minimumCriticalDimensions": "120 - 150nm",
+            "minimumLinewidth": "90nm",
+            "laserSource": "266nm",
+            "maximumWritingSpeed": "100mm/s",
+            "maximumExposureArea": "135mm x 85mm",
+            "autofocusCompensationRange": "±100nm",
+            "minimumSurfaceRoughness": "≤20nm",
+            "repeatability": "±2 / ±2 / ±3nm",
+            "substrateSize": "Min 1cm x 1cm or 1cm, Max 4'' x 4'' or Ø4''"
+          },
+          "facilityRequirements": {
+            "voltageRating": "230VAC, 50/60Hz, Single phase, L+N+E Rated Current: 5.75A",
+            "facilityACProtection": "13.0A C Curve AIC Rating of Main Breaker: 10kA",
+            "shortCircuitRating": "29kA",
+            "cdaPressure": "80 PSI"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ultra-wide FoV Metalens Monochromatic IR Camera",
+      "nameDom": "Ultra-wide FoV Metalens <br /> <div class='name-dom-sensor'>Monochromatic IR Camera</div>",
+      "slug": "ultra-wide-fov-metalens-monochromatic-ir-camera",
+      "image": "/products/product-8.png",
+      "category": "Camera",
+      "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
+      "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "installer": {
+        "name": "MOTViewer Installer File",
+        "link": [
+          {
+            "name": "MOTViewer Installer Files",
+            "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
+          },
+          {
+            "name": "Thorlabs Scientific Imaging Software",
+            "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+          }
+        ]
+      },
+      "details": {
+        "subtitle": "Ultra-wide FoV Single Layer Metalens Monochromatic IR Camera At 740nm",
+        "description": "Compact wide monochromatic camera for applications such as eye tracking, facial recognition, AR/VR, and monochromatic imaging. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Inclusive of advanced software with AI enhancement functions. Camera assembly process is tunable to fit a variety of other applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "10mm",
+            "length": "47mm",
+            "width": "44mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "2mm",
+            "fieldOfView": "179° ± 1.2°",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "65% @ 535 nm",
+            "resolution": "1.6 MP",
+            "activePixels": "1440 x 1080",
+            "pixelSize": "3.45 µm x 3.45 µm",
+            "imagingArea": "4.968 mm x 3.726 mm",
+            "adcResolution": "10 bits",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.04 ms – 26.843 ms",
+            "usbPowerConsumption": "1.17 W",
+            "ambientOperatingTemperature": "10 °C – 40 °C",
+            "storageTemperature": "0 °C – 55 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "80nm",
+            "pitchBetweenPillars": "300nm",
+            "heightOfPillars": "350nm",
+            "lensDiameter": "5mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
+          },
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens Color Camera Module",
+      "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
+      "slug": "metalens-color-camera-module",
+      "image": "/products/product-9.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/metalens-color-camera-module.pdf",
+      "details": {
+        "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
+        "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "8.8mm",
+            "length": "16mm",
+            "width": "14mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "3mm",
+            "fieldOfView": "85°",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "70% @ 550 nm",
+            "resolution": "2MP / 5MP",
+            "activePixels": "1920 x 1080",
+            "pixelSize": "1.75 µm x 1.75 µm",
+            "imagingArea": "3.36 mm x 2.52 mm",
+            "adcResolution": "12 bits",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.03 ms – 30.0 ms",
+            "usbPowerConsumption": "1.5 W",
+            "ambientOperatingTemperature": "5 °C – 40 °C",
+            "storageTemperature": "-20 °C – 60 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120nm",
+            "pitchBetweenPillars": "300nm",
+            "heightOfPillars": "450nm",
+            "lensDiameter": "3mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens Automatic Tester",
+      "nameDom": "Metalens <br /> <div class='name-dom-metalens-tester--first'>Automatic </div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
+      "slug": "metalens-automatic-tester",
+      "image": "/products/product-10.png",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "/download/metalens-tester.pdf",
+      "details": {
+        "subtitle": "Precision Optical & Characterization System",
+        "subtitleItems": [
+          "Fully Enclosed Test System",
+          "Class 10K Cleanroom Environment with Integrated HEPA Filtration",
+          "PC-Based Control System",
+          "Input: 12” Wafer Frame",
+          "Integrated Metalens pick & place transfer system with vision alignment",
+          "Dual test stations: VIS and NIR for coverage of multiple wavelengths",
+          "Output: JEDEC Tray"
+        ],
+        "description": "The Metalens Tester is a precision optical characterization system designed to evaluate the performance of advanced metalens components under both infinite and finite working distances. It supports a wide range of measurement configurations and wavelengths for comprehensive testing of various metalens types.",
+        "specifications": {
+          "testerDimensions": {
+            "dimensions: ": "1650 mm (W) × 1310 mm (D) × 2020 mm (H)"
+          },
+          "supportedMetalensTypes": {
+            "list": [
+              "Collimator Metalenses",
+              "Imaging RGB Metalenses",
+              "Wide FoV Mono Metalenses",
+              "Multilayer Metalenses",
+              "Metalens Array Dot Projectors"
+            ]
+          },
+          "facilityRequirements": {
+            "voltageRating": "230VAC, 50/60Hz, Single Phase (L+N+E)",
+            "fullLoadContent": "20A",
+            "ratedCurrent": "10A",
+            "interruptingCapacity": "10 KA",
+            "compressedDryAir(CDA)Pressure": "0.5 MPa"
+          }
+        },
+        "testingCapabilities": {
+          "samplePositioning": {
+            "list": [
+              "High Precision X, Y, Z Positioning",
+              "Step Size: 10–30 nm (Z), Micron-Level (X, Y)",
+              "Closed-Loop Control for Z Predefined Positioning",
+              "Sample Size up to 14mm x 14mm"
+            ]
+          },
+          "angularAdjustment": {
+            "list": [
+              "Polar Angle (θ): 0° to 60°",
+              "Azimuthal Angle (φ): 0° to 360°"
+            ]
+          },
+          "workingDistanceModes": {
+            "list": [
+              "Collimator Metalenses",
+              "Imaging RGB Metalenses",
+              "Wide FoV Mono Metalenses",
+              "Multilayer Metalenses",
+              "Metalens Array Dot Projectors"
+            ]
+          },
+          "measurements": {
+            "list": [
+              "Focal Distance (Absolute)",
+              "PSF (Point Spread Function)",
+              "BFP (Back Focal Plane)",
+              "Efficiency",
+              "FWHM",
+              "MTF",
+              "Dot Pattern Analysis"
+            ]
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Automated Metalens Camera Module Assembly and Test System (A&T) 2026",
+      "nameDom": "Automated <br /> <div class='name-dom-metalens-tester--first'>Assembly and Test</div> <br /> <div class='name-dom-metalens-tester--second'>System</div>",
+      "slug": "automated-metalens-camera-module-assembly-and-test-system",
+      "image": "/products/product-automated-metalens-camera-module-assembly-and-test-system.png",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "/download/automated-metalens-camera-module-assembly-and-test-system.pdf",
+      "details": {
+        "subtitle": "High Precision • Intelligent Automation • Scalable Performance",
+        "subtitleItems": [],
+        "descriptionHTML": [
+          {
+            "title": "OVERVIEW",
+            "html": "<p>The A&T 2026 is a next-generation automated system designed for metalens-based camera module assembly and testing. It integrates precision XYZ pick-and-place motion, dual-vision alignment, and comprehensive optical–electrical testing within a compact production footprint.\n\nEngineered for cleanroom environments, the A&T 2026 achieves sub-10 µm lateral positioning repeatability and a throughput of up to 200 units/hour under continuous automated operation (excludes tray loading/unloading), providing manufacturers with consistent quality and reliable process performance.</p>"
+          },
+          {
+            "title": "KEY FEATURES",
+            "html": "<p class=\"mb-2\">ASSEMBLY PLATFORM</p><ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Three precision assembly stations, each equipped with:  <ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- XYZ pick-and-place motion stage for high-accuracy component handling</li><li class=\"pl-2\">- Flipper module for dual-side assembly operations<ol class=\"mt-0 pl-6 space-y-2 list-none list-inside\"><li class=\"pl-2\">- Programmable to enable or disable depending on the incoming component</li></ol></li><li class=\"pl-2\">- High-precision vision alignment for accurate component placement</li><li class=\"pl-2\">- 2 components handled per station</li></ol></li><li>Supports shared input trays for compatible components (minor impact on throughput)</li><li>Cleanroom-compatible design — Class 10K with ESD-safe construction and optional HEPA filtration</li></ul><p class=\"mb-2\">OPTICAL & ELECTRICAL TESTING</p><p class=\"mb-8\">Integrated optical test module supports both Visible (VIS) and Near-Infrared (NIR) performance evaluation under controlled illumination</p><p class=\"mb-2\">TEST SETUP PARAMETERS:</p><ul class=\"mt-2 mb-4 space-y-2 list-disc list-inside\"><li>70° Field of View (FOV)</li><li>300 mm Working Distance (WD)</li><li>Enhanced eSFR ISO test chart for resolution and uniformity assessment</li></ul>"
+          },
+          {
+            "title": "APPLICATIONS",
+            "html": "<ul class=\"mt-2 mb-8 space-y-2 list-disc list-inside\"><li>Smartphone and wearable camera modules</li><li>Metalens optical assemblies</li><li>Compact imaging systems for AR/VR and IoT devices</li></ul>"
+          }
+        ],
+        "specifications": {
+          "systemDimensions": {
+            "height: ": "2,020 mm",
+            "width: ": "3,500 mm",
+            "depth: ": "1,000 mm"
+          },
+          "supportedMetalensTypes": {
+            "list-line": [
+              {
+                "title": "Integrated Assembly & Testing",
+                "line": "Combined process reduces handling and cycle time"
+              },
+              {
+                "title": "High-Precision XYZ Motion",
+                "line": "±10 µm lateral repeatability ensures consistent alignment"
+              },
+
+              {
+                "title": "Programmable Flipper Module",
+                "line": "Handles dual-side components selectively for flexibility"
+              },
+              {
+                "title": "Flexible Configuration",
+                "line": "Tray sharing and quick changeover for different product variants"
+              },
+              {
+                "title": "Cleanroom-Ready Design",
+                "line": "ESD-safe and Class 10K compliant"
+              },
+              {
+                "title": "Data-Driven Insight",
+                "line": "Comprehensive test logging for yield analysis and traceability"
+              }
+            ]
+          },
+          "Performance & Reliability": {
+            "list-line": [
+              {
+                "title": "Throughput",
+                "line": "Up to 200 units/hour under continuous automated<br/>operation (excludes tray loading/unloading)"
+              },
+              {
+                "title": "Lateral Positioning Repeatability",
+                "line": "±10 µm"
+              },
+
+              {
+                "title": "Vertical Positioning",
+                "line": "Defined by component tolerances and spacers"
+              },
+              {
+                "title": "Control system",
+                "line": "Windows-based software"
+              },
+              {
+                "title": "Safety features",
+                "line": "Interlocked covers, emergency stops"
+              },
+              {
+                "title": "Data-Driven Insight",
+                "line": "Preventive maintenance checklist provided"
+              }
+            ]
+          }
+        },
+        "measuredParameters": {
+          "testSetupParameters": {
+            "list": [
+              "300 mm Working Distance (WD)",
+              "70° Field of View (FOV)",
+              "Enhanced eSFR ISO test chart for resolution<br/>& uniformity assessment"
+            ]
+          },
+
+          "electricalTests": {
+            "list": [
+              "Voltage & current supply testing under various modes",
+              "Open/short detection & connectivity verification",
+              "Functional testing, including I²C register read/write operations"
+            ]
+          },
+          "opticalTests": {
+            "list": [
+              "MTF / Sharpness",
+              "Chromatic aberration",
+              "Distortion & uniformity",
+              "Color accuracy",
+              "Gamma response",
+              "Field curvature",
+              "SNR & dynamic range"
+            ]
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pico Projector (2nd generation)",
+      "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
+      "slug": "pico-projector-2nd-generation",
+      "image": "/products/pico-projector-2nd-generation.png",
+      "category": "Projector",
+      "preOder": "https://metaoptics.shop/products/pico-projector",
+      "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
+      "details": {
+        "subtitle": "Pocket sized projection, ready to travel.",
+        "description": "The 2nd Generation MetaOptics Pico Projector debuts as one of the smallest and most portable projection solutions showcased at CES 2026. Approximately half the size of its predecessor, it is designed for easy carry in a bag or pocket while still delivering bright, clear projection for demos, presentations and on the go content sharing. USB C connectivity keeps setup simple with modern devices, and its silent, fanless design makes it suitable for quiet meeting rooms and personal spaces. With low power consumption, the projector sets a new benchmark for miniaturized projection technology and battery friendly use.",
+        "specifications": {
+          "dimensions": {
+            "width": "67.6mm",
+            "height": "43.2mm",
+            "depth": "20mm"
+          },
+          "performance": {
+            "Brightness": "34 ± 3 <br/>(measured at 400 mm from MEMS Mirror)",
+            "MEMS Mirror / Drive Force": "2D Single Mirror / Electrostatics",
+            "Resolution": "720p / 60 frames per second (input source)",
+            "Projected FOV": "x-axis 39°; y-axis 23°",
+            "Contrast": "10,000:1 (FOFO Test)",
+            "Keystone": "± 15° (vertical)",
+            "Flip": "Horizontal / Vertical",
+            "Color Gamut": "< 150%",
+            "Throw Ratio": "< 1.5",
+            "Focus": "Free Focus"
+          },
+          "Power & Operating Conditions": {
+            "Power Consumption": "Peak 5 W, Normal Operation < 4 W",
+            "Relative Humidity": "40–60%",
+            "Power Input": "DC 4.75 V – 5.25 V",
+            "Operating Temperature": "0 – 35 °C",
+            "Video Input": "MIPI DSI"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Ultra-wide FoV IR Metalens",
+            "slug": "ultra-wide-fov-ir-metalens",
+            "image": "/products/product-6.png",
+            "category": "3D"
+          },
+          {
+            "name": "IoT Metalens Color Camera",
+            "slug": "iot-metalens-color-camera",
+            "image": "/products/product-3.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Pico Projector",
+            "slug": "pico-projector",
+            "image": "/products/product-5.png",
+            "category": "Projector"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens 5G Smartphone",
+      "nameDom": "Metalens <br /> <div class='name-dom-metalens-5g--first'>5G</div> <br /> <div class='name-dom-metalens-5g--second'>Smartphone</div>",
+      "slug": "metalens-5g-smartphone",
+      "image": "/products/metalens-5g-smartphone.png",
+      "buyNow": "https://metaoptics.shop/products/metalens-5g-smartphone",
+      "buyNowText": "Pre Order Now",
+      "category": "Smartphone",
+      "brochure": "/download/metalens-5g-smartphone.pdf",
+      "details": {
+        "subtitle": "5G Smartphone with Metalens",
+        "description": "MetaOptics’ 5G Smartphone showcases how metalenses can completely redefine the mobile camera stack. <br /> The device features an ultra thin metalens optical module that removes the traditional camera bump, <br /> enabling a clean, seamless back cover while maintaining high quality imaging performance. <br /> The glass based metalens architecture is engineered for high thermal stability, making it suitable for <br /> intensive 5G and edge processing workloads.",
+        "specifications": {}
+      }
+    }
+  ]
 }
