@@ -4,7 +4,7 @@ const ProductDetailsKeyFeaturesRightSection = ({ rightSection }) => {
   const { list } = rightSection;
 
   return (
-    <div className="flex flex-col gap-7 w-full">
+    <div className="flex flex-col gap-7 w-full xl:w-[56vw] xl:min-w-[56vw]">
       {list.map((item, index) => (
         <div key={index}>
           <RightSectionCard item={item} />
