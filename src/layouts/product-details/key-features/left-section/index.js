@@ -63,7 +63,7 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
               {list?.map((item, index) => (
                 <li
                   key={index}
-                  className="xl:text-[26px] futura-medium font-medium"
+                  className="2xl:text-[26px] xl:text-[22px] text-[18px] futura-medium font-medium"
                 >
                   {item}
                 </li>

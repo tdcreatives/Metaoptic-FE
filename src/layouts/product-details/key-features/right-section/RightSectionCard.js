@@ -39,7 +39,7 @@ const RightSectionCard = ({ item }) => {
   return (
     <div
       className={clsx(
-        "rounded-[32px] bg-[#C73C29] px-10 xl:py-[100px] py-10 flex xl:flex-row flex-col w-full xl:justify-start justify-center items-center"
+        "rounded-[32px] bg-[#C73C29] px-10 2xl:py-[100px] xl:py-15 py-10 flex xl:flex-row flex-col w-full xl:justify-start justify-center items-center"
       )}
       style={renderCardStyle()}
     >
@@ -49,7 +49,9 @@ const RightSectionCard = ({ item }) => {
         width={0}
         height={0}
         sizes="100vw"
-        className={clsx("xl:w-[450px] w-full h-auto object-cover")}
+        className={clsx(
+          "2xl:w-[450px] xl:w-[350px] w-full h-auto object-cover"
+        )}
         style={{
           maxWidth: isMobile ? "220px" : item.imageMaxWidth || "450px",
         }}
@@ -64,7 +66,7 @@ const RightSectionCard = ({ item }) => {
           )}
         >
           <h2
-            className="xl:text-[32px] text-[24px] futura-bold text-white uppercase leading-[38px] opacity-80 xl:text-start text-center whitespace-nowrap w-full"
+            className="2xl:text-[32px] xl:text-[28px] text-[24px] futura-bold text-white uppercase leading-[38px] opacity-80 xl:text-start text-center whitespace-nowrap w-full"
             dangerouslySetInnerHTML={{
               __html: item.subtitleDom,
             }}
@@ -77,13 +79,13 @@ const RightSectionCard = ({ item }) => {
               width={0}
               height={0}
               sizes="100vw"
-              className="xl:h-[50px] xl:w-auto w-full h-auto object-cover"
+              className="2xl:h-[50px] 2xl:w-auto xl:h-[36px] xl:w-auto w-full h-auto object-cover"
             />
           )}
 
           {item.title && (
             <h2
-              className="xl:text-[40px] text-[24px] futura-bold text-white uppercase xl:leading-[50px] leading-[38px] whitespace-nowrap xl:text-start text-center w-full"
+              className="2xl:text-[40px] xl:text-[28px] text-[24px] futura-bold text-white uppercase 2xl:leading-[50px] xl:leading-[40px] leading-[38px] whitespace-nowrap xl:text-start text-center w-full"
               dangerouslySetInnerHTML={{
                 __html: item.title,
               }}
@@ -93,7 +95,7 @@ const RightSectionCard = ({ item }) => {
 
         <div
           className={clsx(
-            "futura-medium text-white xl:text-lg opacity-80 capitalize xl:text-start text-center",
+            "futura-medium text-white 2xl:text-lg xl:text-base text-[14px] opacity-80 capitalize xl:text-start text-center",
             !item.descriptionStyle && "xl:mt-[40px] mt-6"
           )}
           style={item.descriptionStyle}

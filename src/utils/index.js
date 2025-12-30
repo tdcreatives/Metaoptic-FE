@@ -5,7 +5,12 @@ const isMobile = () => {
   return false; // Default to false if `window` is not defined
 };
 
-export { isMobile };
+const isLargeScreen = () => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth > 1536;
+  }
+  return false; // Default to false if `window` is not defined
+};
 
 export const truncateString = (str, maxLength) => {
   if (str.length <= maxLength) {
@@ -32,7 +37,7 @@ export const truncateString = (str, maxLength) => {
 };
 
 export const removeAllBrTags = (html = "") => {
-  if (isMobile()) {
+  if (!isLargeScreen()) {
     return html.replace(/<br\s*\/?>/g, "");
   }
   return html;
@@ -44,3 +49,5 @@ export const isEmptyObject = (obj) => {
   }
   return Object.keys(obj).length === 0;
 };
+
+export { isMobile };

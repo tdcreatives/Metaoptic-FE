@@ -36,6 +36,7 @@ const ProductDetailsBanner = ({ product }) => {
             <Image
               width="0"
               height="0"
+              rmov
               sizes="100vw"
               src={product?.image}
               alt="Next"
