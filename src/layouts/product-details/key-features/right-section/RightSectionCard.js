@@ -39,7 +39,7 @@ const RightSectionCard = ({ item }) => {
   return (
     <div
       className={clsx(
-        "rounded-[32px] bg-[#C73C29] px-10 2xl:py-[100px] xl:py-15 py-10 flex xl:flex-row flex-col w-full xl:justify-start justify-center items-center"
+        "rounded-[32px] bg-[#C73C29] px-10 2xl:py-[80px] xl:py-15 py-10 flex xl:flex-row flex-col w-full xl:justify-start justify-center items-center"
       )}
       style={renderCardStyle()}
     >
@@ -49,11 +49,9 @@ const RightSectionCard = ({ item }) => {
         width={0}
         height={0}
         sizes="100vw"
-        className={clsx(
-          "2xl:w-[450px] xl:w-[350px] w-full h-auto object-cover"
-        )}
+        className={clsx("2xl:w-1/2 xl:w-[350px] w-full h-auto object-cover")}
         style={{
-          maxWidth: isMobile ? "220px" : item.imageMaxWidth || "450px",
+          maxWidth: isMobile ? "220px" : item.imageMaxWidth || "50%",
         }}
       />
       <div>
@@ -85,7 +83,7 @@ const RightSectionCard = ({ item }) => {
 
           {item.title && (
             <h2
-              className="2xl:text-[40px] xl:text-[28px] text-[24px] futura-bold text-white uppercase 2xl:leading-[50px] xl:leading-[40px] leading-[38px] whitespace-nowrap xl:text-start text-center w-full"
+              className="2xl:text-[36px] xl:text-[28px] text-[24px] futura-bold text-white uppercase 2xl:leading-[50px] xl:leading-[40px] leading-[38px] whitespace-nowrap xl:text-start text-center w-full"
               dangerouslySetInnerHTML={{
                 __html: item.title,
               }}

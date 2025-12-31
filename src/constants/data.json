@@ -968,11 +968,11 @@
                 "description": "Increase/ decrease music volume, accept/ reject <br /> incoming calls",
                 "isTitleBelowSubtitle": false,
                 "cardStyle": {
-                  "paddingLeft": "80px",
-                  "paddingRight": "80px",
+                  "paddingLeft": "60px",
+                  "paddingRight": "60px",
                   "paddingLeftMobile": "20px",
                   "paddingRightMobile": "20px",
-                  "gap": "96px",
+                  "gap": "48px",
                   "gapMobile": "24px"
                 },
 
@@ -987,11 +987,11 @@
                 "description": "An AR-focused platform built for low-power, on-device AI <br /> processing in smart glasses and wearables.",
                 "isTitleBelowSubtitle": false,
                 "cardStyle": {
-                  "paddingLeft": "80px",
-                  "paddingRight": "80px",
+                  "paddingLeft": "60px",
+                  "paddingRight": "60px",
                   "paddingLeftMobile": "20px",
                   "paddingRightMobile": "20px",
-                  "gap": "96px",
+                  "gap": "48px",
                   "gapMobile": "24px"
                 },
 
