@@ -816,7 +816,8 @@
       "slug": "pico-projector-2nd-generation",
       "image": "/products/pico-projector-2nd-generation.png",
       "category": "Projector",
-      "preOder": "https://metaoptics.shop/products/pico-projector",
+      "buyNow": "/contact-us",
+      "buyNowText": "Pre Order Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
       "details": {
         "subtitle": "Pocket sized projection, ready to travel.",
