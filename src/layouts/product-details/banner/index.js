@@ -6,6 +6,12 @@ import BaseButton from "@/components/BaseButton";
 import { removeAllBrTags } from "@/utils";
 import "./index.scss";
 import useMobile from "@/hooks/useMobile";
+
+const countBrTag = (text) => {
+  if (!text) return 0;
+  console.log(text, text.split("<br />").length);
+  return text.split("<br />").length - 1;
+};
 const ProductDetailsBanner = ({ product }) => {
   const handleOnBuyNow = () => {
     window.location.href = product?.buyNow;
@@ -22,10 +28,15 @@ const ProductDetailsBanner = ({ product }) => {
       ></div>
 
       <div className="relative">
-        <div className="relative w-full xl:h-[600px] xl:pb-[72px] pb-[24px] h-[300px]">
+        <div
+          className={clsx(
+            "relative w-full xl:h-[600px] xl:pb-[72px] pb-[24px]",
+            countBrTag(product?.nameDom) > 1 ? "h-[400px]" : "h-[300px]"
+          )}
+        >
           <div
             className={clsx(
-              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[1000]"
+              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[50]"
             )}
             style={{
               top: "45%",
