@@ -867,7 +867,8 @@
             "category": "Projector"
           }
         ]
-      }
+      },
+      "type": "consumer-product"
     },
     {
       "name": "Metalens 5G Smartphone",
@@ -934,7 +935,8 @@
             "category": "Projector"
           }
         ]
-      }
+      },
+      "type": "consumer-product"
     },
     {
       "name": "Metalens AI Glasses",
@@ -1023,7 +1025,8 @@
             "category": "Projector"
           }
         ]
-      }
+      },
+      "type": "consumer-product"
     }
   ]
 }
