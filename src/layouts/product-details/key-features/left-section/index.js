@@ -79,15 +79,15 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col mx-auto gap-5 w-80">
-          {brochure && (
-            <BaseButton
-              label="Download Brochure"
-              onClick={handleOnDownloadBrochure}              
-              className="!mb-0 !w-full"
-              classNameBtn="!w-full uppercase"
-            />
-          )}
+          <div className="flex flex-col gap-5 w-80 mx-auto xl:mx-0">
+            {brochure && (
+              <BaseButton
+                label="Download Brochure"
+                onClick={handleOnDownloadBrochure}
+                className="!mb-0 !w-full"
+                classNameBtn="!w-full uppercase"
+              />
+            )}
           </div>
         </div>
       </div>
