@@ -971,7 +971,7 @@
                 "description": "Increase/ decrease music volume, accept/ reject <br /> incoming calls",
                 "isTitleBelowSubtitle": false,
                 "cardStyle": {
-                  "paddingLeft": "60px",
+                  "paddingLeft": "40px",
                   "paddingRight": "60px",
                   "paddingLeftMobile": "20px",
                   "paddingRightMobile": "20px",
@@ -990,7 +990,7 @@
                 "description": "An AR-focused platform built for low-power, on-device AI <br /> processing in smart glasses and wearables.",
                 "isTitleBelowSubtitle": false,
                 "cardStyle": {
-                  "paddingLeft": "60px",
+                  "paddingLeft": "30px",
                   "paddingRight": "60px",
                   "paddingLeftMobile": "20px",
                   "paddingRightMobile": "20px",
