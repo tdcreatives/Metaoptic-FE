@@ -78,46 +78,74 @@ const Header = ({ background = "#fff" }) => {
     });
   };
   const handleMobileMenuToggle = () => {
+    if (!menuRef.current) return;
+
     if (isMenuOpen) {
+      // Closing menu
       gsap.to(menuRef.current, {
         x: "100%",
         autoAlpha: 0,
         duration: 0.5,
         ease: "power2.in",
-        onComplete: () => setIsMenuOpen(false),
+        onComplete: () => {
+          setIsMenuOpen(false);
+        },
       });
     } else {
+      // Opening menu
+      setIsMenuOpen(true);
       gsap.set(menuRef.current, { x: "100%", autoAlpha: 0 });
-      gsap.to(menuRef.current, {
-        x: "0%",
-        autoAlpha: 1,
-        duration: 0.5,
-        ease: "power2.out",
-        onStart: () => setIsMenuOpen(true),
+      // Use requestAnimationFrame to ensure state is updated
+      requestAnimationFrame(() => {
+        if (menuRef.current) {
+          gsap.to(menuRef.current, {
+            x: "0%",
+            autoAlpha: 1,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        }
       });
     }
   };
 
   useEffect(() => {
-    gsap.set(menuItemRef.current, {
-      x: "100%",
-      autoAlpha: 0,
-    });
-  }, []);
-
-  useEffect(() => {
-    gsap.set(menuRef.current, { x: "100%", autoAlpha: 0 });
+    if (menuItemRef.current) {
+      gsap.set(menuItemRef.current, {
+        x: "100%",
+        autoAlpha: 0,
+      });
+    }
+    if (menuRef.current) {
+      gsap.set(menuRef.current, {
+        x: "100%",
+        autoAlpha: 0,
+      });
+    }
   }, []);
 
   const handleNavigation = (path) => {
+    // Close mobile menu if open
+    if (isMenuOpen && menuRef.current) {
+      gsap.to(menuRef.current, {
+        x: "100%",
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          setIsMenuOpen(false);
+        },
+      });
+    }
+    setIsProductsDropdownOpen(false);
+    setIsConsumerProductsHovered(false);
+    setIsMobileProductsDropdownOpen(false);
+
     if (path.startsWith("/")) {
       router.push(path);
     } else {
       window.location.href = path;
     }
-    setIsProductsDropdownOpen(false);
-    setIsConsumerProductsHovered(false);
-    setIsMobileProductsDropdownOpen(false);
   };
 
   const handleProductsMouseEnter = () => {
@@ -131,7 +159,7 @@ const Header = ({ background = "#fff" }) => {
 
   return (
     <div
-      className="relative z-50 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px]"
+      className="relative z-50 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
       style={{
         background,
       }}
@@ -280,7 +308,7 @@ const Header = ({ background = "#fff" }) => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-50"
+            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-[100]"
             ref={menuRef}
           >
             <div className="absolute top-[24px] right-[24px] cursor-pointer">
