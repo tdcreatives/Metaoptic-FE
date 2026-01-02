@@ -1,32 +1,53 @@
 const isMobile = () => {
-    if (typeof window !== 'undefined') {
-        return window.innerWidth < 768;
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768;
+  }
+  return false; // Default to false if `window` is not defined
+};
+
+const isLargeScreen = () => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth > 1536;
+  }
+  return false; // Default to false if `window` is not defined
+};
+
+export const truncateString = (str, maxLength) => {
+  if (str.length <= maxLength) {
+    return str;
+  }
+
+  let truncated = "";
+  const words = str.split(" ");
+
+  for (const word of words) {
+    if ((truncated + word).length + 1 > maxLength - 3) {
+      // +1 for space, -3 for "..."
+      break;
     }
-    return false; // Default to false if `window` is not defined
+    truncated += (truncated === "" ? "" : " ") + word;
+  }
+
+  // Handle cases where even the first word exceeds maxLength
+  if (truncated === "" && words[0].length > maxLength - 3) {
+    return words[0].substring(0, maxLength - 3) + "...";
+  }
+
+  return truncated.trim() + "...";
+};
+
+export const removeAllBrTags = (html = "") => {
+  if (!isLargeScreen()) {
+    return html.replace(/<br\s*\/?>/g, "");
+  }
+  return html;
+};
+
+export const isEmptyObject = (obj) => {
+  if (typeof obj !== "object") {
+    return true;
+  }
+  return Object.keys(obj).length === 0;
 };
 
 export { isMobile };
-
-
-export const truncateString = (str, maxLength) => {
-    if (str.length <= maxLength) {
-        return str;
-      }
-    
-      let truncated = '';
-      const words = str.split(' ');
-    
-      for (const word of words) {
-        if ((truncated + word).length + 1 > maxLength - 3) { // +1 for space, -3 for "..."
-          break;
-        }
-        truncated += (truncated === '' ? '' : ' ') + word;
-      }
-    
-      // Handle cases where even the first word exceeds maxLength
-      if (truncated === '' && words[0].length > maxLength - 3) {
-        return words[0].substring(0, maxLength - 3) + '...';
-      }
-    
-      return truncated.trim() + '...';
-  };
