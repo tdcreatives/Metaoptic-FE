@@ -307,33 +307,40 @@ const Header = ({ background = "#fff" }) => {
                       {header.label}
                     </div>
                     {isMobileProductsDropdownOpen && (
-                      <div className="mt-4 flex flex-col items-center space-y-4 text-[16px]">
-                        <div className="flex flex-col items-center space-y-2">
-                          <div className="text-black font-semibold">
+                      <div className="mt-4 w-full max-w-[280px] flex flex-col space-y-4 text-[16px]">
+                        {/* Consumer Products Section */}
+                        <div className="flex flex-col w-full">
+                          <div className="text-black font-bold text-[18px] mb-3 px-4 border-b border-gray-300 pb-2">
                             {productsDropdownItems.consumerProducts.label}
                           </div>
-                          {productsDropdownItems.consumerProducts.items.map(
-                            (item) => (
-                              <a
-                                key={item.path}
-                                className="text-black hover:text-[#d44c39] cursor-pointer pl-4"
-                                onClick={() => handleNavigation(item.path)}
-                              >
-                                {item.label}
-                              </a>
-                            )
-                          )}
+                          <div className="flex flex-col space-y-2 pl-6">
+                            {productsDropdownItems.consumerProducts.items.map(
+                              (item) => (
+                                <a
+                                  key={item.path}
+                                  className="text-gray-700 hover:text-[#d44c39] cursor-pointer py-2 transition-colors duration-200"
+                                  onClick={() => handleNavigation(item.path)}
+                                >
+                                  • {item.label}
+                                </a>
+                              )
+                            )}
+                          </div>
                         </div>
-                        <a
-                          className="text-black hover:text-[#d44c39] cursor-pointer"
-                          onClick={() =>
-                            handleNavigation(
-                              productsDropdownItems.cameraLensSystems.path
-                            )
-                          }
-                        >
-                          {productsDropdownItems.cameraLensSystems.label}
-                        </a>
+
+                        {/* Camera, Lens & Systems Section */}
+                        <div className="flex flex-col w-full pt-2 border-t border-gray-300">
+                          <a
+                            className="text-black font-bold text-[18px] hover:text-[#d44c39] cursor-pointer px-4 py-2 transition-colors duration-200"
+                            onClick={() =>
+                              handleNavigation(
+                                productsDropdownItems.cameraLensSystems.path
+                              )
+                            }
+                          >
+                            {productsDropdownItems.cameraLensSystems.label}
+                          </a>
+                        </div>
                       </div>
                     )}
                   </div>
