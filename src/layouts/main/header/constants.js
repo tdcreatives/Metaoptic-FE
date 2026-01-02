@@ -11,7 +11,7 @@ export const headers = [
 // Products dropdown structure
 export const productsDropdownItems = {
   consumerProducts: {
-    label: "Consumer Products",
+    label: "Latest Products",
     items: [
       {
         label: "Metalens 5G Smartphone",
@@ -25,7 +25,7 @@ export const productsDropdownItems = {
     ],
   },
   cameraLensSystems: {
-    label: "Camera, Lens & Systems",
+    label: "Lens & Equipment",
     path: "/products",
   },
 };

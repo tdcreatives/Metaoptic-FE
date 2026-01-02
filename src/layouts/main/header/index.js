@@ -180,13 +180,16 @@ const Header = ({ background = "#fff" }) => {
                       <div className="absolute top-full left-0 pt-2 z-[100] pointer-events-auto">
                         <div className="bg-white shadow-lg border border-gray-200 py-2 min-w-[240px]">
                           {/* Consumer Products with sub-menu */}
-                          <div className="relative">
-                            <div
-                              className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between"
-                              onMouseEnter={() =>
-                                setIsConsumerProductsHovered(true)
-                              }
-                            >
+                          <div
+                            className="relative"
+                            onMouseEnter={() =>
+                              setIsConsumerProductsHovered(true)
+                            }
+                            onMouseLeave={() =>
+                              setIsConsumerProductsHovered(false)
+                            }
+                          >
+                            <div className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between">
                               <span>
                                 {productsDropdownItems.consumerProducts.label}
                               </span>
@@ -208,15 +211,7 @@ const Header = ({ background = "#fff" }) => {
 
                             {/* Consumer Products Sub-menu */}
                             {isConsumerProductsHovered && (
-                              <div
-                                className="absolute left-full top-0 pl-2 z-[110]"
-                                onMouseEnter={() =>
-                                  setIsConsumerProductsHovered(true)
-                                }
-                                onMouseLeave={() =>
-                                  setIsConsumerProductsHovered(false)
-                                }
-                              >
+                              <div className="absolute left-full top-0 pl-2 z-[110]">
                                 <div className="bg-white shadow-lg border border-gray-200 min-w-[250px] py-2">
                                   {productsDropdownItems.consumerProducts.items.map(
                                     (item) => (
