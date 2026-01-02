@@ -1,14 +1,25 @@
 import React from "react";
-
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
 import { removeAllBrTags } from "@/utils";
 import "./index.scss";
 import useMobile from "@/hooks/useMobile";
+
+const countBrTag = (text) => {
+  if (!text) return 0;
+  console.log(text, text.split("<br />").length);
+  return text.split("<br />").length - 1;
+};
 const ProductDetailsBanner = ({ product }) => {
+  const router = useRouter();
   const handleOnBuyNow = () => {
-    window.location.href = product?.buyNow;
+    if (product?.buyNow?.toLowerCase().startsWith("http")) {
+      window.location.href = product?.buyNow;
+    } else {
+      router.push(product?.buyNow);
+    }
   };
   const isMobile = useMobile();
   return (
@@ -21,16 +32,27 @@ const ProductDetailsBanner = ({ product }) => {
         }}
       ></div>
 
-      <div className="relative z-100">
-        <div className="w-full flex justify-center xl:h-[600px] xl:pb-[72px] pb-[24px] h-[300px]">
+      <div className="relative">
+        <div
+          className={clsx(
+            "relative w-full xl:h-[600px] xl:pb-[72px] pb-[24px]",
+            countBrTag(product?.nameDom) > 1 ? "h-[400px]" : "h-[300px]"
+          )}
+        >
           <div
-            className={clsx("xl:h-[450px] xl:w-auto w-[90%]")}
+            className={clsx(
+              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[10]"
+            )}
             style={{
-              transform: isMobile
-                ? "scale(1)"
-                : product?.imageScale
-                ? `scale(${product?.imageScale})`
-                : "scale(1)",
+              top: "45%",
+              left: "50%",
+              transform: `translate(-50%, -50%) ${
+                isMobile
+                  ? "scale(1)"
+                  : product?.imageScale
+                  ? `scale(${product?.imageScale})`
+                  : "scale(1)"
+              }`,
             }}
           >
             <Image
@@ -40,7 +62,7 @@ const ProductDetailsBanner = ({ product }) => {
               sizes="100vw"
               src={product?.image}
               alt="Next"
-              className="w-full h-full relative z-100 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300 object-contain"
+              className="w-full h-full relative cursor-pointer hover:scale-105 transition-transform duration-300 object-contain"
             />
           </div>
         </div>

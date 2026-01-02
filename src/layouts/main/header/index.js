@@ -9,6 +9,7 @@ import { isMobile } from "react-device-detect";
 import BaseHamburger from "@/components/BaseHamburger";
 import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
 import { headers, productsDropdownItems } from "./constants";
+import clsx from "clsx";
 
 const Header = ({ background = "#fff" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,7 +132,7 @@ const Header = ({ background = "#fff" }) => {
 
   return (
     <div
-      className="relative z-50 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
+      className="relative z-[100] font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
       style={{
         background,
       }}
@@ -165,7 +166,7 @@ const Header = ({ background = "#fff" }) => {
                     ref={productsDropdownRef}
                   >
                     <a
-                      className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                      className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                         pathName === header.path ||
                         pathName.startsWith("/product")
                           ? "after:!w-2 !text-[#d44c39]"
@@ -180,13 +181,16 @@ const Header = ({ background = "#fff" }) => {
                       <div className="absolute top-full left-0 pt-2 z-[100] pointer-events-auto">
                         <div className="bg-white shadow-lg border border-gray-200 py-2 min-w-[240px]">
                           {/* Consumer Products with sub-menu */}
-                          <div className="relative">
-                            <div
-                              className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between"
-                              onMouseEnter={() =>
-                                setIsConsumerProductsHovered(true)
-                              }
-                            >
+                          <div
+                            className="relative"
+                            onMouseEnter={() =>
+                              setIsConsumerProductsHovered(true)
+                            }
+                            onMouseLeave={() =>
+                              setIsConsumerProductsHovered(false)
+                            }
+                          >
+                            <div className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between">
                               <span>
                                 {productsDropdownItems.consumerProducts.label}
                               </span>
@@ -208,15 +212,7 @@ const Header = ({ background = "#fff" }) => {
 
                             {/* Consumer Products Sub-menu */}
                             {isConsumerProductsHovered && (
-                              <div
-                                className="absolute left-full top-0 pl-2 z-[110]"
-                                onMouseEnter={() =>
-                                  setIsConsumerProductsHovered(true)
-                                }
-                                onMouseLeave={() =>
-                                  setIsConsumerProductsHovered(false)
-                                }
-                              >
+                              <div className="absolute left-full top-0 pl-2 z-[110]">
                                 <div className="bg-white shadow-lg border border-gray-200 min-w-[250px] py-2">
                                   {productsDropdownItems.consumerProducts.items.map(
                                     (item) => (
@@ -280,7 +276,7 @@ const Header = ({ background = "#fff" }) => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-[100]"
+            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-[10000]"
             ref={menuRef}
           >
             <div className="absolute top-[24px] right-[24px] cursor-pointer">
