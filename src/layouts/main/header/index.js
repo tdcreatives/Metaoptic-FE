@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { isMobile } from "react-device-detect";
 import BaseHamburger from "@/components/BaseHamburger";
 import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
+import { headers, productsDropdownItems } from "./constants";
 
 const Header = ({ background = "#fff" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,35 +25,6 @@ const Header = ({ background = "#fff" }) => {
   const menuRef = useRef(null);
   const menuItemRef = useRef(null);
   const productsDropdownRef = useRef(null);
-
-  // Navigation links array
-  const headers = [
-    { label: "ABOUT US", path: "/about-us" },
-    { label: "PRODUCTS", path: "/products", hasDropdown: true },
-    { label: "NEWS", path: "/news" },
-    { label: "INVESTOR RELATIONS", path: "/investor-relations" },
-    { label: "CONTACT", path: "/contact-us" },
-    { label: "SHOP", path: "https://metaoptics.shop/" },
-  ];
-
-  // Products dropdown structure
-  const productsDropdownItems = {
-    consumerProducts: {
-      label: "Consumer Products",
-      items: [
-        { label: "Smartphone", path: "/product/metalens-5g-smartphone" },
-        { label: "Smart Glasses", path: "/product/metalens-ai-glasses" },
-        {
-          label: "Pico Projector 2.0",
-          path: "/product/pico-projector-2nd-generation",
-        },
-      ],
-    },
-    cameraLensSystems: {
-      label: "Camera, Lens & Systems",
-      path: "/products",
-    },
-  };
 
   const handleMenuShow = () => {
     // Change to close icon and animate menu in
@@ -245,7 +217,7 @@ const Header = ({ background = "#fff" }) => {
                                   setIsConsumerProductsHovered(false)
                                 }
                               >
-                                <div className="bg-white shadow-lg border border-gray-200 min-w-[220px] py-2">
+                                <div className="bg-white shadow-lg border border-gray-200 min-w-[250px] py-2">
                                   {productsDropdownItems.consumerProducts.items.map(
                                     (item) => (
                                       <a
