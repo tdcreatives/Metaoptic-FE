@@ -8,7 +8,7 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <div className="flex xl:sticky xl:top-[108px] xl:self-start">
+    <div className="flex xl:sticky xl:top-0 xl:self-start">
       <div className="flex-1">
         {/* Main Title */}
         {title && (
