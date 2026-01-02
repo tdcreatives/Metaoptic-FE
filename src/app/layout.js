@@ -11,9 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`antialiased scale-container overflow-x-hidden`}>
-        {children}
-      </body>
+      <body className={`antialiased scale-container`}>{children}</body>
     </html>
   );
 }
