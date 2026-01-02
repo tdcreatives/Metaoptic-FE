@@ -2,9 +2,18 @@
 
 import { useState } from "react";
 import clsx from "clsx";
+import BaseButton from "@/components/BaseButton";
+
+const handleOnDownloadBrochure = (brochure) => {
+  if (brochure.toLowerCase().startsWith("http")) {
+    window.location.href = brochure;
+  } else {
+    router.push(brochure);
+  }
+};
 
 const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
-  const { title, description, list } = leftSection;
+  const { title, description, list, brochure } = leftSection;
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
@@ -69,6 +78,16 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="flex flex-col mx-auto gap-5 w-80">
+          {brochure && (
+            <BaseButton
+              label="Download Brochure"
+              onClick={handleOnDownloadBrochure}              
+              className="!mb-0 !w-full"
+              classNameBtn="!w-full uppercase"
+            />
+          )}
           </div>
         </div>
       </div>
