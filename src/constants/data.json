@@ -895,7 +895,8 @@
               "High quality imaging and sensing in a compact module",
               "Qualcomm Dragonwing QCM6490 platform for 5G and IoT use cases",
               "Designed as a reference platform for OEM metalens integration"
-            ]
+            ],
+            "brochure": "/download/metalens-5g-smartphone.pdf"
           },
           "rightSection": {
             "list": [
@@ -961,7 +962,8 @@
               "Qualcomm AR1 Snapdragon inside",
               "Reference platform for AI eyewear",
               "Android Compatible"
-            ]
+            ],
+            "brochure": "/download/metalens-ai-glasses.pdf"
           },
           "rightSection": {
             "list": [
