@@ -14,7 +14,7 @@ const ProductDetailsBanner = ({ product }) => {
   return (
     <div className="relative w-full xl:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
-        className="absolute text-white xl:text-[200px] text-[100px] xl:left-[-20px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase tracking-[1rem] w-full"
+        className="absolute text-white xl:text-[200px] text-[80px] xl:left-[-20px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase xl:tracking-[1rem] tracking-[0.5rem] w-full"
         dangerouslySetInnerHTML={{ __html: product?.nameDom }}
         style={{
           whiteSpace: "nowrap",
@@ -22,7 +22,7 @@ const ProductDetailsBanner = ({ product }) => {
       ></div>
 
       <div className="relative z-100">
-        <div className="w-full flex justify-center xl:h-[600px] h-fit pb-[72px] min-h-[400px]">
+        <div className="w-full flex justify-center xl:h-[600px] xl:pb-[72px] pb-[24px] h-[300px]">
           <div
             className={clsx("xl:h-[450px] xl:w-auto w-[90%]")}
             style={{

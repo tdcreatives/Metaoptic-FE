@@ -1,7 +1,7 @@
 .name-dom-sensor {
   position: absolute;
   bottom: -250px;
-  right: -10%;
+  right: -5%;
 }
 
 .name-dom-metalens-tester--first {
@@ -38,6 +38,7 @@
     margin-top: -48px; /* Remove the negative margin on mobile */
     margin-left: 0; /* Center-align if necessary */
     text-align: center;
+    bottom: -150px;
   }
 
   .name-dom-metalens-tester--first {
