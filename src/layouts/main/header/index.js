@@ -9,6 +9,7 @@ import { isMobile } from "react-device-detect";
 import BaseHamburger from "@/components/BaseHamburger";
 import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
 import { headers, productsDropdownItems } from "./constants";
+import clsx from "clsx";
 
 const Header = ({ background = "#fff" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -165,7 +166,7 @@ const Header = ({ background = "#fff" }) => {
                     ref={productsDropdownRef}
                   >
                     <a
-                      className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                      className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                         pathName === header.path ||
                         pathName.startsWith("/product")
                           ? "after:!w-2 !text-[#d44c39]"

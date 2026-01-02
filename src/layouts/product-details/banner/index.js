@@ -21,7 +21,7 @@ const ProductDetailsBanner = ({ product }) => {
         }}
       ></div>
 
-      <div className="relative z-100">
+      <div className="relative">
         <div className="w-full flex justify-center xl:h-[600px] xl:pb-[72px] pb-[24px] h-[300px]">
           <div
             className={clsx("xl:h-[450px] xl:w-auto w-[90%]")}
