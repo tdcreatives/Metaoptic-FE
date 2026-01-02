@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
@@ -13,8 +13,13 @@ const countBrTag = (text) => {
   return text.split("<br />").length - 1;
 };
 const ProductDetailsBanner = ({ product }) => {
+  const router = useRouter();
   const handleOnBuyNow = () => {
-    window.location.href = product?.buyNow;
+    if (product?.buyNow?.toLowerCase().startsWith("http")) {
+      window.location.href = product?.buyNow;
+    } else {
+      router.push(product?.buyNow);
+    }
   };
   const isMobile = useMobile();
   return (
