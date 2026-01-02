@@ -132,7 +132,7 @@ const Header = ({ background = "#fff" }) => {
 
   return (
     <div
-      className="relative z-50 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
+      className="relative z-[100] font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
       style={{
         background,
       }}

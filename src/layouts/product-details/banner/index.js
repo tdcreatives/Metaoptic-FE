@@ -36,7 +36,7 @@ const ProductDetailsBanner = ({ product }) => {
         >
           <div
             className={clsx(
-              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[50]"
+              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[10]"
             )}
             style={{
               top: "45%",
