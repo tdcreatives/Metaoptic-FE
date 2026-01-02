@@ -1,20 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
-
-const handleOnDownloadBrochure = (brochure) => {
-  if (brochure.toLowerCase().startsWith("http")) {
-    window.location.href = brochure;
-  } else {
-    router.push(brochure);
-  }
-};
 
 const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
   const { title, description, list, brochure } = leftSection;
   const [isExpanded, setIsExpanded] = useState(true);
+  const router = useRouter();
+
+  const handleOnDownloadBrochure = () => {
+    if (!brochure) return;
+    
+    // Check if brochure is a string
+    const brochureStr = typeof brochure === "string" ? brochure : String(brochure);
+    
+    // if (brochureStr.toLowerCase().startsWith("http")) {
+    //   window.location.href = brochureStr;
+    // } else {
+    //   router.push(brochureStr);
+    // }
+
+
+    if (brochure.toLowerCase().endsWith('.pdf')) {
+      const link = document.createElement('a');
+      link.href = brochure;
+      // Extract filename from path (e.g., "/download/file.pdf" -> "file.pdf")
+      const fileName = brochure.split('/').pop() || 'brochure';
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+        window.open(brochure, '_blank');
+    }
+
+  };
 
   return (
     <div className="flex xl:sticky xl:top-0 xl:self-start">
