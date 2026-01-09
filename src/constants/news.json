@@ -379,6 +379,81 @@
                     
                 ]
             }
-        }        
+        },
+        {
+            "id": 18,
+            "slug": "ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms",
+            "title": "CES 2026: Paper batteries, blackjack-playing robot among products showcased by Singapore firms",
+            "desc": "Common rechargeable batteries such as lithium-ion ones rely on scarce materials that can also be dangerous, but one Singapore start-up is bringing a more sustainable and safer alternative to electronic devices.",
+            "date": "Jan 07, 2026",
+            "image": "/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.webp",
+            "thumbnail": "/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.webp",
+            "path": "https://www.straitstimes.com/tech/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms",
+            "external": false,
+            "details": {
+                "images": ["/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.webp"],
+                "contentPath": "/content/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        },  
+        
+        {
+            "id": 19,
+            "slug": "six-breakthrough-brands-join-ces-2026-under-singapore-pavilion",
+            "title": "Six Breakthrough Brands Join CES 2026 Under Singapore Pavilion",
+            "desc": "Debuting at the Consumer Electronics Show in 2026, these brands are redefining innovations in the wellness, AI, and smart living spaces.",
+            "date": "Jan 06, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.prnewswire.com/news-releases/six-breakthrough-brands-join-ces-2026-under-singapore-pavilion-302652920.html",
+            "external": false,
+            "details": {
+                "images": ["/news/MOT.webp"],
+                "contentPath": "/content/news/six-breakthrough-brands-join-ces-2026-under-singapore-pavilion.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        
+        {
+            "id": 20,
+            "slug": "10-stocks-watch-2026-singpost-uob-st-engineering-and-more",
+            "title": "10 stocks to watch in 2026: SingPost, UOB, ST Engineering and more",
+            "desc": "After the STI’s 22.9% romp in 2025, which way might Singapore equities head?",
+            "date": "Jan 05, 2026",
+            "image": "/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp",
+            "thumbnail": "/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp",
+            "path": "https://www.businesstimes.com.sg/companies-markets/10-stocks-watch-2026-singpost-uob-st-engineering-and-more",
+            "external": false,
+            "details": {
+                "images": ["/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp"],
+                "contentPath": "/content/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+        
+        {
+            "id": 21,
+            "slug": "more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts",
+            "title": "SGX set to receive more IPOs as momentum continues",
+            "desc": "SINGAPORE - The Singapore Exchange (SGX) looks set to receive more listings as momentum from 2025’s performance – the strongest in six years – continues in 2026.",
+            "date": "Dec 30, 2025",
+            "image": "/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp",
+            "thumbnail": "/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp",
+            "path": "https://www.straitstimes.com/business/companies-markets/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts",
+            "external": false,
+            "details": {
+                "images": ["/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp"],
+                "contentPath": "/content/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        }  
     ]
 }
