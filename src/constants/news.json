@@ -454,6 +454,23 @@
                     
                 ]
             }
-        }  
+        },
+
+        {
+            "id": 22,
+            "slug": "ces-2026-tech-reviewer-highlights-metaoptics-technology",
+            "title": "CES 2026: Tech Reviewer Highlights Metaoptics Technology",
+            "desc": "We are thrilled to share that our latest innovation caught the eye of popular tech reviewer “The Friday Checkout” at this year’s CES.",
+            "date": "Jan 10, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "external": false,
+            "details": {
+                "contentPath": "/content/news/ces-2026-tech-reviewer-highlights-metaoptics-technology.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        }   
     ]
 }
