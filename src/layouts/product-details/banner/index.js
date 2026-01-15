@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
@@ -13,15 +13,8 @@ const countBrTag = (text) => {
   return text.split("<br />").length - 1;
 };
 const ProductDetailsBanner = ({ product }) => {
-  const router = useRouter();
-  const handleOnBuyNow = () => {
-    if (product?.buyNow?.toLowerCase().startsWith("http")) {
-      window.location.href = product?.buyNow;
-    } else {
-      router.push(product?.buyNow);
-    }
-  };
   const isMobile = useMobile();
+  const isExternalLink = product?.buyNow?.toLowerCase().startsWith("http");
   return (
     <div className="relative w-full xl:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
@@ -96,12 +89,28 @@ const ProductDetailsBanner = ({ product }) => {
 
         <div className="flex flex-col mx-auto gap-5 w-80">
           {product?.buyNow && (
-            <BaseButton
-              label={product?.buyNowText || "BUY"}
-              onClick={handleOnBuyNow}
-              className="!mb-0 !w-full"
-              classNameBtn="!w-full uppercase"
-            />
+            isExternalLink ? (
+              <a
+                href={product.buyNow}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <BaseButton
+                  label={product?.buyNowText || "BUY"}
+                  className="!mb-0 !w-full"
+                  classNameBtn="!w-full uppercase"
+                />
+              </a>
+            ) : (
+              <Link href={product.buyNow}>
+                <BaseButton
+                  label={product?.buyNowText || "BUY"}
+                  className="!mb-0 !w-full"
+                  classNameBtn="!w-full uppercase"
+                />
+              </Link>
+            )
           )}
 
           {product?.userGuide && (

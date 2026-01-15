@@ -5,7 +5,7 @@ import BaseProductCard from '@/components/BaseProductCard';
 import MobileProductCard from '@/components/BaseProductCard/MobileProductCard';
 import BaseTitle from '@/components/BaseTitle';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import BaseButton from '@/components/BaseButton';
 import { isMobile } from 'react-device-detect';
@@ -64,7 +64,6 @@ const products = [
 ];
 
 const Products = () => {
-    const router = useRouter();
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [productIdIsTouched, setProductIdIsTouched] = useState(null);
 
@@ -111,12 +110,13 @@ const Products = () => {
                 })}
             </div>
 
-            <BaseButton
-                label='See all products'
-                classNameBtn='uppercase'
-                className='mb-0'
-                onClick={() => router.push('/products')}
-            />
+            <Link href="/products">
+                <BaseButton
+                    label='See all products'
+                    classNameBtn='uppercase'
+                    className='mb-0'
+                />
+            </Link>
         </div>
     );
 };

@@ -3,13 +3,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 
 const BaseProduct = ({ name, image, slug }) => {
     const productRef = React.useRef(null);
     const nameRef = React.useRef(null);
-    const router = useRouter();
 
     const handleMouseEnter = () => {
         if (productRef.current && nameRef.current) {
@@ -43,12 +42,8 @@ const BaseProduct = ({ name, image, slug }) => {
         }
     };
 
-    const handleOnNavigate = () => {
-        router.push(`/product/${slug}`);
-    };
-
     return (
-        <div onClick={handleOnNavigate}>
+        <Link href={`/product/${slug}`} className="block">
             <div
                 ref={productRef}
                 className='rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden'
@@ -71,7 +66,7 @@ const BaseProduct = ({ name, image, slug }) => {
                 className='text-[#231f20] xl:text-[24px] text-[18px] text-center futura-condensed-medium mt-3'>
                 {name}
             </h2>
-        </div>
+        </Link>
     );
 };
 

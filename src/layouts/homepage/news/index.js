@@ -5,13 +5,11 @@ import BaseNewsCard from '@/components/BaseNewsCard';
 import BaseButton from '@/components/BaseButton';
 import BaseTitle from '@/components/BaseTitle';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import data from '@/constants/news.json';
 
 const News = () => {
-    const router = useRouter();
-    
     // Sort news by date in descending order (newest first) and get latest 4
     const latestNews = [...data.news]
         .sort((a, b) => {
@@ -34,14 +32,13 @@ const News = () => {
                 ))}
             </div>
 
-            <BaseButton
-                label='View all news'
-                classNameBtn='uppercase'
-                className='mb-0'
-                onClick={() => {
-                    router.push('/news');
-                }}
-            />
+            <Link href="/news">
+                <BaseButton
+                    label='View all news'
+                    classNameBtn='uppercase'
+                    className='mb-0'
+                />
+            </Link>
         </div>
     );
 };

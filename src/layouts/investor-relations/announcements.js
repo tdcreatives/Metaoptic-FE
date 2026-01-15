@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useCallback, useState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import items from '@/constants/announcements.json';
 import IconButton from '@/components/IconButton';
 import arrowIcon from '@/assets/images/arrow.png';
@@ -26,11 +26,7 @@ const useIsMobile = () => {
 };
 
 const Announcements = () => {
-    const router = useRouter();
     const isMobile = useIsMobile();
-    const handleOnNavigate = (slug) => {
-        router.push(`/annountcement/${slug}`);
-    };
 
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -113,15 +109,16 @@ const Announcements = () => {
 
                             {/* Title Container */}
                             <div className='w-full md:h-[100px] flex-shrink-0'>
-                                <IconButton
-                                    label={isMobile ? item.title_btn_sm : item.title_btn}
-                                    icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} className={`${isMobile ? 'w-8 h-8' : 'w-[42px] h-[42px]'} flex-shrink-0 object-contain`} />}
-                                    classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
-                                    classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
-                                    bgDefault='#fff'
-                                    className='!mt-0 md:!mt-[10px] !justify-start w-full h-full'                        
-                                    onClick={() => handleOnNavigate(item.slug)}
-                                />
+                                <Link href={`/annountcement/${item.slug}`}>
+                                    <IconButton
+                                        label={isMobile ? item.title_btn_sm : item.title_btn}
+                                        icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} className={`${isMobile ? 'w-8 h-8' : 'w-[42px] h-[42px]'} flex-shrink-0 object-contain`} />}
+                                        classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
+                                        classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
+                                        bgDefault='#fff'
+                                        className='!mt-0 md:!mt-[10px] !justify-start w-full h-full'
+                                    />
+                                </Link>
                             </div>
                         </div>
                     ))}

@@ -1,25 +1,16 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const BaseNewsCard = ({ news, className = '' }) => {
-    const router = useRouter();
-
-    const handleClick = () => {
-        if (news.external) {
-            window.open(news.path, '_blank');
-        } else {
-            router.push(`/news/${news.slug}`);
-        }
-    };
     const thumbImage = news.thumbnail || news.image;
-    return (
-        <div
-            className={`flex flex-col gap-5 cursor-pointer ${className}`}
-            onClick={handleClick}>
+    const newsUrl = news.external ? news.path : `/news/${news.slug}`;
+    
+    const CardContent = () => (
+        <>
             <motion.div
                 className='w-full cursor-pointer xl:h-[250px] h-[200px] rounded-[20px]'
                 initial={{ opacity: 0 }}
@@ -41,14 +32,28 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>
 
                 <div className='xl:text-[28px] text-[24px] futura-condensed-medium xl:text-start text-center'>
-                    <a href={`${news.external ? news.path : `/news/${news.slug}`}`} target={news.external ? '_blank' : '_self'}>
-                        {news.title}
-                    </a>
+                    {news.title}
                 </div>
             </div>
 
             <div className='xl:text-start text-center'>{news.desc}</div>
-        </div>
+        </>
+    );
+
+    return news.external ? (
+        <a
+            href={newsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex flex-col gap-5 cursor-pointer ${className}`}>
+            <CardContent />
+        </a>
+    ) : (
+        <Link
+            href={newsUrl}
+            className={`flex flex-col gap-5 cursor-pointer ${className}`}>
+            <CardContent />
+        </Link>
     );
 };
 

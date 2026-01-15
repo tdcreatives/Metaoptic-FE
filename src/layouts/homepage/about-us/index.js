@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import BaseButton from '@/components/BaseButton';
 import BaseTitle from '@/components/BaseTitle';
@@ -15,7 +15,6 @@ import MobileRightSection from './MobileRightSection';
 import { isMobile } from 'react-device-detect';
 
 const AboutUs = () => {
-    const router = useRouter();
     const imagesRef = useRef([]); // Reference to track all images
     const sectionRef = useRef(null); // Reference for the AboutUs section
 
@@ -114,12 +113,13 @@ const AboutUs = () => {
                         market growth.
                     </p>
 
-                    <BaseButton
-                        label='Find out more'
-                        classNameBtn='uppercase'
-                        className='xl:!justify-start !justify-center xl:!ml-0 !ml-0'
-                        onClick={() => router.push('/about-us')}
-                    />
+                    <Link href="/about-us">
+                        <BaseButton
+                            label='Find out more'
+                            classNameBtn='uppercase'
+                            className='xl:!justify-start !justify-center xl:!ml-0 !ml-0'
+                        />
+                    </Link>
                 </div>
             </div>
 

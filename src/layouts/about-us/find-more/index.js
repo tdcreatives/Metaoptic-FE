@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import BaseButton from '@/components/BaseButton';
 
 const FindMore = () => {
-    const router = useRouter();
 
     return (
         <div className='relative z-100'>
@@ -20,12 +19,13 @@ const FindMore = () => {
                         OUR PRODUCTS
                     </div>
 
-                    <BaseButton
-                        label='ALL PRODUCTS'
-                        classNameBtn='uppercase'
-                        className='mt-48px'
-                        onClick={() => router.push('/products')}
-                    />
+                    <Link href="/products">
+                        <BaseButton
+                            label='ALL PRODUCTS'
+                            classNameBtn='uppercase'
+                            className='mt-48px'
+                        />
+                    </Link>
                 </div>
             </div>
         </div>

@@ -5,10 +5,9 @@ import BaseButton from '@/components/BaseButton';
 import BaseProduct from '@/components/BaseProduct';
 import BaseTitle from '@/components/BaseTitle';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const RelatedProducts = ({ relatedProducts }) => {
-    const router = useRouter();
 
     if (!relatedProducts || relatedProducts.length === 0) {
         return null; // Return nothing if there are no related products
@@ -33,12 +32,13 @@ const RelatedProducts = ({ relatedProducts }) => {
                 ))}
             </div>
 
-            <BaseButton
-                label='See all products'
-                classNameBtn='uppercase'
-                className='!mt-[60px]'
-                onClick={() => router.push('/products')}
-            />
+            <Link href="/products">
+                <BaseButton
+                    label='See all products'
+                    classNameBtn='uppercase'
+                    className='!mt-[60px]'
+                />
+            </Link>
         </div>
     );
 };

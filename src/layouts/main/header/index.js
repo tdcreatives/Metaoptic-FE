@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -19,7 +20,6 @@ const Header = ({ background = "#fff" }) => {
     useState(false);
   const [isMobileProductsDropdownOpen, setIsMobileProductsDropdownOpen] =
     useState(false);
-  const router = useRouter();
   const pathName = usePathname();
 
   const menuBtnRef = useRef(null);
@@ -97,7 +97,7 @@ const Header = ({ background = "#fff" }) => {
     }
   }, []);
 
-  const handleNavigation = (path) => {
+  const handleMenuClose = () => {
     // Close mobile menu if open
     if (isMenuOpen && menuRef.current) {
       gsap.to(menuRef.current, {
@@ -113,12 +113,6 @@ const Header = ({ background = "#fff" }) => {
     setIsProductsDropdownOpen(false);
     setIsConsumerProductsHovered(false);
     setIsMobileProductsDropdownOpen(false);
-
-    if (path.startsWith("/")) {
-      router.push(path);
-    } else {
-      window.location.href = path;
-    }
   };
 
   const handleProductsMouseEnter = () => {
@@ -138,15 +132,16 @@ const Header = ({ background = "#fff" }) => {
       }}
     >
       {/* Logo */}
-      <Image
-        src="/logo.svg"
-        alt="Logo"
-        width="0"
-        height="0"
-        className="xl:w-[20vw] w-[200px] h-auto cursor-pointer"
-        priority
-        onClick={() => router.push("/")}
-      />
+      <Link href="/" onClick={handleMenuClose}>
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width="0"
+          height="0"
+          className="xl:w-[20vw] w-[200px] h-auto cursor-pointer"
+          priority
+        />
+      </Link>
 
       {!isMobile && (
         <div className="flex justify-between items-center space-x-4">
@@ -165,16 +160,35 @@ const Header = ({ background = "#fff" }) => {
                     onMouseLeave={handleProductsMouseLeave}
                     ref={productsDropdownRef}
                   >
-                    <a
-                      className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
-                        pathName === header.path ||
-                        pathName.startsWith("/product")
-                          ? "after:!w-2 !text-[#d44c39]"
-                          : ""
-                      }`}
-                    >
-                      {header.label}
-                    </a>
+                    {header.path.startsWith("/") ? (
+                      <Link
+                        href={header.path}
+                        className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                          pathName === header.path ||
+                          pathName.startsWith("/product")
+                            ? "after:!w-2 !text-[#d44c39]"
+                            : ""
+                        }`}
+                        onClick={handleMenuClose}
+                      >
+                        {header.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={header.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                          pathName === header.path ||
+                          pathName.startsWith("/product")
+                            ? "after:!w-2 !text-[#d44c39]"
+                            : ""
+                        }`}
+                        onClick={handleMenuClose}
+                      >
+                        {header.label}
+                      </a>
+                    )}
 
                     {/* Products Dropdown Menu */}
                     {isProductsDropdownOpen && (
@@ -216,15 +230,14 @@ const Header = ({ background = "#fff" }) => {
                                 <div className="bg-white shadow-lg border border-gray-200 min-w-[250px] py-2">
                                   {productsDropdownItems.consumerProducts.items.map(
                                     (item) => (
-                                      <a
+                                      <Link
                                         key={item.path}
+                                        href={item.path}
                                         className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
-                                        onClick={() =>
-                                          handleNavigation(item.path)
-                                        }
+                                        onClick={handleMenuClose}
                                       >
                                         {item.label}
-                                      </a>
+                                      </Link>
                                     )
                                   )}
                                 </div>
@@ -233,16 +246,13 @@ const Header = ({ background = "#fff" }) => {
                           </div>
 
                           {/* Camera, Lens & Systems */}
-                          <a
+                          <Link
+                            href={productsDropdownItems.cameraLensSystems.path}
                             className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
-                            onClick={() =>
-                              handleNavigation(
-                                productsDropdownItems.cameraLensSystems.path
-                              )
-                            }
+                            onClick={handleMenuClose}
                           >
                             {productsDropdownItems.cameraLensSystems.label}
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -250,13 +260,27 @@ const Header = ({ background = "#fff" }) => {
                 );
               }
 
-              return (
-                <a
+              return header.path.startsWith("/") ? (
+                <Link
                   key={header.label}
+                  href={header.path}
                   className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                     pathName === header.path ? "after:!w-2 !text-[#d44c39]" : ""
                   }`}
-                  onClick={() => handleNavigation(header.path)}
+                  onClick={handleMenuClose}
+                >
+                  {header.label}
+                </Link>
+              ) : (
+                <a
+                  key={header.label}
+                  href={header.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
+                    pathName === header.path ? "after:!w-2 !text-[#d44c39]" : ""
+                  }`}
+                  onClick={handleMenuClose}
                 >
                   {header.label}
                 </a>
@@ -312,13 +336,14 @@ const Header = ({ background = "#fff" }) => {
                           <div className="flex flex-col space-y-2 pl-6">
                             {productsDropdownItems.consumerProducts.items.map(
                               (item) => (
-                                <a
+                                <Link
                                   key={item.path}
+                                  href={item.path}
                                   className="text-gray-700 hover:text-[#d44c39] cursor-pointer py-2 transition-colors duration-200"
-                                  onClick={() => handleNavigation(item.path)}
+                                  onClick={handleMenuClose}
                                 >
                                   • {item.label}
-                                </a>
+                                </Link>
                               )
                             )}
                           </div>
@@ -326,27 +351,36 @@ const Header = ({ background = "#fff" }) => {
 
                         {/* Camera, Lens & Systems Section */}
                         <div className="flex flex-col w-full pt-2 border-t border-gray-300">
-                          <a
+                          <Link
+                            href={productsDropdownItems.cameraLensSystems.path}
                             className="text-black font-bold text-[18px] hover:text-[#d44c39] cursor-pointer px-4 py-2 transition-colors duration-200"
-                            onClick={() =>
-                              handleNavigation(
-                                productsDropdownItems.cameraLensSystems.path
-                              )
-                            }
+                            onClick={handleMenuClose}
                           >
                             {productsDropdownItems.cameraLensSystems.label}
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     )}
                   </div>
                 );
               }
-              return (
+              return header.path.startsWith("/") ? (
+                <Link
+                  key={header.label}
+                  href={header.path}
+                  className="text-black hover:text-[#d44c39] cursor-pointer"
+                  onClick={handleMenuClose}
+                >
+                  {header.label}
+                </Link>
+              ) : (
                 <a
                   key={header.label}
+                  href={header.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-black hover:text-[#d44c39] cursor-pointer"
-                  onClick={() => handleNavigation(header.path)}
+                  onClick={handleMenuClose}
                 >
                   {header.label}
                 </a>

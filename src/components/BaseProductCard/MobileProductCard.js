@@ -1,30 +1,27 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) => {
     const [isTouched, setIsTouched] = useState(false);
     const [lastTouchTime, setLastTouchTime] = useState(0);
-    const router = useRouter();
 
-    const handleTouch = () => {
+    const handleTouch = (e) => {
         const currentTime = new Date().getTime();
         const timeDiff = currentTime - lastTouchTime;
 
         if (timeDiff < 300) {
-            // Double touch detected (within 300ms)
-            handleNavigate();
+            // Double touch detected (within 300ms) - let Link handle navigation
+            // Don't prevent default, let the Link handle it
+            return;
         } else {
+            e.preventDefault();
             onTouch(product?.id);
         }
         setLastTouchTime(currentTime);
-    };
-
-    const handleNavigate = () => {
-        router.push(`/product/${product?.slug}`);
     };
 
     useEffect(() => {
@@ -36,8 +33,9 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
     }, [product?.id, productIdIsTouched]);
 
     return (
-        <div
-            className={`bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden ${
+        <Link 
+            href={`/product/${product?.slug}`}
+            className={`block bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden ${
                 isTouched ? '!bg-[#d34c39]' : ''
             }`}
             onTouchStart={handleTouch}>
@@ -76,8 +74,8 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
                         />
                     )}
 
-                    <div className='flex justify-start mt-5' onClick={handleNavigate}>
-                        <motion.button
+                    <div className='flex justify-start mt-5'>
+                        <motion.div
                             initial={{ x: 200, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: 200, opacity: 0 }}
@@ -87,9 +85,9 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
                                 delay: 0.3,
                             }}
                             whileHover={{ scale: 1.05 }}
-                            className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
+                            className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap cursor-pointer'>
                             FIND OUT MORE
-                        </motion.button>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -106,7 +104,7 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
                 }`}
                 sizes='100vw'
             />
-        </div>
+        </Link>
     );
 };
 

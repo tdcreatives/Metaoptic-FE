@@ -3,6 +3,7 @@
 import React from "react";
 
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import data from "@/constants/data.json";
 
 import Header from "@/layouts/main/header";
@@ -26,12 +27,12 @@ const ProductDetailsClientSide = () => {
         <h1 className="text-4xl font-semibold text-red-500">
           Product Not Found
         </h1>
-        <button
-          onClick={() => router.push("/")}
-          className="mt-4 bg-[#d34c39] text-white px-4 py-2 rounded-lg"
+        <Link
+          href="/"
+          className="mt-4 bg-[#d34c39] text-white px-4 py-2 rounded-lg inline-block"
         >
           Go Back to Home
-        </button>
+        </Link>
       </div>
     );
   }
