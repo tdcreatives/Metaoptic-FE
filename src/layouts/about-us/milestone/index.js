@@ -79,6 +79,71 @@ const MileStone = () => {
                 </motion.div>
             ),
         },
+        {
+            title: '2025',
+            content: (
+                <motion.div
+                    variants={fadeInVariants}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.3 }}>
+                    <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
+                        EARLY DEVELOPMENT
+                    </div>
+
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Participated in the Consumer Electronics Show {isDesktop ? <br /> : ' '}
+                        at the Las Vegas Convention Centre
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Went public and launched an IPO event in Singapore
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Entered into MOU for the distribution of {isDesktop ? <br /> : ' '}
+                        metalens, IoT products, and the assembly of {isDesktop ? <br /> : ' '}
+                        camera modules with two major manufacturers {isDesktop ? <br /> : ' '}
+                        and service providers in Korea and Taiwan
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Commenced scaling up sales of IoT products, {isDesktop ? <br /> : ' '}
+                        including shipments to a Korean smartphone {isDesktop ? <br /> : ' '}
+                        manufacturer for evaluation, and expanded {isDesktop ? <br /> : ' '}
+                        product sampling to customers in Japan
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Successfully manufactured rectangular {isDesktop ? <br /> : ' '}
+                        metalenses
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Commenced the assembly of automatic metalens testing {isDesktop ? <br /> : ' '}
+                        equipment, with completion targeted by the end of {isDesktop ? <br /> : ' '}
+                        2025
+                    </div>
+                </motion.div>
+            ),
+        },
+        {
+            title: '2026',
+            content: (
+                <motion.div
+                    variants={fadeInVariants}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.3 }}>
+                    <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
+                        EARLY DEVELOPMENT
+                    </div>
+
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Participated in CES 2026 in Las Vegas, USA
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Launched 3 new major products: Metalens 5G Smartphone, {isDesktop ? <br /> : ' '}
+                        AI Smart Glasses, and Pico Projector 2.0
+                    </div>
+                </motion.div>
+            ),
+        },
     ];
     return (
         <div className='relative w-full bg-milestone bg-center bg-no-repeat bg-cover'>
