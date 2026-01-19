@@ -115,8 +115,8 @@ const MileStone = () => {
                         metalenses
                     </div>
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
-                        Commenced the assembly of automatic metalens testing {isDesktop ? <br /> : ' '}
-                        equipment, with completion targeted by the end of {isDesktop ? <br /> : ' '}
+                        Commenced the assembly of automatic metalens testing  
+                        equipment, with completion targeted by the end of 
                         2025
                     </div>
                 </motion.div>
@@ -138,7 +138,7 @@ const MileStone = () => {
                         Participated in CES 2026 in Las Vegas, USA
                     </div>
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
-                        Launched 3 new major products: Metalens 5G Smartphone, {isDesktop ? <br /> : ' '}
+                        Launched 3 new major products: Metalens 5G Smartphone, 
                         AI Smart Glasses, and Pico Projector 2.0
                     </div>
                 </motion.div>
