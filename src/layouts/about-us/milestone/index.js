@@ -60,7 +60,7 @@ const MileStone = () => {
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
-                        EARLY DEVELOPMENT
+                        
                     </div>
 
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
@@ -88,7 +88,7 @@ const MileStone = () => {
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
-                        EARLY DEVELOPMENT
+                        
                     </div>
 
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
@@ -130,7 +130,7 @@ const MileStone = () => {
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}>
                     <div className='text-white tracking-[0.3rem] futura-condensed-medium xl:text-[32px] text-[24px]'>
-                        EARLY DEVELOPMENT
+                        
                     </div>
 
                     <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
