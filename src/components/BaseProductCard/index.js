@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,9 +15,25 @@ const BaseProductCard = ({
     onMouseLeave,
 }) => {
     const router = useRouter();
+    const [canHover, setCanHover] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+        const update = () => setCanHover(mq.matches);
+
+        update();
+        mq.addEventListener?.('change', update);
+
+        return () => mq.removeEventListener?.('change', update);
+    }, []);
+
+    const effectiveHovered = canHover ? isHovered : false;
+    const effectiveAnyHovered = canHover ? isAnyHovered : false;
 
     const renderTextWhenHovering = () => {
-        if (isHovered) {
+        if (effectiveHovered) {
             const titleParts = product.title.split(' ');
             const firstHalf = titleParts
                 .slice(0, Math.ceil(titleParts.length / 2))
@@ -41,7 +57,7 @@ const BaseProductCard = ({
     };
 
     const renderLabelWhenHovering = () => {
-        if (isHovered) {
+        if (effectiveHovered) {
             return (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -80,7 +96,7 @@ const BaseProductCard = ({
     const renderImageWhenHovering = () => {
         return (
             <AnimatePresence>
-                {isHovered && (
+                {effectiveHovered && (
                     <motion.div
                         className='absolute inset-0 z-10 flex justify-center items-center top-[-150px]'
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -110,15 +126,15 @@ const BaseProductCard = ({
     return (
         <motion.div
             className={`relative px-4 xl:py-3 py-2 xl:w-full w-[90%] mx-auto product-card ${
-                isHovered ? 'product-card--hovered' : ''
-            } ${isAnyHovered && !isHovered ? 'product-card--shrink' : ''}`}
+                effectiveHovered ? 'product-card--hovered' : ''
+            } ${effectiveAnyHovered && !effectiveHovered ? 'product-card--shrink' : ''}`}
             onClick={() => router.push(`/product/${product.slug}`)}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            onMouseEnter={canHover ? onMouseEnter : undefined}
+            onMouseLeave={canHover ? onMouseLeave : undefined}
             layout>
             <motion.div
                 className={`futura-condensed-medium text-[48px] product-card__id ${
-                    isHovered ? 'text-white' : ''
+                    effectiveHovered ? 'text-white' : ''
                 }`}
                 layout>
                 {product.id}
@@ -127,10 +143,10 @@ const BaseProductCard = ({
             {renderTextWhenHovering()}
             {renderLabelWhenHovering()}
 
-            {isAnyHovered || isHovered ? (
+            {effectiveAnyHovered || effectiveHovered ? (
                 <></>
             ) : (
-                <div className={`${isHovered ? 'mt-0' : 'mt-5'} z-10 relative flex`}>
+                <div className={`${effectiveHovered ? 'mt-0' : 'mt-5'} z-10 relative flex`}>
                     <Image
                         width={0}
                         height={0}
@@ -138,12 +154,12 @@ const BaseProductCard = ({
                         src={`/${product?.image || 'fallback-image.svg'}`}
                         alt='Product'
                         style={{
-                            width: isHovered ? 'fit-content' : '90%',
+                            width: effectiveHovered ? 'fit-content' : '90%',
                             marginLeft: 'auto',
-                            height: isHovered ? '300px' : '200px',
-                            objectFit: isHovered ? 'contain' : 'cover',
+                            height: effectiveHovered ? '300px' : '200px',
+                            objectFit: effectiveHovered ? 'contain' : 'cover',
                             objectPosition: product?.objectPosition || 'center',
-                            marginRight: isHovered ? 'auto' : '0',
+                            marginRight: effectiveHovered ? 'auto' : '0',
                         }}
                     />
                 </div>
@@ -151,7 +167,7 @@ const BaseProductCard = ({
 
             {renderImageWhenHovering()}
 
-            {!isAnyHovered && (
+            {!effectiveAnyHovered && (
                 <motion.div
                     className='mt-8 w-full max-w-[300px] mx-auto text-start'
                     initial={{ opacity: 0 }}
@@ -160,12 +176,12 @@ const BaseProductCard = ({
                     transition={{
                         duration: 0.5,
                         ease: 'easeInOut',
-                        delay: isHovered ? 0 : 0.5,
+                        delay: effectiveHovered ? 0 : 0.5,
                     }}
                     layout>
                     <motion.div
                         className={`futura-condensed-medium xl:text-[24px] text-[18px] product-card__title ${
-                            isHovered ? 'text-white' : ''
+                            effectiveHovered ? 'text-white' : ''
                         }`}
                         layout
                         style={{
@@ -198,7 +214,7 @@ const BaseProductCard = ({
                 </motion.div>
             )}
 
-            {isAnyHovered && !isHovered && (
+            {effectiveAnyHovered && !effectiveHovered && (
                 <motion.div
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
