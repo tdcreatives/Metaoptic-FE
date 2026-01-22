@@ -488,23 +488,6 @@
                     
                 ]
             }
-        },
-        
-        {
-            "id": 24,
-            "slug": "lenses-will-become-like-chips-metaoptics-defines-the-future-of-optics-at-ces",
-            "title": "\"Lenses Will Become Like Chips\": Metaoptics Defines the Future of Optics at CES",
-            "desc": "At CES 2026, tech reviewer Li Shanglong stopped by the Metaoptics booth to understand how we are rewriting the rules of optical manufacturing.",
-            "date": "Jan 15, 2026",
-            "image": "/news/MOT.webp",
-            "thumbnail": "/news/MOT.webp",
-            "external": false,
-            "details": {
-                "contentPath": "/content/news/lenses-will-become-like-chips-metaoptics-defines-the-future-of-optics-at-ces.mdx",
-                "relatedNews": [
-                    
-                ]
-            }
-        }   
+        }
     ]
 }
