@@ -16,6 +16,7 @@ const BaseProductCard = ({
 }) => {
     const router = useRouter();
     const [canHover, setCanHover] = useState(false);
+    const [isTouching, setIsTouching] = useState(false);
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
@@ -29,8 +30,40 @@ const BaseProductCard = ({
         return () => mq.removeEventListener?.('change', update);
     }, []);
 
-    const effectiveHovered = canHover ? isHovered : false;
-    const effectiveAnyHovered = canHover ? isAnyHovered : false;
+    // Prevent touch events from triggering mouse events on mobile
+    const handleTouchStart = (e) => {
+        setIsTouching(true);
+    };
+
+    const handleTouchEnd = (e) => {
+        // Delay to prevent mouse events from firing after touch
+        setTimeout(() => {
+            setIsTouching(false);
+        }, 300);
+    };
+
+    const handleMouseEnterWrapper = (e) => {
+        // Prevent mouse events if we just had a touch event
+        if (isTouching || !canHover) {
+            return;
+        }
+        if (onMouseEnter) {
+            onMouseEnter(e);
+        }
+    };
+
+    const handleMouseLeaveWrapper = (e) => {
+        // Prevent mouse events if we just had a touch event
+        if (isTouching || !canHover) {
+            return;
+        }
+        if (onMouseLeave) {
+            onMouseLeave(e);
+        }
+    };
+
+    const effectiveHovered = canHover && !isTouching ? isHovered : false;
+    const effectiveAnyHovered = canHover && !isTouching ? isAnyHovered : false;
 
     const renderTextWhenHovering = () => {
         if (effectiveHovered) {
@@ -129,8 +162,10 @@ const BaseProductCard = ({
                 effectiveHovered ? 'product-card--hovered' : ''
             } ${effectiveAnyHovered && !effectiveHovered ? 'product-card--shrink' : ''}`}
             onClick={() => router.push(`/product/${product.slug}`)}
-            onMouseEnter={canHover ? onMouseEnter : undefined}
-            onMouseLeave={canHover ? onMouseLeave : undefined}
+            onMouseEnter={handleMouseEnterWrapper}
+            onMouseLeave={handleMouseLeaveWrapper}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             layout>
             <motion.div
                 className={`futura-condensed-medium text-[48px] product-card__id ${
