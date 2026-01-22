@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import './index.scss';
@@ -14,6 +14,7 @@ const BaseProductCard = ({
     onMouseEnter,
     onMouseLeave,
 }) => {
+    const router = useRouter();
 
     const renderTextWhenHovering = () => {
         if (isHovered) {
@@ -57,21 +58,19 @@ const BaseProductCard = ({
                         {product.description}
                     </p>
                     <div className='absolute bottom-5 right-2 w-[140px]'>
-                        <Link href={`/product/${product.slug}`}>
-                            <motion.div
-                                initial={{ x: 200, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 200, opacity: 0 }}
-                                transition={{
-                                    duration: 0.3,
-                                    ease: [0.37, 0, 0.63, 1],
-                                    delay: 0.3,
-                                }}
-                                whileHover={{ scale: 1.05 }}
-                                className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap cursor-pointer text-center'>
-                                FIND OUT MORE
-                            </motion.div>
-                        </Link>
+                        <motion.button
+                            initial={{ x: 200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 200, opacity: 0 }}
+                            transition={{
+                                duration: 0.3,
+                                ease: [0.37, 0, 0.63, 1],
+                                delay: 0.3,
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                            className='bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap'>
+                            FIND OUT MORE
+                        </motion.button>
                     </div>
                 </motion.div>
             );
@@ -109,14 +108,14 @@ const BaseProductCard = ({
     };
 
     return (
-        <Link href={`/product/${product.slug}`} className="block">
-            <motion.div
-                className={`relative px-4 xl:py-3 py-2 xl:w-full w-[90%] mx-auto product-card ${
-                    isHovered ? 'product-card--hovered' : ''
-                } ${isAnyHovered && !isHovered ? 'product-card--shrink' : ''}`}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                layout>
+        <motion.div
+            className={`relative px-4 xl:py-3 py-2 xl:w-full w-[90%] mx-auto product-card ${
+                isHovered ? 'product-card--hovered' : ''
+            } ${isAnyHovered && !isHovered ? 'product-card--shrink' : ''}`}
+            onClick={() => router.push(`/product/${product.slug}`)}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            layout>
             <motion.div
                 className={`futura-condensed-medium text-[48px] product-card__id ${
                     isHovered ? 'text-white' : ''
@@ -225,8 +224,7 @@ const BaseProductCard = ({
                     />
                 </motion.div>
             )}
-            </motion.div>
-        </Link>
+        </motion.div>
     );
 };
 
