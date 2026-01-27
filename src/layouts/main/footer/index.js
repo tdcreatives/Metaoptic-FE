@@ -56,8 +56,11 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* <div className='flex xl:gap-8 gap-5 text-white xl:text-[25px] text-[18px] futura-medium'>
-                    <div>Connect</div>
+                 <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[18px] futura-medium'>
+                    <div>
+                        <a href='/privacy-policy'>Privacy Policy</a>
+                    </div>
+                    {/* <div>Connect</div>
                     <Image
                         src='/facebook.svg'
                         alt='Facebook'
@@ -83,8 +86,8 @@ const Footer = () => {
                         height={0}
                         sizes='100vw'
                         className='xl:w-[32px] w-[24px]'
-                    />
-                </div> */}
+                    /> */}
+                </div> 
             </div>
 
             <div className='w-full h-[2px] my-2 bg-white'></div>

@@ -88,5 +88,20 @@
         "twitterSite": "@metaoptics",
         "twitterTitle": "Investor Relations  | Metaoptics Technologies",
         "twitterDescription": "Stay updated with the latest investor relations from Metaoptics Technologies."
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy | Metaoptics Technologies",
+        "description": "Read our privacy policy to understand how we collect, use, and protect your personal information.",
+        "keywords": "privacy policy, data protection, Metaoptics Technologies, personal information, data privacy",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/privacy-policy",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Privacy Policy | Metaoptics Technologies",
+        "twitterDescription": "Read our privacy policy to understand how we collect, use, and protect your personal information."
     }
 }
