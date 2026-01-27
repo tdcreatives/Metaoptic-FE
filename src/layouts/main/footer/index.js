@@ -56,7 +56,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                 <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[18px] futura-medium'>
+                 <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium'>
                     <div>
                         <a href='/privacy-policy'>Privacy Policy</a>
                     </div>

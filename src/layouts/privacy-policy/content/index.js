@@ -147,7 +147,7 @@ All reports are reviewed by the Audit Committee or designated independent person
 
     return (
         <>
-        <HeroTitle title='Privacy Policy' subtitle='Effective Date: 22nd January 2026' />
+        <HeroTitle title='Privacy Policy' subtitle='' />
         <div className='privacy-policy-content'>
             <div className='w-full bg-[#EAEAEA] rounded-t-lg px-6 py-8'>
                 <div className='px-2 md:px-4 lg:px-8 xl:px-[99px] py-8'>
