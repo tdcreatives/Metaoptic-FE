@@ -52,7 +52,7 @@ const Content = () => {
 • To facilitate business transactions, operational queries, and manufacturing orders.
 • To respond to your inquiries submitted via our "Contact Us" forms.
 • To send administrative information, such as changes to our terms, conditions, and policies.
-• To comply with legal and regulatory obligations, including those required by the Singapore Exchange (SGX).`,
+• To comply with legal and regulatory obligations.`,
         },
         {
             title: 'Disclosure of Information',
