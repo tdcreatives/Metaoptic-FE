@@ -11,35 +11,57 @@ const Footer = () => {
                     <p className='text-[#888888] tracking-wider xl:text-[84px] text-[48px] futura-condensed-medium uppercase'>
                         Connect with us
                     </p>
+                   
+                    <div className='flex xl:flex-row flex-col justify-start xl:gap-8 gap-2  xl:mt-[40px] mt-5 w-full'>
+                        <div className='flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium'>
+                            <div>
+                                <a href='mailto:sales@metaoptics.sg'>
+                                    <p className='text-[#E0E1E0] mt-2'>
+                                        {' '}
+                                        <span className='text-[#888888]'>Email: </span>
+                                        sales@metaoptics.sg
+                                    </p>
+                                </a>
+                            </div>                            
+                        </div>
 
-                    <p className='text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] mt-0'>
-                        Metaoptics Technologies Pte Ltd
-                    </p>
+                        <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium'>
+                            <div>
+                                <a href='tel:+6582180482'>
+                                    <p className='text-[#E0E1E0] mt-2'>
+                                        {' '}
+                                        <span className='text-[#888888]'>Phone: </span>
+                                        +65 8218 0482
+                                    </p>
+                                </a> 
+                            </div>                            
+                        </div> 
+                    </div>
+                    <div className='w-full h-[1px] my-2 bg-[#3B3B3B]'></div>
+
 
                     <div className='futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4'>
-                        <a href='mailto:sales@metaoptics.sg'>
-                            <p className='text-[#E0E1E0] mt-2'>
-                                {' '}
-                                <span className='text-[#888888]'>Email: </span>
-                                sales@metaoptics.sg
+                        <p className='text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4'>
+                            Singapore (HQ)
+                            <p className='text-[#E0E1E0]'>
+                            Metaoptics Technologies Pte Ltd. 81 Ayer Rajah Crescent, #01-45 Singapore 139967
                             </p>
-                        </a>
-                        <a href='tel:+6582180482'>
-                            <p className='text-[#E0E1E0] mt-2'>
-                                {' '}
-                                <span className='text-[#888888]'>Phone: </span>
-                                +65 8218 0482
-                            </p>
-                        </a>
-                        <p className='text-[#E0E1E0] mt-2'>
-                            <span className='text-[#888888]'>Address: </span>81 Ayer Rajah
-                            Crescent 01-45 Singapore 139967
                         </p>
                     </div>
+                    <div className='futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4'>
+
+                        <p className='text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4'>
+                            United States
+                            <p className='text-[#E0E1E0]'>
+                            Metaoptics Inc. 1 Ferry Building, Suite 201 San Francisco, CA 94111
+                            </p>
+                        </p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <div className='flex xl:flex-row flex-col xl:gap-0 gap-10 justify-between xl:mt-[40px] mt-5 w-full'>
+            <div className='flex xl:flex-row flex-col justify-between xl:gap-0 gap-10  xl:mt-[40px] mt-5 w-full'>
                 <div className='flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium'>
                     <div>
                         <a href='javascript:void()' onClick={() => window.scrollTo(0, 0)}>

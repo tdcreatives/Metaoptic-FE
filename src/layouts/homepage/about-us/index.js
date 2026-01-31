@@ -83,7 +83,7 @@ const AboutUs = () => {
                                 transition: { duration: 0.4 },
                             }}>
                             <Image
-                                src='/about-2.jpg'
+                                src='/about-2-new.jpg'
                                 alt='About 2'
                                 width={0}
                                 height={0}
@@ -139,7 +139,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-1.jpg'
+                                    src='/about-1-new.jpg'
                                     alt='About 1'
                                     width={0}
                                     height={0}
@@ -162,7 +162,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-3.jpg'
+                                    src='/about-3-new.jpg'
                                     alt='About 3'
                                     width={0}
                                     height={0}
@@ -187,7 +187,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-2.jpg'
+                                    src='/about-2-new.jpg'
                                     alt='About 2'
                                     width={0}
                                     height={0}
@@ -210,7 +210,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-4.jpg'
+                                    src='/about-4-new.jpg'
                                     alt='About 4'
                                     width={0}
                                     height={0}
