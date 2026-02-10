@@ -470,7 +470,8 @@
                 "relatedNews": [
                     
                 ]
-            }
+            },
+            "mod": "development"
         },
         
         {
@@ -487,7 +488,8 @@
                 "relatedNews": [
                     
                 ]
-            }
+            },
+            "mod": "development"
         },
         {
             "id": 24,
@@ -505,7 +507,8 @@
                 "relatedNews": [
                     
                 ]
-            }
+            },
+            "mod": "development"
         }
         
     ]

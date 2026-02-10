@@ -5,9 +5,17 @@ import data from '@/constants/news.json';
 import BaseNewsCard from '@/components/BaseNewsCard';
 import BaseTitle from '@/components/BaseTitle';
 
+const MOD = process.env.NEXT_PUBLIC_MOD || 'production';
+
+const shouldIncludeNewsItem = (item) =>
+    MOD === 'development' || !item.mod || item.mod === 'production';
+
 const NewsList = () => {
+    // Filter news based on environment mode
+    const visibleNews = data.news.filter(shouldIncludeNewsItem);
+
     // Sort news by date in descending order (newest first)
-    const filteredNews = [...data.news].sort((a, b) => {
+    const filteredNews = [...visibleNews].sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
         return dateB - dateA;

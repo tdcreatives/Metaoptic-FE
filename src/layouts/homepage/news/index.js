@@ -9,9 +9,17 @@ import Link from 'next/link';
 
 import data from '@/constants/news.json';
 
+const MOD = process.env.NEXT_PUBLIC_MOD || 'production';
+
+const shouldIncludeNewsItem = (item) =>
+    MOD === 'development' || !item.mod || item.mod === 'production';
+
 const News = () => {
+    // Filter news based on environment mode
+    const visibleNews = data.news.filter(shouldIncludeNewsItem);
+
     // Sort news by date in descending order (newest first) and get latest 4
-    const latestNews = [...data.news]
+    const latestNews = [...visibleNews]
         .sort((a, b) => {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);

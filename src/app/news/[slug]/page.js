@@ -2,15 +2,22 @@ import data from '@/constants/news.json';
 
 import NewsDetailsClientSide from './NewsDetailsClientSide';
 
+const MOD = process.env.NEXT_PUBLIC_MOD || 'production';
+
+const shouldIncludeNewsItem = (item) =>
+    MOD === 'development' || !item.mod || item.mod === 'production';
+
+const visibleNews = data.news.filter(shouldIncludeNewsItem);
+
 export const generateStaticParams = async () => {
-    return data.news.map((item) => ({
+    return visibleNews.map((item) => ({
         slug: item.slug,
     }));
 };
 
 export const generateMetadata = async (props) => {
     const params = await props.params;
-    const news = data.news.find((item) => item.slug === params.slug);
+    const news = visibleNews.find((item) => item.slug === params.slug);
     return {
         title: news?.title,
         description: news?.desc,
@@ -23,7 +30,7 @@ export const generateMetadata = async (props) => {
 const NewsDetailsPage = async (props) => {
     const params = await props.params;
 
-    const news = data.news.find((item) => item.slug === params.slug);
+    const news = visibleNews.find((item) => item.slug === params.slug);
     if (!news) {
         return (
             <div className='flex flex-col items-center justify-center min-h-screen'>

@@ -11,10 +11,16 @@ import NewsDetailsExtraImages from '@/layouts/news/details-extra-images';
 import RelatedNews from '@/layouts/news/related-news';
 import Footer from '@/layouts/main/footer';
 
+const MOD = process.env.NEXT_PUBLIC_MOD || 'production';
+
+const shouldIncludeNewsItem = (item) =>
+    MOD === 'development' || !item.mod || item.mod === 'production';
+
 const NewsDetailsClientSide = () => {
     const { slug } = useParams();
 
-    const news = data.news.find((item) => item.slug === slug);
+    const visibleNews = data.news.filter(shouldIncludeNewsItem);
+    const news = visibleNews.find((item) => item.slug === slug);
 
     return (
         <>
