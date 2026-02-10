@@ -205,7 +205,7 @@ const AnnouncementDetailContent = () => {
                             <div className='mt-8'>
                                 <div className='mb-4'>
                                     <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
-                                        Description (Please provide a detailed description of the event in the box below):
+                                        Description:
                                     </h3>
                                 </div>
                                 <div className=''>
