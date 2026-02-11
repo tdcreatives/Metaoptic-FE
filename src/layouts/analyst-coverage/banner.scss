@@ -1,0 +1,45 @@
+/* Investor Relations Banner Styles */
+
+.investor-relations-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background logo animations */
+.banner-logo {
+    transition: all 0.3s ease-in-out;
+}
+
+.banner-logo:hover {
+    opacity: 0.3;
+    transform: scale(1.05);
+}
+
+/* Text animations */
+.banner-text {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-text {
+        animation: fadeInUp 0.6s ease-out;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text {
+        animation: fadeInUp 0.4s ease-out;
+    }
+}

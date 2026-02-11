@@ -9,23 +9,21 @@ import { gsap } from "gsap";
 import { isMobile } from "react-device-detect";
 import BaseHamburger from "@/components/BaseHamburger";
 import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
-import { headers, productsDropdownItems } from "./constants";
+import { headers, dropdownItems } from "./constants";
 import clsx from "clsx";
 
 const Header = ({ background = "#fff" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHoveringMenu, setIsHoveringMenu] = useState(false);
-  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
-  const [isConsumerProductsHovered, setIsConsumerProductsHovered] =
-    useState(false);
-  const [isMobileProductsDropdownOpen, setIsMobileProductsDropdownOpen] =
-    useState(false);
+  // Generic dropdown state management
+  const [openDropdowns, setOpenDropdowns] = useState({});
+  const [hoveredSubmenus, setHoveredSubmenus] = useState({});
+  const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState({});
   const pathName = usePathname();
 
   const menuBtnRef = useRef(null);
   const menuRef = useRef(null);
   const menuItemRef = useRef(null);
-  const productsDropdownRef = useRef(null);
 
   const handleMenuShow = () => {
     // Change to close icon and animate menu in
@@ -110,18 +108,196 @@ const Header = ({ background = "#fff" }) => {
         },
       });
     }
-    setIsProductsDropdownOpen(false);
-    setIsConsumerProductsHovered(false);
-    setIsMobileProductsDropdownOpen(false);
+    setOpenDropdowns({});
+    setHoveredSubmenus({});
+    setMobileOpenDropdowns({});
   };
 
-  const handleProductsMouseEnter = () => {
-    setIsProductsDropdownOpen(true);
+  const handleDropdownMouseEnter = (dropdownKey) => {
+    setOpenDropdowns((prev) => ({ ...prev, [dropdownKey]: true }));
   };
 
-  const handleProductsMouseLeave = () => {
-    setIsProductsDropdownOpen(false);
-    setIsConsumerProductsHovered(false);
+  const handleDropdownMouseLeave = (dropdownKey) => {
+    setOpenDropdowns((prev) => ({ ...prev, [dropdownKey]: false }));
+    setHoveredSubmenus((prev) => ({ ...prev, [dropdownKey]: false }));
+  };
+
+  const handleSubmenuMouseEnter = (dropdownKey, submenuKey) => {
+    setHoveredSubmenus((prev) => ({
+      ...prev,
+      [`${dropdownKey}-${submenuKey}`]: true,
+    }));
+  };
+
+  const handleSubmenuMouseLeave = (dropdownKey, submenuKey) => {
+    setHoveredSubmenus((prev) => ({
+      ...prev,
+      [`${dropdownKey}-${submenuKey}`]: false,
+    }));
+  };
+
+  const toggleMobileDropdown = (dropdownKey) => {
+    setMobileOpenDropdowns((prev) => ({
+      ...prev,
+      [dropdownKey]: !prev[dropdownKey],
+    }));
+  };
+
+  // Helper function to render dropdown menu
+  const renderDropdownMenu = (dropdownKey) => {
+    const items = dropdownItems[dropdownKey];
+    if (!items) return null;
+
+    const isOpen = openDropdowns[dropdownKey];
+
+    return (
+      isOpen && (
+        <div className="absolute top-full left-0 pt-2 z-[100] pointer-events-auto">
+          <div className="bg-white shadow-lg border border-gray-200 py-2 min-w-[300px]">
+            {Object.entries(items).map(([key, item]) => {
+              // Check if item has sub-items (like consumerProducts)
+              if (item.items && Array.isArray(item.items)) {
+                const submenuKey = `${dropdownKey}-${key}`;
+                const isSubmenuHovered = hoveredSubmenus[submenuKey];
+
+                return (
+                  <div
+                    key={key}
+                    className="relative"
+                    onMouseEnter={() => handleSubmenuMouseEnter(dropdownKey, key)}
+                    onMouseLeave={() => handleSubmenuMouseLeave(dropdownKey, key)}
+                  >
+                    <div className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between">
+                      <span>{item.label}</span>
+                      <svg
+                        className="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Sub-menu */}
+                    {isSubmenuHovered && (
+                      <div className="absolute left-full top-0 pl-2 z-[110]">
+                        <div className="bg-white shadow-lg border border-gray-200 min-w-[230px] py-2">
+                          {item.items.map((subItem) => (
+                            <Link
+                              key={subItem.path}
+                              href={subItem.path}
+                              className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
+                              onClick={handleMenuClose}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              // Simple link item
+              return (
+                <Link
+                  key={key}
+                  href={item.path}
+                  className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
+                  onClick={handleMenuClose}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )
+    );
+  };
+
+  // Helper function to render mobile dropdown menu
+  const renderMobileDropdownMenu = (dropdownKey) => {
+    const items = dropdownItems[dropdownKey];
+    if (!items) return null;
+
+    const isOpen = mobileOpenDropdowns[dropdownKey];
+
+    return (
+      isOpen && (
+        <div className="mt-4 w-full max-w-[280px] flex flex-col space-y-4 text-[16px]">
+          {Object.entries(items).map(([key, item]) => {
+            // Check if item has sub-items
+            if (item.items && Array.isArray(item.items)) {
+              return (
+                <div key={key} className="flex flex-col w-full">
+                  <div className="text-black font-bold text-[18px] mb-3 px-4 border-b border-gray-300 pb-2">
+                    {item.label}
+                  </div>
+                  <div className="flex flex-col space-y-2 pl-6">
+                    {item.items.map((subItem) => (
+                      <Link
+                        key={subItem.path}
+                        href={subItem.path}
+                        className="text-gray-700 hover:text-[#d44c39] cursor-pointer py-2 transition-colors duration-200"
+                        onClick={handleMenuClose}
+                      >
+                        • {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            // Simple link item
+            return (
+              <div key={key} className="flex flex-col w-full pt-2 border-t border-gray-300">
+                <Link
+                  href={item.path}
+                  className="text-black font-bold text-[18px] hover:text-[#d44c39] cursor-pointer px-4 py-2 transition-colors duration-200"
+                  onClick={handleMenuClose}
+                >
+                  {item.label}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      )
+    );
+  };
+
+  // Helper function to check if path is active
+  const isPathActive = (header) => {
+    if (header.dropdownKey) {
+      const items = dropdownItems[header.dropdownKey];
+      if (items) {
+        return Object.values(items).some((item) => {
+          if (item.path) {
+            return pathName === item.path || pathName.startsWith(item.path + "/");
+          }
+          if (item.items) {
+            return item.items.some((subItem) => pathName === subItem.path || pathName.startsWith(subItem.path + "/"));
+          }
+          return false;
+        });
+      }
+      // Special case: check for announcement pages under investor-relations
+      if (header.dropdownKey === "investorRelations") {
+        return pathName.startsWith("/annountcement/");
+      }
+    }
+    return pathName === header.path || 
+           (header.path === "/products" && pathName.startsWith("/product"));
   };
 
   return (
@@ -151,23 +327,19 @@ const Header = ({ background = "#fff" }) => {
             ref={menuItemRef}
           >
             {headers.map((header) => {
-              if (header.hasDropdown) {
+              if (header.dropdownKey) {
                 return (
                   <div
                     key={header.label}
                     className="relative"
-                    onMouseEnter={handleProductsMouseEnter}
-                    onMouseLeave={handleProductsMouseLeave}
-                    ref={productsDropdownRef}
+                    onMouseEnter={() => handleDropdownMouseEnter(header.dropdownKey)}
+                    onMouseLeave={() => handleDropdownMouseLeave(header.dropdownKey)}
                   >
                     {header.path.startsWith("/") ? (
                       <Link
                         href={header.path}
                         className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
-                          pathName === header.path ||
-                          pathName.startsWith("/product")
-                            ? "after:!w-2 !text-[#d44c39]"
-                            : ""
+                          isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                         }`}
                         onClick={handleMenuClose}
                       >
@@ -179,10 +351,7 @@ const Header = ({ background = "#fff" }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
-                          pathName === header.path ||
-                          pathName.startsWith("/product")
-                            ? "after:!w-2 !text-[#d44c39]"
-                            : ""
+                          isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                         }`}
                         onClick={handleMenuClose}
                       >
@@ -190,72 +359,8 @@ const Header = ({ background = "#fff" }) => {
                       </a>
                     )}
 
-                    {/* Products Dropdown Menu */}
-                    {isProductsDropdownOpen && (
-                      <div className="absolute top-full left-0 pt-2 z-[100] pointer-events-auto">
-                        <div className="bg-white shadow-lg border border-gray-200 py-2 min-w-[240px]">
-                          {/* Consumer Products with sub-menu */}
-                          <div
-                            className="relative"
-                            onMouseEnter={() =>
-                              setIsConsumerProductsHovered(true)
-                            }
-                            onMouseLeave={() =>
-                              setIsConsumerProductsHovered(false)
-                            }
-                          >
-                            <div className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between">
-                              <span>
-                                {productsDropdownItems.consumerProducts.label}
-                              </span>
-                              <svg
-                                className="w-4 h-4 ml-2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </div>
-
-                            {/* Consumer Products Sub-menu */}
-                            {isConsumerProductsHovered && (
-                              <div className="absolute left-full top-0 pl-2 z-[110]">
-                                <div className="bg-white shadow-lg border border-gray-200 min-w-[250px] py-2">
-                                  {productsDropdownItems.consumerProducts.items.map(
-                                    (item) => (
-                                      <Link
-                                        key={item.path}
-                                        href={item.path}
-                                        className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
-                                        onClick={handleMenuClose}
-                                      >
-                                        {item.label}
-                                      </Link>
-                                    )
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Camera, Lens & Systems */}
-                          <Link
-                            href={productsDropdownItems.cameraLensSystems.path}
-                            className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
-                            onClick={handleMenuClose}
-                          >
-                            {productsDropdownItems.cameraLensSystems.label}
-                          </Link>
-                        </div>
-                      </div>
-                    )}
+                    {/* Generic Dropdown Menu */}
+                    {renderDropdownMenu(header.dropdownKey)}
                   </div>
                 );
               }
@@ -265,7 +370,7 @@ const Header = ({ background = "#fff" }) => {
                   key={header.label}
                   href={header.path}
                   className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
-                    pathName === header.path ? "after:!w-2 !text-[#d44c39]" : ""
+                    isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                   }`}
                   onClick={handleMenuClose}
                 >
@@ -278,7 +383,7 @@ const Header = ({ background = "#fff" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
-                    pathName === header.path ? "after:!w-2 !text-[#d44c39]" : ""
+                    isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                   }`}
                   onClick={handleMenuClose}
                 >
@@ -310,7 +415,7 @@ const Header = ({ background = "#fff" }) => {
               />
             </div>
             {headers.map((header) => {
-              if (header.hasDropdown) {
+              if (header.dropdownKey) {
                 return (
                   <div
                     key={header.label}
@@ -318,49 +423,11 @@ const Header = ({ background = "#fff" }) => {
                   >
                     <div
                       className="text-black hover:text-[#d44c39] cursor-pointer"
-                      onClick={() =>
-                        setIsMobileProductsDropdownOpen(
-                          !isMobileProductsDropdownOpen
-                        )
-                      }
+                      onClick={() => toggleMobileDropdown(header.dropdownKey)}
                     >
                       {header.label}
                     </div>
-                    {isMobileProductsDropdownOpen && (
-                      <div className="mt-4 w-full max-w-[280px] flex flex-col space-y-4 text-[16px]">
-                        {/* Consumer Products Section */}
-                        <div className="flex flex-col w-full">
-                          <div className="text-black font-bold text-[18px] mb-3 px-4 border-b border-gray-300 pb-2">
-                            {productsDropdownItems.consumerProducts.label}
-                          </div>
-                          <div className="flex flex-col space-y-2 pl-6">
-                            {productsDropdownItems.consumerProducts.items.map(
-                              (item) => (
-                                <Link
-                                  key={item.path}
-                                  href={item.path}
-                                  className="text-gray-700 hover:text-[#d44c39] cursor-pointer py-2 transition-colors duration-200"
-                                  onClick={handleMenuClose}
-                                >
-                                  • {item.label}
-                                </Link>
-                              )
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Camera, Lens & Systems Section */}
-                        <div className="flex flex-col w-full pt-2 border-t border-gray-300">
-                          <Link
-                            href={productsDropdownItems.cameraLensSystems.path}
-                            className="text-black font-bold text-[18px] hover:text-[#d44c39] cursor-pointer px-4 py-2 transition-colors duration-200"
-                            onClick={handleMenuClose}
-                          >
-                            {productsDropdownItems.cameraLensSystems.label}
-                          </Link>
-                        </div>
-                      </div>
-                    )}
+                    {renderMobileDropdownMenu(header.dropdownKey)}
                   </div>
                 );
               }

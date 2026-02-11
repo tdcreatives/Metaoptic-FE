@@ -53,12 +53,12 @@ const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
 
 
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[40px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] md:tracking-[4%] lg:tracking-[13.8px] xl:tracking-[13.8px] uppercase tracking-[0.8rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-left sm:text-left'
+                        className='text-black futura-condensed-medium font-medium text-[35px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] md:tracking-[4%] lg:tracking-[13.8px] xl:tracking-[13.8px] uppercase tracking-[0.8rem] mb-4 mt-2 md:mb-6 lg:mb-8 banner-text line1-width text-left sm:text-left'
                         dangerouslySetInnerHTML={{ __html: line1 }}
                     />
                 
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[40px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] md:tracking-[4%] lg:tracking-[13.8px] xl:tracking-[13.8px] uppercase tracking-[0.8rem] banner-text whitespace-normal break-words !text-right'
+                        className='text-black futura-condensed-medium font-medium text-[35px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] md:tracking-[4%] lg:tracking-[13.8px] xl:tracking-[13.8px] uppercase tracking-[0.8rem] banner-text whitespace-normal break-words !text-right'
                         style={{ '--line1-width': `${line1.length}ch` }}
                         dangerouslySetInnerHTML={{ __html: line2 }}
                     />
