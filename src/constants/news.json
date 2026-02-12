@@ -509,7 +509,26 @@
                 ]
             },
             "mod": "production"
+        },
+        {
+            "id": 25,
+            "slug": "metaoptics-announces-membership-in-stanford-engineerings-systemx-alliance-program-in-the-usa",
+            "title": "MetaOptics Announces Membership in Stanford Engineering's SystemX Alliance Program in the USA",
+            "desc": "MetaOptics Announces Membership in Stanford Engineering's SystemX Alliance Program in the USA",
+            "date": "Feb 10, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.straitstimes.com/paid-press-releases/metaoptics-announces-membership-in-stanford-engineerings-systemx-alliance-program-in-the-usa-20260210",
+            "external": false,
+            "details": {
+                "contentPath": "/content/news/metaoptics-announces-membership-in-stanford-engineerings-systemx-alliance-program-in-the-usa.mdx",
+                "relatedNews": [
+                    
+                ]
+            },
+            "mod": "development"
         }
+        
         
     ]
 }
