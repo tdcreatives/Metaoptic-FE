@@ -19,6 +19,7 @@ const Header = ({ background = "#fff" }) => {
   const [openDropdowns, setOpenDropdowns] = useState({});
   const [hoveredSubmenus, setHoveredSubmenus] = useState({});
   const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState({});
+  const [mobileOpenSubmenus, setMobileOpenSubmenus] = useState({});
   const pathName = usePathname();
 
   const menuBtnRef = useRef(null);
@@ -111,6 +112,7 @@ const Header = ({ background = "#fff" }) => {
     setOpenDropdowns({});
     setHoveredSubmenus({});
     setMobileOpenDropdowns({});
+    setMobileOpenSubmenus({});
   };
 
   const handleDropdownMouseEnter = (dropdownKey) => {
@@ -140,6 +142,13 @@ const Header = ({ background = "#fff" }) => {
     setMobileOpenDropdowns((prev) => ({
       ...prev,
       [dropdownKey]: !prev[dropdownKey],
+    }));
+  };
+
+  const toggleMobileSubmenu = (submenuKey) => {
+    setMobileOpenSubmenus((prev) => ({
+      ...prev,
+      [submenuKey]: !prev[submenuKey],
     }));
   };
 
@@ -233,42 +242,67 @@ const Header = ({ background = "#fff" }) => {
 
     return (
       isOpen && (
-        <div className="mt-4 w-full max-w-[280px] flex flex-col space-y-4 text-[16px]">
-          {Object.entries(items).map(([key, item]) => {
+        <div className="mt-[14px] w-full flex flex-col gap-[8px]">
+          {Object.entries(items).map(([key, item], index) => {
             // Check if item has sub-items
             if (item.items && Array.isArray(item.items)) {
+              const submenuKey = `${dropdownKey}-${key}`;
+              const isSubmenuOpen = mobileOpenSubmenus[submenuKey];
+
               return (
-                <div key={key} className="flex flex-col w-full">
-                  <div className="text-black font-bold text-[18px] mb-3 px-4 border-b border-gray-300 pb-2">
-                    {item.label}
+                <div key={key} className="flex flex-col w-full gap-[8px]">
+                  <div 
+                    className="flex items-center justify-between w-full border-b border-[#D3D0D0] border-opacity-50 pb-0 cursor-pointer"
+                    onClick={() => toggleMobileSubmenu(submenuKey)}
+                  >
+                    <span className="text-[#D34C39] text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium">
+                      {item.label}
+                    </span>
+                    <svg
+                      className={`w-6 h-6 transition-transform duration-300 ${
+                        isSubmenuOpen ? 'rotate-180' : ''
+                      }`}
+                      fill="none"
+                      stroke="#D34C39"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
                   </div>
-                  <div className="flex flex-col space-y-2 pl-6">
-                    {item.items.map((subItem) => (
-                      <Link
-                        key={subItem.path}
-                        href={subItem.path}
-                        className="text-gray-700 hover:text-[#d44c39] cursor-pointer py-2 transition-colors duration-200"
-                        onClick={handleMenuClose}
-                      >
-                        • {subItem.label}
-                      </Link>
-                    ))}
-                  </div>
+                  {isSubmenuOpen && (
+                    <div className="flex flex-col w-[296px] mx-auto">
+                      {item.items.map((subItem) => (
+                        <Link
+                          key={subItem.path}
+                          href={subItem.path}
+                          className="text-[#D34C39] text-[14px] leading-[4.285714em] tracking-[0.114em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity"
+                          onClick={handleMenuClose}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             }
 
             // Simple link item
             return (
-              <div key={key} className="flex flex-col w-full pt-2 border-t border-gray-300">
-                <Link
-                  href={item.path}
-                  className="text-black font-bold text-[18px] hover:text-[#d44c39] cursor-pointer px-4 py-2 transition-colors duration-200"
-                  onClick={handleMenuClose}
-                >
-                  {item.label}
-                </Link>
-              </div>
+              <Link
+                key={key}
+                href={item.path}
+                className="text-[#D34C39] text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity"
+                onClick={handleMenuClose}
+              >
+                {item.label}
+              </Link>
             );
           })}
         </div>
@@ -405,7 +439,7 @@ const Header = ({ background = "#fff" }) => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 text-[20px] uppercase z-[10000]"
+            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col space-y-8  z-[10000] futura-medium"
             ref={menuRef}
           >
             <div className="absolute top-[24px] right-[24px] cursor-pointer">
@@ -414,45 +448,70 @@ const Header = ({ background = "#fff" }) => {
                 onClick={handleMobileMenuToggle}
               />
             </div>
-            {headers.map((header) => {
-              if (header.dropdownKey) {
-                return (
-                  <div
-                    key={header.label}
-                    className="flex flex-col items-center"
-                  >
+            <div className="flex flex-col gap-[40px] w-full">
+              {headers.map((header) => {
+                if (header.dropdownKey) {
+                  const isOpen = mobileOpenDropdowns[header.dropdownKey];
+                  return (
                     <div
-                      className="text-black hover:text-[#d44c39] cursor-pointer"
-                      onClick={() => toggleMobileDropdown(header.dropdownKey)}
+                      key={header.label}
+                      className="flex flex-col w-full max-w-[318px] mx-auto"
                     >
-                      {header.label}
+                      <div
+                        className={`flex items-center justify-between w-full border-b pb-0 cursor-pointer ${
+                          isOpen ? 'border-[#D34C39]' : 'border-[#D3D0D0]'
+                        }`}
+                        onClick={() => toggleMobileDropdown(header.dropdownKey)}
+                      >
+                        <span className={`text-[20px] leading-[3em] uppercase tracking-[0.08em] text-center futura-medium ${
+                          isOpen ? 'text-[#D34C39]' : 'text-[#111111]'
+                        }`}>
+                          {header.label}
+                        </span>
+                        <svg
+                          className={`w-6 h-6 transition-transform duration-300 ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke={isOpen ? '#D34C39' : '#111111'}
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </div>
+                      {renderMobileDropdownMenu(header.dropdownKey)}
                     </div>
-                    {renderMobileDropdownMenu(header.dropdownKey)}
-                  </div>
+                  );
+                }
+                return header.path.startsWith("/") ? (
+                  <Link
+                    key={header.label}
+                    href={header.path}
+                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    onClick={handleMenuClose}
+                  >
+                    {header.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={header.label}
+                    href={header.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    onClick={handleMenuClose}
+                  >
+                    {header.label}
+                  </a>
                 );
-              }
-              return header.path.startsWith("/") ? (
-                <Link
-                  key={header.label}
-                  href={header.path}
-                  className="text-black hover:text-[#d44c39] cursor-pointer"
-                  onClick={handleMenuClose}
-                >
-                  {header.label}
-                </Link>
-              ) : (
-                <a
-                  key={header.label}
-                  href={header.path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:text-[#d44c39] cursor-pointer"
-                  onClick={handleMenuClose}
-                >
-                  {header.label}
-                </a>
-              );
-            })}
+              })}
+            </div>
           </nav>
         </>
       )}
