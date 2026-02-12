@@ -448,7 +448,7 @@ const Header = ({ background = "#fff" }) => {
                 onClick={handleMobileMenuToggle}
               />
             </div>
-            <div className="flex flex-col gap-[40px] w-full">
+            <div className="flex flex-col gap-[30px] w-full">
               {headers.map((header) => {
                 if (header.dropdownKey) {
                   const isOpen = mobileOpenDropdowns[header.dropdownKey];
@@ -463,7 +463,7 @@ const Header = ({ background = "#fff" }) => {
                         }`}
                         onClick={() => toggleMobileDropdown(header.dropdownKey)}
                       >
-                        <span className={`text-[20px] leading-[3em] uppercase tracking-[0.08em] text-center futura-medium ${
+                        <span className={`text-[18px] leading-[3em] uppercase tracking-[0.08em] text-center futura-medium ${
                           isOpen ? 'text-[#D34C39]' : 'text-[#111111]'
                         }`}>
                           {header.label}
@@ -493,7 +493,7 @@ const Header = ({ background = "#fff" }) => {
                   <Link
                     key={header.label}
                     href={header.path}
-                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    className="text-[#111111] text-[18px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
                     onClick={handleMenuClose}
                   >
                     {header.label}
@@ -504,7 +504,7 @@ const Header = ({ background = "#fff" }) => {
                     href={header.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    className="text-[#111111] text-[18px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
                     onClick={handleMenuClose}
                   >
                     {header.label}
