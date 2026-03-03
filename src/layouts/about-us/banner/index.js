@@ -40,7 +40,7 @@ const AboutUsBanner = () => {
                     <div>
                         We strive to become a global leader in metalens innovation,
                         combining advanced design expertise with scalable mass production
-                        capabilities to redefine the future of optical technology by 2024.
+                        capabilities to redefine the future of optical technology.
                     </div>
 
                     <div>

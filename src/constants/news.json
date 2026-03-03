@@ -527,8 +527,26 @@
                 ]
             },
             "mod": "production"
+        },
+
+        {
+            "id": 26,
+            "slug": "story20260301-8655869",
+            "title": "执行主席程章金：MetaOptics剑指纳斯达克 或成为本地首家手机厂商",
+            "desc": "MetaOptics创办人兼执行主席程章金说：“我们不是纯研发公司，我们是要赚钱的公司。产品必须是市场和客户需要的。” （陈渊庄摄",
+            "date": "Mar 01, 2026",
+            "image": "/news/story20260301-8655869.webp",
+            "thumbnail": "/news/story20260301-8655869.webp",
+            "path": "https://www.zaobao.com.sg/finance/singapore/story20260301-8655869",
+            "external": false,
+            "details": {
+                "images": ["/news/story20260301-8655869.webp"],
+                "contentPath": "/content/news/story20260301-8655869.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
         }
-        
         
     ]
 }
