@@ -12,7 +12,7 @@ const ChallengeItem = ({ icon, title, problem, solution }) => (
         sizes="100vw"
         className="xl:w-8 xl:h-8 w-6 h-6"
       />
-      <h4 className="futura-medium text-[16px] xl:text-xl text-black">
+      <h4 className="futura-medium text-[16px] xl:text-xl text-[#111]">
         {title}
       </h4>
     </div>
