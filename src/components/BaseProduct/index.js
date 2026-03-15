@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 
-const BaseProduct = ({ name, image, slug }) => {
+const BaseProduct = ({ name, image, slug, isNonProduct }) => {
   const productRef = React.useRef(null);
   const nameRef = React.useRef(null);
 
@@ -43,7 +43,7 @@ const BaseProduct = ({ name, image, slug }) => {
   };
 
   return (
-    <Link href={`/product/${slug}`} className="block">
+    <Link href={`${isNonProduct ? "" : "/product"}/${slug}`} className="block">
       <div
         ref={productRef}
         className="rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden"

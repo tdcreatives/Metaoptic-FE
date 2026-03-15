@@ -26,6 +26,7 @@ const products = [
     name: "Development Kits",
     slug: "development-kits",
     image: "/products/development-kits.png",
+    isNonProduct: true,
   },
 ];
 
@@ -40,13 +41,12 @@ const MetalensProductsPage = () => {
           <HeadingTitle title="Introduction" />
 
           <p className="futura-medium xl:text-xl text-lg">
-            MetaOptics metalens equipment represents the fabrication
-            infrastructure behind next-generation flat optics. Our portfolio of
-            direct laser writing, testing and assembling systems enables the
-            precise nanoscale patterning required to produce high-performance
-            metalenses at research and production scale, giving institutions and
-            manufacturers the tools to bring metalens technology from concept to
-            reality.
+            MetaOptics metalens products bring the breakthrough capabilities of
+            flat optics into real-world devices. From compact imaging systems to
+            next-generation smartphones and projection hardware, each product is
+            built around our core metalens technology, delivering superior
+            optical performance in form factors that conventional lens systems
+            cannot achieve.
           </p>
         </div>
 

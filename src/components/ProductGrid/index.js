@@ -16,6 +16,7 @@ const ProductGrid = ({ products = [] }) => {
               name={product.name}
               image={product.image}
               slug={product.slug}
+              isNonProduct={product.isNonProduct}
             />
           </div>
         ))}
