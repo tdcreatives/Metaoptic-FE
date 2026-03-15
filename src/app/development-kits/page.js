@@ -30,7 +30,7 @@ const DevelopmentKitsPage = () => {
       <Header />
       <BaseBanner title="Development Kits" />
 
-      <div className="container xl:py-[120px]">
+      <div className="container xl:pb-[120px]">
         <div className="xl:py-[120px]">
           <HeadingTitle title="Introduction" />
 

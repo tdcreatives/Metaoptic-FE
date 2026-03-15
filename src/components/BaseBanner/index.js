@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const BaseBanner = ({ title }) => {
+const BaseBanner = ({ title, children }) => {
   return (
     <section className="relative w-full h-[300px] md:h-[450px] xl:h-[615px] flex items-center overflow-hidden">
       {/* Background Image */}
@@ -18,10 +18,14 @@ const BaseBanner = ({ title }) => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <h1 className="text-black text-center text-[48px] md:text-[72px] xl:text-[128px] font-medium uppercase leading-tight futura-condensed-medium xl:tracking-[2px]">
-          {title}
-        </h1>
+      <div className="relative z-10 text-center w-full">
+        {title && (
+          <h1 className="text-black text-center text-[48px] md:text-[72px] xl:text-[128px] font-medium uppercase leading-tight futura-condensed-medium xl:tracking-[2px]">
+            {title}
+          </h1>
+        )}
+
+        {children}
       </div>
     </section>
   );

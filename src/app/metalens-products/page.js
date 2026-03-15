@@ -36,7 +36,7 @@ const MetalensProductsPage = () => {
       <Header />
       <BaseBanner title="Metalens Products" />
 
-      <div className="container xl:py-[120px]">
+      <div className="container xl:pb-[120px]">
         <div className="xl:py-[120px]">
           <HeadingTitle title="Introduction" />
 
