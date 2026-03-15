@@ -2,7 +2,7 @@ import HeadingTitle from "@/components/HeadingTitle";
 
 const WhatCoPackaged = () => {
   return (
-    <div className="xl:py-[120px]">
+    <div className="xl:pt-[120px] xl:pb-[80px]">
       <HeadingTitle title="What is Co-Packaged Optics?" />
 
       <div className="flex flex-col gap-5 text-black xl:text-lg text-[16px] xl:mt-10 mt-6">

@@ -5,6 +5,7 @@ import Footer from "@/layouts/main/footer";
 import BaseBanner from "@/components/BaseBanner";
 import { isMobile } from "@/utils";
 import WhatCoPackaged from "./layouts/WhatCoPackaged";
+import SolvingCore from "./layouts/SolvingCore";
 
 const CoPackagedOpticsPage = () => {
   return (
@@ -26,6 +27,7 @@ const CoPackagedOpticsPage = () => {
 
       <div className="container xl:pb-[120px]">
         <WhatCoPackaged />
+        <SolvingCore />
       </div>
       <Footer />
     </>
