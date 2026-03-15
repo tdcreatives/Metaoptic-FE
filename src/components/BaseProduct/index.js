@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
+import clsx from "clsx";
 
-const BaseProduct = ({ name, image, slug, isNonProduct }) => {
+const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
   const productRef = React.useRef(null);
   const nameRef = React.useRef(null);
 
@@ -46,7 +47,10 @@ const BaseProduct = ({ name, image, slug, isNonProduct }) => {
     <Link href={`${isNonProduct ? "" : "/product"}/${slug}`} className="block">
       <div
         ref={productRef}
-        className="rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden"
+        className={clsx(
+          "rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden",
+          className,
+        )}
         style={{ backgroundColor: "#F0F0F0" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

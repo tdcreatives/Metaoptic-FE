@@ -17,6 +17,7 @@ const ProductGrid = ({ products = [] }) => {
               image={product.image}
               slug={product.slug}
               isNonProduct={product.isNonProduct}
+              className="xl:h-[370px] h-auto"
             />
           </div>
         ))}
