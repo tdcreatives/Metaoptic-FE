@@ -51,7 +51,6 @@ const ProductDetailsBanner = ({ product }) => {
             <Image
               width="0"
               height="0"
-              rmov
               sizes="100vw"
               src={product?.image}
               alt="Next"
@@ -75,6 +74,22 @@ const ProductDetailsBanner = ({ product }) => {
               __html: removeAllBrTags(product?.details?.description),
             }}
           ></div>
+        )}
+
+        {product?.details?.descriptionHTML && (
+          <div className="xl:text-[20px] text-[16px] xl:max-w-[60%] max-w-[90%] mx-auto mt-10 space-y-8">
+            {product.details.descriptionHTML.map((item, index) => (
+              <div key={index} className="flex flex-col gap-2">
+                <h3 className="font-bold text-[#d34c39] uppercase text-[24px]">
+                  {item.title}
+                </h3>
+                <div
+                  className="prose prose-lg max-w-none text-[rgb(17,17,17)]"
+                  dangerouslySetInnerHTML={{ __html: item.html }}
+                />
+              </div>
+            ))}
+          </div>
         )}
 
         {product?.details?.subtitleItems && (

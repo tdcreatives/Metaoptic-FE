@@ -11,7 +11,7 @@ const products = [
     name: "Direct Laser Writer",
     image: "/products/product-7.png",
     category: "Metalens Equipment",
-    slug: "laser-writer",
+    slug: "direct-laser-writer",
   },
   {
     name: "Metalens Automatic Tester",
