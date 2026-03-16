@@ -152,6 +152,20 @@ const Header = ({ background = "#fff" }) => {
     }));
   };
 
+  const isItemActive = (item) => {
+    if (item.path && (pathName === item.path || pathName.startsWith(item.path + "/"))) {
+      return true;
+    }
+    if (item.items) {
+      return item.items.some((subItem) => pathName === subItem.path || pathName.startsWith(subItem.path + "/"));
+    }
+    return false;
+  };
+
+  const isSubItemActive = (path) => {
+    return pathName === path || pathName.startsWith(path + "/");
+  };
+
   // Helper function to render dropdown menu
   const renderDropdownMenu = (dropdownKey) => {
     const items = dropdownItems[dropdownKey];
@@ -168,6 +182,7 @@ const Header = ({ background = "#fff" }) => {
               if (item.items && Array.isArray(item.items)) {
                 const submenuKey = `${dropdownKey}-${key}`;
                 const isSubmenuHovered = hoveredSubmenus[submenuKey];
+                const active = isItemActive(item);
 
                 return (
                   <div
@@ -176,8 +191,15 @@ const Header = ({ background = "#fff" }) => {
                     onMouseEnter={() => handleSubmenuMouseEnter(dropdownKey, key)}
                     onMouseLeave={() => handleSubmenuMouseLeave(dropdownKey, key)}
                   >
-                    <div className="px-4 py-2 text-black hover:bg-gray-50 cursor-pointer flex items-center justify-between">
-                      <span>{item.label}</span>
+                    <Link
+                      href={item.path || "#"}
+                      onClick={handleMenuClose}
+                      className={clsx(
+                        "px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between",
+                        isSubmenuHovered || active ? "text-[#d44c39]" : "text-black"
+                      )}
+                    >
+                      <span className="text-[14px] futura-medium">{item.label}</span>
                       <svg
                         className="w-4 h-4 ml-2"
                         fill="none"
@@ -192,7 +214,7 @@ const Header = ({ background = "#fff" }) => {
                           d="M9 5l7 7-7 7"
                         />
                       </svg>
-                    </div>
+                    </Link>
 
                     {/* Sub-menu */}
                     {isSubmenuHovered && (
@@ -202,7 +224,10 @@ const Header = ({ background = "#fff" }) => {
                             <Link
                               key={subItem.path}
                               href={subItem.path}
-                              className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
+                              className={clsx(
+                                "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[14px] futura-medium",
+                                isSubItemActive(subItem.path) ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
+                              )}
                               onClick={handleMenuClose}
                             >
                               {subItem.label}
@@ -215,12 +240,16 @@ const Header = ({ background = "#fff" }) => {
                 );
               }
 
+              const active = isItemActive(item);
               // Simple link item
               return (
                 <Link
                   key={key}
                   href={item.path}
-                  className="block px-4 py-2 text-black hover:bg-gray-50 hover:text-[#d44c39] cursor-pointer"
+                  className={clsx(
+                    "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[14px] futura-medium",
+                    active ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
+                  )}
                   onClick={handleMenuClose}
                 >
                   {item.label}
@@ -249,31 +278,44 @@ const Header = ({ background = "#fff" }) => {
               const submenuKey = `${dropdownKey}-${key}`;
               const isSubmenuOpen = mobileOpenSubmenus[submenuKey];
 
+              const active = isItemActive(item);
+
               return (
                 <div key={key} className="flex flex-col w-full gap-[8px]">
                   <div 
-                    className="flex items-center justify-between w-full border-b border-[#D3D0D0] border-opacity-50 pb-0 cursor-pointer"
-                    onClick={() => toggleMobileSubmenu(submenuKey)}
+                    className="flex items-center justify-between w-full border-b border-[#D3D0D0] border-opacity-50 pb-0"
                   >
-                    <span className="text-[#D34C39] text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium">
-                      {item.label}
-                    </span>
-                    <svg
-                      className={`w-6 h-6 transition-transform duration-300 ${
-                        isSubmenuOpen ? 'rotate-180' : ''
-                      }`}
-                      fill="none"
-                      stroke="#D34C39"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <Link
+                      href={item.path || "#"}
+                      onClick={handleMenuClose}
+                      className={clsx(
+                        "text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium flex-1",
+                        active || isSubmenuOpen ? "text-[#D34C39]" : "text-[#111111]"
+                      )}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
+                      {item.label}
+                    </Link>
+                    <div 
+                      className="cursor-pointer p-2 -mr-2"
+                      onClick={() => toggleMobileSubmenu(submenuKey)}
+                    >
+                      <svg
+                        className={`w-6 h-6 transition-transform duration-300 ${
+                          isSubmenuOpen ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke={active || isSubmenuOpen ? "#D34C39" : "#111111"}
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   {isSubmenuOpen && (
                     <div className="flex flex-col w-[296px] mx-auto">
@@ -281,7 +323,10 @@ const Header = ({ background = "#fff" }) => {
                         <Link
                           key={subItem.path}
                           href={subItem.path}
-                          className="text-[#D34C39] text-[14px] leading-[4.285714em] tracking-[0.114em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity"
+                          className={clsx(
+                            "text-[14px] leading-[4.285714em] tracking-[0.114em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
+                            isSubItemActive(subItem.path) ? "text-[#D34C39]" : "text-[#111111]"
+                          )}
                           onClick={handleMenuClose}
                         >
                           {subItem.label}
@@ -293,12 +338,16 @@ const Header = ({ background = "#fff" }) => {
               );
             }
 
+            const active = isItemActive(item);
             // Simple link item
             return (
               <Link
                 key={key}
                 href={item.path}
-                className="text-[#D34C39] text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity"
+                className={clsx(
+                  "text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
+                  active ? "text-[#D34C39]" : "text-[#111111]"
+                )}
                 onClick={handleMenuClose}
               >
                 {item.label}

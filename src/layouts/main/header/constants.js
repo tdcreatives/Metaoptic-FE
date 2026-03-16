@@ -1,7 +1,7 @@
 // Navigation links array
 export const headers = [
   { label: "ABOUT US", path: "/about-us" },
-  { label: "PRODUCTS", path: "/products", dropdownKey: "products" },
+  { label: "VERTICALS", path: "/products", dropdownKey: "verticals" },
   { label: "NEWS", path: "/news" },
   { label: "INVESTOR RELATIONS", path: "/investor-relations", dropdownKey: "investorRelations" },
   { label: "CONTACT", path: "/contact-us" },
@@ -10,24 +10,44 @@ export const headers = [
 
 // Dropdown items configuration
 export const dropdownItems = {
-  products: {
-    consumerProducts: {
-      label: "Latest Products",
+  verticals: {
+    metalensEquipment: {
+      label: "Metalens Equipment",
+      path: "/metalens-equipment",
+      hasIndicator: true,
       items: [
-        {
-          label: "Metalens 5G Smartphone",
-          path: "/product/metalens-5g-smartphone",
-        },
-        { label: "Metalens AI Glasses", path: "/product/metalens-ai-glasses" },
-        {
-          label: "Pico Projector (2nd generation)",
-          path: "/product/pico-projector-2nd-generation",
-        },
+        { label: "Direct Laser Writer", path: "/product/direct-laser-writer" },
+        { label: "Automatic Tester", path: "/product/metalens-automatic-tester" },
+        { label: "Automatic Assembler & Tester", path: "/product/automated-metalens-camera-module-assembly-and-test-system" },
       ],
     },
-    cameraLensSystems: {
-      label: "Lens & Equipment",
-      path: "/products",
+    metalensFoundry: {
+      label: "Metalens Foundry",
+      path: "/metalens-foundry",
+      hasIndicator: true,
+      items: [
+        { label: "4in & 12in Platforms", path: "/4in-12in-platforms" },
+        { label: "Color Imaging Metalens", path: "/product/color-imaging-meta-lens" },
+        { label: "IR Metalens", path: "/product/ultra-wide-fov-ir-metalens" },
+        { label: "Ultra-Wide Lens", path: "/product/ultra-wide-fov-metalens-monochromatic-ir-camera" },
+        { label: "CPOs", path: "/co-packaged-optics" },
+      ],
+    },
+    metalensProducts: {
+      label: "Metalens Products",
+      path: "/metalens-products",
+      hasIndicator: true,
+      items: [
+        { label: "Metalens 5G Smartphone", path: "/product/metalens-5g-smartphone" },
+        { label: "Pico Projector", path: "/product/pico-projector" },
+        { label: "Metalens AI Smart Glasses", path: "/product/metalens-ai-glasses" },
+        { label: "Development Kits", path: "/development-kits" },
+      ],
+    },
+    metaOpticsAi: {
+      label: "MetaOptics AI",
+      path: "/metaoptics-ai",
+      isHighlighted: true,
     },
   },
   investorRelations: {
@@ -43,4 +63,4 @@ export const dropdownItems = {
 };
 
 // Legacy export for backward compatibility
-export const productsDropdownItems = dropdownItems.products;
+export const productsDropdownItems = dropdownItems.verticals;
