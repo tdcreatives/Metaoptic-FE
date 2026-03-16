@@ -27,7 +27,7 @@ const FourInTwelveInPlatforms = () => {
         </p>
       </BaseBanner>
 
-      <div className="container xl:pb-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
         <div className="xl:pt-[120px] pt-[60px]">
           <HeadingTitle title="Two platforms. One goal: precision at every scale." />
           <p className="futura-medium xl:text-xl text-base text-[#111111]">

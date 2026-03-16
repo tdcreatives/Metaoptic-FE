@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const BaseBanner = ({ title, children }) => {
   return (
-    <section className="relative w-full h-[300px] md:h-[450px] xl:h-[615px] flex items-center overflow-hidden">
+    <section className="relative w-full h-[300px] md:h-[450px] xl:h-[615px] flex items-center overflow-hidden xl:px-0 px-5">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

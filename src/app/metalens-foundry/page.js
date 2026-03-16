@@ -42,11 +42,11 @@ const MetalensFoundryPage = () => {
       <Header />
       <BaseBanner title="Metalens Foundry" />
 
-      <div className="container xl:pb-[120px]">
-        <div className="xl:py-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
+        <div className="xl:py-[120px] pt-[64px] pb-[56px]">
           <HeadingTitle title="Introduction" />
 
-          <p className="futura-medium xl:text-xl text-lg">
+          <p className="futura-medium xl:text-xl text-[14px]">
             MetaOptics Foundry represents our in-house capability to design,
             fabricate, and produce metalenses at scale. Built on 4-inch and
             12-inch wafer platforms, our foundry covers a growing range of

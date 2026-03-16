@@ -30,11 +30,11 @@ const DevelopmentKitsPage = () => {
       <Header />
       <BaseBanner title="Development Kits" />
 
-      <div className="container xl:pb-[120px]">
-        <div className="xl:py-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
+        <div className="xl:py-[120px] pt-[64px] pb-[56px]">
           <HeadingTitle title="Introduction" />
 
-          <p className="futura-medium xl:text-xl text-lg">
+          <p className="futura-medium xl:text-xl text-[14px]">
             MetaOptics Development Kits give engineers and researchers a
             ready-to-use platform for evaluating and integrating our metalens
             technology into their own systems. Each kit pairs our core metalens

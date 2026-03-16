@@ -36,11 +36,11 @@ const MetalensProductsPage = () => {
       <Header />
       <BaseBanner title="Metalens Products" />
 
-      <div className="container xl:pb-[120px]">
-        <div className="xl:py-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
+        <div className="xl:py-[120px] pt-[64px] pb-[56px]">
           <HeadingTitle title="Introduction" />
 
-          <p className="futura-medium xl:text-xl text-lg">
+          <p className="futura-medium xl:text-xl text-[14px]">
             MetaOptics metalens products bring the breakthrough capabilities of
             flat optics into real-world devices. From compact imaging systems to
             next-generation smartphones and projection hardware, each product is

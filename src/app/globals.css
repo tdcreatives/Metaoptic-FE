@@ -124,4 +124,8 @@ textarea:focus {
 .container {
   max-width: 1320px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
 }

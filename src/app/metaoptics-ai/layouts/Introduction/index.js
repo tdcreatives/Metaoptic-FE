@@ -2,7 +2,7 @@ import HeadingTitle from "@/components/HeadingTitle";
 
 const Introduction = () => {
   return (
-    <div className="container">
+    <div>
       <HeadingTitle title="Introduction" />
 
       <div className="py-5 flex flex-col gap-5 futura-medium xl:text-xl text-base text-[#111111]">

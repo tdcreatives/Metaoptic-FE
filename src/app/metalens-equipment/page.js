@@ -34,11 +34,11 @@ const MetalensEquipmentPage = () => {
       <Header />
       <BaseBanner title="Metalens Equipment" />
 
-      <div className="container xl:pb-[120px]">
-        <div className="xl:py-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
+        <div className="xl:py-[120px] pt-[64px] pb-[56px]">
           <HeadingTitle title="Introduction" />
 
-          <p className="futura-medium xl:text-xl text-lg">
+          <p className="futura-medium xl:text-xl text-[14px]">
             MetaOptics metalens equipment represents the fabrication
             infrastructure behind next-generation flat optics. Our portfolio of
             direct laser writing, testing and assembling systems enables the

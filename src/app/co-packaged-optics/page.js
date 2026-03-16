@@ -26,7 +26,7 @@ const CoPackagedOpticsPage = () => {
         </p>
       </BaseBanner>
 
-      <div className="container xl:pb-[120px]">
+      <div className="container xl:pb-[120px] !pb-[64px]">
         <WhatCoPackaged />
         <SolvingCore />
         <WhyCpo />

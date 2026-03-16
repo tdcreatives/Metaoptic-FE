@@ -15,7 +15,7 @@ const MetaOpticsAI = () => {
       <Header />
       <BaseBanner title="Optics Meets Intelligence" />
 
-      <div className="container xl:py-[120px]">
+      <div className="container xl:py-[120px] !py-[64px]">
         <Introduction />
         <BiometricsAI />
         <GestureRecognitionAI />
