@@ -60,8 +60,8 @@ const WhyCpo = () => {
           </div>
         </div>
 
-        {/* Comparison Table */}
-        <div className="overflow-x-auto mt-6">
+        {/* Comparison Table - Desktop */}
+        <div className="hidden md:block overflow-x-auto mt-6">
           <table className="w-full min-w-[700px] border-collapse border border-[#e3e3e3] text-center">
             <thead>
               <tr className="bg-[#EAEAEA]">
@@ -156,6 +156,135 @@ const WhyCpo = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+
+        {/* Comparison Table - Mobile */}
+        <div className="md:hidden mt-6 flex flex-col border border-[#D3D0D0] text-center w-full">
+          {/* FEATURE Section */}
+          <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px] uppercase">
+              Feature
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Form Factor
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Beam Quality
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Alignment
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Packaging Fit
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Thermal Resilience
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Manufacturing
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-bold text-[#333] text-[14px]">
+              Scalability
+            </span>
+          </div>
+
+          {/* METAOPTICS METALENS Section */}
+          <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px] uppercase">
+              Metaoptics Metalens
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Ultra-Thin, Planar, Flat Profile
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Tightly Focused, Precision Beam
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Enables Passive Alignment
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Compact, Ideal For High-Density CPO
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Solid-State, Thermally Stable
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Wafer-Level, Semiconductor-Compatible
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#d34c39] text-[14px]">
+              Designed For High-Throughput Production
+            </span>
+          </div>
+
+          {/* TRADITIONAL MICRO-OPTICS Section */}
+          <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px] uppercase">
+              Traditional Micro-optics
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Thick, Curved, 3D Geometry
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Wide, Diffuse Beam
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Requires Active Mechanical Adjustment
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Bulky, Limits Integration Density
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Vulnerable To Deformation Under Heat
+            </span>
+          </div>
+          <div className="py-4 px-4 border-b border-[#D3D0D0]">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Custom Fabrication, Complex Assembly
+            </span>
+          </div>
+          <div className="py-4 px-4">
+            <span className="futura-medium text-[#676767] text-[14px]">
+              Difficult To Scale For High-Volume
+            </span>
+          </div>
         </div>
       </div>
     </div>
