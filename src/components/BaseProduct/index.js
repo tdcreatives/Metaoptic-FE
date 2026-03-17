@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import clsx from "clsx";
+import { getProductPath } from "@/utils/product";
 
 const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
   const productRef = React.useRef(null);
@@ -44,7 +45,7 @@ const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
   };
 
   return (
-    <Link href={`${isNonProduct ? "" : "/product"}/${slug}`} className="block">
+    <Link href={isNonProduct ? `/${slug}` : getProductPath(slug)} className="block">
       <div
         ref={productRef}
         className={clsx(
@@ -78,7 +79,7 @@ const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
 BaseProduct.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default BaseProduct;

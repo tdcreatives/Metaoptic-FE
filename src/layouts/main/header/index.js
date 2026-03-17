@@ -380,7 +380,7 @@ const Header = ({ background = "#fff" }) => {
       }
     }
     return pathName === header.path || 
-           (header.path === "/products" && pathName.startsWith("/product"));
+           (header.path === "/verticals" && pathName.startsWith("/verticals/"));
   };
 
   return (

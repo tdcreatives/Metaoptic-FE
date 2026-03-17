@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { getProductPath } from '@/utils/product';
+
 import './index.scss';
 
 const BaseProductCard = ({
@@ -161,7 +163,7 @@ const BaseProductCard = ({
             className={`relative px-4 xl:py-3 py-2 xl:w-full w-[90%] mx-auto product-card ${
                 effectiveHovered ? 'product-card--hovered' : ''
             } ${effectiveAnyHovered && !effectiveHovered ? 'product-card--shrink' : ''}`}
-            onClick={() => router.push(`/product/${product.slug}`)}
+            onClick={() => router.push(getProductPath(product.slug))}
             onMouseEnter={handleMouseEnterWrapper}
             onMouseLeave={handleMouseLeaveWrapper}
             onTouchStart={handleTouchStart}

@@ -110,7 +110,7 @@ const Products = () => {
                 })}
             </div>
 
-            <Link href="/products">
+            <Link href="/verticals">
                 <BaseButton
                     label='See all products'
                     classNameBtn='uppercase'

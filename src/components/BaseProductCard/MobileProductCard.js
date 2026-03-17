@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { getProductPath } from '@/utils/product';
 
 const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) => {
     const [isTouched, setIsTouched] = useState(false);
@@ -34,7 +35,7 @@ const MobileProductCard = ({ product, onTouch = () => {}, productIdIsTouched }) 
 
     return (
         <Link 
-            href={`/product/${product?.slug}`}
+            href={getProductPath(product?.slug)}
             className={`block bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden ${
                 isTouched ? '!bg-[#d34c39]' : ''
             }`}
