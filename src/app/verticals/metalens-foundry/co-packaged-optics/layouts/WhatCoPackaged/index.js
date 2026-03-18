@@ -2,10 +2,10 @@ import HeadingTitle from "@/components/HeadingTitle";
 
 const WhatCoPackaged = () => {
   return (
-    <div className="xl:pt-[120px] xl:pb-[80px]">
+    <div className="xl:pt-[120px] lg:pt-[80px] pt-[60px] xl:pb-[80px] lg:pb-[60px] pb-[40px]">
       <HeadingTitle title="What is Co-Packaged Optics?" />
 
-      <div className="flex flex-col gap-5 text-black xl:text-lg text-[16px] xl:mt-10 mt-6">
+      <div className="flex flex-col gap-5 text-black xl:text-lg lg:text-[17px] text-[16px] xl:mt-10 lg:mt-8 mt-6">
         <p className="futura-medium font-medium">
           Bringing Optics and Electronics Closer Together
         </p>
@@ -20,7 +20,7 @@ const WhatCoPackaged = () => {
           metalens technology is built for exactly this challenge.
         </p>
       </div>
-      <div className="flex flex-col gap-5 text-black xl:text-lg text-[16px] xl:mt-10 mt-6">
+      <div className="flex flex-col gap-5 text-black xl:text-lg lg:text-[17px] text-[16px] xl:mt-10 lg:mt-8 mt-6">
         <p className="futura-medium">
           CPO defines where optics are needed. Metalens define how light is
           efficiently delivered.
