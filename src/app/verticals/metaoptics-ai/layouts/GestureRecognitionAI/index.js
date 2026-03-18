@@ -1,4 +1,4 @@
-import Image from "next/image";
+import React from "react";
 
 const GestureRecognitionAI = () => {
   return (
@@ -26,41 +26,46 @@ const GestureRecognitionAI = () => {
                 interpret hand gestures in real time.
               </p>
               <p className="futura-medium text-[16px] xl:text-xl text-[#676767]">
-                Designed for environments where precision and
-                responsiveness matter — from industrial interfaces to consumer
-                AR and smart device controls — the system delivers reliable
-                detection without the bulk of traditional depth cameras.
+                Designed for environments where precision and responsiveness
+                matter — from industrial interfaces to consumer AR and smart
+                device controls — the system delivers reliable detection without
+                the bulk of traditional depth cameras.
               </p>
             </div>
-            
+
             <ul className="list-disc pl-5 mt-8 flex flex-col gap-5">
               <li className="futura-medium text-[16px] xl:text-[20px] text-[#111111]">
-                Real-time hand and gesture detection via metalens IoT
-                camera
+                Real-time hand and gesture detection via metalens IoT camera
               </li>
               <li className="futura-medium text-[16px] xl:text-[20px] text-[#111111]">
-                AI model trained for robust detection across varied lighting
-                and backgrounds
+                AI model trained for robust detection across varied lighting and
+                backgrounds
               </li>
               <li className="futura-medium text-[16px] xl:text-[20px] text-[#111111]">
-                Compact form factor suited for AR/VR, HUD systems, and
-                smart device integration
+                Compact form factor suited for AR/VR, HUD systems, and smart
+                device integration
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Video */}
         <div className="xl:col-span-5 flex items-center justify-center">
-          <Image
-            src="/metaoptics-ai/ai-2.png"
-            alt="Gesture Recognition AI"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="w-full max-w-[500px] h-auto object-contain"
-            unoptimized
-          />
+          <div className="relative w-full max-w-[650px] aspect-square rounded-2xl overflow-hidden shadow-2xl bg-black">
+            <video
+              className="w-full h-full object-contain"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source
+                src="/metaoptics-ai/introduction.webm"
+                type="video/webm"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </div>
