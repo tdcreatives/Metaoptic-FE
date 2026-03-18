@@ -199,7 +199,7 @@ const Header = ({ background = "#fff" }) => {
                         isSubmenuHovered || active ? "text-[#d44c39]" : "text-black"
                       )}
                     >
-                      <span className="text-[14px] futura-medium">{item.label}</span>
+                      <span className="text-[16px] futura-medium">{item.label}</span>
                       <svg
                         className="w-4 h-4 ml-2"
                         fill="none"
@@ -225,7 +225,7 @@ const Header = ({ background = "#fff" }) => {
                               key={subItem.path}
                               href={subItem.path}
                               className={clsx(
-                                "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[14px] futura-medium",
+                                "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium",
                                 isSubItemActive(subItem.path) ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
                               )}
                               onClick={handleMenuClose}
@@ -247,7 +247,7 @@ const Header = ({ background = "#fff" }) => {
                   key={key}
                   href={item.path}
                   className={clsx(
-                    "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[14px] futura-medium",
+                    "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium",
                     active ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
                   )}
                   onClick={handleMenuClose}
@@ -289,7 +289,7 @@ const Header = ({ background = "#fff" }) => {
                       href={item.path || "#"}
                       onClick={handleMenuClose}
                       className={clsx(
-                        "text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium flex-1",
+                        "text-[20px] leading-[3.75em] tracking-[0.1em] futura-medium flex-1",
                         active || isSubmenuOpen ? "text-[#D34C39]" : "text-[#111111]"
                       )}
                     >
@@ -324,7 +324,7 @@ const Header = ({ background = "#fff" }) => {
                           key={subItem.path}
                           href={subItem.path}
                           className={clsx(
-                            "text-[14px] leading-[4.285714em] tracking-[0.114em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
+                            "text-[16px] leading-[4.285714em] tracking-[0.114em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
                             isSubItemActive(subItem.path) ? "text-[#D34C39]" : "text-[#111111]"
                           )}
                           onClick={handleMenuClose}
@@ -345,7 +345,7 @@ const Header = ({ background = "#fff" }) => {
                 key={key}
                 href={item.path}
                 className={clsx(
-                  "text-[16px] leading-[3.75em] tracking-[0.1em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
+                  "text-[20px] leading-[3.75em] tracking-[0.1em] futura-medium border-b border-[#D3D0D0] border-opacity-50 pb-0 hover:opacity-80 transition-opacity",
                   active ? "text-[#D34C39]" : "text-[#111111]"
                 )}
                 onClick={handleMenuClose}
@@ -406,7 +406,7 @@ const Header = ({ background = "#fff" }) => {
         <div className="flex justify-between items-center space-x-4">
           {/* Navigation Bar */}
           <nav
-            className="hidden xl:flex space-x-8 text-[16px] uppercase overflow-visible"
+            className="hidden xl:flex space-x-8 text-[20px] uppercase overflow-visible"
             ref={menuItemRef}
           >
             {headers.map((header) => {
@@ -512,7 +512,7 @@ const Header = ({ background = "#fff" }) => {
                         }`}
                         onClick={() => toggleMobileDropdown(header.dropdownKey)}
                       >
-                        <span className={`text-[18px] leading-[3em] uppercase tracking-[0.08em] text-center futura-medium ${
+                        <span className={`text-[20px] leading-[3em] uppercase tracking-[0.08em] text-center futura-medium ${
                           isOpen ? 'text-[#D34C39]' : 'text-[#111111]'
                         }`}>
                           {header.label}
@@ -542,7 +542,7 @@ const Header = ({ background = "#fff" }) => {
                   <Link
                     key={header.label}
                     href={header.path}
-                    className="text-[#111111] text-[18px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
                     onClick={handleMenuClose}
                   >
                     {header.label}
@@ -553,7 +553,7 @@ const Header = ({ background = "#fff" }) => {
                     href={header.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#111111] text-[18px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
+                    className="text-[#111111] text-[20px] leading-[3em] uppercase tracking-[0.08em] futura-medium border-b border-[#D3D0D0] pb-0 hover:text-[#d44c39] transition-colors max-w-[318px] mx-auto w-full"
                     onClick={handleMenuClose}
                   >
                     {header.label}
