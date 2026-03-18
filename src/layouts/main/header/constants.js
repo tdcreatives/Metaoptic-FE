@@ -16,9 +16,9 @@ export const dropdownItems = {
       path: "/verticals/metalens-equipment",
       hasIndicator: true,
       items: [
-        { label: "Direct Laser Writer", path: "/verticals/metalens-equipment/product/direct-laser-writer" },
-        { label: "Automatic Tester", path: "/verticals/metalens-equipment/product/metalens-automatic-tester" },
-        { label: "Automatic Assembler & Tester", path: "/verticals/metalens-equipment/product/automated-metalens-camera-module-assembly-and-test-system" },
+        { label: "Direct Laser Writer", path: "/verticals/metalens-equipment/direct-laser-writer" },
+        { label: "Automatic Tester", path: "/verticals/metalens-equipment/metalens-automatic-tester" },
+        { label: "Automatic Assembler & Tester", path: "/verticals/metalens-equipment/automated-metalens-camera-module-assembly-and-test-system" },
       ],
     },
     metalensFoundry: {
@@ -27,9 +27,9 @@ export const dropdownItems = {
       hasIndicator: true,
       items: [
         { label: "4in & 12in Platforms", path: "/verticals/metalens-foundry/4in-12in-platforms" },
-        { label: "Color Imaging Metalens", path: "/verticals/metalens-foundry/product/color-imaging-meta-lens" },
-        { label: "IR Metalens", path: "/verticals/metalens-foundry/product/ultra-wide-fov-ir-metalens" },
-        { label: "Ultra-Wide Lens", path: "/verticals/metalens-foundry/product/ultra-wide-fov-metalens-monochromatic-ir-camera" },
+        { label: "Color Imaging Metalens", path: "/verticals/metalens-foundry/color-imaging-meta-lens" },
+        { label: "IR Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-ir-metalens" },
+        { label: "Ultra-Wide Lens", path: "/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera" },
         { label: "CPOs", path: "/verticals/metalens-foundry/co-packaged-optics" },
       ],
     },
@@ -38,9 +38,9 @@ export const dropdownItems = {
       path: "/verticals/metalens-products",
       hasIndicator: true,
       items: [
-        { label: "Metalens 5G Smartphone", path: "/verticals/metalens-products/product/metalens-5g-smartphone" },
-        { label: "Pico Projector", path: "/verticals/metalens-products/product/pico-projector" },
-        { label: "Metalens AI Smart Glasses", path: "/verticals/metalens-products/product/metalens-ai-glasses" },
+        { label: "Metalens 5G Smartphone", path: "/verticals/metalens-products/metalens-5g-smartphone" },
+        { label: "Pico Projector", path: "/verticals/metalens-products/pico-projector" },
+        { label: "Metalens AI Smart Glasses", path: "/verticals/metalens-products/metalens-ai-glasses" },
         { label: "Development Kits", path: "/verticals/metalens-products/development-kits" },
       ],
     },

@@ -1,14 +1,9 @@
 import data from '@/constants/data.json';
 import ProductDetailsClientSide from '@/layouts/product-details/ProductDetailsClientSide';
-
-const CATEGORY_SLUGS = [
-  'color-imaging-meta-lens',
-  'ultra-wide-fov-ir-metalens',
-  'ultra-wide-fov-metalens-monochromatic-ir-camera'
-];
+import { productSlugs } from '@/utils/product';
 
 export const generateStaticParams = async () => {
-    return CATEGORY_SLUGS.map((slug) => ({
+    return productSlugs.map((slug) => ({
         slug,
     }));
 };

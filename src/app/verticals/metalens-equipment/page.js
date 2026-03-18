@@ -12,6 +12,7 @@ const products = [
     image: "/products/product-7.png",
     category: "Metalens Equipment",
     slug: "direct-laser-writer",
+    imageClassName: "xl:scale-[60%]",
   },
   {
     name: "Metalens Automatic Tester",
@@ -19,12 +20,14 @@ const products = [
       "Metalens <br /> <div class='name-dom-metalens-tester--first'>Automatic </div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
     slug: "metalens-automatic-tester",
     image: "/products/product-10.png",
+    imageClassName: "xl:scale-[70%]",
   },
   {
     name: "Automated Metalens Camera Module <br /> Assembly and Test System (A&T) 2026",
     slug: "automated-metalens-camera-module-assembly-and-test-system",
     image:
       "/products/product-automated-metalens-camera-module-assembly-and-test-system.png",
+    imageClassName: "xl:scale-[80%]",
   },
 ];
 

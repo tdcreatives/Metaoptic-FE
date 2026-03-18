@@ -8,7 +8,13 @@ import { gsap } from "gsap";
 import clsx from "clsx";
 import { getProductPath } from "@/utils/product";
 
-const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
+const BaseProduct = ({
+  name,
+  image,
+  slug,
+  className = "",
+  imageClassName = "",
+}) => {
   const productRef = React.useRef(null);
   const nameRef = React.useRef(null);
 
@@ -45,7 +51,7 @@ const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
   };
 
   return (
-    <Link href={isNonProduct ? `/${slug}` : getProductPath(slug)} className="block">
+    <Link href={getProductPath(slug)} className="block">
       <div
         ref={productRef}
         className={clsx(
@@ -61,7 +67,7 @@ const BaseProduct = ({ name, image, slug, isNonProduct, className = "" }) => {
             fill
             src={image}
             alt={name}
-            className="object-contain"
+            className={clsx("object-contain", imageClassName)}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>

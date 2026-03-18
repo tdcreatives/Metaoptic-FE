@@ -1,14 +1,9 @@
 import data from '@/constants/data.json';
 import ProductDetailsClientSide from '@/layouts/product-details/ProductDetailsClientSide';
-
-const CATEGORY_SLUGS = [
-  'direct-laser-writer',
-  'metalens-automatic-tester',
-  'automated-metalens-camera-module-assembly-and-test-system'
-];
+import { foundrySlugs } from '@/utils/product';
 
 export const generateStaticParams = async () => {
-    return CATEGORY_SLUGS.map((slug) => ({
+    return foundrySlugs.map((slug) => ({
         slug,
     }));
 };

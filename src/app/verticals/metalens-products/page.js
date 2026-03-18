@@ -11,6 +11,7 @@ const products = [
     name: "Metalens 5G Smartphone",
     slug: "metalens-5g-smartphone",
     image: "/products/metalens-5g-smartphone.png",
+    imageClassName: "xl:scale-[60%]",
   },
   {
     name: "Pico Projector",
@@ -21,12 +22,12 @@ const products = [
     name: "Metalens AI Glasses",
     slug: "metalens-ai-glasses",
     image: "/products/metalens-ai-glasses.png",
+    imageClassName: "xl:scale-[80%]",
   },
   {
     name: "Development Kits",
     slug: "development-kits",
     image: "/products/development-kits.png",
-    isNonProduct: true,
   },
 ];
 

@@ -11,7 +11,6 @@ const products = [
     name: "4in & 12in Platforms",
     image: "/products/4in12in.png",
     slug: "4in-12in-platforms",
-    isNonProduct: true,
   },
   {
     name: "Color Imaging Metalens",
@@ -32,7 +31,6 @@ const products = [
     name: "Co-Packaged Optics",
     slug: "co-packaged-optics",
     image: "/products/cpo.png",
-    isNonProduct: true,
   },
 ];
 

@@ -11,11 +11,13 @@ const products = [
     name: "IoT Metalens Color Camera",
     slug: "iot-metalens-color-camera",
     image: "/products/product-3.png",
+    imageClassName: "xl:scale-[50%]",
   },
   {
     name: "3D Biometrics Metalens Sensor",
     slug: "3d-biometrics-metalens-sensor",
     image: "/products/product-1.png",
+    imageClassName: "xl:scale-[60%]",
   },
   {
     name: "Ultra-wide FoV Metalens Monochromatic IR Camera",

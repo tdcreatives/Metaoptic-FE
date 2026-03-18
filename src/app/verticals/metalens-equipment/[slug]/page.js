@@ -1,14 +1,9 @@
 import data from '@/constants/data.json';
 import ProductDetailsClientSide from '@/layouts/product-details/ProductDetailsClientSide';
-
-const CATEGORY_SLUGS = [
-  'metalens-5g-smartphone',
-  'pico-projector',
-  'metalens-ai-glasses'
-];
+import { equipmentSlugs } from '@/utils/product';
 
 export const generateStaticParams = async () => {
-    return CATEGORY_SLUGS.map((slug) => ({
+    return equipmentSlugs.map((slug) => ({
         slug,
     }));
 };
