@@ -80,10 +80,10 @@ const ProductDetailsTestingCapabilities = ({
     }, []);
 
     return (
-        <div className='w-full bg-[rgba(234,234,234,1)] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-[rgb(17,17,17)]'>
+        <div className='w-full bg-[rgba(234,234,234,1)] lg:py-12 py-8 lg:px-10 px-6 rounded-[32px] text-[rgb(17,17,17)]'>
             {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-0'>
-                <div className='xl:text-[48px] text-[32px] uppercase relative z-30 futura-condensed-medium xl:mt-0 mt-3 text-start'>
+                <div className='xl:text-[48px] lg:text-[40px] text-[32px] uppercase relative z-30 futura-condensed-medium lg:mt-0 mt-3 text-start'>
                     Testing Capabilities
                 </div>
 
@@ -103,7 +103,7 @@ const ProductDetailsTestingCapabilities = ({
             </div>
 
             <div className='w-full h-[2px] bg-[rgba(17,17,17,1)] mx-auto mb-8'></div>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-12'>
                 {Object.entries(testingCapabilities).map(([section, specs], index) => (
                     <div key={index} className='spec-section flex flex-col gap-4'>
                         <div className='flex flex-col items-center'>
@@ -111,7 +111,7 @@ const ProductDetailsTestingCapabilities = ({
 
                             {section !== 'optionalSpecifications' &&
                                 section !== 'empty' && (
-                                    <h3 className='xl:text-[20px] text-[16px] font-semibold text-center uppercase mt-5 futura-medium'>
+                                    <h3 className='xl:text-[20px] lg:text-[18px] text-[16px] font-semibold text-center uppercase mt-5 futura-medium'>
                                         {section.replace(/([A-Z])/g, ' $1')}
                                     </h3>
                                 )}
@@ -121,7 +121,7 @@ const ProductDetailsTestingCapabilities = ({
                         <div
                             className={`overflow-hidden transition-all duration-500 ${
                                 isExpanded
-                                    ? 'max-h-[500px] opacity-100'
+                                    ? 'max-h-[1000px] opacity-100'
                                     : 'max-h-0 opacity-0'
                             }`}>
                             <ul className='mt-0 space-y-2 text-center text-[rgb(17,17,17)]'>
@@ -146,14 +146,14 @@ const ProductDetailsTestingCapabilities = ({
                 ))}
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12'>
                 <div className='spec-section flex flex-col gap-4'>
                     {buttonLeft && (
                         <BaseButton
                             label={buttonLeft?.name}
                             classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
-                            className='!mt-[80px]'
+                            className='!mt-0'
                             onClick={() => window.open(buttonLeft?.link, '_blank')}
                         />
                     )}
@@ -164,7 +164,7 @@ const ProductDetailsTestingCapabilities = ({
                             label={buttonRight?.name}
                             classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
-                            className='!mt-[80px]'
+                            className='!mt-0'
                             onClick={() => window.open(buttonRight?.link, '_blank')}
                         />
                     )}
