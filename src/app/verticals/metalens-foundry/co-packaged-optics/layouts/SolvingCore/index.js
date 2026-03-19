@@ -97,7 +97,7 @@ const SolvingCore = () => {
               src="/product-details/cpo/solving-1.png"
               alt="Solving CPO Challenge 1"
               fill
-              className="object-contain xl:scale-[140%]"
+              className="object-contain xl:scale-[170%]"
               unoptimized
             />
           </div>
