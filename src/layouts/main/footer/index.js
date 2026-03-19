@@ -76,7 +76,7 @@ const Footer = () => {
             <a href="/contact-us">Contact Us</a>
             <div className="xl:block hidden w-[1px] h-[30px] bg-[#ACACAC]"></div>
             <a
-              href="https://www.linkedin.com/company/metaoptics-technologies/"
+              href="https://www.linkedin.com/company/metaoptics-inc/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 futura-medium mb-[1px]"
