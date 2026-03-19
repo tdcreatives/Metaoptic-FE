@@ -65,92 +65,92 @@ const WhyCpo = () => {
           <table className="w-full min-w-[700px] border-collapse border border-[#e3e3e3] text-center">
             <thead>
               <tr className="bg-[#EAEAEA]">
-                <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px] uppercase">
+                <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px] uppercase">
                   Feature
                 </th>
-                <th className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px] uppercase">
+                <th className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px] uppercase">
                   Traditional Micro-optics
                 </th>
-                <th className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px] uppercase">
+                <th className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px] uppercase">
                   Metaoptics Metalens
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Form Factor
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Thick, Curved, 3D Geometry
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Ultra-Thin, Planar, Flat Profile
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Beam Quality
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Wide, Diffuse Beam
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Tightly Focused, Precision Beam
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Alignment
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Requires Active Mechanical Adjustment
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Enables Passive Alignment
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Packaging Fit
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Bulky, Limits Integration Density
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Compact, Ideal For High-Density CPO
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Thermal Resilience
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Vulnerable To Deformation Under Heat
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Solid-State, Thermally Stable
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Manufacturing
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Custom Fabrication, Complex Assembly
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Wafer-Level, Semiconductor-Compatible
                 </td>
               </tr>
               <tr>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   Scalability
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#676767] text-[14px] md:text-[16px] xl:text-[20px]">
                   Difficult To Scale For High-Volume
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[15px] lg:text-[15.5px] xl:text-[16px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#d34c39] text-[14px] md:text-[16px] xl:text-[20px]">
                   Designed For High-Throughput Production
                 </td>
               </tr>

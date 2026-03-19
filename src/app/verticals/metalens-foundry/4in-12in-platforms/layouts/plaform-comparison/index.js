@@ -59,13 +59,13 @@ const PlatformComparison = () => {
         <table className="w-full min-w-[700px] border-collapse border border-[#D3D0D0] text-center">
           <thead>
             <tr className="bg-[#EAEAEA]">
-              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] xl:text-[16px] uppercase w-[25%]">
+              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px] uppercase w-[25%]">
                 Feature
               </th>
-              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] xl:text-[16px] uppercase w-[37.5%]">
+              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px] uppercase w-[37.5%]">
                 4" Platform
               </th>
-              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] xl:text-[16px] uppercase w-[37.5%]">
+              <th className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px] uppercase w-[37.5%]">
                 12" Platform
               </th>
             </tr>
@@ -73,13 +73,13 @@ const PlatformComparison = () => {
           <tbody>
             {comparisonData.map((row, idx) => (
               <tr key={idx}>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[15px] xl:text-[14px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-bold text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   {row.feature}
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#333] text-[15px] xl:text-[14px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   {row.fourIn}
                 </td>
-                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#333] text-[15px] xl:text-[14px]">
+                <td className="border border-[#D3D0D0] py-4 px-4 futura-medium text-[#333] text-[14px] md:text-[16px] xl:text-[20px]">
                   {row.twelveIn}
                 </td>
               </tr>
