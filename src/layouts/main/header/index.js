@@ -420,11 +420,16 @@ const Header = ({ background = "#fff" }) => {
                   >
                     {header.path.startsWith("/") ? (
                       <Link
-                        href={header.path}
+                        href={header.label === "VERTICALS" ? "#" : header.path}
                         className={`relative z-[1001] text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                           isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                         }`}
-                        onClick={handleMenuClose}
+                        onClick={(e) => {
+                          if (header.label === "VERTICALS") {
+                            e.preventDefault();
+                          }
+                          handleMenuClose();
+                        }}
                       >
                         {header.label}
                       </Link>
