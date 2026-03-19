@@ -8,8 +8,8 @@ const comparisonData = [
   },
   {
     feature: "Critical Dimension",
-    fourIn: "100 Nm",
-    twelveIn: "80 Nm",
+    fourIn: "100 nm",
+    twelveIn: "80 nm",
   },
   {
     feature: "Wafer Size",
