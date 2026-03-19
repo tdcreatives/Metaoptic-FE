@@ -90,9 +90,9 @@ const ImagingEnhancementAI = () => {
       </div>
 
       {/* Bottom Images (ai-5, ai-6, ai-7) */}
-      <div className="flex flex-col md:flex-row w-full items-start xl:h-[576px] h-auto mt-12 gap-6 md:gap-0">
-        <div className="flex flex-col text-center w-full flex-1 md:mr-[140px]">
-          <div className="relative w-full">
+      <div className="flex flex-col md:flex-row w-full items-start xl:h-[576px] h-auto mt-12 gap-6">
+        <div className="flex flex-col text-center w-full flex-1 md:mr-[140px] relative mb-[100px] md:mb-0">
+          <div className="w-full">
             <Image
               src="/metaoptics-ai/ai-5.png"
               alt="Taken Low Resolution Image"
@@ -102,22 +102,23 @@ const ImagingEnhancementAI = () => {
               className="w-full h-auto object-cover rounded-[8px]"
               unoptimized
             />
-            {/* Arrow */}
-            <div className="hidden md:flex absolute top-1/2 right-[-70px] transform -translate-y-1/2 translate-x-1/2 z-10 w-10 xl:w-[74px]">
-              <Image
-                src="/metaoptics-ai/arrow.png"
-                alt="Arrow Right"
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-full h-auto object-contain"
-                unoptimized
-              />
-            </div>
           </div>
           <span className="futura-medium text-[13px] xl:text-[14px] text-[#676767] mt-3 block italic">
             Taken Low Resolution Image
           </span>
+
+          {/* Arrow */}
+          <div className="flex absolute md:top-1/2 top-[calc(100%+40px)] md:right-[-105px] right-1/2 transform md:-translate-y-1/2 translate-y-0 md:translate-x-1/2 translate-x-1/2 z-10 w-14 md:w-10 xl:w-[74px] rotate-90 md:rotate-0">
+            <Image
+              src="/metaoptics-ai/arrow.png"
+              alt="Arrow"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto object-contain"
+              unoptimized
+            />
+          </div>
         </div>
 
         <div className="flex flex-col text-center w-full flex-1 md:mr-[32px]">
