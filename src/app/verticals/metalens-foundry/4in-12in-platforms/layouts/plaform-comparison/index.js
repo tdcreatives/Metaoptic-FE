@@ -54,8 +54,8 @@ const PlatformComparison = () => {
         </p>
       </div>
 
-      {/* Desktop Table */}
-      <div className="hidden md:block overflow-x-auto mt-10">
+      {/* Platform Comparison Table */}
+      <div className="overflow-x-auto mt-10">
         <table className="w-full min-w-[700px] border-collapse border border-[#D3D0D0] text-center">
           <thead>
             <tr className="bg-[#EAEAEA]">
@@ -86,64 +86,6 @@ const PlatformComparison = () => {
             ))}
           </tbody>
         </table>
-      </div>
-
-      {/* Mobile Table */}
-      <div className="md:hidden mt-6 flex flex-col border border-[#D3D0D0] text-center w-full">
-        {/* FEATURE Section */}
-        <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
-          <span className="futura-bold text-[#333] text-[14px] uppercase">
-            Feature
-          </span>
-        </div>
-        {comparisonData.map((row, idx) => (
-          <div
-            key={`feature-${idx}`}
-            className="py-4 px-4 border-b border-[#D3D0D0]"
-          >
-            <span className="futura-bold text-[#333] text-[14px]">
-              {row.feature}
-            </span>
-          </div>
-        ))}
-
-        {/* 4" PLATFORM Section */}
-        <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
-          <span className="futura-bold text-[#333] text-[14px] uppercase">
-            4" Platform
-          </span>
-        </div>
-        {comparisonData.map((row, idx) => (
-          <div
-            key={`fourIn-${idx}`}
-            className="py-4 px-4 border-b border-[#D3D0D0]"
-          >
-            <span className="futura-medium text-[#333] text-[14px]">
-              {row.fourIn}
-            </span>
-          </div>
-        ))}
-
-        {/* 12" PLATFORM Section */}
-        <div className="bg-[#EAEAEA] py-4 px-4 border-b border-[#D3D0D0]">
-          <span className="futura-bold text-[#333] text-[14px] uppercase">
-            12" Platform
-          </span>
-        </div>
-        {comparisonData.map((row, idx) => (
-          <div
-            key={`twelveIn-${idx}`}
-            className={`py-4 px-4 ${
-              idx !== comparisonData.length - 1
-                ? "border-b border-[#D3D0D0]"
-                : ""
-            }`}
-          >
-            <span className="futura-medium text-[#333] text-[14px]">
-              {row.twelveIn}
-            </span>
-          </div>
-        ))}
       </div>
     </div>
   );
