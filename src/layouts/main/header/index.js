@@ -82,6 +82,17 @@ const Header = ({ background = "#fff" }) => {
   };
 
   useEffect(() => {
+    if (isMenuOpen) {
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
     if (menuItemRef.current) {
       gsap.set(menuItemRef.current, {
         x: "100%",
@@ -493,7 +504,7 @@ const Header = ({ background = "#fff" }) => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col space-y-8  z-[10000] futura-medium"
+            className="fixed top-0 right-0 h-full w-full bg-white flex flex-col space-y-8  z-[10000] futura-medium overflow-y-auto pb-10"
             ref={menuRef}
           >
             <div className="absolute top-[24px] right-[24px] cursor-pointer">
