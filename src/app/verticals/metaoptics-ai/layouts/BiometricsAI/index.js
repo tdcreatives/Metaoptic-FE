@@ -27,8 +27,8 @@ const BiometricsAI = () => {
               </p>
               <p className="futura-medium text-[16px] xl:text-xl text-[#676767]">
                 By capturing fine structural detail at a level that traditional
-                camera lenses cannot resolve, our system delivers high-
-                confidence identity verification in a form factor small enough
+                camera lenses cannot resolve, our system delivers high-confidence
+                identity verification in a form factor small enough
                 to embed in everyday devices.
               </p>
             </div>

@@ -28,7 +28,7 @@ const ImagingEnhancementAI = () => {
               <p className="futura-medium text-[16px] xl:text-xl text-[#676767]">
                 Developed in partnership with a Taiwanese AI and machine
                 learning company, our algorithms run on Nvidia GPU
-                infrastructure and are designed for high- throughput, real-time
+                infrastructure and are designed for high-throughput, real-time
                 enhancement pipelines.
               </p>
             </div>

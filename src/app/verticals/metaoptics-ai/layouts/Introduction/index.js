@@ -10,7 +10,7 @@ const Introduction = () => {
           MetaOptics AI combines the precision of metalens technology with
           proprietary artificial intelligence, delivering software and hardware
           systems that see, recognise, and enhance with a level of accuracy
-          conventional optics cannot match
+          conventional optics cannot match.
         </p>
 
         <p>Metalens capture the light. Our AI makes sense of it.</p>
