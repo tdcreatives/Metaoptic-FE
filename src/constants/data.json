@@ -383,6 +383,7 @@
       "category": "3D",
       "buyNow": "",
       "brochure": "/download/direct-laser-writer.pdf",
+      "mobileImageScale": 0.7,
       "details": {
         "subtitle": "Leading Edge Deep UV Direct Laser Writer",
         "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",

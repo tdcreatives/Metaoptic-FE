@@ -41,7 +41,9 @@ const ProductDetailsBanner = ({ product }) => {
               left: "50%",
               transform: `translate(-50%, -50%) ${
                 isMobile
-                  ? "scale(1)"
+                  ? product?.mobileImageScale
+                    ? `scale(${product?.mobileImageScale})`
+                    : "scale(1)"
                   : product?.imageScale
                   ? `scale(${product?.imageScale})`
                   : "scale(1)"
