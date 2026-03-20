@@ -47,7 +47,7 @@ const PlatformComparison = () => {
         <h3 className="futura-bold text-[18px] xl:text-[20px] text-black">
           Choosing the Right Platform
         </h3>
-        <p className="futura-medium text-[16px] xl:text-[18px] text-[#676767]">
+        <p className="futura-medium text-[14px] text-[14px] md:text-[16px] xl:text-[20px] text-[#676767]">
           Not sure which platform fits your project? Use this as a starting
           guide. Our team can help you determine the right fabrication approach
           based on your application, timeline, and volume requirements.
