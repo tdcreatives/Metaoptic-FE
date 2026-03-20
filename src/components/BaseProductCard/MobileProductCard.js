@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -11,7 +11,6 @@ const MobileProductCard = ({
   onTouch = () => {},
   productIdIsTouched,
 }) => {
-  const [isTouched, setIsTouched] = useState(false);
   const [lastTouchTime, setLastTouchTime] = useState(0);
 
   const handleTouch = (e) => {
@@ -29,20 +28,12 @@ const MobileProductCard = ({
     setLastTouchTime(currentTime);
   };
 
-  useEffect(() => {
-    if (productIdIsTouched && productIdIsTouched === product?.id) {
-      setIsTouched(true);
-    } else {
-      setIsTouched(false);
-    }
-  }, [product?.id, productIdIsTouched]);
-
   const positionMap = {
-    "01": "left-[50%]",
+    "01": "left-[45%]",
     "02": "left-[45%]",
     "03": "left-[35%]",
-    "04": "left-[50%]",
-    "05": "left-[50%]",
+    "04": "left-[45%]",
+    "05": "left-[40%]",
   };
 
   const leftPosition = positionMap[product?.id] || "left-[45%]";
@@ -50,47 +41,29 @@ const MobileProductCard = ({
   return (
     <Link
       href={getProductPath(product?.slug)}
-      className={`block bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden ${
-        isTouched ? "!bg-[#d34c39]" : ""
-      }`}
+      className="block bg-[#ebebeb] px-4 py-5 relative h-[300px] overflow-hidden"
       onTouchStart={handleTouch}
     >
       <div className="flex flex-col justify-between h-full">
         <motion.div
-          className={`futura-condensed-medium text-[28px] ${
-            isTouched ? "!text-white" : "text-[#d34c39]"
-          }`}
+          className="futura-condensed-medium text-[28px] text-[#d34c39]"
           layout
         >
           {product.id}
         </motion.div>
 
         <div>
-          <div
-            className={`futura-condensed-medium text-[24px] max-w-[40%] ${
-              isTouched ? "!text-white" : ""
-            }`}
-          >
+          <div className="futura-condensed-medium text-[24px] max-w-[40%]">
             {product?.title}
           </div>
 
-          {isTouched ? (
-            <Image
-              width="0"
-              height="0"
-              src="/next-orange-white.svg"
-              alt="Next"
-              className="w-[28px]"
-            />
-          ) : (
-            <Image
-              width="0"
-              height="0"
-              src="/next-orange.svg"
-              alt="Next"
-              className="w-[28px]"
-            />
-          )}
+          <Image
+            width="0"
+            height="0"
+            src="/next-orange.svg"
+            alt="Next"
+            className="w-[28px]"
+          />
 
           <div className="flex justify-start mt-5">
             <motion.div
@@ -102,8 +75,7 @@ const MobileProductCard = ({
                 ease: [0.37, 0, 0.63, 1],
                 delay: 0.3,
               }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-black text-white px-4 py-2 rounded-full hover:bg-[#d44c39] xl:text-[20px] futura-condensed-medium border-[2px] border-transparent hover:border-white transition-all whitespace-nowrap cursor-pointer"
+              className="bg-black text-white px-4 py-2 rounded-full xl:text-[20px] futura-condensed-medium border-[2px] border-transparent transition-all whitespace-nowrap cursor-pointer"
             >
               FIND OUT MORE
             </motion.div>
