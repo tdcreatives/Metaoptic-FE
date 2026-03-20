@@ -39,7 +39,7 @@ export const dropdownItems = {
       hasIndicator: true,
       items: [
         { label: "Metalens 5G Smartphone", path: "/verticals/metalens-products/metalens-5g-smartphone" },
-        { label: "Pico Projector", path: "/verticals/metalens-products/pico-projector" },
+        { label: "Pico Projector (2nd generation)", path: "/verticals/metalens-products/pico-projector-2nd-generation" },
         { label: "Metalens AI Smart Glasses", path: "/verticals/metalens-products/metalens-ai-glasses" },
         { label: "Development Kits", path: "/verticals/metalens-products/development-kits" },
       ],
