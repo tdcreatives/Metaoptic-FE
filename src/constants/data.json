@@ -818,7 +818,7 @@
       "image": "/products/pico-projector-2nd-generation.png",
       "category": "Projector",
       "buyNow": "https://metaoptics.shop/products/pico-projector-2nd-gen",
-      "buyNowText": "Pre Order Now",
+      "buyNowText": "Buy Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
       "details": {
         "subtitle": "Pocket sized projection, ready to travel.",
@@ -879,7 +879,7 @@
       "image": "/products/metalens-5g-smartphone.png",
       "imageScale": 1.2,
       "buyNow": "https://metaoptics.shop/products/metaoptics-metalens-5g-smartphone",
-      "buyNowText": "Pre Order Now",
+      "buyNowText": "Buy Now",
       "category": "Smartphone",
       "brochure": "/download/MetaOptics-5G-Smartphone.pdf",
       "details": {
@@ -949,7 +949,7 @@
       "imageScale": 1.2,
       "imageScaleMobile": 0.9,
       "buyNow": "https://metaoptics.shop/products/metalens-ai-glasses",
-      "buyNowText": "Pre Order Now",
+      "buyNowText": "Buy Now",
       "category": "Glasses",
       "brochure": "/download/MetaOptics-AI-Smart-Glasses.pdf",
       "details": {
