@@ -143,7 +143,7 @@ const Awards = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="px-6 md:px-12 pt-8 pb-4 flex items-center justify-center relative border-b border-[#e5e5e5] mx-4 md:mx-8 shrink-0">
+            <div className="px-6 md:px-12 md:pt-20 pt-8 pb-4 flex items-center justify-center relative border-b border-[#e5e5e5] mx-4 md:mx-8 shrink-0">
               <h2
                 className="futura-condensed-medium text-[#E85B43] text-center text-[28px] md:text-[48px] uppercase tracking-wide leading-tight"
                 dangerouslySetInnerHTML={{
@@ -152,7 +152,7 @@ const Awards = () => {
               />
               <button
                 onClick={() => setSelectedAwardIndex(null)}
-                className="absolute right-0 top-6 text-[#E85B43]"
+                className="absolute right-0 top-10 -translate-y-1/2 text-[#E85B43]"
               >
                 <IconX size={28} stroke={2.5} />
               </button>
