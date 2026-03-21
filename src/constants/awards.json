@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "/award-1.png",
+    "image": "/awards/nvidia-inception-program.png",
     "title": "NVIDIA Inception Program",
     "subtitle": "Startup Member",
     "modalTitle": "NVIDIA INCEPTION PROGRAM – STARTUP MEMBER",
@@ -9,23 +9,23 @@
   },
   {
     "id": 2,
-    "image": "/award-2.png",
+    "image": "/awards/design-ai-and-tech-awards-daita-2025.png",
     "title": "Design AI & Tech",
-    "subtitle": "Winner (2025)",
-    "modalTitle": "DESIGN AI & TECH AWARDS (DAITA) 2025 – WINNER",
+    "subtitle": "Winner ",
+    "modalTitle": "Design AI & Tech Awards (DAITA) 2025 - Winner",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was named a winner at the <strong>inaugural Design AI and Tech Awards (DAITA) 2025</strong>, a recognition that celebrates groundbreaking innovations at the intersection of artificial intelligence, advanced engineering, and product design. The award honours companies that demonstrate exceptional technological creativity, practical application of AI, and strong potential to shape future industries. MetaOptics received this recognition for its pioneering work in <strong>metalens and optical semiconductor technologies</strong>, enabling ultra-compact, high-performance optical systems for applications such as AI imaging, AR/VR devices, smart sensors, and next-generation consumer electronics. As a winner in the inaugural edition of the awards, MetaOptics is positioned among a select group of innovators setting the benchmark for AI-driven technology and design excellence in the global deep-tech ecosystem.</p>"
   },
   {
     "id": 3,
-    "image": "/award-3.png",
+    "image": "/awards/qualcomm-ai-program-for-innovators.png",
     "title": "Qualcomm AI Program for Innovators",
     "subtitle": "APAC 2025 Shortlist",
-    "modalTitle": "QUALCOMM AI PROGRAM FOR INNOVATORS<br/>APAC 2025 SHORTLIST",
+    "modalTitle": "QUALCOMM AI PROGRAM FOR INNOVATORS -<br/>APAC 2025 SHORTLIST",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte</strong> Ltd was selected for the <strong>Shortlist of the Qualcomm AI Program for Innovators – APAC 2025</strong>, a highly competitive regional initiative led by <strong>Qualcomm</strong> to identify and support promising startups developing advanced artificial intelligence solutions. The program recognises companies demonstrating strong technical innovation, commercial potential, and strategic relevance to the evolving AI and edge-computing ecosystem. MetaOptics' inclusion on the shortlist highlights the significance of its next-generation metalens and optical semiconductor technologies in enabling AI-driven imaging and sensing applications across industries such as smart devices, AR/VR, autonomous systems, and advanced sensors. This recognition underscores MetaOptics' growing prominence within the Asia-Pacific deep-tech landscape and signals strong industry validation from a global leader in semiconductor and AI technologies.</p>"
   },
   {
     "id": 4,
-    "image": "/award-4.png",
+    "image": "/awards/sgx-securities.png",
     "title": "SGX Securities",
     "subtitle": "Listing Commemoration Award",
     "modalTitle": "SGX SECURITIES – LISTING COMMEMORATION AWARD",
@@ -33,34 +33,34 @@
   },
   {
     "id": 5,
-    "image": "/award-5.png",
+    "image": "/awards/astar-t-up-excellence-award.png",
     "title": "T-UP Excellence Award",
-    "subtitle": "2024",
-    "modalTitle": "A*STAR – T-UP EXCELLENCE AWARD 2024",
+    "subtitle": "T-Up Excellence Award 2024",
+    "modalTitle": "A*STAR – T-Up Excellence Award 2024",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was recognised through the <strong>T-Up Excellence Award 2024</strong>, a prestigious recognition under the <strong>Technology for Enterprise Capability Upgrading (T-Up)</strong> initiative led by <strong>Agency for Science, Technology and Research</strong>. The award honours outstanding industry-research collaborations that successfully translate advanced scientific research into impactful commercial technologies. MetaOptics received this recognition for its successful partnership with A*STAR researchers in advancing next-generation metalens and optical semiconductor innovations, strengthening the company's R&D capabilities and accelerating the development of scalable photonics technologies. This award highlights MetaOptics' ability to bridge deep scientific research with real-world industrial applications, reinforcing its position as a leading deep-tech innovator within Singapore's national innovation ecosystem.</p>"
   },
   {
     "id": 6,
-    "image": "/award-6.png",
+    "image": "/awards/asia-innovation-cup.png",
     "title": "Asia Innovation Cup",
-    "subtitle": "Startup Innovation Award (2025)",
-    "modalTitle": "ASIA INNOVATION CUP 2025 – STARTUP INNOVATION AWARD",
+    "subtitle": "Startup Innovation Award",
+    "modalTitle": "Asia Innovation Cup 2025 – Startup Innovation Award",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was awarded the <strong>Startup Innovation Award at the 2025 Asia Innovation Cup</strong>, an international startup competition held during Taiwan's capital markets event and supported by institutions including the <strong>Taiwan Stock Exchange</strong>. The award recognises startups demonstrating exceptional technological innovation, market potential, and strategic impact across the Asia-Pacific region. MetaOptics received this recognition for its pioneering advancements in scalable <strong>metalens and optical semiconductor technologies</strong>, which enable ultra-compact imaging systems for applications such as AI sensing, AR/VR devices, and next-generation consumer electronics. Winning this award positions MetaOptics among the region's most promising deep-tech innovators and highlights the company's growing influence in the global photonics and AI hardware ecosystem.</p>"
   },
   {
     "id": 7,
-    "image": "/award-7.png",
+    "image": "/awards/ocbc-and-the-business-times-emerging-enterprise-2025-award.png",
     "title": "Emerging Enterprise 2025 Award",
-    "subtitle": "Finalist",
-    "modalTitle": "OCBC & THE BUSINESS TIMES –<br/>EMERGING ENTERPRISE 2025 AWARD – FINALIST",
+    "subtitle": "Emerging Enterprise 2025 Award",
+    "modalTitle": "OCBC & The Business Times –<br/>Emerging Enterprise 2025 Award – Finalist",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was selected as a <strong>Finalist in the 2025 Emerging Enterprise Awards</strong>, a prestigious regional business award jointly organised by <strong>The Business Times</strong> and <strong>OCBC Bank</strong>. The program recognises high-growth companies that demonstrate strong innovation, scalability, and international expansion potential across Asia. Being named a finalist places MetaOptics among a select group of top-performing emerging enterprises evaluated by industry leaders and business experts, highlighting the company's technological leadership in advanced optics and its strong commercial growth trajectory. This recognition underscores MetaOptics' credibility within the regional innovation ecosystem and signals to investors its potential to become a leading deep-tech company originating from Singapore.</p>"
   },
   {
     "id": 8,
-    "image": "/award-8.png",
+    "image": "/awards/apac-insider-singapore-business-awards-2026.png",
     "title": "Singapore Business Awards 2026",
     "subtitle": "Best Optical Semiconductor Innovator",
-    "modalTitle": "APAC INSIDER – SINGAPORE BUSINESS AWARDS 2026 –<br/>BEST OPTICAL SEMICONDUCTOR INNOVATOR 2026",
+    "modalTitle": "APAC Insider – Singapore Business Awards 2026 -<br/>Best Optical Semiconductor Innovator 2026",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was named <strong>Best Optical Semiconductor Innovator 2026</strong> at the <strong>Singapore Business Awards</strong> organised by <strong>APAC Insider</strong>, recognising the company's leadership in next-generation optical semiconductor technologies. The award highlights MetaOptics' pioneering work in <strong>metalens and advanced photonics innovation</strong>, enabling ultra-compact, high-performance optical systems for applications such as AI imaging, AR/VR devices, smart sensors, and next-generation consumer electronics. Selected through an independent research and evaluation process, this recognition positions <strong>MetaOptics Technologies Pte Ltd</strong> among Singapore's most innovative technology companies and underscores its growing role in shaping the future of optical semiconductor solutions within the global photonics and AI hardware ecosystem.</p>"
   }
 ]

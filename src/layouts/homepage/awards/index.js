@@ -103,7 +103,7 @@ const Awards = () => {
               onClick={() => setSelectedAwardIndex(index)}
               className="min-w-[240px] max-w-[240px] md:min-w-[280px] md:max-w-[280px] shrink-0 snap-center cursor-pointer group flex flex-col items-center"
             >
-              <div className="w-full aspect-square bg-[#f0f0f0] flex items-center justify-center p-6">
+              <div className="w-full aspect-square bg-[#ededed] flex items-center justify-center p-6">
                 <div className="relative w-full h-[70%]">
                   <Image
                     src={award.image}
@@ -113,13 +113,13 @@ const Awards = () => {
                   />
                 </div>
               </div>
-              <div className="mt-6 text-center px-2">
-                <h3 className="font-bold text-[22px] md:text-[28px] text-[#2a2a2a] leading-tight">
-                  {award.title}
-                </h3>
-                <p className="text-[14px] md:text-[16px] text-[#2a2a2a] mt-2">
+              <div className="mt-8 text-center px-2">
+                <h3 className="font-bold text-[22px] md:text-[24px] text-[#2a2a2a] leading-tight">
                   {award.subtitle}
-                </p>
+                </h3>
+                {/* <p className="text-[14px] md:text-[16px] text-[#2a2a2a] mt-2">
+                  {award.subtitle}
+                </p> */}
               </div>
             </div>
           ))}
