@@ -161,7 +161,7 @@ const Awards = () => {
             {/* Modal Body */}
             <div className="overflow-y-auto p-6 md:p-12 grow">
               {/* Inner Header/Image Area */}
-              <div className="w-full max-w-[600px] mx-auto bg-[#f0f0f0] flex items-center justify-center py-12 px-8 relative mb-12">
+              <div className="w-full max-w-[600px] mx-auto bg-[#ededed] flex items-center justify-center py-12 px-8 relative mb-12">
                 <button
                   onClick={handlePrevModal}
                   className="absolute left-[-20px] md:left-[-60px] top-1/2 -translate-y-1/2 text-[#E85B43] z-10"
