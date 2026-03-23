@@ -26,13 +26,13 @@ export const dropdownItems = {
       path: "/verticals/metalens-foundry",
       hasIndicator: true,
       items: [
-        { label: "4in & 12in Platforms", path: "/verticals/metalens-foundry/4in-12in-platforms" },
+        { label: "4\" & 12\" Platforms", path: "/verticals/metalens-foundry/4in-12in-platforms" },
         { label: "Color Imaging Metalens", path: "/verticals/metalens-foundry/color-imaging-meta-lens" },
         { label: "IR Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-ir-metalens" },
-        { label: "Ultra-Wide Lens", path: "/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera" },
+        { label: "ULTRA-WIDE FOV METALENS", path: "/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera" },
         { label: "CPOs", path: "/verticals/metalens-foundry/co-packaged-optics" },
       ],
-    },
+    },  
     metalensProducts: {
       label: "Metalens Products",
       path: "/verticals/metalens-products",
@@ -44,11 +44,11 @@ export const dropdownItems = {
         { label: "Development Kits", path: "/verticals/metalens-products/development-kits" },
       ],
     },
-    metaOpticsAi: {
-      label: "MetaOptics AI",
-      path: "/verticals/metaoptics-ai",
-      isHighlighted: true,
-    },
+    // metaOpticsAi: {
+    //   label: "MetaOptics AI",
+    //   path: "/verticals/metaoptics-ai",
+    //   isHighlighted: true,
+    // },
   },
   investorRelations: {
     companyAnnouncements: {
