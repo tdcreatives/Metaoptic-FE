@@ -4,10 +4,12 @@ import Header from "@/layouts/main/header";
 import Footer from "@/layouts/main/footer";
 import BaseBanner from "@/components/BaseBanner";
 import Introduction from "./layouts/Introduction";
-import BiometricsAI from "./layouts/BiometricsAI";
-import GestureRecognitionAI from "./layouts/GestureRecognitionAI";
-import ImagingEnhancementAI from "./layouts/ImagingEnhancementAI";
-import MotViewer from "./layouts/MotViewer";
+import NonContactRecognition from "./layouts/NonContactRecognition";
+import FingerGestureRecognition from "./layouts/FingerGestureRecognition";
+import SuperResolutionImaging from "./layouts/SuperResolutionImaging";
+import BrighteningImaging from "./layouts/BrighteningImaging";
+import SummaryTable from "./layouts/SummaryTable";
+import SharpeningImaging from "./layouts/SharpeningImaging";
 
 const MetaOpticsAI = () => {
   return (
@@ -17,10 +19,12 @@ const MetaOpticsAI = () => {
 
       <div className="container xl:py-[120px] !py-[64px]">
         <Introduction />
-        <BiometricsAI />
-        <GestureRecognitionAI />
-        <ImagingEnhancementAI />
-        <MotViewer />
+        <SuperResolutionImaging />
+        <NonContactRecognition />
+        <FingerGestureRecognition />        
+        <BrighteningImaging />
+        <SharpeningImaging />
+        <SummaryTable />
       </div>
       <Footer />
     </>

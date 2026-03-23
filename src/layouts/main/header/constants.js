@@ -44,11 +44,11 @@ export const dropdownItems = {
         { label: "Development Kits", path: "/verticals/metalens-products/development-kits" },
       ],
     },
-    // metaOpticsAi: {
-    //   label: "MetaOptics AI",
-    //   path: "/verticals/metaoptics-ai",
-    //   isHighlighted: true,
-    // },
+    metaOpticsAi: {
+      label: "MetaOptics AI",
+      path: "/verticals/metaoptics-ai",
+      isHighlighted: true,
+    },
   },
   investorRelations: {
     companyAnnouncements: {
