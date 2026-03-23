@@ -27,7 +27,7 @@ export const staticPages = [
 
 export const getProductPath = (slug) => {
   if (equipmentSlugs.includes(slug)) {
-    return `/verticals/metalens-equipment/${slug}`;
+    return `/verticals/metalens-capital-equipment/${slug}`;
   }
   if (foundrySlugs.includes(slug)) {
     return `/verticals/metalens-foundry/${slug}`;

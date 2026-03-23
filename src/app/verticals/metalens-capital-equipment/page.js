@@ -35,7 +35,7 @@ const MetalensEquipmentPage = () => {
   return (
     <>
       <Header />
-      <BaseBanner title="Metalens Equipment" />
+      <BaseBanner title="Metalens Capital Equipment" />
 
       <div className="container xl:pb-[120px] !pb-[64px]">
         <div className="xl:py-[120px] pt-[64px] pb-[56px]">

@@ -12,13 +12,13 @@ export const headers = [
 export const dropdownItems = {
   verticals: {
     metalensEquipment: {
-      label: "Metalens Equipment",
-      path: "/verticals/metalens-equipment",
+      label: "Metalens Capital Equipment",
+      path: "/verticals/metalens-capital-equipment",
       hasIndicator: true,
       items: [
-        { label: "Direct Laser Writer", path: "/verticals/metalens-equipment/direct-laser-writer" },
-        { label: "Automatic Tester", path: "/verticals/metalens-equipment/metalens-automatic-tester" },
-        { label: "Automatic Assembler & Tester", path: "/verticals/metalens-equipment/automated-metalens-camera-module-assembly-and-test-system" },
+        { label: "Direct Laser Writer", path: "/verticals/metalens-capital-equipment/direct-laser-writer" },
+        { label: "Automatic Tester", path: "/verticals/metalens-capital-equipment/metalens-automatic-tester" },
+        { label: "Automatic Assembler & Tester", path: "/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system" },
       ],
     },
     metalensFoundry: {
