@@ -114,12 +114,13 @@ const Awards = () => {
                 </div>
               </div>
               <div className="mt-8 text-center px-2">
-                <h3 className="font-bold text-[22px] md:text-[24px] text-[#2a2a2a] leading-tight">
-                  {award.subtitle}
+                <h3 className="font-bold text-[22px] md:text-[24px] text-[#2a2a2a] leading-tight"
+                dangerouslySetInnerHTML={{
+                  __html: award.title,
+                }}
+                >
+                  {/* {award.title} */}
                 </h3>
-                {/* <p className="text-[14px] md:text-[16px] text-[#2a2a2a] mt-2">
-                  {award.subtitle}
-                </p> */}
               </div>
             </div>
           ))}
