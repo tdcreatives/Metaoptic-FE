@@ -76,7 +76,7 @@ const MotViewer = () => {
           {/* Right Image */}
           <div className="xl:col-span-6 flex items-center justify-center">
             <Image
-              src="/metaoptics-ai/ai-8.png"
+              src="/metaoptics-ai/ai-8.jpg"
               alt="MotViewer Software"
               width={0}
               height={0}

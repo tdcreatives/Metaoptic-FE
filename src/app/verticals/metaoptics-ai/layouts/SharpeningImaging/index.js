@@ -39,7 +39,7 @@ const SharpeningImaging = () => {
         <div className="flex flex-col text-center w-full flex-1 md:mr-[140px] relative mb-[100px] md:mb-0">
           <div className="w-full">
             <Image
-              src="/metaoptics-ai/sharpening-imaging-01.png"
+              src="/metaoptics-ai/sharpening-imaging-01.jpg"
               alt="Basic"
               width={0}
               height={0}
@@ -68,7 +68,7 @@ const SharpeningImaging = () => {
 
         <div className="flex flex-col text-center w-full flex-1 md:mr-[32px]">
           <Image
-            src="/metaoptics-ai/sharpening-imaging-02.png"
+            src="/metaoptics-ai/sharpening-imaging-02.jpg"
             alt="AI Enhanced"
             width={0}
             height={0}

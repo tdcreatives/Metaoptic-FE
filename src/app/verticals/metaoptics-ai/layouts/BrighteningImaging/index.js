@@ -74,7 +74,7 @@ const BrighteningImaging = () => {
           <div className="flex flex-col text-center w-full flex-1 md:mr-[140px] relative mb-[100px] md:mb-0">
             <div className="w-full">
               <Image
-                src="/metaoptics-ai/ai-5.png"
+                src="/metaoptics-ai/ai-5.jpg"
                 alt="Taken Low Resolution Image"
                 width={0}
                 height={0}
@@ -103,7 +103,7 @@ const BrighteningImaging = () => {
   
           <div className="flex flex-col text-center w-full flex-1 md:mr-[32px]">
             <Image
-              src="/metaoptics-ai/ai-6.png"
+              src="/metaoptics-ai/ai-6.jpg"
               alt="Image Processed By Our Algorithm"
               width={0}
               height={0}
@@ -118,7 +118,7 @@ const BrighteningImaging = () => {
   
           <div className="flex flex-col text-center w-full flex-1">
             <Image
-              src="/metaoptics-ai/ai-7.png"
+              src="/metaoptics-ai/ai-7.jpg"
               alt="Original High-Res Image"
               width={0}
               height={0}
