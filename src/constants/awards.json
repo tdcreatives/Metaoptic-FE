@@ -41,6 +41,14 @@
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte</strong> Ltd was selected for the <strong>Shortlist of the Qualcomm AI Program for Innovators – APAC 2025</strong>, a highly competitive regional initiative led by <strong>Qualcomm</strong> to identify and support promising startups developing advanced artificial intelligence solutions. The program recognises companies demonstrating strong technical innovation, commercial potential, and strategic relevance to the evolving AI and edge-computing ecosystem. MetaOptics' inclusion on the shortlist highlights the significance of its next-generation metalens and optical semiconductor technologies in enabling AI-driven imaging and sensing applications across industries such as smart devices, AR/VR, autonomous systems, and advanced sensors. This recognition underscores MetaOptics' growing prominence within the Asia-Pacific deep-tech landscape and signals strong industry validation from a global leader in semiconductor and AI technologies.</p>"
   },
   {
+    "id": 4,
+    "image": "/awards/sgx-securities.png",
+    "title": "SGX Securities – Listing Commemoration Award",
+    "subtitle": "Listing Commemoration Award",
+    "modalTitle": "SGX SECURITIES – LISTING COMMEMORATION AWARD",
+    "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> achieved a significant corporate milestone with its successful listing on the <strong>Singapore Exchange Catalist Board</strong> on <strong>9th September 2025</strong>, the exchange's growth platform designed for high-potential and innovation-driven companies. The listing marks MetaOptics' transition from a private deep-tech startup to a publicly traded company, providing access to capital markets to accelerate research, product commercialization, and global expansion. Admission to the Catalist Board requires meeting strict regulatory, governance, and sponsor-supervised listing requirements, and signals strong confidence in the company's technology, business model, and growth trajectory. This milestone enhances MetaOptics' visibility among institutional investors and strategic partners while positioning the company to scale its advanced optical semiconductor and metalens technologies for next-generation AI imaging, AR/VR, and sensing applications worldwide.</p>"
+  },
+  {
     "id": 5,
     "image": "/awards/astar-t-up-excellence-award.png",
     "title": "A*STAR – T-Up Excellence Award 2024",
@@ -55,13 +63,5 @@
     "subtitle": "Startup Member",
     "modalTitle": "NVIDIA INCEPTION PROGRAM – STARTUP MEMBER",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was selected as a <strong>Startup Member of the NVIDIA Inception Program</strong>, a global initiative by <strong>NVIDIA</strong> that supports high-potential startups developing innovative solutions in artificial intelligence, accelerated computing, and intelligent systems. Membership in the program is granted to companies with strong technological capabilities and growth potential that align with NVIDIA's AI ecosystem. Through this recognition, MetaOptics gains access to advanced development resources, technical guidance, and global visibility within NVIDIA's network of technology partners and investors. This inclusion highlights the relevance of MetaOptics' next-generation metalens and optical semiconductor technologies in enabling AI-driven imaging, sensing, and edge-computing applications across emerging industries such as AR/VR, robotics, and autonomous systems.</p>"
-  },
-  {
-    "id": 4,
-    "image": "/awards/sgx-securities.png",
-    "title": "SGX Securities – Listing Commemoration Award",
-    "subtitle": "Listing Commemoration Award",
-    "modalTitle": "SGX SECURITIES – LISTING COMMEMORATION AWARD",
-    "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> achieved a significant corporate milestone with its successful listing on the <strong>Singapore Exchange Catalist Board</strong> on <strong>9th September 2025</strong>, the exchange's growth platform designed for high-potential and innovation-driven companies. The listing marks MetaOptics' transition from a private deep-tech startup to a publicly traded company, providing access to capital markets to accelerate research, product commercialization, and global expansion. Admission to the Catalist Board requires meeting strict regulatory, governance, and sponsor-supervised listing requirements, and signals strong confidence in the company's technology, business model, and growth trajectory. This milestone enhances MetaOptics' visibility among institutional investors and strategic partners while positioning the company to scale its advanced optical semiconductor and metalens technologies for next-generation AI imaging, AR/VR, and sensing applications worldwide.</p>"
   }
 ]
