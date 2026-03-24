@@ -14,9 +14,9 @@ const products = [
     imageClassName: "xl:scale-[60%]",
   },
   {
-    name: "Pico Projector",
-    slug: "pico-projector",
-    image: "/products/product-5.png",
+    name: "Projector (2nd generation)",
+    slug: "pico-projector-2nd-generation",
+    image: "/products/pico-projector-2nd-generation.png",
   },
   {
     name: "Metalens AI Glasses",
