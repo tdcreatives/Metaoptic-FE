@@ -74,6 +74,7 @@ const Footer = () => {
                     <div>Gallery</div> */}
           <div className="flex gap-5 xl:flex-row flex-col xl:items-center items-start">
             <a href="/contact-us">Contact Us</a>
+            {/* 
             <div className="xl:block hidden w-[1px] h-[30px] bg-[#ACACAC]"></div>
             <a
               href="https://www.linkedin.com/company/metaoptics-inc/"
@@ -88,7 +89,8 @@ const Footer = () => {
                 height={16}
               />
               <span> Linkedin</span>
-            </a>
+            </a> 
+            */}
           </div>
         </div>
         <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
