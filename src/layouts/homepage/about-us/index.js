@@ -73,32 +73,7 @@ const AboutUs = () => {
 
                 {/* Content with Background */}
                 <div className='bg-[#ebebeb] xl:p-8 p-4 rounded-lg xl:mt-0 mt-[120px] relative'>
-                    {isMobile && (
-                        <motion.div
-                            className='absolute rounded-lg overflow-hidden shadow-lg top-[-100px] w-[calc(100%-32px)]'
-                            whileHover={{
-                                rotateX: 5,
-                                rotateY: -5,
-                                scale: 1.02,
-                                transition: { duration: 0.4 },
-                            }}>
-                            <Image
-                                src='/about-2-new.jpg'
-                                alt='About 2'
-                                width={0}
-                                height={0}
-                                sizes='100vw'
-                                className='rounded-lg w-full h-[200px] rounded-[30px] xl:h-[350px] object-cover'
-                                ref={(el) => (imagesRef.current[2] = el)}
-                            />
-                            <motion.div
-                                className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center opacity-0'
-                                whileHover={{ opacity: 1 }}
-                                transition={{ duration: 0.3 }}></motion.div>
-                        </motion.div>
-                    )}
-
-                    <p className='text-[18px] mb-6 xl:max-w-[39%] max-w-full xl:mt-0 mt-[110px]'>
+                    <p className='text-[18px] mb-6 xl:max-w-[39%] max-w-full xl:mt-0 mt-0'>
                         At Metaoptics Technologies, we are breaking through current lens
                         limitations in consumer and IoT applications.
                     </p>
