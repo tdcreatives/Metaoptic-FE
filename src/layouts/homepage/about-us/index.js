@@ -187,7 +187,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-2-new.jpg'
+                                    src='/about-3-new-1.jpg'
                                     alt='About 2'
                                     width={0}
                                     height={0}
@@ -210,7 +210,7 @@ const AboutUs = () => {
                                     transition: { duration: 0.4 },
                                 }}>
                                 <Image
-                                    src='/about-4-new.jpg'
+                                    src='/about-4.jpg'
                                     alt='About 4'
                                     width={0}
                                     height={0}
