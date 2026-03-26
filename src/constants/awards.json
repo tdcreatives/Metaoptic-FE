@@ -7,7 +7,14 @@
     "modalTitle": "APAC Insider – Singapore Business Awards 2026 -<br/>Best Optical Semiconductor Innovator 2026",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was named <strong>Best Optical Semiconductor Innovator 2026</strong> at the <strong>Singapore Business Awards</strong> organised by <strong>APAC Insider</strong>, recognising the company's leadership in next-generation optical semiconductor technologies. The award highlights MetaOptics' pioneering work in <strong>metalens and advanced photonics innovation</strong>, enabling ultra-compact, high-performance optical systems for applications such as AI imaging, AR/VR devices, smart sensors, and next-generation consumer electronics. Selected through an independent research and evaluation process, this recognition positions <strong>MetaOptics Technologies Pte Ltd</strong> among Singapore's most innovative technology companies and underscores its growing role in shaping the future of optical semiconductor solutions within the global photonics and AI hardware ecosystem.</p>"
   },
-
+  {
+    "id": 1,
+    "image": "/awards/nvidia-inception-program.png",
+    "title": "NVIDIA Inception Program – Startup Member",
+    "subtitle": "Startup Member",
+    "modalTitle": "NVIDIA INCEPTION PROGRAM – STARTUP MEMBER",
+    "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was selected as a <strong>Startup Member of the NVIDIA Inception Program</strong>, a global initiative by <strong>NVIDIA</strong> that supports high-potential startups developing innovative solutions in artificial intelligence, accelerated computing, and intelligent systems. Membership in the program is granted to companies with strong technological capabilities and growth potential that align with NVIDIA's AI ecosystem. Through this recognition, MetaOptics gains access to advanced development resources, technical guidance, and global visibility within NVIDIA's network of technology partners and investors. This inclusion highlights the relevance of MetaOptics' next-generation metalens and optical semiconductor technologies in enabling AI-driven imaging, sensing, and edge-computing applications across emerging industries such as AR/VR, robotics, and autonomous systems.</p>"
+  },
   {
     "id": 2,
     "image": "/awards/design-ai-and-tech-awards-daita-2025.png",
@@ -55,13 +62,5 @@
     "subtitle": "T-Up Excellence Award 2024",
     "modalTitle": "A*STAR – T-Up Excellence Award 2024",
     "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was recognised through the <strong>T-Up Excellence Award 2024</strong>, a prestigious recognition under the <strong>Technology for Enterprise Capability Upgrading (T-Up)</strong> initiative led by <strong>Agency for Science, Technology and Research</strong>. The award honours outstanding industry-research collaborations that successfully translate advanced scientific research into impactful commercial technologies. MetaOptics received this recognition for its successful partnership with A*STAR researchers in advancing next-generation metalens and optical semiconductor innovations, strengthening the company's R&D capabilities and accelerating the development of scalable photonics technologies. This award highlights MetaOptics' ability to bridge deep scientific research with real-world industrial applications, reinforcing its position as a leading deep-tech innovator within Singapore's national innovation ecosystem.</p>"
-  },
-  {
-    "id": 1,
-    "image": "/awards/nvidia-inception-program.png",
-    "title": "NVIDIA Inception Program – Startup Member",
-    "subtitle": "Startup Member",
-    "modalTitle": "NVIDIA INCEPTION PROGRAM – STARTUP MEMBER",
-    "htmlContent": "<p class=\"text-[#2a2a2a] text-justify text-[14px] leading-relaxed\"><strong>MetaOptics Technologies Pte Ltd</strong> was selected as a <strong>Startup Member of the NVIDIA Inception Program</strong>, a global initiative by <strong>NVIDIA</strong> that supports high-potential startups developing innovative solutions in artificial intelligence, accelerated computing, and intelligent systems. Membership in the program is granted to companies with strong technological capabilities and growth potential that align with NVIDIA's AI ecosystem. Through this recognition, MetaOptics gains access to advanced development resources, technical guidance, and global visibility within NVIDIA's network of technology partners and investors. This inclusion highlights the relevance of MetaOptics' next-generation metalens and optical semiconductor technologies in enabling AI-driven imaging, sensing, and edge-computing applications across emerging industries such as AR/VR, robotics, and autonomous systems.</p>"
   }
 ]
