@@ -546,7 +546,28 @@
                     
                 ]
             }
+        },
+
+        {
+            "id": 27,
+            "slug": "singapore-metalens-maker-expands-us-presence-from-silicon-valley-base",
+            "title": "Singapore Metalens Maker Expands U.S. Presence from Silicon Valley Base",
+            "desc": "A Southeast Asian startup has quietly built one of the world’s most advanced meta-lens technologies and is now expanding its U.S. footprint",
+            "date": "April 01, 2026",
+            "image": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
+            "thumbnail": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
+            "path": "https://www.zaobao.com.sg/finance/singapore/story20260301-8655869",
+            "external": false,
+            "details": {
+                "images": ["/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp"],
+                "contentPath": "/content/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
         }
+        
+
         
     ]
 }

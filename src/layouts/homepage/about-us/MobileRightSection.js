@@ -87,7 +87,7 @@ const MobileRightSection = () => {
                         transition: { duration: 0.4 },
                     }}>
                     <Image
-                        src='/about-3-new-1.jpg'
+                        src='/about-3-new-2.jpg'
                         alt='About 2'
                         width={0}
                         height={0}
