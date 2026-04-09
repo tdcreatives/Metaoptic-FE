@@ -1682,6 +1682,154 @@
                 }
             ]
         }
+    },
+
+    {
+        "id": 37,
+        "title": "REPL::PLACEMENTS::ALLOTMENT AND ISSUANCE OF PLACEMENT SHARES",
+        "title_btn": "REPL::PLACEMENTS::ALLOTMENT AND ISSUANCE OF PLACEMENT SHARES",
+        "title_btn_sm": "REPL::PLACEMENTS::ALLOTMENT AND ISSUANCE OF PLACEMENT SHARES",
+        "title_banner": "PLACEMENTS",
+        "slug": "repl-placements-allotment-and-issuance-of-placement-shares",
+        "desc": "",
+        "date": "17 Dec 2025 05:52 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "ALLOTMENT AND ISSUANCE OF PLACEMENT SHARES",
+                "title": "Placements",
+                "dateTime": "17-Dec-2025 17:52:54",
+                "status": "New",
+                "reference": "SG2512160THRRLI6",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },  
+            "additional":{                
+                "left":[
+                    {
+                        "name": "Capital Amount-Old:",
+                        "text": "SGD 9,367,639"
+                    },
+                    {
+                        "name": "No. of Existing Outstanding Shares:",
+                        "text": "235,963,232"
+                    },
+                    {
+                        "name": "Offer Price:",
+                        "text": "SGD 0.7255"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Capital Amount-New::",
+                        "text": "SGD 14,217,639"
+                    },
+                    {
+                        "name": "New Shares Issued:",
+                        "text": "6,685,028"
+                    }
+                ]
+            },      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - LQN Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20LQN%20Announcement.ashx?App=Announcement&FileID=870036"                
+                },
+                {            
+                    "name": "MetaOptics - Allotment and Issuance of Placement Shares.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Allotment%20and%20Issuance%20of%20Placement%20Shares.ashx?App=Announcement&FileID=870037"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "16/12/2025 20:29:56",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/NSR9BLJM2X5ADG5O/2ead569a4b13a3b9c5940d359c24891c1ba163c6344ac2da99a1b7351a62414f#"                
+                }
+            ]
+        }
+    },
+    
+    {
+        "id": 38,
+        "title": "PLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
+        "title_btn": "REPPLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
+        "title_btn_sm": "PLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
+        "title_banner": "PLACEMENTS",
+        "slug": "placements-receipt-of-listing-and-ouotation-notice",
+        "desc": "",
+        "date": "16 Dec 2025 08:29 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "RECEIPT OF LISTING AND QUOTATION NOTICE",
+                "title": "Placements",
+                "dateTime": "16-Dec-2025 20:29:56",
+                "status": "New",
+                "reference": "SG2512160THRRLI6",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },  
+            "additional":{                
+                "left":[
+                    {
+                        "name": "Capital Amount-Old:",
+                        "text": "SGD 9,367,639"
+                    },
+                    {
+                        "name": "No. of Existing Outstanding Shares:",
+                        "text": "235,963,232"
+                    },
+                    {
+                        "name": "Offer Price:",
+                        "text": "SGD 0.7255"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Capital Amount-New::",
+                        "text": "SGD 14,217,639"
+                    },
+                    {
+                        "name": "New Shares Issued:",
+                        "text": "6,685,028"
+                    }
+                ]
+            },      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - LQN Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20LQN%20Announcement.ashx?App=Announcement&FileID=869946"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "17/12/2025 17:52:54",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/8ENZJOBEWS42856E/c951252511f86f6b48f5b65fd5b2367aded507db9658450b8c0fdbd7ccf8818e#"                
+                }
+            ]
+        }
     }
 ]
 

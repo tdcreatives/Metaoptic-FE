@@ -6,6 +6,7 @@ import items from '@/constants/announcements.json';
 import BaseButton from '@/components/BaseButton';
 import downloadIcon from '@/assets/images/download.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AnnouncementDetailContent = () => {
     const { slug } = useParams();
@@ -323,6 +324,40 @@ const AnnouncementDetailContent = () => {
                                 </div>
                             </div>                                                            
 
+                            
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                                {/* Left Column */}
+                                <div className='space-y-6'>
+                                    {details?.additional?.left &&  details?.additional?.left?.length > 0 && details?.additional?.left?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                    
+
+                                </div>
+
+                                {/* Right Column */}
+                                <div className='space-y-6'>                                    
+                                    {details?.additional?.right &&  details?.additional?.right?.length > 0 && details?.additional?.right?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                            </div>     
+
+
                             {details?.additional?.rowItems && details?.additional?.rowItems ?.length > 0 && details?.additional?.rowItems.map((item, index) => (                             
                             <div key={index} className='mt-2'>
                                 <div className='mb-2'>
@@ -398,6 +433,31 @@ const AnnouncementDetailContent = () => {
                                         className='!mt-[10px] !xl:justify-start !justify-start'                        
                                         onClick={() => window.open(item?.url, '_blank')}
                                     />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {details?.related && (
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                    Related Announcements
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+                            {details.related.map((item, index) => (
+                                <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                        {item.name}:
+                                    </div>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                        <Link href={item.url} target='_blank'><u>{item.text}</u></Link>
+                                    </div>
                                 </div>
                             ))}
                         </div>
