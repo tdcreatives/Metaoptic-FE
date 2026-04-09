@@ -1129,6 +1129,559 @@
                 ]            
             }
         }
+    },
+
+    {
+        "id": 28,
+        "title": "CHANGE - ANNOUNCEMENT OF APPOINTMENT::APPOINTMENT OF MR ALOYSIUS CHUA HAO PENG AS ED AND CEO OF THE COMPANY",
+        "title_btn": "CHANGE - ANNOUNCEMENT OF APPOINTMENT::APPOINTMENT OF MR ALOYSIUS CHUA HAO PENG AS ED AND CEO OF THE COMPANY",
+        "title_btn_sm": "CHANGE - ANNOUNCEMENT OF APPOINTMENT::APPOINTMENT OF MR ALOYSIUS CHUA HAO PENG AS ED AND CEO OF THE COMPANY",
+        "title_banner": "ANNOUNCEMENT<br/>OF APPOINTMENT",
+        "slug": "change-announcement-of-appointment-appointment-of-mr-aloysius-chua-hao-peng-as-ed-and-ceo-of-the-company",
+        "desc": "",
+        "date": "27 Feb 2026 08:18 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Appointment of Mr Aloysius Chua Hao Peng as ED and CEO of the Company",
+                "title": "Change - Announcement of Cessation",
+                "dateTime": "27-Feb-2026 20:18:38",
+                "status": "New",
+                "reference": "SG2602270THRKHUG",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Appointment of Mr Aloysius Chua Hao Peng as Executive Director and Chief Executive Officer of the Company.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },
+            "additional":{
+                "name": "Aloysius Chua Hao Peng",
+                "age": "42",
+                "dateOfAppointment":"01/03/2026",
+                "countryOfPrincipalResidence": "Singapore",
+                "rowItems":[
+                    {
+                        "name": "The Board's comments on this appointment (including rationale, selection criteria, board diversity considerations, and the search and nomination process):",
+                        "text" : "Mr Aloysius Chua Hao Peng is currently the Deputy Chief Executive Officer (\"CEO\") of the Company. As part of the Group's succession planning, the management of the Company has recommended the appointment of Mr Aloysius Chua Hao Peng as Executive Director and CEO of the Company.\n\nMr Aloysius Cha Hao Peng has been actively involved in leading strategic initiatives and overseeing key projects such as equipment development, metalens fabrication and the assembly of cutting-edge meta optics components and products since he started working with the Group in June 2021.\n\nThe board of directors of the Company, having considered the recommendations of the management and the Nominating Committee, and having reviewed and considered the industry experience, skillset, knowledge and performance of Mr Aloysius Chua Hao Peng as Deputy CEO of the Company, as well as his contributions to the Group, has approved the appointment of Mr Aloysius Chua Hao Peng as Executive Director and CEO of the Company, with effect from 1 March 2026.\n\nFollowing the aforesaid appointment of Mr Aloysius Chua Hao Peng, Mr Thng Chong Kim will remain as the Executive Chairman of the Company."
+
+                    },
+                    {
+                        "name": "Whether appointment is executive, and if so, the area of responsibility:",
+                        "text" : "The appointment is executive.\n\nAs Executive Director and CEO of the Company, Mr Aloysius Chua Hao Peng will continue to lead strategic initiatives and oversee key projects such as equipment development, metalens fabrication and the assembly of cutting-edge meta optics components and products. He will also continue to spearhead the set-up of key supply chains, work with suppliers on various key metalens component specifications and evaluate them for functionality, and drive innovation in metalens technology and business development"
+                    },
+                    {
+                        "name": "Job title (e.g. Lead ID, AC Chairman, AC Member etc.):",
+                        "text" : "Executive Director and Chief Executive Officer"
+                    },
+                    {
+                        "name": "Working experience and occupation(s) during the past 10 years:",
+                        "text" : "Mr Aloysius Chua Hao Peng started working in MetaOptics Technologies Pte. Ltd. (a wholly-owned subsidiary of the Company) in June 2021 as a Projects Manager and was subsequently promoted to Projects Director in April 2023. He was later appointed as Deputy Chief Executive Officer of the Group on 1 April 2025."
+                    },
+                    {
+                        "name": "Shareholding interest in the listed issuer and its subsidiaries:",
+                        "text" : "Yes"
+                    },
+                    {
+                        "name": "Shareholding details:",
+                        "text" : "Direct Interest: 1,352,000 ordinary shares of MetaOptics Ltd."
+                    },
+                    {
+                        "name": "Any relationship (including immediate family relationships) with any existing director, existing executive officer, the issuer and/or substantial shareholder of the listed issuer or of any of its principal subsidiaries:",
+                        "text" : "Mr Aloysius Chua Hao Peng is the nephew of Dato Sri Chua Chwee Lee (who is a substantial shareholder of the Company, as well as an executive director and controlling shareholder of both Metasurface Technologies Pte. Ltd. and Metasurface Technologies Holdings Limited) and Ms. Jee Wee Jene (who is a Non-Independent and Non-Executive Director and a substantial shareholder of the Company).\n\nMs Jee Wee Jene is the spouse of Dato Sri Chua Chwee Lee, and a director of Metasurface Technologies Pte. Ltd. as well as an executive director and controlling shareholder of Metasurface Technologies Holdings Limited.\n\nMetasurface Technologies Pte. Ltd., which is a wholly-owned subsidiary of Metasurface Technologies Holdings Limited, is a substantial shareholder of the Company."
+                    },
+                    {
+                        "name": "Conflict of interest (including any competing business):",
+                        "text" : "Nil"
+                    },
+                    {
+                        "name": "Undertaking (in the format set out in Appendix 7.7 or Appendix 7H) under Mainboard Rule 720(1) or Catalist Rule 720(1) has been submitted to the listed issuer:",
+                        "text" : "Yes"
+                    },
+                    {
+                        "name": "Other Principal Commitments* Including Directorships:\n* \"Principal Commitments\" has the same meaning as defined in the Code of Corporate Governance.\n* These fields are not applicable for announcements of appointments pursuant to Mainboard Rule 704(9) or Catalist Rule 704(8).",
+                        "text" : "Nil"
+                    },{
+                        "name": "Present",
+                        "text": "Nil"
+                    },
+                    {
+                        "name":"Information Required",
+                        "text": ""
+                    },
+                    {
+                        "name":"Disclose the following matters concerning an appointment of director, chief executive officer, chief financial officer, chief operating officer, general manager or other officer of equivalent rank. If the answer to any question is \"yes\", full details must be given.",
+                        "text": ""
+                    },
+                    {
+                        "name": "(a) Whether at any time during the last 10 years, an application or a petition under any bankruptcy law of any jurisdiction was filed against him or against a partnership of which he was a partner at the time when he was a partner or at any time within 2 years from the date he ceased to be a partner?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(b) Whether at any time during the last 10 years, an application or a petition under any law of any jurisdiction was filed against an entity (not being a partnership) of which he was a director or an equivalent person or a key executive, at the time when he was a director or an equivalent person or a key executive of that entity or at any time within 2 years from the date he ceased to be a director or an equivalent person or a key executive of that entity, for the winding up or dissolution of that entity or, where that entity is the trustee of a business trust, that business trust, on the ground of insolvency?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(c) Whether there is any unsatisfied judgment against him?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(d) Whether he has ever been convicted of any offence, in Singapore or elsewhere, involving fraud or dishonesty which is punishable with imprisonment, or has been the subject of any criminal proceedings (including any pending criminal proceedings of which he is aware) for such purpose?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(e) Whether he has ever been convicted of any offence, in Singapore or elsewhere, involving a breach of any law or regulatory requirement that relates to the securities or futures industry in Singapore or elsewhere, or has been the subject of any criminal proceedings (including any pending criminal proceedings of which he is aware) for such breach?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(f) Whether at any time during the last 10 years, judgment has been entered against him in any civil proceedings in Singapore or elsewhere involving a breach of any law or regulatory requirement that relates to the securities or futures industry in Singapore or elsewhere, or a finding of fraud, misrepresentation or dishonesty on his part, or he has been the subject of any civil proceedings (including any pending civil proceedings of which he is aware) involving an allegation of fraud, misrepresentation or dishonesty on his part?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(g) Whether he has ever been convicted in Singapore or elsewhere of any offence in connection with the formation or management of any entity or business trust?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(h) Whether he has ever been disqualified from acting as a director or an equivalent person of any entity (including the trustee of a business trust), or from taking part directly or indirectly in the management of any entity or business trust?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(i) Whether he has ever been the subject of any order, judgment or ruling of any court, tribunal or governmental body, permanently or temporarily enjoining him from engaging in any type of business practice or activity?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(j) Whether he has ever, to his knowledge, been concerned with the management or conduct, in Singapore or elsewhere, of the affairs of:- \n(i) any corporation which has been investigated for a breach of any law or regulatory requirement governing corporations in Singapore or elsewhere; or",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(ii) any entity (not being a corporation) which has been investigated for a breach of any law or regulatory requirement governing such entities in Singapore or elsewhere; or",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(iii) any business trust which has been investigated for a breach of any law or regulatory requirement governing business trusts in Singapore or elsewhere; or",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(iv) any entity or business trust which has been investigated for a breach of any law or regulatory requirement that relates to the securities or futures industry in Singapore or elsewhere, in connection with any matter occurring or arising during that period when he was so concerned with the entity or business trust?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "(k) Whether he has been the subject of any current or past investigation or disciplinary proceedings, or has been reprimanded or issued any warning, by the Monetary Authority of Singapore or any other regulatory authority, exchange, professional body or government agency, whether in Singapore or elsewhere?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "Disclosure applicable to the appointment of director only.\nAny prior experience as a director of an issuer listed on the Exchange?",
+                        "text": "No"
+                    },
+                    {
+                        "name": "If no, please state if the director has attended or will be attending training on the roles and responsibilities of a director of a listed issuer as prescribed by the Exchange.",
+                        "text": "The Company will be making arrangements for Mr Aloysius Chua Hao Peng to attend the relevant courses as prescribed by the Exchange within one year from his date of appointment."
+                    }
+                ]            
+            }
+        }
+    },
+
+    {
+        "id": 29,
+        "title": "GENERAL ANNOUNCEMENT:PRESS RELEASE - METAOPTICS ANNOUNCES MEMBERSHIP IN STANFORD ENGINEERING'S SYSTEMX ALLIANCE PROGRAM",
+        "title_btn": "GENERAL ANNOUNCEMENT:PRESS RELEASE - METAOPTICS ANNOUNCES MEMBERSHIP IN STANFORD ENGINEERING'S SYSTEMX ALLIANCE PROGRAM",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT:PRESS RELEASE - METAOPTICS ANNOUNCES MEMBERSHIP IN STANFORD ENGINEERING'S SYSTEMX ALLIANCE PROGRAM",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementpress-release-metaoptics-announces-membership-in-stanford-engineering-s-systemx-alliance-program",
+        "desc": "",
+        "date": "10 Feb 2026 05:30 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MetaOptics Announces Membership in Stanford Engineering's SystemX Alliance Program",
+                "title": "General Announcement",
+                "dateTime": "10-Feb-2026 17:30:42",
+                "status": "New",
+                "reference": "SG2602280THRZZGB",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."      
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Stanford Engineering SystemX PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Stanford%20Engineering%20SystemX%20PR.ashx?App=Announcement&FileID=874645"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 30,
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ORIGGIN VENTURES PTE. LTD.",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ORIGGIN VENTURES PTE. LTD.",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ORIGGIN VENTURES PTE. LTD.",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholder-origgin-ventures-pte-ltd",
+        "desc": "",
+        "date": "22 Dec 2025 06:09 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Substantial Shareholder - Origin Ventures Pte. Ltd.",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "22-Dec-2025 18:09:06",
+                "status": "New",
+                "reference": "SG251222OTHR7MPF",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                                  
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 19/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "ORIGGIN - Form 3.pdf",
+                    "url": "http://links.sgx.com/FileOpen/ORIGGIN%20-%20Form%203.ashx?App=Announcement&FileID=870337"                
+                },
+                {            
+                    "name": "_ORIGGIN - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_ORIGGIN%20-%20Form%203.ashx?App=Announcement&FileID=870338"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 31,
+        "title": "DISCLOSURE OF INTEREST/CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - MMI HOLDINGS LIMITED",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - MMI HOLDINGS LIMITED",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - MMI HOLDINGS LIMITED",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholder-mmi-holdings-limited",
+        "desc": "",
+        "date": "22 Dec 2025 06:07 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Substantial Shareholder - Origin Ventures Pte. Ltd.",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "22-Dec-2025 18:07:39",
+                "status": "New",
+                "reference": "SG251222OTHRZXE2",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                     
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 19/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "MMI - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MMI%20-%20Form%203.ashx?App=Announcement&FileID=870335"                
+                },
+                {            
+                    "name": "_MMI - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_MMI%20-%20Form%203.ashx?App=Announcement&FileID=870336"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 31,
+        "title": "DISCLOSURE OF INTEREST/CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholder-aquaspring-group-limited",
+        "desc": "",
+        "date": "22 Dec 2025 06:06 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Substantial Shareholder - Aquaspring Group Limited",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "22-Dec-2025 18:06:05",
+                "status": "New",
+                "reference": "SG2512220THRIPLM",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 22/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "AQUASPRING - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/AQUASPRING%20-%20Form%203.ashx?App=Announcement&FileID=870333"                
+                },
+                {            
+                    "name": "_AQUASPRING - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_AQUASPRING%20-%20Form%203.ashx?App=Announcement&FileID=870334"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 32,
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ANGELLING CAPITAL HOLDINGS LIMITED",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ANGELLING CAPITAL HOLDINGS LIMITED",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - ANGELLING CAPITAL HOLDINGS LIMITED",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholder-angling-capital-holdings-limited",
+        "desc": "",
+        "date": "22 Dec 2025 06:06 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Substantial Shareholder - Angelling Capital Holdings Limited",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "22-Dec-2025 18:04:28",
+                "status": "New",
+                "reference": "SG2512220THR8RIX",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 22/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "ANGELLING - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/ANGELLING%20-%20Form%203.ashx?App=Announcement&FileID=870331"                
+                },
+                {            
+                    "name": "_ANGELLING - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_ANGELLING%20-%20Form%203.ashx?App=Announcement&FileID=870332"                
+                }
+            ]
+        }
+    },
+    {
+        "id": 33,
+        "title": "DISCLOSURE OF INTEREST/CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDERS - MST SINGCO, MST LISTCO & CHUA CHWEE LEE",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDERS - MST SINGCO, MST LISTCO & CHUA CHWEE LEE",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDERS - MST SINGCO, MST LISTCO & CHUA CHWEE LEE",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholders-mst-singco-mst-listco-and-chua-chwee-lee",
+        "desc": "",
+        "date": "22 Dec 2025 06:02 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Substantial Shareholders - MST SingCo, MST ListCo & Chua Chwee Lee",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "22-Dec-2025 18:02:37",
+                "status": "New",
+                "reference": "SG2512220THR2WZY",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."                  
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 22/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "MST GROUP - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MST%20GROUP%20-%20Form%203.ashx?App=Announcement&FileID=870327"                
+                },
+                {            
+                    "name": "_MST GROUP - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_MST%20GROUP%20-%20Form%203.ashx?App=Announcement&FileID=870328"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 34,
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/CHIEF EXECUTIVE OFFICER ::DISCLOSURE OF INTEREST OF DIRECTOR - JEE WEE JENE",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/CHIEF EXECUTIVE OFFICER ::DISCLOSURE OF INTEREST OF DIRECTOR - JEE WEE JENE",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/CHIEF EXECUTIVE OFFICER ::DISCLOSURE OF INTEREST OF DIRECTOR - JEE WEE JENE",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-director-chief-executive-officerdisclosure-of-interest-of-director-jee-wee-jene-dec-2025",
+        "desc": "",
+        "date": "22 Dec 2025 05:58 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Director - Jee Wee Jane",
+                "title": "Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer",
+                "dateTime": "22-Dec-2025 17:58:05",
+                "status": "New",
+                "reference": "SG251222OTHR19QT",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Director/Chief Executive Officer who may also be a substantial shareholder/unitholder (Form 1)\n\nDate of receipt of notice by Listed Issuer: 22/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "WEE JENE - Form 1.pdf",
+                    "url": "https://links.sgx.com/FileOpen/WEE%20JENE%20-%20Form%201.ashx?App=Announcement&FileID=870319"                
+                },
+                {            
+                    "name": "_WEE JENE - Form 1.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_WEE%20JENE%20-%20Form%201.ashx?App=Announcement&FileID=870320"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 35,
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/ CHIEF EXECUTIVE OFFICER::DISCLOSURE OF INTEREST OF DIRECTOR - THNG CHONG KIM",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/ CHIEF EXECUTIVE OFFICER::DISCLOSURE OF INTEREST OF DIRECTOR - THNG CHONG KIM",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF DIRECTOR/ CHIEF EXECUTIVE OFFICER::DISCLOSURE OF INTEREST OF DIRECTOR - THNG CHONG KIM",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-changes-in-interest-of-director-chief-executive-officerdisclosure-of-interest-of-director-thng-chong-kim",
+        "desc": "",
+        "date": "22 Dec 2025 05:56 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Disclosure of Interest of Director - Thng Chong Kim",
+                "title": "Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer",
+                "dateTime": "22-Dec-2025 17:58:05",
+                "status": "New",
+                "reference": "SG2512220THRMSFO",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+
+            }, 
+            "additional":{                
+                "description": "Person(s) giving notice: Director/Chief Executive Officer who may also be a substantial shareholder/unitholder (Form 1)\n\nDate of receipt of notice by Listed Issuer: 22/12/2025"
+            },        
+            "attachments":[
+                {            
+                    "name": "MARK- Form 1.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MARK%20-%20Form%201.ashx?App=Announcement&FileID=870314"                
+                },
+                {            
+                    "name": "_MARK- Form 1.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_MARK%20-%20Form%201.ashx?App=Announcement&FileID=870315"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 36,
+        "title": "GENERAL ANNOUNCEMENT::PRESS RELEASE - YEAR-END BUSINESS REVIEW AND UPDATE",
+        "title_btn": "GENERAL ANNOUNCEMENT::PRESS RELEASE - YEAR-END BUSINESS REVIEW AND UPDATE",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PRESS RELEASE - YEAR-END BUSINESS REVIEW AND UPDATE",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementpress-release-year-end-business-review-and-update",
+        "desc": "",
+        "date": "17 Dec 2025 05:57 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - Year-End Business Review and Update",
+                "title": "General Announcement",
+                "dateTime": "17-Dec-2025 17:57:54",
+                "status": "New",
+                "reference": "SG2512170THRFWC1",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - MetaOptics Year-End Business Update and Review PR 20251217.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20MetaOptics%20Year-End%20Business%20Update%20and%20Review%20PR_20251217.ashx?App=Announcement&FileID=870043"                
+                }
+            ]
+        }
     }
 ]
 

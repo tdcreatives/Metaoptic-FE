@@ -271,6 +271,19 @@ const AnnouncementDetailContent = () => {
                                     </div>
                                     )}
 
+                                    {details?.additional?.dateOfAppointment &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                        Date of appointment to current position:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateOfAppointment}
+                                        </div>
+                                    </div>
+                                    )}
+
+
+
                                 </div>
 
                                 {/* Right Column */}
@@ -296,13 +309,24 @@ const AnnouncementDetailContent = () => {
                                         </div>
                                     </div>
                                     )}
+
+                                    {details?.additional?.countryOfPrincipalResidence &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Country of principal residence:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.countryOfPrincipalResidence}
+                                        </div>
+                                    </div>
+                                    )}
                                 </div>
                             </div>                                                            
 
                             {details?.additional?.rowItems && details?.additional?.rowItems ?.length > 0 && details?.additional?.rowItems.map((item, index) => (                             
                             <div key={index} className='mt-2'>
                                 <div className='mb-2'>
-                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify whitespace-pre-line'>
                                         {item.name}
                                     </h3>
                                 </div>
