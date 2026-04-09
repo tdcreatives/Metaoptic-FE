@@ -2035,6 +2035,226 @@
                 
             ]
         }
+    },
+
+    {
+        "id": 41,
+        "title": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_btn": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_btn_sm": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_banner": "GENERAL<br/>MEETING",
+        "slug": "repl-extraordinary-special-general-meeting",
+        "desc": "",
+        "date": "19 Mar 2026 08:22 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Extraordinary/ Special General Meeting",
+                "dateTime": "19-Mar-2026 08:22:20",
+                "finalYearEnd": "31/12/2025",                
+                "status": "New",                
+                "reference": "SG260319XMETNQZL",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },  
+            "eventNarrative":[
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. EGM Notice Booklet\n2. Circular\n3. Depositor Proxy Form\n4. Corrigendum to the EGM Notice announcement"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                }, 
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The Circular attached to this replacement announcement supersedes the earlier Circular released. All other documents remain unchanged."
+                }
+                
+
+            ],
+            "eventDates":{                
+                "left":[
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 11:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 11:00:00"
+                    }
+                ]
+            },
+            "eventVenues":[
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+
+            ],      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - EGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20EGM%20Notice%20Booklet.ashx?App=Announcement&FileID=878725"                
+                },
+                {            
+                    "name": "MetaOptics - Circular.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Circular.ashx?App=Announcement&FileID=878726"                
+                },
+                
+                {            
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=878727"                
+                },
+                {            
+                    "name": "MetaOptics - Corrigendum to Notice of EGM.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Corrigendum%20to%20Notice%20of%20EGM.ashx?App=Announcement&FileID=878728"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "19/03/2026 07:27:28",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/X4PUSN5LF8WTEF5Z/95b0f0e64187434e4c8a790e96d2273a18dd333c7125f303525607e754f5a96b#"                
+                }
+                
+            ]
+        }
+    },
+
+    {
+        "id": 42,
+        "title": "EXTRAORDINARY/ SPECIAL GENERAL MEETING: VOLUNTARY",
+        "title_btn": "EXTRAORDINARY/ SPECIAL GENERAL MEETING: VOLUNTARY",
+        "title_btn_sm": "EXTRAORDINARY/ SPECIAL GENERAL MEETING: VOLUNTARY",
+        "title_banner": "GENERAL<br/>MEETING",
+        "slug": "extraordinary-special-general-meeting-voluntary",
+        "desc": "",
+        "date": "19 Mar 2026 07:27 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Extraordinary/ Special General Meeting",
+                "dateTime": "19-Mar-2026 07:27:28",
+                "finalYearEnd": "31/12/2025",                
+                "status": "New",                
+                "reference": "SG260319XMETNOZL",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },  
+            "eventNarrative":[
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. EGM Notice Booklet\n2. Circular\n3. Depositor Proxy Form\n4. Corrigendum to the EGM Notice announcement"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                }, 
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                }
+                
+
+            ],
+            "eventDates":{                
+                "left":[
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 11:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 11:00:00"
+                    }
+                ]
+            },
+            "eventVenues":[
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+
+            ],      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - EGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20EGM%20Notice%20Booklet.ashx?App=Announcement&FileID=878719"                
+                },
+                {            
+                    "name": "MetaOptics - Circular.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Circular.ashx?App=Announcement&FileID=878720"                
+                },
+                
+                {            
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=878721"                
+                },
+                {            
+                    "name": "MetaOptics - Corrigendum to Notice of EGM.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Corrigendum%20to%20Notice%20of%20EGM.ashx?App=Announcement&FileID=878722"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "19/03/2026 08:22:20",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/GXYM35LKEQABAK3Y/efe5adc3d27d02b7d4116e34d8b9bd5bd6236f9fe363c20027958317eeabab8e#"                
+                }
+                
+            ]
+        }
     }
 ]
 
