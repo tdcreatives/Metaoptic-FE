@@ -30,14 +30,22 @@ const AnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
                 {/* Main text content */}
                 <div className='relative flex flex-col justify-center w-full max-w-[1440px]'>
 
-                    <Link href="/investor-relations">
+                    {/* <Link href="/investor-relations">
                         <BaseButton
                             label={'Company announcements'}
                             classNameBtn='uppercase'
                             bgDefault='#d34c39'
                             className='!mt-[10px] !xl:justify-start !justify-start'
                         />
-                    </Link>
+                    </Link> */}
+                    
+                    <div className="flex !mt-[10px] !xl:justify-start !justify-start">
+                        <div className="text-white font-bold px-10 py-3 rounded-full futura-medium xl:tracking-[2px] tracking-[2px] xl:text-[16px] text-[12px] uppercase bg-[#d34c39]">
+                            <span>Company announcements</span>
+                        </div>
+                    </div>
+
+
                     {/* <div 
                         className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[150px] xl:leading-[1em] leading-[1.1] tracking-[2%] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase  mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-left sm:text-left'
                         dangerouslySetInnerHTML={{ __html: line1 }}
