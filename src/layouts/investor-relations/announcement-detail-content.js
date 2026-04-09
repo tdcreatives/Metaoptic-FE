@@ -238,14 +238,109 @@ const AnnouncementDetailContent = () => {
                             </div>
                             <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>                                
+                        <div className='grid grid-cols-1 gap-8'>                                
+                            {details?.additional?.description && (
                             <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
                                 {details.additional .description}
                             </div>                                
+                            )}
+                        
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                                {/* Left Column */}
+                                <div className='space-y-6'>
+                                    {/* Announcement Title */}
+                                    {details?.additional?.name &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                        Name of person:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.name}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.dateCessationKnown &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Is effective date of cessation known?:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateCessationKnown}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                </div>
+
+                                {/* Right Column */}
+                                <div className='space-y-6'>                                    
+                                    {details?.additional?.age &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Age:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.age}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.dateCessation &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            If yes, please provide the date of cessation:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateCessation}
+                                        </div>
+                                    </div>
+                                    )}
+                                </div>
+                            </div>                                                            
+
+                            {details?.additional?.rowItems && details?.additional?.rowItems ?.length > 0 && details?.additional?.rowItems.map((item, index) => (                             
+                            <div key={index} className='mt-2'>
+                                <div className='mb-2'>
+                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                        {item.name}
+                                    </h3>
+                                </div>
+                                <div className=''>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                    {item.text}
+                                    </div>
+                                </div>
+                            </div>                    
+                            ))}
+
+                            {details?.additional?.otherDirectorships &&  (
+                            <div className='mt-2'>
+                                <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                    Other Directorships:
+                                </h3>
+
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-2'>
+                                {details?.additional?.otherDirectorships?.map((item, index) => (
+                                    <div key={index} className=''>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                            {item.name}
+                                        </div>                                    
+                                        {item.details && item.details.map((detail, detailIndex) => (  
+                                        <div key={detailIndex} className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                            {detail}
+                                        </div>                                            
+                                        ))}
+                                                            
+                                    </div>
+                                    ))}       
+
+                                </div>                                    
+                            </div>
+                            )}                           
                         </div>
                     </div>
                 )}
-
                 
                 {details?.attachments && (
                     <div className='mb-8'>

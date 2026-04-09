@@ -9,7 +9,7 @@ import useMobile from "@/hooks/useMobile";
 
 const countBrTag = (text) => {
   if (!text) return 0;
-  console.log(text, text.split("<br />").length);
+  // console.log(text, text.split("<br />").length);
   return text.split("<br />").length - 1;
 };
 const ProductDetailsBanner = ({ product }) => {

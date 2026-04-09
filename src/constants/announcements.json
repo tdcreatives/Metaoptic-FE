@@ -783,5 +783,353 @@
                 }
             ]
         }
+    },
+
+    {
+        "id": 21,
+        "title": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_btn": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementresponse-to-substantial-and-relevant-questions-received-from-sias-and-shareholders",
+        "desc": "",
+        "date": "06 Apr 2026 06:33 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Response to Substantial and Relevant Questions Received from SIAS and Shareholders",
+                "title": "General Announcement",
+                "dateTime": "06-Apr-2026 06:33:36",
+                "status": "New",
+                "reference": "SG2604060THRDAMR",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Responses to SIAS and Shareholders Queries.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Responses%20to%20SIAS%20and%20Shareholders%20Queries.ashx?App=Announcement&FileID=881956"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 22,
+        "title": "ANNUAL REPORTS AND RELATED DOCUMENTS::",
+        "title_btn": "ANNUAL REPORTS AND RELATED DOCUMENTS::",
+        "title_btn_sm": "ANNUAL REPORTS AND RELATED DOCUMENTS::",
+        "title_banner": "ANNUAL REPORTS &<br/>RELATED DOCUMENTS",
+        "slug": "annual-reports-and-related-documents",
+        "desc": "",
+        "date": "26 Mar 2026 07:36 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "reportType": "Annual Report",
+                "title": "Annual Reports and Related Documents",
+                "dateTime": "26-Mar-2026 07:36:29",
+                "status": "New",
+                "reference": "SG2603260THRQQHC",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Annual Report 2025.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Annual%20Report%202025.ashx?App=Announcement&FileID=880526"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 23,
+        "title": "GENERAL ANNOUNCEMENT::PRESS RELEASE - METAOPTICS PROGRESSES ON ITS STRATEGIC GROWTH AND LEADERSHIP TRANSITION INITIATIVES",
+        "title_btn": "GENERAL ANNOUNCEMENT::PRESS RELEASE - METAOPTICS PROGRESSES ON ITS STRATEGIC GROWTH AND LEADERSHIP TRANSITION INITIATIVES",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PRESS RELEASE - METAOPTICS PROGRESSES ON ITS STRATEGIC GROWTH AND LEADERSHIP TRANSITION INITIATIVES",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementpress-release-metaoptics-progresses-on-its-strategic-growth-and-leadership-transition-initiatives",
+        "desc": "",
+        "date": "20 Mar 2026 07:30 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MetaOptics Progresses on its Strategic Growth and Leadership Transition Initiatives",
+                "title": "General Announcement",
+                "dateTime": "20-Mar-2026 07:30:44",
+                "status": "New",
+                "reference": "SG2603200THRLR1V",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Strategic Growth and Leadership Transition Initiatives PR 20032026.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Strategic%20Growth%20and%20Leadership%20Transition%20Initiatives%20PR_20032026.ashx?App=Announcement&FileID=878897"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 24,
+        "title": "GENERAL ANNOUNCEMENT::METAOPTICS SHIPS AUTOMATIC METALENS TESTER TO TAIWANESE PARTNER PIN-JYE NANO TECHNOLOGIES",
+        "title_btn": "GENERAL ANNOUNCEMENT::METAOPTICS SHIPS AUTOMATIC METALENS TESTER TO TAIWANESE PARTNER PIN-JYE NANO TECHNOLOGIES",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::METAOPTICS SHIPS AUTOMATIC METALENS TESTER TO TAIWANESE PARTNER PIN-JYE NANO TECHNOLOGIES",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementmetaoptics-ships-automatic-metalens-tester-to-taiwanese-partner-pin-jye-nano-technologies",
+        "desc": "",
+        "date": "13 Mar 2026 07:26 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MetaOptics Ships Automatic Metalens Tester to Taiwanese Partner Pin-Jye Nano Technologies",
+                "title": "General Announcement",
+                "dateTime": "13-Mar-2026 07:26:35",
+                "status": "New",
+                "reference": "SG2603130THREPOU",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - First Automatic Metalens Tester to Taiwan PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20First%20Automatic%20Metalens%20Tester%20to%20Taiwan%20PR.ashx?App=Announcement&FileID=878267"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 25,
+        "title": "GENERAL ANNOUNCEMENT::PRESS RELEASE - DEVELOPMENT COLLABORATION UPDATE: COMPACT TUNABLE METALENS MODULE ADVANCEMENTS",
+        "title_btn": "GENERAL ANNOUNCEMENT::PRESS RELEASE - DEVELOPMENT COLLABORATION UPDATE: COMPACT TUNABLE METALENS MODULE ADVANCEMENTS",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PRESS RELEASE - DEVELOPMENT COLLABORATION UPDATE: COMPACT TUNABLE METALENS MODULE ADVANCEMENTS",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementpress-release-development-collaboration-update-compact-tunable-metalens-module-advancements",
+        "desc": "",
+        "date": "02 Mar 2026 17:32 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - Development Collaboration Update: Compact Tunable Metalens Module Advancements",
+                "title": "General Announcement",
+                "dateTime": "02-Mar-2026 17:32:01",
+                "status": "New",
+                "reference": "SG2603020THRMAMJ",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - Tunable Metalens PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Tunable%20Metalens%20PR.ashx?App=Announcement&FileID=877042"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 26,
+        "title": "GENERAL ANNOUNCEMENT::METAOPTICS DELIVERS STRONG Y-O-Y REVENUE GROWTH AND REMAINS WELL-CAPITALISED FOR GROWTH",
+        "title_btn": "GENERAL ANNOUNCEMENT::METAOPTICS DELIVERS STRONG Y-O-Y REVENUE GROWTH AND REMAINS WELL-CAPITALISED FOR GROWTH",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::METAOPTICS DELIVERS STRONG Y-O-Y REVENUE GROWTH AND REMAINS WELL-CAPITALISED FOR GROWTH",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcementmetaoptics-delivers-strong-y-o-y-revenue-growth-and-remains-well-capitalised-for-growth",
+        "desc": "",
+        "date": "28 Feb 2026 16:42 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MetaOptics delivers strong y-o-y revenue growth and remains well-capitalised for growth",
+                "title": "General Announcement",
+                "dateTime": "28-Feb-2026 16:42:48",
+                "status": "New",
+                "reference": "SG2602280THRZZGB",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+
+            },    
+            "attachments":[
+                {            
+                    "name": "MetaOptics - FY2025 Results PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20FY2025%20Results%20PR.ashx?App=Announcement&FileID=876924"                
+                }
+            ]
+        }
+    },
+
+    {
+        "id": 27,
+        "title": "CHANGE - ANNOUNCEMENT OF CESSATION: CESSATION OF CHIEF EXECUTIVE OFFICER - MR THNG CHONG KIM",
+        "title_btn": "CHANGE - ANNOUNCEMENT OF CESSATION: CESSATION OF CHIEF EXECUTIVE OFFICER - MR THNG CHONG KIM",
+        "title_btn_sm": "CHANGE - ANNOUNCEMENT OF CESSATION: CESSATION OF CHIEF EXECUTIVE OFFICER - MR THNG CHONG KIM",
+        "title_banner": "ANNOUNCEMENT<br/>OF CESSATION",
+        "slug": "change-announcement-of-cessation-cessation-of-chief-executive-officer-mr-thng-chong-kim",
+        "desc": "",
+        "date": "27 Feb 2026 20:19 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Cessation of Chief Executive Officer - Mr Thng Chong Kim",
+                "title": "Change - Announcement of Cessation",
+                "dateTime": "27-Feb-2026 20:19:51",
+                "status": "New",
+                "reference": "SG2602270THRYBQ9",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Cessation of Mr Thng Chong Kim as Chief Executive Officer of the Company.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."    
+            },
+            "additional":{
+                "name": "Thhg Chong Kim",
+                "age": "62",
+                "dateCessationKnown": "Yes",
+                "dateCessation": "01/03/2026",
+                "rowItems":[
+                    {
+                        "name": "Detailed reason(s) for cessation:",
+                        "text" : "Mr Thng Chong Kim is currently the Executive Chairman and Chief Executive Officer (\"CEO\") of the Group. As part of the Group's succession planning, the management of the Company has recommended the cessation of Mr Thng Chong Kim as CEO of the Company, in view of the promotion of Mr Aloysius Chua Hao Peng to Executive Director and CEO of the Company, with effect from 1 March 2026.\n\nMr Thng Chong Kim will remain as the Executive Chairman of the Company and will continue to be responsible for the overall management, strategic planning and business development of the Group."
+                    },
+                    {
+                        "name": "Are there any unresolved differences in opinion on material matters between the person and the board of directors, including matters which would have a material impact on the group or its financial reporting?",
+                        "text" : "No"
+                    },
+                    {
+                        "name": "Is there any matter in relation to the cessation that needs to be brought to the attention of the shareholders of the listed issuer?",
+                        "text" : "No"
+                    },
+                    {
+                        "name": "Any other relevant information to be provided to shareholders of the listed issuer?",
+                        "text" : "No"
+                    },
+                    {
+                        "name": "Date of appointment to current position:",
+                        "text" : "01/04/2025"
+                    },
+                    {
+                        "name": "Job title (e.g. Lead ID, AC Chairman, AC Member etc.):",
+                        "text" : "Ceased as CEO of the Company.\nContinues to be Executive Chairman of the Company."
+                    },
+                    {
+                        "name": "Role Responsibility:",
+                        "text" : "Notwithstanding his cessation as CEO of the Company, as Executive Chairman of the Company, Mr Thng Chong Kim continues to be responsible for the overall management, strategic planning and business development of the Group."
+                    },
+                    {
+                        "name": "Does the AC have a minimum of 3 members (taking into account this cessation)?",
+                        "text" : "Yes"
+                    },
+                    {
+                        "name": "Number of independent directors currently resident in Singapore (taking into account this cessation):",
+                        "text" : "4"
+                    },
+                    {
+                        "name": "Do independent directors make up at least one-third of the board (taking into account this cessation)?",
+                        "text" : "Yes"
+                    },
+                    {
+                        "name": "Number of cessations of appointments specified in Mainboard Rule 704(7) or Catalist Rule 704(6) over the past 12 months",
+                        "text" : "0"
+                    },
+                    {
+                        "name": "Shareholding interest in the listed issuer and its subsidiaries:",
+                        "text" : "Yes"
+                    },
+                    {
+                        "name": "Shareholding details:",
+                        "text": "Direct Interest: Nil\n\nDeemed Interest: 55,204,800 ordinary shares of MetaOptics Ltd held by Angelling Capital Holdings Limited (pursuant to section 4 of the Securities and Futures Act 2001 of Singapore, Mr Thng Chong Kim is deemed to be interested in 55,204,800 shares in the issued and paid-up share capital of the Company, by virtue of his entire shareholdings in Angelling Capital Holdings Limited)"
+                    },
+                    {
+                        "name": "Familial relationship with any director and/or substantial shareholder of the listed issuer or of any of its principal subsidiaries:",
+                        "text" : "Mr Thng Chong Kim is a substantial shareholder of the Company (please refer to the shareholding details) and a non-executive director of Metasurface Technologies Holdings Limited, which is a substantial shareholder of the Company."
+                    }
+                ],
+                "otherDirectorships":[
+                    {
+                        "name": "Present",
+                        "details": [
+                            "1. MetaOptics Technologies Pte. Ltd.",
+                            "2. Metasurface Technologies Holdings Limited"
+                        ]
+                    },
+                    {
+                        "name": "Past (for the last 5 years)",
+                        "details": [
+                            "1. SGCAN Pte. Ltd.",
+                            "2. Baccini Capital Pte. Ltd."
+                        ]
+                    }
+                ]            
+            }
+        }
     }
 ]
+
+
