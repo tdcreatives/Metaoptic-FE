@@ -1731,7 +1731,7 @@
                 ],
                 "right": [
                     {
-                        "name": "Capital Amount-New::",
+                        "name": "Capital Amount-New:",
                         "text": "SGD 14,217,639"
                     },
                     {
@@ -1807,7 +1807,7 @@
                 ],
                 "right": [
                     {
-                        "name": "Capital Amount-New::",
+                        "name": "Capital Amount-New:",
                         "text": "SGD 14,217,639"
                     },
                     {
@@ -1828,6 +1828,211 @@
                     "text": "17/12/2025 17:52:54",
                     "url": "https://links.sgx.com/1.0.0/corporate-announcements/8ENZJOBEWS42856E/c951252511f86f6b48f5b65fd5b2367aded507db9658450b8c0fdbd7ccf8818e#"                
                 }
+            ]
+        }
+    },
+
+    {
+        "id": 39,
+        "title": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_btn": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_btn_sm": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_banner": "ANNUAL GENERAL<br/>MEETING",
+        "slug": "repl-annual-general-meeting-voluntary",
+        "desc": "",
+        "date": "26 Mar 2026 21:22 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Annual General Meeting",
+                "dateTime": "26-Mar-2026 21:22:14",
+                "finalYearEnd": "31/12/2025",                
+                "status": "Replacement",                
+                "reference": "SG260326MEET20U5",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },  
+            "eventNarrative":[
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. AGM Notice Booklet\n2. Depositor Proxy Form\n3. Corrigendum to the Depositor Proxy Form"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                },                
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The Depositor Proxy Form attached to this replacement announcement supersedes the earlier Depositor Proxy Form released. All other documents remain unchanged."
+                }
+
+            ],
+            "eventDates":{                
+                "left":[
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 10:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 10:00:00"
+                    }
+                ]
+            },
+            "eventVenues":[
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+
+            ],      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - AGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20AGM%20Notice%20Booklet.ashx?App=Announcement&FileID=880648"                
+                },
+                {            
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/Metaoptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=880649"                
+                },
+                {            
+                    "name": "MetaOptics - Corrigendum to Depositor Proxy Form for AGM.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Corrigendum%20to%20Depositor%20Proxy%20Form%20for%20AGM.ashx?App=Announcement&FileID=880650"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "26/03/2026 07:31:47",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/PFQQRLASKHEWUOA6/912752d94ad7221b121b5b6ab7b3efbbba02e010ab43854a8667cf4655e22658#"                
+                }
+                
+            ]
+        }
+    },
+
+    {
+        "id": 40,
+        "title": "ANNUAL GENERAL MEETING: VOLUNTARY",
+        "title_btn": "ANNUAL GENERAL MEETING: VOLUNTARY",
+        "title_btn_sm": "ANNUAL GENERAL MEETING: VOLUNTARY",
+        "title_banner": "ANNUAL GENERAL<br/>MEETING",
+        "slug": "annual-general-meeting-voluntary",
+        "desc": "",
+        "date": "26 Mar 2026 07:31 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity":{
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Annual General Meeting",
+                "dateTime": "26-Mar-2026 07:31:47",
+                "finalYearEnd": "31/12/2025",                
+                "status": "New",                
+                "reference": "SG260326MEET20U5",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },  
+            "eventNarrative":[
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. AGM Notice Booklet\n2. Depositor Proxy Form"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                }, 
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                }
+                
+
+            ],
+            "eventDates":{                
+                "left":[
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 10:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 10:00:00"
+                    }
+                ]
+            },
+            "eventVenues":[
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+
+            ],      
+            "attachments":[
+                {            
+                    "name": "MetaOptics - AGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20AGM%20Notice%20Booklet.ashx?App=Announcement&FileID=880524"                
+                },
+                {            
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=880525"                
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "26/03/2026 21:22:14",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/UIS59OK0CHIQZXQM/38cc7dc98a1e2261de18cc42aa838772ec439113ef151fdfdaf1207321497c36#"                
+                }
+                
             ]
         }
     }
