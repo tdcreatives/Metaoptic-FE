@@ -556,11 +556,30 @@
             "date": "April 01, 2026",
             "image": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
             "thumbnail": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
-            "path": "https://www.zaobao.com.sg/finance/singapore/story20260301-8655869",
+            "path": "https://www.latimes.com/specialsupplements/one-world-media/story/metalens-tech-singapore-growth",
             "external": false,
             "details": {
                 "images": ["/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp"],
                 "contentPath": "/content/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.mdx",
+                "relatedNews": [
+                    
+                ]
+            }
+        },
+
+        {
+            "id": 27,
+            "slug": "metaoptics-leadership-discusses-the-future-of-the-metalens-industry",
+            "title": "MetaOptics Leadership Discusses the Future of the Metalens Industry",
+            "desc": "In a recent interview with Dr Wealth, MetaOptics CEO Mark and Deputy CEO Aloysius shared an inside look at the company’s journey as the world's first pure-play metalens listed company.",
+            "date": "April 09, 2026",
+            "image": "/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg",
+            "thumbnail": "/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg",
+            "path": "",
+            "external": false,
+            "details": {
+                "images": ["/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg"],
+                "contentPath": "/content/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.mdx",
                 "relatedNews": [
                     
                 ]
