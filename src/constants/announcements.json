@@ -1113,19 +1113,21 @@
                 ],
                 "otherDirectorships":[
                     {
-                        "name": "Present",
-                        "details": [
-                            "1. MetaOptics Technologies Pte. Ltd.",
-                            "2. Metasurface Technologies Holdings Limited"
-                        ]
-                    },
-                    {
                         "name": "Past (for the last 5 years)",
                         "details": [
                             "1. SGCAN Pte. Ltd.",
                             "2. Baccini Capital Pte. Ltd."
                         ]
+                    },
+                    {
+                        "name": "Present",
+                        "details": [
+                            "1. MetaOptics Technologies Pte. Ltd.",
+                            "2. Metasurface Technologies Holdings Limited",
+                            "3. MetaOptics Inc. (USA)"
+                        ]
                     }
+                    
                 ]            
             }
         }
@@ -1312,7 +1314,7 @@
                 "title": "General Announcement",
                 "dateTime": "10-Feb-2026 17:30:42",
                 "status": "New",
-                "reference": "SG2602280THRZZGB",
+                "reference": "SG2602100THREN56",
                 "submittedBy": "Thng Chong Kim",
                 "designation": "Executive Chairman and Chief Executive Officer",
                 "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."      
@@ -1419,11 +1421,11 @@
 
     {
         "id": 43,
-        "title": "DISCLOSURE OF INTEREST/CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
-        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
-        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER - AOUASPRING GROUP LIMITED",
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER AQUASPRING GROUP LIMITED",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER AQUASPRING GROUP LIMITED",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/UNITHOLDER(S)::DISCLOSURE OF INTEREST OF SUBSTANTIAL SHAREHOLDER AQUASPRING GROUP LIMITED",
         "title_banner": "DISCLOSURE<br/>OF INTEREST",
-        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholders-unitholdersdisclosure-of-interest-of-substantial-shareholder-aquaspring-group-limited",
+        "slug": "disclosure-of-interest-changes-in-interest-of-substantial-shareholdersunitholdersdisclosure-of-interest-of-substantial-shareholder-aquaspring-group-limited",
         "desc": "",
         "date": "22 Dec 2025 06:06 PM",
         "details": {
@@ -1762,11 +1764,11 @@
     
     {
         "id": 38,
-        "title": "PLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
-        "title_btn": "REPPLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
-        "title_btn_sm": "PLACEMENTS::RECEIPT OF LISTING AND OUOTATION NOTICE",
+        "title": "Placements::RECEIPT OF LISTING AND QUOTATION NOTICE",
+        "title_btn": "Placements::RECEIPT OF LISTING AND QUOTATION NOTICE",
+        "title_btn_sm": "Placements::RECEIPT OF LISTING AND QUOTATION NOTICE",
         "title_banner": "PLACEMENTS",
-        "slug": "placements-receipt-of-listing-and-ouotation-notice",
+        "slug": "placementsreceipt-of-listing-and-quotation-notice",
         "desc": "",
         "date": "16 Dec 2025 08:29 PM",
         "details": {
