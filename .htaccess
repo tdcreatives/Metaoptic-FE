@@ -1,5 +1,12 @@
 RewriteEngine On
 
+# Redirect legacy product URL to new slug (static export + Apache hosting)
+RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
+
+# Canonicalize development-kits products to nested URL
+RewriteRule ^verticals/metalens-foundry/iot-rectangular-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
+RewriteRule ^verticals/metalens-foundry/3d-biometrics-metalens-sensor/?$ /verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor [R=301,L,NC]
+
 # 1) Serve real files as-is.
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]

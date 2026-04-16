@@ -16,6 +16,7 @@ const ProductGrid = ({ products = [] }) => {
               name={product.name}
               image={product.image}
               slug={product.slug}
+                href={product.href}
               imageClassName={product?.imageClassName || ""}
               className="xl:h-[370px] h-auto"
             />

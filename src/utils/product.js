@@ -7,9 +7,12 @@ export const foundrySlugs = [
   'color-imaging-meta-lens',
   'ultra-wide-fov-ir-metalens',
   'ultra-wide-fov-metalens-monochromatic-ir-camera',
-  '3d-biometrics-metalens-sensor',
-  'iot-metalens-color-camera',
   'metalens-color-camera-module',
+];
+
+export const developmentKitsSlugs = [
+  'iot-rectangular-metalens-color-camera',
+  '3d-biometrics-metalens-sensor',
 ];
 export const productSlugs = [
   'metalens-5g-smartphone',
@@ -28,6 +31,9 @@ export const staticPages = [
 export const getProductPath = (slug) => {
   if (equipmentSlugs.includes(slug)) {
     return `/verticals/metalens-capital-equipment/${slug}`;
+  }
+  if (developmentKitsSlugs.includes(slug)) {
+    return `/verticals/metalens-products/development-kits/${slug}`;
   }
   if (foundrySlugs.includes(slug)) {
     return `/verticals/metalens-foundry/${slug}`;

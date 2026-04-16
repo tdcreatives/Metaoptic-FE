@@ -63,8 +63,8 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -114,8 +114,8 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -129,13 +129,13 @@
       }
     },
     {
-      "name": "IoT Metalens Color Camera",
-      "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
-      "slug": "iot-metalens-color-camera",
+      "name": "IoT Rectangular Metalens Color Camera",
+      "nameDom": "IoT Rectangular Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
+      "slug": "iot-rectangular-metalens-color-camera",
       "image": "/products/iot-metalens-color-camera.png",
       "category": "Camera",
-      "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
-      "brochure": "/download/IoT-Metalens-Color-Camera-v2.pdf",
+      "buyNow": "https://metaoptics.shop/products/iot-rectangular-metalens-color-camera",
+      "brochure": "/download/IoT-Metalens-Color-Camera-v4.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
@@ -163,26 +163,24 @@
             "width": "44mm"
           },
           "cameraSpecifications": {
-            "focalLength": "1.53mm",
-            "fieldOfView": "70 degrees",
+            "focalLength": "2.46 mm",
+            "fieldOfView": "96° x 26°",
             "sensorType": "Monochrome CMOS",
-            "peakQuantumEfficiency": "65% @ 535 nm",
-            "resolution": "1.6 MP",
+            "sensorPeakQuantumEfficiency": "65% @ 535 nm",
+            "sensorPixelResolution": "1.6 MP",
             "activePixels": "1440 x 1080",
-            "pixelSize": "3.45 µm x 3.45 µm",
+            "pixelSize": "3.45 um X 3.45 um",
             "imagingArea": "4.968 mm x 3.726 mm",
             "adcResolution": "10 bits",
             "sensorShutterType": "Global",
-            "exposureTime": "0.04 ms – 26.843 ms",
-            "usbPowerConsumption": "1.17 W",
-            "ambientOperatingTemperature": "10 °C – 40 °C",
-            "storageTemperature": "0 °C – 55 °C"
+            "exposureTime": "0.04 us – 26.843 us",
+            "usbPowerConsumption": "1.17 W"
           },
           "metalensSpecifications": {
             "minimumPillarDiameter": "120 nm",
-            "pitchBetweenPillars": "320 nm",
             "heightOfPillars": "650 nm",
-            "lensDiameter": "2mm"
+            "lensSizes": "5.66 x 5.7 mm",
+            "targetWavelengths": "450 nm, 540 nm, 635 nm"
           }
         },
         "relatedProducts": [
@@ -248,8 +246,8 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -306,8 +304,8 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -361,8 +359,8 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -417,8 +415,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -558,8 +556,8 @@
             "category": "Sensor"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -657,8 +655,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -797,8 +795,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -857,8 +855,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -926,8 +924,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
@@ -1017,8 +1015,8 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
             "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },

@@ -170,7 +170,7 @@ const ProductDetailsSpecifications = ({
                             }`}>
                             <ul className='mt-0 space-y-2 text-center text-white/90'>
                                 {Object.entries(specs).map(([key, value]) => (
-                                    <li key={key} className='capitalize'>
+                                    <li key={key} >
                                         {key === 'list-line' ? (
                                             <div className='space-y-3'>
                                                 {renderListLine(value)}
@@ -178,7 +178,7 @@ const ProductDetailsSpecifications = ({
                                         ) : (
                                             <>
                                                 {key !== 'list' && (
-                                                    <strong>
+                                                    <strong className='capitalize'>
                                                         {formatKey(key)}:{' '}
                                                     </strong>
                                                 )}

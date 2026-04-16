@@ -12,6 +12,7 @@ const BaseProduct = ({
   name,
   image,
   slug,
+  href,
   className = "",
   imageClassName = "",
 }) => {
@@ -51,7 +52,7 @@ const BaseProduct = ({
   };
 
   return (
-    <Link href={getProductPath(slug)} className="block">
+    <Link href={href || getProductPath(slug)} className="block">
       <div
         ref={productRef}
         className={clsx(
@@ -86,6 +87,7 @@ BaseProduct.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  href: PropTypes.string,
 };
 
 export default BaseProduct;
