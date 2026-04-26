@@ -66,6 +66,18 @@ const ProductDetailsSpecifications = ({
                     />
                 );
 
+            case 'substrateSpecifications':
+                return (
+                    <Image
+                        src='/product-details/mechanic.png'
+                        alt='Substrate'
+                        width='0'
+                        height='0'
+                        sizes='100vw'
+                        className='xl:w-[40px] w-[32px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                    />
+                );
+
             case 'cameraSpecifications':
                 return (
                     <Image

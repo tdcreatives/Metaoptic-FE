@@ -261,6 +261,110 @@
       }
     },
     {
+      "name": "Rectangular RGB Metalens",
+      "nameDom": "Rectangular RGB <br /> <div class='name-dom-sensor'>Metalens</div>",
+      "slug": "rectangular-rgb-metalens",
+      "image": "/products/rectangular-rgb-metalens.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/rectangular-rgb-metalens.pdf",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+        "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+        "specifications": {
+          "substrateSpecifications": {
+            "length": "7.94 mm",
+            "width": "6.34 mm",
+            "height": "0.775 ± 0.02mm",
+            "substrateMaterial": "Glass"
+          },
+          "metalensSpecifications": {
+            "patternMaterial": "SiN",
+            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "minimumCD(PillarDiameter)": "120nm",
+            "pillarHeight": "650nm",
+            "metalensSize(EachColourChannel)": "1.9 x 5.66mm",
+            "EFL(FocalLength)": "2.46mm",
+            "fieldOfView(HOV)": "120 x 45 Degrees",
+            "frontAperture(Target)": "0.7mm",
+            "imageArea": "5.737 x 4.312mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Round RGB Metalens",
+      "nameDom": "Round RGB <br /> <div class='name-dom-sensor'>Metalens</div>",
+      "slug": "round-rgb-metalens",
+      "image": "/products/round-rgb-metalens.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+        "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+        "specifications": {
+          "substrateSpecifications": {
+            "length": "7 mm",
+            "width": "7 mm",
+            "height": "0.775 ± 0.02mm",
+            "substrateMaterial": "Glass"
+          },
+          "metalensSpecifications": {
+            "patternMaterial": "SiN",
+            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "minimumCD(PillarDiameter)": "120nm",
+            "pillarHeight": "650nm",
+            "metalensDiameter(EachColourChannel)": "2mm",
+            "EFL(FocalLength)": "1.53mm",
+            "DFL(FocalLength)": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "imageArea": "4.968 x 3.726 mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
       "name": "Pico Projector",
       "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
       "slug": "pico-projector",

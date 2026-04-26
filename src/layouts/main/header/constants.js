@@ -28,6 +28,8 @@ export const dropdownItems = {
       items: [
         { label: "4\" & 12\" Platforms", path: "/verticals/metalens-foundry/4in-12in-platforms" },
         { label: "Color Imaging Metalens", path: "/verticals/metalens-foundry/color-imaging-meta-lens" },
+        { label: "Round RGB Metalens", path: "/verticals/metalens-foundry/round-rgb-metalens" },
+        { label: "Rectangular RGB Metalens", path: "/verticals/metalens-foundry/rectangular-rgb-metalens" },
         { label: "IR Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-ir-metalens" },
         { label: "Ultra-Wide fov Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera" },
         { label: "CPOs", path: "/verticals/metalens-foundry/co-packaged-optics" },

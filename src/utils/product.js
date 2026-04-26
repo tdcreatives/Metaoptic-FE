@@ -5,6 +5,8 @@ export const equipmentSlugs = [
 ];
 export const foundrySlugs = [
   'color-imaging-meta-lens',
+  'round-rgb-metalens',
+  'rectangular-rgb-metalens',
   'ultra-wide-fov-ir-metalens',
   'ultra-wide-fov-metalens-monochromatic-ir-camera',
   'metalens-color-camera-module',

@@ -18,6 +18,16 @@ const products = [
     image: "/products/color-imaging-meta-lens.png",
   },
   {
+    name: "Round RGB Metalens",
+    slug: "round-rgb-metalens",
+    image: "/products/round-rgb-metalens.png",
+  },
+  {
+    name: "Rectangular RGB Metalens",
+    slug: "rectangular-rgb-metalens",
+    image: "/products/rectangular-rgb-metalens.png",
+  },
+  {
     name: "Ultra-wide FoV IR Metalens",
     slug: "ultra-wide-fov-ir-metalens",
     image: "/products/product-6.png",
