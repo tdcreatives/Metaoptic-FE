@@ -584,6 +584,25 @@
                     
                 ]
             }
+        },
+        
+        {
+            "id": 28,
+            "slug": "metaoptics-update-on-proposed-nasdaq-dual-listing",
+            "title": "MetaOptics - Update on Proposed Nasdaq Dual Listing",
+            "desc": "MetaOptics - Update on Proposed Nasdaq Dual Listing",
+            "date": "May 05, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.straitstimes.com/paid-press-releases/metaoptics-update-on-proposed-nasdaq-dual-listing-20260505",
+            "external": false,
+            "details": {
+                "contentPath": "/content/news/metaoptics-update-on-proposed-nasdaq-dual-listing.mdx",
+                "relatedNews": [
+                    
+                ]
+            },
+            "mod": "production"
         }
         
 
