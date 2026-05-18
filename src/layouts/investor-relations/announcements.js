@@ -40,12 +40,50 @@ const Announcements = () => {
         }
     };
 
-     // Sort news by date in descending order (newest first)
-     const filteredItems = [...items].sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-    });
+    const parseAnnouncementDate = (value) => {
+        if (!value) return 0;
+
+        const match = value.match(/^(\d{1,2})\s([A-Za-z]{3})\s(\d{4})\s(\d{1,2}):(\d{2})\s(AM|PM)$/i);
+        if (match) {
+            const [, day, monthText, year, hourText, minuteText, meridiemText] = match;
+            const monthMap = {
+                Jan: 0,
+                Feb: 1,
+                Mar: 2,
+                Apr: 3,
+                May: 4,
+                Jun: 5,
+                Jul: 6,
+                Aug: 7,
+                Sep: 8,
+                Oct: 9,
+                Nov: 10,
+                Dec: 11
+            };
+
+            const month = monthMap[monthText];
+            if (month !== undefined) {
+                const meridiem = meridiemText.toUpperCase();
+                let hour = Number(hourText);
+                const minute = Number(minuteText);
+
+                // Some data uses 24h values with AM/PM attached (e.g. "17:32 AM").
+                // Keep 24h values as-is and only transform 12h values.
+                if (hour <= 12) {
+                    if (meridiem === 'AM' && hour === 12) hour = 0;
+                    if (meridiem === 'PM' && hour < 12) hour += 12;
+                }
+
+                return new Date(Number(year), month, Number(day), hour, minute).getTime();
+            }
+        }
+
+        const fallbackTime = new Date(value).getTime();
+        return Number.isNaN(fallbackTime) ? 0 : fallbackTime;
+    };
+
+    // Sort news by date in descending order (newest first)
+    const filteredItems = [...items].sort((a, b) => parseAnnouncementDate(b.date) - parseAnnouncementDate(a.date));
 
     return (
         <>

@@ -6,6 +6,7 @@ import items from '@/constants/announcements.json';
 import BaseButton from '@/components/BaseButton';
 import downloadIcon from '@/assets/images/download.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AnnouncementDetailContent = () => {
     const { slug } = useParams();
@@ -167,6 +168,7 @@ const AnnouncementDetailContent = () => {
                                     </div>
 
                                     {/* Announcement Sub Title */}
+                                    {details?.announcement?.subTitle && (
                                     <div className='flex flex-col md:flex-row gap-4'>
                                         <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
                                             Announcement Sub Title:
@@ -175,6 +177,19 @@ const AnnouncementDetailContent = () => {
                                             {details.announcement.subTitle}
                                         </div>
                                     </div>
+                                    )}
+
+                                    {/* Announcement Sub Title */}
+                                    {details?.announcement?.finalYearEnd && (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Financial Year Ended:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.announcement.finalYearEnd}
+                                        </div>
+                                    </div>
+                                    )}
 
                                     {/* Submitted By */}
                                     <div className='flex flex-col md:flex-row gap-4'>
@@ -202,19 +217,23 @@ const AnnouncementDetailContent = () => {
                             <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
 
                             {/* Description Section */}
-                            <div className='mt-8'>
-                                <div className='mb-4'>
-                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
-                                        Description:
-                                    </h3>
-                                </div>
-                                <div className=''>
-                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
-                                        {details.announcement.description}
+                            {details?.announcement?.description && (
+                            <>
+                                <div className='mt-8'>
+                                    <div className='mb-4'>
+                                        <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                            Description:
+                                        </h3>
+                                    </div>
+                                    <div className=''>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                            {details.announcement.description}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                                <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                            </>
+                            )}
 
                             {/** DISCLAIMER */}
                             {details?.announcement?.disclaimer && (
@@ -228,6 +247,128 @@ const AnnouncementDetailContent = () => {
                     )}
                 </div>
 
+                {details?.eventNarrative && (
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                    Event Narrative
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 gap-8'>                                
+                           
+
+                            {details?.eventNarrative?.length > 0 && details?.eventNarrative?.map((item, index) => (                             
+                            <>
+                                <div
+                                        key={index}
+                                        className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
+                                            index < details.eventNarrative.length - 1
+                                                ? 'border-b border-[#A9A9A9]'
+                                                : ''
+                                        }`}
+                                    >
+                                    <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                        {item.name}:
+                                    </div>
+                                    <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] whitespace-pre-line flex-grow'>
+                                        {item.text}
+                                    </div>
+                                </div>
+                            </>                    
+                            ))}                                                   
+                        </div>
+                    </div>
+                )}
+
+               {details?.eventDates && (                
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                Event Dates
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 gap-8'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                                {/* Left Column */}
+                                <div className='space-y-6'>
+                                    {details?.eventDates?.left &&  details?.eventDates?.left?.length > 0 && details?.eventDates?.left?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                    
+
+                                </div>
+
+                                {/* Right Column */}
+                                <div className='space-y-6'>                                    
+                                    {details?.eventDates?.right &&  details?.eventDates?.right?.length > 0 && details?.eventDates?.right?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                            </div>     
+
+                        </div>
+                    </div>                
+                )}
+
+                {details?.attachments && (                
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                Event Venue(s)
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 gap-8'>
+                            <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
+                                <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                    Place(s):
+                                </div>
+                            </div>
+                            {details?.eventVenues?.length > 0 &&
+                                details.eventVenues.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
+                                            index < details.eventVenues.length - 1
+                                                ? 'border-b border-[#A9A9A9]'
+                                                : ''
+                                        }`}
+                                    >
+                                        <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            {item.name}:
+                                        </div>
+                                        <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] whitespace-pre-line flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>                
+                )}
+
+
                 {details?.additional && (
                     <div className='mb-8'>
                         <div className='mb-6'>
@@ -238,14 +379,167 @@ const AnnouncementDetailContent = () => {
                             </div>
                             <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>                                
+                        <div className='grid grid-cols-1 gap-8'>                                
+                            {details?.additional?.description && (
                             <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
                                 {details.additional .description}
                             </div>                                
+                            )}
+                        
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                                {/* Left Column */}
+                                <div className='space-y-6'>
+                                    {/* Announcement Title */}
+                                    {details?.additional?.name &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                        Name of person:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.name}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.dateCessationKnown &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Is effective date of cessation known?:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateCessationKnown}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.dateOfAppointment &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                        Date of appointment to current position:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateOfAppointment}
+                                        </div>
+                                    </div>
+                                    )}
+
+
+
+                                </div>
+
+                                {/* Right Column */}
+                                <div className='space-y-6'>                                    
+                                    {details?.additional?.age &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Age:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.age}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.dateCessation &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            If yes, please provide the date of cessation:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.dateCessation}
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    {details?.additional?.countryOfPrincipalResidence &&  (
+                                    <div className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] w-[200px] flex-shrink-0'>
+                                            Country of principal residence:
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {details.additional.countryOfPrincipalResidence}
+                                        </div>
+                                    </div>
+                                    )}
+                                </div>
+                            </div>                                                            
+
+                            
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                                {/* Left Column */}
+                                <div className='space-y-6'>
+                                    {details?.additional?.left &&  details?.additional?.left?.length > 0 && details?.additional?.left?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                    
+
+                                </div>
+
+                                {/* Right Column */}
+                                <div className='space-y-6'>                                    
+                                    {details?.additional?.right &&  details?.additional?.right?.length > 0 && details?.additional?.right?.map((item, index) => (
+                                    <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                            {item.name}
+                                        </div>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                            {item.text}
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                            </div>     
+
+
+                            {details?.additional?.rowItems && details?.additional?.rowItems ?.length > 0 && details?.additional?.rowItems.map((item, index) => (                             
+                            <div key={index} className='mt-2'>
+                                <div className='mb-2'>
+                                    <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify whitespace-pre-line'>
+                                        {item.name}
+                                    </h3>
+                                </div>
+                                <div className=''>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                    {item.text}
+                                    </div>
+                                </div>
+                            </div>                    
+                            ))}
+
+                            {details?.additional?.otherDirectorships &&  (
+                            <div className='mt-2'>
+                                <h3 className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                    Other Directorships:
+                                </h3>
+
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-2'>
+                                {details?.additional?.otherDirectorships?.map((item, index) => (
+                                    <div key={index} className=''>
+                                        <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] text-justify'>
+                                            {item.name}
+                                        </div>                                    
+                                        {item.details && item.details.map((detail, detailIndex) => (  
+                                        <div key={detailIndex} className='text-[14px] xl:text-[20px] font-medium text-[#676767] xl:leading-[1.5] leading-[20px] whitespace-pre-line text-justify'>
+                                            {detail}
+                                        </div>                                            
+                                        ))}
+                                                            
+                                    </div>
+                                    ))}       
+
+                                </div>                                    
+                            </div>
+                            )}                           
                         </div>
                     </div>
                 )}
-
                 
                 {details?.attachments && (
                     <div className='mb-8'>
@@ -279,6 +573,31 @@ const AnnouncementDetailContent = () => {
                                         className='!mt-[10px] !xl:justify-start !justify-start'                        
                                         onClick={() => window.open(item?.url, '_blank')}
                                     />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {details?.related && (
+                    <div className='mb-8'>
+                        <div className='mb-6'>
+                            <div className='flex justify-between items-center mb-4'>
+                                <h2 className='text-[20px] lg:text-[40px]  font-medium uppercase futura-condensed-medium text-[#616161] leading-[1.5]'>
+                                    Related Announcements
+                                </h2>
+                            </div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        </div>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+                            {details.related.map((item, index) => (
+                                <div key={index} className='flex flex-col md:flex-row gap-4'>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px]  flex-shrink-0'>
+                                        {item.name}:
+                                    </div>
+                                    <div className='text-[14px] xl:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
+                                        <Link href={item.url} target='_blank'><u>{item.text}</u></Link>
+                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import Link from 'next/link';
-import items from '@/constants/announcements.json';
 import firmsData from '@/constants/analyst-coverage-firms.json';
 import IconButton from '@/components/IconButton';
 import arrowIcon from '@/assets/images/arrow.png';
@@ -46,13 +45,7 @@ const AnalystCoverageAnnouncements = () => {
         }
     };
 
-     // Sort news by date in descending order (newest first)
-     const filteredItems = [...items].sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-    });
-
+     
     return (
         <>            
             <div className='w-full bg-[#EAEAEA] rounded-t-lg px-6 py-8'>

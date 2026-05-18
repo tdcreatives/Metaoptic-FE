@@ -1,79 +1,93 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import Image from 'next/image';
-import Link from 'next/link';
-import { gsap } from 'gsap';
+import React from "react";
+import PropTypes from "prop-types";
+import Image from "next/image";
+import Link from "next/link";
+import { gsap } from "gsap";
+import clsx from "clsx";
+import { getProductPath } from "@/utils/product";
 
-const BaseProduct = ({ name, image, slug }) => {
-    const productRef = React.useRef(null);
-    const nameRef = React.useRef(null);
+const BaseProduct = ({
+  name,
+  image,
+  slug,
+  href,
+  className = "",
+  imageClassName = "",
+}) => {
+  const productRef = React.useRef(null);
+  const nameRef = React.useRef(null);
 
-    const handleMouseEnter = () => {
-        if (productRef.current && nameRef.current) {
-            gsap.to(productRef.current, {
-                backgroundColor: '#d34c39',
-                scale: 1.05,
-                duration: 0.4,
-                ease: 'power3.out',
-            });
-            gsap.to(nameRef.current, {
-                color: '#d34c39',
-                duration: 0.4,
-                ease: 'power3.out',
-            });
-        }
-    };
+  const handleMouseEnter = () => {
+    if (productRef.current && nameRef.current) {
+      gsap.to(productRef.current, {
+        backgroundColor: "#d34c39",
+        scale: 1.05,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+      gsap.to(nameRef.current, {
+        color: "#d34c39",
+        duration: 0.4,
+        ease: "power3.out",
+      });
+    }
+  };
 
-    const handleMouseLeave = () => {
-        if (productRef.current && nameRef.current) {
-            gsap.to(productRef.current, {
-                backgroundColor: '#F0F0F0',
-                scale: 1,
-                duration: 0.4,
-                ease: 'power3.out',
-            });
-            gsap.to(nameRef.current, {
-                color: '#231f20',
-                duration: 0.4,
-                ease: 'power3.out',
-            });
-        }
-    };
+  const handleMouseLeave = () => {
+    if (productRef.current && nameRef.current) {
+      gsap.to(productRef.current, {
+        backgroundColor: "#F0F0F0",
+        scale: 1,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+      gsap.to(nameRef.current, {
+        color: "#231f20",
+        duration: 0.4,
+        ease: "power3.out",
+      });
+    }
+  };
 
-    return (
-        <Link href={`/product/${slug}`} className="block">
-            <div
-                ref={productRef}
-                className='rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden'
-                style={{ backgroundColor: '#F0F0F0' }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}>
-                <div className='relative w-full aspect-square'>
-                    <Image
-                        fill
-                        src={image}
-                        alt={name}
-                        className='object-contain'
-                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                    />
-                </div>
-            </div>
+  return (
+    <Link href={href || getProductPath(slug)} className="block">
+      <div
+        ref={productRef}
+        className={clsx(
+          "rounded-lg p-4 shadow-lg flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 overflow-hidden",
+          className,
+        )}
+        style={{ backgroundColor: "#F0F0F0" }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative w-full aspect-square">
+          <Image
+            fill
+            src={image}
+            alt={name}
+            className={clsx("object-contain", imageClassName)}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      </div>
 
-            <h2
-                ref={nameRef}
-                className='text-[#231f20] xl:text-[24px] text-[18px] text-center futura-condensed-medium mt-3'>
-                {name}
-            </h2>
-        </Link>
-    );
+      <h2
+        ref={nameRef}
+        className="text-[#231f20] xl:text-[24px] text-[18px] text-center futura-condensed-medium mt-3"
+        dangerouslySetInnerHTML={{ __html: name }}
+      ></h2>
+    </Link>
+  );
 };
 
 BaseProduct.propTypes = {
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  href: PropTypes.string,
 };
 
 export default BaseProduct;

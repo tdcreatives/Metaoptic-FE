@@ -19,7 +19,7 @@ const FindMore = () => {
                         OUR PRODUCTS
                     </div>
 
-                    <Link href="/products">
+                    <Link href="/verticals">
                         <BaseButton
                             label='ALL PRODUCTS'
                             classNameBtn='uppercase'

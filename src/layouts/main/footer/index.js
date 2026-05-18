@@ -1,88 +1,103 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
-    return (
-        <div className='bg-[#131313] futura-book px-[5.2vw] pt-4 pb-8 relative'>
-            <div className='flex justify-between'>
-                <div className='flex flex-col'>
-                    <p className='text-[#888888] tracking-wider xl:text-[84px] text-[48px] futura-condensed-medium uppercase'>
-                        Connect with us
-                    </p>
-                   
-                    <div className='flex xl:flex-row flex-col justify-start xl:gap-8 gap-2  xl:mt-[40px] mt-5 w-full'>
-                        <div className='flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium'>
-                            <div>
-                                <a href='mailto:sales@metaoptics.sg'>
-                                    <p className='text-[#E0E1E0] mt-2'>
-                                        {' '}
-                                        <span className='text-[#888888]'>Email: </span>
-                                        sales@metaoptics.sg
-                                    </p>
-                                </a>
-                            </div>                            
-                        </div>
+  return (
+    <div className="bg-[#131313] futura-book px-[5.2vw] pt-4 pb-8 relative">
+      <div className="flex justify-between">
+        <div className="flex flex-col">
+          <p className="text-[#888888] tracking-wider xl:text-[84px] text-[48px] futura-condensed-medium uppercase">
+            Connect with us
+          </p>
 
-                        <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium'>
-                            <div>
-                                <a href='tel:+6582180482'>
-                                    <p className='text-[#E0E1E0] mt-2'>
-                                        {' '}
-                                        <span className='text-[#888888]'>Phone: </span>
-                                        +65 8218 0482
-                                    </p>
-                                </a> 
-                            </div>                            
-                        </div> 
-                    </div>
-                    <div className='w-full h-[1px] my-2 bg-[#3B3B3B]'></div>
-
-
-                    <div className='futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4'>
-                        <p className='text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4'>
-                            Singapore (HQ)
-                            <p className='text-[#E0E1E0]'>
-                            Metaoptics Technologies Pte Ltd. 81 Ayer Rajah Crescent, #01-45 Singapore 139967
-                            </p>
-                        </p>
-                    </div>
-                    <div className='futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4'>
-
-                        <p className='text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4'>
-                            United States
-                            <p className='text-[#E0E1E0]'>
-                            Metaoptics Inc. 1 Ferry Building, Suite 201 San Francisco, CA 94111
-                            </p>
-                        </p>
-                    </div>
-                    
-                </div>
+          <div className="flex xl:flex-row flex-col justify-start xl:gap-8 gap-2  xl:mt-[40px] mt-5 w-full">
+            <div className="flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium">
+              <div>
+                <a href="mailto:sales@metaoptics.sg">
+                  <p className="text-[#E0E1E0] mt-2">
+                    {" "}
+                    <span className="text-[#888888]">Email: </span>
+                    sales@metaoptics.sg
+                  </p>
+                </a>
+              </div>
             </div>
 
-            <div className='flex xl:flex-row flex-col justify-between xl:gap-0 gap-10  xl:mt-[40px] mt-5 w-full'>
-                <div className='flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium'>
-                    <div>
-                        <a href='javascript:void()' onClick={() => window.scrollTo(0, 0)}>
-                            Back to Top
-                        </a>
-                    </div>
-                    <div>
-                        <a href='/products'>Our Products</a>
-                    </div>
-                    {/* <div>Our Story</div>
-                    <div>Gallery</div> */}
-                    <div>
-                        <a href='/contact-us'>Contact Us</a>
-                    </div>
-                </div>
+            <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
+              <div>
+                <a href="tel:+6582180482">
+                  <p className="text-[#E0E1E0] mt-2">
+                    {" "}
+                    <span className="text-[#888888]">Phone: </span>
+                    +65 8218 0482
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="w-full h-[1px] my-2 bg-[#3B3B3B]"></div>
 
-                 <div className='flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium'>
-                    <div>
-                        <a href='/privacy-policy'>Privacy Policy</a>
-                    </div>
-                    {/* <div>Connect</div>
+          <div className="futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4">
+            <p className="text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4">
+              Singapore (HQ)
+              <p className="text-[#E0E1E0]">
+                Metaoptics Technologies Pte Ltd. 81 Ayer Rajah Crescent, #01-45
+                Singapore 139967
+              </p>
+            </p>
+          </div>
+          <div className="futura-book xl:text-[20px] text-[18px] xl:mt-8 mt-4">
+            <p className="text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4">
+              United States
+              <p className="text-[#E0E1E0]">
+                Metaoptics Inc. 1 Ferry Building, Suite 201 San Francisco, CA
+                94111
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex xl:flex-row flex-col justify-between xl:gap-0 gap-10  xl:mt-[40px] mt-5 w-full">
+        <div className="flex gap-5 xl:flex-row flex-col xl:items-center items-start text-white xl:text-[18px] text-[14px] futura-medium">
+          <div>
+            <a href="javascript:void()" onClick={() => window.scrollTo(0, 0)}>
+              Back to Top
+            </a>
+          </div>
+          <div>
+            <a href="/verticals">Our Products</a>
+          </div>
+          {/* <div>Our Story</div>
+                    <div>Gallery</div> */}
+          <div className="flex gap-5 xl:flex-row flex-col xl:items-center items-start">
+            <a href="/contact-us">Contact Us</a>
+            {/* 
+            <div className="xl:block hidden w-[1px] h-[30px] bg-[#ACACAC]"></div>
+            <a
+              href="https://www.linkedin.com/company/metaoptics-inc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 futura-medium mb-[1px]"
+            >
+              <Image
+                src="/linkedin.svg"
+                alt="Linkedin"
+                width={16}
+                height={16}
+              />
+              <span> Linkedin</span>
+            </a> 
+            */}
+          </div>
+        </div>
+        <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
+          <div>
+            <a href="/privacy-policy">Privacy Policy</a>
+          </div>
+          {/* <div>Connect</div>
                     <Image
                         src='/facebook.svg'
                         alt='Facebook'
@@ -109,26 +124,27 @@ const Footer = () => {
                         sizes='100vw'
                         className='xl:w-[32px] w-[24px]'
                     /> */}
-                </div> 
-            </div>
-
-            <div className='w-full h-[2px] my-2 bg-white'></div>
-
-            <div className='flex xl:flex-row flex-col xl:justify-between justify-start text-[#868686] xl:text-[16px] text-[14px] uppercase tracking-widest'>
-                <div>Metaoptics Technologies Pte Ltd. All rights reserved</div>
-                <div>
-                    Site by{' '}
-                    <a
-                        className='text-[#868686] hover:text-[#fff] hover:underline'
-                        href='https://tdcreatives.asia/'
-                        target='_blank'
-                        rel='noopener noreferrer'>
-                        TDCreatives.asia
-                    </a>
-                </div>
-            </div>
         </div>
-    );
+      </div>
+
+      <div className="w-full h-[2px] my-2 bg-white"></div>
+
+      <div className="flex xl:flex-row flex-col xl:justify-between justify-start text-[#868686] xl:text-[16px] text-[14px] uppercase tracking-widest">
+        <div>Metaoptics Technologies Pte Ltd. All rights reserved</div>
+        <div>
+          Site by{" "}
+          <a
+            className="text-[#868686] hover:text-[#fff] hover:underline"
+            href="https://tdcreatives.asia/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TDCreatives.asia
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

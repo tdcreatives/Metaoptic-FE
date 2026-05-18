@@ -63,9 +63,9 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -114,9 +114,9 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -129,13 +129,13 @@
       }
     },
     {
-      "name": "IoT Metalens Color Camera",
-      "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
-      "slug": "iot-metalens-color-camera",
-      "image": "/products/product-3.png",
+      "name": "IoT Rectangular Metalens Color Camera",
+      "nameDom": "IoT Rectangular Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
+      "slug": "iot-rectangular-metalens-color-camera",
+      "image": "/products/iot-metalens-color-camera.png",
       "category": "Camera",
-      "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
-      "brochure": "/download/iot-meta-lens-color-camera.pdf",
+      "buyNow": "https://metaoptics.shop/products/iot-rectangular-metalens-color-camera",
+      "brochure": "/download/IoT-Metalens-Color-Camera-v4.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
@@ -163,26 +163,24 @@
             "width": "44mm"
           },
           "cameraSpecifications": {
-            "focalLength": "1.53mm",
-            "fieldOfView": "70 degrees",
+            "focalLength": "2.46 mm",
+            "fieldOfView": "96° x 26°",
             "sensorType": "Monochrome CMOS",
-            "peakQuantumEfficiency": "65% @ 535 nm",
-            "resolution": "1.6 MP",
+            "sensorPeakQuantumEfficiency": "65% @ 535 nm",
+            "sensorPixelResolution": "1.6 MP",
             "activePixels": "1440 x 1080",
-            "pixelSize": "3.45 µm x 3.45 µm",
+            "pixelSize": "3.45 um X 3.45 um",
             "imagingArea": "4.968 mm x 3.726 mm",
             "adcResolution": "10 bits",
             "sensorShutterType": "Global",
-            "exposureTime": "0.04 ms – 26.843 ms",
-            "usbPowerConsumption": "1.17 W",
-            "ambientOperatingTemperature": "10 °C – 40 °C",
-            "storageTemperature": "0 °C – 55 °C"
+            "exposureTime": "0.04 us – 26.843 us",
+            "usbPowerConsumption": "1.17 W"
           },
           "metalensSpecifications": {
             "minimumPillarDiameter": "120 nm",
-            "pitchBetweenPillars": "320 nm",
             "heightOfPillars": "650 nm",
-            "lensDiameter": "2mm"
+            "lensSizes": "5.66 x 5.7 mm",
+            "targetWavelengths": "450 nm, 540 nm, 635 nm"
           }
         },
         "relatedProducts": [
@@ -248,9 +246,113 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rectangular RGB Metalens",
+      "nameDom": "Rectangular RGB <br /> <div class='name-dom-sensor'>Metalens</div>",
+      "slug": "rectangular-rgb-metalens",
+      "image": "/products/rectangular-rgb-metalens.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/rectangular-rgb-metalens.pdf",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+        "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+        "specifications": {
+          "substrateSpecifications": {
+            "length": "7.94 mm",
+            "width": "6.34 mm",
+            "height": "0.775 ± 0.02mm",
+            "substrateMaterial": "Glass"
+          },
+          "metalensSpecifications": {
+            "patternMaterial": "SiN",
+            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "minimumCD(PillarDiameter)": "120nm",
+            "pillarHeight": "650nm",
+            "metalensSize(EachColourChannel)": "1.9 x 5.66mm",
+            "EFL(FocalLength)": "2.46mm",
+            "fieldOfView(HOV)": "120 x 45 Degrees",
+            "frontAperture(Target)": "0.7mm",
+            "imageArea": "5.737 x 4.312mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Round RGB Metalens",
+      "nameDom": "Round RGB <br /> <div class='name-dom-sensor'>Metalens</div>",
+      "slug": "round-rgb-metalens",
+      "image": "/products/round-rgb-metalens.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "",
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
+        "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
+        "specifications": {
+          "substrateSpecifications": {
+            "length": "7 mm",
+            "width": "7 mm",
+            "height": "0.775 ± 0.02mm",
+            "substrateMaterial": "Glass"
+          },
+          "metalensSpecifications": {
+            "patternMaterial": "SiN",
+            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "minimumCD(PillarDiameter)": "120nm",
+            "pillarHeight": "650nm",
+            "metalensDiameter(EachColourChannel)": "2mm",
+            "EFL(FocalLength)": "1.53mm",
+            "DFL(FocalLength)": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "imageArea": "4.968 x 3.726 mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "Metalens Color Camera Module",
+            "slug": "metalens-color-camera-module",
+            "image": "/products/product-9.png",
+            "category": "Camera"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -306,9 +408,9 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -326,7 +428,7 @@
       "slug": "ultra-wide-fov-ir-metalens",
       "image": "/products/product-6.png",
       "category": "3D",
-      "buyNow": "",
+      "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
       "brochure": "/download/ultra-wide-fov-brochure.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
@@ -361,9 +463,9 @@
             "category": "Camera"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -383,6 +485,7 @@
       "category": "3D",
       "buyNow": "",
       "brochure": "/download/direct-laser-writer.pdf",
+      "mobileImageScale": 0.7,
       "details": {
         "subtitle": "Leading Edge Deep UV Direct Laser Writer",
         "description": "Meta lens fabrication & characterization tool. Fast quick-turn for meta lens prototyping, low volume production using 4'' Glass Wafer operated in non-vacuum environment. Highest 6-axis precision piezo writing stage. Super critical lens to reduce laser spot size < 100nm.",
@@ -416,9 +519,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -557,9 +660,9 @@
             "category": "Sensor"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -656,9 +759,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -796,9 +899,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -816,8 +919,8 @@
       "slug": "pico-projector-2nd-generation",
       "image": "/products/pico-projector-2nd-generation.png",
       "category": "Projector",
-      "buyNow": "/contact-us",
-      "buyNowText": "Pre Order Now",
+      "buyNow": "https://metaoptics.shop/products/pico-projector-2nd-gen",
+      "buyNowText": "Buy Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
       "details": {
         "subtitle": "Pocket sized projection, ready to travel.",
@@ -856,9 +959,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -877,8 +980,8 @@
       "slug": "metalens-5g-smartphone",
       "image": "/products/metalens-5g-smartphone.png",
       "imageScale": 1.2,
-      "buyNow": "/contact-us",
-      "buyNowText": "Pre Order Now",
+      "buyNow": "https://metaoptics.shop/products/metaoptics-metalens-5g-smartphone",
+      "buyNowText": "Buy Now",
       "category": "Smartphone",
       "brochure": "/download/MetaOptics-5G-Smartphone.pdf",
       "details": {
@@ -925,9 +1028,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {
@@ -947,8 +1050,8 @@
       "image": "/products/metalens-ai-glasses.png",
       "imageScale": 1.2,
       "imageScaleMobile": 0.9,
-      "buyNow": "/contact-us",
-      "buyNowText": "Pre Order Now",
+      "buyNow": "https://metaoptics.shop/products/metalens-ai-glasses",
+      "buyNowText": "Buy Now",
       "category": "Glasses",
       "brochure": "/download/MetaOptics-AI-Smart-Glasses.pdf",
       "details": {
@@ -1016,9 +1119,9 @@
             "category": "3D"
           },
           {
-            "name": "IoT Metalens Color Camera",
-            "slug": "iot-metalens-color-camera",
-            "image": "/products/product-3.png",
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
             "category": "Camera"
           },
           {

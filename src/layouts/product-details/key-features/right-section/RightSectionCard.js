@@ -39,22 +39,24 @@ const RightSectionCard = ({ item }) => {
   return (
     <div
       className={clsx(
-        "rounded-[32px] bg-[#C73C29] px-10 2xl:py-[80px] xl:py-15 py-10 flex xl:flex-row flex-col w-full xl:justify-start justify-center items-center"
+        "rounded-[32px] bg-[#C73C29] px-6 lg:px-10 2xl:py-[80px] xl:py-[60px] lg:py-[40px] py-10 flex lg:flex-row flex-col w-full lg:justify-start justify-center items-center gap-6 lg:gap-10"
       )}
       style={renderCardStyle()}
     >
-      <Image
-        src={item.image}
-        alt={item.title}
-        width={0}
-        height={0}
-        sizes="100vw"
-        className={clsx("2xl:w-1/2 xl:w-[350px] w-full h-auto object-cover")}
-        style={{
-          maxWidth: isMobile ? "220px" : item.imageMaxWidth || "50%",
-        }}
-      />
-      <div>
+      <div className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto">
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className={clsx("2xl:w-[350px] xl:w-[300px] lg:w-[250px] w-full max-w-[220px] lg:max-w-none h-auto object-contain")}
+          style={{
+            maxWidth: isMobile ? "220px" : item.imageMaxWidth || "none",
+          }}
+        />
+      </div>
+      <div className="flex-1 w-full lg:w-auto">
         <div
           className={clsx(
             "flex gap-4 items-start",
@@ -63,27 +65,31 @@ const RightSectionCard = ({ item }) => {
               : "flex-col-reverse items-start justify-end"
           )}
         >
-          <h2
-            className="2xl:text-[32px] xl:text-[28px] text-[24px] futura-bold text-white uppercase leading-[38px] opacity-80 xl:text-start text-center whitespace-nowrap w-full"
-            dangerouslySetInnerHTML={{
-              __html: item.subtitleDom,
-            }}
-          ></h2>
+          {item.subtitleDom && (
+            <h2
+              className="2xl:text-[32px] xl:text-[28px] lg:text-[22px] text-[20px] futura-bold text-white uppercase leading-tight opacity-80 lg:text-start text-center w-full"
+              dangerouslySetInnerHTML={{
+                __html: item.subtitleDom,
+              }}
+            ></h2>
+          )}
 
           {item.titleImage && (
-            <Image
-              src={item.titleImage}
-              alt={item.title}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="2xl:h-[50px] 2xl:w-auto xl:h-[36px] xl:w-auto w-full h-auto object-cover"
-            />
+            <div className="w-full lg:w-auto flex lg:justify-start justify-center">
+              <Image
+                src={item.titleImage}
+                alt={item.title}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="2xl:h-[50px] xl:h-[36px] lg:h-[30px] w-auto h-auto object-contain"
+              />
+            </div>
           )}
 
           {item.title && (
             <h2
-              className="2xl:text-[36px] xl:text-[28px] text-[24px] futura-bold text-white uppercase 2xl:leading-[50px] xl:leading-[40px] leading-[38px] whitespace-nowrap xl:text-start text-center w-full"
+              className="2xl:text-[36px] xl:text-[28px] lg:text-[24px] text-[22px] futura-bold text-white uppercase leading-tight lg:text-start text-center w-full"
               dangerouslySetInnerHTML={{
                 __html: item.title,
               }}
@@ -93,8 +99,8 @@ const RightSectionCard = ({ item }) => {
 
         <div
           className={clsx(
-            "futura-medium text-white 2xl:text-lg xl:text-base text-[14px] opacity-80 capitalize xl:text-start text-center",
-            !item.descriptionStyle && "xl:mt-[40px] mt-6"
+            "futura-medium text-white 2xl:text-lg xl:text-base lg:text-[14px] text-[13px] opacity-80 lg:text-start text-center",
+            !item.descriptionStyle && "lg:mt-8 mt-4"
           )}
           style={item.descriptionStyle}
           dangerouslySetInnerHTML={{

@@ -6,6 +6,7 @@ import Products from "../layouts/homepage/products";
 import TorchlightText from "@/layouts/homepage/torch-light";
 import News from "../layouts/homepage/news";
 import Footer from "../layouts/main/footer";
+import Awards from "../layouts/homepage/awards";
 
 export const metadata = {
   title: metadataJson.homepage.title,
@@ -35,6 +36,7 @@ const Home = () => {
       <AboutUs />
       <Products />
       <TorchlightText />
+      <Awards />
       <News />
       <Footer />
     </>

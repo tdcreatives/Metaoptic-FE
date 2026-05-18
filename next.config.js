@@ -14,6 +14,16 @@ const nextConfig = {
     domains: ['images.unsplash.com'],
     unoptimized: true,  // This will generate static image files instead of using /_next/image
   },
+  async redirects() {
+    return [
+      {
+        source: '/verticals/metalens-foundry/iot-metalens-color-camera',
+        destination:
+          '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withMDX(nextConfig); 

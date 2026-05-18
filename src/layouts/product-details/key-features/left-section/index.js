@@ -39,29 +39,29 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
   };
 
   return (
-    <div className="flex xl:sticky xl:top-0 xl:self-start">
+    <div className="flex lg:sticky lg:top-[100px] lg:self-start">
       <div className="flex-1">
         {/* Main Title */}
         {title && (
-          <h1 className="xl:text-[28px] text-[26px] font-medium text-black mb-6 leading-tight futura-medium">
+          <h1 className="xl:text-[28px] lg:text-[24px] text-[22px] font-medium text-black mb-6 leading-tight futura-medium">
             {title}
           </h1>
         )}
 
         {/* Description Paragraph */}
         {description && (
-          <p className="xl:text-[18px] text-[16px] text-black mb-8 leading-relaxed text-justify">
+          <p className="xl:text-[18px] lg:text-[16px] text-[15px] text-black mb-8 leading-relaxed text-justify">
             {description}
           </p>
         )}
 
         {/* KEY FEATURES Section */}
-        <div className={clsx(title && "xl:mt-16")}>
+        <div className={clsx(title && "lg:mt-16 mt-8")}>
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center justify-between gap-4 group w-full border-b-2 border-[#313131] pb-3 "
           >
-            <h2 className="xl:text-[48px] text-[44px] font-medium text-black futura-condensed-medium">
+            <h2 className="xl:text-[48px] lg:text-[40px] text-[32px] font-medium text-black futura-condensed-medium uppercase">
               KEY FEATURES
             </h2>
             {/* Red circular icon with chevron */}

@@ -9,16 +9,16 @@ import useMobile from "@/hooks/useMobile";
 
 const countBrTag = (text) => {
   if (!text) return 0;
-  console.log(text, text.split("<br />").length);
+  // console.log(text, text.split("<br />").length);
   return text.split("<br />").length - 1;
 };
 const ProductDetailsBanner = ({ product }) => {
   const isMobile = useMobile();
   const isExternalLink = product?.buyNow?.toLowerCase().startsWith("http");
   return (
-    <div className="relative w-full xl:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
+    <div className="relative w-full lg:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
-        className="absolute text-white xl:text-[200px] text-[80px] xl:left-[-20px] left-0 xl:top-[-60px] top-0 futura-condensed-medium uppercase xl:tracking-[1rem] tracking-[0.5rem] w-full"
+        className="absolute text-white xl:text-[200px] lg:text-[150px] text-[80px] xl:left-[-20px] left-0 xl:top-[-60px] lg:top-[-40px] top-0 futura-condensed-medium uppercase xl:tracking-[1rem] lg:tracking-[0.7rem] tracking-[0.5rem] w-full"
         dangerouslySetInnerHTML={{ __html: product?.nameDom }}
         style={{
           whiteSpace: "nowrap",
@@ -28,20 +28,22 @@ const ProductDetailsBanner = ({ product }) => {
       <div className="relative">
         <div
           className={clsx(
-            "relative w-full xl:h-[600px] xl:pb-[72px] pb-[24px]",
+            "relative w-full lg:h-[600px] xl:pb-[72px] pb-[24px]",
             countBrTag(product?.nameDom) > 1 ? "h-[400px]" : "h-[300px]"
           )}
         >
           <div
             className={clsx(
-              "absolute 2xl:h-[450px] xl:h-[400px] h-[400px] xl:w-auto w-[90%] z-[10]"
+              "absolute 2xl:h-[450px] xl:h-[400px] lg:h-[350px] h-[400px] lg:w-auto w-[90%] z-[10]"
             )}
             style={{
               top: "45%",
               left: "50%",
               transform: `translate(-50%, -50%) ${
                 isMobile
-                  ? "scale(1)"
+                  ? product?.mobileImageScale
+                    ? `scale(${product?.mobileImageScale})`
+                    : "scale(1)"
                   : product?.imageScale
                   ? `scale(${product?.imageScale})`
                   : "scale(1)"
@@ -51,7 +53,6 @@ const ProductDetailsBanner = ({ product }) => {
             <Image
               width="0"
               height="0"
-              rmov
               sizes="100vw"
               src={product?.image}
               alt="Next"
@@ -60,25 +61,41 @@ const ProductDetailsBanner = ({ product }) => {
           </div>
         </div>
 
-        <div className="xl:text-[60px] text-[36px] text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] max-w-[90%] mx-auto xl:mt-0 mt-3">
+        <div className="xl:text-[60px] lg:text-[48px] text-[36px] text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] lg:max-w-[80%] max-w-[90%] mx-auto xl:mt-0 mt-3">
           {product?.name}
         </div>
 
-        <div className="xl:text-[28px] text-[20px] futura-medium text-center xl:max-w-[70%] mx-auto max-w-[90%]">
+        <div className="xl:text-[28px] lg:text-[24px] text-[20px] futura-medium text-center xl:max-w-[70%] lg:max-w-[80%] mx-auto max-w-[90%]">
           {product?.details?.subtitle}
         </div>
 
         {product?.details?.description && (
           <div
-            className="xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5"
+            className="xl:text-[20px] lg:text-[18px] text-[16px] text-center xl:max-w-[60%] lg:max-w-[75%] max-w-[90%] mx-auto mt-5"
             dangerouslySetInnerHTML={{
               __html: removeAllBrTags(product?.details?.description),
             }}
           ></div>
         )}
 
+        {product?.details?.descriptionHTML && (
+          <div className="xl:text-[20px] lg:text-[18px] text-[16px] xl:max-w-[60%] lg:max-w-[75%] max-w-[90%] mx-auto mt-10 space-y-8">
+            {product.details.descriptionHTML.map((item, index) => (
+              <div key={index} className="flex flex-col gap-2">
+                <h3 className="font-bold text-[#d34c39] uppercase xl:text-[24px] text-[20px]">
+                  {item.title}
+                </h3>
+                <div
+                  className="prose prose-lg max-w-none text-[rgb(17,17,17)]"
+                  dangerouslySetInnerHTML={{ __html: item.html }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
         {product?.details?.subtitleItems && (
-          <div className="xl:text-[20px] text-[16px] text-center xl:max-w-[60%] max-w-[90%] mx-auto mt-5">
+          <div className="xl:text-[20px] lg:text-[18px] text-[16px] text-center xl:max-w-[60%] lg:max-w-[75%] max-w-[90%] mx-auto mt-5">
             <ul class="mt-0 space-y-2 text-center text-[rgb(17,17,17)] list-disc list-inside">
               {product?.details?.subtitleItems.map((item, index) => (
                 <li key={index}>{item}</li>

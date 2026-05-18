@@ -13,13 +13,13 @@ import { isMobile } from 'react-device-detect';
 const products = [
     {
         id: '01',
-        title: 'IoT Metalens Color Camera',
+        title: 'IoT Rectangular Metalens Color Camera',
         category: 'Metalens IoT Product',
         description:
             'Leading edge camera to capture a color image using meta lens. 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.',
         image: 'landing-product-1.png',
         objectPosition: 'left',
-        slug: 'iot-metalens-color-camera',
+        slug: 'iot-rectangular-metalens-color-camera',
     },
     {
         id: '02',
@@ -110,7 +110,7 @@ const Products = () => {
                 })}
             </div>
 
-            <Link href="/products">
+            <Link href="/verticals">
                 <BaseButton
                     label='See all products'
                     classNameBtn='uppercase'

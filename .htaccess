@@ -1,16 +1,28 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+RewriteEngine On
 
-  # Redirect typo "contac-us" to "contact-us.html"
-  RewriteRule ^contac-us$ /contact-us.html [L,R=301]
+# Redirect legacy product URL to new slug (static export + Apache hosting)
+RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
 
-  # Serve static files if they exist
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
+# Canonicalize development-kits products to nested URL
+RewriteRule ^verticals/metalens-foundry/iot-rectangular-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
+RewriteRule ^verticals/metalens-foundry/3d-biometrics-metalens-sensor/?$ /verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor [R=301,L,NC]
 
-  # Rewrite clean URLs to static files
-  RewriteRule ^(.*)/$ $1/index.html [L]
-  RewriteRule ^(.*)$ $1.html [L]
-</IfModule>
+# 1) Serve real files as-is.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 2) Serve real directories only when they have index.html.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^ - [L]
+
+# 3) For extensionless URLs (any depth), serve matching .html file.
+# Example: /about-us -> /about-us.html
+# Example: /verticals/metalens-products/development-kits -> /verticals/metalens-products/development-kits.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# 4) Also support exported folder format with index.html (if present).
+# Example: /news/some-slug -> /news/some-slug/index.html
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+?)/?$ /$1/index.html [L]

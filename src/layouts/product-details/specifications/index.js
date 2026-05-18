@@ -66,6 +66,18 @@ const ProductDetailsSpecifications = ({
                     />
                 );
 
+            case 'substrateSpecifications':
+                return (
+                    <Image
+                        src='/product-details/mechanic.png'
+                        alt='Substrate'
+                        width='0'
+                        height='0'
+                        sizes='100vw'
+                        className='xl:w-[40px] w-[32px] hover:scale-105 transition-transform duration-300 cursor-pointer'
+                    />
+                );
+
             case 'cameraSpecifications':
                 return (
                     <Image
@@ -124,10 +136,10 @@ const ProductDetailsSpecifications = ({
     const gridColsClass =  'grid-cols-1 md:grid-cols-'+column ;
 
     return (
-        <div className='w-full bg-[#d34c39] xl:py-6 py-3 xl:px-6 px-3 rounded-lg text-white'>
+        <div className='w-full bg-[#d34c39] lg:py-12 py-8 lg:px-10 px-6 rounded-[32px] text-white'>
             {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-0'>
-                <div className='xl:text-[48px] text-[32px] uppercase relative z-30 futura-condensed-medium xl:mt-0 mt-3 text-start'>
+                <div className='xl:text-[48px] lg:text-[40px] text-[32px] uppercase relative z-30 futura-condensed-medium lg:mt-0 mt-3 text-start'>
                     Specifications
                 </div>
 
@@ -147,7 +159,7 @@ const ProductDetailsSpecifications = ({
             </div>
 
             <div className='w-full h-[2px] bg-white opacity-50 mx-auto mb-8'></div>
-            <div className={`grid grid-cols-1 md:grid-cols-${specificationLength} gap-12 gap-12`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-${specificationLength} gap-12`}>
                 {Object.entries(specifications).map(([section, specs], index) => (
                     <div key={index} className='spec-section flex flex-col gap-8'>
                         <div className='flex flex-col items-center'>
@@ -155,7 +167,7 @@ const ProductDetailsSpecifications = ({
 
                             {section !== 'optionalSpecifications' &&
                                 section !== 'empty' && (
-                                    <h3 className='xl:text-[20px] text-[16px] font-semibold text-center uppercase mt-5 futura-medium'>
+                                    <h3 className='xl:text-[20px] lg:text-[18px] text-[16px] font-semibold text-center uppercase mt-5 futura-medium'>
                                         {section.replace(/([A-Z])/g, ' $1')}
                                     </h3>
                                 )}
@@ -165,12 +177,12 @@ const ProductDetailsSpecifications = ({
                         <div
                             className={`overflow-hidden transition-all duration-500 ${
                                 isExpanded
-                                    ? 'max-h-[500px] opacity-100'
+                                    ? 'max-h-[1000px] opacity-100'
                                     : 'max-h-0 opacity-0'
                             }`}>
                             <ul className='mt-0 space-y-2 text-center text-white/90'>
                                 {Object.entries(specs).map(([key, value]) => (
-                                    <li key={key} className='capitalize'>
+                                    <li key={key} >
                                         {key === 'list-line' ? (
                                             <div className='space-y-3'>
                                                 {renderListLine(value)}
@@ -178,7 +190,7 @@ const ProductDetailsSpecifications = ({
                                         ) : (
                                             <>
                                                 {key !== 'list' && (
-                                                    <strong>
+                                                    <strong className='capitalize'>
                                                         {formatKey(key)}:{' '}
                                                     </strong>
                                                 )}
@@ -196,7 +208,7 @@ const ProductDetailsSpecifications = ({
             </div>
 
             
-            <div className={`grid grid-cols-1 md:grid-cols-${activeButtons} gap-12 gap-12`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-${activeButtons} gap-12 mt-12`}>
                 <div className='spec-section flex justify-center items-center'>
                     {buttonLeft && (
                         Array.isArray(buttonLeft?.link) ? (
