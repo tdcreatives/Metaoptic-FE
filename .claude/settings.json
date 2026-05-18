@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(awk 'NR>=775 && /^    \\\\{/ {print NR\": \"$0}' /Users/khoata/Documents/Workspacing/Metaoptic-FE/src/constants/data.json)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('/Users/khoata/Documents/Workspacing/Metaoptic-FE/src/constants/data.json','utf8'\\)\\); console.log\\('JSON OK'\\)\")",
+      "Read(//private/tmp/**)",
+      "Bash(curl -s -o /tmp/page-out.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3456/verticals/metalens-capital-equipment/manual-tester)",
+      "Bash(xargs kill -9)",
+      "Bash(rm /tmp/next-dev.log /tmp/page-out.html)"
+    ]
+  }
+}

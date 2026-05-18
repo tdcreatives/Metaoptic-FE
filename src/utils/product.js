@@ -1,7 +1,8 @@
 export const equipmentSlugs = [
   'direct-laser-writer',
   'metalens-automatic-tester',
-  'automated-metalens-camera-module-assembly-and-test-system'
+  'automated-metalens-camera-module-assembly-and-test-system',
+  'manual-tester'
 ];
 export const foundrySlugs = [
   'color-imaging-meta-lens',
