@@ -8,26 +8,13 @@ import BaseButton from '@/components/BaseButton';
 import IconButton from '@/components/IconButton';
 import arrowDownIcon from '@/assets/images/arrow-down.png';
 
-// Helper function to format keys
+// Helper function to format keys (e.g. RBGTargetWavelength → "RBG Target Wavelength")
 function formatKey(str) {
-    let result = '';
-    let inParens = false;
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
-        if (char === '(') {
-            if (!inParens && i > 0 && str[i - 1] !== ' ') result += ' ';
-            inParens = true;
-            result += char;
-        } else if (char === ')') {
-            inParens = false;
-            result += char;
-        } else if (!inParens && char === char.toUpperCase() && /[A-Z]/.test(char) && i > 0 && str[i - 1] !== ' ' && str[i - 1] !== '(') {
-            result += ' ' + char;
-        } else {
-            result += char;
-        }
-    }
-    return result.trim();
+    return str
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+        .replace(/([^\s(])\(/g, '$1 (')
+        .trim();
 }
 
 const ProductDetailsSpecifications = ({

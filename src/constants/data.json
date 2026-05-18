@@ -274,12 +274,12 @@
           "substrateSpecifications": {
             "length": "7.94 mm",
             "width": "6.34 mm",
-            "height": "0.775 ± 0.02mm",
+            "thickness": "0.775 ± 0.02mm",
             "substrateMaterial": "Glass"
           },
           "metalensSpecifications": {
             "patternMaterial": "SiN",
-            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "RBGTargetWavelength": "635, 540, 450nm ± 5nm",
             "minimumCD(PillarDiameter)": "120nm",
             "pillarHeight": "650nm",
             "metalensSize(EachColourChannel)": "1.9 x 5.66mm",
@@ -326,12 +326,12 @@
           "substrateSpecifications": {
             "length": "7 mm",
             "width": "7 mm",
-            "height": "0.775 ± 0.02mm",
+            "thickness": "0.775 ± 0.02mm",
             "substrateMaterial": "Glass"
           },
           "metalensSpecifications": {
             "patternMaterial": "SiN",
-            "rgbTargetWavelength": "635, 540, 450nm ± 5nm",
+            "RBGTargetWavelength": "635, 540, 450nm ± 5nm",
             "minimumCD(PillarDiameter)": "120nm",
             "pillarHeight": "650nm",
             "metalensDiameter(EachColourChannel)": "2mm",
