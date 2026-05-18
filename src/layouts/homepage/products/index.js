@@ -21,16 +21,16 @@ const products = [
         objectPosition: 'left',
         slug: 'iot-rectangular-metalens-color-camera',
     },
-    {
-        id: '02',
-        title: 'Color Imaging Metalens',
-        category: 'Camera',
-        description:
-            'Leading edge mass producible meta lens using 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.',
-        image: 'landing-product-2.png',
-        objectPosition: 'left',
-        slug: 'color-imaging-meta-lens',
-    },
+    // {
+    //     id: '02',
+    //     title: 'Color Imaging Metalens',
+    //     category: 'Camera',
+    //     description:
+    //         'Leading edge mass producible meta lens using 12" Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.',
+    //     image: 'landing-product-2.png',
+    //     objectPosition: 'left',
+    //     slug: 'color-imaging-meta-lens',
+    // },
     {
         id: '03',
         title: 'Ultra-Light Weight Pico Projector',
