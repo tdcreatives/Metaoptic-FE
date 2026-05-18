@@ -914,7 +914,7 @@
     },
     {
       "name": "Manual Metalens Testing Platform",
-      "nameDom": "Manual <br /> <div class='name-dom-metalens-tester--first'>Metalens</div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
+      "nameDom": "Manual <br /> <div class='name-dom-manual-tester--first'>Metalens</div> <br /> <div class='name-dom-manual-tester--second'>Tester</div>",
       "slug": "manual-tester",
       "image": "/products/manual-test.png",
       "category": "3D",

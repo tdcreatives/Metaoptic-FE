@@ -33,7 +33,7 @@ const ProductDetailsPlatformVersions = ({ platformVersions }) => {
             </div>
           )}
           {images[1] && (
-            <div className="lg:w-[352px] w-full">
+            <div className="lg:w-[352px] w-[221px]">
               <Image
                 src={images[1]}
                 alt={title}

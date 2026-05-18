@@ -16,6 +16,18 @@
   left: 60%;
 }
 
+.name-dom-manual-tester--first {
+  position: absolute;
+  top: 200px;
+  left: 20%;
+}
+
+.name-dom-manual-tester--second {
+  position: absolute;
+  top: 400px;
+  left: 60%;
+}
+
 .name-dom-metalens-5g--first,
 .name-dom-metalens-ai--first {
   position: absolute;
@@ -51,6 +63,16 @@
     left: 0;
     top: 240px;
     font-size: 100px;
+  }
+
+  .name-dom-manual-tester--first {
+    top: 100px;
+    left: 15%;
+  }
+
+  .name-dom-manual-tester--second {
+    top: 200px;
+    left: 35%;
   }
 
   .name-dom-metalens-5g--first {
