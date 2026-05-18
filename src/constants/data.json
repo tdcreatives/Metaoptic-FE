@@ -266,8 +266,7 @@
       "slug": "rectangular-rgb-metalens",
       "image": "/products/rectangular-rgb-metalens.png",
       "category": "Camera",
-      "buyNow": "",
-      "brochure": "/download/rectangular-rgb-metalens.pdf",
+      "brochure": "/download/Rectangular-RGB-Metalens.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
         "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
@@ -319,7 +318,7 @@
       "image": "/products/round-rgb-metalens.png",
       "category": "Camera",
       "buyNow": "",
-      "brochure": "",
+      "brochure": "/download/Round-RGB-Metalens.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
         "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
