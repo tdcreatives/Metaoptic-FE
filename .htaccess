@@ -7,8 +7,8 @@ RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/
 RewriteRule ^verticals/metalens-foundry/iot-rectangular-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
 RewriteRule ^verticals/metalens-foundry/3d-biometrics-metalens-sensor/?$ /verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor [R=301,L,NC]
 
-RewriteRule ^verticals/metalens-foundry/color-imaging-meta-lens/?$ / [R=301,L,NC]
-RewriteRule ^/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera/?$ / [R=301,L,NC]
+RewriteRule ^/verticals/metalens-foundry/color-imaging-meta-lens / [R=301,L,NC]
+RewriteRule ^/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera / [R=301,L,NC]
 
 
 
