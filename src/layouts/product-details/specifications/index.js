@@ -10,9 +10,23 @@ import arrowDownIcon from '@/assets/images/arrow-down.png';
 
 // Helper function to format keys (e.g. RBGTargetWavelength → "RBG Target Wavelength")
 function formatKey(str) {
+    const formatSegment = (segment, { inParens }) => {
+        const lowerToUpper = inParens
+            ? /([a-z])([A-Z])(?=[a-z]{2,})/g
+            : /([a-z])([A-Z])/g;
+        return segment
+            .replace(lowerToUpper, '$1 $2')
+            .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2');
+    };
+
     return str
-        .replace(/([a-z])([A-Z])/g, '$1 $2')
-        .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+        .replace(/\([^)]*\)|[^()]+/g, (segment) => {
+            if (segment.startsWith('(')) {
+                const inner = formatSegment(segment.slice(1, -1), { inParens: true });
+                return `(${inner})`;
+            }
+            return formatSegment(segment, { inParens: false });
+        })
         .replace(/([^\s(])\(/g, '$1 (')
         .trim();
 }
