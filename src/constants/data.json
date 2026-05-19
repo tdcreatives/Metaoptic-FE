@@ -279,12 +279,12 @@
           },
           "metalensSpecifications": {
             "patternMaterial": "SiN",
-            "RBGTargetWavelength": "635, 540, 450nm ± 5nm",
+            "RGBTargetWavelength": "635, 540, 450nm ± 5nm",
             "minimumCD(PillarDiameter)": "120nm",
             "pillarHeight": "650nm",
-            "metalensSize(EachColourChannel)": "1.9 x 5.66mm",
+            "metalensSize(Effective)": "5.7 x 5.66mm",
             "EFL(FocalLength)": "2.46mm",
-            "fieldOfView(HOV)": "120 x 45 Degrees",
+            "fieldOfView(HxV)": "120 x 45 Degrees",
             "frontAperture(Target)": "0.7mm",
             "imageArea": "5.737 x 4.312mm"
           }
@@ -336,7 +336,6 @@
             "pillarHeight": "650nm",
             "metalensDiameter(EachColourChannel)": "2mm",
             "EFL(FocalLength)": "1.53mm",
-            "DFL(FocalLength)": "1.53mm",
             "fieldOfView": "70 degrees",
             "imageArea": "4.968 x 3.726 mm"
           }
