@@ -1,10 +1,10 @@
 const renderItem = (item, index) => (
-  <li key={index} className="text-[15px] text-[#3a3a3a] leading-relaxed">
+  <li key={index} className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#676767] font-medium leading-relaxed">
     {item.label}
     {item.children?.length > 0 && (
       <ul className="list-disc list-outside pl-8 mt-2 space-y-2">
         {item.children.map((child, ci) => (
-          <li key={ci} className="text-[14px] text-[#5a5a5a]">
+          <li key={ci} className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#676767] font-medium">
             {child}
           </li>
         ))}
@@ -21,12 +21,12 @@ const ProductDetailsDualColumnList = ({ dualColumnList }) => {
       <div className="max-w-[1320px] mx-auto grid lg:grid-cols-2 grid-cols-1 lg:gap-20 gap-10">
         {dualColumnList.columns.map((col, idx) => (
           <div key={idx} className="flex flex-col">
-            <h2 className="xl:text-[40px] lg:text-[32px] text-[28px] futura-condensed-medium font-medium text-[#d34c39] uppercase border-b border-[#BFBFBF] pb-3">
+            <h2 className="xl:text-[48px] lg:text-[36px] text-[22px] futura-condensed-medium font-medium text-[#d34c39] uppercase border-b border-[#BFBFBF] pb-3">
               {col.title}
             </h2>
 
             {col.subtitle && (
-              <p className="xl:text-[16px] lg:text-[15px] text-[14px] text-[#000] font-medium mt-6 leading-relaxed">
+              <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#111] font-medium mt-6 leading-relaxed">
                 {col.subtitle}
               </p>
             )}

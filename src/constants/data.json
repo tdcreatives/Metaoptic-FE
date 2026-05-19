@@ -917,6 +917,7 @@
       "nameDom": "Manual <br /> <div class='name-dom-manual-tester--first'>Metalens</div> <br /> <div class='name-dom-manual-tester--second'>Tester</div>",
       "slug": "manual-tester",
       "image": "/products/manual-test.png",
+      "mobileImageScale": 0.85,
       "category": "3D",
       "buyNow": "",
       "brochure": "",

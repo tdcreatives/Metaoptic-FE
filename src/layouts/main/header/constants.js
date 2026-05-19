@@ -17,6 +17,7 @@ export const dropdownItems = {
       hasIndicator: true,
       items: [
         { label: "Direct Laser Writer", path: "/verticals/metalens-capital-equipment/direct-laser-writer" },
+        { label: "Manual Tester", path: "/verticals/metalens-capital-equipment/manual-tester" },
         { label: "Automatic Tester", path: "/verticals/metalens-capital-equipment/metalens-automatic-tester" },
         { label: "Automatic Assembler & Tester", path: "/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system" },
       ],

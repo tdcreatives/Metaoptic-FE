@@ -7,7 +7,7 @@ const ProductDetailsModuleGrid = ({ moduleGrid }) => {
   return (
     <section className="2xl:px-[104px] 2xl:py-[80px] xl:px-[50px] xl:py-[60px] lg:px-[40px] lg:py-[50px] py-10 px-6 bg-[#EAEAEA]">
       <div className="max-w-[1320px] mx-auto">
-      <h2 className="xl:text-[40px] lg:text-[32px] text-[28px] futura-condensed-medium font-medium text-[#d34c39] uppercase border-b border-[#BFBFBF] pb-3">
+      <h2 className="xl:text-[48px] lg:text-[36px] text-[22px] futura-condensed-medium font-medium text-[#d34c39] uppercase border-b border-[#BFBFBF] pb-3">
         {title}
       </h2>
 
@@ -23,12 +23,12 @@ const ProductDetailsModuleGrid = ({ moduleGrid }) => {
               idx >= 2 && "lg:pt-12 lg:border-t lg:border-[#BFBFBF]"
             )}
           >
-            <h3 className="xl:text-[22px] lg:text-[20px] text-[18px] futura-condensed-medium font-medium text-[#d34c39] uppercase">
+            <h3 className="xl:text-[36px] lg:text-[28px] text-[20px] futura-condensed-medium font-medium text-[#d34c39] uppercase">
               {col.title}
             </h3>
 
             {col.description && (
-              <p className="xl:text-[15px] lg:text-[14px] text-[14px] text-[#000] font-medium mt-4 leading-relaxed">
+              <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#000] font-medium mt-4 leading-relaxed">
                 {col.description}
               </p>
             )}
@@ -38,7 +38,7 @@ const ProductDetailsModuleGrid = ({ moduleGrid }) => {
                 {col.items.map((item, i) => (
                   <li
                     key={i}
-                    className="text-[14px] text-[#5a5a5a] leading-relaxed"
+                    className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#676767] font-medium leading-relaxed"
                   >
                     {item}
                   </li>

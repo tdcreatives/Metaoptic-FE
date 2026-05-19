@@ -21,7 +21,7 @@ const ProductDetailsCtaBanner = ({ ctaBanner }) => {
       <div className="absolute inset-0 bg-black/55" />
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center">
-        <h2 className="xl:text-[32px] lg:text-[28px] text-[20px] futura-medium text-white uppercase tracking-[2px]">
+        <h2 className="xl:text-[24px] lg:text-[22px] text-[18px] font-medium futura-medium text-white uppercase tracking-[3.2px]">
           {title}
         </h2>
 
