@@ -22,6 +22,19 @@ const nextConfig = {
           '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
         permanent: true,
       },
+      {
+        source: '/verticals/metalens-foundry/color-imaging-meta-lens',
+        destination:
+          '/',
+        permanent: true,
+      },
+      {
+        source: '/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera',
+        destination:
+          '/',
+        permanent: true,
+      },
+      
     ];
   },
 };
