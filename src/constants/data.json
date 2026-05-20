@@ -331,7 +331,7 @@
           },
           "metalensSpecifications": {
             "patternMaterial": "SiN",
-            "RBGTargetWavelength": "635, 540, 450nm ± 5nm",
+            "RGBTargetWavelength": "635, 540, 450nm ± 5nm",
             "minimumCD(PillarDiameter)": "120nm",
             "pillarHeight": "650nm",
             "metalensDiameter(EachColourChannel)": "2mm",
