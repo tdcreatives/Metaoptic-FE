@@ -62,7 +62,15 @@
       "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36\" -e \"https://www.metaoptics.com.sg/\" \"https://www.b2i.us/b2i/Dividendsapi.asp?v=1.0.6\" -o /tmp/div-script.js -w \"len: %{size_download}\\\\n\")",
       "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36\" -e \"https://www.metaoptics.com.sg/\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=1&d=1&dl=2&css=1\" -o /tmp/quote.html -D /tmp/qh.txt)",
       "Bash(npm run dev > /tmp/metaoptic-dev.log 2>&1 & *)",
-      "Bash(curl -s http://localhost:4444/investor-relations -o /tmp/ir.html -w \"status: %{http_code}\\\\n\")"
+      "Bash(curl -s http://localhost:4444/investor-relations -o /tmp/ir.html -w \"status: %{http_code}\\\\n\")",
+      "Bash(curl -s -o /dev/null -w \"/news: %{http_code}\\\\n\" http://localhost:4444/investor-relations/news)",
+      "Bash(curl -s -o /dev/null -w \"/news/press-releases: %{http_code}\\\\n\" http://localhost:4444/investor-relations/news/press-releases)",
+      "Bash(curl -s -o /dev/null -w \"/news/media: %{http_code}\\\\n\" http://localhost:4444/investor-relations/news/media)",
+      "Bash(curl -s http://localhost:4444/investor-relations/news)",
+      "Bash(curl -s http://localhost:4444/investor-relations/news/press-releases)",
+      "Bash(curl -s http://localhost:4444/investor-relations/news/media)",
+      "Bash(curl -s -o /dev/null -w \"status: %{http_code}\\\\n\" http://localhost:4444/investor-relations)",
+      "Bash(curl -s -o /dev/null -w \"/investor-relations: %{http_code}\\\\n\" http://localhost:4444/investor-relations)"
     ],
     "additionalDirectories": [
       "/private/tmp"

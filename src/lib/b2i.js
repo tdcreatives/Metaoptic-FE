@@ -21,8 +21,20 @@ function formatDate(raw) {
     return `${abbr} ${day.padStart(2, '0')}, ${year}`;
 }
 
-export async function fetchPressReleaseList({ bizId, apiKey, count = 3 }) {
-    const url = `${LISTING_ENDPOINT}?b=${encodeURIComponent(bizId)}&api=${encodeURIComponent(apiKey)}&i=${count}&sd=1&df=6&div=LibDiv`;
+export async function fetchPressReleaseList({ bizId, apiKey, count = 3, page = 1, year = '' }) {
+    const params = new URLSearchParams({
+        b: bizId,
+        api: apiKey,
+        i: String(count),
+        p: String(page),
+        sd: '1',
+        df: '6',
+        tl: '1',
+        div: 'LibDiv',
+    });
+    if (year) params.set('y', String(year));
+
+    const url = `${LISTING_ENDPOINT}?${params.toString()}`;
 
     try {
         const res = await fetch(url, { cache: 'no-store' });
@@ -59,10 +71,30 @@ export async function fetchPressReleaseList({ bizId, apiKey, count = 3 }) {
             });
         });
 
-        return items.slice(0, count);
+        let totalPages = items.length > 0 ? page : 1;
+        doc.querySelectorAll('#b2iLibNav a[href*="UpdateApiPage"]').forEach((a) => {
+            const m = (a.getAttribute('href') || '').match(/UpdateApiPage\((\d+)/);
+            if (m) {
+                const n = Number(m[1]);
+                if (n > totalPages) totalPages = n;
+            }
+        });
+
+        const availableYears = [];
+        doc.querySelectorAll('select[name="B2iYear"] option').forEach((opt) => {
+            const v = (opt.getAttribute('value') || '').trim();
+            if (/^\d{4}$/.test(v)) availableYears.push(Number(v));
+        });
+
+        return {
+            items: items.slice(0, count),
+            totalPages,
+            currentPage: page,
+            availableYears,
+        };
     } catch (err) {
         console.error('[b2i] fetchPressReleaseList failed:', err);
-        return [];
+        return { items: [], totalPages: 1, currentPage: page, availableYears: [] };
     }
 }
 
