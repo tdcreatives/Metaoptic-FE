@@ -919,7 +919,7 @@
       "mobileImageScale": 0.85,
       "category": "3D",
       "buyNow": "",
-      "brochure": "",
+      "brochure": "https://google.com",
       "details": {
         "subtitle": "Metalens Prototyping & Characterization System",
         "description": "An upgrade-ready platform for metalens characterization in R&D, prototyping, and early process development. The MetaOptics Modular Manual Metalens Tester gives customers a practical starting point for metalens testing without committing to a full production tester. Systems can start with a simple, cost-efficient configuration and expand over time with additional source, illumination, sample-handling, and measurement modules.",

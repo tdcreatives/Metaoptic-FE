@@ -1,6 +1,22 @@
-const ProductDetailsSpecTable = ({ specTable }) => {
+import BaseButton from "@/components/BaseButton";
+
+const ProductDetailsSpecTable = ({ specTable, brochure }) => {
   if (!specTable?.rows?.length) return null;
   const { title, headers, rows, note } = specTable;
+
+  const handleDownloadBrochure = () => {
+    if (!brochure) return;
+    if (brochure.toLowerCase().endsWith(".pdf")) {
+      const link = document.createElement("a");
+      link.href = brochure;
+      link.download = brochure.split("/").pop() || "brochure";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(brochure, "_blank");
+    }
+  };
 
   return (
     <section className="2xl:px-[104px] 2xl:py-[80px] xl:px-[50px] xl:py-[60px] lg:px-[40px] lg:py-[50px] py-10 px-6 bg-white">
@@ -58,6 +74,15 @@ const ProductDetailsSpecTable = ({ specTable }) => {
 
         {note && (
           <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#555] font-medium mt-4">{note}</p>
+        )}
+
+        {brochure && (
+          <BaseButton
+            label="Download Brochure"
+            onClick={handleDownloadBrochure}
+            className="!mt-8 !justify-center"
+            classNameBtn="uppercase"
+          />
         )}
       </div>
     </section>

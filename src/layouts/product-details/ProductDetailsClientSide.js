@@ -79,7 +79,10 @@ const ProductDetailsClientSide = () => {
       )}
 
       {product?.details?.specTable && (
-        <ProductDetailsSpecTable specTable={product?.details?.specTable} />
+        <ProductDetailsSpecTable
+          specTable={product?.details?.specTable}
+          brochure={product?.brochure}
+        />
       )}
 
       {product?.details?.upgradability && (
