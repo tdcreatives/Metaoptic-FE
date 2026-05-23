@@ -967,8 +967,8 @@
               ]
             },
             {
-              "title": "VIS Configuration",
-              "subtitle": "Direct characterization of metalenses and metasurface performance by measuring:",
+              "title": "Typical Starter System",
+              "subtitle": "Direct characterization of metalens and metasurface performance in VIS configuration:",
               "items": [
                 { "label": "Source module: single R, G or B laser diode" },
                 { "label": "Illumination module: Collimated, 'flat-top' normal incidence beam" },
