@@ -2,11 +2,16 @@ import React from 'react';
 
 import metadataJson from '@/constants/metadata.json';
 
-import Header from '@/layouts/main/header';
-import Footer from '@/layouts/main/footer';
-import News from '@/layouts/homepage/news';
-import Announcements from '@/layouts/investor-relations/announcements';
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
+import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
+import CorporateOverview from '@/layouts/investor-relations/overview/corporate-overview';
+import RecentPressReleases from '@/layouts/investor-relations/overview/recent-press-releases';
+import MostRecentEvents from '@/layouts/investor-relations/overview/most-recent-events';
+import InvestorPresentation from '@/layouts/investor-relations/overview/investor-presentation';
+import LatestFinancialResults from '@/layouts/investor-relations/overview/latest-financial-results';
+import StockInfo from '@/layouts/investor-relations/overview/stock-info';
+import EmailAlerts from '@/layouts/investor-relations/overview/email-alerts';
+import IRContacts from '@/layouts/investor-relations/overview/ir-contacts';
 
 
 export const metadata = {
@@ -32,11 +37,16 @@ export const metadata = {
 const InvestorRelations = () => {
     return (
         <>
-            <Header />
-            <InvestorRelationsBanner />
-            <Announcements />
-            <News />
-            <Footer />
+            <InvestorRelationsBanner bannerTitle='INVESTOR<br/>RELATIONS' />
+            <InvestorRelationsTabBar />
+            <CorporateOverview />
+            <RecentPressReleases />
+            <MostRecentEvents />
+            <InvestorPresentation />
+            <LatestFinancialResults />
+            <StockInfo />
+            <EmailAlerts />
+            <IRContacts />
         </>
     );
 };
