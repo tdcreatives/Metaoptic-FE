@@ -75,7 +75,14 @@
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/LibraryFeed.asp?b=3135&api=Po4Mk7Mi3&g=3352&i=2&div=LibDiv\" -o /tmp/probe.html)",
       "Bash(curl -s \"https://www.b2i.us/b2i/LibraryFeed.asp?b=3135&api=Po4Mk7Mi3&i=10&p=1&sd=1&df=6&tl=1&y=2025&div=LibDiv\")",
       "Bash(curl -s \"https://www.b2i.us/b2i/LibraryFeed.asp?b=3135&api=Po4Mk7Mi3&i=10&p=1&sd=1&df=6&tl=1&y=2025&div=LibDiv\" -o /tmp/y2025.html)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(curl -s -o /dev/null -w \"/events: %{http_code}\\\\n\" http://localhost:4444/investor-relations/events-and-presentation)",
+      "Bash(curl -s http://localhost:4444/investor-relations/events-and-presentation)",
+      "Bash(curl -s -o /dev/null -w \"/overview: %{http_code}\\\\n\" http://localhost:4444/investor-relations)",
+      "Bash(curl -s -o /dev/null -w \"/: %{http_code}\\\\n\" http://localhost:4444/investor-relations)",
+      "Bash(curl -s -o /dev/null -w \"/events-and-presentation: %{http_code}\\\\n\" http://localhost:4444/investor-relations/events-and-presentation)",
+      "Bash(curl -s -o /dev/null -w \"/stock-info: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info)",
+      "Bash(curl -s -o /dev/null -w \"/financials: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials)"
     ],
     "additionalDirectories": [
       "/private/tmp"

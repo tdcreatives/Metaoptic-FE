@@ -1,12 +1,13 @@
 import React from 'react';
 import { IconCircleArrowDown } from '@tabler/icons-react';
+import IRContainer from '@/layouts/investor-relations/container';
 
 const InvestorPresentation = () => {
     const fileLabel = 'MetaOptics - Investor Presentation.pdf';
     const downloadUrl = 'https://www.google.com';
 
     return (
-        <section className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px] py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
+        <IRContainer className='py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
             <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
                 Investor Presentation
             </h2>
@@ -33,7 +34,7 @@ const InvestorPresentation = () => {
                     Download PDF
                 </a>
             </div>
-        </section>
+        </IRContainer>
     );
 };
 

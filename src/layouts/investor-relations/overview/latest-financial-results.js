@@ -1,4 +1,5 @@
 import React from 'react';
+import IRContainer from '@/layouts/investor-relations/container';
 
 const MOCK_FINANCIAL = {
     fiscalYearLabel: 'FY 2025',
@@ -39,7 +40,7 @@ const LatestFinancialResults = () => {
     const { fiscalYearLabel, fiscalYearSubtitle, rows } = MOCK_FINANCIAL;
 
     return (
-        <section className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px] py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
+        <IRContainer className='py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
             <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
                 Latest Financial Results
             </h2>
@@ -64,7 +65,7 @@ const LatestFinancialResults = () => {
                     <span className='futura-medium text-[18px] md:text-[20px] text-[#888888]'>Placeholder Image</span>
                 </div>
             </div>
-        </section>
+        </IRContainer>
     );
 };
 

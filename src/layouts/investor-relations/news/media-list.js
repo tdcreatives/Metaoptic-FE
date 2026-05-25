@@ -3,6 +3,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import newsData from '@/constants/news.json';
 import BaseNewsCard from '@/components/BaseNewsCard';
+import IRContainer from '@/layouts/investor-relations/container';
 import { FilterButton, Pagination } from './list-controls';
 
 const ITEMS_PER_PAGE = 6;
@@ -52,7 +53,7 @@ const MediaList = () => {
     };
 
     return (
-        <section ref={sectionRef} className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px] py-12 md:py-16 lg:py-20 scroll-mt-24'>
+        <IRContainer as='section' ref={sectionRef} className='py-12 md:py-16 lg:py-20 scroll-mt-24'>
             <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
                 Media
             </h2>
@@ -87,7 +88,7 @@ const MediaList = () => {
                 totalPages={totalPages}
                 onChange={handlePageChange}
             />
-        </section>
+        </IRContainer>
     );
 };
 

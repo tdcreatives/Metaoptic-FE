@@ -91,7 +91,7 @@ const InvestorRelationsTabBar = () => {
 
     return (
         <nav className='w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
-            <div className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px]'>
+            <div className='w-full px-[24px] xl:px-[72px]'>
                 <ul className='flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 whitespace-nowrap overflow-visible'>
                     {investorRelationsTabs.map((tab) => (
                         <TabItem key={tab.path} tab={tab} pathname={pathname} />

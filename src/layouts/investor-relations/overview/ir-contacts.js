@@ -1,4 +1,5 @@
 import React from 'react';
+import IRContainer from '@/layouts/investor-relations/container';
 
 const ColumnHeading = ({ children }) => (
     <div className='futura-condensed-medium font-medium text-[#231F20] text-[20px] md:text-[24px] xl:text-[28px] mb-5 md:mb-6'>
@@ -21,7 +22,7 @@ const AddressBlock = ({ label, lines }) => (
 
 const IRContacts = () => {
     return (
-        <section className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px] py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
+        <IRContainer className='py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
             <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
                 Investor Relations
             </h2>
@@ -72,7 +73,7 @@ const IRContacts = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </IRContainer>
     );
 };
 
