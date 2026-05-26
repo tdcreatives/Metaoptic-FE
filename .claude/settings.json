@@ -107,7 +107,11 @@
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/SecData2.asp?b=3135&v=0.9.8&api=Po4Mk7Mi3&p=1&c=3&n=1&df=1&css=1&sg=1&div=SECdiv\" -o /tmp/sec2.html)",
       "Bash(curl -s -o /dev/null -w \"/sec-filings: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)",
       "Bash(curl -s http://localhost:4444/investor-relations/financials/sec-filings)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/Pageapi.js?v=1.0.6\")",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/Showapi.js?v=1.0.6\")",
+      "Bash(curl -s -o /dev/null -w \"/quarterly-results: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/quarterly-results)",
+      "Bash(curl -s http://localhost:4444/investor-relations/financials/quarterly-results)"
     ],
     "additionalDirectories": [
       "/private/tmp"
