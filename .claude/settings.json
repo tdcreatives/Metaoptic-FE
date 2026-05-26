@@ -99,7 +99,15 @@
       "Bash(curl -s -A Mozilla/5.0 'https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=__TRACKED_VAR__&d=1&dl=2&css=1')",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations)",
       "Bash(curl -s -o /dev/null -w \"/analyst-coverage: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/analyst-coverage)",
-      "Bash(curl -s http://localhost:4444/investor-relations/stock-info/analyst-coverage)"
+      "Bash(curl -s http://localhost:4444/investor-relations/stock-info/analyst-coverage)",
+      "Bash(curl -s -o /dev/null -w \"/financials/sec-filings: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)",
+      "Bash(curl -s -o /dev/null -w \"/financials/quarterly-results: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/quarterly-results)",
+      "Bash(curl -sL \"https://www.b2i.us/b2i/SECapi.js?v=1.0.6\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/SecData2.asp?b=3135&v=0.9.8&api=Po4Mk7Mi3&p=1&c=10&df=1&css=1&div=SECdiv\" -o /tmp/sec.html -D /tmp/sec-h.txt)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/SecData2.asp?b=3135&v=0.9.8&api=Po4Mk7Mi3&p=1&c=3&n=1&df=1&css=1&sg=1&div=SECdiv\" -o /tmp/sec2.html)",
+      "Bash(curl -s -o /dev/null -w \"/sec-filings: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)",
+      "Bash(curl -s http://localhost:4444/investor-relations/financials/sec-filings)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/sec-filings)"
     ],
     "additionalDirectories": [
       "/private/tmp"

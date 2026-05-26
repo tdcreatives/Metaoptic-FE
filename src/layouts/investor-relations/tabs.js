@@ -19,7 +19,15 @@ export const investorRelationsTabs = [
       { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage' },
     ],
   },
-  { label: 'FINANCIALS', path: '/investor-relations/financials', bannerTitle: 'FINANCIALS' },
+  {
+    label: 'FINANCIALS',
+    path: '/investor-relations/financials',
+    bannerTitle: 'FINANCIALS',
+    subItems: [
+      { label: 'SEC Filings', path: '/investor-relations/financials/sec-filings' },
+      { label: 'Quarterly Results', path: '/investor-relations/financials/quarterly-results' },
+    ],
+  },
   { label: 'GOVERNANCE', path: '/investor-relations/governance', bannerTitle: 'GOVERNANCE' },
   { label: 'RESOURCES', path: '/investor-relations/resources', bannerTitle: 'RESOURCES' },
 ];

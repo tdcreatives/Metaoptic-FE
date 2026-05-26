@@ -1,5 +1,6 @@
 const LISTING_ENDPOINT = 'https://www.b2i.us/b2i/LibraryFeed.asp';
 const QUOTE_ENDPOINT = 'https://www.b2i.us/b2i/QuoteFeed.asp';
+const SEC_ENDPOINT = 'https://www.b2i.us/b2i/SecData2.asp';
 
 const FULL_MONTHS = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -177,6 +178,122 @@ function parseQuoteFormat10(doc) {
             pbRatio: fields['PB Ratio'],
         },
     };
+}
+
+const FILING_GROUPS = [
+    { value: '', label: 'All' },
+    { value: '10-K', label: 'Annual Reports' },
+    { value: '10-Q', label: 'Quarterly Reports' },
+    { value: '8-K', label: 'Current Reports' },
+    { value: '4', label: 'Insider Transactions (3, 4, 5)' },
+    { value: 'F-3', label: 'Registration & Offerings' },
+    { value: 'SC', label: 'Acquisition Statements' },
+    { value: '424B5', label: 'Prospectus' },
+];
+
+function getFilingGroupLabel(form) {
+    const f = (form || '').toUpperCase();
+    if (/^8-K/.test(f)) return 'Current Reports';
+    if (/^(10-K|20-F|40-F)/.test(f)) return 'Annual Reports';
+    if (/^(10-Q|6-K)/.test(f)) return 'Quarterly Reports';
+    if (/^(3|4|5)(\/|$|\b)/.test(f)) return '3, 4, 5';
+    if (/^(DEF|PRE|DEFM|PREM)/.test(f)) return 'Proxy Statements';
+    if (/^(S-1|F-1|F-3|S-3|424|DRS)/.test(f)) return 'Registration & Offerings';
+    if (/^SC/.test(f)) return 'Acquisition Statements';
+    return 'Other';
+}
+
+function extractLinkFromImage(row, imageClass) {
+    const img = row.querySelector(`img.${imageClass}`);
+    if (!img) return '';
+    const anchor = img.closest('a');
+    if (!anchor) return '';
+    const href = anchor.getAttribute('href') || '';
+    const openMatch = href.match(/OpenWindow\(['"]([^'"]+)['"]/);
+    if (openMatch) return openMatch[1];
+    if (href.startsWith('http')) return href;
+    return '';
+}
+
+export async function fetchSecFilings({ bizId, apiKey, page = 1, year = '', type = '', count = 10 }) {
+    const params = new URLSearchParams({
+        b: bizId,
+        v: '0.9.8',
+        api: apiKey,
+        p: String(page),
+        c: String(count),
+        n: '1',
+        df: '1',
+        sg: '1',
+        css: '1',
+        div: 'SECdiv',
+    });
+    if (year) params.set('y', String(year));
+    if (type) params.set('t', String(type));
+
+    const url = `${SEC_ENDPOINT}?${params.toString()}`;
+
+    try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`B2I SEC ${res.status}`);
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+
+        const items = [];
+        doc.querySelectorAll('.SecFiling').forEach((row) => {
+            const date = pickText(row, '.b2iSecFilingDate');
+            const formAnchor = row.querySelector('.b2iSecFilingType .SecLink');
+            const form = formAnchor ? formAnchor.textContent.trim() : '';
+            const descriptionAnchor = row.querySelector('.b2iSecFilingFormName .SecLink');
+            const description = descriptionAnchor
+                ? (descriptionAnchor.getAttribute('title') || descriptionAnchor.textContent.trim())
+                : '';
+
+            const links = {
+                html: extractLinkFromImage(row, 'b2iSecHtmImage'),
+                pdf: extractLinkFromImage(row, 'b2iSecPdfImage'),
+                doc: extractLinkFromImage(row, 'b2iSecDocImage'),
+                xls: extractLinkFromImage(row, 'b2iSecXlsImage'),
+                xbrl: extractLinkFromImage(row, 'b2iSecXbrlImage'),
+            };
+
+            if (!date && !form) return;
+            items.push({
+                id: links.html || `${date}-${form}-${items.length}`,
+                date,
+                form,
+                description,
+                group: getFilingGroupLabel(form),
+                links,
+            });
+        });
+
+        let totalPages = page;
+        doc.querySelectorAll('#b2iSecFilingNav a[href*="UpdatePage"]').forEach((a) => {
+            const m = (a.getAttribute('href') || '').match(/UpdatePage\((\d+)/);
+            if (m) {
+                const n = Number(m[1]);
+                if (n > totalPages) totalPages = n;
+            }
+        });
+
+        const availableYears = [];
+        doc.querySelectorAll('select#sYear option').forEach((opt) => {
+            const v = (opt.getAttribute('value') || '').trim();
+            if (/^\d{4}$/.test(v)) availableYears.push(Number(v));
+        });
+
+        return {
+            items,
+            totalPages,
+            currentPage: page,
+            availableYears,
+            filingGroups: FILING_GROUPS,
+        };
+    } catch (err) {
+        console.error('[b2i] fetchSecFilings failed:', err);
+        return { items: [], totalPages: 1, currentPage: page, availableYears: [], filingGroups: FILING_GROUPS };
+    }
 }
 
 export async function fetchStockQuote({ bizId, apiKey, symbol, format = '1' }) {
