@@ -113,35 +113,81 @@ function formatUpdatedAt(raw) {
     return `${monthName} ${Number(day)}, ${year} ${timePart}${tz ? ` ${tz.toUpperCase()}` : ''}`;
 }
 
-export async function fetchStockQuote({ bizId, apiKey, symbol }) {
-    const url = `${QUOTE_ENDPOINT}?b=${encodeURIComponent(bizId)}&sdiv=QuoteDiv&api=${encodeURIComponent(apiKey)}&s=${encodeURIComponent(symbol)}&f=1&d=1&dl=2&css=1`;
+function parseQuoteFormat1(doc) {
+    const root = doc.querySelector('.b2iQuoteContent') || doc.body;
+    if (!root) return null;
+
+    const exchangeRaw = pickText(root, '.exchange');
+    const updateRaw = pickText(root, '.UpdateRow .b2iQuoteSubTxt');
+    const updateMatch = updateRaw.match(/Data as of\s*(.+?)(?:Refresh|$)/i);
+    const updatedAt = formatUpdatedAt((updateMatch ? updateMatch[1] : updateRaw).trim());
+
+    return {
+        exchange: exchangeRaw.replace(/:$/, '').trim(),
+        symbol: pickText(root, '.b2iTblTtl .symbol'),
+        price: pickText(root, '.LastPriceRow .b2iPrice'),
+        changeNet: pickText(root, '.ChangeRow .ChangeNet'),
+        changePercent: pickText(root, '.ChangeRow .ChangePercent'),
+        volume: pickText(root, '.VolumeRow .b2iQuoteValue'),
+        dayRange: pickText(root, '.DayRangeRow .b2iQuoteValue'),
+        yearRange: pickText(root, '.YearRangeRow .b2iQuoteValue'),
+        marketCap: pickText(root, '.MarketCapRow .b2iQuoteValue'),
+        open: pickText(root, '.OpenRow .b2iQuoteValue'),
+        previousClose: pickText(root, '.CloseRow .b2iQuoteValue'),
+        sharesOutstanding: pickText(root, '.OutstandingRow .b2iQuoteValue'),
+        updatedAt,
+    };
+}
+
+function parseQuoteFormat10(doc) {
+    const root = doc.querySelector('.b2iClientQuoteDiv') || doc.body;
+    if (!root) return null;
+
+    const fields = {};
+    root.querySelectorAll('.b2iClientQuote').forEach((item) => {
+        const label = pickText(item, '.b2iClientQuoteLabel');
+        const value = pickText(item, '.b2iClientQuoteData');
+        if (label) fields[label] = value;
+    });
+
+    const todayUpdatedAt = pickText(root, '.b2iClientQuoteHeader .b2iClientQuoteDateTime');
+
+    return {
+        today: {
+            last: fields['Last'],
+            change: fields['Change'],
+            changePercent: fields['% Chg'],
+            volume: fields['Volume'],
+            open: fields['Open'],
+            prevClose: fields['Prev. Close'],
+            high: fields['High'],
+            low: fields['Low'],
+            bid: fields['Bid'],
+            bidSize: fields['Bid Size'],
+            ask: fields['Ask'],
+            askSize: fields['Ask Size'],
+            updatedAt: todayUpdatedAt,
+        },
+        shareInfo: {
+            yearHigh: fields['Year High'],
+            yearLow: fields['Year Low'],
+            exchange: fields['Exchange'],
+            shares: fields['Shares'],
+            marketCap: fields['MarketCap'],
+            pbRatio: fields['PB Ratio'],
+        },
+    };
+}
+
+export async function fetchStockQuote({ bizId, apiKey, symbol, format = '1' }) {
+    const url = `${QUOTE_ENDPOINT}?b=${encodeURIComponent(bizId)}&sdiv=QuoteDiv&api=${encodeURIComponent(apiKey)}&s=${encodeURIComponent(symbol)}&f=${encodeURIComponent(format)}&d=1&dl=2&css=1`;
 
     try {
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error(`B2I quote ${res.status}`);
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
-        const root = doc.querySelector('.b2iQuoteContent') || doc.body;
-        if (!root) return null;
-
-        const exchangeRaw = pickText(root, '.exchange');
-
-        const updateRaw = pickText(root, '.UpdateRow .b2iQuoteSubTxt');
-        const updateMatch = updateRaw.match(/Data as of\s*(.+?)(?:Refresh|$)/i);
-        const updatedAt = formatUpdatedAt((updateMatch ? updateMatch[1] : updateRaw).trim());
-
-        return {
-            exchange: exchangeRaw.replace(/:$/, '').trim(),
-            symbol: pickText(root, '.b2iTblTtl .symbol'),
-            price: pickText(root, '.LastPriceRow .b2iPrice'),
-            changeNet: pickText(root, '.ChangeRow .ChangeNet'),
-            changePercent: pickText(root, '.ChangeRow .ChangePercent'),
-            volume: pickText(root, '.VolumeRow .b2iQuoteValue'),
-            dayRange: pickText(root, '.DayRangeRow .b2iQuoteValue'),
-            yearRange: pickText(root, '.YearRangeRow .b2iQuoteValue'),
-            marketCap: pickText(root, '.MarketCapRow .b2iQuoteValue'),
-            updatedAt,
-        };
+        return String(format) === '10' ? parseQuoteFormat10(doc) : parseQuoteFormat1(doc);
     } catch (err) {
         console.error('[b2i] fetchStockQuote failed:', err);
         return null;

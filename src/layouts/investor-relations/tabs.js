@@ -10,7 +10,15 @@ export const investorRelationsTabs = [
     ],
   },
   { label: 'EVENTS & PRESENTATION', path: '/investor-relations/events-and-presentation', bannerTitle: 'EVENTS &<br/>PRESENTATION' },
-  { label: 'STOCK INFO', path: '/investor-relations/stock-info', bannerTitle: 'STOCK INFO' },
+  {
+    label: 'STOCK INFO',
+    path: '/investor-relations/stock-info',
+    bannerTitle: 'STOCK INFO',
+    subItems: [
+      { label: 'Stock Quote', path: '/investor-relations/stock-info/stock-quote' },
+      { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage' },
+    ],
+  },
   { label: 'FINANCIALS', path: '/investor-relations/financials', bannerTitle: 'FINANCIALS' },
   { label: 'GOVERNANCE', path: '/investor-relations/governance', bannerTitle: 'GOVERNANCE' },
   { label: 'RESOURCES', path: '/investor-relations/resources', bannerTitle: 'RESOURCES' },

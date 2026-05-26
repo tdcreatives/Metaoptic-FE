@@ -82,7 +82,22 @@
       "Bash(curl -s -o /dev/null -w \"/: %{http_code}\\\\n\" http://localhost:4444/investor-relations)",
       "Bash(curl -s -o /dev/null -w \"/events-and-presentation: %{http_code}\\\\n\" http://localhost:4444/investor-relations/events-and-presentation)",
       "Bash(curl -s -o /dev/null -w \"/stock-info: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info)",
-      "Bash(curl -s -o /dev/null -w \"/financials: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials)"
+      "Bash(curl -s -o /dev/null -w \"/financials: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials)",
+      "Bash(curl -s -o /dev/null -w \"/stock-info/stock-quote: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/stock-quote)",
+      "Bash(curl -s -o /dev/null -w \"/stock-info/analyst-coverage: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/analyst-coverage)",
+      "Bash(curl -s http://localhost:4444/investor-relations/stock-info)",
+      "WebFetch(domain:b2i.us)",
+      "Bash(curl -s -o /dev/null -w \"/stock-quote: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/stock-quote)",
+      "Bash(curl -s http://localhost:4444/investor-relations/stock-info/stock-quote)",
+      "Bash(curl -sL \"https://www.b2i.us/b2i/ChartApi_20.asp?v=1.0.6\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/stock-quote)",
+      "Bash(curl -s -A Mozilla/5.0 'https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=__TRACKED_VAR__&d=1&dl=2&css=1' -o /dev/null -w '%{size_download}')",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=6&d=1&dl=2&css=1\")",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=10&d=1&dl=2&css=1\")",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=14&d=1&dl=2&css=1\")",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=10&d=1&dl=2&css=1\" -o /tmp/q10.html)",
+      "Bash(curl -s -A Mozilla/5.0 'https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=__TRACKED_VAR__&d=1&dl=2&css=1')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations)"
     ],
     "additionalDirectories": [
       "/private/tmp"
