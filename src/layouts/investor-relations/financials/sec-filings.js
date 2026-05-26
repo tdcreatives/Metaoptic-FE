@@ -33,7 +33,7 @@ const SelectField = ({ label, value, options, onChange, widthClass = '' }) => (
 const LinkPill = ({ label, url }) => {
     if (!url) {
         return (
-            <span className='inline-flex items-center justify-center px-3 py-1 min-w-[48px] bg-[#F5F5F5] border border-[#E0E1E0] text-[12px] md:text-[13px] futura-medium text-[#BFBFBF] rounded-[2px]'>
+            <span className='inline-flex items-center justify-center px-[6px] py-[4px] min-w-[48px] bg-[#F5F5F5] border border-[#E0E1E0] text-[12px] md:text-[13px] futura-medium text-[#BFBFBF] rounded-[2px]'>
                 {label}
             </span>
         );
@@ -43,7 +43,7 @@ const LinkPill = ({ label, url }) => {
             href={url}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center justify-center px-3 py-1 min-w-[48px] bg-[#F2F2F2] hover:bg-[#E5E5E5] border border-[#D9D9D9] text-[12px] md:text-[13px] futura-medium text-[#231F20] transition-colors rounded-[2px]'
+            className='inline-flex items-center justify-center px-[6px] py-[4px] min-w-[48px] bg-[#F2F2F2] hover:bg-[#E5E5E5] border border-[#D9D9D9] text-[12px] md:text-[13px] futura-medium text-[#231F20] transition-colors rounded-[2px]'
         >
             {label}
         </a>
