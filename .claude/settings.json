@@ -97,7 +97,9 @@
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=14&d=1&dl=2&css=1\")",
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=10&d=1&dl=2&css=1\" -o /tmp/q10.html)",
       "Bash(curl -s -A Mozilla/5.0 'https://www.b2i.us/b2i/QuoteFeed.asp?b=3135&sdiv=QuoteDiv&api=Po4Mk7Mi3&s=MOT&f=__TRACKED_VAR__&d=1&dl=2&css=1')",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations)",
+      "Bash(curl -s -o /dev/null -w \"/analyst-coverage: %{http_code}\\\\n\" http://localhost:4444/investor-relations/stock-info/analyst-coverage)",
+      "Bash(curl -s http://localhost:4444/investor-relations/stock-info/analyst-coverage)"
     ],
     "additionalDirectories": [
       "/private/tmp"
