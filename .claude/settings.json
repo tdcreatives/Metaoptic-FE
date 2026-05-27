@@ -123,7 +123,18 @@
       "Bash(curl -s http://localhost:4444/investor-relations/governance/board-of-directors)",
       "Bash(curl -s http://localhost:4444/investor-relations/governance/management-team)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/committee-composition)",
-      "Bash(curl -s http://localhost:4444/investor-relations/governance/committee-composition)"
+      "Bash(curl -s http://localhost:4444/investor-relations/governance/committee-composition)",
+      "Bash(curl -s -o /dev/null -w \"/resources: %{http_code}\\\\n\" http://localhost:4444/investor-relations/resources)",
+      "Bash(curl -s -o /dev/null -w \"/investor-faqs: %{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/investor-faqs)",
+      "Bash(curl -s -o /dev/null -w \"/email-alerts: %{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/email-alerts)",
+      "Bash(curl -s -o /dev/null -w \"/contact-us: %{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/contact-us)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/investor-faqs)",
+      "Bash(curl -s http://localhost:4444/investor-relations/resources/investor-faqs)",
+      "Bash(curl -sL \"https://www.b2i.us/b2i/Emailapi2.asp?v=1.0.6\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/email-alerts)",
+      "Bash(curl -s http://localhost:4444/investor-relations/resources/email-alerts)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/contact-us)",
+      "Bash(curl -s http://localhost:4444/investor-relations/resources/contact-us)"
     ],
     "additionalDirectories": [
       "/private/tmp"

@@ -1,0 +1,54 @@
+{
+    "faqs": [
+        {
+            "id": "hq-location",
+            "question": "Where is MetaOptics Ltd headquartered?",
+            "answer": "MetaOptics Ltd is headquartered in Singapore. The company operates from Metaoptics Technologies Pte Ltd, located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
+        },
+        {
+            "id": "us-office",
+            "question": "Where is MetaOptics Ltd's U.S. office?",
+            "answer": "MetaOptics Ltd's U.S. office is located at Metaoptics Inc., 1 Ferry Building, Suite 201, San Francisco, CA 94111."
+        },
+        {
+            "id": "incorporation",
+            "question": "Where was MetaOptics Ltd incorporated?",
+            "answer": "Information about MetaOptics Ltd's incorporation will be provided here."
+        },
+        {
+            "id": "fiscal-year-end",
+            "question": "When is MetaOptics Ltd's fiscal year end?",
+            "answer": "MetaOptics Ltd's fiscal year ends on December 31."
+        },
+        {
+            "id": "stock-symbol",
+            "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
+            "answer": "MetaOptics Ltd is listed on NASDAQ under the ticker symbol \"MOT\"."
+        },
+        {
+            "id": "depository-bank",
+            "question": "Who is MetaOptics Ltd's depository bank?",
+            "answer": "MetaOptics Ltd's depository bank is JPMorgan Chase Bank, N.A."
+        },
+        {
+            "id": "independent-auditor",
+            "question": "Who is MetaOptics Ltd's independent auditor?",
+            "answer": "Information about MetaOptics Ltd's independent auditor will be provided here."
+        },
+        {
+            "id": "us-legal-counsel",
+            "question": "Who is MetaOptics Ltd's outside U.S. legal counsel?",
+            "answer": "Information about MetaOptics Ltd's outside U.S. legal counsel will be provided here."
+        },
+        {
+            "id": "sg-legal-counsel",
+            "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
+            "answer": "Information about MetaOptics Ltd's outside Singapore legal counsel will be provided here."
+        },
+        {
+            "id": "ir-contact",
+            "question": "What is MetaOptics Ltd's investor relations contact information?",
+            "answer": "For investor relations inquiries, please contact Gateway Group at MOT@gateway-grp.com or call 949-574-3860."
+        }
+    ]
+}

@@ -39,5 +39,14 @@ export const investorRelationsTabs = [
       { label: 'Committee Composition', path: '/investor-relations/governance/committee-composition' },
     ],
   },
-  { label: 'RESOURCES', path: '/investor-relations/resources', bannerTitle: 'RESOURCES' },
+  {
+    label: 'RESOURCES',
+    path: '/investor-relations/resources',
+    bannerTitle: 'RESOURCES',
+    subItems: [
+      { label: 'Investor FAQs', path: '/investor-relations/resources/investor-faqs' },
+      { label: 'Email Alerts', path: '/investor-relations/resources/email-alerts' },
+      { label: 'Contact Us', path: '/investor-relations/resources/contact-us' },
+    ],
+  },
 ];

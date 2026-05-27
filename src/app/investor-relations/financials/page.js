@@ -1,19 +1,16 @@
-import React from 'react';
-import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
-import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
+'use client';
 
-export const metadata = {
-    title: 'Financials | Investor Relations | Metaoptics Technologies',
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+const FinancialsPage = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.replace('/investor-relations/financials/sec-filings');
+    }, [router]);
+
+    return null;
 };
 
-const InvestorRelationsFinancials = () => {
-    return (
-        <>
-            <InvestorRelationsBanner bannerTitle='FINANCIALS' />
-            <InvestorRelationsTabBar />
-            <section className='w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-[40px] py-12 md:py-16 lg:py-20 min-h-[300px]' />
-        </>
-    );
-};
-
-export default InvestorRelationsFinancials;
+export default FinancialsPage;
