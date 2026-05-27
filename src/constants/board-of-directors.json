@@ -1,0 +1,80 @@
+{
+    "directors": [
+        {
+            "id": "mark-chong-kim-thng",
+            "name": "Mark Chong Kim Thng",
+            "title": "Executive Chairman",
+            "image": "",
+            "bio": [
+                "Mark Chong Kim Thng is our Executive Chairman, having first joined us as a Vice President (Business Unit) of MetaOptics Technologies on July 1, 2021. He was later redesignated as our Executive Chairman and CEO on April 1, 2025. He is responsible for our overall management, strategic planning and business development. He has been redesignated from an executive director to a non-executive director of MST ListCo on March 28, 2025.",
+                "Mr. Thng has accumulated approximately 17 years of work experience in product and process engineering and over 7 years of experience in advanced optics. Before joining us, Mr. Thng held key management positions in several multinational companies.",
+                "He began his career with Seagate Technology Singapore in October 1990, and he later assumed the roles of Senior Product Engineering Director from April 1995 to December 1998 and Senior Core Team Leader from December 1998 to December 1999. In July 2001, he joined Magnecomp Precision Technology as the Senior Advanced Manufacturing Director, and oversaw new product operations and advanced processes introduction. In July 2005, he joined Seagate Technology International (Wuxi) Co., Ltd.. From August 2006 to mid-2011, he served as the General Manager of Benchmark Electronics Pte. Ltd. and was responsible for the profit and loss management and overall operations. He was the Vice President of Heptagon Advanced Micro Optics Pte Ltd from July 2012 to July 2018, and was in charge of Special Projects and New Product Operations.",
+                "Mr. Thng graduated with a Technical Diploma in Electronics and Communication Engineering in May 1983."
+            ]
+        },
+        {
+            "id": "aloysious-chua-hao-peng",
+            "name": "Aloysious Chua Hao Peng",
+            "title": "Chief Executive Officer and Executive Director",
+            "image": "",
+            "bio": [
+                "Mr. Aloysius Chua Hao Peng is our CEO and executive director. He started working in MetaOptics Technologies in June 2021 as a Projects Manager and was subsequently promoted to Projects Director in April 2023. He was later appointed as our Deputy Chief Executive Officer on April 1, 2025 and our CEO and executive director on March 1, 2026.",
+                "With a strong foundation in engineering and corporate development, he brings a unique blend of technical expertise and business acumen to us. He leads strategic initiatives and oversees key projects such as equipment development, metalens fabrication and the assembly of cutting-edge meta optics components and products. He is responsible for setting up key supply chains, working with suppliers on various key metalens component specifications and evaluating them for functionality. He plays a pivotal role in driving innovation in metalens technology and business development. His efforts in both project execution and business growth have contributed significantly to our growth and technological advancements.",
+                "Mr. Chua graduated from the National University of Singapore with a Bachelor of Engineering (Mechanical Engineering) in January 2020. During his National Service, he served in the Singapore Armed Forces as a Commando Fighter Weapon Specialist, honing his leadership, problem solving, and operational planning skills in high-stakes environments."
+            ]
+        },
+        {
+            "id": "wee-jene-jee",
+            "name": "Wee Jene Jee",
+            "title": "Non-Independent and Non-Executive Director",
+            "image": "",
+            "bio": [
+                "Wee Jene Jee is our Non-Independent and Non-Executive Director. She first joined us as a director of MetaOptics Technologies when we incorporated on June 15, 2021 and was appointed our Non-Independent and Non-Executive Director on April 14, 2025.",
+                "She is currently an executive director of MST ListCo, where she assumes overall responsibilities over matters relating to finances, administration, compliance and human resources. Ms. Jee is also a director of MST SingCo, where she began her career, and manages its finance and administrative departments.",
+                "Ms. Jee graduated from the Informatics Computer School Singapore with a Diploma in Computer Studies in 1994 and later obtained an International Diploma in Computer Studies from the National Computing Centre in 1995. She currently holds an IAB LCCI Level 2 Certificate in Bookkeeping and Accounting and an IAB LCCI Level 3 Certificate in Accounting."
+            ]
+        },
+        {
+            "id": "jinghua-teng",
+            "name": "Jinghua Teng",
+            "title": "Non-Independent and Non-Executive Director",
+            "image": "",
+            "bio": [
+                "Professor Jinghua Teng was appointed as our Non-Independent and Non-Executive Director on June 27, 2025. He is currently a Senior Principal Scientist III and Senior Group Leader at A*STAR's IMRE, and an Adjunct Professor at the Department of Electrical and Computer Engineer in the National University of Singapore.",
+                "Professor Teng is a distinguished scholar and innovator with an illustrious career spanning academic, research, and technological advancements. He has held multiple prestigious appointments as an Adjunct Professor at the National University of Singapore and Nanyang Technological University, and as a Visiting Professor at Osaka University in Japan and the University of Valenciennes in France. His contributions to scientific research are prolific, with almost 270 journal publications in renowned platforms such as Advanced Materials, Nature Communications, and Material Horizons, among others. His expertise has also extended to editorial roles for esteemed journals, including A*STAR Research Publications, Opto-Electronic Advances, PhotoniX, Advanced Photonics Nexus, Journal of Optics and the Journal of Nonlinear Optical Physics and Materials. He joined A*STAR's IMRE as a Research Associate in July 2000 and was a Scientist at A*STAR's IMRE from January 2002 to March 2010. From April 2010 to March 2014, he held the role of Senior Scientist at A*STAR's IMRE and concurrently from April 2011 to March 2013, he was appointed the Deputy Head at Patterning and Fabrication Capability Group, A*STAR's IMRE, where he was in charge of leading the group with around 60 scientists and engineers on micro-nano science and technology development.",
+                "In addition to his academic and editorial endeavors, Professor Teng has demonstrated exceptional leadership in securing and leading research initiatives. Over the years, he has garnered numerous awards as a Principal Investigator or Co-Principal Investigator for various groundbreaking projects, including the NRF-CRP program on Advanced 2D IR Optoelectronics. His most recent individual accolades include being elected a Fellow of Optica (formerly OSA), a Fellow of SPIE (International Society of Optics and Photonics), and receiving the Outstanding Editor Award in 2023 from Opto-Electronic Advances, the Best Paper Silver Award in both 2021 and 2022 in IMRE, and being awarded the IPS Nanotechnology Medal and Prize in 2020. He also holds more than 40 patents.",
+                "Professor Teng graduated from Nankai University with a Bachelor's Degree in Science in July 1985 and a Master's Degree in Science in July 1988. He later obtained a PhD from the National University of Singapore in November 2003. He is also an active member of multiple organizations, including the Institute of Electrical and Electronics Engineers, and the Institute of Physics Singapore, and the Materials Research Society Singapore."
+            ]
+        },
+        {
+            "id": "sean-lee",
+            "name": "Sean Lee",
+            "title": "Independent and Non-Executive Director",
+            "image": "",
+            "bio": [
+                "Sean Lee was appointed as our Independent and Non-Executive Director on June 27, 2025. He is presently a practicing lawyer, specializing in Corporate Restructuring and Insolvency. His expertise in Restructuring and Insolvency has earned him multiple industry accolades from IFLR1000, Asialaw, and the Legal500. Notably, he was recognized as a Rising Star Partner in the practice area of Restructuring and Insolvency by IFLR1000 in both 2023 and 2024, as well as a Notable Practitioner by Asialaw in the same field.",
+                "Mr. Lee graduated from Singapore Management University with a Bachelor of Laws in 2014. He is a member of the Law Society of Singapore and the Singapore Academy of Law."
+            ]
+        },
+        {
+            "id": "yong-cheng-goh",
+            "name": "Yong Cheng Goh",
+            "title": "Independent and Non-Executive Director",
+            "image": "",
+            "bio": [
+                "Yong Cheng Goh was appointed as our Independent and Non-Executive Director on June 27, 2025. Prior to her directorship appointment with us, she joined Seagate Technology International in May 1995 as a Senior Accountant in charge of financial planning and analysis for the Singapore operations. From 2000 to 2003, she became the Finance Manager responsible for global strategic and financial planning in the Scotts Valley, California headquarters. From 2003 to 2006, she was the Senior Finance Manager in charge of costing and general ledger for the Wuxi operations and from 2006 to 2007, she was the Senior Finance Manager in charge of financial planning and analysis for the Suzhou operations. In August 2007, she joined Benchmark Electronics as the Regional Controller for the Singapore and China operations. She later joined Broadcom Singapore Pte. Ltd. as the Senior Manager and served as the Head of Asia Shared Services in Accounts Receivable, Accounts Payable and Indirect Tax. From September 2018 to September 2023, she was the General Manager of Seletar Country Club and was responsible for the overall club management.",
+                "Ms. Goh graduated from Indiana University in December 1993 with a Bachelor of Science in Business, a first major in Finance and a second major in Computer Information Systems. She later graduated from Monash University with a Master in Counselling in October 2012."
+            ]
+        },
+        {
+            "id": "thiam-chye-ng",
+            "name": "Thiam Chye Ng",
+            "title": "Independent and Non-Executive Director",
+            "image": "",
+            "bio": [
+                "Thiam Chye Ng was appointed as our Independent and Non-Executive Director on June 27, 2025. Prior to his directorship appointment with us, he held various senior roles across finance, corporate recovery, and business development. From September 1991 to August 1994, he served as a Senior Executive specializing in Corporate Recovery and Insolvency at Moore Stephens LLP. He then joined Kerry Cambridge Management Services Ltd in September 1994 as a financial controller of the China subsidiaries based in Chengdu, China, where he headed the Finance and Accounting department. In July 1996, he joined Koda Woodcraft Pte Ltd as Group Accountant, overseeing the financial operations for its subsidiaries across Singapore, Malaysia, Vietnam and China. From June 1997 to July 2001, he served as a Finance and Business Development director at Zola Design Pte Ltd, where he was in charge of the day-to-day operations of the company's business and managed the cash flow of the company. From February 2002 to August 2007, he joined Hummax Holdings Pte. Ltd. as a Finance and Business Development director, where he was responsible for establishing Sino-foreign joint education programs in Hangzhou and Foshan, China. Between September 2008 and August 2014, he served as a Finance and Business Consultant in Green And Able Pte. Ltd., advising Hong Kong-listed companies on capital restructuring. From October 2014 to July 2020, he was Finance and Business Director of Green Enable Technologies Pte. Ltd. In July 2021, he joined Fleur Capital (S) Pte. Ltd. as Business Development Director, focusing on the business development of variable capital companies. Most recently, from July 2023 to April 2025, he served as Chief Business Development Officer at Eureka Blue Sky Pte. Ltd., specializing in mergers and acquisitions.",
+                "Mr. Ng graduated from the National University of Singapore in 1991 with a Bachelor of Accountancy. He is a Chartered Accountant with the Institute of Singapore Chartered Accountants."
+            ]
+        }
+    ]
+}

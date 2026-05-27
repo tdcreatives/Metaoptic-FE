@@ -1,0 +1,39 @@
+{
+    "committees": [
+        { "id": "audit", "label": "Audit" },
+        { "id": "compensation", "label": "Compensation and Human Capital" },
+        { "id": "nominating", "label": "Nominating and Corporate Governance" }
+    ],
+    "members": [
+        {
+            "id": "yong-cheng-goh",
+            "name": "Yong Cheng Goh",
+            "roles": { "audit": "chair", "nominating": "member" }
+        },
+        {
+            "id": "ng-thiam-chye",
+            "name": "Ng Thiam Chye",
+            "roles": { "audit": "member" }
+        },
+        {
+            "id": "sonny-yuen",
+            "name": "Sonny Yuen",
+            "roles": { "audit": "member", "compensation": "member" }
+        },
+        {
+            "id": "sean-lee",
+            "name": "Sean Lee",
+            "roles": { "compensation": "chair", "nominating": "member" }
+        },
+        {
+            "id": "thiam-chye-ng",
+            "name": "Thiam Chye Ng",
+            "roles": { "compensation": "member", "nominating": "chair" }
+        },
+        {
+            "id": "wee-jene-jee",
+            "name": "Wee Jene Jee",
+            "roles": { "compensation": "member" }
+        }
+    ]
+}

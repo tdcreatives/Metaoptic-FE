@@ -111,7 +111,19 @@
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/Pageapi.js?v=1.0.6\")",
       "Bash(curl -s -A \"Mozilla/5.0\" \"https://www.b2i.us/b2i/Showapi.js?v=1.0.6\")",
       "Bash(curl -s -o /dev/null -w \"/quarterly-results: %{http_code}\\\\n\" http://localhost:4444/investor-relations/financials/quarterly-results)",
-      "Bash(curl -s http://localhost:4444/investor-relations/financials/quarterly-results)"
+      "Bash(curl -s http://localhost:4444/investor-relations/financials/quarterly-results)",
+      "Bash(curl -s -o /dev/null -w \"/governance: %{http_code}\\\\n\" http://localhost:4444/investor-relations/governance)",
+      "Bash(curl -s -o /dev/null -w \"/documents-and-charters: %{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/documents-and-charters)",
+      "Bash(curl -s -o /dev/null -w \"/board-of-directors: %{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/board-of-directors)",
+      "Bash(curl -s -o /dev/null -w \"/management-team: %{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/management-team)",
+      "Bash(curl -s -o /dev/null -w \"/committee-composition: %{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/committee-composition)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/documents-and-charters)",
+      "Bash(curl -s http://localhost:4444/investor-relations/governance/documents-and-charters)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/board-of-directors)",
+      "Bash(curl -s http://localhost:4444/investor-relations/governance/board-of-directors)",
+      "Bash(curl -s http://localhost:4444/investor-relations/governance/management-team)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/governance/committee-composition)",
+      "Bash(curl -s http://localhost:4444/investor-relations/governance/committee-composition)"
     ],
     "additionalDirectories": [
       "/private/tmp"

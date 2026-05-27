@@ -28,6 +28,16 @@ export const investorRelationsTabs = [
       { label: 'Quarterly Results', path: '/investor-relations/financials/quarterly-results' },
     ],
   },
-  { label: 'GOVERNANCE', path: '/investor-relations/governance', bannerTitle: 'GOVERNANCE' },
+  {
+    label: 'GOVERNANCE',
+    path: '/investor-relations/governance',
+    bannerTitle: 'GOVERNANCE',
+    subItems: [
+      { label: 'Documents & Charters', path: '/investor-relations/governance/documents-and-charters' },
+      { label: 'Board Of Directors', path: '/investor-relations/governance/board-of-directors' },
+      { label: 'Management Team', path: '/investor-relations/governance/management-team' },
+      { label: 'Committee Composition', path: '/investor-relations/governance/committee-composition' },
+    ],
+  },
   { label: 'RESOURCES', path: '/investor-relations/resources', bannerTitle: 'RESOURCES' },
 ];
