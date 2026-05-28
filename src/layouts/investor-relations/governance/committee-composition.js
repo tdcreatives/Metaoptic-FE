@@ -20,7 +20,8 @@ const RoleCell = ({ role }) => (
 );
 
 const CommitteeComposition = () => {
-    const { committees = [], members = [] } = data;
+    const committees = data.committees || [];
+    const members = data.members || [];
     const gridTemplate = `minmax(180px,1fr) repeat(${committees.length}, minmax(180px,1fr))`;
 
     return (
