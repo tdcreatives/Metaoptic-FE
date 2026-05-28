@@ -29,38 +29,40 @@ const CommitteeComposition = () => {
                 Committee Composition
             </h2>
 
-            <div className='mt-8 md:mt-10'>
-                <div
-                    className='grid items-center gap-x-6 py-4 px-4 bg-[#F0F0F0]'
-                    style={{ gridTemplateColumns: gridTemplate }}
-                >
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>
-                        Board Members
+            <div className='mt-8 md:mt-10 overflow-x-auto'>
+                <div className='min-w-[900px]'>
+                    <div
+                        className='grid items-center gap-x-6 py-4 px-4 bg-[#F0F0F0]'
+                        style={{ gridTemplateColumns: gridTemplate }}
+                    >
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>
+                            Board Members
+                        </div>
+                        {committees.map((c) => (
+                            <div
+                                key={c.id}
+                                className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20] text-center'
+                            >
+                                {c.label}
+                            </div>
+                        ))}
                     </div>
-                    {committees.map((c) => (
+
+                    {members.map((member) => (
                         <div
-                            key={c.id}
-                            className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20] text-center'
+                            key={member.id}
+                            className='grid items-center gap-x-6 py-4 px-4 border-b border-[#E0E1E0]'
+                            style={{ gridTemplateColumns: gridTemplate }}
                         >
-                            {c.label}
+                            <div className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>
+                                {member.name}
+                            </div>
+                            {committees.map((c) => (
+                                <RoleCell key={c.id} role={member.roles?.[c.id]} />
+                            ))}
                         </div>
                     ))}
                 </div>
-
-                {members.map((member) => (
-                    <div
-                        key={member.id}
-                        className='grid items-center gap-x-6 py-4 px-4 border-b border-[#E0E1E0]'
-                        style={{ gridTemplateColumns: gridTemplate }}
-                    >
-                        <div className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>
-                            {member.name}
-                        </div>
-                        {committees.map((c) => (
-                            <RoleCell key={c.id} role={member.roles?.[c.id]} />
-                        ))}
-                    </div>
-                ))}
             </div>
 
             <div className='flex flex-wrap items-center gap-8 md:gap-12 mt-6 md:mt-8 px-4'>

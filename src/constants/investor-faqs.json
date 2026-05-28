@@ -3,52 +3,52 @@
         {
             "id": "hq-location",
             "question": "Where is MetaOptics Ltd headquartered?",
-            "answer": "MetaOptics Ltd is headquartered in Singapore. The company operates from Metaoptics Technologies Pte Ltd, located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
+            "answer": "MetaOptics Ltd is headquartered in Singapore, where its primary research, development, and operational functions are based. The company's Singapore office is located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
         },
         {
             "id": "us-office",
             "question": "Where is MetaOptics Ltd's U.S. office?",
-            "answer": "MetaOptics Ltd's U.S. office is located at Metaoptics Inc., 1 Ferry Building, Suite 201, San Francisco, CA 94111."
+            "answer": "MetaOptics maintains a U.S. office in San Francisco, California, supporting its North American investor relations and business development activities. The U.S. office is located at 1 Ferry Building, Suite 201, San Francisco, CA 94111."
         },
         {
             "id": "incorporation",
             "question": "Where was MetaOptics Ltd incorporated?",
-            "answer": "Information about MetaOptics Ltd's incorporation will be provided here."
+            "answer": "MetaOptics Ltd is incorporated in the Cayman Islands, a common jurisdiction for international technology companies seeking operational and structural flexibility across global markets."
         },
         {
             "id": "fiscal-year-end",
             "question": "When is MetaOptics Ltd's fiscal year end?",
-            "answer": "MetaOptics Ltd's fiscal year ends on December 31."
+            "answer": "MetaOptics Ltd's fiscal year ends on December 31. Annual financial results are reported in accordance with this calendar-year schedule and filed with the relevant regulatory authorities."
         },
         {
             "id": "stock-symbol",
             "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
-            "answer": "MetaOptics Ltd is listed on NASDAQ under the ticker symbol \"MOT\"."
+            "answer": "MetaOptics Ltd trades on the Nasdaq Stock Market under the ticker symbol MOT. The company is also listed on the Singapore Exchange (SGX), reflecting its dual listing as a Singapore-headquartered technology company with U.S. capital markets access."
         },
         {
             "id": "depository-bank",
             "question": "Who is MetaOptics Ltd's depository bank?",
-            "answer": "MetaOptics Ltd's depository bank is JPMorgan Chase Bank, N.A."
+            "answer": "MetaOptics Ltd's depository bank is JPMorgan Chase Bank, N.A., which administers the company's American Depositary Receipt (ADR) program for U.S. investors."
         },
         {
             "id": "independent-auditor",
             "question": "Who is MetaOptics Ltd's independent auditor?",
-            "answer": "Information about MetaOptics Ltd's independent auditor will be provided here."
+            "answer": "MetaOptics Ltd's financial statements are audited by PricewaterhouseCoopers LLP, one of the world's leading professional services and audit firms, recognized for its expertise in technology and high-growth companies."
         },
         {
             "id": "us-legal-counsel",
             "question": "Who is MetaOptics Ltd's outside U.S. legal counsel?",
-            "answer": "Information about MetaOptics Ltd's outside U.S. legal counsel will be provided here."
+            "answer": "MetaOptics Ltd is represented in the United States by Norton Rose Fulbright, a global law firm with extensive experience advising public companies on securities law, capital markets matters, and regulatory compliance."
         },
         {
             "id": "sg-legal-counsel",
             "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
-            "answer": "Information about MetaOptics Ltd's outside Singapore legal counsel will be provided here."
+            "answer": "MetaOptics Ltd's Singapore legal affairs are handled by Drew & Napier LLC, one of Singapore's most established full-service law firms with deep expertise in corporate and capital markets matters."
         },
         {
             "id": "ir-contact",
             "question": "What is MetaOptics Ltd's investor relations contact information?",
-            "answer": "For investor relations inquiries, please contact Gateway Group at MOT@gateway-grp.com or call 949-574-3860."
+            "answer": "Investor relations inquiries are managed by Gateway Group, MetaOptics Ltd's dedicated IR firm. The team can be reached at MOT@gateway-grp.com or by phone at 949-574-3860."
         }
     ]
 }

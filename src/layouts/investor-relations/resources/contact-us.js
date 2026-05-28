@@ -78,7 +78,7 @@ const SendMessage = () => {
                     name='fullName'
                     value={form.fullName}
                     onChange={update('fullName')}
-                    placeholder='Your full name here'
+                    placeholder='e.g. John Smith'
                 />
                 <FormField
                     label='Email Address'
@@ -86,7 +86,7 @@ const SendMessage = () => {
                     type='email'
                     value={form.email}
                     onChange={update('email')}
-                    placeholder='yourname@example.com'
+                    placeholder='e.g. john@example.com'
                 />
                 <FormField
                     label='Phone (Optional)'
@@ -94,7 +94,7 @@ const SendMessage = () => {
                     type='tel'
                     value={form.phone}
                     onChange={update('phone')}
-                    placeholder='+65 574 576'
+                    placeholder='e.g. +1 415 000 0000'
                 />
                 <FormField
                     label='Subject'

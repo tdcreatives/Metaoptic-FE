@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { IconChevronDown, IconChevronUp, IconChevronRight } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { investorRelationsTabs } from './tabs';
 import './tab-bar.scss';
@@ -12,7 +13,9 @@ const isTabActive = (tab, pathname) => {
     return pathname === tab.path || pathname.startsWith(`${tab.path}/`);
 };
 
-const SubItemsDropdown = ({ items, pathname, onItemClick }) => (
+/* ============================== Desktop ============================== */
+
+const SubItemsDropdown = ({ items, pathname }) => (
     <div className='absolute left-0 top-full min-w-[220px] bg-white border border-[#E5E5E5] shadow-md z-30'>
         <ul className='flex flex-col py-2'>
             {items.map((sub) => {
@@ -21,7 +24,6 @@ const SubItemsDropdown = ({ items, pathname, onItemClick }) => (
                     <li key={sub.path}>
                         <Link
                             href={sub.path}
-                            onClick={onItemClick}
                             className={clsx(
                                 'block px-5 py-3 futura-medium text-[14px] md:text-[15px] tracking-wide transition-colors',
                                 isSubActive
@@ -38,67 +40,189 @@ const SubItemsDropdown = ({ items, pathname, onItemClick }) => (
     </div>
 );
 
-const TabItem = ({ tab, pathname }) => {
+const DesktopTabItem = ({ tab, pathname }) => {
     const isActive = isTabActive(tab, pathname);
     const hasSubItems = Array.isArray(tab.subItems) && tab.subItems.length > 0;
-    const [open, setOpen] = useState(false);
-    const ref = useRef(null);
+    const [hovering, setHovering] = useState(false);
 
-    useEffect(() => {
-        if (!open) return;
-        const handleDocClick = (e) => {
-            if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-        };
-        document.addEventListener('mousedown', handleDocClick);
-        return () => document.removeEventListener('mousedown', handleDocClick);
-    }, [open]);
-
-    const handleParentClick = (e) => {
-        if (!hasSubItems) return;
-        e.preventDefault();
-        setOpen((prev) => !prev);
-    };
+    const open = hasSubItems && hovering;
 
     return (
-        <li ref={ref} className='shrink-0 relative'>
+        <li
+            className='shrink-0 relative'
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+        >
             <Link
                 href={tab.path}
-                onClick={handleParentClick}
                 className={clsx(
-                    'relative inline-block py-4 md:py-5 lg:py-6 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] futura-medium uppercase tracking-wider transition-colors duration-200',
+                    'relative inline-flex items-center gap-2 py-4 md:py-5 lg:py-6 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] futura-medium uppercase tracking-wider transition-colors duration-200',
                     isActive ? 'text-[#d34c39]' : 'text-black hover:text-[#d34c39]'
                 )}
             >
                 {tab.label}
+                {hasSubItems && (
+                    <IconChevronDown
+                        size={16}
+                        strokeWidth={2}
+                        className={clsx(
+                            'transition-transform duration-200',
+                            open && 'rotate-180'
+                        )}
+                    />
+                )}
                 {isActive && (
                     <span className='absolute left-0 right-0 bottom-0 h-[2px] md:h-[3px] bg-[#d34c39]' />
                 )}
             </Link>
 
-            {hasSubItems && open && (
-                <SubItemsDropdown
-                    items={tab.subItems}
-                    pathname={pathname}
-                    onItemClick={() => setOpen(false)}
-                />
-            )}
+            {open && <SubItemsDropdown items={tab.subItems} pathname={pathname} />}
         </li>
     );
 };
 
-const InvestorRelationsTabBar = () => {
-    const pathname = usePathname();
+const DesktopTabBar = ({ pathname }) => (
+    <nav className='hidden xl:block w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
+        <div className='w-full px-[24px] xl:px-[72px]'>
+            <ul className='flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 whitespace-nowrap overflow-visible'>
+                {investorRelationsTabs.map((tab) => (
+                    <DesktopTabItem key={tab.path} tab={tab} pathname={pathname} />
+                ))}
+            </ul>
+        </div>
+    </nav>
+);
+
+/* ============================== Mobile ============================== */
+
+const MobileTabBar = ({ pathname }) => {
+    const [open, setOpen] = useState(false);
+    const [expandedPath, setExpandedPath] = useState(null);
+
+    const activeTab =
+        investorRelationsTabs.find((t) => isTabActive(t, pathname)) || investorRelationsTabs[0];
+
+    const closeMenu = () => {
+        setOpen(false);
+        setExpandedPath(null);
+    };
+
+    if (!open) {
+        return (
+            <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5]'>
+                <button
+                    type='button'
+                    onClick={() => setOpen(true)}
+                    aria-label='Open IR sub-navigation'
+                    className='flex items-center justify-between w-full px-6 py-4 futura-medium uppercase tracking-wider text-[15px] text-[#d34c39]'
+                >
+                    {activeTab.label}
+                    <IconChevronDown size={20} className='text-[#d34c39]' />
+                </button>
+            </nav>
+        );
+    }
 
     return (
-        <nav className='w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
-            <div className='w-full px-[24px] xl:px-[72px]'>
-                <ul className='flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 whitespace-nowrap overflow-visible'>
-                    {investorRelationsTabs.map((tab) => (
-                        <TabItem key={tab.path} tab={tab} pathname={pathname} />
-                    ))}
-                </ul>
-            </div>
+        <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5]'>
+            <ul>
+                {investorRelationsTabs.map((tab) => {
+                    const isActive = isTabActive(tab, pathname);
+                    const hasSubItems =
+                        Array.isArray(tab.subItems) && tab.subItems.length > 0;
+                    const isManuallyExpanded = expandedPath === tab.path;
+                    const showSubItems = hasSubItems && (isActive || isManuallyExpanded);
+
+                    return (
+                        <li
+                            key={tab.path}
+                            className='border-b border-[#E5E5E5] last:border-b-0'
+                        >
+                            <div className='flex items-center'>
+                                <Link
+                                    href={tab.path}
+                                    onClick={closeMenu}
+                                    className={clsx(
+                                        'flex-1 px-6 py-3 futura-medium uppercase tracking-wider text-[14px]',
+                                        isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
+                                    )}
+                                >
+                                    {tab.label}
+                                </Link>
+
+                                {isActive && (
+                                    <button
+                                        type='button'
+                                        onClick={() => setOpen(false)}
+                                        aria-label='Close sub-navigation'
+                                        className='px-4 py-3'
+                                    >
+                                        <IconChevronUp size={20} className='text-[#d34c39]' />
+                                    </button>
+                                )}
+
+                                {!isActive && hasSubItems && (
+                                    <button
+                                        type='button'
+                                        onClick={() =>
+                                            setExpandedPath((prev) =>
+                                                prev === tab.path ? null : tab.path
+                                            )
+                                        }
+                                        aria-label='Expand sub-items'
+                                        className='px-4 py-3'
+                                    >
+                                        <IconChevronRight
+                                            size={18}
+                                            className={clsx(
+                                                'text-[#231F20] transition-transform duration-200',
+                                                isManuallyExpanded && 'rotate-90'
+                                            )}
+                                        />
+                                    </button>
+                                )}
+                            </div>
+
+                            {showSubItems && (
+                                <ul className='bg-[#FAFAFA] border-t border-[#E5E5E5]'>
+                                    {tab.subItems.map((sub) => {
+                                        const isSubActive = pathname === sub.path;
+                                        return (
+                                            <li key={sub.path}>
+                                                <Link
+                                                    href={sub.path}
+                                                    onClick={closeMenu}
+                                                    className={clsx(
+                                                        'block px-10 py-3 futura-medium text-[14px]',
+                                                        isSubActive
+                                                            ? 'text-[#d34c39]'
+                                                            : 'text-[#231F20]'
+                                                    )}
+                                                >
+                                                    {sub.label}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            )}
+                        </li>
+                    );
+                })}
+            </ul>
         </nav>
+    );
+};
+
+/* ============================== Root ============================== */
+
+const InvestorRelationsTabBar = () => {
+    const pathname = usePathname();
+    return (
+        <>
+            <MobileTabBar pathname={pathname} />
+            <DesktopTabBar pathname={pathname} />
+        </>
     );
 };
 

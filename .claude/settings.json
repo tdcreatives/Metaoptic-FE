@@ -134,7 +134,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/email-alerts)",
       "Bash(curl -s http://localhost:4444/investor-relations/resources/email-alerts)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/contact-us)",
-      "Bash(curl -s http://localhost:4444/investor-relations/resources/contact-us)"
+      "Bash(curl -s http://localhost:4444/investor-relations/resources/contact-us)",
+      "Bash(curl -s http://localhost:4444/_next/static/css/app/layout.css)",
+      "Bash(curl -s \"http://localhost:4444/_next/static/css/app/layout.css?v=1779982341128\")"
     ],
     "additionalDirectories": [
       "/private/tmp"

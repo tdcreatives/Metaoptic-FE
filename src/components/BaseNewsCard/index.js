@@ -36,7 +36,7 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 </div>
             </div>
 
-            <div className='xl:text-start text-center'>{news.desc}</div>
+            <div className='xl:text-start text-center line-clamp-2'>{news.desc}</div>
         </>
     );
 

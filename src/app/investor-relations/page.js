@@ -43,7 +43,9 @@ const InvestorRelations = () => {
             <RecentPressReleases />
             <MostRecentEvents />
             <InvestorPresentation />
+            {/* Hidden at launch — re-enable when MetaOptics starts issuing earnings (quarterly/bi-annual)
             <LatestFinancialResults />
+            */}
             <StockInfo />
             <EmailAlerts />
             <IRContacts />

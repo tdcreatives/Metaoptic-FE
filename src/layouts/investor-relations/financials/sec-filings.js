@@ -140,39 +140,41 @@ const SECFilings = () => {
                 </button>
             </div>
 
-            <div className='mt-8 md:mt-10'>
-                <div className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 py-4 px-4 bg-[#F0F0F0]'>
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Date</div>
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Form</div>
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Description</div>
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Group</div>
-                    <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>View</div>
-                </div>
+            <div className='mt-8 md:mt-10 overflow-x-auto'>
+                <div className='min-w-[920px]'>
+                    <div className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 py-4 px-4 bg-[#F0F0F0]'>
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Date</div>
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Form</div>
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Description</div>
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Group</div>
+                        <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>View</div>
+                    </div>
 
-                {items.length === 0 ? (
-                    <div className='py-12 text-center text-[#888888] futura-medium'>No SEC filings found.</div>
-                ) : (
-                    items.map((item) => (
-                        <div
-                            key={item.id}
-                            className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 items-center py-4 px-4 border-b border-[#E0E1E0]'
-                        >
-                            <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.date}</div>
-                            <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.form}</div>
-                            <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.description}</div>
-                            <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.group}</div>
-                            <div className='flex items-center gap-2 flex-wrap'>
-                                {LINK_TYPES.map((linkType) => (
-                                    <LinkPill
-                                        key={linkType.key}
-                                        label={linkType.label}
-                                        url={item.links?.[linkType.key]}
-                                    />
-                                ))}
+                    {items.length === 0 ? (
+                        <div className='py-12 text-center text-[#888888] futura-medium'>No SEC filings found.</div>
+                    ) : (
+                        items.map((item) => (
+                            <div
+                                key={item.id}
+                                className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 items-center py-4 px-4 border-b border-[#E0E1E0]'
+                            >
+                                <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.date}</div>
+                                <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.form}</div>
+                                <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.description}</div>
+                                <div className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#231F20]'>{item.group}</div>
+                                <div className='flex items-center gap-2 flex-wrap'>
+                                    {LINK_TYPES.map((linkType) => (
+                                        <LinkPill
+                                            key={linkType.key}
+                                            label={linkType.label}
+                                            url={item.links?.[linkType.key]}
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))
-                )}
+                        ))
+                    )}
+                </div>
             </div>
 
             {items.length > 0 && (
