@@ -71,7 +71,7 @@ const PAST_EVENTS = [
 const EventsAndPresentationPage = () => {
     return (
         <>
-            <InvestorRelationsBanner bannerTitle='EVENTS & PRESENTATION' compact />
+            <InvestorRelationsBanner bannerTitle='EVENTS &<br/>PRESENTATION' />
             <InvestorRelationsTabBar />
             <InvestorPresentation />
             <EventsSection title='Upcoming Events' events={UPCOMING_EVENTS} emptyMessage='No upcoming events.' />

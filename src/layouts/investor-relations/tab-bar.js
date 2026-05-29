@@ -47,34 +47,44 @@ const DesktopTabItem = ({ tab, pathname }) => {
 
     const open = hasSubItems && hovering;
 
+    const labelClass = clsx(
+        'relative inline-flex items-center gap-2 py-4 md:py-5 lg:py-6 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] futura-medium uppercase tracking-wider transition-colors duration-200',
+        isActive ? 'text-[#d34c39]' : 'text-black hover:text-[#d34c39]',
+        hasSubItems && 'cursor-default'
+    );
+
+    const labelContent = (
+        <>
+            {tab.label}
+            {hasSubItems && (
+                <IconChevronDown
+                    size={16}
+                    strokeWidth={2}
+                    className={clsx(
+                        'transition-transform duration-200',
+                        open && 'rotate-180'
+                    )}
+                />
+            )}
+            {isActive && (
+                <span className='absolute left-0 right-0 bottom-0 h-[2px] md:h-[3px] bg-[#d34c39]' />
+            )}
+        </>
+    );
+
     return (
         <li
             className='shrink-0 relative'
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
         >
-            <Link
-                href={tab.path}
-                className={clsx(
-                    'relative inline-flex items-center gap-2 py-4 md:py-5 lg:py-6 text-[14px] md:text-[15px] lg:text-[16px] xl:text-[18px] futura-medium uppercase tracking-wider transition-colors duration-200',
-                    isActive ? 'text-[#d34c39]' : 'text-black hover:text-[#d34c39]'
-                )}
-            >
-                {tab.label}
-                {hasSubItems && (
-                    <IconChevronDown
-                        size={16}
-                        strokeWidth={2}
-                        className={clsx(
-                            'transition-transform duration-200',
-                            open && 'rotate-180'
-                        )}
-                    />
-                )}
-                {isActive && (
-                    <span className='absolute left-0 right-0 bottom-0 h-[2px] md:h-[3px] bg-[#d34c39]' />
-                )}
-            </Link>
+            {hasSubItems ? (
+                <span className={labelClass}>{labelContent}</span>
+            ) : (
+                <Link href={tab.path} className={labelClass}>
+                    {labelContent}
+                </Link>
+            )}
 
             {open && <SubItemsDropdown items={tab.subItems} pathname={pathname} />}
         </li>
@@ -139,16 +149,27 @@ const MobileTabBar = ({ pathname }) => {
                             className='border-b border-[#E5E5E5] last:border-b-0'
                         >
                             <div className='flex items-center'>
-                                <Link
-                                    href={tab.path}
-                                    onClick={closeMenu}
-                                    className={clsx(
-                                        'flex-1 px-6 py-3 futura-medium uppercase tracking-wider text-[14px]',
-                                        isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
-                                    )}
-                                >
-                                    {tab.label}
-                                </Link>
+                                {hasSubItems ? (
+                                    <span
+                                        className={clsx(
+                                            'flex-1 px-6 py-3 futura-medium uppercase tracking-wider text-[14px] cursor-default',
+                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
+                                        )}
+                                    >
+                                        {tab.label}
+                                    </span>
+                                ) : (
+                                    <Link
+                                        href={tab.path}
+                                        onClick={closeMenu}
+                                        className={clsx(
+                                            'flex-1 px-6 py-3 futura-medium uppercase tracking-wider text-[14px]',
+                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
+                                        )}
+                                    >
+                                        {tab.label}
+                                    </Link>
+                                )}
 
                                 {isActive && (
                                     <button

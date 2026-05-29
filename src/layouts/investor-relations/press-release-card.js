@@ -22,7 +22,7 @@ const PressReleaseCard = ({ item }) => (
             {item.title}
         </div>
         {item.desc && (
-            <div className='xl:text-start text-center line-clamp-2'>
+            <div className='line-clamp-2'>
                 {item.desc}
             </div>
         )}

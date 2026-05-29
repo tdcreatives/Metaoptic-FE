@@ -402,13 +402,19 @@ const Header = ({ background = "#fff" }) => {
       }}
     >
       {/* Logo */}
-      <Link href="/" onClick={handleMenuClose} className="hover:opacity-100">
+      <Link
+        href="/"
+        onClick={handleMenuClose}
+        className="!opacity-100 hover:!opacity-100"
+        style={{ opacity: 1 }}
+      >
         <Image
           src="/logo.svg"
           alt="Logo"
           width="0"
           height="0"
-          className="xl:w-[20vw] w-[200px] h-auto cursor-pointer hover:opacity-100"
+          className="xl:w-[20vw] w-[200px] h-auto cursor-pointer !opacity-100 hover:!opacity-100"
+          style={{ opacity: 1 }}
           priority
         />
       </Link>
@@ -417,7 +423,7 @@ const Header = ({ background = "#fff" }) => {
         <div className="flex justify-between items-center space-x-4">
           {/* Navigation Bar */}
           <nav
-            className="hidden xl:flex space-x-8 text-[18px] uppercase overflow-visible"
+            className="hidden xl:flex space-x-8 text-[18px] uppercase overflow-visible futura-medium font-medium"
             ref={menuItemRef}
           >
             {headers.map((header) => {

@@ -136,7 +136,13 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/resources/contact-us)",
       "Bash(curl -s http://localhost:4444/investor-relations/resources/contact-us)",
       "Bash(curl -s http://localhost:4444/_next/static/css/app/layout.css)",
-      "Bash(curl -s \"http://localhost:4444/_next/static/css/app/layout.css?v=1779982341128\")"
+      "Bash(curl -s \"http://localhost:4444/_next/static/css/app/layout.css?v=1779982341128\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/investor-relations/events-and-presentation)",
+      "Bash(grep -oE 'a[^{,]*:hover\\\\{[^}]*\\\\}|a:hover [^,{]*\\\\{[^}]*\\\\}|\\\\.hover\\\\\\\\:opacity[^{]*\\\\{[^}]*\\\\}' /tmp/css.txt)",
+      "Bash(grep -oE 'img[^{,]*:hover[^{]*\\\\{[^}]*\\\\}|\\\\.cursor-pointer:hover' /tmp/css.txt)",
+      "Bash(curl -s \"http://localhost:4444/_next/static/css/app/layout.css?v=1780064874029\")",
+      "Bash(python3)",
+      "Bash(curl -s -o /dev/null http://localhost:4444/investor-relations/resources/contact-us)"
     ],
     "additionalDirectories": [
       "/private/tmp"
