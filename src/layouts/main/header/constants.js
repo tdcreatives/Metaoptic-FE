@@ -54,13 +54,18 @@ export const dropdownItems = {
     },
   },
   investorRelations: {
-    companyAnnouncements: {
-      label: "Company Announcements",
-      path: "/investor-relations",
+    singaporeExchange: {
+      label: "Singapore Exchange",
+      path: "#",
+      hasIndicator: true,
+      items: [
+        { label: "Company Announcements", path: "#" },
+        { label: "Analyst Coverage", path: "/analyst-coverage" },
+      ],
     },
-    analystCoverage: {
-      label: "Analyst Coverage",
-      path: "/analyst-coverage",
+    nasdaq: {
+      label: "NASDAQ",
+      path: "/investor-relations",
     },
   },
 };

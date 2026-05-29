@@ -142,7 +142,9 @@
       "Bash(grep -oE 'img[^{,]*:hover[^{]*\\\\{[^}]*\\\\}|\\\\.cursor-pointer:hover' /tmp/css.txt)",
       "Bash(curl -s \"http://localhost:4444/_next/static/css/app/layout.css?v=1780064874029\")",
       "Bash(python3)",
-      "Bash(curl -s -o /dev/null http://localhost:4444/investor-relations/resources/contact-us)"
+      "Bash(curl -s -o /dev/null http://localhost:4444/investor-relations/resources/contact-us)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4444/privacy-policy)",
+      "Bash(curl -s http://localhost:4444/privacy-policy)"
     ],
     "additionalDirectories": [
       "/private/tmp"
