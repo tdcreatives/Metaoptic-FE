@@ -36,7 +36,9 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 </div>
             </div>
 
-            <div className='line-clamp-2'>{news.desc}</div>
+            <div className='line-clamp-2 futura-medium font-medium text-[14px] md:text-[16px] text-[#231F20] leading-[1.5]'>
+                {news.desc}
+            </div>
         </>
     );
 

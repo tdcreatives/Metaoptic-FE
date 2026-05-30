@@ -140,7 +140,7 @@ const SECFilings = () => {
                 </button>
             </div>
 
-            <div className='mt-8 md:mt-10 overflow-x-auto'>
+            <div className='mt-8 md:mt-10 ir-horizontal-scroll'>
                 <div className='min-w-[920px]'>
                     <div className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 py-4 px-4 bg-[#F0F0F0]'>
                         <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Date</div>

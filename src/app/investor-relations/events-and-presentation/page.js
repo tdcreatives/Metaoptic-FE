@@ -76,10 +76,20 @@ const EventsAndPresentationPage = () => {
             <InvestorRelationsTabBar />
             <InvestorPresentation />
             {IR_LAUNCH_FLAGS.showUpcomingEvents && (
-                <EventsSection title='Upcoming Events' events={UPCOMING_EVENTS} emptyMessage='No upcoming events.' />
+                <EventsSection
+                    sectionId='upcoming-events'
+                    title='Upcoming Events'
+                    events={UPCOMING_EVENTS}
+                    emptyMessage='No upcoming events.'
+                />
             )}
             {IR_LAUNCH_FLAGS.showPastEvents && (
-                <EventsSection title='Past Events' events={PAST_EVENTS} emptyMessage='No past events.' />
+                <EventsSection
+                    sectionId='past-events'
+                    title='Past Events'
+                    events={PAST_EVENTS}
+                    emptyMessage='No past events.'
+                />
             )}
         </>
     );

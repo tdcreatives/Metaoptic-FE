@@ -11,7 +11,16 @@ const investorRelationsTabsBase = [
       { label: 'Media', path: '/investor-relations/news/media' },
     ],
   },
-  { label: 'EVENTS & PRESENTATION', path: '/investor-relations/events-and-presentation', bannerTitle: 'EVENTS &<br/>PRESENTATION' },
+  {
+    label: 'EVENTS & PRESENTATION',
+    path: '/investor-relations/events-and-presentation',
+    bannerTitle: 'EVENTS &<br/>PRESENTATION',
+    subItems: [
+      { label: 'Investor Presentation', path: '/investor-relations/events-and-presentation#investor-presentation' },
+      { label: 'Upcoming Events', path: '/investor-relations/events-and-presentation#upcoming-events', launchFlag: 'showUpcomingEvents' },
+      { label: 'Past Events', path: '/investor-relations/events-and-presentation#past-events', launchFlag: 'showPastEvents' },
+    ],
+  },
   {
     label: 'STOCK INFO',
     path: '/investor-relations/stock-info',
@@ -59,7 +68,7 @@ export const getInvestorRelationsTabs = () =>
 
         return {
             ...tab,
-            subItems: tab.subItems.filter((sub) => isIrSubItemVisible(sub.path)),
+            subItems: tab.subItems.filter((sub) => isIrSubItemVisible(sub)),
         };
     });
 

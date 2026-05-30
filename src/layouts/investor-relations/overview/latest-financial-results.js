@@ -24,14 +24,16 @@ const FileLinkPill = ({ type, url }) => (
 );
 
 const FinancialRow = ({ row }) => (
-    <div className='flex items-center justify-between gap-4 py-4 md:py-5 border-b border-[#E5E5E5]'>
-        <div className='futura-medium text-[14px] md:text-[16px] font-medium text-[#231F20]'>
-            {row.label}
-        </div>
-        <div className='flex items-center gap-2'>
-            {row.links.map((link) => (
-                <FileLinkPill key={link.type} type={link.type} url={link.url} />
-            ))}
+    <div className='ir-horizontal-scroll border-b border-[#E5E5E5]'>
+        <div className='flex items-center justify-between gap-4 py-4 md:py-5 min-w-[480px]'>
+            <div className='futura-medium text-[14px] md:text-[16px] font-medium text-[#231F20]'>
+                {row.label}
+            </div>
+            <div className='flex items-center gap-2 shrink-0'>
+                {row.links.map((link) => (
+                    <FileLinkPill key={link.type} type={link.type} url={link.url} />
+                ))}
+            </div>
         </div>
     </div>
 );

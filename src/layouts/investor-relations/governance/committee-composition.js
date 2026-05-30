@@ -30,7 +30,7 @@ const CommitteeComposition = () => {
                 Committee Composition
             </h2>
 
-            <div className='mt-8 md:mt-10 overflow-x-auto'>
+            <div className='mt-8 md:mt-10 ir-horizontal-scroll'>
                 <div className='min-w-[900px]'>
                     <div
                         className='grid items-center gap-x-6 py-4 px-4 bg-[#F0F0F0]'

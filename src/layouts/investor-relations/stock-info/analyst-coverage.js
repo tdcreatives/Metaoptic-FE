@@ -29,7 +29,7 @@ const AnalystCoverage = () => {
                 Analyst Coverage
             </h2>
 
-            <div className='mt-8 md:mt-10 lg:mt-12 overflow-x-auto'>
+            <div className='mt-8 md:mt-10 lg:mt-12 ir-horizontal-scroll'>
                 <div className='min-w-[600px]'>
                     <div className='grid grid-cols-2 gap-x-8 md:gap-x-16 py-5 md:py-6 px-6 md:px-8 bg-[#F2F2F2]'>
                         <HeaderCell>Firm</HeaderCell>

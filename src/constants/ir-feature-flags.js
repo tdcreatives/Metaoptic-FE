@@ -18,8 +18,14 @@ const SUB_ITEM_VISIBILITY = {
     '/investor-relations/governance/documents-and-charters': 'showDocumentsAndCharters',
 };
 
-export const isIrSubItemVisible = (path) => {
-    const flagKey = SUB_ITEM_VISIBILITY[path];
+export const isIrSubItemVisible = (sub) => {
+    if (sub.launchFlag && !IR_LAUNCH_FLAGS[sub.launchFlag]) {
+        return false;
+    }
+
+    const path = typeof sub === 'string' ? sub : sub.path;
+    const basePath = path.split('#')[0];
+    const flagKey = SUB_ITEM_VISIBILITY[basePath];
     if (!flagKey) return true;
     return IR_LAUNCH_FLAGS[flagKey];
 };

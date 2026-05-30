@@ -33,14 +33,16 @@ const LinkPill = ({ label, url }) => (
 );
 
 const QuarterItem = ({ item }) => (
-    <div className='flex items-center justify-between gap-4 py-4 border-b border-[#E0E1E0]'>
-        <span className='futura-medium font-medium text-[14px] md:text-[15px] xl:text-[16px] text-[#231F20]'>
-            {item.title}
-        </span>
-        <div className='flex items-center gap-2 shrink-0'>
-            {item.actions.map((action) => (
-                <LinkPill key={action.label} label={action.label} url={action.url} />
-            ))}
+    <div className='ir-horizontal-scroll border-b border-[#E0E1E0]'>
+        <div className='flex items-center justify-between gap-4 py-4 min-w-[520px]'>
+            <span className='futura-medium font-medium text-[14px] md:text-[15px] xl:text-[16px] text-[#231F20]'>
+                {item.title}
+            </span>
+            <div className='flex items-center gap-2 shrink-0'>
+                {item.actions.map((action) => (
+                    <LinkPill key={action.label} label={action.label} url={action.url} />
+                ))}
+            </div>
         </div>
     </div>
 );
