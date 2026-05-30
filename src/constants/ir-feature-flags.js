@@ -1,6 +1,9 @@
 /**
  * IR launch visibility flags.
  * Set a flag to true when the section/page is ready to go live.
+ *
+ * When toggling page-level flags, also update .htaccess IR launch redirect rules
+ * so direct URLs redirect at the server (Apache) without a client-side flash.
  */
 export const IR_LAUNCH_FLAGS = {
     showMostRecentEvents: false,

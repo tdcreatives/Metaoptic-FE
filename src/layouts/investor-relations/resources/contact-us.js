@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import IRContainer from '@/layouts/investor-relations/container';
+import { buildIrContactPayload, isValidEmail, submitIrWeb3Form } from '@/lib/web3forms';
 
 const inputBaseClasses =
     'futura-medium font-medium text-[14px] md:text-[16px] xl:text-[18px] text-[#231F20] ' +
@@ -55,19 +56,24 @@ const SendMessage = () => {
             setFeedback('Please fill in Full Name, Email Address, and Message.');
             return;
         }
+        if (!isValidEmail(form.email)) {
+            setFeedback('Please enter a valid email address.');
+            return;
+        }
+
         setSubmitting(true);
         setFeedback('');
-        try {
-            console.log('[contact-us] submit payload:', form);
-            await new Promise((r) => setTimeout(r, 400));
+
+        const result = await submitIrWeb3Form(buildIrContactPayload(form));
+
+        if (result.ok) {
             setFeedback('Thank you! Your message has been received.');
             setForm({ fullName: '', email: '', phone: '', subject: '', message: '' });
-        } catch (err) {
-            console.error(err);
-            setFeedback('Something went wrong. Please try again later.');
-        } finally {
-            setSubmitting(false);
+        } else {
+            setFeedback(result.error);
         }
+
+        setSubmitting(false);
     };
 
     return (
