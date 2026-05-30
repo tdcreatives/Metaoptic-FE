@@ -1,0 +1,53 @@
+/**
+ * IR launch visibility flags.
+ * Set a flag to true when the section/page is ready to go live.
+ */
+export const IR_LAUNCH_FLAGS = {
+    showMostRecentEvents: false,
+    showLatestFinancialResults: false,
+    showUpcomingEvents: false,
+    showPastEvents: false,
+    showAnalystCoverage: false,
+    showQuarterlyResults: false,
+    showDocumentsAndCharters: false,
+};
+
+const SUB_ITEM_VISIBILITY = {
+    '/investor-relations/stock-info/analyst-coverage': 'showAnalystCoverage',
+    '/investor-relations/financials/quarterly-results': 'showQuarterlyResults',
+    '/investor-relations/governance/documents-and-charters': 'showDocumentsAndCharters',
+};
+
+export const isIrSubItemVisible = (path) => {
+    const flagKey = SUB_ITEM_VISIBILITY[path];
+    if (!flagKey) return true;
+    return IR_LAUNCH_FLAGS[flagKey];
+};
+
+export const getDefaultGovernancePath = () =>
+    IR_LAUNCH_FLAGS.showDocumentsAndCharters
+        ? '/investor-relations/governance/documents-and-charters'
+        : '/investor-relations/governance/board-of-directors';
+
+export const IR_HIDDEN_PAGE_REDIRECTS = {
+    '/investor-relations/stock-info/analyst-coverage': '/investor-relations/stock-info/stock-quote',
+    '/investor-relations/financials/quarterly-results': '/investor-relations/financials/sec-filings',
+    '/investor-relations/governance/documents-and-charters': '/investor-relations/governance/board-of-directors',
+    '/analyst-coverage': '/investor-relations/stock-info/stock-quote',
+};
+
+export const getIrHiddenPageRedirect = (pathname) => {
+    if (pathname === '/investor-relations/stock-info/analyst-coverage' && !IR_LAUNCH_FLAGS.showAnalystCoverage) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    if (pathname === '/investor-relations/financials/quarterly-results' && !IR_LAUNCH_FLAGS.showQuarterlyResults) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    if (pathname === '/investor-relations/governance/documents-and-charters' && !IR_LAUNCH_FLAGS.showDocumentsAndCharters) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    if (pathname === '/analyst-coverage' && !IR_LAUNCH_FLAGS.showAnalystCoverage) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    return null;
+};

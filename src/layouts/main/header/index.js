@@ -9,10 +9,11 @@ import { gsap } from "gsap";
 import { isMobile } from "react-device-detect";
 import BaseHamburger from "@/components/BaseHamburger";
 import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
-import { headers, dropdownItems } from "./constants";
+import { headers, getDropdownItems } from "./constants";
 import clsx from "clsx";
 
 const Header = ({ background = "#fff" }) => {
+  const dropdownItems = getDropdownItems();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHoveringMenu, setIsHoveringMenu] = useState(false);
   // Generic dropdown state management

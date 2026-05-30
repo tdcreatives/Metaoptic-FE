@@ -1,4 +1,6 @@
 // Navigation links array
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+
 export const headers = [
   { label: "ABOUT US", path: "/about-us" },
   { label: "VERTICALS", path: "/verticals", dropdownKey: "verticals" },
@@ -9,7 +11,7 @@ export const headers = [
 ];
 
 // Dropdown items configuration
-export const dropdownItems = {
+const dropdownItemsBase = {
   verticals: {
     metalensEquipment: {
       label: "Metalens Capital Equipment",
@@ -70,5 +72,26 @@ export const dropdownItems = {
   },
 };
 
+export const dropdownItems = dropdownItemsBase;
+
+export const getDropdownItems = () => {
+  if (IR_LAUNCH_FLAGS.showAnalystCoverage) {
+    return dropdownItemsBase;
+  }
+
+  return {
+    ...dropdownItemsBase,
+    investorRelations: {
+      ...dropdownItemsBase.investorRelations,
+      singaporeExchange: {
+        ...dropdownItemsBase.investorRelations.singaporeExchange,
+        items: dropdownItemsBase.investorRelations.singaporeExchange.items.filter(
+          (item) => item.path !== '/analyst-coverage'
+        ),
+      },
+    },
+  };
+};
+
 // Legacy export for backward compatibility
-export const productsDropdownItems = dropdownItems.verticals;
+export const productsDropdownItems = dropdownItemsBase.verticals;

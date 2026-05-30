@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IconChevronDown, IconChevronUp, IconChevronRight } from '@tabler/icons-react';
 import clsx from 'clsx';
-import { investorRelationsTabs } from './tabs';
+import { getInvestorRelationsTabs } from './tabs';
 import './tab-bar.scss';
 
 const isTabActive = (tab, pathname) => {
@@ -91,7 +91,10 @@ const DesktopTabItem = ({ tab, pathname }) => {
     );
 };
 
-const DesktopTabBar = ({ pathname }) => (
+const DesktopTabBar = ({ pathname }) => {
+    const investorRelationsTabs = getInvestorRelationsTabs();
+
+    return (
     <nav className='hidden xl:block w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
         <div className='w-full px-[24px] xl:px-[72px]'>
             <ul className='flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 whitespace-nowrap overflow-visible'>
@@ -101,11 +104,11 @@ const DesktopTabBar = ({ pathname }) => (
             </ul>
         </div>
     </nav>
-);
-
-/* ============================== Mobile ============================== */
+    );
+};
 
 const MobileTabBar = ({ pathname }) => {
+    const investorRelationsTabs = getInvestorRelationsTabs();
     const [open, setOpen] = useState(false);
     const [expandedPath, setExpandedPath] = useState(null);
 
@@ -239,6 +242,7 @@ const MobileTabBar = ({ pathname }) => {
 
 const InvestorRelationsTabBar = () => {
     const pathname = usePathname();
+    const investorRelationsTabs = getInvestorRelationsTabs();
     return (
         <>
             <MobileTabBar pathname={pathname} />

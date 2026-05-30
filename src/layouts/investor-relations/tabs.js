@@ -1,4 +1,6 @@
-export const investorRelationsTabs = [
+import { isIrSubItemVisible } from '@/constants/ir-feature-flags';
+
+const investorRelationsTabsBase = [
   { label: 'OVERVIEW', path: '/investor-relations', bannerTitle: 'INVESTOR<br/>RELATIONS' },
   {
     label: 'NEWS',
@@ -50,3 +52,16 @@ export const investorRelationsTabs = [
     ],
   },
 ];
+
+export const getInvestorRelationsTabs = () =>
+    investorRelationsTabsBase.map((tab) => {
+        if (!Array.isArray(tab.subItems)) return tab;
+
+        return {
+            ...tab,
+            subItems: tab.subItems.filter((sub) => isIrSubItemVisible(sub.path)),
+        };
+    });
+
+/** @deprecated Use getInvestorRelationsTabs() for launch-aware navigation. */
+export const investorRelationsTabs = investorRelationsTabsBase;
