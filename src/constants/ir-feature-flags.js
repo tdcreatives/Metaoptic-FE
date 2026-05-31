@@ -10,7 +10,7 @@ export const IR_LAUNCH_FLAGS = {
     showLatestFinancialResults: false,
     showUpcomingEvents: false,
     showPastEvents: false,
-    showAnalystCoverage: false,
+    showAnalystCoverage: true,
     showQuarterlyResults: false,
     showDocumentsAndCharters: false,
 };

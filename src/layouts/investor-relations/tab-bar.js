@@ -12,6 +12,13 @@ import './ir-scroll.scss';
 const TAB_LABEL_CLASS =
     'relative inline-flex items-center gap-1.5 shrink-0 snap-center py-4 text-[13px] md:text-[14px] futura-medium uppercase tracking-wider transition-colors duration-200 whitespace-nowrap';
 
+// A tab only behaves as a dropdown/accordion when it has MORE THAN ONE visible
+// sub-item. A lone sub-item (e.g. EVENTS → only "Investor Presentation" after the
+// launch flags hide the rest) just points back to the parent page, so the tab is
+// rendered as a plain direct link instead.
+const tabHasDropdown = (tab) =>
+    Array.isArray(tab.subItems) && tab.subItems.length > 1;
+
 const isTabActive = (tab, pathname) => {
     if (tab.path === '/investor-relations') return pathname === '/investor-relations';
     return pathname === tab.path || pathname.startsWith(`${tab.path}/`);
@@ -68,7 +75,7 @@ const SubItemsDropdown = ({ items, pathname, hash }) => (
 
 const DesktopTabItem = ({ tab, pathname, hash }) => {
     const isActive = isTabActive(tab, pathname);
-    const hasSubItems = Array.isArray(tab.subItems) && tab.subItems.length > 0;
+    const hasSubItems = tabHasDropdown(tab);
     const [hovering, setHovering] = useState(false);
     const open = hasSubItems && hovering;
 
@@ -142,139 +149,151 @@ const MobileTabBar = ({ pathname, hash }) => {
     const toggleExpand = (path) =>
         setExpandedPaths((prev) => ({ ...prev, [path]: !prev[path] }));
 
+    const closeMenu = () => setMenuOpen(false);
+
     const activeTab =
         investorRelationsTabs.find((t) => isTabActive(t, pathname)) || investorRelationsTabs[0];
-    const activeSubItem = (activeTab.subItems || []).find((sub) =>
-        isSubItemActive(sub, pathname, hash)
-    );
+    const activeSubItem = tabHasDropdown(activeTab)
+        ? (activeTab.subItems || []).find((sub) => isSubItemActive(sub, pathname, hash))
+        : null;
     const collapsedLabel = activeSubItem ? activeSubItem.label : activeTab.label;
 
-    if (!menuOpen) {
-        return (
-            <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5]'>
-                <button
-                    type='button'
-                    onClick={() => setMenuOpen(true)}
-                    aria-label='Open IR sub-navigation'
-                    aria-expanded={false}
-                    className='flex items-center justify-between w-full px-6 py-4 futura-medium text-[14px] text-[#231F20]'
-                >
-                    <span>{collapsedLabel}</span>
-                    <IconChevronDown size={20} className='text-[#231F20]' />
-                </button>
-            </nav>
-        );
-    }
-
     return (
-        <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
+        <nav className='xl:hidden relative z-40 w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
+            {/* Trigger — stays in flow so page content never jumps */}
             <button
                 type='button'
-                onClick={() => setMenuOpen(false)}
-                aria-label='Close IR sub-navigation'
-                aria-expanded={true}
-                className='flex items-center justify-between w-full px-6 py-4 futura-medium text-[14px] text-[#231F20] border-b border-[#E5E5E5]'
+                onClick={() => setMenuOpen((o) => !o)}
+                aria-label='Toggle IR sub-navigation'
+                aria-expanded={menuOpen}
+                className='flex items-center justify-between w-full px-6 py-4 futura-medium uppercase tracking-wider text-[14px] text-[#231F20]'
             >
                 <span>{collapsedLabel}</span>
-                <IconChevronUp size={20} className='text-[#231F20]' />
+                <IconChevronDown size={20} className='text-[#231F20]' />
             </button>
-            <ul>
-                {investorRelationsTabs.map((tab) => {
-                    const isActive = isTabActive(tab, pathname);
-                    const hasSubItems =
-                        Array.isArray(tab.subItems) && tab.subItems.length > 0;
-                    const isManuallyExpanded = !!expandedPaths[tab.path];
-                    const showSubItems = hasSubItems && (isActive || isManuallyExpanded);
 
-                    return (
-                        <li
-                            key={tab.path}
-                            className='border-b border-[#E5E5E5] last:border-b-0'
-                        >
-                            <div className='flex items-center'>
-                                {hasSubItems ? (
-                                    <span
-                                        className={clsx(
-                                            'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px] cursor-default',
-                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
-                                        )}
-                                    >
-                                        {tab.label}
-                                    </span>
-                                ) : (
-                                    <Link
-                                        href={tab.path}
-                                        className={clsx(
-                                            'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px]',
-                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
-                                        )}
-                                    >
-                                        {tab.label}
-                                    </Link>
-                                )}
+            {menuOpen && (
+                <>
+                    {/* Backdrop captures outside taps */}
+                    <div
+                        className='fixed inset-0 z-30'
+                        aria-hidden='true'
+                        onClick={closeMenu}
+                    />
+                    {/* Accordion overlay — anchored at top-0 so the active row replaces
+                        the trigger (no duplicate label) and floats over page content */}
+                    <div className='absolute top-0 left-0 right-0 z-40 bg-white border-b border-[#E5E5E5] shadow-lg'>
+                        <ul>
+                            {investorRelationsTabs.map((tab) => {
+                                const isActive = isTabActive(tab, pathname);
+                                const hasSubItems = tabHasDropdown(tab);
+                                const isManuallyExpanded = !!expandedPaths[tab.path];
+                                const showSubItems =
+                                    hasSubItems && (isActive || isManuallyExpanded);
 
-                                {isActive ? (
-                                    <span
-                                        className='px-4 py-4 flex items-center justify-center'
-                                        aria-hidden='true'
+                                return (
+                                    <li
+                                        key={tab.path}
+                                        className='border-b border-[#E5E5E5] last:border-b-0'
                                     >
-                                        <IconChevronUp size={20} className='text-[#d34c39]' />
-                                    </span>
-                                ) : (
-                                    hasSubItems && (
-                                        <button
-                                            type='button'
-                                            onClick={() => toggleExpand(tab.path)}
-                                            aria-label={`Toggle ${tab.label} sub-items`}
-                                            aria-expanded={isManuallyExpanded}
-                                            className='px-4 py-4 flex items-center justify-center'
-                                        >
-                                            {isManuallyExpanded ? (
-                                                <IconChevronDown
-                                                    size={20}
-                                                    className='text-[#231F20]'
-                                                />
-                                            ) : (
-                                                <IconChevronRight
-                                                    size={20}
-                                                    className='text-[#231F20]'
-                                                />
-                                            )}
-                                        </button>
-                                    )
-                                )}
-                            </div>
-
-                            {showSubItems && (
-                                <ul className='bg-[#FAFAFA] border-t border-[#E5E5E5]'>
-                                    {tab.subItems.map((sub) => {
-                                        const isSubActive = isSubItemActive(
-                                            sub,
-                                            pathname,
-                                            hash
-                                        );
-                                        return (
-                                            <li key={sub.path}>
-                                                <Link
-                                                    href={sub.path}
+                                        <div className='flex items-center'>
+                                            {hasSubItems ? (
+                                                <span
                                                     className={clsx(
-                                                        'block px-10 py-3 futura-medium text-[14px]',
-                                                        isSubActive
+                                                        'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px] cursor-default',
+                                                        isActive
                                                             ? 'text-[#d34c39]'
                                                             : 'text-[#231F20]'
                                                     )}
                                                 >
-                                                    {sub.label}
+                                                    {tab.label}
+                                                </span>
+                                            ) : (
+                                                <Link
+                                                    href={tab.path}
+                                                    onClick={closeMenu}
+                                                    className={clsx(
+                                                        'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px]',
+                                                        isActive
+                                                            ? 'text-[#d34c39]'
+                                                            : 'text-[#231F20]'
+                                                    )}
+                                                >
+                                                    {tab.label}
                                                 </Link>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            )}
-                        </li>
-                    );
-                })}
-            </ul>
+                                            )}
+
+                                            {isActive ? (
+                                                <button
+                                                    type='button'
+                                                    onClick={closeMenu}
+                                                    aria-label='Close IR sub-navigation'
+                                                    className='px-4 py-4 flex items-center justify-center'
+                                                >
+                                                    <IconChevronUp
+                                                        size={20}
+                                                        className='text-[#d34c39]'
+                                                    />
+                                                </button>
+                                            ) : (
+                                                hasSubItems && (
+                                                    <button
+                                                        type='button'
+                                                        onClick={() => toggleExpand(tab.path)}
+                                                        aria-label={`Toggle ${tab.label} sub-items`}
+                                                        aria-expanded={isManuallyExpanded}
+                                                        className='px-4 py-4 flex items-center justify-center'
+                                                    >
+                                                        {isManuallyExpanded ? (
+                                                            <IconChevronDown
+                                                                size={20}
+                                                                className='text-[#231F20]'
+                                                            />
+                                                        ) : (
+                                                            <IconChevronRight
+                                                                size={20}
+                                                                className='text-[#231F20]'
+                                                            />
+                                                        )}
+                                                    </button>
+                                                )
+                                            )}
+                                        </div>
+
+                                        {showSubItems && (
+                                            <ul className='bg-[#FAFAFA] border-t border-[#E5E5E5]'>
+                                                {tab.subItems.map((sub) => {
+                                                    const isSubActive = isSubItemActive(
+                                                        sub,
+                                                        pathname,
+                                                        hash
+                                                    );
+                                                    return (
+                                                        <li key={sub.path}>
+                                                            <Link
+                                                                href={sub.path}
+                                                                onClick={closeMenu}
+                                                                className={clsx(
+                                                                    'block px-10 py-3 futura-medium text-[14px]',
+                                                                    isSubActive
+                                                                        ? 'text-[#d34c39]'
+                                                                        : 'text-[#231F20]'
+                                                                )}
+                                                            >
+                                                                {sub.label}
+                                                            </Link>
+                                                        </li>
+                                                    );
+                                                })}
+                                            </ul>
+                                        )}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </>
+            )}
         </nav>
     );
 };
