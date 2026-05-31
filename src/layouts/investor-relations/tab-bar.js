@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown, IconChevronUp, IconChevronRight } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { getInvestorRelationsTabs } from './tabs';
 import './tab-bar.scss';
@@ -136,66 +136,145 @@ const DesktopTabBar = ({ pathname, hash }) => {
 
 const MobileTabBar = ({ pathname, hash }) => {
     const investorRelationsTabs = getInvestorRelationsTabs();
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [expandedPaths, setExpandedPaths] = useState({});
+
+    const toggleExpand = (path) =>
+        setExpandedPaths((prev) => ({ ...prev, [path]: !prev[path] }));
+
     const activeTab =
         investorRelationsTabs.find((t) => isTabActive(t, pathname)) || investorRelationsTabs[0];
-    const activeSubItems = Array.isArray(activeTab.subItems) ? activeTab.subItems : [];
+    const activeSubItem = (activeTab.subItems || []).find((sub) =>
+        isSubItemActive(sub, pathname, hash)
+    );
+    const collapsedLabel = activeSubItem ? activeSubItem.label : activeTab.label;
+
+    if (!menuOpen) {
+        return (
+            <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5]'>
+                <button
+                    type='button'
+                    onClick={() => setMenuOpen(true)}
+                    aria-label='Open IR sub-navigation'
+                    aria-expanded={false}
+                    className='flex items-center justify-between w-full px-6 py-4 futura-medium text-[14px] text-[#231F20]'
+                >
+                    <span>{collapsedLabel}</span>
+                    <IconChevronDown size={20} className='text-[#231F20]' />
+                </button>
+            </nav>
+        );
+    }
 
     return (
         <nav className='xl:hidden w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
-            <div
-                className='ir-horizontal-scroll flex items-center gap-6 px-6 py-1 snap-x snap-mandatory'
-                role='tablist'
-                aria-label='Investor relations sections'
+            <button
+                type='button'
+                onClick={() => setMenuOpen(false)}
+                aria-label='Close IR sub-navigation'
+                aria-expanded={true}
+                className='flex items-center justify-between w-full px-6 py-4 futura-medium text-[14px] text-[#231F20] border-b border-[#E5E5E5]'
             >
+                <span>{collapsedLabel}</span>
+                <IconChevronUp size={20} className='text-[#231F20]' />
+            </button>
+            <ul>
                 {investorRelationsTabs.map((tab) => {
                     const isActive = isTabActive(tab, pathname);
+                    const hasSubItems =
+                        Array.isArray(tab.subItems) && tab.subItems.length > 0;
+                    const isManuallyExpanded = !!expandedPaths[tab.path];
+                    const showSubItems = hasSubItems && (isActive || isManuallyExpanded);
+
                     return (
-                        <Link
+                        <li
                             key={tab.path}
-                            href={tab.path}
-                            role='tab'
-                            aria-selected={isActive}
-                            className={clsx(
-                                TAB_LABEL_CLASS,
-                                isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
-                            )}
+                            className='border-b border-[#E5E5E5] last:border-b-0'
                         >
-                            {tab.label}
-                            {isActive && (
-                                <span className='absolute left-0 right-0 bottom-0 h-[2px] bg-[#d34c39]' />
+                            <div className='flex items-center'>
+                                {hasSubItems ? (
+                                    <span
+                                        className={clsx(
+                                            'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px] cursor-default',
+                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
+                                        )}
+                                    >
+                                        {tab.label}
+                                    </span>
+                                ) : (
+                                    <Link
+                                        href={tab.path}
+                                        className={clsx(
+                                            'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px]',
+                                            isActive ? 'text-[#d34c39]' : 'text-[#231F20]'
+                                        )}
+                                    >
+                                        {tab.label}
+                                    </Link>
+                                )}
+
+                                {isActive ? (
+                                    <span
+                                        className='px-4 py-4 flex items-center justify-center'
+                                        aria-hidden='true'
+                                    >
+                                        <IconChevronUp size={20} className='text-[#d34c39]' />
+                                    </span>
+                                ) : (
+                                    hasSubItems && (
+                                        <button
+                                            type='button'
+                                            onClick={() => toggleExpand(tab.path)}
+                                            aria-label={`Toggle ${tab.label} sub-items`}
+                                            aria-expanded={isManuallyExpanded}
+                                            className='px-4 py-4 flex items-center justify-center'
+                                        >
+                                            {isManuallyExpanded ? (
+                                                <IconChevronDown
+                                                    size={20}
+                                                    className='text-[#231F20]'
+                                                />
+                                            ) : (
+                                                <IconChevronRight
+                                                    size={20}
+                                                    className='text-[#231F20]'
+                                                />
+                                            )}
+                                        </button>
+                                    )
+                                )}
+                            </div>
+
+                            {showSubItems && (
+                                <ul className='bg-[#FAFAFA] border-t border-[#E5E5E5]'>
+                                    {tab.subItems.map((sub) => {
+                                        const isSubActive = isSubItemActive(
+                                            sub,
+                                            pathname,
+                                            hash
+                                        );
+                                        return (
+                                            <li key={sub.path}>
+                                                <Link
+                                                    href={sub.path}
+                                                    className={clsx(
+                                                        'block px-10 py-3 futura-medium text-[14px]',
+                                                        isSubActive
+                                                            ? 'text-[#d34c39]'
+                                                            : 'text-[#231F20]'
+                                                    )}
+                                                >
+                                                    {sub.label}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
                             )}
-                        </Link>
+                        </li>
                     );
                 })}
-            </div>
-
-            {activeSubItems.length > 0 && (
-                <div
-                    className='ir-horizontal-scroll flex items-center gap-4 px-6 py-3 border-t border-[#E5E5E5] bg-[#FAFAFA] snap-x snap-mandatory'
-                    role='tablist'
-                    aria-label={`${activeTab.label} sub-sections`}
-                >
-                    {activeSubItems.map((sub) => {
-                        const isSubActive = isSubItemActive(sub, pathname, hash);
-                        return (
-                            <Link
-                                key={sub.path}
-                                href={sub.path}
-                                role='tab'
-                                aria-selected={isSubActive}
-                                className={clsx(
-                                    'shrink-0 snap-center px-4 py-2 rounded-full futura-medium text-[13px] tracking-wide transition-colors whitespace-nowrap',
-                                    isSubActive
-                                        ? 'bg-[#d34c39] text-white'
-                                        : 'bg-white text-[#231F20] border border-[#E5E5E5]'
-                                )}
-                            >
-                                {sub.label}
-                            </Link>
-                        );
-                    })}
-                </div>
-            )}
+            </ul>
         </nav>
     );
 };
