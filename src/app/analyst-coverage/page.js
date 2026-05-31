@@ -1,12 +1,11 @@
 import React from 'react';
-
-import metadataJson from '@/constants/metadata.json';
-
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+import IrLaunchRedirect from '@/layouts/investor-relations/ir-launch-redirect';
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
 import AnalystCoverageAnnouncements from '@/layouts/analyst-coverage/announcements';
 import AnalystCoverageBanner from '@/layouts/analyst-coverage/banner';
-
+import metadataJson from '@/constants/metadata.json';
 
 export const metadata = {
     title: metadataJson.investorrelations.title,
@@ -28,7 +27,11 @@ export const metadata = {
     },
 };
 
-const InvestorRelations = () => {
+const AnalystCoveragePage = () => {
+    if (!IR_LAUNCH_FLAGS.showAnalystCoverage) {
+        return <IrLaunchRedirect to='/investor-relations/stock-info/stock-quote' />;
+    }
+
     return (
         <>
             <Header />
@@ -39,4 +42,4 @@ const InvestorRelations = () => {
     );
 };
 
-export default InvestorRelations;
+export default AnalystCoveragePage;

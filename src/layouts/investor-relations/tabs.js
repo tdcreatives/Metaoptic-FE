@@ -1,4 +1,6 @@
-export const investorRelationsTabs = [
+import { isIrSubItemVisible } from '@/constants/ir-feature-flags';
+
+const investorRelationsTabsBase = [
   { label: 'OVERVIEW', path: '/investor-relations', bannerTitle: 'INVESTOR<br/>RELATIONS' },
   {
     label: 'NEWS',
@@ -9,7 +11,16 @@ export const investorRelationsTabs = [
       { label: 'Media', path: '/investor-relations/news/media' },
     ],
   },
-  { label: 'EVENTS & PRESENTATION', path: '/investor-relations/events-and-presentation', bannerTitle: 'EVENTS &<br/>PRESENTATION' },
+  {
+    label: 'EVENTS & PRESENTATION',
+    path: '/investor-relations/events-and-presentation',
+    bannerTitle: 'EVENTS &<br/>PRESENTATION',
+    subItems: [
+      { label: 'Investor Presentation', path: '/investor-relations/events-and-presentation#investor-presentation' },
+      { label: 'Upcoming Events', path: '/investor-relations/events-and-presentation#upcoming-events', launchFlag: 'showUpcomingEvents' },
+      { label: 'Past Events', path: '/investor-relations/events-and-presentation#past-events', launchFlag: 'showPastEvents' },
+    ],
+  },
   {
     label: 'STOCK INFO',
     path: '/investor-relations/stock-info',
@@ -50,3 +61,16 @@ export const investorRelationsTabs = [
     ],
   },
 ];
+
+export const getInvestorRelationsTabs = () =>
+    investorRelationsTabsBase.map((tab) => {
+        if (!Array.isArray(tab.subItems)) return tab;
+
+        return {
+            ...tab,
+            subItems: tab.subItems.filter((sub) => isIrSubItemVisible(sub)),
+        };
+    });
+
+/** @deprecated Use getInvestorRelationsTabs() for launch-aware navigation. */
+export const investorRelationsTabs = investorRelationsTabsBase;

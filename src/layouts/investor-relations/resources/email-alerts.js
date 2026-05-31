@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { IconCheck } from '@tabler/icons-react';
 import IRContainer from '@/layouts/investor-relations/container';
+import { buildIrEmailAlertsPayload, isValidEmail, submitIrWeb3Form } from '@/lib/web3forms';
 
 const PREFERENCES = [
     { id: 'press-releases', label: 'Press Releases' },
@@ -71,22 +72,38 @@ const EmailAlerts = () => {
             setFeedback('Please enter your email and select at least one preference.');
             return;
         }
+        if (!isValidEmail(email)) {
+            setFeedback('Please enter a valid email address.');
+            return;
+        }
+
         setSubmitting(true);
         setFeedback('');
-        try {
-            console.log('[email-alerts] subscribe payload:', { firstName, lastName, email, preferences: selectedPrefs });
-            await new Promise((r) => setTimeout(r, 400));
+
+        const preferenceLabels = PREFERENCES.filter((p) => selectedPrefs.includes(p.id))
+            .map((p) => p.label)
+            .join(', ');
+
+        const result = await submitIrWeb3Form(
+            buildIrEmailAlertsPayload({
+                firstName,
+                lastName,
+                email,
+                preferenceLabels,
+            })
+        );
+
+        if (result.ok) {
             setFeedback('Thank you! Your subscription has been received.');
             setFirstName('');
             setLastName('');
             setEmail('');
             setSelectedPrefs(['press-releases']);
-        } catch (err) {
-            console.error(err);
-            setFeedback('Something went wrong. Please try again later.');
-        } finally {
-            setSubmitting(false);
+        } else {
+            setFeedback(result.error);
         }
+
+        setSubmitting(false);
     };
 
     return (

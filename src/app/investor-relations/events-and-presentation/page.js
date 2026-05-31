@@ -1,4 +1,5 @@
 import React from 'react';
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
 import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
 import InvestorPresentation from '@/layouts/investor-relations/overview/investor-presentation';
@@ -74,8 +75,22 @@ const EventsAndPresentationPage = () => {
             <InvestorRelationsBanner bannerTitle='EVENTS &<br/>PRESENTATION' />
             <InvestorRelationsTabBar />
             <InvestorPresentation />
-            <EventsSection title='Upcoming Events' events={UPCOMING_EVENTS} emptyMessage='No upcoming events.' />
-            <EventsSection title='Past Events' events={PAST_EVENTS} emptyMessage='No past events.' />
+            {IR_LAUNCH_FLAGS.showUpcomingEvents && (
+                <EventsSection
+                    sectionId='upcoming-events'
+                    title='Upcoming Events'
+                    events={UPCOMING_EVENTS}
+                    emptyMessage='No upcoming events.'
+                />
+            )}
+            {IR_LAUNCH_FLAGS.showPastEvents && (
+                <EventsSection
+                    sectionId='past-events'
+                    title='Past Events'
+                    events={PAST_EVENTS}
+                    emptyMessage='No past events.'
+                />
+            )}
         </>
     );
 };

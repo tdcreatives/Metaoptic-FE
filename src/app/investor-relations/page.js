@@ -8,6 +8,7 @@ import CorporateOverview from '@/layouts/investor-relations/overview/corporate-o
 import RecentPressReleases from '@/layouts/investor-relations/overview/recent-press-releases';
 import MostRecentEvents from '@/layouts/investor-relations/overview/most-recent-events';
 import InvestorPresentation from '@/layouts/investor-relations/overview/investor-presentation';
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
 import LatestFinancialResults from '@/layouts/investor-relations/overview/latest-financial-results';
 import StockInfo from '@/layouts/investor-relations/overview/stock-info';
 import EmailAlerts from '@/layouts/investor-relations/overview/email-alerts';
@@ -41,11 +42,11 @@ const InvestorRelations = () => {
             <InvestorRelationsTabBar />
             <CorporateOverview />
             <RecentPressReleases />
-            <MostRecentEvents />
+            {IR_LAUNCH_FLAGS.showMostRecentEvents && <MostRecentEvents />}
             <InvestorPresentation />
-            {/* Hidden at launch — re-enable when MetaOptics starts issuing earnings (quarterly/bi-annual)
-            <LatestFinancialResults />
-            */}
+            {IR_LAUNCH_FLAGS.showLatestFinancialResults && (
+                <LatestFinancialResults />
+            )}
             <StockInfo />
             <EmailAlerts />
             <IRContacts />

@@ -4,10 +4,10 @@ import IRContainer from '@/layouts/investor-relations/container';
 
 const InvestorPresentation = () => {
     const fileLabel = 'MetaOptics - Investor Presentation.pdf';
-    const downloadUrl = 'https://www.google.com';
+    const downloadUrl = 'https://www.metaoptics.sg/download/MOT-Company-Presentation-May2026-FINAL.pdf';
 
     return (
-        <IRContainer className='py-12 md:py-16 lg:py-20 xl:pt-[60px]'>
+        <IRContainer id='investor-presentation' className='py-12 md:py-16 lg:py-20 xl:pt-[60px] scroll-mt-24'>
             <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
                 Investor Presentation
             </h2>

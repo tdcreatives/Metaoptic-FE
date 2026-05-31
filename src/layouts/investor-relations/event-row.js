@@ -13,7 +13,8 @@ const EventRow = ({ event }) => {
                 </div>
             </div>
             {actions.length > 0 && (
-                <div className='flex items-center gap-6 md:gap-10 shrink-0'>
+                <div className='ir-horizontal-scroll md:overflow-visible'>
+                    <div className='flex items-center gap-6 md:gap-10 shrink-0 min-w-max md:min-w-0'>
                     {actions.map((action) => (
                         <a
                             key={action.label}
@@ -25,6 +26,7 @@ const EventRow = ({ event }) => {
                             {action.label}
                         </a>
                     ))}
+                    </div>
                 </div>
             )}
         </div>

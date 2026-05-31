@@ -73,11 +73,13 @@ const StockInfo = () => {
                     )}
                 </div>
 
-                <div className='grid grid-cols-2 gap-x-8 md:gap-x-16 xl:gap-x-24 gap-y-8 md:gap-y-10'>
+                <div className='ir-horizontal-scroll lg:overflow-visible'>
+                    <div className='grid grid-cols-2 gap-x-8 md:gap-x-16 xl:gap-x-24 gap-y-8 md:gap-y-10 min-w-[320px] lg:min-w-0'>
                     <MetricCell label='Volume' value={quote?.volume} />
                     <MetricCell label='Day Range' value={quote?.dayRange} />
                     <MetricCell label='52 Week Range' value={quote?.yearRange} />
                     <MetricCell label='Market Cap' value={quote?.marketCap} />
+                    </div>
                 </div>
             </div>
 

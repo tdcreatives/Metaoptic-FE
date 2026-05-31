@@ -72,7 +72,8 @@ const StockQuoteDetail = () => {
                     )}
                 </div>
 
-                <div className='grid grid-cols-2 gap-x-16'>
+                <div className='ir-horizontal-scroll xl:overflow-visible'>
+                    <div className='grid grid-cols-2 gap-x-8 md:gap-x-16 xl:gap-x-24 gap-y-8 md:gap-y-10 min-w-[320px] xl:min-w-0'>
                     <MetricCell label='Volume' value={quote?.volume} />
                     <MetricCell label='Day Range' value={quote?.dayRange} />
                     <MetricCell label='52 Week Range' value={quote?.yearRange} />
@@ -80,6 +81,7 @@ const StockQuoteDetail = () => {
                     <MetricCell label='Open' value={quote?.open} />
                     <MetricCell label='Previous Close' value={quote?.previousClose} />
                     <MetricCell label='Shares Outstanding' value={quote?.sharesOutstanding} />
+                    </div>
                 </div>
             </div>
         </IRContainer>

@@ -1,5 +1,16 @@
 RewriteEngine On
 
+# ---------------------------------------------------------------------------
+# IR launch — hidden pages (server-side 301, no JS flash)
+# Keep in sync with src/constants/ir-feature-flags.js
+# Remove or comment out each rule when the matching flag is set to true.
+# ---------------------------------------------------------------------------
+RewriteRule ^analyst-coverage/?$ /investor-relations/stock-info/stock-quote [R=301,L,NC]
+RewriteRule ^investor-relations/stock-info/analyst-coverage/?$ /investor-relations/stock-info/stock-quote [R=301,L,NC]
+RewriteRule ^investor-relations/financials/quarterly-results/?$ /investor-relations/financials/sec-filings [R=301,L,NC]
+RewriteRule ^investor-relations/governance/documents-and-charters/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
+RewriteRule ^investor-relations/governance/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
+
 # Redirect legacy product URL to new slug (static export + Apache hosting)
 RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
 
