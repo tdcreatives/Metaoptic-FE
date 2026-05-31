@@ -19,6 +19,19 @@ const RoleCell = ({ role }) => (
     </div>
 );
 
+const Legend = ({ className = '' }) => (
+    <div className={`flex flex-wrap items-center gap-6 md:gap-12 ${className}`}>
+        <div className='flex items-center gap-3'>
+            <MemberIcon />
+            <span className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>Committee Member</span>
+        </div>
+        <div className='flex items-center gap-3'>
+            <ChairIcon />
+            <span className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>Committee Chair</span>
+        </div>
+    </div>
+);
+
 const CommitteeComposition = () => {
     const committees = data.committees || [];
     const members = data.members || [];
@@ -30,7 +43,38 @@ const CommitteeComposition = () => {
                 Committee Composition
             </h2>
 
-            <div className='mt-8 md:mt-10 overflow-x-auto'>
+            {/* Mobile: legend on top */}
+            <Legend className='mt-6 lg:hidden' />
+
+            {/* Mobile: 3 separate sub-tables (<lg) */}
+            <div className='mt-6 lg:hidden flex flex-col gap-8'>
+                {committees.map((committee) => (
+                    <div key={committee.id}>
+                        <div className='grid grid-cols-2 gap-x-4 py-4 px-4 bg-[#F0F0F0]'>
+                            <div className='futura-medium font-medium text-[15px] text-[#231F20]'>
+                                Board Members
+                            </div>
+                            <div className='futura-medium font-medium text-[15px] text-[#231F20] text-center'>
+                                {committee.label}
+                            </div>
+                        </div>
+                        {members.map((member) => (
+                            <div
+                                key={member.id}
+                                className='grid grid-cols-2 gap-x-4 items-center py-4 px-4 border-b border-[#E0E1E0]'
+                            >
+                                <div className='futura-medium font-medium text-[14px] text-black'>
+                                    {member.name}
+                                </div>
+                                <RoleCell role={member.roles?.[committee.id]} />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+
+            {/* Desktop: single 4-column table (lg+) */}
+            <div className='mt-8 md:mt-10 hidden lg:block overflow-x-auto'>
                 <div className='min-w-[900px]'>
                     <div
                         className='grid items-center gap-x-6 py-4 px-4 bg-[#F0F0F0]'
@@ -66,16 +110,8 @@ const CommitteeComposition = () => {
                 </div>
             </div>
 
-            <div className='flex flex-wrap items-center gap-8 md:gap-12 mt-6 md:mt-8 px-4'>
-                <div className='flex items-center gap-3'>
-                    <MemberIcon />
-                    <span className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>Committee Member</span>
-                </div>
-                <div className='flex items-center gap-3'>
-                    <ChairIcon />
-                    <span className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-black'>Committee Chair</span>
-                </div>
-            </div>
+            {/* Desktop: legend at bottom */}
+            <Legend className='hidden lg:flex mt-6 md:mt-8 px-4' />
         </IRContainer>
     );
 };

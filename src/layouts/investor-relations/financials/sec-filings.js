@@ -140,7 +140,52 @@ const SECFilings = () => {
                 </button>
             </div>
 
-            <div className='mt-8 md:mt-10 overflow-x-auto'>
+            {/* Mobile: stacked card layout (<lg) */}
+            <div className='mt-8 md:mt-10 lg:hidden'>
+                {items.length === 0 ? (
+                    <div className='py-12 text-center text-[#888888] futura-medium'>No SEC filings found.</div>
+                ) : (
+                    <div className='flex flex-col gap-4'>
+                        {items.map((item) => (
+                            <div key={item.id} className='bg-[#F7F7F7] p-4 flex flex-col gap-3'>
+                                <div className='grid grid-cols-2 gap-4'>
+                                    <div className='flex flex-col gap-1'>
+                                        <span className='futura-medium text-[12px] text-[#888888]'>Filling Date</span>
+                                        <span className='futura-medium font-medium text-[15px] text-[#231F20]'>{item.date}</span>
+                                    </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <span className='futura-medium text-[12px] text-[#888888]'>Form</span>
+                                        <span className='futura-medium font-medium text-[15px] text-[#231F20]'>{item.form}</span>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <span className='futura-medium text-[12px] text-[#888888]'>Description</span>
+                                    <span className='futura-medium font-medium text-[15px] text-[#231F20]'>{item.description}</span>
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <span className='futura-medium text-[12px] text-[#888888]'>Filling Group</span>
+                                    <span className='futura-medium font-medium text-[15px] text-[#231F20]'>{item.group}</span>
+                                </div>
+                                <div className='flex flex-col gap-2'>
+                                    <span className='futura-medium text-[12px] text-[#888888]'>View</span>
+                                    <div className='flex items-center gap-2 flex-wrap'>
+                                        {LINK_TYPES.map((linkType) => (
+                                            <LinkPill
+                                                key={linkType.key}
+                                                label={linkType.label}
+                                                url={item.links?.[linkType.key]}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            {/* Desktop: grid table (lg+) */}
+            <div className='mt-8 md:mt-10 hidden lg:block overflow-x-auto'>
                 <div className='min-w-[920px]'>
                     <div className='grid grid-cols-[140px_120px_1fr_160px_220px] gap-x-6 py-4 px-4 bg-[#F0F0F0]'>
                         <div className='futura-condensed-medium font-medium text-[16px] md:text-[18px] xl:text-[24px] text-[#231F20]'>Filing Date</div>
