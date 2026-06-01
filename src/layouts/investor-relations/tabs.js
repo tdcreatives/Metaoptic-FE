@@ -27,7 +27,7 @@ const investorRelationsTabsBase = [
     bannerTitle: 'STOCK INFO',
     subItems: [
       { label: 'Stock Quote', path: '/investor-relations/stock-info/stock-quote' },
-      { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage' },
+      // { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage' },
     ],
   },
   {
