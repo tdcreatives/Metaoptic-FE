@@ -54,7 +54,7 @@ const CommitteeComposition = () => {
       {/* Mobile: legend on top */}
       <Legend className="mt-6 lg:hidden" />
 
-      {/* Mobile: 3 separate sub-tables (<lg) */}
+      {/* Mobile: 3 separate sub-tables (<lg) — only members with a role in the committee */}
       <div className="mt-6 lg:hidden flex flex-col gap-8">
         {committees.map((committee) => (
           <div key={committee.id}>
@@ -66,17 +66,19 @@ const CommitteeComposition = () => {
                 {committee.label}
               </div>
             </div>
-            {members.map((member) => (
-              <div
-                key={member.id}
-                className="grid grid-cols-2 gap-x-4 items-center py-4 px-4 border-b border-[#E0E1E0]"
-              >
-                <div className="futura-medium font-medium text-[14px] text-black">
-                  {member.name}
+            {members
+              .filter((member) => member.roles?.[committee.id])
+              .map((member) => (
+                <div
+                  key={member.id}
+                  className="grid grid-cols-2 gap-x-4 items-center py-4 px-4 border-b border-[#E0E1E0]"
+                >
+                  <div className="futura-medium font-medium text-[14px] text-black">
+                    {member.name}
+                  </div>
+                  <RoleCell role={member.roles?.[committee.id]} />
                 </div>
-                <RoleCell role={member.roles?.[committee.id]} />
-              </div>
-            ))}
+              ))}
           </div>
         ))}
       </div>

@@ -287,8 +287,12 @@ const SECFilings = () => {
       </div>
 
       {items.length > 0 && (
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-10 md:mt-12">
-          {totalPages > 1 ? (
+        <div
+          className={`flex flex-wrap items-center gap-4 mt-10 md:mt-12 ${
+            totalPages > 1 ? "justify-between" : "justify-center md:justify-end"
+          }`}
+        >
+          {totalPages > 1 && (
             <div className="flex items-center gap-2 md:gap-3">
               {buildPaginationRange(currentPage, totalPages).map((p, idx) =>
                 p === "…" ? (
@@ -314,8 +318,6 @@ const SECFilings = () => {
                 ›
               </PageButton>
             </div>
-          ) : (
-            <span />
           )}
           <div className="futura-medium text-[13px] md:text-[14px] text-[#888888]">
             Showing {startIndex}-{endIndex} of {totalApprox} results
