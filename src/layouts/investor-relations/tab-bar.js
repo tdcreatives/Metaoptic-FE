@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IconChevronDown, IconChevronUp, IconChevronRight } from '@tabler/icons-react';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import clsx from 'clsx';
 import { getInvestorRelationsTabs } from './tabs';
 import './tab-bar.scss';
@@ -144,10 +144,6 @@ const DesktopTabBar = ({ pathname, hash }) => {
 const MobileTabBar = ({ pathname, hash }) => {
     const investorRelationsTabs = getInvestorRelationsTabs();
     const [menuOpen, setMenuOpen] = useState(false);
-    const [expandedPaths, setExpandedPaths] = useState({});
-
-    const toggleExpand = (path) =>
-        setExpandedPaths((prev) => ({ ...prev, [path]: !prev[path] }));
 
     const closeMenu = () => setMenuOpen(false);
 
@@ -157,6 +153,15 @@ const MobileTabBar = ({ pathname, hash }) => {
         ? (activeTab.subItems || []).find((sub) => isSubItemActive(sub, pathname, hash))
         : null;
     const collapsedLabel = activeSubItem ? activeSubItem.label : activeTab.label;
+
+    // Single-open accordion: only one tab's sub-items are expanded at a time.
+    // Defaults to the active tab so the current section is open when the menu opens.
+    const [expandedPath, setExpandedPath] = useState(() =>
+        tabHasDropdown(activeTab) ? activeTab.path : null
+    );
+
+    const toggleExpand = (path) =>
+        setExpandedPath((prev) => (prev === path ? null : path));
 
     return (
         <nav className='xl:hidden relative z-40 w-full bg-white border-b border-[#E5E5E5] investor-relations-tab-bar'>
@@ -187,9 +192,8 @@ const MobileTabBar = ({ pathname, hash }) => {
                             {investorRelationsTabs.map((tab) => {
                                 const isActive = isTabActive(tab, pathname);
                                 const hasSubItems = tabHasDropdown(tab);
-                                const isManuallyExpanded = !!expandedPaths[tab.path];
-                                const showSubItems =
-                                    hasSubItems && (isActive || isManuallyExpanded);
+                                const isExpanded = expandedPath === tab.path;
+                                const showSubItems = hasSubItems && isExpanded;
 
                                 return (
                                     <li
@@ -223,40 +227,34 @@ const MobileTabBar = ({ pathname, hash }) => {
                                                 </Link>
                                             )}
 
-                                            {isActive ? (
+                                            {hasSubItems && (
                                                 <button
                                                     type='button'
-                                                    onClick={closeMenu}
-                                                    aria-label='Close IR sub-navigation'
+                                                    onClick={() => toggleExpand(tab.path)}
+                                                    aria-label={`Toggle ${tab.label} sub-items`}
+                                                    aria-expanded={isExpanded}
                                                     className='px-4 py-4 flex items-center justify-center'
                                                 >
-                                                    <IconChevronUp
-                                                        size={20}
-                                                        className='text-[#d34c39]'
-                                                    />
+                                                    {isExpanded ? (
+                                                        <IconChevronUp
+                                                            size={20}
+                                                            className={
+                                                                isActive
+                                                                    ? 'text-[#d34c39]'
+                                                                    : 'text-[#231F20]'
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <IconChevronDown
+                                                            size={20}
+                                                            className={
+                                                                isActive
+                                                                    ? 'text-[#d34c39]'
+                                                                    : 'text-[#231F20]'
+                                                            }
+                                                        />
+                                                    )}
                                                 </button>
-                                            ) : (
-                                                hasSubItems && (
-                                                    <button
-                                                        type='button'
-                                                        onClick={() => toggleExpand(tab.path)}
-                                                        aria-label={`Toggle ${tab.label} sub-items`}
-                                                        aria-expanded={isManuallyExpanded}
-                                                        className='px-4 py-4 flex items-center justify-center'
-                                                    >
-                                                        {isManuallyExpanded ? (
-                                                            <IconChevronDown
-                                                                size={20}
-                                                                className='text-[#231F20]'
-                                                            />
-                                                        ) : (
-                                                            <IconChevronRight
-                                                                size={20}
-                                                                className='text-[#231F20]'
-                                                            />
-                                                        )}
-                                                    </button>
-                                                )
                                             )}
                                         </div>
 
