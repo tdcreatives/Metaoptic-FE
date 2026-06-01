@@ -202,16 +202,25 @@ const MobileTabBar = ({ pathname, hash }) => {
                                     >
                                         <div className='flex items-center'>
                                             {hasSubItems ? (
-                                                <span
+                                                <button
+                                                    type='button'
+                                                    onClick={() => toggleExpand(tab.path)}
+                                                    aria-label={`Toggle ${tab.label} sub-items`}
+                                                    aria-expanded={isExpanded}
                                                     className={clsx(
-                                                        'flex-1 px-6 py-4 futura-medium uppercase tracking-wider text-[14px] cursor-default',
+                                                        'flex flex-1 items-center justify-between gap-2 px-6 py-4 text-left futura-medium uppercase tracking-wider text-[14px]',
                                                         isActive
                                                             ? 'text-[#d34c39]'
                                                             : 'text-[#231F20]'
                                                     )}
                                                 >
-                                                    {tab.label}
-                                                </span>
+                                                    <span>{tab.label}</span>
+                                                    {isExpanded ? (
+                                                        <IconChevronUp size={20} />
+                                                    ) : (
+                                                        <IconChevronDown size={20} />
+                                                    )}
+                                                </button>
                                             ) : (
                                                 <Link
                                                     href={tab.path}
@@ -225,36 +234,6 @@ const MobileTabBar = ({ pathname, hash }) => {
                                                 >
                                                     {tab.label}
                                                 </Link>
-                                            )}
-
-                                            {hasSubItems && (
-                                                <button
-                                                    type='button'
-                                                    onClick={() => toggleExpand(tab.path)}
-                                                    aria-label={`Toggle ${tab.label} sub-items`}
-                                                    aria-expanded={isExpanded}
-                                                    className='px-4 py-4 flex items-center justify-center'
-                                                >
-                                                    {isExpanded ? (
-                                                        <IconChevronUp
-                                                            size={20}
-                                                            className={
-                                                                isActive
-                                                                    ? 'text-[#d34c39]'
-                                                                    : 'text-[#231F20]'
-                                                            }
-                                                        />
-                                                    ) : (
-                                                        <IconChevronDown
-                                                            size={20}
-                                                            className={
-                                                                isActive
-                                                                    ? 'text-[#d34c39]'
-                                                                    : 'text-[#231F20]'
-                                                            }
-                                                        />
-                                                    )}
-                                                </button>
                                             )}
                                         </div>
 
