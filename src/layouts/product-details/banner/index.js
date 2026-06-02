@@ -61,7 +61,7 @@ const ProductDetailsBanner = ({ product }) => {
           </div>
         </div>
 
-        <div className="xl:text-[60px] lg:text-[48px] text-[36px] text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] lg:max-w-[80%] max-w-[90%] mx-auto xl:mt-0 mt-3">
+        <div className="xl:text-[60px] lg:text-[48px] text-[48px] font-medium leading-tight lg:leading-normal text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] lg:max-w-[80%] max-w-[90%] mx-auto xl:mt-0 mt-3">
           {product?.name}
         </div>
 

@@ -912,6 +912,209 @@
       }
     },
     {
+      "name": "Manual Metalens Testing Platform",
+      "nameDom": "Manual <br /> <div class='name-dom-manual-tester--first'>Metalens</div> <br /> <div class='name-dom-manual-tester--second'>Tester</div>",
+      "slug": "manual-tester",
+      "image": "/products/manual-test.png",
+      "mobileImageScale": 0.85,
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "https://google.com",
+      "details": {
+        "subtitle": "Metalens Prototyping & Characterization System",
+        "description": "An upgrade-ready platform for metalens characterization in R&D, prototyping, and early process development. The MetaOptics Modular Manual Metalens Tester gives customers a practical starting point for metalens testing without committing to a full production tester. Systems can start with a simple, cost-efficient configuration and expand over time with additional source, illumination, sample-handling, and measurement modules.",
+        "keyFeaturesGrid": {
+          "title": "Key Features",
+          "description": "Built on a highly modular architecture, the manual testing platform prioritizes flexibility and scalability. It provides a practical starting point for precise metalens characterization that is designed to grow alongside your lab's evolving testing requirements.",
+          "items": [
+            {
+              "icon": "maximize",
+              "title": "Scalable",
+              "description": "Upgradeable with different modules and as a whole to auto-production or wafer-level tester"
+            },
+            {
+              "icon": "modular",
+              "title": "Modular",
+              "description": "Module types are plug and play and shared between tester variants"
+            },
+            {
+              "icon": "dollar",
+              "title": "Compact",
+              "description": "Table-top system for normal lab environment"
+            },
+            {
+              "icon": "atom",
+              "title": "User-friendly",
+              "description": "Software control via GUI or expert control of all components via programming API"
+            }
+          ]
+        },
+        "dualColumnList": {
+          "columns": [
+            {
+              "title": "Measurements",
+              "subtitle": "Direct characterization of metalenses and metasurface performance by measuring:",
+              "items": [
+                {
+                  "label": "Point-Spread function (PSF)",
+                  "children": ["MTF", "FWHM", "Peak intensity", "Relative efficiency"]
+                },
+                { "label": "Transmission (T)" },
+                {
+                  "label": "Backfocal plane (BFP)",
+                  "children": ["Angular resolved intensity"]
+                }
+              ]
+            },
+            {
+              "title": "Typical Starter System",
+              "subtitle": "Direct characterization of metalens and metasurface performance in VIS configuration:",
+              "items": [
+                { "label": "Source module: single R, G or B laser diode" },
+                { "label": "Illumination module: Collimated, 'flat-top' normal incidence beam" },
+                { "label": "Sample holder: General purpose" },
+                { "label": "Collection module: 50x, NA 0.55" },
+                {
+                  "label": "Measurement modules",
+                  "children": ["Imaging module with 2x relay", "BFP module"]
+                }
+              ]
+            }
+          ]
+        },
+        "specTable": {
+          "title": "Configuration Range Specifications",
+          "headers": ["Specification", "VIS", "NIR-I", "NIR-II"],
+          "rows": [
+            {
+              "label": "Wavelength range",
+              "values": ["400-700 nm", "700-1100 nm", "1100 – 1600 nm"]
+            },
+            { "label": "Source options", "merged": "Single LD, Switchable Multi-LD, Broadband + Filter" },
+            { "label": "Total magnification", "merged": "10x-150x" },
+            { "label": "Supported focal lengths", "merged": "Up to 20 mm" },
+            { "label": "Angle of incidence", "merged": "Up to 60°" },
+            { "label": "Typical Z-step", "merged": "10 nm closed-loop piezo; 0.1 µm typical step in MTF / z-scan workflows" },
+            { "label": "Maximum collected NA", "merged": "0.95" },
+            { "label": "Maximum sample size", "merged": "Up To 1 In, With Custom Inserts" },
+            { "label": "Upgradeable measurement stations", "merged": "Up To 4" }
+          ],
+          "note": "Configurations / enhancements outside these ranges can be discussed on request."
+        },
+        "moduleGrid": {
+          "title": "Modular Ecosystem & Available Upgrades",
+          "columns": [
+            {
+              "title": "Source Modules",
+              "description": "Fiber-coupled, TEC-stabilized sources delivered to the illumination module via a single fiber output. Available variants:",
+              "items": [
+                "Single-line fiber-coupled LD",
+                "Switchable multi-line LD",
+                "Broadband filtered source",
+                "External fiber-fed source"
+              ]
+            },
+            {
+              "title": "Illumination Modules",
+              "description": "Conditions the beam that reaches the sample. Common kinematic interface — any of the following drops into the same slot:",
+              "items": [
+                "Collimated normal-incidence illumination",
+                "Variable-AOI illumination",
+                "Bare SM fiber illumination for fiber-coupling metalens work",
+                "VCSEL-based illumination",
+                "Finite working distance variants on request"
+              ]
+            },
+            {
+              "title": "Sample Holder Modules",
+              "description": "One general-purpose holder covers most prototyping needs; customized inserts handle the rest:",
+              "items": [
+                "General-purpose holder for routine coupon testing",
+                "Custom inserts for customer-specific sample formats",
+                "Environmental and application-specific fixtures on request"
+              ]
+            },
+            {
+              "title": "Measurement Modules",
+              "description": "Up to four independent stations populated around the objective. Available modules:",
+              "items": [
+                "Imaging / PSF",
+                "Transmission",
+                "Custom modules for customer-specific workflows"
+              ]
+            }
+          ]
+        },
+        "upgradability": {
+          "title": "Platform Upgradability",
+          "description": "The Metalens Manual Tester platform serves as an entry point for companies and universities in the prototyping phase. As testing requirements scale, any manual tester configuration can be directly upgraded into a production auto-tester, and the same module library extends to our upcoming wafer-level platform.",
+          "cta": {
+            "label": "View Metalens Automatic Tester",
+            "link": "/verticals/metalens-capital-equipment/metalens-automatic-tester"
+          }
+        },
+        "ctaBanner": {
+          "background": "/products/manual-test.png",
+          "title": "Request a Tailored Configuration Quote or a Remote Demo",
+          "cta": {
+            "label": "Request Now",
+            "link": "/contact-us"
+          }
+        },
+        "platformVersions": {
+          "title": "Platform Versions",
+          "description": "The manual tester is available in three primary base configurations, each optimized for specific wavelength ranges and detector requirements. While sharing the same core modular hardware, each version is tailored to support distinct measurement applications across the visible, near-infrared, and short-wave infrared spectrums.",
+          "images": [
+            "/product-details/manual-tester/image-1.png",
+            "/product-details/manual-tester/image-2.png"
+          ],
+          "versions": [
+            {
+              "title": "VIS Configuration",
+              "range": "400 – 700 nm",
+              "description": "Designed for the characterization of metalenses and metasurfaces across the visible spectrum, where color performance, focusing quality, and imaging contrast are critical.",
+              "applications": [
+                "RGB and narrowband visible metalens imaging",
+                "Compact camera modules for IoT and machine vision",
+                "AR/VR display optics and near-eye optical elements",
+                "Microscopy, endoscopy, and miniaturized inspection optics",
+                "Beam shaping, diffusers, structured illumination, and holographic metasurfaces",
+                "Polarization optics, color filters, and multifunctional visible metasurfaces"
+              ]
+            },
+            {
+              "title": "NIR-1 Configuration",
+              "range": "700 – 1100 nm",
+              "description": "Covers the silicon-sensor-compatible near-infrared range. Optimized for active illumination, biometrics, and compact sensing systems.",
+              "applications": [
+                "Metalenses for 3D sensing and ToF modules",
+                "Structured-light and active-stereo illumination optics",
+                "Face, iris, fingerprint, and gesture-recognition optics",
+                "NIR machine-vision and low-light imaging modules",
+                "VCSEL beam shaping, collimation, and focusing metasurfaces",
+                "Polarization-sensitive NIR metasurfaces",
+                "Compact NIR camera modules for IoT, robotics, and smart devices"
+              ]
+            },
+            {
+              "title": "NIR-II Configuration",
+              "range": "1100–1600 nm",
+              "description": "Extends testing into the short-wave infrared (SWIR) range for applications where InGaAs, Ge, or other SWIR detectors are required.",
+              "applications": [
+                "Metalenses for fiber coupling and optical communication",
+                "SWIR imaging modules using InGaAs or Ge-based sensors",
+                "LiDAR beam shaping, focusing, and receiver optics",
+                "Silicon-transparent inspection and semiconductor metrology",
+                "Material sorting, moisture sensing, and SWIR spectroscopy optics",
+                "Compact optics for free-space optical links and photonic packaging",
+                "Metasurfaces for telecom-band polarization, phase, and beam control"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "Pico Projector (2nd generation)",
       "nameDom": "Pico <br /> <div class='name-dom-sensor'>Projector</div>",
       "slug": "pico-projector-2nd-generation",

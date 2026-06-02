@@ -15,6 +15,13 @@ import ProductDetailsTestingCapabilities from "@/layouts/product-details/testing
 import ProductDetailsMeasuredParameters from "@/layouts/product-details/measured-parameters";
 import RelatedProducts from "@/layouts/product-details/related-products";
 import ProductDetailsKeyFeatures from "@/layouts/product-details/key-features";
+import ProductDetailsKeyFeaturesGrid from "@/layouts/product-details/key-features-grid";
+import ProductDetailsDualColumnList from "@/layouts/product-details/dual-column-list";
+import ProductDetailsPlatformVersions from "@/layouts/product-details/platform-versions";
+import ProductDetailsModuleGrid from "@/layouts/product-details/module-grid";
+import ProductDetailsSpecTable from "@/layouts/product-details/spec-table";
+import ProductDetailsUpgradability from "@/layouts/product-details/upgradability";
+import ProductDetailsCtaBanner from "@/layouts/product-details/cta-banner";
 
 const ProductDetailsClientSide = () => {
   const { slug } = useParams();
@@ -47,6 +54,45 @@ const ProductDetailsClientSide = () => {
         <ProductDetailsKeyFeatures
           keyFeatures={product?.details?.keyFeatures}
         />
+      )}
+
+      {product?.details?.keyFeaturesGrid && (
+        <ProductDetailsKeyFeaturesGrid
+          keyFeaturesGrid={product?.details?.keyFeaturesGrid}
+        />
+      )}
+
+      {product?.details?.dualColumnList && (
+        <ProductDetailsDualColumnList
+          dualColumnList={product?.details?.dualColumnList}
+        />
+      )}
+
+      {product?.details?.platformVersions && (
+        <ProductDetailsPlatformVersions
+          platformVersions={product?.details?.platformVersions}
+        />
+      )}
+
+      {product?.details?.moduleGrid && (
+        <ProductDetailsModuleGrid moduleGrid={product?.details?.moduleGrid} />
+      )}
+
+      {product?.details?.specTable && (
+        <ProductDetailsSpecTable
+          specTable={product?.details?.specTable}
+          brochure={product?.brochure}
+        />
+      )}
+
+      {product?.details?.upgradability && (
+        <ProductDetailsUpgradability
+          upgradability={product?.details?.upgradability}
+        />
+      )}
+
+      {product?.details?.ctaBanner && (
+        <ProductDetailsCtaBanner ctaBanner={product?.details?.ctaBanner} />
       )}
 
       {product?.details?.specifications && (
