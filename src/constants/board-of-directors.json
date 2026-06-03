@@ -2,7 +2,7 @@
     "directors": [
         {
             "id": "mark-chong-kim-thng",
-            "name": "Mark Chong Kim Thng",
+            "name": "Thng Chong Kim",
             "title": "Executive Chairman",
             "image": "",
             "bio": [
@@ -14,7 +14,7 @@
         },
         {
             "id": "aloysious-chua-hao-peng",
-            "name": "Aloysious Chua Hao Peng",
+            "name": "Aloysius Chua Hao Peng",
             "title": "Chief Executive Officer and Executive Director",
             "image": "",
             "bio": [
@@ -25,7 +25,7 @@
         },
         {
             "id": "wee-jene-jee",
-            "name": "Wee Jene Jee",
+            "name": "Jee Wee Jene",
             "title": "Non-Independent and Non-Executive Director",
             "image": "",
             "bio": [
@@ -36,7 +36,7 @@
         },
         {
             "id": "jinghua-teng",
-            "name": "Jinghua Teng",
+            "name": "Teng Jinghua",
             "title": "Non-Independent and Non-Executive Director",
             "image": "",
             "bio": [
@@ -58,7 +58,7 @@
         },
         {
             "id": "yong-cheng-goh",
-            "name": "Yong Cheng Goh",
+            "name": "Goh Yong Cheng",
             "title": "Independent and Non-Executive Director",
             "image": "",
             "bio": [
@@ -68,7 +68,7 @@
         },
         {
             "id": "thiam-chye-ng",
-            "name": "Thiam Chye Ng",
+            "name": "Ng Thiam Chye",
             "title": "Independent and Non-Executive Director",
             "image": "",
             "bio": [

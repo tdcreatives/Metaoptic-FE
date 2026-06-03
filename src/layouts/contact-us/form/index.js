@@ -7,7 +7,7 @@ import {
     buildMainContactPayload,
     isValidEmail,
     isValidPhone,
-    submitWeb3Form,
+    submitIrWeb3Form,
 } from '@/lib/web3forms';
 
 const ContactUsForm = () => {
@@ -66,7 +66,7 @@ const ContactUsForm = () => {
 
         if (!validateForm()) return;
 
-        const result = await submitWeb3Form(buildMainContactPayload(formData));
+        const result = await submitIrWeb3Form(buildMainContactPayload(formData));
 
         if (result.ok) {
             setStatus({

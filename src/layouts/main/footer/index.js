@@ -27,11 +27,11 @@ const Footer = () => {
 
             <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
               <div>
-                <a href="tel:+6582180482">
+                <a href="tel:9495743860">
                   <p className="text-[#E0E1E0] mt-2">
                     {" "}
                     <span className="text-[#888888]">Phone: </span>
-                    +65 8218 0482
+                    949-574-3860
                   </p>
                 </a>
               </div>

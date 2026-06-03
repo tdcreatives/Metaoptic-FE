@@ -54,10 +54,14 @@ export const isValidEmail = (value) =>
 export const isValidPhone = (value) =>
     /^\+?[0-9\s\-().]{10,15}$/.test(String(value || '').trim());
 
-/** Main site — /contact-us */
+/** Main site — /contact-us
+ *  Routes to MOT@gateway-grp.com via the IR access key (recipient inbox is set per
+ *  access key in the Web3Forms dashboard). Falls back to the main-site key if unset. */
 export function buildMainContactPayload(formData) {
     return {
-        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
+        access_key:
+            process.env.NEXT_PUBLIC_IR_WEB3FORMS_ACCESS_KEY ||
+            process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
         subject: process.env.NEXT_PUBLIC_SUBJECT || 'MetaOptics - Contact Form',
         from_name: 'MetaOptics Website Contact',
         email: formData.email,
