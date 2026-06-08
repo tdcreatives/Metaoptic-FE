@@ -75,7 +75,10 @@ const dropdownItemsBase = {
 export const dropdownItems = dropdownItemsBase;
 
 export const getDropdownItems = () => {
-  if (IR_LAUNCH_FLAGS.showAnalystCoverage) {
+  const showAnalystCoverageLink =
+    IR_LAUNCH_FLAGS.showStockInfo && IR_LAUNCH_FLAGS.showAnalystCoverage;
+
+  if (showAnalystCoverageLink) {
     return dropdownItemsBase;
   }
 

@@ -47,7 +47,7 @@ const InvestorRelations = () => {
             {IR_LAUNCH_FLAGS.showLatestFinancialResults && (
                 <LatestFinancialResults />
             )}
-            <StockInfo />
+            {IR_LAUNCH_FLAGS.showStockInfo && <StockInfo />}
             <EmailAlerts />
             <IRContacts />
         </>

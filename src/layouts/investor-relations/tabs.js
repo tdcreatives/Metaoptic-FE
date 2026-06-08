@@ -1,4 +1,4 @@
-import { isIrSubItemVisible } from '@/constants/ir-feature-flags';
+import { isIrSubItemVisible, isIrTabVisible } from '@/constants/ir-feature-flags';
 
 const investorRelationsTabsBase = [
   { label: 'OVERVIEW', path: '/investor-relations', bannerTitle: 'INVESTOR<br/>RELATIONS' },
@@ -25,9 +25,10 @@ const investorRelationsTabsBase = [
     label: 'STOCK INFO',
     path: '/investor-relations/stock-info',
     bannerTitle: 'STOCK INFO',
+    launchFlag: 'showStockInfo',
     subItems: [
       { label: 'Stock Quote', path: '/investor-relations/stock-info/stock-quote' },
-      // { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage' },
+      { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage', launchFlag: 'showAnalystCoverage' },
     ],
   },
   {
@@ -63,7 +64,9 @@ const investorRelationsTabsBase = [
 ];
 
 export const getInvestorRelationsTabs = () =>
-    investorRelationsTabsBase.map((tab) => {
+    investorRelationsTabsBase
+        .filter((tab) => isIrTabVisible(tab))
+        .map((tab) => {
         if (!Array.isArray(tab.subItems)) return tab;
 
         return {
