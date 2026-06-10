@@ -178,6 +178,20 @@ const Header = ({ background = "#fff" }) => {
     return pathName === path || pathName.startsWith(path + "/");
   };
 
+  const getDropdownPanelClass = (dropdownKey) => {
+    if (dropdownKey === "investorRelations") {
+      return "bg-white shadow-lg border border-gray-200 py-2 min-w-[140px] w-max";
+    }
+    return "bg-white shadow-lg border border-gray-200 py-2 min-w-[300px]";
+  };
+
+  const getSubmenuPanelClass = (dropdownKey, itemKey) => {
+    if (dropdownKey === "investorRelations" && itemKey === "singaporeExchange") {
+      return "bg-white shadow-lg border border-gray-200 min-w-[280px] w-max py-2";
+    }
+    return "bg-white shadow-lg border border-gray-200 min-w-[230px] py-2";
+  };
+
   // Helper function to render dropdown menu
   const renderDropdownMenu = (dropdownKey) => {
     const items = dropdownItems[dropdownKey];
@@ -188,7 +202,7 @@ const Header = ({ background = "#fff" }) => {
     return (
       isOpen && (
         <div className="absolute top-full left-0 pt-2 z-[100] pointer-events-auto">
-          <div className="bg-white shadow-lg border border-gray-200 py-2 min-w-[300px]">
+          <div className={getDropdownPanelClass(dropdownKey)}>
             {Object.entries(items).map(([key, item]) => {
               // Check if item has sub-items (like consumerProducts)
               if (item.items && Array.isArray(item.items)) {
@@ -207,7 +221,7 @@ const Header = ({ background = "#fff" }) => {
                       href={item.path || "#"}
                       onClick={handleMenuClose}
                       className={clsx(
-                        "px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between",
+                        "px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between whitespace-nowrap",
                         isSubmenuHovered || active ? "text-[#d44c39]" : "text-black"
                       )}
                     >
@@ -231,13 +245,13 @@ const Header = ({ background = "#fff" }) => {
                     {/* Sub-menu */}
                     {isSubmenuHovered && (
                       <div className="absolute left-full top-0 pl-2 z-[110]">
-                        <div className="bg-white shadow-lg border border-gray-200 min-w-[230px] py-2">
+                        <div className={getSubmenuPanelClass(dropdownKey, key)}>
                           {item.items.map((subItem) => (
                             <Link
                               key={subItem.path}
                               href={subItem.path}
                               className={clsx(
-                                "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium",
+                                "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium whitespace-nowrap",
                                 isSubItemActive(subItem.path) ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
                               )}
                               onClick={handleMenuClose}
@@ -259,7 +273,7 @@ const Header = ({ background = "#fff" }) => {
                   key={key}
                   href={item.path}
                   className={clsx(
-                    "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium",
+                    "block px-4 py-2 hover:bg-gray-50 cursor-pointer text-[16px] futura-medium whitespace-nowrap",
                     active ? "text-[#d44c39]" : "text-black hover:text-[#d44c39]"
                   )}
                   onClick={handleMenuClose}
@@ -330,7 +344,14 @@ const Header = ({ background = "#fff" }) => {
                     </div>
                   </div>
                   {isSubmenuOpen && (
-                    <div className="flex flex-col w-[296px] mx-auto">
+                    <div
+                      className={clsx(
+                        "flex flex-col mx-auto",
+                        dropdownKey === "investorRelations" && key === "singaporeExchange"
+                          ? "w-full max-w-[320px]"
+                          : "w-[296px]"
+                      )}
+                    >
                       {item.items.map((subItem) => (
                         <Link
                           key={subItem.path}
