@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAnalystCoverageRedirect, IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+import { getStandaloneAnalystCoverageRedirect, IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
 import IrLaunchRedirect from '@/layouts/investor-relations/ir-launch-redirect';
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
@@ -28,8 +28,8 @@ export const metadata = {
 };
 
 const AnalystCoveragePage = () => {
-    if (!IR_LAUNCH_FLAGS.showStockInfo || !IR_LAUNCH_FLAGS.showAnalystCoverage) {
-        return <IrLaunchRedirect to={getAnalystCoverageRedirect()} />;
+    if (!IR_LAUNCH_FLAGS.showAnalystCoverage) {
+        return <IrLaunchRedirect to={getStandaloneAnalystCoverageRedirect()} />;
     }
 
     return (

@@ -57,7 +57,7 @@ const dropdownItemsBase = {
   },
   investorRelations: {
     singaporeExchange: {
-      label: "Singapore Exchange",
+      label: "SGX",
       path: "#",
       hasIndicator: true,
       items: [
@@ -75,10 +75,7 @@ const dropdownItemsBase = {
 export const dropdownItems = dropdownItemsBase;
 
 export const getDropdownItems = () => {
-  const showAnalystCoverageLink =
-    IR_LAUNCH_FLAGS.showStockInfo && IR_LAUNCH_FLAGS.showAnalystCoverage;
-
-  if (showAnalystCoverageLink) {
+  if (IR_LAUNCH_FLAGS.showAnalystCoverage) {
     return dropdownItemsBase;
   }
 

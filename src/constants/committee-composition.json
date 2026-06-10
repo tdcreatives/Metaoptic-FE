@@ -1,8 +1,8 @@
 {
     "committees": [
-        { "id": "audit", "label": "Audit" },
-        { "id": "compensation", "label": "Compensation and Human Capital" },
-        { "id": "nominating", "label": "Nominating and Corporate Governance" }
+        { "id": "audit", "label": "Audit and Risk Management Committee" },
+        { "id": "compensation", "label": "Nominating Committee" },
+        { "id": "nominating", "label": "Remuneration Committee" }
     ],
     "members": [
         {

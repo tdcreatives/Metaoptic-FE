@@ -11,7 +11,7 @@ export const IR_LAUNCH_FLAGS = {
     showUpcomingEvents: false,
     showPastEvents: false,
     showStockInfo: false,
-    showAnalystCoverage: false,
+    showAnalystCoverage: true,
     showQuarterlyResults: false,
     showDocumentsAndCharters: false,
 };
@@ -59,7 +59,11 @@ export const getDefaultGovernancePath = () =>
         ? '/investor-relations/governance/documents-and-charters'
         : '/investor-relations/governance/board-of-directors';
 
-export const getAnalystCoverageRedirect = () => {
+/** Standalone SGX page: /analyst-coverage */
+export const getStandaloneAnalystCoverageRedirect = () => IR_STOCK_INFO_FALLBACK;
+
+/** IR sub-page under Stock Info: /investor-relations/stock-info/analyst-coverage */
+export const getIrStockInfoAnalystCoverageRedirect = () => {
     if (!IR_LAUNCH_FLAGS.showStockInfo) {
         return IR_STOCK_INFO_FALLBACK;
     }
@@ -76,15 +80,16 @@ export const IR_HIDDEN_PAGE_REDIRECTS = {
 };
 
 export const getIrHiddenPageRedirect = (pathname) => {
-    if (!IR_LAUNCH_FLAGS.showStockInfo) {
-        if (isStockInfoPath(pathname) || pathname === '/analyst-coverage') {
-            return IR_STOCK_INFO_FALLBACK;
+    if (!IR_LAUNCH_FLAGS.showStockInfo && isStockInfoPath(pathname)) {
+        return IR_STOCK_INFO_FALLBACK;
+    }
+
+    if (pathname === '/investor-relations/stock-info/analyst-coverage') {
+        if (!IR_LAUNCH_FLAGS.showStockInfo || !IR_LAUNCH_FLAGS.showAnalystCoverage) {
+            return getIrStockInfoAnalystCoverageRedirect();
         }
     }
 
-    if (pathname === '/investor-relations/stock-info/analyst-coverage' && !IR_LAUNCH_FLAGS.showAnalystCoverage) {
-        return getAnalystCoverageRedirect();
-    }
     if (pathname === '/investor-relations/financials/quarterly-results' && !IR_LAUNCH_FLAGS.showQuarterlyResults) {
         return IR_HIDDEN_PAGE_REDIRECTS[pathname];
     }
@@ -92,7 +97,7 @@ export const getIrHiddenPageRedirect = (pathname) => {
         return IR_HIDDEN_PAGE_REDIRECTS[pathname];
     }
     if (pathname === '/analyst-coverage' && !IR_LAUNCH_FLAGS.showAnalystCoverage) {
-        return getAnalystCoverageRedirect();
+        return getStandaloneAnalystCoverageRedirect();
     }
     return null;
 };

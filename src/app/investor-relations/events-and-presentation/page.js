@@ -69,12 +69,31 @@ const PAST_EVENTS = [
     },
 ];
 
+const EVENTS_PRESENTATION_DOCUMENTS = [
+    {
+        label: 'MetaOptics - Investor Presentation.pdf',
+        url: 'https://www.metaoptics.sg/download/MOT-Company-Presentation-May2026-FINAL.pdf',
+    },
+    {
+        label: 'MetaOptics DLW Whitepaper.pdf',
+        url: 'https://www.metaoptics.sg/download/MetaOptics-DLW-Whitepaper.pdf',
+    },
+    {
+        label: 'MetaOptics Rectangular Metalenses Whitepaper.pdf',
+        url: 'https://www.metaoptics.sg/download/MetaOptics-Rectangular-Metalenses-Whitepaper.pdf',
+    },
+];
+
 const EventsAndPresentationPage = () => {
     return (
         <>
             <InvestorRelationsBanner bannerTitle='EVENTS &<br/>PRESENTATION' />
             <InvestorRelationsTabBar />
-            <InvestorPresentation />
+            <InvestorPresentation
+                title='Investor Presentation & White Papers'
+                documents={EVENTS_PRESENTATION_DOCUMENTS}
+                columns={3}
+            />
             {IR_LAUNCH_FLAGS.showUpcomingEvents && (
                 <EventsSection
                     sectionId='upcoming-events'
