@@ -6,7 +6,7 @@ import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
 import News from '@/layouts/homepage/news';
 import Announcements from '@/layouts/investor-relations/announcements';
-import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
+import CompanyAnnouncementBanner from '@/layouts/investor-relations/company-announcement-banner';
 
 const meta = metadataJson.companyAnnouncements;
 
@@ -36,7 +36,7 @@ const CompanyAnnouncement = () => {
     return (
         <>
             <Header />
-            <InvestorRelationsBanner bannerTitle='Investor<br/>Relations (SGX)' />
+            <CompanyAnnouncementBanner />
             <Announcements />
             <News />
             <Footer />
