@@ -1,170 +1,62 @@
 'use client';
 
-import React, { useEffect, useCallback, useState, useRef } from 'react';
-import Link from 'next/link';
-import items from '@/constants/announcements.json';
-import IconButton from '@/components/IconButton';
-import arrowIcon from '@/assets/images/arrow.png';
-import arrowMobileIcon from '@/assets/images/arrow-mobile.png';
-import Image from 'next/image';
-import { truncateString } from '@/utils/index';
+import React, { useRef, useState } from 'react';
+import CompanyAnnouncementsSection from '@/layouts/investor-relations/company-announcements';
 
-const useIsMobile = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768);
-        // Set initial value
-        setIsMobile(window.innerWidth < 768);
-        // Add resize listener
-        window.addEventListener('resize', handleResize);
-        // Cleanup listener on unmount
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return isMobile;
-};
-
-const Announcements = () => {
-    const isMobile = useIsMobile();
-
+const SgxListingSection = () => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const handlePlay = () => {
         if (videoRef.current) {
-        videoRef.current.play().catch((error) => {
-            console.error('Video playback failed:', error);
-        });
-        setIsPlaying(true);
+            videoRef.current.play().catch((error) => {
+                console.error('Video playback failed:', error);
+            });
+            setIsPlaying(true);
         }
     };
-
-    const parseAnnouncementDate = (value) => {
-        if (!value) return 0;
-
-        const match = value.match(/^(\d{1,2})\s([A-Za-z]{3})\s(\d{4})\s(\d{1,2}):(\d{2})\s(AM|PM)$/i);
-        if (match) {
-            const [, day, monthText, year, hourText, minuteText, meridiemText] = match;
-            const monthMap = {
-                Jan: 0,
-                Feb: 1,
-                Mar: 2,
-                Apr: 3,
-                May: 4,
-                Jun: 5,
-                Jul: 6,
-                Aug: 7,
-                Sep: 8,
-                Oct: 9,
-                Nov: 10,
-                Dec: 11
-            };
-
-            const month = monthMap[monthText];
-            if (month !== undefined) {
-                const meridiem = meridiemText.toUpperCase();
-                let hour = Number(hourText);
-                const minute = Number(minuteText);
-
-                // Some data uses 24h values with AM/PM attached (e.g. "17:32 AM").
-                // Keep 24h values as-is and only transform 12h values.
-                if (hour <= 12) {
-                    if (meridiem === 'AM' && hour === 12) hour = 0;
-                    if (meridiem === 'PM' && hour < 12) hour += 12;
-                }
-
-                return new Date(Number(year), month, Number(day), hour, minute).getTime();
-            }
-        }
-
-        const fallbackTime = new Date(value).getTime();
-        return Number.isNaN(fallbackTime) ? 0 : fallbackTime;
-    };
-
-    // Sort news by date in descending order (newest first)
-    const filteredItems = [...items].sort((a, b) => parseAnnouncementDate(b.date) - parseAnnouncementDate(a.date));
 
     return (
-        <>
-            <div className="w-full bg-[#fff] rounded-t-lg px-6 py-8 flex flex-col items-center">
-                <div className="w-full max-w-6xl">
-                    {/* Header Section */}
-                    <div className="mb-8">
-                        <div className="flex justify-between items-center mb-4">
-                            <h1 className="text-[32px] lg:text-[48px] font-medium uppercase futura-condensed-medium text-black leading-[1.5]">
+        <div className="w-full bg-[#fff] rounded-t-lg px-6 py-8 flex flex-col items-center">
+            <div className="w-full max-w-6xl">
+                <div className="mb-8">
+                    <div className="flex justify-between items-center mb-4">
+                        <h1 className="text-[32px] lg:text-[48px] font-medium uppercase futura-condensed-medium text-black leading-[1.5]">
                             METAOPTICS LTD SGX LISTING
-                            </h1>
-                        </div>
-                        <div className="w-full relative">
-                            <video
+                        </h1>
+                    </div>
+                    <div className="w-full relative">
+                        <video
                             ref={videoRef}
                             className="w-full"
                             controls
                             poster="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.jpg"
-                            >
+                        >
                             <source src="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
-                            </video>
-                            {!isPlaying && (
+                        </video>
+                        {!isPlaying && (
                             <button
                                 onClick={handlePlay}
                                 className="absolute inset-0 m-auto w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-75 transition-opacity"
                             >
                                 <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
+                                    <path d="M8 5v14l11-7z" />
                                 </svg>
                             </button>
-                            )}
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
-            <div className='w-full bg-[#D34C39] rounded-t-lg px-6 py-8'>
-                {/* Header Section */}
-                <div className='mb-8'>
-                    <div className='flex justify-between items-center mb-4'>
-                        <h1 className='text-[48px] font-medium uppercase futura-condensed-medium text-white leading-[1.5]'>
-                            Company ANNOUNCEMENTS
-                        </h1>
-                    </div>
-                    <div className='w-full h-[2px] bg-white opacity-50'></div>
-                </div>
-
-                {/* Announcements List */}
-                <div className='flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-[72px] !mt-[80px]'>
-                    {filteredItems.map((item, index) => (
-                        <div
-                            key={item.id}
-                            className='flex flex-col w-full items-center md:items-start'
-                        >
-                            {/* Date */}
-                            <div className='flex items-center justify-center md:justify-start gap-2 w-full px-0 md:px-10 py-2 mb-1 md:mb-0'>
-                                <div className='text-[16px] md:text-[20px] lg:text-[20px] font-medium futura-condensed-medium text-white leading-[1.714] md:leading-[1.2] text-center md:text-left'>
-                                    {item.date}
-                                </div>
-                            </div>
-
-                            {/* Title Container */}
-                            <div className='w-full md:h-[100px] flex-shrink-0'>
-                                <Link href={`/company-announcement/${item.slug}`}>
-                                    <IconButton
-                                        label={isMobile ? item.title_btn_sm : item.title_btn}
-                                        icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} className={`${isMobile ? 'w-8 h-8' : 'w-[42px] h-[42px]'} flex-shrink-0 object-contain`} />}
-                                        classNameBtn='uppercase !text-black md:group-hover:!text-white w-full h-full flex items-center text-[12px] md:text-[14px] leading-[1.333] md:leading-normal'
-                                        classNameLabel='!line-clamp-2 md:!line-clamp-3 overflow-hidden text-ellipsis break-words text-center md:text-left'
-                                        bgDefault='#fff'
-                                        className='!mt-0 md:!mt-[10px] !justify-start w-full h-full'
-                                    />
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className='md:gap-x-12 md:gap-y-[72px] !mt-[80px]'></div>
-            </div>
-        </>
+        </div>
     );
 };
+
+const Announcements = () => (
+    <>
+        <SgxListingSection />
+        <CompanyAnnouncementsSection />
+    </>
+);
 
 export default Announcements;
