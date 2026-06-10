@@ -32,6 +32,17 @@
     }
 }
 
+/* Keep each banner title line intact on mobile (e.g. "EVENTS &" / "PRESENTATION") */
+@media (max-width: 767px) {
+    .investor-relations-banner .banner-text-line {
+        white-space: nowrap;
+        letter-spacing: 0.08em;
+        font-size: clamp(1.75rem, 9vw, 3rem);
+        overflow-wrap: normal;
+        word-break: keep-all;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .banner-text {

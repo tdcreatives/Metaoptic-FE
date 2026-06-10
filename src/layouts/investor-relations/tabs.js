@@ -14,7 +14,7 @@ const investorRelationsTabsBase = [
   {
     label: 'EVENTS & PRESENTATION',
     path: '/investor-relations/events-and-presentation',
-    bannerTitle: 'EVENTS &<br/>PRESENTATION',
+    bannerTitle: 'EVENTS &amp;<br/>PRESENTATION',
     subItems: [
       { label: 'Investor Presentation', path: '/investor-relations/events-and-presentation#investor-presentation' },
       { label: 'Upcoming Events', path: '/investor-relations/events-and-presentation#upcoming-events', launchFlag: 'showUpcomingEvents' },

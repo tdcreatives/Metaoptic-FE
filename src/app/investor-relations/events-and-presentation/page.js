@@ -87,7 +87,7 @@ const EVENTS_PRESENTATION_DOCUMENTS = [
 const EventsAndPresentationPage = () => {
     return (
         <>
-            <InvestorRelationsBanner bannerTitle='EVENTS &<br/>PRESENTATION' />
+            <InvestorRelationsBanner bannerTitle='EVENTS &amp;<br/>PRESENTATION' />
             <InvestorRelationsTabBar />
             <InvestorPresentation
                 title='Investor Presentation & White Papers'

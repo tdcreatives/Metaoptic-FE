@@ -19,13 +19,13 @@ const InvestorRelationsBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => 
 
                 <div className='relative flex flex-col justify-center w-full max-w-[1200px]'>
                     <div
-                        className={`text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] tracking-[1rem] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase banner-text text-center${line2 ? ' mb-4 md:mb-6 lg:mb-8' : ''}`}
+                        className={`text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] tracking-[1rem] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase banner-text banner-text-line text-center${line2 ? ' mb-4 md:mb-6 lg:mb-8' : ''}`}
                         dangerouslySetInnerHTML={{ __html: line1 }}
                     />
 
                     {line2 && (
                         <div
-                            className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] tracking-[1rem] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase banner-text whitespace-normal break-words text-center'
+                            className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[170px] leading-[1.1] tracking-[1rem] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase banner-text banner-text-line text-center'
                             dangerouslySetInnerHTML={{ __html: line2 }}
                         />
                     )}
