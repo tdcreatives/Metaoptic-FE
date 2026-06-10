@@ -147,7 +147,7 @@ const Announcements = () => {
 
                             {/* Title Container */}
                             <div className='w-full md:h-[100px] flex-shrink-0'>
-                                <Link href={`/annountcement/${item.slug}`}>
+                                <Link href={`/company-announcement/${item.slug}`}>
                                     <IconButton
                                         label={isMobile ? item.title_btn_sm : item.title_btn}
                                         icon={<Image src={isMobile ? arrowMobileIcon : arrowIcon} alt='arrow' width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} className={`${isMobile ? 'w-8 h-8' : 'w-[42px] h-[42px]'} flex-shrink-0 object-contain`} />}

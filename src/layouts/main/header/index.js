@@ -386,9 +386,9 @@ const Header = ({ background = "#fff" }) => {
           return false;
         });
       }
-      // Special case: check for announcement pages under investor-relations
+      // Special case: company announcement detail pages (SGX)
       if (header.dropdownKey === "investorRelations") {
-        return pathName.startsWith("/annountcement/");
+        return pathName.startsWith("/company-announcement/");
       }
     }
     return pathName === header.path || 

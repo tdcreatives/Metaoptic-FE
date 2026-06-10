@@ -61,7 +61,7 @@ const dropdownItemsBase = {
       path: "#",
       hasIndicator: true,
       items: [
-        { label: "Company Announcements", path: "#" },
+        { label: "Company Announcements", path: "/company-announcement" },
         { label: "Analyst Coverage", path: "/analyst-coverage" },
       ],
     },

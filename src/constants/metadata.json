@@ -89,6 +89,21 @@
         "twitterTitle": "Investor Relations  | Metaoptics Technologies",
         "twitterDescription": "Stay updated with the latest investor relations from Metaoptics Technologies."
     },
+    "companyAnnouncements": {
+        "title": "Company Announcements | Metaoptics Technologies",
+        "description": "View official SGX company announcements and disclosures from MetaOptics Ltd (SGX: 9MT), including listing updates, financial results, and corporate news.",
+        "keywords": "MetaOptics company announcements, SGX announcements, MetaOptics Ltd 9MT, SGX Catalist, investor disclosures, corporate announcements Singapore",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/company-announcement",
+        "ogType": "website",
+        "ogSiteName": "Metaoptics Technologies",
+        "ogLocale": "en_US",
+        "twitterCard": "summary_large_image",
+        "twitterCreator": "@metaoptics",
+        "twitterSite": "@metaoptics",
+        "twitterTitle": "Company Announcements | Metaoptics Technologies",
+        "twitterDescription": "View official SGX company announcements and disclosures from MetaOptics Ltd (SGX: 9MT), including listing updates, financial results, and corporate news."
+    },
     "privacyPolicy": {
         "title": "Privacy Policy | Metaoptics Technologies",
         "description": "Read our privacy policy to understand how we collect, use, and protect your personal information.",
