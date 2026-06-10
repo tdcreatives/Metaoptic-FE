@@ -12,6 +12,13 @@ RewriteRule ^investor-relations/financials/quarterly-results/?$ /investor-relati
 RewriteRule ^investor-relations/governance/documents-and-charters/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
 RewriteRule ^investor-relations/governance/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
 
+# Legacy SGX announcement URLs (typo route annountcement → company-announcement)
+# Keep in sync with next.config.js redirects
+RewriteRule ^annountcement\.html$ /company-announcement [R=301,L,NC]
+RewriteRule ^annountcement/(.+)\.html$ /company-announcement/$1 [R=301,L,NC]
+RewriteRule ^annountcement/?$ /company-announcement [R=301,L,NC]
+RewriteRule ^annountcement/(.+)$ /company-announcement/$1 [R=301,L,NC]
+
 # Redirect legacy product URL to new slug (static export + Apache hosting)
 RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
 

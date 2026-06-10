@@ -17,6 +17,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/annountcement',
+        destination: '/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/annountcement/:slug',
+        destination: '/company-announcement/:slug',
+        permanent: true,
+      },
+      {
         source: '/verticals/metalens-foundry/iot-metalens-color-camera',
         destination:
           '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
