@@ -32,12 +32,16 @@
     }
 }
 
-/* Keep each banner title line intact on mobile (e.g. "EVENTS &" / "PRESENTATION") */
+/* NASDAQ /investor-relations pages only — mobile titles +10% vs clamp(1.75rem, 9vw, 3rem) */
 @media (max-width: 767px) {
-    .investor-relations-banner .banner-text-line {
+    .ir-nasdaq-banner .banner-text {
+        font-size: clamp(1.925rem, 9.9vw, 3.3rem);
+    }
+
+    /* Keep each line on one row (e.g. "EVENTS &" / "PRESENTATION") */
+    .ir-nasdaq-banner .banner-text-line {
         white-space: nowrap;
         letter-spacing: 0.08em;
-        font-size: clamp(1.75rem, 9vw, 3rem);
         overflow-wrap: normal;
         word-break: keep-all;
     }
