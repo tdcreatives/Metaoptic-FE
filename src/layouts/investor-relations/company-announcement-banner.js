@@ -3,7 +3,7 @@
 import React from 'react';
 import './banner.scss';
 
-const CompanyAnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS' }) => {
+const CompanyAnnouncementBanner = ({ bannerTitle = 'INVESTOR<br/>RELATIONS(SGX)' }) => {
     const [line1, line2] = bannerTitle.split('<br/>');
 
     return (
