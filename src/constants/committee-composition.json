@@ -8,28 +8,23 @@
         {
             "id": "yong-cheng-goh",
             "name": "Goh Yong Cheng",
-            "roles": { "audit": "chair", "nominating": "member" }
+            "roles": { "audit": "member", "nominating": "member" }
         },
         {
             "id": "ng-thiam-chye",
             "name": "Ng Thiam Chye",
-            "roles": { "audit": "member" }
+            "roles": { "audit": "member", "compensation": "member", "nominating": "chair"  }
         },
         {
             "id": "sonny-yuen",
             "name": "Sonny Yuen",
-            "roles": { "audit": "member", "compensation": "member" }
+            "roles": { "audit": "chair", "compensation": "member" }
         },
         {
             "id": "sean-lee",
             "name": "Sean Lee",
             "roles": { "compensation": "chair", "nominating": "member" }
-        },
-        {
-            "id": "thiam-chye-ng",
-            "name": "Ng Thiam Chye",
-            "roles": { "compensation": "member", "nominating": "chair" }
-        },
+        },        
         {
             "id": "wee-jene-jee",
             "name": "Jee Wee Jene",
