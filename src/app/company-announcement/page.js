@@ -36,7 +36,7 @@ const CompanyAnnouncement = () => {
     return (
         <>
             <Header />
-            <InvestorRelationsBanner bannerTitle='COMPANY<br/>ANNOUNCEMENTS' />
+            <InvestorRelationsBanner bannerTitle='Investor<br/>Relations (SGX)' />
             <Announcements />
             <News />
             <Footer />
