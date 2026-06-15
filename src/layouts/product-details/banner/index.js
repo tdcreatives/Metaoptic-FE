@@ -61,8 +61,16 @@ const ProductDetailsBanner = ({ product }) => {
           </div>
         </div>
 
-        <div className="xl:text-[60px] lg:text-[48px] text-[48px] font-medium leading-tight lg:leading-normal text-[#d34c39] uppercase text-center relative z-30 futura-condensed-medium xl:max-w-[70%] lg:max-w-[80%] max-w-[90%] mx-auto xl:mt-0 mt-3">
-          {product?.name}
+        <div className="flex flex-col items-center gap-5 relative z-30 xl:max-w-[70%] lg:max-w-[80%] max-w-[90%] mx-auto xl:mt-0 mt-3">
+          {product?.bannerTag && (
+            <span className="inline-flex items-center justify-center border border-black rounded-full px-8 py-1.5 futura-medium text-[#161616] text-[13px] xl:text-[14px] tracking-[1.5px] uppercase">
+              {product.bannerTag}
+            </span>
+          )}
+
+          <div className="xl:text-[60px] lg:text-[48px] text-[48px] font-medium leading-tight lg:leading-normal text-[#d34c39] uppercase text-center futura-condensed-medium w-full">
+            {product?.name}
+          </div>
         </div>
 
         <div className="xl:text-[28px] lg:text-[24px] text-[20px] futura-medium text-center xl:max-w-[70%] lg:max-w-[80%] mx-auto max-w-[90%]">
