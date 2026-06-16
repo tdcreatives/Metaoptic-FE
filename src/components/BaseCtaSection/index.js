@@ -21,6 +21,7 @@ import ButtonArrow from '@/components/ButtonArrow';
  * @param {string} [buttonLabel]
  * @param {string} [buttonHref]
  * @param {function} [onButtonClick]
+ * @param {string} [backgroundImage] - Full-width background image for the section
  * @param {string} [className] - Extra classes for the outer <section>
  */
 const BaseCtaSection = ({
@@ -35,16 +36,18 @@ const BaseCtaSection = ({
     buttonLabel,
     buttonHref = '#',
     onButtonClick,
+    backgroundImage,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
 
     return (
         <section
-            className={`mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[64px] xl:py-[96px] ${className}`}
+            className={`w-full bg-cover bg-center bg-no-repeat ${className}`}
+            style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : undefined}
         >
             <div
-                className={`flex flex-col items-center gap-[40px] xl:gap-[90px] ${
+                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[64px] xl:gap-[90px] xl:px-[64px] xl:py-[96px] ${
                     isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'
                 }`}
             >

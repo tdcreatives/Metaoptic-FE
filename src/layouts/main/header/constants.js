@@ -18,7 +18,7 @@ const dropdownItemsBase = {
       icon: "/common/equipment.svg",
       path: "/verticals/metalens-capital-equipment",
       items: [
-        { label: "Overview", path: "/verticals/metalens-capital-equipment" },
+        { label: "Overview", path: "/verticals/equipment/overview" },
         { label: "Lithography", path: "#" },
         { label: "Testing", path: "#" },
         { label: "Assembly", path: "#" },

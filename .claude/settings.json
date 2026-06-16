@@ -148,7 +148,14 @@
       "mcp__plugin_figma_figma__get_screenshot",
       "Bash(curl -s -o /tmp/figma1.png \"https://www.figma.com/api/mcp/asset/01268b01-d439-4b23-a957-0f77c6255e9d\")",
       "Bash(node -e 'JSON.parse\\(require\\('\\\\''fs'\\\\''\\).readFileSync\\('\\\\''__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\)\\); console.log\\('\\\\''OK: __TRACKED_VAR__'\\\\''\\)')",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,codec_name,r_frame_rate,duration,bit_rate -show_entries format=duration,bit_rate,size -of default=noprint_wrappers=1 public/verticals/equipment/banner.mp4)",
+      "Bash(ffprobe -v error -select_streams a -show_entries stream=codec_name -of csv=p=0 public/verticals/equipment/banner.mp4)",
+      "Bash(ffmpeg -y -loglevel error -i banner.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an banner-opt.mp4)",
+      "Bash(awk '{print $5}')",
+      "Bash(ffmpeg -y -loglevel error -i banner.mp4 -frames:v 1 -q:v 3 banner-poster.jpg)",
+      "Bash(ffmpeg -y -loglevel error -i banner.mp4 -c:v libvpx-vp9 -crf 34 -b:v 0 -deadline good -cpu-used 4 -pix_fmt yuv420p -an banner.webm)",
+      "Bash(awk '{print $5, $9}')"
     ],
     "additionalDirectories": [
       "/private/tmp"

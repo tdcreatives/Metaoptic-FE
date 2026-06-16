@@ -10,9 +10,26 @@ import Image from 'next/image';
  *
  * @param {React.ReactNode} title - Section heading
  * @param {Array<{number?: string, icon: string, title: string, description?: string}>} items
+ * @param {number} [columns] - Number of columns on desktop (default 4)
+ * @param {'left'|'center'|'right'} [iconAlign] - Horizontal alignment of the card icon (default 'right')
  * @param {string} [className] - Extra classes for the outer <section>
  */
-const BaseWhySection = ({ title, items = [], className = '' }) => {
+const BaseWhySection = ({
+    title,
+    items = [],
+    columns = 4,
+    iconAlign = 'right',
+    className = '',
+}) => {
+    // Static class maps so Tailwind can detect them at build time
+    const colClass =
+        { 2: 'xl:grid-cols-2', 3: 'xl:grid-cols-3', 4: 'xl:grid-cols-4', 5: 'xl:grid-cols-5' }[
+            columns
+        ] || 'xl:grid-cols-4';
+    const iconAlignClass =
+        { left: 'justify-start', center: 'justify-center', right: 'justify-end' }[iconAlign] ||
+        'justify-end';
+
     return (
         <section className={`bg-[#F4F2EF] ${className}`}>
             <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
@@ -22,7 +39,7 @@ const BaseWhySection = ({ title, items = [], className = '' }) => {
                     </h2>
                 )}
 
-                <div className="mt-[40px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 xl:grid-cols-4">
+                <div className={`mt-[40px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 ${colClass}`}>
                     {items.map((item, index) => (
                         <div
                             key={item.title || index}
@@ -45,7 +62,7 @@ const BaseWhySection = ({ title, items = [], className = '' }) => {
                         )}
 
                         {item.icon && (
-                            <div className="mt-auto flex justify-end pt-[24px]">
+                            <div className={`mt-auto flex ${iconAlignClass} pt-[24px]`}>
                                 <Image
                                     src={item.icon}
                                     alt={item.title || ''}

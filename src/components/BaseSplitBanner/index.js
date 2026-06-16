@@ -18,7 +18,9 @@ import ButtonArrow from '@/components/ButtonArrow';
  * @param {string} [imageAlt]
  * @param {number} [imageWidth]
  * @param {number} [imageHeight]
- * @param {'left'|'right'} [imagePosition] - Side the image sits on (default 'right')
+ * @param {string} [videoSrc] - When set, renders an autoplaying muted video instead of the image
+ * @param {string} [posterSrc] - Poster image shown before the video loads
+ * @param {'left'|'right'} [imagePosition] - Side the media sits on (default 'right')
  * @param {string} [buttonLabel]
  * @param {string} [buttonHref]
  * @param {function} [onButtonClick]
@@ -32,6 +34,8 @@ const BaseSplitBanner = ({
     imageAlt = '',
     imageWidth = 687,
     imageHeight = 671,
+    videoSrc,
+    posterSrc,
     imagePosition = 'right',
     buttonLabel,
     buttonHref = '#',
@@ -79,21 +83,35 @@ const BaseSplitBanner = ({
                     )}
                 </div>
 
-                {/* Image column */}
-                {imageSrc && (
+                {/* Media column */}
+                {(videoSrc || imageSrc) && (
                     <div
                         className={`w-full flex justify-center xl:flex-1 ${
                             isImageLeft ? 'xl:justify-start' : 'xl:justify-end'
                         }`}
                     >
-                        <Image
-                            src={imageSrc}
-                            alt={imageAlt}
-                            width={imageWidth}
-                            height={imageHeight}
-                            className="w-full max-w-[687px] h-auto"
-                            priority
-                        />
+                        {videoSrc ? (
+                            <video
+                                className="w-full max-w-[720px] h-auto rounded-[16px] object-cover"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="metadata"
+                                poster={posterSrc}
+                            >
+                                <source src={videoSrc} type="video/mp4" />
+                            </video>
+                        ) : (
+                            <Image
+                                src={imageSrc}
+                                alt={imageAlt}
+                                width={imageWidth}
+                                height={imageHeight}
+                                className="w-full max-w-[687px] h-auto"
+                                priority
+                            />
+                        )}
                     </div>
                 )}
             </div>

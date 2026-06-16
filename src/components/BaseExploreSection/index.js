@@ -39,8 +39,14 @@ const BaseExploreSection = ({
     title,
     description,
     items = [],
+    columns = 4,
     className = '',
 }) => {
+    // Static class map so Tailwind can detect the grid columns at build time
+    const colClass =
+        { 2: 'xl:grid-cols-2', 3: 'xl:grid-cols-3', 4: 'xl:grid-cols-4' }[columns] ||
+        'xl:grid-cols-4';
+
     return (
         <section
             className={`mx-auto w-full max-w-[1660px] px-[24px] py-[40px] xl:px-[72px] xl:py-[60px] ${className}`}
@@ -67,7 +73,7 @@ const BaseExploreSection = ({
             </div>
 
             {/* Cards */}
-            <div className="mt-[40px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 border-2 border-[#E5E5E5]">
+            <div className={`mt-[40px] grid grid-cols-1 sm:grid-cols-2 ${colClass} border-2 border-[#E5E5E5]`}>
                 {items.map((item, index) => (
                     <div
                         key={item.title || index}
