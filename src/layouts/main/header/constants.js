@@ -29,7 +29,7 @@ const dropdownItemsBase = {
       icon: "/common/foundary.svg",
       path: "/verticals/metalens-foundry",
       items: [
-        { label: "Overview", path: "/verticals/metalens-foundry" },
+        { label: "Overview", path: "/verticals/foundary/overview" },
         { label: "VIS Metalens", path: "#" },
         { label: "NIR & SWIR Metalenses", path: "#" },
         { label: "Photonic Integrations", path: "#" },

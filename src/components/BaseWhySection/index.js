@@ -66,9 +66,9 @@ const BaseWhySection = ({
                                 <Image
                                     src={item.icon}
                                     alt={item.title || ''}
-                                    width={149}
-                                    height={105}
-                                    className="h-[105px] w-auto"
+                                    width={110}
+                                    height={110}
+                                    className="w-[110px] h-[110px] object-contain"
                                 />
                             </div>
                         )}

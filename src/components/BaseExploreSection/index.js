@@ -84,9 +84,9 @@ const BaseExploreSection = ({
                             <Image
                                 src={item.icon}
                                 alt={item.title || ''}
-                                width={96}
-                                height={96}
-                                className="h-[80px] w-auto"
+                                width={95}
+                                height={84}
+                                className="w-[95px] h-[84px] object-contain"
                             />
                         </div>
 

@@ -34,7 +34,7 @@ const BaseFeatureSection = ({
     return (
         <section className={`bg-[#F9F9F9] border-y border-black/[0.09] ${className}`}>
             <div
-                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[40px] xl:gap-[80px] xl:px-[72px] xl:py-[60px] ${
+                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[96px] xl:gap-[80px] xl:px-[72px] ${
                     isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'
                 }`}
             >

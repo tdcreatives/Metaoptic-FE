@@ -40,6 +40,7 @@ const BaseSplitBanner = ({
     buttonLabel,
     buttonHref = '#',
     onButtonClick,
+    rounded = false,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
@@ -108,7 +109,7 @@ const BaseSplitBanner = ({
                                 alt={imageAlt}
                                 width={imageWidth}
                                 height={imageHeight}
-                                className="w-full max-w-[687px] h-auto"
+                                className={`w-full max-w-[687px] h-auto ${rounded ? 'rounded-[16px]' : ''}`}
                                 priority
                             />
                         )}
