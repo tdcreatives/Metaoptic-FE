@@ -147,7 +147,8 @@
       "Bash(curl -s http://localhost:4444/privacy-policy)",
       "mcp__plugin_figma_figma__get_screenshot",
       "Bash(curl -s -o /tmp/figma1.png \"https://www.figma.com/api/mcp/asset/01268b01-d439-4b23-a957-0f77c6255e9d\")",
-      "Bash(node -e 'JSON.parse\\(require\\('\\\\''fs'\\\\''\\).readFileSync\\('\\\\''__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\)\\); console.log\\('\\\\''OK: __TRACKED_VAR__'\\\\''\\)')"
+      "Bash(node -e 'JSON.parse\\(require\\('\\\\''fs'\\\\''\\).readFileSync\\('\\\\''__TRACKED_VAR__'\\\\'','\\\\''utf8'\\\\''\\)\\); console.log\\('\\\\''OK: __TRACKED_VAR__'\\\\''\\)')",
+      "Bash(npx eslint *)"
     ],
     "additionalDirectories": [
       "/private/tmp"

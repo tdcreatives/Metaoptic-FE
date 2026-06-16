@@ -288,6 +288,97 @@ const Header = ({ background = "#fff" }) => {
     );
   };
 
+  // Helper function to render the full-width verticals mega menu (desktop)
+  const renderVerticalsMegaMenu = () => {
+    const items = dropdownItems.verticals;
+    if (!items || !openDropdowns.verticals) return null;
+
+    const chevron = (
+      <svg
+        className="w-4 h-4 ml-2 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    );
+
+    return (
+      <div className="absolute left-0 top-full w-full z-[100] bg-white shadow-lg border-t border-gray-200">
+        <div className="mx-auto w-full max-w-[1600px] flex gap-[40px] px-[24px] py-[40px] xl:px-[72px]">
+          {/* Left intro column */}
+          <div className="flex flex-col w-[240px] shrink-0">
+            <span className="text-[32px] futura-medium text-black">
+              Explore All Verticals
+            </span>
+            <span className="mt-[12px] text-[16px] futura-medium text-[#7D7D7D]">
+              One platform, end to end
+            </span>
+            <Link
+              href="/verticals"
+              onClick={handleMenuClose}
+              className="mt-[32px] inline-flex w-fit items-center justify-center rounded-full bg-[#d44c39] px-[32px] py-[12px] text-[14px] tracking-[0.1em] uppercase text-white futura-medium hover:opacity-90 transition-opacity"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          {/* Category columns */}
+          <div className="flex flex-1 gap-[24px]">
+            {Object.entries(items).map(([key, item]) => (
+              <div key={key} className="flex flex-col w-[262px]">
+                <div className="w-[262px] h-[148px] bg-[#F4F4F4] flex items-center justify-center">
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width="0"
+                    height="0"
+                    className="w-auto h-[80px]"
+                  />
+                </div>
+                <Link
+                  href={item.path}
+                  onClick={handleMenuClose}
+                  className={clsx(
+                    "mt-[20px] text-[22px] futura-medium hover:text-[#d44c39] transition-colors",
+                    isItemActive(item) ? "text-[#d44c39]" : "text-black"
+                  )}
+                >
+                  {item.label}
+                </Link>
+                <div className="mt-[12px] flex flex-col">
+                  {item.items.map((subItem) => (
+                    <Link
+                      key={subItem.label}
+                      href={subItem.path}
+                      onClick={handleMenuClose}
+                      className={clsx(
+                        "flex items-center justify-between py-[6px] text-[18px] futura-medium hover:text-[#d44c39] transition-colors",
+                        subItem.path !== "#" && isSubItemActive(subItem.path)
+                          ? "text-[#d44c39]"
+                          : "text-[#747474]"
+                      )}
+                    >
+                      <span>{subItem.label}</span>
+                      {chevron}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // Helper function to render mobile dropdown menu
   const renderMobileDropdownMenu = (dropdownKey) => {
     const items = dropdownItems[dropdownKey];
@@ -422,6 +513,9 @@ const Header = ({ background = "#fff" }) => {
       style={{
         background,
       }}
+      onMouseLeave={() =>
+        setOpenDropdowns((prev) => ({ ...prev, verticals: false }))
+      }
     >
       {/* Logo */}
       <Link
@@ -455,7 +549,11 @@ const Header = ({ background = "#fff" }) => {
                     key={header.label}
                     className="relative"
                     onMouseEnter={() => handleDropdownMouseEnter(header.dropdownKey)}
-                    onMouseLeave={() => handleDropdownMouseLeave(header.dropdownKey)}
+                    onMouseLeave={
+                      header.dropdownKey === "verticals"
+                        ? undefined
+                        : () => handleDropdownMouseLeave(header.dropdownKey)
+                    }
                   >
                     {header.path.startsWith("/") ? (
                       <Link
@@ -486,8 +584,8 @@ const Header = ({ background = "#fff" }) => {
                       </a>
                     )}
 
-                    {/* Generic Dropdown Menu */}
-                    {renderDropdownMenu(header.dropdownKey)}
+                    {/* Generic Dropdown Menu (verticals uses the full-width mega menu rendered at header root) */}
+                    {header.dropdownKey !== "verticals" && renderDropdownMenu(header.dropdownKey)}
                   </div>
                 );
               }
@@ -522,6 +620,9 @@ const Header = ({ background = "#fff" }) => {
           <BaseHamburger onShow={handleMenuShow} onHide={handleMenuHidden} />
         </div>
       )}
+
+      {/* Full-width verticals mega menu (desktop) */}
+      {!isMobile && renderVerticalsMegaMenu()}
 
       {isMobile && (
         <>
