@@ -40,7 +40,7 @@ const dropdownItemsBase = {
       icon: "/common/products.svg",
       path: "/verticals/metalens-products",
       items: [
-        { label: "Overview", path: "/verticals/metalens-products" },
+        { label: "Overview", path: "/verticals/product/overview" },
         { label: "Consumer Devices", path: "#" },
         { label: "Projection Modules", path: "#" },
         { label: "Development Kits", path: "#" },

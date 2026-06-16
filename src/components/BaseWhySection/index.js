@@ -19,6 +19,8 @@ const BaseWhySection = ({
     items = [],
     columns = 4,
     iconAlign = 'right',
+    iconSize = 110,
+    cardMinHeight = 340,
     className = '',
 }) => {
     // Static class maps so Tailwind can detect them at build time
@@ -43,7 +45,8 @@ const BaseWhySection = ({
                     {items.map((item, index) => (
                         <div
                             key={item.title || index}
-                            className="flex flex-col bg-white p-[24px] min-h-[340px]"
+                            className="flex flex-col bg-white p-[24px]"
+                            style={{ minHeight: cardMinHeight }}
                         >
                         {item.number && (
                             <span className="text-[20px] futura-medium font-medium text-[#8A8A8F]">
@@ -66,9 +69,10 @@ const BaseWhySection = ({
                                 <Image
                                     src={item.icon}
                                     alt={item.title || ''}
-                                    width={110}
-                                    height={110}
-                                    className="w-[110px] h-[110px] object-contain"
+                                    width={iconSize}
+                                    height={iconSize}
+                                    className="object-contain"
+                                    style={{ width: iconSize, height: iconSize }}
                                 />
                             </div>
                         )}
