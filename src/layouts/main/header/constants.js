@@ -51,7 +51,7 @@ const dropdownItemsBase = {
       icon: "/common/ai.svg",
       path: "/verticals/metaoptics-ai",
       items: [
-        { label: "Overview", path: "/verticals/metaoptics-ai" },
+        { label: "Overview", path: "/verticals/ai/overview" },
         { label: "MOTViewer", path: "#" },
         { label: "AI Models & Algorithms", path: "#" },
       ],
