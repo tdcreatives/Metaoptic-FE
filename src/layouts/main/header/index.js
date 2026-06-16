@@ -322,7 +322,7 @@ const Header = ({ background = "#fff" }) => {
               One platform, end to end
             </span>
             <Link
-              href="/verticals"
+              href="/verticals/overview"
               onClick={handleMenuClose}
               className="mt-[32px] inline-flex w-fit items-center justify-center rounded-full bg-[#d44c39] px-[32px] py-[12px] text-[14px] tracking-[0.1em] uppercase text-white futura-medium hover:opacity-90 transition-opacity"
             >
