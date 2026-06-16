@@ -331,7 +331,7 @@
           },
           "metalensSpecifications": {
             "patternMaterial": "SiN",
-            "RBGTargetWavelength": "635, 540, 450nm ± 5nm",
+            "RGBTargetWavelength": "635, 540, 450nm ± 5nm",
             "minimumCD(PillarDiameter)": "120nm",
             "pillarHeight": "650nm",
             "metalensDiameter(EachColourChannel)": "2mm",
@@ -919,7 +919,7 @@
       "mobileImageScale": 0.85,
       "category": "3D",
       "buyNow": "",
-      "brochure": "https://google.com",
+      "brochure": "https://metaoptics.sg/download/Manual-Metalens-Testing-Platform.pdf",
       "details": {
         "subtitle": "Metalens Prototyping & Characterization System",
         "description": "An upgrade-ready platform for metalens characterization in R&D, prototyping, and early process development. The MetaOptics Modular Manual Metalens Tester gives customers a practical starting point for metalens testing without committing to a full production tester. Systems can start with a simple, cost-efficient configuration and expand over time with additional source, illumination, sample-handling, and measurement modules.",
