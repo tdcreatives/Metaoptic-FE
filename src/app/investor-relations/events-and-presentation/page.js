@@ -82,6 +82,10 @@ const EVENTS_PRESENTATION_DOCUMENTS = [
         label: 'MetaOptics Rectangular Metalenses Whitepaper.pdf',
         url: 'https://www.metaoptics.sg/download/MetaOptics-Rectangular-Metalenses-Whitepaper.pdf',
     },
+    {
+        label: "AI Algorithms for Metalens Cameras",
+        url: "https://www.metaoptics.sg/download/AI-Algorithms-for-Metalens-Cameras.pdf",
+    }
 ];
 
 const EventsAndPresentationPage = () => {
