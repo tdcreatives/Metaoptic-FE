@@ -80,7 +80,7 @@ const PRODUCT_CATEGORIES = [
         icon: '/verticals/product/icon-3.svg',
         title: 'Development Kits',
         description: 'Plug-and-play modules for evaluating metalens performance.',
-        href: '#',
+        href: '/verticals/product/development-kits',
     },
 ];
 
