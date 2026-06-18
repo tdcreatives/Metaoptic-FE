@@ -603,6 +603,25 @@
                 ]
             },
             "mod": "production"
+        },
+
+        {
+            "id": 29,
+            "slug": "10-10-metaoptics-early-adoption-commercial-deployment",
+            "title": "10 in 10 with MetaOptics – From early adoption to commercial deployment",
+            "desc": "10 in 10 with MetaOptics – From early adoption to commercial deployment",
+            "date": "Jun 16, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.sgx.com/research-education/market-dialogues/20260616-10-10-metaoptics-early-adoption-commercial-deployment",
+            "external": false,
+            "details": {
+                "contentPath": "/content/news/10-10-metaoptics-early-adoption-commercial-deployment.mdx",
+                "relatedNews": [
+                    
+                ]
+            },
+            "mod": "production"
         }
         
 
