@@ -144,7 +144,7 @@ const BaseSplitBanner = ({
                     >
                         {videoSrc ? (
                             <video
-                                className="w-full max-w-[720px] h-auto rounded-[16px] object-cover xl:h-[560px]"
+                                className="w-full max-w-[720px] h-auto rounded-[16px]"
                                 autoPlay
                                 loop
                                 muted
@@ -160,10 +160,8 @@ const BaseSplitBanner = ({
                                 alt={imageAlt}
                                 width={imageWidth}
                                 height={imageHeight}
-                                className={`w-full max-w-[720px] ${
-                                    rounded
-                                        ? 'h-auto object-cover rounded-[16px] xl:h-[560px]'
-                                        : 'h-auto'
+                                className={`w-full max-w-[720px] h-auto ${
+                                    rounded ? 'rounded-[16px]' : ''
                                 }`}
                                 priority
                             />
