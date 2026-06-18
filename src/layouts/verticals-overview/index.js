@@ -115,10 +115,10 @@ const VerticalsOverview = () => {
             />
 
             <BaseFeatureSection
-                title="How a metalens works"
-                description="Bringing the optic into the package, rather than mounting it separately, shortens the path between lens and sensor. Alignment holds, the footprint shrinks, and the assembled system behaves as one part."
+                title="What is a metalens"
+                description="A metalens is a flat, nano-structured surface that focuses light like a curved lens, in a single layer thinner than a micron."
                 imageSrc="/verticals/overview/how-it-works.png"
-                imageAlt="How a metalens works"
+                imageAlt="What is a metalens"
                 imagePosition="left"
             />
 

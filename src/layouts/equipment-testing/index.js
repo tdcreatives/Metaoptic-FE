@@ -96,8 +96,6 @@ const EquipmentTesting = () => {
                     title="Platforms"
                     items={TESTING_PLATFORMS}
                     columns={3}
-                    buttonLabel="Learn more"
-                    buttonHref="/verticals/metalens-capital-equipment"
                 />
             </div>
 

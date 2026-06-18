@@ -74,54 +74,58 @@ const BaseExploreSection = ({
 
             {/* Cards */}
             <div className={`mt-[40px] grid grid-cols-1 sm:grid-cols-2 ${colClass} border-2 border-[#E5E5E5]`}>
-                {items.map((item, index) => (
-                    <div
-                        key={item.title || index}
-                        className="flex flex-col border-b last:border-b-0 xl:border-b-0 xl:border-r xl:last:border-r-0 border-[#E5E5E5]"
-                    >
-                        {/* Icon panel - full bleed, no padding */}
-                        <div className="bg-[#F4F2EF] flex items-center justify-center h-[200px]">
-                            <Image
-                                src={item.icon}
-                                alt={item.title || ''}
-                                width={95}
-                                height={84}
-                                className="w-[95px] h-[84px] object-contain"
-                            />
-                        </div>
+                {items.map((item, index) => {
+                    const cardClass =
+                        'flex flex-col border-b last:border-b-0 xl:border-b-0 xl:border-r xl:last:border-r-0 border-[#E5E5E5]';
+                    const hasLink = item.href !== undefined;
+                    const Wrapper = hasLink ? Link : 'div';
+                    const wrapperProps = hasLink
+                        ? { href: item.href || '#', className: `${cardClass} group` }
+                        : { className: cardClass };
 
-                        {/* Content - padded 24px */}
-                        <div className="flex flex-col p-[24px]">
-                            <div className="h-[136px]">
-                                {item.number && (
-                                    <span className="block text-[11px] font-normal text-[#8A8A8F]">
-                                        {item.number}
-                                    </span>
-                                )}
-                                {item.title && (
-                                    <h3 className="text-[19px] futura-medium font-medium text-[#0B0B0C] mt-[8px]">
-                                        {item.title}
-                                    </h3>
-                                )}
-                                {item.description && (
-                                    <p className="text-[15.5px] font-normal text-[#4A4A4E] mt-[8px] leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                )}
+                    return (
+                        <Wrapper key={item.title || index} {...wrapperProps}>
+                            {/* Icon panel - full bleed, no padding */}
+                            <div className="bg-[#F4F2EF] flex items-center justify-center h-[200px]">
+                                <Image
+                                    src={item.icon}
+                                    alt={item.title || ''}
+                                    width={95}
+                                    height={84}
+                                    className="w-[95px] h-[84px] object-contain"
+                                />
                             </div>
 
-                            {item.href !== undefined && (
-                                <Link
-                                    href={item.href || '#'}
-                                    className="inline-flex items-center gap-[8px] py-[18.5px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] hover:opacity-80 transition-opacity"
-                                >
-                                    {item.exploreLabel || 'Explore'}
-                                    <ArrowRight className="w-[18px]" />
-                                </Link>
-                            )}
-                        </div>
-                    </div>
-                ))}
+                            {/* Content - padded 24px */}
+                            <div className="flex flex-col p-[24px]">
+                                <div className="h-[136px]">
+                                    {item.number && (
+                                        <span className="block text-[11px] font-normal text-[#8A8A8F]">
+                                            {item.number}
+                                        </span>
+                                    )}
+                                    {item.title && (
+                                        <h3 className="text-[19px] futura-medium font-medium text-[#0B0B0C] mt-[8px]">
+                                            {item.title}
+                                        </h3>
+                                    )}
+                                    {item.description && (
+                                        <p className="text-[15.5px] font-normal text-[#4A4A4E] mt-[8px] leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    )}
+                                </div>
+
+                                {hasLink && (
+                                    <span className="inline-flex items-center gap-[8px] py-[18.5px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] transition-opacity group-hover:opacity-80">
+                                        {item.exploreLabel || 'Explore'}
+                                        <ArrowRight className="w-[18px]" />
+                                    </span>
+                                )}
+                            </div>
+                        </Wrapper>
+                    );
+                })}
             </div>
         </section>
     );

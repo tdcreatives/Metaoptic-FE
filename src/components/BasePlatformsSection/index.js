@@ -84,46 +84,50 @@ const BasePlatformsSection = ({
             <div
                 className={`mt-[48px] grid grid-cols-1 sm:grid-cols-2 ${colClass} border-[1.5px] border-[#00000017]`}
             >
-                {items.map((item, index) => (
-                    <div
-                        key={item.title || index}
-                        className="flex flex-col border-b-[1.5px] last:border-b-0 xl:border-b-0 xl:border-r-[1.5px] xl:last:border-r-0 border-[#00000017]"
-                    >
-                        {/* Image panel */}
-                        <div className="flex items-center justify-center bg-[#F4F2EF] px-[24px] py-[40px]">
-                            <Image
-                                src={item.image}
-                                alt={item.imageAlt || item.title || ''}
-                                width={232}
-                                height={217}
-                                className="h-[200px] w-auto object-contain"
-                            />
-                        </div>
+                {items.map((item, index) => {
+                    const cardClass =
+                        'flex flex-col border-b-[1.5px] last:border-b-0 xl:border-b-0 xl:border-r-[1.5px] xl:last:border-r-0 border-[#00000017]';
+                    const hasLink = item.href !== undefined;
+                    const Wrapper = hasLink ? Link : 'div';
+                    const wrapperProps = hasLink
+                        ? { href: item.href || '#', className: `${cardClass} group` }
+                        : { className: cardClass };
 
-                        {/* Content */}
-                        <div className="flex flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px]">
-                            {item.title && (
-                                <h3 className="text-[19px] futura-medium font-medium tracking-[0.02em] text-[#0B0B0C]">
-                                    {item.title}
-                                </h3>
-                            )}
-                            {item.description && (
-                                <p className="text-[15.5px] font-normal text-[#4A4A4E] leading-relaxed">
-                                    {item.description}
-                                </p>
-                            )}
-                            {item.href !== undefined && (
-                                <Link
-                                    href={item.href || '#'}
-                                    className="mt-[8px] inline-flex items-center gap-[8px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] hover:opacity-80 transition-opacity"
-                                >
-                                    {item.exploreLabel || 'Explore'}
-                                    <ArrowRight className="w-[18px]" />
-                                </Link>
-                            )}
-                        </div>
-                    </div>
-                ))}
+                    return (
+                        <Wrapper key={item.title || index} {...wrapperProps}>
+                            {/* Image panel */}
+                            <div className="flex items-center justify-center bg-[#F4F2EF] px-[24px] py-[40px]">
+                                <Image
+                                    src={item.image}
+                                    alt={item.imageAlt || item.title || ''}
+                                    width={232}
+                                    height={217}
+                                    className="h-[200px] w-auto object-contain"
+                                />
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px]">
+                                {item.title && (
+                                    <h3 className="text-[19px] futura-medium font-medium tracking-[0.02em] text-[#0B0B0C]">
+                                        {item.title}
+                                    </h3>
+                                )}
+                                {item.description && (
+                                    <p className="text-[15.5px] font-normal text-[#4A4A4E] leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                )}
+                                {hasLink && (
+                                    <span className="mt-[8px] inline-flex items-center gap-[8px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] transition-opacity group-hover:opacity-80">
+                                        {item.exploreLabel || 'Explore'}
+                                        <ArrowRight className="w-[18px]" />
+                                    </span>
+                                )}
+                            </div>
+                        </Wrapper>
+                    );
+                })}
             </div>
 
             {buttonLabel && (
