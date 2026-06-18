@@ -101,7 +101,9 @@ const ProductDevelopmentKits = () => {
             <BaseFeatureSection
                 title="MOTviewer in every kit"
                 description="Every kit ships with MOTviewer, our capture and image-analysis application for connecting cameras, running live view and exporting results. No separate integration before you see results."
-                imageSrc="/verticals/product/development-kits/motviewer.png"
+                videoSrc="/verticals/product/development-kits/kits.mp4"
+                posterSrc="/verticals/product/development-kits/kits-poster.jpg"
+                frameSrc="/verticals/product/development-kits/border.png"
                 imageAlt="MOTviewer in every kit"
                 imagePosition="left"
             />

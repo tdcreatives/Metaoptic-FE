@@ -67,8 +67,14 @@ const FoundaryPhotonicsIntegration = () => {
             />
 
             <BaseTextSection
-                title="Optics on the package"
-                description="We integrate metalenses directly with sensors and photonic devices. Combining the optic and the package shortens the optical path, holds alignment and shrinks the overall footprint."
+                title={
+                    <>
+                        Flat optics for data
+                        <br />
+                        transfer
+                    </>
+                }
+                description="Flat metaoptics for moving data as light. Light carries information faster and more efficiently, and a flat optic couples and shapes that signal in a single layer."
             />
 
             <BaseFeatureSection

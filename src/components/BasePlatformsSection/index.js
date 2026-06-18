@@ -130,13 +130,10 @@ const BasePlatformsSection = ({
                 })}
             </div>
 
-            {buttonLabel && (
+            {buttonLabel && items.length === 1 && (
                 <div className="mt-[40px] flex justify-center">
-                    {/* Single product -> go straight to its detail; multiple -> go to the list */}
-                    <ButtonArrow
-                        label={buttonLabel}
-                        href={items.length === 1 ? items[0]?.href || buttonHref : buttonHref}
-                    />
+                    {/* Only a single product: the button goes straight to its detail page */}
+                    <ButtonArrow label={buttonLabel} href={items[0]?.href || buttonHref} />
                 </div>
             )}
             </div>

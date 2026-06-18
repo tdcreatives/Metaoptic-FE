@@ -67,14 +67,8 @@ const FoundaryNirSwirMetalens = () => {
             />
 
             <BaseTextSection
-                title={
-                    <>
-                        Built for
-                        <br />
-                        infrared sensing
-                    </>
-                }
-                description="Infrared metalenses for sensing, depth and machine vision. We build to your band and form factor rather than to a fixed catalogue."
+                title="Built for NIR and SWIR"
+                description="Our metalenses cover the near-infrared (NIR) and short-wave infrared (SWIR) bands. Beyond sensing and imaging, they work as free-space couplers and collimators, for fibre coupling and beam shaping."
             />
 
             <SeeBeyond />

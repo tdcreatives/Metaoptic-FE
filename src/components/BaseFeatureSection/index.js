@@ -16,6 +16,9 @@ import Image from 'next/image';
  * @param {number} [imageHeight]
  * @param {'left'|'right'} [imagePosition] - Side the image sits on (default 'left')
  * @param {boolean} [framed] - Show the decorative offset frame behind the image
+ * @param {string} [videoSrc] - Render a looping video instead of an image
+ * @param {string} [posterSrc] - Poster for the video
+ * @param {string} [frameSrc] - Image used as the offset frame (overrides the CSS border)
  * @param {string} [className] - Extra classes for the outer <section>
  */
 const BaseFeatureSection = ({
@@ -27,9 +30,13 @@ const BaseFeatureSection = ({
     imageHeight = 457,
     imagePosition = 'left',
     framed = true,
+    videoSrc,
+    posterSrc,
+    frameSrc,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
+    const hasMedia = videoSrc || imageSrc;
 
     return (
         <section className={`bg-[#F6F5F5] border-y border-black/[0.09] ${className}`}>
@@ -38,23 +45,46 @@ const BaseFeatureSection = ({
                     isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'
                 }`}
             >
-                {/* Image column */}
-                {imageSrc && (
+                {/* Media column */}
+                {hasMedia && (
                     <div className="w-full flex justify-center xl:flex-1 xl:justify-start">
                         <div className="relative w-full max-w-[582px]">
-                            {framed && (
+                            {framed && !frameSrc && (
                                 <div
                                     aria-hidden="true"
                                     className="absolute inset-0 translate-x-[20px] translate-y-[20px] rounded-[12px] border border-[#d34c39]/40"
                                 />
                             )}
-                            <Image
-                                src={imageSrc}
-                                alt={imageAlt}
-                                width={imageWidth}
-                                height={imageHeight}
-                                className="relative z-[1] w-full h-auto"
-                            />
+                            {frameSrc && (
+                                <Image
+                                    src={frameSrc}
+                                    alt=""
+                                    aria-hidden="true"
+                                    width={354}
+                                    height={278}
+                                    className="pointer-events-none absolute right-[-20px] bottom-[-20px] z-0 w-[354px] h-[278px]"
+                                />
+                            )}
+                            {videoSrc ? (
+                                <video
+                                    src={videoSrc}
+                                    poster={posterSrc}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    preload="metadata"
+                                    className="relative z-[1] w-full h-auto rounded-[12px]"
+                                />
+                            ) : (
+                                <Image
+                                    src={imageSrc}
+                                    alt={imageAlt}
+                                    width={imageWidth}
+                                    height={imageHeight}
+                                    className="relative z-[1] w-full h-auto"
+                                />
+                            )}
                         </div>
                     </div>
                 )}

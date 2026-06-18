@@ -78,10 +78,10 @@ const ProductConsumerDevices = () => {
             />
 
             <BaseFeatureSection
-                title="One metalens, no stack."
-                description="A single metalens removes the lens stack, so the optic almost vanishes into the device. That frees space for battery, sensors or a slimmer design."
+                title="Single layer metalens"
+                description="A single metalens can drastically reduce the total track length, removing the camera bump."
                 imageSrc="/verticals/product/consumer-devices/one-metalens.png"
-                imageAlt="One metalens, no stack."
+                imageAlt="Single layer metalens"
                 imagePosition="left"
             />
 

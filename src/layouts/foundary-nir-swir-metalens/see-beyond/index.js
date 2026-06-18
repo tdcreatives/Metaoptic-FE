@@ -29,7 +29,7 @@ const SeeBeyond = () => {
                         className="w-full h-auto"
                     />
                     <figcaption className="mt-[24px] text-center text-[14px] text-[#6C6C6C]">
-                        Left: infrared. Right: visible light.
+                        Left: NIR (Near-Infrared). Right: visible light.
                     </figcaption>
                 </figure>
             </div>

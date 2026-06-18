@@ -163,7 +163,12 @@
       "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate -show_entries format=duration -of default=noprint_wrappers=1 public/verticals/equipment/lithography/banner.mp4)",
       "Bash(ffmpeg -y -loglevel error -i public/verticals/equipment/lithography/banner.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an public/verticals/equipment/lithography/banner-opt.mp4)",
       "Bash(ffmpeg -y -loglevel error -i public/verticals/equipment/lithography/banner.mp4 -frames:v 1 -q:v 3 public/verticals/equipment/lithography/banner-poster.jpg)",
-      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -show_entries format=duration -of default=noprint_wrappers=1 public/verticals/ai/motviewer/banner.mp4)"
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -show_entries format=duration -of default=noprint_wrappers=1 public/verticals/ai/motviewer/banner.mp4)",
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height,duration,pix_fmt -show_entries format=duration,size -of default=noprint_wrappers=1 public/verticals/product/development-kits/kits.mp4)",
+      "Bash(ffmpeg -y -i kits.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an kits-opt.mp4 -loglevel error)",
+      "Bash(mv kits-opt.mp4 kits.mp4)",
+      "Bash(ffmpeg -y -i kits.mp4 -frames:v 1 -q:v 3 kits-poster.jpg -loglevel error)",
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 kits.mp4)"
     ],
     "additionalDirectories": [
       "/private/tmp"
