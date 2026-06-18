@@ -73,7 +73,7 @@ const EQUIPMENT_CATEGORIES = [
         icon: '/verticals/shared/icon-5.svg',
         title: 'Testing',
         description: 'Automated metrology from coupon to wafer scale.',
-        href: '#',
+        href: '/verticals/equipment/testing',
     },
     {
         number: '03',

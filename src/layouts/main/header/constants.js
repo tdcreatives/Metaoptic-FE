@@ -20,7 +20,7 @@ const dropdownItemsBase = {
       items: [
         { label: "Overview", path: "/verticals/equipment/overview" },
         { label: "Lithography", path: "/verticals/equipment/lithography" },
-        { label: "Testing", path: "#" },
+        { label: "Testing", path: "/verticals/equipment/testing" },
         { label: "Assembly", path: "#" },
       ],
     },
