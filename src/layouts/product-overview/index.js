@@ -73,7 +73,7 @@ const PRODUCT_CATEGORIES = [
         icon: '/verticals/product/icon-2.svg',
         title: 'Projection Modules',
         description: 'Compact pico-projector optics for portable displays.',
-        href: '#',
+        href: '/verticals/product/projection-modules',
     },
     {
         number: '03',

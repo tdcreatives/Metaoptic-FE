@@ -42,7 +42,7 @@ const dropdownItemsBase = {
       items: [
         { label: "Overview", path: "/verticals/product/overview" },
         { label: "Consumer Devices", path: "/verticals/product/consumer-devices" },
-        { label: "Projection Modules", path: "#" },
+        { label: "Projection Modules", path: "/verticals/product/projection-modules" },
         { label: "Development Kits", path: "#" },
       ],
     },
