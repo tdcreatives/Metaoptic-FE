@@ -22,16 +22,24 @@ const NonContactRecognition = () => {
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 xl:gap-20">
         {/* Left Content */}
         <div className="xl:col-span-7 flex flex-col gap-10 order-2 xl:order-1">
-          <div>            
+          <div>
             <div className="flex flex-col gap-5 mt-4">
               <p className="futura-medium text-[16px] xl:text-xl text-[#676767]">
-              MetaOptics' 3D non-contact recognition module enables touchless biometric fingerprint detection and identification using metalens camera imagery — no physical contact with a sensor required. A trained neural network detects fingerprint ridge patterns from images captured at working distance, extracts identifying features, and matches them against stored templates. The compact form factor and extended depth-of-field of metalens optics make this ideal for touchless authentication in access control, mobile devices, and secure identification systems.
-              Fingerprint recognition powered by metalens-grade optical resolution
-              3D depth sensing for accurate, liveness-aware facial and biometric capture
-              Compact sensor integration suited to IoT devices, access control, and mobile platforms
-              </p>              
+                MetaOptics' 3D non-contact recognition module enables touchless
+                biometric fingerprint detection and identification using
+                metalens camera imagery — no physical contact with a sensor
+                required. A trained neural network detects fingerprint ridge
+                patterns from images captured at working distance, extracts
+                identifying features, and matches them against stored templates.
+                The compact form factor and extended depth-of-field of metalens
+                optics make this ideal for touchless authentication in access
+                control, mobile devices, and secure identification systems.
+                Fingerprint recognition powered by metalens-grade optical
+                resolution 3D depth sensing for accurate, liveness-aware facial
+                and biometric capture Compact sensor integration suited to IoT
+                devices, access control, and mobile platforms
+              </p>
             </div>
-                        
           </div>
         </div>
 

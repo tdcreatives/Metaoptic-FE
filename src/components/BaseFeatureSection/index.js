@@ -33,6 +33,7 @@ const BaseFeatureSection = ({
     videoSrc,
     posterSrc,
     frameSrc,
+    children,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
@@ -102,6 +103,8 @@ const BaseFeatureSection = ({
                             {description}
                         </p>
                     )}
+
+                    {children}
                 </div>
             </div>
         </section>

@@ -123,7 +123,7 @@ const EquipmentOverview = () => {
         label="Our process"
         title="From pattern to module"
         description="Each stage has its own platform, and the output of one feeds the next."
-        imageSrc="/verticals/overview/design-to-dev.png"
+        imageSrc="/verticals/equipment/pattern-to-module.png"
         imageAlt="From pattern to module"
         steps={EQUIPMENT_PROCESS}
       />

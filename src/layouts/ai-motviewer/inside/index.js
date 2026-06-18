@@ -35,7 +35,8 @@ const CARDS = [
             'Drop the AI enhancement plugin into your pipeline and recover detail in low light in real time. Toggle it on or off to compare. Run the dynamic model for any input size, or the static model for maximum speed.',
     },
     {
-        image: `${BASE}/inside-5.png`,
+        video: `${BASE}/inside-5.mp4`,
+        poster: `${BASE}/inside-5-poster.jpg`,
         title: 'Fingerprint recognition',
         description:
             'Register and match fingerprints directly in the app using the on-board AFIS library, with live minutiae detection and bounding boxes. Gesture and 3D recognition plugins run the same way, on-device, with no external service.',

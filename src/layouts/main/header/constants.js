@@ -16,7 +16,7 @@ const dropdownItemsBase = {
     metaOpticsEquipment: {
       label: "MetaOptics Equipment",
       icon: "/common/equipment.svg",
-      path: "/verticals/metalens-capital-equipment",
+      path: "/verticals/equipment/overview",
       items: [
         { label: "Overview", path: "/verticals/equipment/overview" },
         { label: "Lithography", path: "/verticals/equipment/lithography" },
@@ -27,7 +27,7 @@ const dropdownItemsBase = {
     metaOpticsFoundry: {
       label: "MetaOptics Foundry",
       icon: "/common/foundary.svg",
-      path: "/verticals/metalens-foundry",
+      path: "/verticals/foundary/overview",
       items: [
         { label: "Overview", path: "/verticals/foundary/overview" },
         { label: "VIS Metalens", path: "/verticals/foundary/vis-metalens" },
@@ -38,7 +38,7 @@ const dropdownItemsBase = {
     metaOpticsProducts: {
       label: "MetaOptics Products",
       icon: "/common/products.svg",
-      path: "/verticals/metalens-products",
+      path: "/verticals/product/overview",
       items: [
         { label: "Overview", path: "/verticals/product/overview" },
         { label: "Consumer Devices", path: "/verticals/product/consumer-devices" },
@@ -49,7 +49,7 @@ const dropdownItemsBase = {
     metaOpticsAi: {
       label: "MetaOptics AI",
       icon: "/common/ai.svg",
-      path: "/verticals/metaoptics-ai",
+      path: "/verticals/ai/overview",
       items: [
         { label: "Overview", path: "/verticals/ai/overview" },
         { label: "MOTViewer", path: "/verticals/ai/motviewer" },

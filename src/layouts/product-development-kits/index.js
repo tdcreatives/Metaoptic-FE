@@ -47,19 +47,19 @@ const DEV_KIT_PRODUCTS = [
         image: '/verticals/product/development-kits/product-1.png',
         title: '3D Biometrics Metalens Sensor',
         description: 'Depth and biometric sensing in a kit.',
-        href: '/verticals/metalens-products/3d-biometrics-metalens-sensor',
+        href: '/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor',
     },
     {
         image: '/verticals/product/development-kits/product-2.png',
         title: 'IoT Metalens Color Camera',
         description: 'A metalens colour camera ready to evaluate.',
-        href: '/verticals/metalens-products/iot-metalens-color-camera',
+        href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
     },
     {
         image: '/verticals/product/development-kits/product-3.png',
         title: 'Ultra-wide FoV Monochromatic NIR Camera',
         description: 'Wide field-of-view infrared imaging.',
-        href: '/verticals/metalens-products/ultra-wide-fov-monochromatic-nir-camera',
+        href: '/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera',
     },
 ];
 

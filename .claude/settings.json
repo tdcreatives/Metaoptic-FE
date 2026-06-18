@@ -168,7 +168,12 @@
       "Bash(ffmpeg -y -i kits.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an kits-opt.mp4 -loglevel error)",
       "Bash(mv kits-opt.mp4 kits.mp4)",
       "Bash(ffmpeg -y -i kits.mp4 -frames:v 1 -q:v 3 kits-poster.jpg -loglevel error)",
-      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 kits.mp4)"
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 kits.mp4)",
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -show_entries format=duration,size -of default=noprint_wrappers=1 public/verticals/ai/motviewer/inside-5.webm)",
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 public/verticals/ai/motviewer/inside-1.mp4)",
+      "Bash(ffmpeg -y -i inside-5.webm -vf scale=720:-2 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an inside-5.mp4 -loglevel error)",
+      "Bash(ffmpeg -y -i inside-5.mp4 -frames:v 1 -q:v 3 inside-5-poster.jpg -loglevel error)",
+      "Bash(ffprobe -v error -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 inside-5.mp4)"
     ],
     "additionalDirectories": [
       "/private/tmp"

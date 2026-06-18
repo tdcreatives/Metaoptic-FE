@@ -123,7 +123,7 @@ const ProductOverview = () => {
                 label="Our process"
                 title="From kit to product"
                 description="Start on the bench, move to your build, then scale."
-                imageSrc="/verticals/overview/design-to-dev.png"
+                imageSrc="/verticals/product/kit-to-product.png"
                 imageAlt="From kit to product"
                 steps={PRODUCT_PROCESS}
             />

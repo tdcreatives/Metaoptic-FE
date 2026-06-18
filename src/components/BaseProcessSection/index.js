@@ -82,7 +82,7 @@ const BaseProcessSection = ({
                             </div>
                             <div>
                                 {step.title && (
-                                    <h3 className="futura-condensed-medium font-medium text-[30px] leading-[1.1] text-[#0B0B0C]">
+                                    <h3 className="futura-condensed-medium font-medium uppercase text-[30px] leading-[1.1] text-[#0B0B0C]">
                                         {step.title}
                                     </h3>
                                 )}

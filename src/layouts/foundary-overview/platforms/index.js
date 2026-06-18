@@ -110,7 +110,7 @@ const FoundaryPlatforms = () => {
             {/* CTA */}
             <div className="mt-[40px] flex justify-center">
                 <ButtonArrow
-                    label="Learn more"
+                    label="Learn more about platforms"
                     href="/verticals/metalens-foundry/4in-12in-platforms"
                 />
             </div>

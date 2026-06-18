@@ -103,10 +103,10 @@ const AiOverview = () => {
             />
 
             <BaseFeatureSection
-                title="Why metalenses need AI"
-                description="Metalens images carry rich information that benefits from processing. Our software and models reconstruct, enhance and interpret that imagery, turning raw frames into clear results."
+                title="An AI layer on top of the optics"
+                description="Metalens cameras capture rich optical data. A computational layer sits on top, reconstructing, enhancing and interpreting that data to turn raw frames into usable results. The optics stand on their own; AI extends what they can do."
                 imageSrc="/verticals/ai/why.png"
-                imageAlt="Why metalenses need AI"
+                imageAlt="An AI layer on top of the optics"
                 imageWidth={580}
                 imageHeight={435}
                 imagePosition="left"
@@ -126,7 +126,7 @@ const AiOverview = () => {
                 label="Our process"
                 title="From capture to insight"
                 description="One pipeline, from the sensor to a usable result."
-                imageSrc="/verticals/overview/design-to-dev.png"
+                imageSrc="/verticals/ai/capture-to-insight.png"
                 imageAlt="From capture to insight"
                 steps={AI_PROCESS}
             />

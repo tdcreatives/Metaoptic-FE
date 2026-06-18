@@ -129,7 +129,7 @@ const FoundaryOverview = () => {
                 label="Our process"
                 title="From prototype to volume"
                 description="One design, one supplier, across scales."
-                imageSrc="/verticals/overview/design-to-dev.png"
+                imageSrc="/verticals/foundary/prototype-to-volume.png"
                 imageAlt="From prototype to volume"
                 steps={FOUNDARY_PROCESS}
             />

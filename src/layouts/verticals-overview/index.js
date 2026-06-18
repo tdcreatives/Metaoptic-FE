@@ -9,6 +9,18 @@ import BaseProcessSection from '@/components/BaseProcessSection';
 import BaseWhySection from '@/components/BaseWhySection';
 import BaseCtaSection from '@/components/BaseCtaSection';
 
+const METALENS_COMPARISON = [
+    { left: 'Curved surfaces', right: 'Flat, nano-structured' },
+    { left: 'Curvatures larger than wavelength', right: 'Sub-wavelength meta-atoms' },
+    {
+        left: 'Heat resistance depends on material',
+        right: 'High heat resistant, all dielectric materials',
+    },
+    { left: 'Low design DoF in a single component', right: 'High design DoF in a single layer' },
+    { left: 'Refraction bends light', right: 'Diffraction bends light' },
+    { left: 'Thickness > 1 mm', right: 'Thickness < 1 µm' },
+];
+
 const WHY_CARDS = [
     {
         number: '01',
@@ -44,23 +56,28 @@ const PROCESS_STEPS = [
     },
     {
         number: '02',
-        title: 'Pattern',
-        description: 'Write the design onto the wafer with lithography built for flat optics.',
+        title: 'Fabrication',
+        description: 'Pattern the design onto the wafer and produce the optic in our foundry.',
+    },
+    {
+        number: '03',
+        title: 'Testing',
+        description: 'Characterise performance from a single coupon to the full wafer.',
     },
     {
         number: '04',
-        title: 'Fabricate',
-        description: 'Produce the optics at volume in our own foundry.',
+        title: 'Module integration',
+        description: 'Align and assemble the optic into a camera module, ready to drop into your device.',
     },
     {
         number: '05',
-        title: 'Integrate',
-        description: 'Assemble the optic into a module that is ready to drop into your device.',
+        title: 'Tuning',
+        description: 'Tune and enhance the image pipeline, with AI where it adds value.',
     },
     {
         number: '06',
-        title: 'Process',
-        description: 'Turn what the optic captures into usable information with our AI.',
+        title: 'Deployment',
+        description: 'Move to volume with the same design, from prototype to production.',
     },
 ];
 
@@ -120,7 +137,30 @@ const VerticalsOverview = () => {
                 imageSrc="/verticals/overview/how-it-works.png"
                 imageAlt="What is a metalens"
                 imagePosition="left"
-            />
+            >
+                <div className="mt-[32px] border border-[#D3D0D0]">
+                    {/* Header row */}
+                    <div className="grid grid-cols-2 bg-[#EAEAEA]">
+                        <div className="px-[24px] py-[16px] text-center text-[19px] futura-medium font-medium tracking-[0.02em] text-[#676767]">
+                            Traditional Micro-Optics
+                        </div>
+                        <div className="border-l border-[#D3D0D0] px-[24px] py-[16px] text-center text-[19px] futura-medium font-medium tracking-[0.02em] text-[#D34C39]">
+                            MetaOptics Metalens
+                        </div>
+                    </div>
+                    {/* Body rows */}
+                    {METALENS_COMPARISON.map((row) => (
+                        <div key={row.left} className="grid grid-cols-2 border-t border-[#D3D0D0]">
+                            <div className="px-[24px] py-[16px] text-center text-[18px] font-normal text-[#676767]">
+                                {row.left}
+                            </div>
+                            <div className="border-l border-[#D3D0D0] px-[24px] py-[16px] text-center text-[18px] font-normal text-[#D34C39]">
+                                {row.right}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </BaseFeatureSection>
 
             <BaseExploreSection
                 label="Our verticals"
@@ -133,7 +173,7 @@ const VerticalsOverview = () => {
                 label="Our process"
                 title="From design to deployment"
                 description="Every project moves through the same path. Because we own each step, what we prototype is what we scale."
-                imageSrc="/verticals/overview/design-to-dev.png"
+                imageSrc="/verticals/overview/design-to-deployment.png"
                 imageAlt="From design to deployment"
                 steps={PROCESS_STEPS}
             />

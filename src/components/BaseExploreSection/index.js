@@ -52,7 +52,7 @@ const BaseExploreSection = ({
             className={`mx-auto w-full max-w-[1660px] px-[24px] py-[40px] xl:px-[72px] xl:py-[60px] ${className}`}
         >
             {/* Header */}
-            <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:justify-between xl:gap-[60px]">
+            <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:gap-[60px]">
                 <div className="xl:flex-1">
                     {label && (
                         <span className="block uppercase text-[12px] font-normal tracking-[0.2em] text-[#d34c39]">
@@ -66,7 +66,7 @@ const BaseExploreSection = ({
                     )}
                 </div>
                 {description && (
-                    <p className="text-[#4A4A4E] text-[16px] xl:text-[18px] xl:text-right max-w-[460px] leading-relaxed">
+                    <p className="text-[#4A4A4E] text-[16px] xl:text-[18px] text-left xl:flex-1 leading-relaxed">
                         {description}
                     </p>
                 )}

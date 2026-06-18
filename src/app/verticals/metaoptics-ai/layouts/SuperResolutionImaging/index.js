@@ -33,7 +33,7 @@ const SuperResolutionImaging = () => {
         </div>
 
         {/* Image Flow */}
-        <div className="order-1 md:order-2 flex flex-col md:flex-row w-full items-start xl:h-[576px] h-auto gap-6">
+        <div className="order-1 md:order-2 flex flex-col md:flex-row w-full items-start xl:min-h-[576px] h-auto gap-6">
           <div className="flex flex-col text-center w-full flex-1 md:mr-[140px] relative mb-[100px] md:mb-0">
             <div className="w-full">
               <Image
