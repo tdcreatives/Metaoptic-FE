@@ -31,6 +31,7 @@ const ArrowRight = ({ className = 'w-[18px]' }) => (
  * call-to-action button below. Content is passed via props for reuse.
  *
  * @param {React.ReactNode} title - Section heading
+ * @param {string} [description] - Supporting paragraph (right-aligned on desktop)
  * @param {Array<{image: string, imageAlt?: string, title: string, description?: string, href?: string, exploreLabel?: string}>} items
  * @param {number} [columns] - Number of columns on desktop (default 3)
  * @param {string} [buttonLabel] - Centered CTA button below the grid
@@ -39,6 +40,7 @@ const ArrowRight = ({ className = 'w-[18px]' }) => (
  */
 const BasePlatformsSection = ({
     title,
+    description,
     items = [],
     columns = 3,
     buttonLabel,
@@ -53,10 +55,19 @@ const BasePlatformsSection = ({
         <section
             className={`mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px] ${className}`}
         >
-            {title && (
-                <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px]">
-                    {title}
-                </h2>
+            {(title || description) && (
+                <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:justify-between xl:gap-[60px]">
+                    {title && (
+                        <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px] xl:flex-1">
+                            {title}
+                        </h2>
+                    )}
+                    {description && (
+                        <p className="text-[#4A4A4E] text-[16px] xl:text-[18px] xl:text-right max-w-[460px] leading-relaxed">
+                            {description}
+                        </p>
+                    )}
+                </div>
             )}
 
             <div
@@ -81,7 +92,7 @@ const BasePlatformsSection = ({
                         {/* Content */}
                         <div className="flex flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px]">
                             {item.title && (
-                                <h3 className="text-[19px] font-normal text-[#0B0B0C]">
+                                <h3 className="text-[19px] futura-medium font-medium tracking-[0.02em] text-[#0B0B0C]">
                                     {item.title}
                                 </h3>
                             )}

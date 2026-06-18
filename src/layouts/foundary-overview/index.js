@@ -61,7 +61,7 @@ const FOUNDARY_CATEGORIES = [
         icon: '/verticals/shared/icon-7.svg',
         title: 'VIS Metalenses',
         description: 'Metalenses for the visible band, round or rectangular.',
-        href: '#',
+        href: '/verticals/foundary/vis-metalens',
     },
     {
         number: '02',
