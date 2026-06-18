@@ -128,7 +128,16 @@ const Header = ({ background = "#F0F0F0" }) => {
   };
 
   const handleDropdownMouseEnter = (dropdownKey) => {
-    setOpenDropdowns((prev) => ({ ...prev, [dropdownKey]: true }));
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [dropdownKey]: true,
+      // Close the full-width verticals mega menu when hovering another dropdown
+      ...(dropdownKey !== "verticals" ? { verticals: false } : {}),
+    }));
+  };
+
+  const closeVerticalsMenu = () => {
+    setOpenDropdowns((prev) => ({ ...prev, verticals: false }));
   };
 
   const handleDropdownMouseLeave = (dropdownKey) => {
@@ -594,6 +603,7 @@ const Header = ({ background = "#F0F0F0" }) => {
                 <Link
                   key={header.label}
                   href={header.path}
+                  onMouseEnter={closeVerticalsMenu}
                   className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                     isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                   }`}
@@ -607,6 +617,7 @@ const Header = ({ background = "#F0F0F0" }) => {
                   href={header.path}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onMouseEnter={closeVerticalsMenu}
                   className={`relative text-black hover:text-[#d44c39] hover:after:w-2 cursor-pointer after:block after:h-1 after:w-0 after:bg-[#d44c39] after:rounded-full after:mx-auto ${
                     isPathActive(header) ? "after:!w-2 !text-[#d44c39]" : ""
                   }`}

@@ -66,7 +66,7 @@ const BaseProcessSection = ({
                 </div>
 
                 {/* Timeline column - steps distributed evenly to match the intro column height */}
-                <div className="relative flex w-full flex-col gap-[40px] pt-[40px] xl:w-[432px] xl:shrink-0 xl:justify-between xl:gap-0">
+                <div className="relative flex w-full flex-col gap-[40px] pt-[40px] xl:w-[432px] xl:shrink-0 xl:justify-between">
                     {/* Continuous connecting line through the circle centers */}
                     <div
                         aria-hidden="true"

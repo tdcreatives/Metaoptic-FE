@@ -148,6 +148,7 @@ const VerticalsOverview = () => {
                 imageAlt="Find your vertical"
                 buttonLabel="Contact us"
                 buttonHref="/contact-us"
+                backgroundImage="/verticals/shared/contact.png"
             />
 
             {/* Additional sections will be added here as the design is provided */}
