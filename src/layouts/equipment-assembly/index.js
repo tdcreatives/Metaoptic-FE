@@ -79,7 +79,7 @@ const EquipmentAssembly = () => {
                         together
                     </>
                 }
-                description="Assembly and test run in the same cell, so every module is checked as it is built. Fewer handoffs, and a verified module at the end of the line."
+                description="Our assembly machine offers an optional module-testing add-on, so every module is tested automatically right after it is assembled. Build and verification on one system."
                 imageSrc="/verticals/equipment/assembly/assemble.png"
                 imageAlt="Assemble and verify together"
                 imageWidth={580}
