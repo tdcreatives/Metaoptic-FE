@@ -44,7 +44,12 @@ const nextConfig = {
           '/',
         permanent: true,
       },
-      
+      {
+        source: '/investor-relations',
+        destination:
+          '/company-announcement',
+        permanent: true,
+      },
     ];
   },
 };
