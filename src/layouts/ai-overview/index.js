@@ -76,7 +76,7 @@ const AI_CATEGORIES = [
         title: 'AI Models & Algorithms',
         description:
             'Deep-learning models trained on metalens optical data, super-resolution, aberration correction, low-light enhancement, and touchless biometric and gesture recognition.',
-        href: '#',
+        href: '/verticals/ai/ai-models',
     },
 ];
 

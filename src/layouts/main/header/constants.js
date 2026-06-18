@@ -53,7 +53,7 @@ const dropdownItemsBase = {
       items: [
         { label: "Overview", path: "/verticals/ai/overview" },
         { label: "MOTViewer", path: "/verticals/ai/motviewer" },
-        { label: "AI Models & Algorithms", path: "#" },
+        { label: "AI Models & Algorithms", path: "/verticals/ai/ai-models" },
       ],
     },
   },
