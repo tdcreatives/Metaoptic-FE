@@ -75,7 +75,7 @@ const dropdownItemsBase = {
   investorRelations: {
     companyAnnouncements: {
       label: "Company Announcements",
-      path: "/investor-relations",
+      path: "/company-announcement",
     },
     analystCoverage: {
       label: "Analyst Coverage",
