@@ -82,7 +82,7 @@ const FoundaryVisMetalens = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See products"
-                buttonHref="/verticals/product/overview"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -112,14 +112,16 @@ const FoundaryVisMetalens = () => {
                 imagePosition="left"
             />
 
-            <BasePlatformsSection
-                title="Products"
-                description="Three products cover colour imaging and beam shaping across the visible band."
-                items={VIS_PRODUCTS}
-                columns={3}
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BasePlatformsSection
+                    title="Products"
+                    description="Three products cover colour imaging and beam shaping across the visible band."
+                    items={VIS_PRODUCTS}
+                    columns={3}
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection title="VIS at a glance" items={VIS_GLANCE} columns={3} />
 

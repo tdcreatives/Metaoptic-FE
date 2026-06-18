@@ -52,7 +52,7 @@ const EquipmentLithography = () => {
                 videoSrc="/verticals/equipment/lithography/banner.mp4"
                 posterSrc="/verticals/equipment/lithography/banner-poster.jpg"
                 buttonLabel="See platforms"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -82,15 +82,17 @@ const EquipmentLithography = () => {
                 imagePosition="left"
             />
 
-            <BaseFeatureCta
-                title="Direct Laser Writer"
-                description="Maskless direct-write patterning for prototyping and design iteration."
-                imageSrc="/verticals/equipment/lithography/direct-writer.png"
-                imageAlt="Direct Laser Writer"
-                imagePosition="right"
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BaseFeatureCta
+                    title="Direct Laser Writer"
+                    description="Maskless direct-write patterning for prototyping and design iteration."
+                    imageSrc="/verticals/equipment/lithography/direct-writer.png"
+                    imageAlt="Direct Laser Writer"
+                    imagePosition="right"
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection
                 title="Lithography at a glance"

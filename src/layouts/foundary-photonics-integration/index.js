@@ -61,7 +61,7 @@ const FoundaryPhotonicsIntegration = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See services"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -79,18 +79,20 @@ const FoundaryPhotonicsIntegration = () => {
                 imagePosition="left"
             />
 
-            <BaseFeatureCta
-                title="Co-packaged optics"
-                description="Metalens and device in one package."
-                imageSrc="/verticals/foundary/photonics-integration/co-packed.png"
-                imageAlt="Co-packaged optics"
-                imageWidth={602}
-                imageHeight={457}
-                imagePosition="right"
-                buttonLabel="Learn more"
-                buttonHref="#"
-                background="#F9F9F9"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BaseFeatureCta
+                    title="Co-packaged optics"
+                    description="Metalens and device in one package."
+                    imageSrc="/verticals/foundary/photonics-integration/co-packed.png"
+                    imageAlt="Co-packaged optics"
+                    imageWidth={602}
+                    imageHeight={457}
+                    imagePosition="right"
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                    background="#F9F9F9"
+                />
+            </div>
 
             <BaseWhySection
                 title="Integration at a glance"

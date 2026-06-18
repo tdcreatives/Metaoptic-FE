@@ -87,7 +87,7 @@ const AiMotviewer = () => {
                 videoSrc="/verticals/ai/motviewer/banner.mp4"
                 posterSrc="/verticals/ai/motviewer/banner-poster.jpg"
                 buttonLabel="See capabilities"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -105,14 +105,16 @@ const AiMotviewer = () => {
 
             <InsideMotviewer />
 
-            <BasePlatformsSection
-                title="What you can do"
-                items={MOTVIEWER_CAPABILITIES}
-                columns={4}
-                buttonLabel="Learn more"
-                buttonHref="#"
-                background="#F9F9F9"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BasePlatformsSection
+                    title="What you can do"
+                    items={MOTVIEWER_CAPABILITIES}
+                    columns={4}
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                    background="#F9F9F9"
+                />
+            </div>
 
             <BaseWhySection
                 title="MOTviewer at a glance"

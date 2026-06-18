@@ -32,7 +32,7 @@ const AiModels = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See capabilities"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -43,7 +43,7 @@ const AiModels = () => {
             />
 
             {/* Reused capability sections from the MetaOptics AI page */}
-            <div className="container py-[80px]">
+            <div id="explore" className="container py-[80px] scroll-mt-[40px]">
                 <div className="[&>div]:!pt-0">
                     <SuperResolutionImaging />
                 </div>

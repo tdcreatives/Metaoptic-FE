@@ -61,7 +61,7 @@ const FoundaryNirSwirMetalens = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See products"
-                buttonHref="/verticals/product/overview"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -79,24 +79,26 @@ const FoundaryNirSwirMetalens = () => {
 
             <SeeBeyond />
 
-            <BaseFeatureCta
-                title={
-                    <>
-                        Ultra-wide FOV IR
-                        <br />
-                        metalens
-                    </>
-                }
-                description="Our wide field-of-view IR metalens is available off the shelf. It is one example of what the foundry can build to your requirements."
-                imageSrc="/verticals/foundary/nir-swir-metalens/ultra-wide.png"
-                imageAlt="Ultra-wide FOV IR metalens"
-                imageWidth={602}
-                imageHeight={457}
-                imagePosition="right"
-                buttonLabel="Learn more"
-                buttonHref="#"
-                background="#F6F5F5"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BaseFeatureCta
+                    title={
+                        <>
+                            Ultra-wide FOV IR
+                            <br />
+                            metalens
+                        </>
+                    }
+                    description="Our wide field-of-view IR metalens is available off the shelf. It is one example of what the foundry can build to your requirements."
+                    imageSrc="/verticals/foundary/nir-swir-metalens/ultra-wide.png"
+                    imageAlt="Ultra-wide FOV IR metalens"
+                    imageWidth={602}
+                    imageHeight={457}
+                    imagePosition="right"
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                    background="#F6F5F5"
+                />
+            </div>
 
             <BaseWhySection
                 title="NIR and SWIR at a glance"

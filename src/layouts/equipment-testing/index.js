@@ -73,7 +73,7 @@ const EquipmentTesting = () => {
                 videoSrc="/verticals/equipment/testing/banner.mp4"
                 posterSrc="/verticals/equipment/testing/banner-poster.jpg"
                 buttonLabel="See platforms"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -91,13 +91,15 @@ const EquipmentTesting = () => {
 
             <CustomTesters />
 
-            <BasePlatformsSection
-                title="Platforms"
-                items={TESTING_PLATFORMS}
-                columns={3}
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BasePlatformsSection
+                    title="Platforms"
+                    items={TESTING_PLATFORMS}
+                    columns={3}
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection
                 title="Testing at a glance"

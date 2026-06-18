@@ -69,6 +69,19 @@ const BaseSplitBanner = ({
 }) => {
     const isImageLeft = imagePosition === 'left';
 
+    // When the primary button points to an in-page anchor (#id), smooth-scroll instead of navigating
+    const handlePrimaryClick = (event) => {
+        if (buttonHref && buttonHref.startsWith('#')) {
+            const target =
+                typeof document !== 'undefined' && document.querySelector(buttonHref);
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        if (onButtonClick) onButtonClick(event);
+    };
+
     return (
         <section className={`bg-[#F6F5F5] ${className}`}>
             <div
@@ -102,7 +115,7 @@ const BaseSplitBanner = ({
                                 <ButtonArrow
                                     label={buttonLabel}
                                     href={buttonHref}
-                                    onClick={onButtonClick}
+                                    onClick={handlePrimaryClick}
                                 />
                             )}
                             {secondaryLabel && (

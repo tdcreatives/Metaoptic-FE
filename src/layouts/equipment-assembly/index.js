@@ -55,7 +55,7 @@ const EquipmentAssembly = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See platforms"
-                buttonHref="#"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -88,25 +88,27 @@ const EquipmentAssembly = () => {
                 framed={false}
             />
 
-            <BaseFeatureCta
-                title={
-                    <>
-                        Automated metalens
-                        <br />
-                        camera module assembly
-                        <br />
-                        and test system
-                    </>
-                }
-                description="Align, assemble and test camera modules end to end."
-                imageSrc="/verticals/equipment/assembly/automated-metalens.png"
-                imageAlt="Automated metalens camera module assembly and test system"
-                imageWidth={602}
-                imageHeight={457}
-                imagePosition="right"
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BaseFeatureCta
+                    title={
+                        <>
+                            Automated metalens
+                            <br />
+                            camera module assembly
+                            <br />
+                            and test system
+                        </>
+                    }
+                    description="Align, assemble and test camera modules end to end."
+                    imageSrc="/verticals/equipment/assembly/automated-metalens.png"
+                    imageAlt="Automated metalens camera module assembly and test system"
+                    imageWidth={602}
+                    imageHeight={457}
+                    imagePosition="right"
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection
                 title="Assembly at a glance"

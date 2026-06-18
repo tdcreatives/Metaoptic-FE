@@ -82,7 +82,7 @@ const ProductDevelopmentKits = () => {
                 imageHeight={560}
                 rounded
                 buttonLabel="See products"
-                buttonHref="/verticals/product/overview"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -106,13 +106,15 @@ const ProductDevelopmentKits = () => {
                 imagePosition="left"
             />
 
-            <BasePlatformsSection
-                title="Products"
-                items={DEV_KIT_PRODUCTS}
-                columns={3}
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BasePlatformsSection
+                    title="Products"
+                    items={DEV_KIT_PRODUCTS}
+                    columns={3}
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection
                 title="Kits at a glance"

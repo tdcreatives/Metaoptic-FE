@@ -67,7 +67,7 @@ const ProductConsumerDevices = () => {
                 videoSrc="/verticals/product/consumer-devices/banner.mp4"
                 posterSrc="/verticals/product/consumer-devices/banner-poster.jpg"
                 buttonLabel="See products"
-                buttonHref="/verticals/product/overview"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -85,14 +85,16 @@ const ProductConsumerDevices = () => {
                 imagePosition="left"
             />
 
-            <BasePlatformsSection
-                chip="Prototype, sampling only"
-                title="Products"
-                items={CONSUMER_PRODUCTS}
-                columns={2}
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BasePlatformsSection
+                    chip="Prototype, sampling only"
+                    title="Products"
+                    items={CONSUMER_PRODUCTS}
+                    columns={2}
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection title="Consumer at a glance" items={CONSUMER_GLANCE} columns={4} />
 

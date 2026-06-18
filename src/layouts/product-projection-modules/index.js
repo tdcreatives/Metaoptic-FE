@@ -52,7 +52,7 @@ const ProductProjectionModules = () => {
                 videoSrc="/verticals/product/projection-modules/banner.mp4"
                 posterSrc="/verticals/product/projection-modules/banner-poster.jpg"
                 buttonLabel="See products"
-                buttonHref="/verticals/product/overview"
+                buttonHref="#explore"
                 secondaryLabel="See all verticals"
                 secondaryHref="/verticals/overview"
             />
@@ -82,23 +82,25 @@ const ProductProjectionModules = () => {
                 imagePosition="left"
             />
 
-            <BaseFeatureCta
-                title={
-                    <>
-                        Pico Projector
-                        <br />
-                        (2nd generation)
-                    </>
-                }
-                description="Ultra-light projection in a metalens-enabled module."
-                imageSrc="/verticals/product/projection-modules/pico-project.png"
-                imageAlt="Pico Projector (2nd generation)"
-                imageWidth={602}
-                imageHeight={457}
-                imagePosition="right"
-                buttonLabel="Learn more"
-                buttonHref="#"
-            />
+            <div id="explore" className="scroll-mt-[40px]">
+                <BaseFeatureCta
+                    title={
+                        <>
+                            Pico Projector
+                            <br />
+                            (2nd generation)
+                        </>
+                    }
+                    description="Ultra-light projection in a metalens-enabled module."
+                    imageSrc="/verticals/product/projection-modules/pico-project.png"
+                    imageAlt="Pico Projector (2nd generation)"
+                    imageWidth={602}
+                    imageHeight={457}
+                    imagePosition="right"
+                    buttonLabel="Learn more"
+                    buttonHref="#"
+                />
+            </div>
 
             <BaseWhySection
                 title="Projection at a glance"
