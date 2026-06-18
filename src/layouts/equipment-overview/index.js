@@ -80,7 +80,7 @@ const EQUIPMENT_CATEGORIES = [
         icon: '/verticals/shared/icon-6.svg',
         title: 'Assembly',
         description: 'Automated alignment, bonding and final test.',
-        href: '#',
+        href: '/verticals/equipment/assembly',
     },
 ];
 

@@ -21,7 +21,7 @@ const dropdownItemsBase = {
         { label: "Overview", path: "/verticals/equipment/overview" },
         { label: "Lithography", path: "/verticals/equipment/lithography" },
         { label: "Testing", path: "/verticals/equipment/testing" },
-        { label: "Assembly", path: "#" },
+        { label: "Assembly", path: "/verticals/equipment/assembly" },
       ],
     },
     metaOpticsFoundry: {

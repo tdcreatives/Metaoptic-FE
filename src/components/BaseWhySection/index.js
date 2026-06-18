@@ -18,7 +18,6 @@ const BaseWhySection = ({
     title,
     items = [],
     columns = 4,
-    iconAlign = 'right',
     iconSize = 110,
     cardMinHeight = 340,
     className = '',
@@ -28,9 +27,6 @@ const BaseWhySection = ({
         { 2: 'xl:grid-cols-2', 3: 'xl:grid-cols-3', 4: 'xl:grid-cols-4', 5: 'xl:grid-cols-5' }[
             columns
         ] || 'xl:grid-cols-4';
-    const iconAlignClass =
-        { left: 'justify-start', center: 'justify-center', right: 'justify-end' }[iconAlign] ||
-        'justify-end';
 
     return (
         <section className={`bg-[#F4F2EF] ${className}`}>
@@ -65,7 +61,7 @@ const BaseWhySection = ({
                         )}
 
                         {item.icon && (
-                            <div className={`mt-auto flex ${iconAlignClass} pt-[24px]`}>
+                            <div className="mt-auto flex justify-end pt-[24px]">
                                 <Image
                                     src={item.icon}
                                     alt={item.title || ''}
