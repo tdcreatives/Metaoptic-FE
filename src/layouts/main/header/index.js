@@ -167,8 +167,8 @@ const Header = ({ background = "#F0F0F0" }) => {
   };
 
   const toggleMobileSubmenu = (submenuKey) => {
+    // Accordion: only one submenu open at a time (opening one closes the rest)
     setMobileOpenSubmenus((prev) => ({
-      ...prev,
       [submenuKey]: !prev[submenuKey],
     }));
   };
@@ -422,6 +422,8 @@ const Header = ({ background = "#F0F0F0" }) => {
         {Object.entries(items).map(([key, category]) => {
           const submenuKey = `verticals-${key}`;
           const isCatOpen = mobileOpenSubmenus[submenuKey];
+          const isCatActive = isItemActive(category);
+          const catColor = isCatActive || isCatOpen ? "#D34C39" : "#111111";
 
           return (
             <div key={key} className="flex flex-col w-full">
@@ -430,7 +432,7 @@ const Header = ({ background = "#F0F0F0" }) => {
                 className="flex items-center justify-between w-full cursor-pointer"
                 onClick={() => toggleMobileSubmenu(submenuKey)}
               >
-                <span className="text-[18px] futura-medium text-[#D34C39]">
+                <span className="text-[18px] futura-medium" style={{ color: catColor }}>
                   {category.label}
                 </span>
                 <svg
@@ -438,7 +440,7 @@ const Header = ({ background = "#F0F0F0" }) => {
                     isCatOpen ? "rotate-180" : ""
                   }`}
                   fill="none"
-                  stroke="#D34C39"
+                  stroke={catColor}
                   strokeWidth="2"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
