@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 import BaseSplitBanner from '@/components/BaseSplitBanner';
 import BaseTextSection from '@/components/BaseTextSection';
@@ -69,7 +70,24 @@ const FoundaryNirSwirMetalens = () => {
             <BaseTextSection
                 title="Built for NIR and SWIR"
                 description="Our metalenses cover the near-infrared (NIR) and short-wave infrared (SWIR) bands. Beyond sensing and imaging, they work as free-space couplers and collimators, for fibre coupling and beam shaping."
-            />
+            >
+                <div className="mt-[44px] grid grid-cols-1 gap-[40px] xl:grid-cols-2">
+                    <Image
+                        src="/verticals/foundary/nir-swir-metalens/build-1.png"
+                        alt="Traditional microlens"
+                        width={844}
+                        height={1093}
+                        className="w-full h-auto"
+                    />
+                    <Image
+                        src="/verticals/foundary/nir-swir-metalens/build-2.png"
+                        alt="MetaOptics metalens"
+                        width={844}
+                        height={1093}
+                        className="w-full h-auto"
+                    />
+                </div>
+            </BaseTextSection>
 
             <SeeBeyond />
 
