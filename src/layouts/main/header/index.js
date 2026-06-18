@@ -389,6 +389,107 @@ const Header = ({ background = "#F0F0F0" }) => {
   };
 
   // Helper function to render mobile dropdown menu
+  // Mobile verticals menu: full-width list with category icon cards + sub-items
+  const renderMobileVerticalsMenu = () => {
+    const items = dropdownItems.verticals;
+    if (!items || !mobileOpenDropdowns.verticals) return null;
+
+    const chevronRight = (color) => (
+      <svg
+        className="w-5 h-5 shrink-0"
+        fill="none"
+        stroke={color}
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    );
+
+    return (
+      <div className="mt-[14px] w-full flex flex-col gap-[24px]">
+        {/* Explore All Verticals */}
+        <Link
+          href="/verticals/overview"
+          onClick={handleMenuClose}
+          className="flex items-center justify-between w-full border-b border-[#D3D0D0] border-opacity-50 pb-[12px] text-[18px] futura-medium text-[#111111]"
+        >
+          <span>Explore All Verticals</span>
+          {chevronRight("#111111")}
+        </Link>
+
+        {Object.entries(items).map(([key, category]) => {
+          const submenuKey = `verticals-${key}`;
+          const isCatOpen = mobileOpenSubmenus[submenuKey];
+
+          return (
+            <div key={key} className="flex flex-col w-full">
+              {/* Category title toggle */}
+              <div
+                className="flex items-center justify-between w-full cursor-pointer"
+                onClick={() => toggleMobileSubmenu(submenuKey)}
+              >
+                <span className="text-[18px] futura-medium text-[#D34C39]">
+                  {category.label}
+                </span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    isCatOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="#D34C39"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {isCatOpen && (
+                <>
+                  {/* Icon card */}
+                  <div className="mt-[16px] flex h-[140px] w-full items-center justify-center rounded-[4px] bg-[#F4F4F4]">
+                    <Image
+                      src={category.icon}
+                      alt={category.label}
+                      width="0"
+                      height="0"
+                      className="w-auto h-[72px]"
+                    />
+                  </div>
+
+                  {/* Sub-items */}
+                  <div className="mt-[12px] flex flex-col">
+                    {category.items.map((subItem) => {
+                      const active =
+                        subItem.path !== "#" && isSubItemActive(subItem.path);
+                      return (
+                        <Link
+                          key={subItem.label}
+                          href={subItem.path}
+                          onClick={handleMenuClose}
+                          className={clsx(
+                            "flex items-center justify-between w-full border-b border-[#D3D0D0] border-opacity-50 py-[12px] text-[16px] futura-medium",
+                            active ? "text-[#D34C39]" : "text-[#747474]"
+                          )}
+                        >
+                          <span>{subItem.label}</span>
+                          {chevronRight(active ? "#D34C39" : "#747474")}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   const renderMobileDropdownMenu = (dropdownKey) => {
     const items = dropdownItems[dropdownKey];
     if (!items) return null;
@@ -694,7 +795,9 @@ const Header = ({ background = "#F0F0F0" }) => {
                           />
                         </svg>
                       </div>
-                      {renderMobileDropdownMenu(header.dropdownKey)}
+                      {header.dropdownKey === "verticals"
+                        ? renderMobileVerticalsMenu()
+                        : renderMobileDropdownMenu(header.dropdownKey)}
                     </div>
                   );
                 }
