@@ -21,7 +21,7 @@ const GALLERY = [
 const CustomTesters = () => {
     return (
         <section className="bg-[#F6F5F5]">
-            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
             {/* Heading + copy + main image */}
             <div className="flex flex-col gap-[40px] xl:flex-row xl:gap-[80px]">
                 <div className="xl:flex-1">

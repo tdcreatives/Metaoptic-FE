@@ -137,6 +137,7 @@ const VerticalsOverview = () => {
                 imageSrc="/verticals/overview/how-it-works.png"
                 imageAlt="What is a metalens"
                 imagePosition="left"
+                imageBottomMobile
             >
                 <div className="mt-[32px] border border-[#D3D0D0]">
                     {/* Header row */}
@@ -189,6 +190,7 @@ const VerticalsOverview = () => {
                 buttonLabel="Contact us"
                 buttonHref="/contact-us"
                 backgroundImage="/verticals/shared/contact.png"
+                backgroundImageMobile="/verticals/shared/contact-mobile.png"
             />
 
             {/* Additional sections will be added here as the design is provided */}

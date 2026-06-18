@@ -34,6 +34,7 @@ const BaseFeatureSection = ({
     posterSrc,
     frameSrc,
     children,
+    imageBottomMobile = false,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
@@ -42,9 +43,9 @@ const BaseFeatureSection = ({
     return (
         <section className={`bg-[#F6F5F5] border-y border-black/[0.09] ${className}`}>
             <div
-                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[96px] xl:gap-[80px] xl:px-[72px] ${
-                    isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'
-                }`}
+                className={`mx-auto flex w-full max-w-[1660px] items-center gap-[40px] px-[24px] py-[64px] xl:gap-[80px] xl:px-[72px] xl:py-[96px] ${
+                    imageBottomMobile ? 'flex-col-reverse' : 'flex-col'
+                } ${isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'}`}
             >
                 {/* Media column */}
                 {hasMedia && (

@@ -4,7 +4,7 @@ import React from 'react';
 
 const AiIntelligence = () => {
     return (
-        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
             <div className="flex flex-col gap-[40px] xl:flex-row xl:gap-[80px]">
                 {/* Heading */}
                 <h2 className="futura-condensed-medium font-medium uppercase text-[40px] leading-[1.05] xl:text-[64px] xl:flex-1">

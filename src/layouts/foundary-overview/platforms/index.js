@@ -30,7 +30,7 @@ const COMPARISON = [
 
 const FoundaryPlatforms = () => {
     return (
-        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
             {/* Header */}
             <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:justify-between xl:gap-[60px]">
                 <div className="xl:flex-1">

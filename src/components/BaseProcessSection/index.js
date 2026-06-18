@@ -31,7 +31,7 @@ const BaseProcessSection = ({
 }) => {
     return (
         <section className={`bg-[#F6F5F5] ${className}`}>
-            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
                 <div className="flex flex-col gap-[48px] xl:flex-row xl:gap-[40px]">
                 {/* Intro column */}
                 <div className="flex w-full flex-col gap-[32px] xl:w-[730px]">

@@ -5,13 +5,13 @@ const NonContactRecognition = () => {
     <div className="xl:pt-[80px] pt-[40px]">
       {/* 3D Biometrics AI Header */}
       <div className="flex items-center mb-8 xl:mb-12">
-        <div className="bg-[#d34c39] text-white px-5 py-2 xl:text-[40px] text-[24px] uppercase futura-condensed-medium tracking-wide rounded-md flex items-center gap-3">
+        <div className="bg-[#d34c39] text-white px-[16px] py-[8px] xl:px-[32px] xl:py-[16px] text-[30px] xl:text-[40px] uppercase futura-condensed-medium tracking-wide rounded-md flex items-center gap-3">
           <Image
             src="/metaoptics-ai/3d-non-contact-recognition.svg"
             alt="3D Non-Contact Recognition"
             width={40}
             height={40}
-            className="w-[40px] h-[40px] object-contain"
+            className="hidden xl:block w-[40px] h-[40px] object-contain"
             unoptimized
           />
           3D Non-Contact Recognition

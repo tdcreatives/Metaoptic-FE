@@ -106,18 +106,18 @@ const VideoCard = ({ src, poster }) => {
 
 const InsideMotviewer = () => {
     return (
-        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+        <section className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
             {/* Label */}
             <div className="flex items-center gap-[24px]">
-                <span className="inline-flex items-center gap-[24px] rounded-[8px] bg-[#d34c39] px-[32px] py-[16px]">
+                <span className="inline-flex items-center gap-[24px] rounded-[8px] bg-[#d34c39] px-[16px] py-[8px] xl:px-[32px] xl:py-[16px]">
                     <Image
                         src={`${BASE}/inside-logo.png`}
                         alt=""
                         width={48}
                         height={48}
-                        className="w-[48px] h-auto"
+                        className="hidden xl:block w-[48px] h-auto"
                     />
-                    <span className="futura-condensed-medium font-medium uppercase text-[40px] leading-none text-white">
+                    <span className="futura-condensed-medium font-medium uppercase text-[30px] xl:text-[40px] leading-none text-white">
                         Inside MOTviewer
                     </span>
                 </span>

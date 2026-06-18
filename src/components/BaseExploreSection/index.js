@@ -49,7 +49,7 @@ const BaseExploreSection = ({
 
     return (
         <section
-            className={`mx-auto w-full max-w-[1660px] px-[24px] py-[40px] xl:px-[72px] xl:py-[60px] ${className}`}
+            className={`mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[60px] ${className}`}
         >
             {/* Header */}
             <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:gap-[60px]">

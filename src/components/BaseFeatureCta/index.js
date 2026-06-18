@@ -44,7 +44,7 @@ const BaseFeatureCta = ({
     return (
         <section className={className} style={{ backgroundColor: background }}>
             <div
-                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[96px] xl:gap-[86px] xl:px-[72px] ${
+                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[64px] xl:gap-[86px] xl:px-[72px] xl:py-[96px] ${
                     isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'
                 }`}
             >

@@ -30,7 +30,7 @@ const BaseWhySection = ({
 
     return (
         <section className={`bg-[#F4F2EF] ${className}`}>
-            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
                 {title && (
                     <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px]">
                         {title}

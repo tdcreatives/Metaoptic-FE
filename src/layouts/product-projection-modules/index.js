@@ -124,6 +124,7 @@ const ProductProjectionModules = () => {
                 buttonLabel="Contact us"
                 buttonHref="/contact-us"
                 backgroundImage="/verticals/shared/contact.png"
+                backgroundImageMobile="/verticals/shared/contact-mobile.png"
             />
 
             {/* Additional sections will be added here as the design is provided */}

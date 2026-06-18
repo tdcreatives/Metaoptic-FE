@@ -82,51 +82,55 @@ const BaseSplitBanner = ({
         if (onButtonClick) onButtonClick(event);
     };
 
+    // Buttons are shared between the text column (desktop) and below the image (mobile)
+    const actions = (buttonLabel || secondaryLabel) && (
+        <>
+            {buttonLabel && (
+                <ButtonArrow label={buttonLabel} href={buttonHref} onClick={handlePrimaryClick} />
+            )}
+            {secondaryLabel && (
+                <Link
+                    href={secondaryHref}
+                    className="inline-flex items-center gap-[8px] uppercase text-[14px] tracking-[0.1em] futura-medium font-medium text-[#0B0B0C] hover:opacity-80 transition-opacity"
+                >
+                    {secondaryLabel}
+                    <ArrowIcon className="w-[18px]" />
+                </Link>
+            )}
+        </>
+    );
+
     return (
         <section className={`bg-[#F6F5F5] ${className}`}>
             <div
-                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[120px] xl:gap-[60px] xl:px-[72px] ${
+                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[56px] px-[24px] py-[40px] xl:gap-[60px] xl:px-[72px] xl:py-[120px] ${
                     isImageLeft ? 'xl:flex-row-reverse' : 'xl:flex-row'
                 }`}
             >
                 {/* Text column */}
                 <div className="w-full xl:flex-1">
                     {title && (
-                        <h1 className="futura-condensed-medium font-medium uppercase text-[#d34c39] text-[48px] leading-[1.1] md:text-[72px] xl:text-[100px] xl:leading-[110px]">
+                        <h1 className="futura-condensed-medium font-medium uppercase text-[#d34c39] text-[64px] leading-[1.1] md:text-[72px] xl:text-[100px] xl:leading-[110px]">
                             {title}
                         </h1>
                     )}
 
                     {subtitle && (
-                        <p className="futura-medium text-[#0B0B0C] text-[18px] xl:text-[22px] mt-[24px] max-w-[520px]">
+                        <p className="futura-medium text-[#0B0B0C] text-[19px] xl:text-[22px] mt-[16px] xl:mt-[24px] max-w-[520px]">
                             {subtitle}
                         </p>
                     )}
 
                     {description && (
-                        <p className="text-[#4A4A4E] text-[15px] xl:text-[17px] font-normal mt-[20px] max-w-[520px] leading-relaxed">
+                        <p className="text-[#4A4A4E] text-[16px] xl:text-[17px] font-normal mt-[16px] xl:mt-[20px] max-w-[520px] leading-relaxed">
                             {description}
                         </p>
                     )}
 
-                    {(buttonLabel || secondaryLabel) && (
-                        <div className="mt-[32px] flex flex-wrap items-center gap-[24px]">
-                            {buttonLabel && (
-                                <ButtonArrow
-                                    label={buttonLabel}
-                                    href={buttonHref}
-                                    onClick={handlePrimaryClick}
-                                />
-                            )}
-                            {secondaryLabel && (
-                                <Link
-                                    href={secondaryHref}
-                                    className="inline-flex items-center gap-[8px] uppercase text-[14px] tracking-[0.1em] futura-medium font-medium text-[#0B0B0C] hover:opacity-80 transition-opacity"
-                                >
-                                    {secondaryLabel}
-                                    <ArrowIcon className="w-[18px]" />
-                                </Link>
-                            )}
+                    {/* Buttons - desktop: in the text column */}
+                    {actions && (
+                        <div className="mt-[32px] hidden flex-wrap items-center gap-[24px] xl:flex">
+                            {actions}
                         </div>
                     )}
                 </div>
@@ -134,13 +138,13 @@ const BaseSplitBanner = ({
                 {/* Media column */}
                 {(videoSrc || imageSrc) && (
                     <div
-                        className={`w-full flex justify-center xl:flex-1 ${
-                            isImageLeft ? 'xl:justify-start' : 'xl:justify-end'
+                        className={`w-full flex flex-col items-center xl:flex-1 ${
+                            isImageLeft ? 'xl:items-start' : 'xl:items-end'
                         }`}
                     >
                         {videoSrc ? (
                             <video
-                                className="w-full max-w-[720px] h-[560px] rounded-[16px] object-cover"
+                                className="w-full max-w-[720px] h-auto rounded-[16px] object-cover xl:h-[560px]"
                                 autoPlay
                                 loop
                                 muted
@@ -157,10 +161,19 @@ const BaseSplitBanner = ({
                                 width={imageWidth}
                                 height={imageHeight}
                                 className={`w-full max-w-[720px] ${
-                                    rounded ? 'h-[560px] object-cover rounded-[16px]' : 'h-auto'
+                                    rounded
+                                        ? 'h-auto object-cover rounded-[16px] xl:h-[560px]'
+                                        : 'h-auto'
                                 }`}
                                 priority
                             />
+                        )}
+
+                        {/* Buttons - mobile: below the image */}
+                        {actions && (
+                            <div className="mt-[32px] flex flex-wrap items-center justify-center gap-[24px] xl:hidden">
+                                {actions}
+                            </div>
                         )}
                     </div>
                 )}

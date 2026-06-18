@@ -21,7 +21,7 @@ const BaseTextSection = ({
 }) => {
     return (
         <section className={className} style={{ backgroundColor: background }}>
-            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
                 <div className="flex flex-col items-start gap-[48px] xl:flex-row">
                     {title && (
                         <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.1] xl:text-[64px] xl:flex-1">

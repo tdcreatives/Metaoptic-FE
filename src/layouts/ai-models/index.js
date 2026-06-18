@@ -47,7 +47,7 @@ const AiModels = () => {
           top padding is neutralised so the gap is consistent everywhere. */}
       <div
         id="explore"
-        className="mx-auto w-full max-w-[1660px] px-[24px] py-[80px] xl:px-[72px] scroll-mt-[40px]"
+        className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[80px] scroll-mt-[40px]"
       >
         <div className="flex flex-col gap-[80px] [&>div]:!pt-0">
           <SuperResolutionImaging />
@@ -68,6 +68,7 @@ const AiModels = () => {
         buttonLabel="Contact us"
         buttonHref="/contact-us"
         backgroundImage="/verticals/shared/contact.png"
+        backgroundImageMobile="/verticals/shared/contact-mobile.png"
       />
 
       {/* Additional sections will be added here as the design is provided */}

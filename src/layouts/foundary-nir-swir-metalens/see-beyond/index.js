@@ -6,7 +6,7 @@ import Image from 'next/image';
 const SeeBeyond = () => {
     return (
         <section className="bg-[#F6F5F5]">
-            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[96px] xl:px-[72px]">
+            <div className="mx-auto w-full max-w-[1660px] px-[24px] py-[64px] xl:px-[72px] xl:py-[96px]">
                 {/* Header */}
                 <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:justify-between xl:gap-[60px]">
                     <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px] xl:flex-1">
