@@ -35,15 +35,29 @@ const BaseFeatureSection = ({
     frameSrc,
     children,
     imageBottomMobile = false,
+    decorSrc,
     className = '',
 }) => {
     const isImageLeft = imagePosition === 'left';
     const hasMedia = videoSrc || imageSrc;
 
     return (
-        <section className={`bg-[#F6F5F5] border-y border-black/[0.09] ${className}`}>
+        <section
+            className={`relative overflow-hidden bg-[#F6F5F5] border-y border-black/[0.09] ${className}`}
+        >
+            {decorSrc && (
+                <Image
+                    src={decorSrc}
+                    alt=""
+                    aria-hidden="true"
+                    fill
+                    sizes="100vw"
+                    className="pointer-events-none select-none object-cover"
+                    priority={false}
+                />
+            )}
             <div
-                className={`mx-auto flex w-full max-w-[1660px] items-center gap-[40px] px-[24px] py-[64px] xl:gap-[80px] xl:px-[72px] xl:py-[96px] ${
+                className={`relative z-[1] mx-auto flex w-full max-w-[1660px] items-center gap-[40px] px-[24px] py-[64px] xl:gap-[80px] xl:px-[72px] xl:py-[96px] ${
                     imageBottomMobile ? 'flex-col-reverse' : 'flex-col'
                 } ${isImageLeft ? 'xl:flex-row' : 'xl:flex-row-reverse'}`}
             >

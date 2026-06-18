@@ -86,6 +86,7 @@ const EquipmentAssembly = () => {
                 imageHeight={417}
                 imagePosition="left"
                 framed={false}
+                decorSrc="/verticals/equipment/assembly/bg-assemble.png"
             />
 
             <div id="explore" className="scroll-mt-[40px]">
