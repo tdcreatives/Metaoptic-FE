@@ -65,7 +65,7 @@ const VIS_PRODUCTS = [
         image: '/verticals/foundary/vis-metalens/product-3.png',
         title: 'Collimating / Focussing Metalens',
         description: 'Beam shaping for projection and illumination.',
-        href: '/verticals/metalens-foundry/collimating-focussing-metalens',
+        href: '/verticals/metalens-products/collimating-meta-lens-pico-projector',
     },
 ];
 
