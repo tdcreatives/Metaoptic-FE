@@ -68,7 +68,7 @@ const FOUNDARY_CATEGORIES = [
         icon: '/verticals/shared/icon-8.svg',
         title: 'NIR and SWIR Metalenses',
         description: 'Ultra-wide field-of-view metalenses for the NIR and SWIR bands.',
-        href: '#',
+        href: '/verticals/foundary/nir-swir-metalens',
     },
     {
         number: '03',

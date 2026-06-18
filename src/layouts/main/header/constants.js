@@ -31,7 +31,7 @@ const dropdownItemsBase = {
       items: [
         { label: "Overview", path: "/verticals/foundary/overview" },
         { label: "VIS Metalens", path: "/verticals/foundary/vis-metalens" },
-        { label: "NIR & SWIR Metalenses", path: "#" },
+        { label: "NIR & SWIR Metalenses", path: "/verticals/foundary/nir-swir-metalens" },
         { label: "Photonic Integrations", path: "#" },
       ],
     },
