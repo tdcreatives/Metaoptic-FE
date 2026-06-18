@@ -53,19 +53,19 @@ const VIS_PRODUCTS = [
         image: '/verticals/foundary/vis-metalens/product-1.png',
         title: 'RGB Metalens',
         description: 'Full-colour imaging in a single flat optic.',
-        href: '#',
+        href: '/verticals/metalens-foundry/round-rgb-metalens',
     },
     {
         image: '/verticals/foundary/vis-metalens/product-2.png',
         title: 'Rectangular RGB Metalens',
         description: 'Colour imaging shaped to rectangular sensors.',
-        href: '#',
+        href: '/verticals/metalens-foundry/rectangular-rgb-metalens',
     },
     {
         image: '/verticals/foundary/vis-metalens/product-3.png',
         title: 'Collimating / Focussing Metalens',
         description: 'Beam shaping for projection and illumination.',
-        href: '#',
+        href: '/verticals/metalens-foundry/collimating-focussing-metalens',
     },
 ];
 
@@ -119,7 +119,7 @@ const FoundaryVisMetalens = () => {
                     items={VIS_PRODUCTS}
                     columns={3}
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-foundry"
                 />
             </div>
 

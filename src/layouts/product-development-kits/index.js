@@ -47,19 +47,19 @@ const DEV_KIT_PRODUCTS = [
         image: '/verticals/product/development-kits/product-1.png',
         title: '3D Biometrics Metalens Sensor',
         description: 'Depth and biometric sensing in a kit.',
-        href: '#',
+        href: '/verticals/metalens-products/3d-biometrics-metalens-sensor',
     },
     {
         image: '/verticals/product/development-kits/product-2.png',
         title: 'IoT Metalens Color Camera',
         description: 'A metalens colour camera ready to evaluate.',
-        href: '#',
+        href: '/verticals/metalens-products/iot-metalens-color-camera',
     },
     {
         image: '/verticals/product/development-kits/product-3.png',
         title: 'Ultra-wide FoV Monochromatic NIR Camera',
         description: 'Wide field-of-view infrared imaging.',
-        href: '#',
+        href: '/verticals/metalens-products/ultra-wide-fov-monochromatic-nir-camera',
     },
 ];
 
@@ -112,7 +112,7 @@ const ProductDevelopmentKits = () => {
                     items={DEV_KIT_PRODUCTS}
                     columns={3}
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-products"
                 />
             </div>
 

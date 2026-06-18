@@ -90,7 +90,7 @@ const EquipmentLithography = () => {
                     imageAlt="Direct Laser Writer"
                     imagePosition="right"
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-capital-equipment/direct-laser-writer"
                 />
             </div>
 

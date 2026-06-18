@@ -41,13 +41,13 @@ const CONSUMER_PRODUCTS = [
         image: '/verticals/product/consumer-devices/product-1.png',
         title: 'Metalens AI Glasses',
         description: 'A lightweight wearable built around metalens optics.',
-        href: '#',
+        href: '/verticals/metalens-products/metalens-ai-glasses',
     },
     {
         image: '/verticals/product/consumer-devices/product-2.png',
         title: 'Metalens 5G Smartphone',
         description: 'Mobile imaging with metalens cameras.',
-        href: '#',
+        href: '/verticals/metalens-products/metalens-5g-smartphone',
     },
 ];
 
@@ -92,7 +92,7 @@ const ProductConsumerDevices = () => {
                     items={CONSUMER_PRODUCTS}
                     columns={2}
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-products"
                 />
             </div>
 

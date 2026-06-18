@@ -95,7 +95,7 @@ const FoundaryNirSwirMetalens = () => {
                     imageHeight={457}
                     imagePosition="right"
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-foundry/ultra-wide-fov-ir-metalens"
                     background="#F6F5F5"
                 />
             </div>

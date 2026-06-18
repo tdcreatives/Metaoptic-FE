@@ -106,7 +106,7 @@ const EquipmentAssembly = () => {
                     imageHeight={457}
                     imagePosition="right"
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system"
                 />
             </div>
 

@@ -128,7 +128,11 @@ const BasePlatformsSection = ({
 
             {buttonLabel && (
                 <div className="mt-[40px] flex justify-center">
-                    <ButtonArrow label={buttonLabel} href={buttonHref} />
+                    {/* Single product -> go straight to its detail; multiple -> go to the list */}
+                    <ButtonArrow
+                        label={buttonLabel}
+                        href={items.length === 1 ? items[0]?.href || buttonHref : buttonHref}
+                    />
                 </div>
             )}
             </div>

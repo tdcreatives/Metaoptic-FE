@@ -47,19 +47,19 @@ const TESTING_PLATFORMS = [
         image: '/verticals/equipment/testing/platform-1.png',
         title: 'Manual Tester',
         description: 'A modular bench for R&D and prototyping.',
-        href: '#',
+        href: '/verticals/metalens-capital-equipment/manual-tester',
     },
     {
         image: '/verticals/equipment/testing/platform-2.png',
         title: 'Automatic Tester',
         description: 'Hands-off characterisation for higher throughput.',
-        href: '#',
+        href: '/verticals/metalens-capital-equipment/metalens-automatic-tester',
     },
     {
         image: '/verticals/equipment/testing/platform-3.png',
         title: 'Wafer-Level Tester',
         description: 'Full-wafer measurement for production.',
-        href: '#',
+        href: '/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system',
     },
 ];
 
@@ -97,7 +97,7 @@ const EquipmentTesting = () => {
                     items={TESTING_PLATFORMS}
                     columns={3}
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-capital-equipment"
                 />
             </div>
 

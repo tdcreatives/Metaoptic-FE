@@ -98,7 +98,7 @@ const ProductProjectionModules = () => {
                     imageHeight={457}
                     imagePosition="right"
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-products/pico-projector-2nd-generation"
                 />
             </div>
 

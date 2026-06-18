@@ -89,7 +89,7 @@ const FoundaryPhotonicsIntegration = () => {
                     imageHeight={457}
                     imagePosition="right"
                     buttonLabel="Learn more"
-                    buttonHref="#"
+                    buttonHref="/verticals/metalens-foundry/co-packaged-optics"
                     background="#F9F9F9"
                 />
             </div>
