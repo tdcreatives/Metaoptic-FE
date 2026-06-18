@@ -70,28 +70,28 @@ const VERTICAL_CARDS = [
         icon: '/verticals/shared/icon-1.svg',
         title: 'MetaOptics Equipment',
         description: 'Lithography, testing and assembly systems for flat-optics manufacturing.',
-        href: '/verticals/metalens-capital-equipment',
+        href: '/verticals/equipment/overview',
     },
     {
         number: '02',
         icon: '/verticals/shared/icon-2.svg',
         title: 'MetaOptics Foundry',
         description: 'Custom metalens fabrication from prototyping to volume.',
-        href: '/verticals/metalens-foundry',
+        href: '/verticals/foundary/overview',
     },
     {
         number: '03',
         icon: '/verticals/shared/icon-3.svg',
         title: 'MetaOptics Products',
         description: 'Metalens-enabled modules and devices ready to integrate.',
-        href: '/verticals/metalens-products',
+        href: '/verticals/product/overview',
     },
     {
         number: '04',
         icon: '/verticals/shared/icon-4.svg',
         title: 'MetaOptics AI',
         description: 'Software and models that turn metalens imagery into intelligence.',
-        href: '/verticals/metaoptics-ai',
+        href: '/verticals/ai/overview',
     },
 ];
 

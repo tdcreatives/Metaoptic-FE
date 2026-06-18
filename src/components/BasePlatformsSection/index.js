@@ -107,7 +107,7 @@ const BasePlatformsSection = ({
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px]">
+                            <div className="flex flex-1 flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px] min-h-[205px]">
                                 {item.title && (
                                     <h3 className="text-[19px] futura-medium font-medium tracking-[0.02em] text-[#0B0B0C]">
                                         {item.title}
@@ -119,7 +119,7 @@ const BasePlatformsSection = ({
                                     </p>
                                 )}
                                 {hasLink && (
-                                    <span className="mt-[8px] inline-flex items-center gap-[8px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] transition-opacity group-hover:opacity-80">
+                                    <span className="mt-auto pt-[8px] inline-flex items-center gap-[8px] uppercase text-[16px] futura-medium font-medium tracking-[0.1em] text-[#d34c39] transition-opacity group-hover:opacity-80">
                                         {item.exploreLabel || 'Explore'}
                                         <ArrowRight className="w-[18px]" />
                                     </span>

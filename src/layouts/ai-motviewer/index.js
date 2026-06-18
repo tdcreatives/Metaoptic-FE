@@ -55,25 +55,25 @@ const MOTVIEWER_CAPABILITIES = [
         image: '/verticals/ai/motviewer/product-1.png',
         title: 'Multi-camera streaming',
         description: 'Capture several metalens cameras at once.',
-        href: '#',
+        href: '/verticals/metalens-products/metalens-ai-glasses',
     },
     {
         image: '/verticals/ai/motviewer/product-2.png',
         title: 'Live processing',
         description: 'See enhanced frames in real time.',
-        href: '#',
+        href: '/verticals/metalens-products/pico-projector-2nd-generation',
     },
     {
         image: '/verticals/ai/motviewer/product-3.png',
         title: 'Image alignment and calibration',
         description: 'Line up and calibrate cameras in the app.',
-        href: '#',
+        href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
     },
     {
         image: '/verticals/ai/motviewer/product-4.png',
         title: 'Recognition',
         description: 'Run recognition such as fingerprint and 3D.',
-        href: '#',
+        href: '/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor',
     },
 ];
 

@@ -494,6 +494,10 @@ const Header = ({ background = "#F0F0F0" }) => {
 
   // Helper function to check if path is active
   const isPathActive = (header) => {
+    // Verticals is active on the overview page and any sub-page under /verticals
+    if (header.dropdownKey === "verticals") {
+      return pathName === "/verticals" || pathName.startsWith("/verticals/");
+    }
     if (header.dropdownKey) {
       const items = dropdownItems[header.dropdownKey];
       if (items) {

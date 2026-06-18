@@ -43,7 +43,7 @@ const AiModels = () => {
             />
 
             {/* Reused capability sections from the MetaOptics AI page */}
-            <div id="explore" className="container py-[80px] scroll-mt-[40px]">
+            <div id="explore" className="mx-auto w-full max-w-[1660px] px-[24px] py-[80px] xl:px-[72px] scroll-mt-[40px]">
                 <div className="[&>div]:!pt-0">
                     <SuperResolutionImaging />
                 </div>
