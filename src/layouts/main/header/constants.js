@@ -41,7 +41,7 @@ const dropdownItemsBase = {
       path: "/verticals/metalens-products",
       items: [
         { label: "Overview", path: "/verticals/product/overview" },
-        { label: "Consumer Devices", path: "#" },
+        { label: "Consumer Devices", path: "/verticals/product/consumer-devices" },
         { label: "Projection Modules", path: "#" },
         { label: "Development Kits", path: "#" },
       ],

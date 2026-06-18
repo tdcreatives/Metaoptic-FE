@@ -66,7 +66,7 @@ const PRODUCT_CATEGORIES = [
         icon: '/verticals/product/icon-1.svg',
         title: 'Consumer Devices',
         description: 'Metalens-equipped smartphone cameras and wearable optics.',
-        href: '#',
+        href: '/verticals/product/consumer-devices',
     },
     {
         number: '02',

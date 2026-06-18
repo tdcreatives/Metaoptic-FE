@@ -41,6 +41,7 @@ const ArrowRight = ({ className = 'w-[18px]' }) => (
 const BasePlatformsSection = ({
     title,
     description,
+    chip,
     items = [],
     columns = 3,
     buttonLabel,
@@ -57,11 +58,18 @@ const BasePlatformsSection = ({
         >
             {(title || description) && (
                 <div className="flex flex-col gap-[24px] xl:flex-row xl:items-start xl:justify-between xl:gap-[60px]">
-                    {title && (
-                        <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px] xl:flex-1">
-                            {title}
-                        </h2>
-                    )}
+                    <div className="xl:flex-1">
+                        {chip && (
+                            <span className="inline-block rounded-full border border-black px-[34px] py-[7px] text-[14px] futura-medium font-medium uppercase tracking-[1.68px] text-[#161616]">
+                                {chip}
+                            </span>
+                        )}
+                        {title && (
+                            <h2 className="futura-condensed-medium font-medium uppercase text-[#0B0B0C] text-[40px] leading-[1.05] xl:text-[64px] mt-[16px]">
+                                {title}
+                            </h2>
+                        )}
+                    </div>
                     {description && (
                         <p className="text-[#4A4A4E] text-[16px] xl:text-[18px] xl:text-right max-w-[460px] leading-relaxed">
                             {description}
