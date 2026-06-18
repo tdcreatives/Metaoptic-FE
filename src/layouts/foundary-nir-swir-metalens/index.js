@@ -107,7 +107,13 @@ const FoundaryNirSwirMetalens = () => {
 
             <BaseCtaSection
                 label="Talk to our team"
-                title="Talk to our foundry team"
+                title={
+                    <>
+                        Talk to our
+                        <br />
+                        foundry team
+                    </>
+                }
                 description="Tell us your wavelength and field-of-view targets."
                 imageSrc="/verticals/shared/find.png"
                 imageAlt="Talk to our foundry team"

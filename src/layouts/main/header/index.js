@@ -12,7 +12,7 @@ import BaseMobileHamburger from "@/components/BaseHamburger/MobileHamburger";
 import { headers, getDropdownItems } from "./constants";
 import clsx from "clsx";
 
-const Header = ({ background = "#fff" }) => {
+const Header = ({ background = "#F0F0F0" }) => {
   const dropdownItems = getDropdownItems();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHoveringMenu, setIsHoveringMenu] = useState(false);

@@ -125,7 +125,13 @@ const FoundaryVisMetalens = () => {
 
             <BaseCtaSection
                 label="Talk to our team"
-                title="Talk to our foundry team"
+                title={
+                    <>
+                        Talk to our
+                        <br />
+                        foundry team
+                    </>
+                }
                 description="Tell us your band, form factor and volume."
                 imageSrc="/verticals/shared/find.png"
                 imageAlt="Talk to our foundry team"

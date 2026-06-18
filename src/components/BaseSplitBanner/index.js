@@ -70,11 +70,9 @@ const BaseSplitBanner = ({
     const isImageLeft = imagePosition === 'left';
 
     return (
-        <section
-            className={`mx-auto w-full max-w-[1660px] px-[24px] py-[40px] xl:px-[72px] xl:py-[60px] ${className}`}
-        >
+        <section className={`bg-[#F6F5F5] ${className}`}>
             <div
-                className={`flex flex-col items-center gap-[40px] xl:gap-[60px] ${
+                className={`mx-auto flex w-full max-w-[1660px] flex-col items-center gap-[40px] px-[24px] py-[120px] xl:gap-[60px] xl:px-[72px] ${
                     isImageLeft ? 'xl:flex-row-reverse' : 'xl:flex-row'
                 }`}
             >

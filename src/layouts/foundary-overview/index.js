@@ -75,7 +75,7 @@ const FOUNDARY_CATEGORIES = [
         icon: '/verticals/shared/icon-9.svg',
         title: 'Photonics Integration',
         description: 'Co-packaged metaoptics for compact photonic systems.',
-        href: '#',
+        href: '/verticals/foundary/photonics-integration',
     },
 ];
 
@@ -143,7 +143,13 @@ const FoundaryOverview = () => {
 
             <BaseCtaSection
                 label="Talk to our team"
-                title="Talk to our foundry team"
+                title={
+                    <>
+                        Talk to our
+                        <br />
+                        foundry team
+                    </>
+                }
                 description="Bring us a design or a target spec and we will scope the run."
                 imageSrc="/verticals/shared/find.png"
                 imageAlt="Talk to our foundry team"
