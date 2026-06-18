@@ -772,6 +772,186 @@
       }
     },
     {
+      "name": "Wafer-Level Metalens Testing Platform",
+      "nameDom": "Wafer <br /> <div class='name-dom-metalens-tester--first'>Metalens</div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
+      "slug": "wafer-level-metalens-tester",
+      "image": "/product-details/wafer-level-metalens-tester/banner.png",
+      "imageScale": "1.25",
+      "mobileImageScale": "1.1",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "",
+      "details": {
+        "subtitle": "Production-Throughput Metalens Characterization System",
+        "description": "A production-throughput platform for direct on-wafer metalens characterization. The MetaOptics Modular Wafer-Level Metalens Tester scales metalens test to 300 mm wafers at > 1000 UPH, while sharing the same optical modules and measurement methodology as the MetaOptics manual and automated benchtop testers — so teams ramping from R&D into volume production keep their methodology intact.",
+        "keyFeaturesGrid": {
+          "title": "Key Features",
+          "description": "Built on a highly modular architecture, the manual testing platform prioritizes flexibility and scalability. It provides a practical starting point for precise metalens characterization that is designed to grow alongside your lab's evolving testing requirements.",
+          "columns": 3,
+          "items": [
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-1.svg",
+              "title": "Production Throughput",
+              "description": "Built for volume manufacturing lines."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-2.svg",
+              "title": "Wafer-Scale Handling",
+              "description": "Direct on-wafer characterization."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-3.svg",
+              "title": "Modular Architecture",
+              "description": "Shared modules across the tester line."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-4.svg",
+              "title": "Multiple Modalities",
+              "description": "PSF, MTF, BFP and efficiency in one platform."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-5.svg",
+              "title": "Configurable to Your Part",
+              "description": "Tailored per application and sample."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-6.svg",
+              "title": "R&D to Production",
+              "description": "R&D to Production"
+            }
+          ]
+        },
+        "dualColumnList": {
+          "columns": [
+            {
+              "title": "Measurements",
+              "subtitle": "Direct on-wafer characterization of metalenses and metasurfaces, with per-die reporting:",
+              "items": [
+                {
+                  "label": "Point-Spread Function (PSF)",
+                  "children": ["MTF", "FWHM", "Peak intensity", "Relative efficiency"]
+                },
+                { "label": "Wavefront Error (WFE) estimation" },
+                { "label": "Free-space fiber coupling efficiency" },
+                { "label": "Transmission (T) and total efficiency" },
+                {
+                  "label": "Back-focal plane (BFP)",
+                  "children": ["Angular-resolved intensity", "Efficiency vs. AOI"]
+                }
+              ]
+            },
+            {
+              "title": "Typical Starter System",
+              "subtitle": "A representative wafer-level production system, configurable per application:",
+              "items": [
+                { "label": "Source module: single fiber-coupled laser diode (or switchable multi-LD)" },
+                { "label": "Illumination module: collimated normal-incidence — or bare SM fiber for fiber-coupling metalens devices" },
+                { "label": "Wafer handling: 300 mm vacuum chuck with air-cushion transport and pre-scan warpage map" },
+                { "label": "Collection module: 50x, NA 0.55 (other magnifications configurable across the 20x – 150x range)" },
+                {
+                  "label": "Measurement modules — up to four populated",
+                  "children": ["Imaging / PSF / MTF / WFE", "BFP module"]
+                }
+              ]
+            }
+          ]
+        },
+        "moduleGrid": {
+          "title": "Modular Ecosystem & Available Upgrades",
+          "columns": [
+            {
+              "title": "Source Modules",
+              "description": "Fiber-coupled, TEC-stabilized sources delivered to the illumination module via a single fiber output. Available variants:",
+              "items": [
+                "Single-line fiber-coupled LD",
+                "Switchable multi-line LD",
+                "Broadband filtered source",
+                "External fiber-fed source"
+              ]
+            },
+            {
+              "title": "Illumination Modules",
+              "description": "Conditions the beam that reaches the wafer. Common kinematic interface — any of the following drops into the same slot:",
+              "items": [
+                "Collimated normal-incidence illumination",
+                "Variable-AOI illumination",
+                "Bare SM fiber illumination for fiber-coupling metalens work",
+                "VCSEL-based illumination",
+                "Finite working distance variants on request"
+              ]
+            },
+            {
+              "title": "Wafer Handling",
+              "description": "Vacuum-clamped wafer chuck with air-cushion-assisted transport and per-die warpage compensation. Configurable for standard wafer sizes and coupon-scale samples:",
+              "items": [
+                "300 mm vacuum chuck (default)",
+                "Inserts for 200 / 150 / 100 mm wafers",
+                "Coupon and custom-sample inserts",
+                "Pre-scan warpage mapping with per-die Z correction",
+                "Application-specific fixtures on request"
+              ]
+            },
+            {
+              "title": "Measurement Modules",
+              "description": "Up to four independent stations populated around the objective. Available modules:",
+              "items": [
+                "Imaging / PSF / MTF / WFE",
+                "Back-focal plane (BFP) imaging",
+                "Transmission and fiber-coupling efficiency",
+                "Custom modules for customer-specific workflows"
+              ]
+            }
+          ]
+        },
+        "specTable": {
+          "title": "Configuration Range Specifications",
+          "headers": ["Specification", "VIS", "NIR-I", "NIR-II"],
+          "rows": [
+            {
+              "label": "Wavelength range",
+              "values": ["400 – 700 nm", "700 – 1100 nm", "1100 – 1600 nm"]
+            },
+            { "label": "Throughput", "merged": "> 1000 UPH" },
+            { "label": "Wafer compatibility", "merged": "Up to 300 mm" },
+            {
+              "label": "Source options",
+              "merged": "Single LD, Switchable Multi-LD, Broadband + Filter"
+            },
+            { "label": "Total magnification", "merged": "20x – 150x" },
+            { "label": "Supported focal lengths", "merged": "Up to 5 mm" },
+            { "label": "Angle of incidence", "merged": "Up to 60°" },
+            {
+              "label": "Typical Z-step",
+              "merged": "10 nm closed-loop piezo; 0.1 µm typical step in MTF / z-scan workflows"
+            },
+            { "label": "Maximum collected NA", "merged": "0.95" },
+            {
+              "label": "Measurement modalities",
+              "merged": "MTF · PSF · BFP · Transmission · Fiber-Coupling Efficiency · WFE Estimation"
+            },
+            { "label": "Upgradeable measurement stations", "merged": "Up to 4" }
+          ],
+          "note": "Configurations / enhancements outside these ranges can be discussed on request."
+        },
+        "upgradability": {
+          "title": "Platform Continuity",
+          "description": "The MetaOptics Wafer-Level Metalens Tester sits at the production end of a shared product line. The same source, illumination, and measurement modules run on the MetaOptics manual tester (R&D, prototyping) and the automated benchtop tester. A team that begins on the manual tester and ramps to wafer-level production carries its measurement methodology — and its modules — forward instead of starting from scratch.",
+          "cta": {
+            "label": "View Metalens Automatic Tester",
+            "link": "/verticals/metalens-capital-equipment/metalens-automatic-tester"
+          }
+        },
+        "ctaBanner": {
+          "background": "/product-details/wafer-level-metalens-tester/banner.png",
+          "title": "Request a Tailored Configuration Quote or a Remote Demo",
+          "cta": {
+            "label": "Request Now",
+            "link": "/contact-us"
+          }
+        }
+      }
+    },
+    {
       "name": "Automated Metalens Camera Module Assembly and Test System (A&T) 2026",
       "nameDom": "Automated <br /> <div class='name-dom-metalens-tester--first'>Assembly and Test</div> <br /> <div class='name-dom-metalens-tester--second'>System</div>",
       "slug": "automated-metalens-camera-module-assembly-and-test-system",

@@ -59,7 +59,7 @@ const TESTING_PLATFORMS = [
         image: '/verticals/equipment/testing/platform-3.png',
         title: 'Wafer-Level Tester',
         description: 'Full-wafer measurement for production.',
-        href: '/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system',
+        href: '/verticals/metalens-capital-equipment/wafer-level-metalens-tester',
     },
 ];
 
