@@ -19,7 +19,7 @@ const dropdownItemsBase = {
       path: "/verticals/metalens-capital-equipment",
       items: [
         { label: "Overview", path: "/verticals/equipment/overview" },
-        { label: "Lithography", path: "#" },
+        { label: "Lithography", path: "/verticals/equipment/lithography" },
         { label: "Testing", path: "#" },
         { label: "Assembly", path: "#" },
       ],

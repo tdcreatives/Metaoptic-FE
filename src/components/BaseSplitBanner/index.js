@@ -2,8 +2,28 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import ButtonArrow from '@/components/ButtonArrow';
+
+// Vector arrow sized to match the surrounding text
+const ArrowIcon = ({ className = 'w-[18px]' }) => (
+    <svg
+        className={`${className} h-auto`}
+        viewBox="0 0 24 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <path
+            d="M1 8h21M15 1l7 7-7 7"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
 
 /**
  * Reusable split hero banner: a text column on one side and an illustration on
@@ -21,9 +41,11 @@ import ButtonArrow from '@/components/ButtonArrow';
  * @param {string} [videoSrc] - When set, renders an autoplaying muted video instead of the image
  * @param {string} [posterSrc] - Poster image shown before the video loads
  * @param {'left'|'right'} [imagePosition] - Side the media sits on (default 'right')
- * @param {string} [buttonLabel]
+ * @param {string} [buttonLabel] - Primary pill button
  * @param {string} [buttonHref]
  * @param {function} [onButtonClick]
+ * @param {string} [secondaryLabel] - Secondary text link with arrow
+ * @param {string} [secondaryHref]
  * @param {string} [className] - Extra classes for the outer <section>
  */
 const BaseSplitBanner = ({
@@ -40,6 +62,8 @@ const BaseSplitBanner = ({
     buttonLabel,
     buttonHref = '#',
     onButtonClick,
+    secondaryLabel,
+    secondaryHref = '#',
     rounded = false,
     className = '',
 }) => {
@@ -74,13 +98,25 @@ const BaseSplitBanner = ({
                         </p>
                     )}
 
-                    {buttonLabel && (
-                        <ButtonArrow
-                            label={buttonLabel}
-                            href={buttonHref}
-                            onClick={onButtonClick}
-                            className="mt-[32px]"
-                        />
+                    {(buttonLabel || secondaryLabel) && (
+                        <div className="mt-[32px] flex flex-wrap items-center gap-[24px]">
+                            {buttonLabel && (
+                                <ButtonArrow
+                                    label={buttonLabel}
+                                    href={buttonHref}
+                                    onClick={onButtonClick}
+                                />
+                            )}
+                            {secondaryLabel && (
+                                <Link
+                                    href={secondaryHref}
+                                    className="inline-flex items-center gap-[8px] uppercase text-[14px] tracking-[0.1em] futura-medium font-medium text-[#0B0B0C] hover:opacity-80 transition-opacity"
+                                >
+                                    {secondaryLabel}
+                                    <ArrowIcon className="w-[18px]" />
+                                </Link>
+                            )}
+                        </div>
                     )}
                 </div>
 
@@ -93,7 +129,7 @@ const BaseSplitBanner = ({
                     >
                         {videoSrc ? (
                             <video
-                                className="w-full max-w-[720px] h-auto rounded-[16px] object-cover"
+                                className="w-full max-w-[720px] h-[560px] rounded-[16px] object-cover"
                                 autoPlay
                                 loop
                                 muted
@@ -109,7 +145,9 @@ const BaseSplitBanner = ({
                                 alt={imageAlt}
                                 width={imageWidth}
                                 height={imageHeight}
-                                className={`w-full max-w-[687px] h-auto ${rounded ? 'rounded-[16px]' : ''}`}
+                                className={`w-full max-w-[720px] ${
+                                    rounded ? 'h-[560px] object-cover rounded-[16px]' : 'h-auto'
+                                }`}
                                 priority
                             />
                         )}

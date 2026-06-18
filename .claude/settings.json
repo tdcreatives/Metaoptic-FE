@@ -159,7 +159,10 @@
       "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate -show_entries format=duration,bit_rate -of default=noprint_wrappers=1 public/verticals/product/banner.mp4)",
       "Bash(ffmpeg -y -loglevel error -i public/verticals/product/banner.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an public/verticals/product/banner-opt.mp4)",
       "Bash(ffmpeg -y -loglevel error -i public/verticals/product/banner.mp4 -frames:v 1 -q:v 3 public/verticals/product/banner-poster.jpg)",
-      "Bash(ffmpeg -y -loglevel error -i public/verticals/product/banner.mp4 -vf \"scale=-2:720\" -c:v libx264 -crf 30 -preset slow -pix_fmt yuv420p -movflags +faststart -an public/verticals/product/banner-720.mp4)"
+      "Bash(ffmpeg -y -loglevel error -i public/verticals/product/banner.mp4 -vf \"scale=-2:720\" -c:v libx264 -crf 30 -preset slow -pix_fmt yuv420p -movflags +faststart -an public/verticals/product/banner-720.mp4)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate -show_entries format=duration -of default=noprint_wrappers=1 public/verticals/equipment/lithography/banner.mp4)",
+      "Bash(ffmpeg -y -loglevel error -i public/verticals/equipment/lithography/banner.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -an public/verticals/equipment/lithography/banner-opt.mp4)",
+      "Bash(ffmpeg -y -loglevel error -i public/verticals/equipment/lithography/banner.mp4 -frames:v 1 -q:v 3 public/verticals/equipment/lithography/banner-poster.jpg)"
     ],
     "additionalDirectories": [
       "/private/tmp"

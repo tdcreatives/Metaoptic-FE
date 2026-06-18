@@ -41,7 +41,7 @@ const BaseWhySection = ({
                     </h2>
                 )}
 
-                <div className={`mt-[40px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 ${colClass}`}>
+                <div className={`mt-[40px] grid grid-cols-1 gap-[16px] sm:grid-cols-2 ${colClass}`}>
                     {items.map((item, index) => (
                         <div
                             key={item.title || index}

@@ -66,7 +66,7 @@ const EQUIPMENT_CATEGORIES = [
         icon: '/verticals/shared/icon-1.svg',
         title: 'Lithography',
         description: 'Direct-write metalens patterning at sub-100 nm resolution.',
-        href: '#',
+        href: '/verticals/equipment/lithography',
     },
     {
         number: '02',
