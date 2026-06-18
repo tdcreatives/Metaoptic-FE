@@ -52,7 +52,7 @@ const dropdownItemsBase = {
       path: "/verticals/metaoptics-ai",
       items: [
         { label: "Overview", path: "/verticals/ai/overview" },
-        { label: "MOTViewer", path: "#" },
+        { label: "MOTViewer", path: "/verticals/ai/motviewer" },
         { label: "AI Models & Algorithms", path: "#" },
       ],
     },

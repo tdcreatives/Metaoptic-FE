@@ -68,7 +68,7 @@ const AI_CATEGORIES = [
         title: 'MOTviewer',
         description:
             'The development platform for live image-processing pipelines, multi-camera acquisition, a modular filter chain, AI plugins, and one-click pipeline and SDK export.',
-        href: '#',
+        href: '/verticals/ai/motviewer',
     },
     {
         number: '03',
