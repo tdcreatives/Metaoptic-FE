@@ -61,7 +61,7 @@ const BaseWhySection = ({
                         )}
 
                         {item.icon && (
-                            <div className="mt-auto flex justify-end pt-[24px]">
+                            <div className="flex justify-end pt-[16px]">
                                 <Image
                                     src={item.icon}
                                     alt={item.title || ''}
