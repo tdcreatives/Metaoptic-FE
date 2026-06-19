@@ -25,6 +25,18 @@ const Footer = () => {
               </div>
             </div>
 
+            <div className="flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium">
+              <div>
+                <a href="mailto:sales@metaoptics.sg">
+                  <p className="text-[#E0E1E0] mt-2">
+                    {" "}
+                    <span className="text-[#888888]">Investor Relations Email: </span>
+                    ir@metaoptics.sg
+                  </p>
+                </a>
+              </div>
+            </div>
+            
             <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
               <div>
                 <a href="tel:+6582180482">
