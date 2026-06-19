@@ -57,19 +57,29 @@ const dropdownItemsBase = {
       ],
     },
   },
+  // investorRelations: {
+  //   singaporeExchange: {
+  //     label: "SGX",
+  //     path: "#",
+  //     hasIndicator: true,
+  //     items: [
+  //       { label: "Company Announcements", path: "/company-announcement" },
+  //       { label: "Analyst Coverage", path: "/analyst-coverage" },
+  //     ],
+  //   },
+  //   nasdaq: {
+  //     label: "NASDAQ",
+  //     path: "/investor-relations",
+  //   },
+  // },
   investorRelations: {
-    singaporeExchange: {
-      label: "SGX",
-      path: "#",
-      hasIndicator: true,
-      items: [
-        { label: "Company Announcements", path: "/company-announcement" },
-        { label: "Analyst Coverage", path: "/analyst-coverage" },
-      ],
+    companyAnnouncements: {
+      label: "Company Announcements",
+      path: "/company-announcement",
     },
-    nasdaq: {
-      label: "NASDAQ",
-      path: "/investor-relations",
+    analystCoverage: {
+      label: "Analyst Coverage",
+      path: "/analyst-coverage",
     },
   },
 };
