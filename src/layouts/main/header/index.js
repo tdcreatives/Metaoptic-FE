@@ -452,13 +452,13 @@ const Header = ({ background = "#F0F0F0" }) => {
               {isCatOpen && (
                 <>
                   {/* Icon card */}
-                  <div className="mt-[16px] flex h-[140px] w-full items-center justify-center rounded-[4px] bg-[#F4F4F4]">
+                  <div className="mt-[16px] flex h-[120px] w-full items-center justify-center rounded-[4px] bg-[#F4F4F4]">
                     <Image
                       src={category.icon}
                       alt={category.label}
                       width="0"
                       height="0"
-                      className="w-auto h-[72px]"
+                      className="w-auto h-[60px]"
                     />
                   </div>
 
@@ -625,7 +625,7 @@ const Header = ({ background = "#F0F0F0" }) => {
 
   return (
     <div
-      className="relative z-[100] font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
+      className="sticky top-0 z-[100] xl:relative font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
       style={{
         background,
       }}

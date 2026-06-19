@@ -84,16 +84,10 @@ const ProductProjectionModules = () => {
 
             <div id="explore" className="scroll-mt-[40px]">
                 <BaseFeatureCta
-                    title={
-                        <>
-                            Pico Projector
-                            <br />
-                            (2nd generation)
-                        </>
-                    }
+                    title="Pico Projector"
                     description="Ultra-light projection in a metalens-enabled module."
                     imageSrc="/verticals/product/projection-modules/pico-project.png"
-                    imageAlt="Pico Projector (2nd generation)"
+                    imageAlt="Pico Projector"
                     imageWidth={602}
                     imageHeight={457}
                     imagePosition="right"
