@@ -41,8 +41,8 @@ const BaseWhySection = ({
                     {items.map((item, index) => (
                         <div
                             key={item.title || index}
-                            className="flex flex-col bg-white p-[24px]"
-                            style={{ minHeight: cardMinHeight }}
+                            className="flex flex-col bg-white p-[24px] sm:min-h-[var(--card-min-h)]"
+                            style={{ '--card-min-h': `${cardMinHeight}px` }}
                         >
                         {item.number && (
                             <span className="text-[20px] futura-medium font-medium text-[#8A8A8F]">
