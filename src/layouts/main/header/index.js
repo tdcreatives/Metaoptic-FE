@@ -634,7 +634,7 @@ const Header = ({ background = "#F0F0F0" }) => {
 
   return (
     <div
-      className="sticky top-0 z-[100] transition-colors duration-300 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
+      className="sticky top-0 z-[100] transition-colors duration-300 font-bold flex justify-between items-center mx-auto xl:px-[72px] px-[24px] py-[24px] w-full"
       style={{
         backgroundColor: isScrolled ? background : "#ffffff",
       }}
