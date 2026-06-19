@@ -21,6 +21,8 @@ const Header = ({ background = "#F0F0F0" }) => {
   const [hoveredSubmenus, setHoveredSubmenus] = useState({});
   const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState({});
   const [mobileOpenSubmenus, setMobileOpenSubmenus] = useState({});
+  // Header is transparent/white at the top, switches to the solid bg on scroll
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathName = usePathname();
 
   const menuBtnRef = useRef(null);
@@ -81,6 +83,13 @@ const Header = ({ background = "#F0F0F0" }) => {
       });
     }
   };
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -625,9 +634,9 @@ const Header = ({ background = "#F0F0F0" }) => {
 
   return (
     <div
-      className="sticky top-0 z-[100] xl:relative font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
+      className="sticky top-0 z-[100] transition-colors duration-300 font-bold flex justify-between items-center mx-auto xl:px-[72px] xl:py-[44px] px-[24px] py-[20px] w-full"
       style={{
-        background,
+        backgroundColor: isScrolled ? background : "#ffffff",
       }}
       onMouseLeave={() =>
         setOpenDropdowns((prev) => ({ ...prev, verticals: false }))
