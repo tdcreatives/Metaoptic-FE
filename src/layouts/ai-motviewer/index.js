@@ -110,8 +110,11 @@ const AiMotviewer = () => {
                     title="What you can do"
                     items={MOTVIEWER_CAPABILITIES}
                     columns={4}
-                    buttonLabel="Learn more"
-                    buttonHref="#"
+                    imageHeight={105}
+                    downloadButton={{
+                        label: 'Download MOTviewer (v6.5.3)',
+                        href: 'https://metaoptics-my.sharepoint.com/personal/tobias_metaoptics_sg/_layouts/15/onedrive.aspx?id=/personal/tobias_metaoptics_sg/Documents/__shared/MOTviewer%20installer/MOTviewer_v6.5.3_Core_Setup.zip&parent=/personal/tobias_metaoptics_sg/Documents/__shared/MOTviewer%20installer&ga=1',
+                    }}
                     background="#F9F9F9"
                 />
             </div>
