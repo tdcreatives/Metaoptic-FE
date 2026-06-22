@@ -110,7 +110,11 @@ const BasePlatformsSection = ({
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-1 flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px] min-h-[205px]">
+                            <div
+                                className={`flex flex-col gap-[8px] border-t-[1.5px] border-[#00000017] p-[24px]${
+                                    hasLink ? ' flex-1 min-h-[205px]' : ''
+                                }`}
+                            >
                                 {item.title && (
                                     <h3 className="text-[19px] futura-medium font-medium tracking-[0.02em] text-[#0B0B0C]">
                                         {item.title}
