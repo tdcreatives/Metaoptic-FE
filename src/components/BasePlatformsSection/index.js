@@ -46,6 +46,8 @@ const BasePlatformsSection = ({
     columns = 3,
     buttonLabel,
     buttonHref = '#',
+    downloadButton,
+    imageHeight,
     background,
     className = '',
 }) => {
@@ -102,7 +104,8 @@ const BasePlatformsSection = ({
                                     alt={item.imageAlt || item.title || ''}
                                     width={232}
                                     height={217}
-                                    className="h-[200px] w-auto object-contain"
+                                    className="w-auto object-contain"
+                                    style={{ height: imageHeight || 200 }}
                                 />
                             </div>
 
@@ -134,6 +137,32 @@ const BasePlatformsSection = ({
                 <div className="mt-[40px] flex justify-center">
                     {/* Only a single product: the button goes straight to its detail page */}
                     <ButtonArrow label={buttonLabel} href={items[0]?.href || buttonHref} />
+                </div>
+            )}
+
+            {downloadButton?.label && downloadButton?.href && (
+                <div className="mt-[40px] flex justify-center">
+                    <a
+                        href={downloadButton.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-[12px] rounded-full bg-[#d34c39] px-[32px] py-[18px] text-[16px] futura-medium font-medium uppercase tracking-[0.1em] text-white transition-opacity hover:opacity-90"
+                    >
+                        <svg
+                            className="w-[22px] h-[22px]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v6M9 12l3 3 3-3" />
+                        </svg>
+                        {downloadButton.label}
+                    </a>
                 </div>
             )}
             </div>

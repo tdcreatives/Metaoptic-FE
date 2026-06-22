@@ -55,25 +55,25 @@ const MOTVIEWER_CAPABILITIES = [
         image: '/verticals/ai/motviewer/product-1.png',
         title: 'Multi-camera streaming',
         description: 'Capture several metalens cameras at once.',
-        href: '/verticals/metalens-products/metalens-ai-glasses',
+        // href: '/verticals/metalens-products/metalens-ai-glasses',
     },
     {
         image: '/verticals/ai/motviewer/product-2.png',
         title: 'Live processing',
         description: 'See enhanced frames in real time.',
-        href: '/verticals/metalens-products/pico-projector-2nd-generation',
+        // href: '/verticals/metalens-products/pico-projector-2nd-generation',
     },
     {
         image: '/verticals/ai/motviewer/product-3.png',
         title: 'Image alignment and calibration',
         description: 'Line up and calibrate cameras in the app.',
-        href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
+        // href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
     },
     {
         image: '/verticals/ai/motviewer/product-4.png',
         title: 'Recognition',
         description: 'Run recognition such as fingerprint and 3D.',
-        href: '/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor',
+        // href: '/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor',
     },
 ];
 
@@ -110,8 +110,11 @@ const AiMotviewer = () => {
                     title="What you can do"
                     items={MOTVIEWER_CAPABILITIES}
                     columns={4}
-                    buttonLabel="Learn more"
-                    buttonHref="#"
+                    imageHeight={105}
+                    downloadButton={{
+                        label: 'Download MOTviewer (v6.5.3)',
+                        href: 'https://metaoptics.sg//download/software/MOTviewer_v6.5.3_Core_Setup.zip',
+                    }}
                     background="#F9F9F9"
                 />
             </div>
