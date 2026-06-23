@@ -53,14 +53,14 @@ const IRContacts = () => {
                     <div className='futura-medium font-medium text-[16px] md:text-[18px] xl:text-[20px] text-[#616161] leading-[1.8]'>
                         <div>Gateway Group</div>
                         <a
-                            href='mailto:MOT@gateway-grp.com'
+                            href='mailto:ir@metaoptics.sg'
                             className='text-[#616161] underline hover:text-[#d34c39] transition-colors'
                         >
-                            MOT@gateway-grp.com
+                            ir@metaoptics.sg
                         </a>
                         <div>
-                            <a href='tel:+19495743860' className='hover:text-[#d34c39] transition-colors'>
-                                949-574-3860
+                            <a href='tel:+6582180482' className='hover:text-[#d34c39] transition-colors'>
+                            +65 8218 0482
                             </a>
                         </div>
                     </div>

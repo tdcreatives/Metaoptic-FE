@@ -163,19 +163,19 @@ const ContactUs = () => {
                         <div>
                             Email:{' '}
                             <a
-                                href='mailto:MOT@gateway-grp.com'
+                                href='mailto:ir@metaoptics.sg'
                                 className='text-[#111111] underline underline-offset-4 hover:text-[#d34c39] transition-colors'
                             >
-                                MOT@gateway-grp.com
+                                ir@metaoptics.sg
                             </a>
                         </div>
                         <div>
                             Phone:{' '}
                             <a
-                                href='tel:+19495743860'
+                                href='tel:+6582180482'
                                 className='text-[#111111] hover:text-[#d34c39] transition-colors'
                             >
-                                949-574-3860
+                                +65 8218 0482
                             </a>
                         </div>
                     </div>
