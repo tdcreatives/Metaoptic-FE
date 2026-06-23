@@ -15,11 +15,11 @@ const Footer = () => {
           <div className="flex xl:flex-row flex-col justify-start xl:gap-8 gap-2  xl:mt-[40px] mt-5 w-full">
             <div className="flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium">
               <div>
-                <a href="mailto:MOT@gateway-grp.com">
+                <a href="mailto:ir@metaoptics.sg">
                   <p className="text-[#E0E1E0] mt-2">
                     {" "}
                     <span className="text-[#888888]">Email: </span>
-                    MOT@gateway-grp.com
+                    ir@metaoptics.sg
                   </p>
                 </a>
               </div>
