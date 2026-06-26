@@ -129,6 +129,85 @@
       }
     },
     {
+      "name": "IoT Metalens Color Camera",
+      "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
+      "slug": "iot-metalens-color-camera",
+      "image": "/products/product-3.png",
+      "category": "Camera",
+      "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
+      "brochure": "/download/iot-meta-lens-color-camera.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "installer": {
+        "name": "MOTViewer Installer File",
+        "link": [
+          {
+            "name": "MOTViewer Installer Files",
+            "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
+          },
+          {
+            "name": "Thorlabs Scientific Imaging Software",
+            "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+          }
+        ]
+      },
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
+        "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "10mm",
+            "length": "47mm",
+            "width": "44mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "65% @ 535 nm",
+            "resolution": "1.6 MP",
+            "activePixels": "1440 x 1080",
+            "pixelSize": "3.45 µm x 3.45 µm",
+            "imagingArea": "4.968 mm x 3.726 mm",
+            "adcResolution": "10 bits",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.04 ms – 26.843 ms",
+            "usbPowerConsumption": "1.17 W",
+            "ambientOperatingTemperature": "10 °C – 40 °C",
+            "storageTemperature": "0 °C – 55 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120 nm",
+            "pitchBetweenPillars": "320 nm",
+            "heightOfPillars": "650 nm",
+            "lensDiameter": "2mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
       "name": "IoT Rectangular Metalens Color Camera",
       "nameDom": "IoT Rectangular Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
       "slug": "iot-rectangular-metalens-color-camera",

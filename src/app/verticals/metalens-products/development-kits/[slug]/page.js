@@ -2,6 +2,7 @@ import data from "@/constants/data.json";
 import ProductDetailsClientSide from "@/layouts/product-details/ProductDetailsClientSide";
 
 const developmentKitsSlugs = [
+  "iot-metalens-color-camera",
   "iot-rectangular-metalens-color-camera",
   "3d-biometrics-metalens-sensor",
 ];

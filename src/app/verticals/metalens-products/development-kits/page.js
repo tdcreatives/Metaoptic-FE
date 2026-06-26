@@ -8,19 +8,26 @@ import ProductGrid from "@/components/ProductGrid";
 
 const products = [
   {
+    name: "3D Biometrics Metalens Sensor",
+    slug: "3d-biometrics-metalens-sensor",
+    href: "/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor",
+    image: "/products/product-1.png",
+    imageClassName: "xl:scale-[60%]",
+  },
+  {
+    name: "IoT Metalens Color Camera",
+    slug: "iot-metalens-color-camera",
+    href: "/verticals/metalens-products/development-kits/iot-metalens-color-camera",
+    image: "/products/product-3.png",
+    imageClassName: "xl:scale-[50%]",
+  },
+  {
     name: "IoT Rectangular Metalens Color Camera",
     slug: "iot-rectangular-metalens-color-camera",
     href:
       "/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera",
     image: "/products/iot-metalens-color-camera.png",
     imageClassName: "xl:scale-[50%]",
-  },
-  {
-    name: "3D Biometrics Metalens Sensor",
-    slug: "3d-biometrics-metalens-sensor",
-    href: "/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor",
-    image: "/products/product-1.png",
-    imageClassName: "xl:scale-[60%]",
   },
   {
     name: "Ultra-wide FoV Metalens Monochromatic IR Camera",

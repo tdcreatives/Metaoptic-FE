@@ -15,6 +15,7 @@ export const foundrySlugs = [
 ];
 
 export const developmentKitsSlugs = [
+  'iot-metalens-color-camera',
   'iot-rectangular-metalens-color-camera',
   '3d-biometrics-metalens-sensor',
 ];

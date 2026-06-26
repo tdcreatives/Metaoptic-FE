@@ -29,7 +29,7 @@ const nextConfig = {
       {
         source: '/verticals/metalens-foundry/iot-metalens-color-camera',
         destination:
-          '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
+          '/verticals/metalens-products/development-kits/iot-metalens-color-camera',
         permanent: true,
       },
       {

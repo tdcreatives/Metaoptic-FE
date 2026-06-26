@@ -53,6 +53,12 @@ const DEV_KIT_PRODUCTS = [
         image: '/verticals/product/development-kits/product-2.png',
         title: 'IoT Metalens Color Camera',
         description: 'A metalens colour camera ready to evaluate.',
+        href: '/verticals/metalens-products/development-kits/iot-metalens-color-camera',
+    },
+    {
+        image: '/products/iot-metalens-color-camera.png',
+        title: 'IoT Rectangular Metalens Color Camera',
+        description: 'Leading edge single layer meta lens colour camera development kit.',
         href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
     },
     {
@@ -112,7 +118,7 @@ const ProductDevelopmentKits = () => {
                 <BasePlatformsSection
                     title="Products"
                     items={DEV_KIT_PRODUCTS}
-                    columns={3}
+                    columns={4}
                     buttonLabel="Learn more"
                     buttonHref="/verticals/metalens-products"
                 />

@@ -20,7 +20,7 @@ RewriteRule ^annountcement/?$ /company-announcement [R=301,L,NC]
 RewriteRule ^annountcement/(.+)$ /company-announcement/$1 [R=301,L,NC]
 
 # Redirect legacy product URL to new slug (static export + Apache hosting)
-RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
+RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-metalens-color-camera [R=301,L,NC]
 
 # Canonicalize development-kits products to nested URL
 RewriteRule ^verticals/metalens-foundry/iot-rectangular-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera [R=301,L,NC]
