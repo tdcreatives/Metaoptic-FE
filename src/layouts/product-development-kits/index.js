@@ -56,7 +56,7 @@ const DEV_KIT_PRODUCTS = [
         href: '/verticals/metalens-products/development-kits/iot-metalens-color-camera',
     },
     {
-        image: '/products/iot-metalens-color-camera.png',
+        image: '/products/product-2.png',
         title: 'IoT Rectangular Metalens Color Camera',
         description: 'Leading edge single layer meta lens colour camera development kit.',
         href: '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
