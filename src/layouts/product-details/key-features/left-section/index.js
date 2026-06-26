@@ -43,9 +43,9 @@ const ProductDetailsKeyFeaturesLeftSection = ({ leftSection }) => {
       <div className="flex-1">
         {/* Main Title */}
         {title && (
-          <h1 className="xl:text-[28px] lg:text-[24px] text-[22px] font-medium text-black mb-6 leading-tight futura-medium">
+          <h2 className="xl:text-[28px] lg:text-[24px] text-[22px] font-medium text-black mb-6 leading-tight futura-medium">
             {title}
-          </h1>
+          </h2>
         )}
 
         {/* Description Paragraph */}

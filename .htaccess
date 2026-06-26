@@ -12,6 +12,11 @@ RewriteRule ^investor-relations/financials/quarterly-results/?$ /investor-relati
 RewriteRule ^investor-relations/governance/documents-and-charters/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
 RewriteRule ^investor-relations/governance/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
 
+# Hub redirects (avoid JS-only redirect pages being indexed)
+RewriteRule ^investor-relations/financials/?$ /investor-relations/financials/sec-filings [R=301,L,NC]
+RewriteRule ^investor-relations/news/?$ /investor-relations/news/press-releases [R=301,L,NC]
+RewriteRule ^investor-relations/resources/?$ /investor-relations/resources/investor-faqs [R=301,L,NC]
+
 # Legacy SGX announcement URLs (typo route annountcement → company-announcement)
 # Keep in sync with next.config.js redirects
 RewriteRule ^annountcement\.html$ /company-announcement [R=301,L,NC]

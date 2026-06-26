@@ -11,6 +11,7 @@ const AboutUsBanner = () => {
         <div className='mx-auto xl:px-[72px] px-[48px] xl:py-[48px] py-[24px]'>
             <BaseTitle
                 title='About Metaoptics'
+                as='h1'
                 className='!text-center futura-condensed-medium'
             />
 
@@ -29,7 +30,7 @@ const AboutUsBanner = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}>
                     <Image
                         src='/about-us/banner.png'
-                        alt='Banner'
+                        alt='Metaoptics team and facilities'
                         width='0'
                         height='0'
                         className='xl:w-[70%] w-[100%] mx-auto max-w-[900px] cursor-pointer'

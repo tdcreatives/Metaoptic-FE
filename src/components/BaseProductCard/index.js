@@ -140,7 +140,7 @@ const BaseProductCard = ({
                         transition={{ duration: 0.3, ease: 'easeInOut' }}>
                         <Image
                             src={`/${product?.image || 'fallback-image.svg'}`}
-                            alt='Product'
+                            alt={product?.name || 'Product'}
                             width='0'
                             height={0}
                             className='rounded-lg h-[300px] w-auto'
@@ -189,7 +189,7 @@ const BaseProductCard = ({
                         height={0}
                         sizes='(max-width: 768px) 100vw, 50vw'
                         src={`/${product?.image || 'fallback-image.svg'}`}
-                        alt='Product'
+                        alt={product?.name || 'Product'}
                         style={{
                             width: effectiveHovered ? 'fit-content' : '90%',
                             marginLeft: 'auto',

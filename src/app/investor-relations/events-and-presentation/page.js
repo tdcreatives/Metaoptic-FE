@@ -1,13 +1,12 @@
 import React from 'react';
+import { buildIrPageMetadata } from '@/lib/seo';
 import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
 import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
 import InvestorPresentation from '@/layouts/investor-relations/overview/investor-presentation';
 import EventsSection from '@/layouts/investor-relations/events-section';
 
-export const metadata = {
-    title: 'Events & Presentation | Investor Relations | Metaoptics Technologies',
-};
+export const metadata = buildIrPageMetadata('eventsAndPresentation');
 
 const UPCOMING_EVENTS = [
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import metadataJson from '@/constants/metadata.json';
+import { buildPageMetadataFromSection } from '@/lib/seo';
 
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
 import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
@@ -15,25 +15,7 @@ import EmailAlerts from '@/layouts/investor-relations/overview/email-alerts';
 import IRContacts from '@/layouts/investor-relations/overview/ir-contacts';
 
 
-export const metadata = {
-    title: metadataJson.investorrelations.title,
-    description: metadataJson.investorrelations.description,
-    keywords: metadataJson.investorrelations.keywords,
-    openGraph: {
-        images: [metadataJson.investorrelations.ogImage],
-        url: metadataJson.investorrelations.ogUrl,
-        type: metadataJson.investorrelations.ogType,
-        siteName: metadataJson.investorrelations.ogSiteName,
-        locale: metadataJson.investorrelations.ogLocale,
-    },
-    twitter: {
-        card: metadataJson.investorrelations.twitterCard,
-        creator: metadataJson.investorrelations.twitterCreator,
-        site: metadataJson.investorrelations.twitterSite,
-        title: metadataJson.investorrelations.twitterTitle,
-        description: metadataJson.investorrelations.twitterDescription,
-    },
-};
+export const metadata = buildPageMetadataFromSection('investorrelations');
 
 const InvestorRelations = () => {
     return (

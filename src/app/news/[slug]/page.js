@@ -1,4 +1,5 @@
 import data from '@/constants/news.json';
+import { buildNewsMetadata } from '@/lib/seo';
 
 import NewsDetailsClientSide from './NewsDetailsClientSide';
 
@@ -18,13 +19,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async (props) => {
     const params = await props.params;
     const news = visibleNews.find((item) => item.slug === params.slug);
-    return {
-        title: news?.title,
-        description: news?.desc,
-        openGraph: {
-            images: ['https://metaoptics.sg' + news?.image],
-        },
-    };
+    return buildNewsMetadata(news);
 };
 
 const NewsDetailsPage = async (props) => {

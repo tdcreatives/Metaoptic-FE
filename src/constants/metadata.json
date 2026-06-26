@@ -3,8 +3,9 @@
         "title": "About Us | Metaoptics Technologies",
         "description": "Learn about Metaoptics Technologies, a leading metalens manufacturer in Singapore.",
         "keywords": "Metalens manufacturer, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "path": "/about-us",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
-        "ogUrl": "https://metaoptics.sg",
+        "ogUrl": "https://metaoptics.sg/about-us",
         "ogType": "website",
         "ogSiteName": "Metaoptics Technologies",
         "ogLocale": "en_US",
@@ -18,8 +19,9 @@
         "title": "Products | Metaoptics Technologies",
         "description": "Explore our range of metalens products, designed for precision and performance.",
         "keywords": "Metalens products, metalens solutions, metalens Singapore, metalens manufacturer",
+        "path": "/verticals",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
-        "ogUrl": "https://metaoptics.sg",
+        "ogUrl": "https://metaoptics.sg/verticals",
         "ogType": "website",
         "ogSiteName": "Metaoptics Technologies",
         "ogLocale": "en_US",
@@ -29,12 +31,69 @@
         "twitterTitle": "Products | Metaoptics Technologies",
         "twitterDescription": "Explore our range of metalens products, designed for precision and performance."
     },
+    "metalensFoundry": {
+        "title": "Metalens Foundry | Metaoptics Technologies",
+        "description": "MetaOptics Foundry designs, fabricates, and produces metalenses at scale on 4-inch and 12-inch wafer platforms.",
+        "keywords": "Metalens foundry, metalens manufacturing, wafer metalens, metalens Singapore",
+        "path": "/verticals/metalens-foundry",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-foundry"
+    },
+    "metalensProducts": {
+        "title": "Metalens Products | Metaoptics Technologies",
+        "description": "MetaOptics metalens products bring flat optics into real-world devices from smartphones to AI glasses and development kits.",
+        "keywords": "Metalens products, metalens smartphone, metalens AI glasses, development kits",
+        "path": "/verticals/metalens-products",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-products"
+    },
+    "metalensCapitalEquipment": {
+        "title": "Metalens Capital Equipment | Metaoptics Technologies",
+        "description": "Precision metalens manufacturing and testing equipment including direct laser writers and automated testers.",
+        "keywords": "Metalens equipment, direct laser writer, metalens tester, optical metrology",
+        "path": "/verticals/metalens-capital-equipment",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-capital-equipment"
+    },
+    "metaopticsAi": {
+        "title": "MetaOptics AI | Metaoptics Technologies",
+        "description": "MetaOptics AI combines metalens optics with proprietary AI for super-resolution imaging, biometrics, and gesture recognition.",
+        "keywords": "MetaOptics AI, metalens AI, super-resolution imaging, biometric sensing",
+        "path": "/verticals/metaoptics-ai",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metaoptics-ai"
+    },
+    "fourInTwelveInPlatforms": {
+        "title": "4in & 12in Metalens Platforms | Metaoptics Technologies",
+        "description": "Custom metalens fabrication from prototype to mass production on 4-inch and 12-inch wafer platforms.",
+        "keywords": "4 inch metalens, 12 inch metalens, metalens fabrication, wafer platform",
+        "path": "/verticals/metalens-foundry/4in-12in-platforms",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-foundry/4in-12in-platforms"
+    },
+    "coPackagedOptics": {
+        "title": "Co-Packaged Optics | Metaoptics Technologies",
+        "description": "MetaOptics co-packaged optics solutions using metalens technology for next-generation data center interconnects.",
+        "keywords": "Co-packaged optics, CPO, metalens data center, optical interconnect",
+        "path": "/verticals/metalens-foundry/co-packaged-optics",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-foundry/co-packaged-optics"
+    },
+    "developmentKits": {
+        "title": "Metalens Development Kits | Metaoptics Technologies",
+        "description": "Development kits for integrating MetaOptics metalens camera modules into IoT, biometric, and mobile applications.",
+        "keywords": "Metalens development kit, IoT camera, biometric metalens, prototyping",
+        "path": "/verticals/metalens-products/development-kits",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/verticals/metalens-products/development-kits"
+    },
     "contactUs": {
         "title": "Contact Us | Metaoptics Technologies",
         "description": "Get in touch with Metaoptics Technologies for any inquiries or support.",
         "keywords": "Contact Metaoptics Technologies, metalens manufacturer, metalens solutions, metalens products, metalens Singapore",
+        "path": "/contact-us",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
-        "ogUrl": "https://metaoptics.sg",
+        "ogUrl": "https://metaoptics.sg/contact-us",
         "ogType": "website",
         "ogSiteName": "Metaoptics Technologies",
         "ogLocale": "en_US",
@@ -48,8 +107,9 @@
         "title": "News | Metaoptics Technologies",
         "description": "Stay updated with the latest news and developments from Metaoptics Technologies.",
         "keywords": "Metaoptics Technologies news, metalens news, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "path": "/news",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
-        "ogUrl": "https://metaoptics.sg",
+        "ogUrl": "https://metaoptics.sg/news",
         "ogType": "website",
         "ogSiteName": "Metaoptics Technologies",
         "ogLocale": "en_US",
@@ -63,6 +123,7 @@
         "title": "Metaoptics Technologies | Leading Metalens Manufacturer Singapore",
         "description": "Metaoptics Technologies offers advanced metalens manufacturing for AR, VR, and IoT devices, delivering miniaturization and high performance to support next-gen optical tech",
         "keywords": "Lens manufacturers, mobile phone cameras, camera lens manufacture, metalens manufacturer",
+        "path": "/",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
         "ogUrl": "https://metaoptics.sg",
         "ogType": "website",
@@ -77,22 +138,32 @@
     "investorrelations": {
         "title": "Investor Relations | Metaoptics Technologies",
         "description": "Stay updated with the latest investor relations from Metaoptics Technologies.",
-        "keywords": "Metaoptics Technologies news, metalens news, metalens technology, metalens solutions, metalens products, metalens Singapore",
+        "keywords": "Metaoptics Technologies investor relations, SGX Catalist, NASDAQ, metalens stock",
+        "path": "/investor-relations",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
-        "ogUrl": "https://metaoptics.sg",
+        "ogUrl": "https://metaoptics.sg/investor-relations",
         "ogType": "website",
         "ogSiteName": "Metaoptics Technologies",
         "ogLocale": "en_US",
         "twitterCard": "summary_large_image",
         "twitterCreator": "@metaoptics",
         "twitterSite": "@metaoptics",
-        "twitterTitle": "Investor Relations  | Metaoptics Technologies",
+        "twitterTitle": "Investor Relations | Metaoptics Technologies",
         "twitterDescription": "Stay updated with the latest investor relations from Metaoptics Technologies."
+    },
+    "analystCoverage": {
+        "title": "Analyst Coverage | Metaoptics Technologies",
+        "description": "View analyst coverage, ratings, and research reports for MetaOptics Ltd (SGX: 9MT).",
+        "keywords": "MetaOptics analyst coverage, SGX 9MT research, metalens stock analysis",
+        "path": "/analyst-coverage",
+        "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
+        "ogUrl": "https://metaoptics.sg/analyst-coverage"
     },
     "companyAnnouncements": {
         "title": "Company Announcements | Metaoptics Technologies",
         "description": "View official SGX company announcements and disclosures from MetaOptics Ltd (SGX: 9MT), including listing updates, financial results, and corporate news.",
         "keywords": "MetaOptics company announcements, SGX announcements, MetaOptics Ltd 9MT, SGX Catalist, investor disclosures, corporate announcements Singapore",
+        "path": "/company-announcement",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
         "ogUrl": "https://metaoptics.sg/company-announcement",
         "ogType": "website",
@@ -108,6 +179,7 @@
         "title": "Privacy Policy | Metaoptics Technologies",
         "description": "Read our privacy policy to understand how we collect, use, and protect your personal information.",
         "keywords": "privacy policy, data protection, Metaoptics Technologies, personal information, data privacy",
+        "path": "/privacy-policy",
         "ogImage": "https://metaoptics.sg/images/metaoptics-logo.png",
         "ogUrl": "https://metaoptics.sg/privacy-policy",
         "ogType": "website",
@@ -118,5 +190,77 @@
         "twitterSite": "@metaoptics",
         "twitterTitle": "Privacy Policy | Metaoptics Technologies",
         "twitterDescription": "Read our privacy policy to understand how we collect, use, and protect your personal information."
+    },
+    "irPages": {
+        "boardOfDirectors": {
+            "title": "Board Of Directors | Investor Relations | Metaoptics Technologies",
+            "description": "Meet the Metaoptics Board of Directors overseeing corporate governance and strategic direction.",
+            "path": "/investor-relations/governance/board-of-directors"
+        },
+        "managementTeam": {
+            "title": "Management Team | Investor Relations | Metaoptics Technologies",
+            "description": "Learn about the Metaoptics executive management team driving metalens innovation and growth.",
+            "path": "/investor-relations/governance/management-team"
+        },
+        "committeeComposition": {
+            "title": "Committee Composition | Investor Relations | Metaoptics Technologies",
+            "description": "View board committee composition and responsibilities at Metaoptics Technologies.",
+            "path": "/investor-relations/governance/committee-composition"
+        },
+        "documentsAndCharters": {
+            "title": "Documents & Charters | Investor Relations | Metaoptics Technologies",
+            "description": "Access corporate governance documents, charters, and policies for Metaoptics Technologies.",
+            "path": "/investor-relations/governance/documents-and-charters"
+        },
+        "secFilings": {
+            "title": "SEC Filings | Investor Relations | Metaoptics Technologies",
+            "description": "Browse SEC filings and regulatory disclosures from Metaoptics Technologies.",
+            "path": "/investor-relations/financials/sec-filings"
+        },
+        "quarterlyResults": {
+            "title": "Quarterly Results | Investor Relations | Metaoptics Technologies",
+            "description": "Review quarterly financial results and earnings materials from Metaoptics Technologies.",
+            "path": "/investor-relations/financials/quarterly-results"
+        },
+        "pressReleases": {
+            "title": "Press Releases | Investor Relations | Metaoptics Technologies",
+            "description": "Read the latest investor press releases from Metaoptics Technologies.",
+            "path": "/investor-relations/news/press-releases"
+        },
+        "media": {
+            "title": "Media | Investor Relations | Metaoptics Technologies",
+            "description": "Media resources and coverage related to Metaoptics Technologies.",
+            "path": "/investor-relations/news/media"
+        },
+        "investorFaqs": {
+            "title": "Investor FAQs | Investor Relations | Metaoptics Technologies",
+            "description": "Frequently asked questions for Metaoptics investors and shareholders.",
+            "path": "/investor-relations/resources/investor-faqs"
+        },
+        "emailAlerts": {
+            "title": "Email Alerts | Investor Relations | Metaoptics Technologies",
+            "description": "Sign up for Metaoptics investor email alerts and company updates.",
+            "path": "/investor-relations/resources/email-alerts"
+        },
+        "irContactUs": {
+            "title": "Contact Us | Investor Relations | Metaoptics Technologies",
+            "description": "Contact the Metaoptics investor relations team for inquiries and support.",
+            "path": "/investor-relations/resources/contact-us"
+        },
+        "stockQuote": {
+            "title": "Stock Quote | Investor Relations | Metaoptics Technologies",
+            "description": "View MetaOptics Ltd (SGX: 9MT) stock quote and trading information.",
+            "path": "/investor-relations/stock-info/stock-quote"
+        },
+        "irAnalystCoverage": {
+            "title": "Analyst Coverage | Investor Relations | Metaoptics Technologies",
+            "description": "Analyst coverage and research for MetaOptics Ltd within investor relations.",
+            "path": "/investor-relations/stock-info/analyst-coverage"
+        },
+        "eventsAndPresentation": {
+            "title": "Events & Presentation | Investor Relations | Metaoptics Technologies",
+            "description": "Upcoming investor events, presentations, and webcasts from Metaoptics Technologies.",
+            "path": "/investor-relations/events-and-presentation"
+        }
     }
 }

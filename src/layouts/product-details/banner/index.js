@@ -55,7 +55,7 @@ const ProductDetailsBanner = ({ product }) => {
               height="0"
               sizes="100vw"
               src={product?.image}
-              alt="Next"
+              alt={product?.name || "Product image"}
               className="w-full h-full relative cursor-pointer hover:scale-105 transition-transform duration-300 object-contain"
             />
           </div>
@@ -68,9 +68,9 @@ const ProductDetailsBanner = ({ product }) => {
             </span>
           )}
 
-          <div className="xl:text-[60px] lg:text-[48px] text-[48px] font-medium leading-tight lg:leading-normal text-[#d34c39] uppercase text-center futura-condensed-medium w-full">
+          <h1 className="xl:text-[60px] lg:text-[48px] text-[48px] font-medium leading-tight lg:leading-normal text-[#d34c39] uppercase text-center futura-condensed-medium w-full">
             {product?.name}
-          </div>
+          </h1>
         </div>
 
         <div className="xl:text-[28px] lg:text-[24px] text-[20px] futura-medium text-center xl:max-w-[70%] lg:max-w-[80%] mx-auto max-w-[90%]">

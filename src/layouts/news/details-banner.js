@@ -8,7 +8,9 @@ const NewsDetailsBanner = ({ news = {} }) => {
         <div className='flex flex-col gap-5 mt-12 my-[100px]'>
             <div className='xl:text-[20px] text-[#D44C39] text-[16px]'>{news?.date}</div>
 
-            <div className='xl:text-[40px] text-[28px]'>{news?.title}</div>
+            <div className='xl:text-[40px] text-[28px] font-medium'>
+                <h1>{news?.title}</h1>
+            </div>
             {news?.details?.images && news?.details?.images.length > 0 && (
                 news?.details?.images.length > 1 ? (
                     <BaseCarousel images={news?.details?.images || []} />

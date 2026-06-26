@@ -1,4 +1,5 @@
 import React from 'react';
+import { buildIrPageMetadata } from '@/lib/seo';
 import { IR_LAUNCH_FLAGS, IR_STOCK_INFO_FALLBACK } from '@/constants/ir-feature-flags';
 import IrLaunchRedirect from '@/layouts/investor-relations/ir-launch-redirect';
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
@@ -7,9 +8,7 @@ import StockQuoteDetail from '@/layouts/investor-relations/stock-info/stock-quot
 import StockChart from '@/layouts/investor-relations/stock-info/stock-chart';
 import DetailedInformation from '@/layouts/investor-relations/stock-info/detailed-information';
 
-export const metadata = {
-    title: 'Stock Quote | Investor Relations | Metaoptics Technologies',
-};
+export const metadata = buildIrPageMetadata('stockQuote');
 
 const StockQuotePage = () => {
     if (!IR_LAUNCH_FLAGS.showStockInfo) {

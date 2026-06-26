@@ -1,4 +1,5 @@
 import data from '@/constants/data.json';
+import { buildProductMetadata } from '@/lib/seo';
 import ProductDetailsClientSide from '@/layouts/product-details/ProductDetailsClientSide';
 import { foundrySlugs } from '@/utils/product';
 import { redirect } from 'next/navigation';
@@ -16,10 +17,10 @@ export const generateMetadata = async (props) => {
     const params = await props.params;
     const slug = params.slug === LEGACY_IOT_CAMERA_SLUG ? RECTANGULAR_IOT_CAMERA_SLUG : params.slug;
     const product = data.products.find((item) => item.slug === slug);
-    return {
-        title: product?.name,
-        description: product?.details?.description,
-    };
+    return buildProductMetadata(
+        product,
+        `/verticals/metalens-foundry/${params.slug}`
+    );
 };
 
 const ProductDetailsPage = async (props) => {

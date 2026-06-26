@@ -2,6 +2,7 @@ import React from 'react';
 
 import metadataJson from '@/constants/metadata.json';
 import items from '@/constants/announcements.json';
+import { buildPageMetadata, buildPageMetadataFromSection } from '@/lib/seo';
 
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
@@ -9,7 +10,6 @@ import AnnouncementDetailContent from '@/layouts/investor-relations/announcement
 import AnnouncementBanner from '@/layouts/investor-relations/announcement-banner';
 
 const baseMeta = metadataJson.companyAnnouncements;
-const SITE_ORIGIN = 'https://metaoptics.sg';
 
 const formatAnnouncementTitle = (announcement) => {
     const subTitle = announcement?.details?.announcement?.subTitle;
@@ -49,37 +49,19 @@ export async function generateMetadata(props) {
     const announcement = items.find((item) => item.slug === params.slug);
 
     if (!announcement) {
-        return {
-            title: baseMeta.title,
-            description: baseMeta.description,
-        };
+        return buildPageMetadataFromSection('companyAnnouncements');
     }
 
     const title = formatAnnouncementTitle(announcement);
     const description = getAnnouncementDescription(announcement);
-    const url = `${SITE_ORIGIN}/company-announcement/${announcement.slug}`;
 
-    return {
+    return buildPageMetadata({
         title,
         description,
+        path: `/company-announcement/${announcement.slug}`,
         keywords: baseMeta.keywords,
-        openGraph: {
-            title,
-            description,
-            images: [baseMeta.ogImage],
-            url,
-            type: baseMeta.ogType,
-            siteName: baseMeta.ogSiteName,
-            locale: baseMeta.ogLocale,
-        },
-        twitter: {
-            card: baseMeta.twitterCard,
-            creator: baseMeta.twitterCreator,
-            site: baseMeta.twitterSite,
-            title,
-            description,
-        },
-    };
+        image: baseMeta.ogImage,
+    });
 }
 
 const CompanyAnnouncementDetail = async (props) => {

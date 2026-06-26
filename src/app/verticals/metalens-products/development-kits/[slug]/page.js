@@ -1,4 +1,5 @@
 import data from "@/constants/data.json";
+import { buildProductMetadata } from "@/lib/seo";
 import ProductDetailsClientSide from "@/layouts/product-details/ProductDetailsClientSide";
 
 const developmentKitsSlugs = [
@@ -15,10 +16,10 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async (props) => {
   const params = await props.params;
   const product = data.products.find((item) => item.slug === params.slug);
-  return {
-    title: product?.name,
-    description: product?.details?.description,
-  };
+  return buildProductMetadata(
+    product,
+    `/verticals/metalens-products/development-kits/${params.slug}`
+  );
 };
 
 const ProductDetailsPage = async (props) => {
