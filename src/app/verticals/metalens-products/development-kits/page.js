@@ -18,7 +18,7 @@ const products = [
     name: "IoT Metalens Color Camera",
     slug: "iot-metalens-color-camera",
     href: "/verticals/metalens-products/development-kits/iot-metalens-color-camera",
-    image: "/products/product-3.png",
+    image: "/products/iot-metalens-color-camera-jun2026.png",
     imageClassName: "xl:scale-[50%]",
   },
   {

@@ -6,7 +6,7 @@ export const equipmentSlugs = [
   'wafer-level-metalens-tester'
 ];
 export const foundrySlugs = [
-  'color-imaging-meta-lens',
+  // 'color-imaging-meta-lens',
   'round-rgb-metalens',
   'rectangular-rgb-metalens',
   'ultra-wide-fov-ir-metalens',

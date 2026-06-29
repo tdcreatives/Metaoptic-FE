@@ -60,27 +60,27 @@ const PRODUCT_PROCESS = [
     },
 ];
 
-const PRODUCT_CATEGORIES = [
+const PRODUCT_CATEGORIES = [    
     {
         number: '01',
-        icon: '/verticals/product/icon-3.svg',
-        title: 'Development Kits',
-        description: 'Plug-and-play modules for evaluating metalens performance.',
-        href: '/verticals/product/development-kits',
-    },
-    {
-        number: '02',
         icon: '/verticals/product/icon-1.svg',
         title: 'Consumer Devices',
         description: 'Metalens-equipped smartphone cameras and wearable optics.',
         href: '/verticals/product/consumer-devices',
     },
     {
-        number: '03',
+        number: '02',
         icon: '/verticals/product/icon-2.svg',
         title: 'Projection Modules',
         description: 'Compact pico-projector optics for portable displays.',
         href: '/verticals/product/projection-modules',
+    },
+    {
+        number: '03',
+        icon: '/verticals/product/icon-3.svg',
+        title: 'Development Kits',
+        description: 'Plug-and-play modules for evaluating metalens performance.',
+        href: '/verticals/product/development-kits',
     },
 ];
 

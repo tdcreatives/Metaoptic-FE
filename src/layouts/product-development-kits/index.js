@@ -50,7 +50,7 @@ const DEV_KIT_PRODUCTS = [
         href: '/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor',
     },
     {
-        image: '/verticals/product/development-kits/product-2.png',
+        image: '/verticals/product/development-kits/iot-metalens-color-camera-jun2026.png',
         title: 'IoT Metalens Color Camera',
         description: 'A metalens colour camera ready to evaluate.',
         href: '/verticals/metalens-products/development-kits/iot-metalens-color-camera',
