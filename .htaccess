@@ -31,6 +31,7 @@ RewriteRule ^/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-i
 
 RewriteRule ^/investor-relations /company-announcement [R=301,L,NC]
 
+RewriteRule ^/verticals/metalens-foundry/color-imaging-meta-lens / [R=301,L,NC]
 
 
 # 1) Serve real files as-is.
