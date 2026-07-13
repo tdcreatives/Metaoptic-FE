@@ -64,7 +64,11 @@ const Content = () => {
         },
         {
             title: 'Data Security',
-            content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.`,
+            // content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.`,
+            content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.
+
+            If you have any questions, concerns or complaints about our privacy practices, please contact us at <a href="mailto:dpo@metaoptics.sg" class="text-[#D34C39] hover:underline">dpo@metaoptics.sg</a>.`,
+
         },
     ];
 
