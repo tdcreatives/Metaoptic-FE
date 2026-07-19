@@ -1,6 +1,7 @@
 import BaseButton from "@/components/BaseButton";
+import { toBrochureFileName } from "@/utils/product";
 
-const ProductDetailsSpecTable = ({ specTable, brochure }) => {
+const ProductDetailsSpecTable = ({ specTable, brochure, productName }) => {
   if (!specTable?.rows?.length) return null;
   const { title, headers, rows, note } = specTable;
 
@@ -9,7 +10,7 @@ const ProductDetailsSpecTable = ({ specTable, brochure }) => {
     if (brochure.toLowerCase().endsWith(".pdf")) {
       const link = document.createElement("a");
       link.href = brochure;
-      link.download = brochure.split("/").pop() || "brochure";
+      link.download = toBrochureFileName(productName);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

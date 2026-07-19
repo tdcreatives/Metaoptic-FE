@@ -33,6 +33,15 @@ export const staticPages = [
     'development-kits'
 ];
 
+// ponytail: filename for <a download>; ceiling = naive sanitize, upgrade if need unicode slugify
+export const toBrochureFileName = (productName) => {
+  const base = String(productName || "brochure")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[\\/:*?"<>|]/g, "");
+  return `${base}.pdf`;
+};
+
 export const getProductPath = (slug) => {
   if (equipmentSlugs.includes(slug)) {
     return `/verticals/metalens-capital-equipment/${slug}`;

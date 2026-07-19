@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import BaseButton from '@/components/BaseButton';
 import IconButton from '@/components/IconButton';
 import arrowDownIcon from '@/assets/images/arrow-down.png';
+import { toBrochureFileName } from '@/utils/product';
 
 // Helper function to format keys (e.g. RBGTargetWavelength → "RBG Target Wavelength")
 function formatKey(str) {
@@ -277,9 +278,7 @@ const ProductDetailsSpecifications = ({
                                 if (brochure.toLowerCase().endsWith('.pdf')) {
                                     const link = document.createElement('a');
                                     link.href = brochure;
-                                    // Extract filename from path (e.g., "/download/file.pdf" -> "file.pdf")
-                                    const fileName = brochureTitle.split('/').pop() || 'brochure';
-                                    link.download = fileName;
+                                    link.download = toBrochureFileName(brochureTitle);
                                     document.body.appendChild(link);
                                     link.click();
                                     document.body.removeChild(link);

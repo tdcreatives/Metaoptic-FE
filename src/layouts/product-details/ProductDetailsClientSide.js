@@ -53,6 +53,7 @@ const ProductDetailsClientSide = () => {
       {product?.details?.keyFeatures && (
         <ProductDetailsKeyFeatures
           keyFeatures={product?.details?.keyFeatures}
+          productName={product?.name}
         />
       )}
 
@@ -82,6 +83,7 @@ const ProductDetailsClientSide = () => {
         <ProductDetailsSpecTable
           specTable={product?.details?.specTable}
           brochure={product?.brochure}
+          productName={product?.name}
         />
       )}
 
