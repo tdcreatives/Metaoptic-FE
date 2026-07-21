@@ -64,7 +64,7 @@ const Footer = () => {
             <p className="text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4">
               United States
               <p className="text-[#E0E1E0]">
-              Metaoptics Inc. (USA) 1 Ferry Building, Suite 201 San Francisco, CA
+              Metaoptics Inc. (USA); 1 Ferry Building, Suite 201 San Francisco, CA
                 94111
               </p>
             </p>
