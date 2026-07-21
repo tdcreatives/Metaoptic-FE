@@ -13,7 +13,7 @@
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -141,7 +141,7 @@
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -220,7 +220,7 @@
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -450,7 +450,7 @@
       "buyNow": "https://metaoptics.shop/products/pico-projector",
       "brochure": "/download/pico-projector-v2027July.pdf",
       "userGuide": {
-        "name": "DOWNLOAD USER GUIDE",
+        "name": "User guide",
         "link": "/download/pico-projector-user-guiderev42.pdf"
       },
       "details": {
@@ -623,7 +623,7 @@
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -1382,6 +1382,10 @@
       "buyNow": "https://metaoptics.shop/products/pico-projector-2nd-gen",
       "buyNowText": "Buy Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
+      "userGuide": {
+        "name": "User guide",
+        "link": "/download/Pico-Projector-User-Guide_rev_4_1.pdf"
+      },
       "details": {
         "subtitle": "Pocket sized projection, ready to travel.",
         "description": "The 2nd Generation MetaOptics Pico Projector debuts as one of the smallest and most portable projection solutions showcased at CES 2026. Approximately half the size of its predecessor, it is designed for easy carry in a bag or pocket while still delivering bright, clear projection for demos, presentations and on the go content sharing. USB C connectivity keeps setup simple with modern devices, and its silent, fanless design makes it suitable for quiet meeting rooms and personal spaces. With low power consumption, the projector sets a new benchmark for miniaturized projection technology and battery friendly use.",
@@ -1460,7 +1464,11 @@
               "Qualcomm Dragonwing QCM6490 platform for 5G and IoT use cases",
               "Designed as a reference platform for OEM metalens integration"
             ],
-            "brochure": "/download/metalens-5g-smartphone-v2027July.pdf"
+            "brochure": "/download/metalens-5g-smartphone-v2027July.pdf",
+            "userGuide": {
+              "name": "User guide",
+              "link": "/download/MetaOptics_App_Guide.pdf"
+            }
           },
           "rightSection": {
             "list": [
@@ -1528,7 +1536,11 @@
               "Reference platform for AI eyewear",
               "Android Compatible"
             ],
-            "brochure": "/download/metalens-ai-glasses-v2027July.pdf"
+            "brochure": "/download/metalens-ai-glasses-v2027July.pdf",
+            "userGuide": {
+              "name": "User guide",
+              "link": "/download/MetaOptics_App_Guide.pdf"
+            }
           },
           "rightSection": {
             "list": [

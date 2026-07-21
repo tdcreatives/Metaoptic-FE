@@ -102,16 +102,16 @@ const ProductDetailsClientSide = () => {
           specifications={product?.details?.specifications}
           brochureTitle={product?.name}
           brochure={product?.brochure}
-          buttonLeft={product?.buttonLeft}
-          buttonRight={product?.buttonRight}
+          userGuide={product?.userGuide}
+          installer={product?.installer}
         />
       )}
 
       {product?.details?.testingCapabilities && (
         <ProductDetailsTestingCapabilities
           testingCapabilities={product?.details?.testingCapabilities}
-          buttonLeft={product?.buttonLeft}
-          buttonRight={product?.buttonRight}
+          buttonLeft={product?.userGuide}
+          buttonRight={product?.installer}
         />
       )}
 

@@ -4,12 +4,9 @@ import React, { useEffect, useCallback, useState } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 
-import BaseButton from '@/components/BaseButton';
-import IconButton from '@/components/IconButton';
-import arrowDownIcon from '@/assets/images/arrow-down.png';
+import DownloadIconButton, { DownloadDropdownButton } from '@/components/DownloadIconButton';
 import { toBrochureFileName } from '@/utils/product';
 
-// Helper function to format keys (e.g. RBGTargetWavelength → "RBG Target Wavelength")
 function formatKey(str) {
     const formatSegment = (segment, { inParens }) => {
         const lowerToUpper = inParens
@@ -36,10 +33,10 @@ const ProductDetailsSpecifications = ({
     specifications,
     brochureTitle,
     brochure,
-    buttonLeft,
-    buttonRight,
+    userGuide,
+    installer,
 }) => {
-    const [isExpanded, setIsExpanded] = useState(true); // Controls all sections' visibility
+    const [isExpanded, setIsExpanded] = useState(true);
 
     useEffect(() => {
         const sections = document.querySelectorAll('.spec-section');
@@ -132,14 +129,11 @@ const ProductDetailsSpecifications = ({
         );
     }, []);
 
-    const activeButtons = [buttonLeft, brochure, buttonRight].filter(Boolean).length;
     const specificationLength = Object.entries(specifications).length;
-    const column = activeButtons > specificationLength ? activeButtons : specificationLength;
-    const gridColsClass =  'grid-cols-1 md:grid-cols-'+column ;
+    const hasButtons = brochure || userGuide || installer;
 
     return (
         <div className='w-full bg-[#d34c39] lg:py-12 py-8 lg:px-10 px-6 rounded-[32px] text-white'>
-            {/* Specifications Title Row with Icon */}
             <div className='flex justify-between items-center mb-0'>
                 <div className='xl:text-[48px] lg:text-[40px] text-[32px] uppercase relative z-30 futura-condensed-medium lg:mt-0 mt-3 text-start'>
                     Specifications
@@ -175,7 +169,6 @@ const ProductDetailsSpecifications = ({
                                 )}
                         </div>
 
-                        {/* Collapsible Content */}
                         <div
                             className={`overflow-hidden transition-all duration-500 ${
                                 isExpanded
@@ -209,145 +202,42 @@ const ProductDetailsSpecifications = ({
                 ))}
             </div>
 
-            
-            <div className={`grid grid-cols-1 lg:grid-cols-${activeButtons} gap-12 mt-12`}>
-                <div className='spec-section flex justify-center items-center'>
-                    {buttonLeft && (
-                        Array.isArray(buttonLeft?.link) ? (
-                            <div className='relative group w-full max-w-xs'>
-                                <IconButton
-                                    label={`${buttonLeft?.name}`}
-                                    icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
-                                    classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
-                                    bgDefault='#fff'
-                                    className='w-full'
-                                />
-                                <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
-                                    {buttonLeft.link.map((item, index) => (
-                                        <button
-                                            key={index}
-                                            className='block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100'
-                                            onClick={() => {
-                                                if (item.link.toLowerCase().endsWith('.pdf')) {
-                                                    const link = document.createElement('a');
-                                                    link.href = item.link;
-                                                    link.download = item?.name || `file-${index + 1}`;
-                                                    document.body.appendChild(link);
-                                                    link.click();
-                                                    document.body.removeChild(link);
-                                                } else {
-                                                    window.open(item.link, '_blank');
-                                                }
-                                            }}
-                                        >
-                                            {item?.name || `Link ${index + 1}`}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        ) : (
-                            <BaseButton
-                                label={buttonLeft?.name}
-                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
-                                bgDefault='#fff'
-                                className='w-full max-w-xs'
-                                onClick={() => {
-                                    if (buttonLeft?.link.toLowerCase().endsWith('.pdf')) {
-                                        const link = document.createElement('a');
-                                        link.href = buttonLeft?.link;
-                                        link.download = buttonLeft?.name || 'file';
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    } else {
-                                        window.open(buttonLeft?.link, '_blank');
-                                    }
-                                }}
-                            />
-                        )
-                    )}
-                </div>
-                <div className='spec-section flex justify-center items-center'>
+            {hasButtons && (
+                <div className='flex flex-wrap justify-center items-center gap-6 lg:gap-[68px] mt-12'>
                     {brochure && (
-                        <BaseButton
-                            label='Download Brochure'
-                            classNameBtn='uppercase !text-[#d34c39] md:group-hover:!text-white'
-                            bgDefault='#fff'
-                            className='w-full max-w-xs'
-                            onClick={() => {
-                                if (brochure.toLowerCase().endsWith('.pdf')) {
-                                    const link = document.createElement('a');
-                                    link.href = brochure;
-                                    link.download = toBrochureFileName(brochureTitle);
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-                                } else {
-                                    window.open(brochure, '_blank');
-                                }
-                            }}
+                        <DownloadIconButton
+                            label='Brochure'
+                            href={brochure}
+                            download={toBrochureFileName(brochureTitle)}
+                            variant='light'
                         />
                     )}
-                </div>
-                <div className='spec-section flex justify-center items-center'>
-                    {buttonRight && (
-                        Array.isArray(buttonRight?.link) ? (
-                            <div className='relative group w-full max-w-xs'>
-                                <IconButton
-                                    label={`${buttonRight?.name}`}
-                                    icon={<Image src={arrowDownIcon} alt='arrow' width={16} height={16} />}
-                                    classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
-                                    bgDefault='#fff'
-                                    className='w-full'
-                                />
-                                <div className='absolute top-full mt-0 w-full bg-white shadow-lg rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto'>
-                                    {buttonRight.link.map((item, index) => (
-                                        <button
-                                            key={index}
-                                            className='block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100'
-                                            onClick={() => {
-                                                if (item?.link.toLowerCase().endsWith('.pdf')) {
-                                                    const link = document.createElement('a');
-                                                    link.href = item.link;
-                                                    link.download = item?.name || `file-${index + 1}`;
-                                                    document.body.appendChild(link);
-                                                    link.click();
-                                                    document.body.removeChild(link);
-                                                } else {
-                                                    window.open(item.link, '_blank');
-                                                }
-                                            }}
-                                        >
-                                            {item?.name || `Link ${index + 1}`}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                    {userGuide && (
+                        <DownloadIconButton
+                            label={userGuide.name || 'User guide'}
+                            href={userGuide.link}
+                            download={userGuide.name || 'user-guide'}
+                            variant='light'
+                        />
+                    )}
+                    {installer && (
+                        Array.isArray(installer?.link) ? (
+                            <DownloadDropdownButton
+                                label={installer?.name || 'MOT Viewer installer files'}
+                                items={installer.link}
+                                variant='light'
+                            />
                         ) : (
-                            <BaseButton
-                                label={buttonRight?.name}
-                                classNameBtn='!text-[#d34c39] md:group-hover:!text-white uppercase'
-                                bgDefault='#fff'
-                                className='w-full max-w-xs'
-                                onClick={() => {
-                                    if (buttonRight?.link.toLowerCase().endsWith('.pdf')) {
-                                        const link = document.createElement('a');
-                                        link.href = buttonRight?.link;
-                                        link.download = buttonRight?.name || 'file';
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    } else {
-                                        window.open(buttonRight?.link, '_blank');
-                                    }
-                                }}
+                            <DownloadIconButton
+                                label={installer?.name || 'MOT Viewer installer files'}
+                                href={installer?.link}
+                                download={installer?.name || 'installer'}
+                                variant='light'
                             />
                         )
                     )}
                 </div>
-            </div>
-
-
+            )}
         </div>
     );
 };

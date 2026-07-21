@@ -15,6 +15,9 @@ const countBrTag = (text) => {
 const ProductDetailsBanner = ({ product }) => {
   const isMobile = useMobile();
   const isExternalLink = product?.buyNow?.toLowerCase().startsWith("http");
+  // Specs / testing sections already show userGuide + installer
+  const hideDownloadsInBanner =
+    !!product?.details?.specifications || !!product?.details?.testingCapabilities;
   return (
     <div className="relative w-full lg:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
@@ -138,7 +141,7 @@ const ProductDetailsBanner = ({ product }) => {
             )
           )}
 
-          {product?.userGuide && (
+          {!hideDownloadsInBanner && product?.userGuide && (
             <BaseButton
               label={product?.userGuide?.name}
               classNameBtn="!text-[#d34c39] md:group-hover:!text-white uppercase !w-full"
@@ -159,7 +162,8 @@ const ProductDetailsBanner = ({ product }) => {
             />
           )}
 
-          {product?.installer &&
+          {!hideDownloadsInBanner &&
+            product?.installer &&
             (Array.isArray(product?.installer.link) ? (
               <div className="relative group w-full max-w-xs">
                 <BaseButton
