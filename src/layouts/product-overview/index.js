@@ -77,6 +77,13 @@ const PRODUCT_CATEGORIES = [
     },
     {
         number: '03',
+        icon: '/verticals/product/icon-4.svg',
+        title: 'Camera Modules',
+        description: 'Compact metalens camera modules for imaging and sensing.',
+        href: '/verticals/product/camera-modules',
+    },
+    {
+        number: '04',
         icon: '/verticals/product/icon-3.svg',
         title: 'Development Kits',
         description: 'Plug-and-play modules for evaluating metalens performance.',
@@ -116,7 +123,7 @@ const ProductOverview = () => {
                 title="Categories"
                 description="Finished devices, embeddable modules and evaluation kits. Each category is a different way to bring metalens optics into your product."
                 items={PRODUCT_CATEGORIES}
-                columns={3}
+                columns={4}
             />
 
             <BaseProcessSection

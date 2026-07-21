@@ -43,6 +43,7 @@ const dropdownItemsBase = {
         { label: "Overview", path: "/verticals/product/overview" },
         { label: "Consumer Devices", path: "/verticals/product/consumer-devices" },
         { label: "Projection Modules", path: "/verticals/product/projection-modules" },
+        { label: "Camera Modules", path: "/verticals/product/camera-modules" },
         { label: "Development Kits", path: "/verticals/product/development-kits" },
       ],
     },

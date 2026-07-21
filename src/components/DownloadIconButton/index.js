@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
+const VARIANT_BG = {
+  filled: "#d34c39",
+  light: "#BE4533",
+};
+
 const ArrowCircleDown = ({ className }) => (
   <svg
     className={clsx("w-8 h-8 shrink-0", className)}
@@ -44,12 +49,18 @@ const ChevronDown = ({ open, className }) => (
   </svg>
 );
 
-const buttonVariantClass = (variant) =>
-  clsx(
-    "inline-flex items-center justify-center gap-2 px-10 py-2 rounded-[33px] futura-medium tracking-[2px] uppercase text-[16px] transition-opacity hover:opacity-90 border border-solid",
-    variant === "filled" && "bg-[#d34c39] border-white text-white",
-    variant === "light" && "bg-[#BE4533] border-white text-white"
-  );
+const buttonShellClass =
+  "relative overflow-hidden inline-flex items-center justify-center gap-2 px-10 py-2 rounded-[33px] futura-medium tracking-[2px] uppercase text-[16px] transition-all duration-300 group border border-solid border-white text-white";
+
+const ButtonHoverLayers = ({ variant }) => (
+  <>
+    <span
+      className="absolute inset-0"
+      style={{ backgroundColor: VARIANT_BG[variant] || VARIANT_BG.filled }}
+    />
+    <span className="absolute inset-0 bg-[#231f20] transition-transform duration-500 ease-in-out -translate-x-full md:group-hover:translate-x-0" />
+  </>
+);
 
 const triggerDownload = (href, fileName) => {
   if (!href) return;
@@ -90,10 +101,13 @@ const DownloadIconButton = ({
     <button
       type={type}
       onClick={handleClick}
-      className={clsx(buttonVariantClass(variant), className)}
+      className={clsx(buttonShellClass, className)}
     >
-      <ArrowCircleDown />
-      <span>{label}</span>
+      <span className="relative z-10 inline-flex items-center gap-2">
+        <ArrowCircleDown />
+        <span>{label}</span>
+      </span>
+      <ButtonHoverLayers variant={variant} />
     </button>
   );
 };
@@ -135,10 +149,13 @@ const DownloadDropdownButton = ({
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((prev) => !prev)}
-        className={buttonVariantClass(variant)}
+        className={buttonShellClass}
       >
-        <span>{label}</span>
-        <ChevronDown open={open} className="text-white" />
+        <span className="relative z-10 inline-flex items-center gap-2">
+          <span>{label}</span>
+          <ChevronDown open={open} className="text-white" />
+        </span>
+        <ButtonHoverLayers variant={variant} />
       </button>
 
       {open && (
