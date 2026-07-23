@@ -111,7 +111,7 @@ const ProductCameraModules = () => {
                     </>
                 }
                 description="A global shutter CMOS sensor and 70-degree field of view make the modules suited to visible-band color imaging and sensing recognition. Available in 2MP and 5MP to match your resolution requirements."
-                imageSrc="/verticals/product/camera-modules/feature-sensing-imaging.jpg"
+                imageSrc="/verticals/product/camera-modules/feature-sensing-imaging.png"
                 imageAlt="Built for sensing and imaging"
                 imagePosition="left"
                 framed={false}
