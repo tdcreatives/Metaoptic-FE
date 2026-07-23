@@ -11,7 +11,8 @@ export const foundrySlugs = [
   'rectangular-rgb-metalens',
   'ultra-wide-fov-ir-metalens',
   'ultra-wide-fov-metalens-monochromatic-ir-camera',
-  'metalens-color-camera-module',
+  '2mp-rectangular-rgb-metalens-fc-module',
+  '5mp-rectangular-rgb-metalens-fc-module',
 ];
 
 export const developmentKitsSlugs = [

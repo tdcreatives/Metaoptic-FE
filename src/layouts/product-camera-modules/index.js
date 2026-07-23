@@ -54,14 +54,14 @@ const CAMERA_MODULE_PRODUCTS = [
         title: '2MP RGB Metalens FC Module',
         description:
             'Single-layer metalens color camera module for color imaging applications.',
-        href: '/verticals/metalens-foundry/metalens-color-camera-module',
+        href: '/verticals/metalens-foundry/2mp-rectangular-rgb-metalens-fc-module',
     },
     {
         image: '/verticals/product/camera-modules/product-5MP-Rectangular-RGB-Metalens-FC-Module.png',
         title: '5MP Rectangular RGB Metalens FC Module',
         description:
             'Higher-resolution variant with rectangular metalens for sensing and recognition.',
-        href: '#',
+        href: '/verticals/metalens-foundry/5mp-rectangular-rgb-metalens-fc-module',
     },
 ];
 

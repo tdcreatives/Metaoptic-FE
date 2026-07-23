@@ -28,6 +28,7 @@ const RelatedProducts = ({ relatedProducts }) => {
                         image={product.image}
                         category={product.category}
                         slug={product.slug}
+                        imageClassName="scale-75"
                     />
                 ))}
             </div>

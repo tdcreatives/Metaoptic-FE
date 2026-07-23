@@ -58,7 +58,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -109,7 +109,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -271,7 +271,7 @@
           },
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -320,7 +320,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -371,7 +371,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -422,7 +422,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -480,7 +480,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -535,7 +535,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -676,7 +676,7 @@
           },
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -692,41 +692,80 @@
     {
       "name": "Metalens Color Camera Module",
       "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
-      "slug": "metalens-color-camera-module",
+      "slug": "2mp-rectangular-rgb-metalens-fc-module",
       "image": "/products/product-9.png",
       "category": "Camera",
       "buyNow": "",
-      "brochure": "/download/metalens-color-camera-module.pdf",
+      "brochure": "/download/brochure-2mp-rectangular-rgb-metalens-fc-module.pdf",
       "details": {
-        "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
-        "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
+        "subtitle": "2MP Single Layer Metalens Color Camera Module",
+        "description": "A single-layer metalens colour camera module for colour imaging and non-contact fingerprint recognition in laptops and phones.",
         "specifications": {
           "mechanicalDimensions": {
-            "thickness": "8.8mm",
-            "length": "16mm",
-            "width": "14mm"
+            "thickness": "~ 3 mm",
+            "length": "~ 12 mm",
+            "width": "~ 12 mm"
           },
           "cameraSpecifications": {
-            "focalLength": "3mm",
-            "fieldOfView": "85°",
+            "metalens: ": "RGB metalens",
+            "fieldOfView": "70°",
             "sensorType": "Monochrome CMOS",
-            "peakQuantumEfficiency": "70% @ 550 nm",
-            "resolution": "2MP / 5MP",
-            "activePixels": "1920 x 1080",
-            "pixelSize": "1.75 µm x 1.75 µm",
-            "imagingArea": "3.36 mm x 2.52 mm",
-            "adcResolution": "12 bits",
-            "sensorShutterType": "Global",
-            "exposureTime": "0.03 ms – 30.0 ms",
-            "usbPowerConsumption": "1.5 W",
-            "ambientOperatingTemperature": "5 °C – 40 °C",
-            "storageTemperature": "-20 °C – 60 °C"
+            "pixelResolution:": "2MP",
+            "pixelSize": "3 µm x 3 µm",
+            "activeArraySize:": "1600 x 1300",
+            "imageArea:": "4.858 mm x 3.956 mm",
+            "outputFormat:": "10-bit RAW"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
           },
-          "metalensSpecifications": {
-            "minimumPillarDiameter": "120nm",
-            "pitchBetweenPillars": "300nm",
-            "heightOfPillars": "450nm",
-            "lensDiameter": "3mm"
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens Color Camera Module",
+      "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
+      "slug": "5mp-rectangular-rgb-metalens-fc-module",
+      "image": "/products/product-9.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/brochure-5mp-rectangular-rgb-metalens-fc-module.pdf",
+      "details": {
+        "subtitle": "5MP Single Layer Metalens Color Camera Module",
+        "description": "A single-layer metalens colour camera module for colour imaging and non-contact fingerprint recognition in laptops and phones.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "~ 3 mm",
+            "length": "~ 12 mm",
+            "width": "~ 12 mm"
+          },
+          "cameraSpecifications": {
+            "metalens: ": "Rectangular RGB metalens",
+            "fieldOfView": "70°",
+            "sensorType": "Monochrome CMOS",
+            "pixelResolution:": "70% @ 550 nm",
+            "resolution": "5MP",
+            "pixelSize": "2 µm x 2 µm",
+            "activeArraySize:": "1600 x 1300",
+            "imageArea:": "4.858 mm x 3.956 mm",
+            "outputFormat:": "10-bit RAW"
           }
         },
         "relatedProducts": [
