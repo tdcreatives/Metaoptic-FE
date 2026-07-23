@@ -622,9 +622,25 @@
                 ]
             },
             "mod": "production"
-        }
-        
+        },
 
-        
+        {
+            "id": 30,
+            "slug": "metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizona",
+            "title": "MetaOptics to Deploy its Direct Laser Writer at the University of Arizona's Center of Semiconductor Manufacturing to Advance its U.S. Expansion",
+            "desc": "MetaOptics announced that it has entered into an agreement to deploy its key metalens Direct Laser Writer (DLW) system at the University of Arizona's Center of Semiconductor Manufacturing.",
+            "date": "Jul 22, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.prnewswire.com/apac/news-releases/metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizonas-center-of-semiconductor-manufacturing-to-advance-its-us-expansion-302830627.html",
+            "external": false,
+            "details": {
+                "contentPath": "/content/news/metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizona.mdx",
+                "relatedNews": [
+                    
+                ]
+            },
+            "mod": "production"
+        }
     ]
 }
