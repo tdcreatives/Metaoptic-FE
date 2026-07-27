@@ -1,101 +1,60 @@
+/* Background nameDom lines — center constraint (no left/right stagger) */
+.name-dom-sensor,
+.name-dom-metalens-tester--first,
+.name-dom-metalens-tester--second,
+.name-dom-manual-tester--first,
+.name-dom-manual-tester--second,
+.name-dom-metalens-5g--first,
+.name-dom-metalens-ai--first,
+.name-dom-metalens-5g--second,
+.name-dom-metalens-ai--second {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: max-content;
+  text-align: center;
+}
+
 .name-dom-sensor {
-  position: absolute;
   bottom: -250px;
-  right: -5%;
 }
 
-.name-dom-metalens-tester--first {
-  position: absolute;
-  top: 200px;
-  left: 20%;
-}
-
-.name-dom-metalens-tester--second {
-  position: absolute;
-  top: 400px;
-  left: 60%;
-}
-
-.name-dom-manual-tester--first {
-  position: absolute;
-  top: 200px;
-  left: 20%;
-}
-
-.name-dom-manual-tester--second {
-  position: absolute;
-  top: 400px;
-  left: 60%;
-}
-
+.name-dom-metalens-tester--first,
+.name-dom-manual-tester--first,
 .name-dom-metalens-5g--first,
 .name-dom-metalens-ai--first {
-  position: absolute;
   top: 200px;
-  left: 36%;
-  transform: translateX(-50%);
+}
+
+.name-dom-metalens-tester--second,
+.name-dom-manual-tester--second {
+  top: 400px;
 }
 
 .name-dom-metalens-5g--second,
 .name-dom-metalens-ai--second {
-  position: absolute;
   top: 380px;
-  left: 70%;
-  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
-  /* For mobile screens */
   .name-dom-sensor {
-    margin-top: -48px; /* Remove the negative margin on mobile */
-    margin-left: 0; /* Center-align if necessary */
-    text-align: center;
     bottom: -150px;
   }
 
-  .name-dom-metalens-tester--first {
-    left: 0;
-    top: 120px;
-    font-size: 100px;
-  }
-
-  .name-dom-metalens-tester--second {
-    left: 0;
-    top: 240px;
-    font-size: 100px;
-  }
-
-  .name-dom-manual-tester--first {
-    top: 100px;
-    left: 15%;
-  }
-
-  .name-dom-manual-tester--second {
-    top: 200px;
-    left: 35%;
-  }
-
-  .name-dom-metalens-5g--first {
-    left: 20%;
-    top: 120px;
-    font-size: 100px;
-  }
-
+  .name-dom-metalens-tester--first,
+  .name-dom-manual-tester--first,
+  .name-dom-metalens-5g--first,
   .name-dom-metalens-ai--first {
-    left: 30%;
     top: 120px;
-    font-size: 100px;
+    font-size: 120px;
   }
 
-  .name-dom-metalens-5g--second {
-    left: 100%;
-    top: 240px;
-    font-size: 100px;
-  }
-
+  .name-dom-metalens-tester--second,
+  .name-dom-manual-tester--second,
+  .name-dom-metalens-5g--second,
   .name-dom-metalens-ai--second {
-    left: 70%;
     top: 240px;
-    font-size: 100px;
+    font-size: 120px;
   }
 }

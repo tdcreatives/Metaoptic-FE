@@ -21,8 +21,9 @@ const ProductDetailsBanner = ({ product }) => {
   return (
     <div className="relative w-full lg:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div
-        className="absolute text-white xl:text-[200px] lg:text-[150px] text-[80px] xl:left-[-20px] left-0 xl:top-[-60px] lg:top-[-40px] top-0 futura-condensed-medium uppercase xl:tracking-[1rem] lg:tracking-[0.7rem] tracking-[0.5rem] w-full"
+        className="pointer-events-none absolute left-1/2 top-[40px] xl:top-[20px] lg:top-[24px] -translate-x-1/2 w-full text-center text-white/40 xl:text-[280px] lg:text-[200px] text-[110px] futura-condensed-medium uppercase xl:tracking-[1rem] lg:tracking-[0.7rem] tracking-[0.5rem] leading-none"
         dangerouslySetInnerHTML={{ __html: product?.nameDom }}
+        aria-hidden="true"
         style={{
           whiteSpace: "nowrap",
         }}
