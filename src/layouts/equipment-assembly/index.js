@@ -48,7 +48,7 @@ const EquipmentAssembly = () => {
             <BaseSplitBanner
                 title="Assembly"
                 subtitle="Automated metalens-to-module alignment, bonding and final test."
-                description="Sub-micron 6-axis active alignment, embedded optical test and UV-cured bonding in a single integrated cell. Compatible with smartphone-camera and AR-glass module form factors."
+                description="Compatible with smartphone-camera and AR-glass module form factors."
                 imageSrc="/verticals/equipment/assembly/banner.png"
                 imageAlt="Assembly"
                 imageWidth={722}
