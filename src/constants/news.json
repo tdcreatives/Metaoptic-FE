@@ -10,7 +10,9 @@
             "path": "/download/metaoptics-press-release-dc.pdf",
             "external": true,
             "details": {
-                "images": ["/news/news-1.jpeg"],
+                "images": [
+                    "/news/news-1.jpeg"
+                ],
                 "contentPath": "/content/news/metaoptics-coming-to-ces-2025-in-las-vegas.mdx",
                 "extraImages": [
                     "/news/details/details-1-1.png",
@@ -24,22 +26,23 @@
             "id": 2,
             "slug": "spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
-            "desc": "LAS VEGAS – The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
+            "desc": "LAS VEGAS \u2013 The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
             "date": "January 10, 2025",
             "image": "/news/news-2.jpeg",
             "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
             "external": false,
             "details": {
-                "images": ["/news/news-2.jpeg"],
-                "contentPath": "/content/news/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas.mdx",
-                "extraImages": [                    
+                "images": [
+                    "/news/news-2.jpeg"
                 ],
+                "contentPath": "/content/news/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas.mdx",
+                "extraImages": [],
                 "relatedNews": [
                     {
                         "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
                         "image": "/news/news-3.jpg",
-                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "external": false,
                         "date": "May 17, 2025"
@@ -51,20 +54,22 @@
             "id": 3,
             "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
             "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
-            "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+            "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
             "date": "May 17, 2025",
             "image": "/news/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability.jpeg",
             "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability.jpeg"],
+                "images": [
+                    "/news/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability.jpeg"
+                ],
                 "contentPath": "/content/news/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability.mdx",
                 "relatedNews": [
                     {
                         "slug": "spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
                         "title": "Singapore firms showcase cutting-edge lenses, customisable TVs and other tech at CES 2025",
                         "image": "/news/news-2.jpeg",
-                        "desc": "LAS VEGAS – The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
+                        "desc": "LAS VEGAS \u2013 The cameras in today's smartphones and point-and-shoot cameras use stacks of plastic or glass lenses to focus light, but these may soon be replaced by a single flat lens, making devices thinner and smaller.",
                         "path": "https://www.straitstimes.com/tech/spore-firms-showcase-cutting-edge-lenses-customisable-tvs-and-other-tech-at-ces-2025-in-las-vegas",
                         "external": false,
                         "date": "January 10, 2025"
@@ -92,23 +97,23 @@
             "id": 5,
             "slug": "startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
             "title": "A startup, a scale-up and a hospital bag top accolades at maiden Design AI and Tech Awards",
-            "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+            "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
             "date": "June 2, 2025",
             "image": "/news/news-5.jpg",
             "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
             "external": false,
             "details": {
-                "images": ["/news/news-5.jpg"],
-                "contentPath": "/content/news/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/news-5.jpg"
                 ],
+                "contentPath": "/content/news/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards.mdx",
+                "extraImages": [],
                 "relatedNews": [
                     {
                         "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
                         "image": "/news/news-3.jpg",
-                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "external": false,
                         "date": "May 17, 2025"
@@ -120,24 +125,24 @@
             "id": 6,
             "slug": "metaoptics-lodges-preliminary-offer-document-for-catalist-listing",
             "title": "MetaOptics lodges preliminary offer document for Catalist listing",
-            "desc": "Singapore-headquartered MetaOptics has lodged a preliminary offer document to list its shares on the Singapore Exchange’s (SGX) Catalist board.",
+            "desc": "Singapore-headquartered MetaOptics has lodged a preliminary offer document to list its shares on the Singapore Exchange\u2019s (SGX) Catalist board.",
             "date": "July 30, 2025",
             "image": "/news/news-6.jpg",
             "thumbnail": "/news/news-6-thumbnail.jpg?v=1",
             "path": "https://www.theedgesingapore.com/news/ipo/metaoptics-lodges-preliminary-offer-document-catalist-listing",
             "external": false,
             "details": {
-                "images": ["/news/news-6.jpg"],
-                "contentPath": "/content/news/metaoptics-lodges-preliminary-offer-document-for-catalist-listing.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/news-6.jpg"
                 ],
+                "contentPath": "/content/news/metaoptics-lodges-preliminary-offer-document-for-catalist-listing.mdx",
+                "extraImages": [],
                 "relatedNews": [
                     {
                         "slug": "startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
                         "title": "A startup, a scale-up and a hospital bag top accolades at maiden Design AI and Tech Awards",
                         "image": "/news/news-5.jpg",
-                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
                         "date": "June 2, 2025",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/startup-scale-and-hospital-bag-top-accolades-maiden-design-ai-and-tech-awards",
                         "external": false
@@ -146,7 +151,7 @@
                         "slug": "metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "title": "MetaOptics' single-layered glass lens improves performance and sustainability",
                         "image": "/news/news-3.jpg",
-                        "desc": "It can independently tune red, green and blue (RGB) images – producing reasonable quality and more vibrant images",
+                        "desc": "It can independently tune red, green and blue (RGB) images \u2013 producing reasonable quality and more vibrant images",
                         "path": "https://www.businesstimes.com.sg/events-awards/design-ai-tech-awards/design-ai-and-tech-awards/metaoptics-single-layered-glass-lens-improves-performance-and-sustainability",
                         "external": false,
                         "date": "May 17, 2025"
@@ -158,7 +163,7 @@
             "id": 7,
             "slug": "metaoptics-deploys-direct-laser-writer-in-taiwan-to-power-prototyping-and-production",
             "title": "MetaOptics Deploys Direct Laser Writer in Taiwan to Power Prototyping and Production",
-            "desc": "MetaOptics Ltd (Catalist: 9MT), a leading-edge semiconductor optics company, has deployed its Direct Laser Writer system at Pin-Jye Nano Technologies Co., Ltd. in Taoyuan, Taiwan. The installation brings metalens prototyping and fabrication closer to the regionʼs semiconductor supply chain and marks an important step in MetaOpticsʼ global expansion.",
+            "desc": "MetaOptics Ltd (Catalist: 9MT), a leading-edge semiconductor optics company, has deployed its Direct Laser Writer system at Pin-Jye Nano Technologies Co., Ltd. in Taoyuan, Taiwan. The installation brings metalens prototyping and fabrication closer to the region\u02bcs semiconductor supply chain and marks an important step in MetaOptics\u02bc global expansion.",
             "date": "Sep 24, 2025",
             "image": "/news/news-7.jpg",
             "path": "/download/metaoptics-deploys-direct-laser-writer-in-taiwan-to-power-prototyping-and-production.pdf",
@@ -170,47 +175,42 @@
                 "relatedNews": []
             }
         },
-
         {
             "id": 8,
             "slug": "2025-asia-innovation-cup",
-            "title": "《亞洲創新盃》最佳創新獎：MetaOptics Ltd. 攜手臺灣供應鏈瞄準晶片封裝光學商機",
-            "desc": "首屆《亞洲創新盃》從全球逾70組團隊參與徵件，來自新加坡MetaOptics Technologies Pte Ltd勇勇奪最佳創新獎。",
+            "title": "\u300a\u4e9e\u6d32\u5275\u65b0\u76c3\u300b\u6700\u4f73\u5275\u65b0\u734e\uff1aMetaOptics Ltd. \u651c\u624b\u81fa\u7063\u4f9b\u61c9\u93c8\u7784\u6e96\u6676\u7247\u5c01\u88dd\u5149\u5b78\u5546\u6a5f",
+            "desc": "\u9996\u5c46\u300a\u4e9e\u6d32\u5275\u65b0\u76c3\u300b\u5f9e\u5168\u7403\u903e70\u7d44\u5718\u968a\u53c3\u8207\u5fb5\u4ef6\uff0c\u4f86\u81ea\u65b0\u52a0\u5761MetaOptics Technologies Pte Ltd\u52c7\u52c7\u596a\u6700\u4f73\u5275\u65b0\u734e\u3002",
             "date": "Nov 03, 2025",
             "image": "/news/2025-asia-innovation-cup.webp",
             "thumbnail": "/news/2025-asia-innovation-cup.webp",
             "path": "https://www.bnext.com.tw/article/84960/2025asia-innovation-cup-2",
             "external": false,
             "details": {
-                "images": ["/news/2025-asia-innovation-cup.webp"],
-                "contentPath": "/content/news/2025-asia-innovation-cup.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/2025-asia-innovation-cup.webp"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/2025-asia-innovation-cup.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
         {
             "id": 9,
             "slug": "kopi-c-metaoptics-ceo-mark-thng-singaporean-company",
             "title": "kopi-C with MetaOptics CEO Mark Thng: The Singaporean company that plans to end the camera bump",
-            "desc": "Mobile phones get thinner, sleeker, and lighter every few years. Yet no matter how slim the design, one feature remains, seemingly impossible for manufacturers to smooth away: the awkward camera “bump”.",
+            "desc": "Mobile phones get thinner, sleeker, and lighter every few years. Yet no matter how slim the design, one feature remains, seemingly impossible for manufacturers to smooth away: the awkward camera \u201cbump\u201d.",
             "date": "Nov 05, 2025",
             "image": "/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg",
             "thumbnail": "/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg",
             "path": "https://www.sgx.com/research-education/market-dialogues/20251105-kopi-c-metaoptics-ceo-mark-thng-singaporean-company",
             "external": false,
             "details": {
-                "images": ["/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg"],
-                "contentPath": "/content/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.jpeg"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/kopi-c-metaoptics-ceo-mark-thng-singaporean-company.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
         {
@@ -224,14 +224,12 @@
             "path": "https://www.kgieworld.sg/research/company-report-metaoptics-ltd-metao-sp-9mt-si/",
             "external": false,
             "details": {
-                "images": ["/news/company-report-metaoptics-ltd-metao-sp-9mt-si.jpg"],
-                "contentPath": "/content/news/company-report-metaoptics-ltd-metao-sp-9mt-si.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/company-report-metaoptics-ltd-metao-sp-9mt-si.jpg"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/company-report-metaoptics-ltd-metao-sp-9mt-si.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
         {
@@ -245,60 +243,52 @@
             "path": "https://www.businesstimes.com.sg/events-awards/emerging-enterprise/redefining-industries-through-innovation-and-insight",
             "external": false,
             "details": {
-                "images": ["/news/redefining-industries-through-innovation-and-insight.jpg"],
-                "contentPath": "/content/news/redefining-industries-through-innovation-and-insight.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/redefining-industries-through-innovation-and-insight.jpg"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/redefining-industries-through-innovation-and-insight.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
         {
             "id": 12,
             "slug": "2025-metaoptics",
-            "title": "告別手機「凸眼怪」！MetaOptics用奈米級「超穎透鏡」，改寫智慧裝置的光學未來！",
-            "desc": "利用半導體製程在玻璃晶圓上製造超薄、平面的「超穎透鏡」，取代傳統的多層鏡頭，有望解決手機鏡頭「凸眼怪」的設計痛點，被視為下一代光學元件的革命性解決方案",
+            "title": "\u544a\u5225\u624b\u6a5f\u300c\u51f8\u773c\u602a\u300d\uff01MetaOptics\u7528\u5948\u7c73\u7d1a\u300c\u8d85\u7a4e\u900f\u93e1\u300d\uff0c\u6539\u5beb\u667a\u6167\u88dd\u7f6e\u7684\u5149\u5b78\u672a\u4f86\uff01",
+            "desc": "\u5229\u7528\u534a\u5c0e\u9ad4\u88fd\u7a0b\u5728\u73bb\u7483\u6676\u5713\u4e0a\u88fd\u9020\u8d85\u8584\u3001\u5e73\u9762\u7684\u300c\u8d85\u7a4e\u900f\u93e1\u300d\uff0c\u53d6\u4ee3\u50b3\u7d71\u7684\u591a\u5c64\u93e1\u982d\uff0c\u6709\u671b\u89e3\u6c7a\u624b\u6a5f\u93e1\u982d\u300c\u51f8\u773c\u602a\u300d\u7684\u8a2d\u8a08\u75db\u9ede\uff0c\u88ab\u8996\u70ba\u4e0b\u4e00\u4ee3\u5149\u5b78\u5143\u4ef6\u7684\u9769\u547d\u6027\u89e3\u6c7a\u65b9\u6848",
             "date": "Nov 05, 2025",
             "image": "/news/2025-metaoptics.webp",
             "thumbnail": "/news/2025-metaoptics.webp",
             "path": "https://www.bnext.com.tw/article/84999/2025metaoptics",
             "external": false,
             "details": {
-                "images": ["/news/2025-metaoptics.webp"],
-                "contentPath": "/content/news/2025-metaoptics.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/2025-metaoptics.webp"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/2025-metaoptics.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
-
         {
             "id": 13,
             "slug": "zaobao-20251110-stock-market-news",
-            "title": "今年有新股涨幅超过140% 市场展望继续受看好",
-            "desc": "今年来首次公开售股（IPO）上市的新股表现远胜近年，MetaOptics表现尤为突出，上市至今（11月10日，下同）股价累计上涨超过140％至0.485元，比0.20元的发售价高出0.285元。在利率走低趋势及提振新加坡股市措施的带动下，股票经纪和分析师普遍看好市场前景，但短期内股价翻倍的情况可能仅限于市值较小、市场需求强劲的个股。",
+            "title": "\u4eca\u5e74\u6709\u65b0\u80a1\u6da8\u5e45\u8d85\u8fc7140% \u5e02\u573a\u5c55\u671b\u7ee7\u7eed\u53d7\u770b\u597d",
+            "desc": "\u4eca\u5e74\u6765\u9996\u6b21\u516c\u5f00\u552e\u80a1\uff08IPO\uff09\u4e0a\u5e02\u7684\u65b0\u80a1\u8868\u73b0\u8fdc\u80dc\u8fd1\u5e74\uff0cMetaOptics\u8868\u73b0\u5c24\u4e3a\u7a81\u51fa\uff0c\u4e0a\u5e02\u81f3\u4eca\uff0811\u670810\u65e5\uff0c\u4e0b\u540c\uff09\u80a1\u4ef7\u7d2f\u8ba1\u4e0a\u6da8\u8d85\u8fc7140\uff05\u81f30.485\u5143\uff0c\u6bd40.20\u5143\u7684\u53d1\u552e\u4ef7\u9ad8\u51fa0.285\u5143\u3002\u5728\u5229\u7387\u8d70\u4f4e\u8d8b\u52bf\u53ca\u63d0\u632f\u65b0\u52a0\u5761\u80a1\u5e02\u63aa\u65bd\u7684\u5e26\u52a8\u4e0b\uff0c\u80a1\u7968\u7ecf\u7eaa\u548c\u5206\u6790\u5e08\u666e\u904d\u770b\u597d\u5e02\u573a\u524d\u666f\uff0c\u4f46\u77ed\u671f\u5185\u80a1\u4ef7\u7ffb\u500d\u7684\u60c5\u51b5\u53ef\u80fd\u4ec5\u9650\u4e8e\u5e02\u503c\u8f83\u5c0f\u3001\u5e02\u573a\u9700\u6c42\u5f3a\u52b2\u7684\u4e2a\u80a1\u3002",
             "date": "Nov 10, 2025",
             "image": "/news/zaobao-20251110-stock-market-news.webp",
             "thumbnail": "/news/zaobao-20251110-stock-market-news.webp",
             "path": "https://www.zaobao.com.sg/finance/singapore/story20251110-7769709",
             "external": false,
             "details": {
-                "images": ["/news/zaobao-20251110-stock-market-news.webp"],
-                "contentPath": "/content/news/zaobao-20251110-stock-market-news.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/zaobao-20251110-stock-market-news.webp"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/zaobao-20251110-stock-market-news.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
-
         {
             "id": 14,
             "slug": "metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo",
@@ -310,40 +300,33 @@
             "path": "https://www.businesstimes.com.sg/companies-markets/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.webp"],
-                "contentPath": "/content/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.webp"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/metaoptics-finishes-lower-after-jump-proposed-nasdaq-listing-almost-300-ipo.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
-
-
         {
             "id": 15,
             "slug": "metaoptics-shares-close-16-8-higher-proposed-share-placement",
             "title": "MetaOptics shares close 16.8% higher on proposed share placement",
-            "desc": "Proceeds are expected to strengthen the group’s financial position and expand its capital base to support a growing pipeline of global orders",
+            "desc": "Proceeds are expected to strengthen the group\u2019s financial position and expand its capital base to support a growing pipeline of global orders",
             "date": "Dec 01, 2025",
             "image": "/news/MOT.webp",
             "thumbnail": "/news/MOT.webp",
             "path": "https://www.businesstimes.com.sg/companies-markets/metaoptics-shares-close-16-8-higher-proposed-share-placement",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
-                "contentPath": "/content/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.mdx",
-                "extraImages": [
-                   
+                "images": [
+                    "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"
                 ],
-                "relatedNews": [
-                    
-                ]
+                "contentPath": "/content/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.mdx",
+                "extraImages": [],
+                "relatedNews": []
             }
         },
-
         {
             "id": 16,
             "slug": "metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand",
@@ -355,11 +338,11 @@
             "path": "https://en.prnasia.com/releases/apac/metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand-514071.shtml",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
+                "images": [
+                    "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"
+                ],
                 "contentPath": "/content/news/metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
         {
@@ -373,11 +356,11 @@
             "path": "https://en.prnasia.com/releases/apac/metaoptics-provides-year-end-business-review-and-update-516388.shtml",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"],
+                "images": [
+                    "/news/metaoptics-shares-close-16-8-higher-proposed-share-placement.webp"
+                ],
                 "contentPath": "/content/news/metaoptics-provides-year-end-business-review-and-update.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
         {
@@ -391,14 +374,13 @@
             "path": "https://www.straitstimes.com/tech/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms",
             "external": false,
             "details": {
-                "images": ["/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.webp"],
+                "images": [
+                    "/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.webp"
+                ],
                 "contentPath": "/content/news/ces-2026-paper-batteries-blackjack-playing-robot-among-products-showcased-by-spore-firms.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
-        },  
-        
+        },
         {
             "id": 19,
             "slug": "six-breakthrough-brands-join-ces-2026-under-singapore-pavilion",
@@ -410,70 +392,64 @@
             "path": "https://www.prnewswire.com/news-releases/six-breakthrough-brands-join-ces-2026-under-singapore-pavilion-302652920.html",
             "external": false,
             "details": {
-                "images": ["/news/MOT.webp"],
+                "images": [
+                    "/news/MOT.webp"
+                ],
                 "contentPath": "/content/news/six-breakthrough-brands-join-ces-2026-under-singapore-pavilion.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-        
         {
             "id": 20,
             "slug": "10-stocks-watch-2026-singpost-uob-st-engineering-and-more",
             "title": "10 stocks to watch in 2026: SingPost, UOB, ST Engineering and more",
-            "desc": "After the STI’s 22.9% romp in 2025, which way might Singapore equities head?",
+            "desc": "After the STI\u2019s 22.9% romp in 2025, which way might Singapore equities head?",
             "date": "Jan 05, 2026",
             "image": "/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp",
             "thumbnail": "/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp",
             "path": "https://www.businesstimes.com.sg/companies-markets/10-stocks-watch-2026-singpost-uob-st-engineering-and-more",
             "external": false,
             "details": {
-                "images": ["/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp"],
+                "images": [
+                    "/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.webp"
+                ],
                 "contentPath": "/content/news/10-stocks-watch-2026-singpost-uob-st-engineering-and-more.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-        
         {
             "id": 21,
             "slug": "more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts",
             "title": "SGX set to receive more IPOs as momentum continues",
-            "desc": "SINGAPORE - The Singapore Exchange (SGX) looks set to receive more listings as momentum from 2025’s performance – the strongest in six years – continues in 2026.",
+            "desc": "SINGAPORE - The Singapore Exchange (SGX) looks set to receive more listings as momentum from 2025\u2019s performance \u2013 the strongest in six years \u2013 continues in 2026.",
             "date": "Dec 30, 2025",
             "image": "/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp",
             "thumbnail": "/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp",
             "path": "https://www.straitstimes.com/business/companies-markets/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts",
             "external": false,
             "details": {
-                "images": ["/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp"],
+                "images": [
+                    "/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.webp"
+                ],
                 "contentPath": "/content/news/more-diverse-ipos-sustaining-post-listing-performance-key-for-sgx-in-2026-analysts.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-
         {
             "id": 22,
             "slug": "ces-2026-tech-reviewer-highlights-metaoptics-technology",
             "title": "CES 2026: Tech Reviewer Highlights Metaoptics Technology",
-            "desc": "We are thrilled to share that our latest innovation caught the eye of popular tech reviewer “The Friday Checkout” at this year’s CES.",
+            "desc": "We are thrilled to share that our latest innovation caught the eye of popular tech reviewer \u201cThe Friday Checkout\u201d at this year\u2019s CES.",
             "date": "Jan 10, 2026",
             "image": "/news/MOT.webp",
             "thumbnail": "/news/MOT.webp",
             "external": false,
             "details": {
                 "contentPath": "/content/news/ces-2026-tech-reviewer-highlights-metaoptics-technology.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "development"
         },
-        
         {
             "id": 23,
             "slug": "metaoptics-featured-in-ces-2026-coverage-by-money-fm",
@@ -485,16 +461,14 @@
             "external": false,
             "details": {
                 "contentPath": "/content/news/metaoptics-featured-in-ces-2026-coverage-by-money-fm.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "development"
         },
         {
             "id": 24,
             "slug": "dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible",
-            "title": "DBS sees potential fair value of $1.80 for MetaOptics; ‘path to breakeven becoming visible’",
+            "title": "DBS sees potential fair value of $1.80 for MetaOptics; \u2018path to breakeven becoming visible\u2019",
             "desc": "In a recent article published by The Edge Singapore, citing a research note by DBS Group Research analyst Ling Lee Keng, MetaOptics was highlighted for its semiconductor-style, wafer-level manufacturing approach",
             "date": "Feb 09, 2026",
             "image": "/news/dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible.jpg",
@@ -502,11 +476,11 @@
             "path": "https://www.theedgesingapore.com/capital/brokers-calls/dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible",
             "external": false,
             "details": {
-                "images": ["/news/dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible.jpg"],
+                "images": [
+                    "/news/dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible.jpg"
+                ],
                 "contentPath": "/content/news/dbs-sees-potential-fair-value-180-metaoptics-path-breakeven-becoming-visible.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "production"
         },
@@ -522,70 +496,64 @@
             "external": false,
             "details": {
                 "contentPath": "/content/news/metaoptics-announces-membership-in-stanford-engineerings-systemx-alliance-program-in-the-usa.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "production"
         },
-
         {
             "id": 26,
             "slug": "story20260301-8655869",
-            "title": "执行主席程章金：MetaOptics剑指纳斯达克 或成为本地首家手机厂商",
-            "desc": "MetaOptics创办人兼执行主席程章金说：“我们不是纯研发公司，我们是要赚钱的公司。产品必须是市场和客户需要的。” （陈渊庄摄",
+            "title": "\u6267\u884c\u4e3b\u5e2d\u7a0b\u7ae0\u91d1\uff1aMetaOptics\u5251\u6307\u7eb3\u65af\u8fbe\u514b \u6216\u6210\u4e3a\u672c\u5730\u9996\u5bb6\u624b\u673a\u5382\u5546",
+            "desc": "MetaOptics\u521b\u529e\u4eba\u517c\u6267\u884c\u4e3b\u5e2d\u7a0b\u7ae0\u91d1\u8bf4\uff1a\u201c\u6211\u4eec\u4e0d\u662f\u7eaf\u7814\u53d1\u516c\u53f8\uff0c\u6211\u4eec\u662f\u8981\u8d5a\u94b1\u7684\u516c\u53f8\u3002\u4ea7\u54c1\u5fc5\u987b\u662f\u5e02\u573a\u548c\u5ba2\u6237\u9700\u8981\u7684\u3002\u201d \uff08\u9648\u6e0a\u5e84\u6444",
             "date": "Mar 01, 2026",
             "image": "/news/story20260301-8655869.webp",
             "thumbnail": "/news/story20260301-8655869.webp",
             "path": "https://www.zaobao.com.sg/finance/singapore/story20260301-8655869",
             "external": false,
             "details": {
-                "images": ["/news/story20260301-8655869.webp"],
+                "images": [
+                    "/news/story20260301-8655869.webp"
+                ],
                 "contentPath": "/content/news/story20260301-8655869.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-
         {
             "id": 27,
             "slug": "singapore-metalens-maker-expands-us-presence-from-silicon-valley-base",
             "title": "Singapore Metalens Maker Expands U.S. Presence from Silicon Valley Base",
-            "desc": "A Southeast Asian startup has quietly built one of the world’s most advanced meta-lens technologies and is now expanding its U.S. footprint",
+            "desc": "A Southeast Asian startup has quietly built one of the world\u2019s most advanced meta-lens technologies and is now expanding its U.S. footprint",
             "date": "April 01, 2026",
             "image": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
             "thumbnail": "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp",
             "path": "https://www.latimes.com/specialsupplements/one-world-media/story/metalens-tech-singapore-growth",
             "external": false,
             "details": {
-                "images": ["/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp"],
+                "images": [
+                    "/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.webp"
+                ],
                 "contentPath": "/content/news/singapore-metalens-maker-expands-us-presence-from-silicon-valley-base.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-
         {
             "id": 27,
             "slug": "metaoptics-leadership-discusses-the-future-of-the-metalens-industry",
             "title": "MetaOptics Leadership Discusses the Future of the Metalens Industry",
-            "desc": "In a recent interview with Dr Wealth, MetaOptics CEO Mark and Deputy CEO Aloysius shared an inside look at the company’s journey as the world's first pure-play metalens listed company.",
+            "desc": "In a recent interview with Dr Wealth, MetaOptics CEO Mark and Deputy CEO Aloysius shared an inside look at the company\u2019s journey as the world's first pure-play metalens listed company.",
             "date": "April 09, 2026",
             "image": "/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg",
             "thumbnail": "/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg",
             "path": "",
             "external": false,
             "details": {
-                "images": ["/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg"],
+                "images": [
+                    "/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.jpg"
+                ],
                 "contentPath": "/content/news/metaoptics-leadership-discusses-the-future-of-the-metalens-industry.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             }
         },
-        
         {
             "id": 28,
             "slug": "metaoptics-update-on-proposed-nasdaq-dual-listing",
@@ -598,18 +566,15 @@
             "external": false,
             "details": {
                 "contentPath": "/content/news/metaoptics-update-on-proposed-nasdaq-dual-listing.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "production"
         },
-
         {
             "id": 29,
             "slug": "10-10-metaoptics-early-adoption-commercial-deployment",
-            "title": "10 in 10 with MetaOptics – From early adoption to commercial deployment",
-            "desc": "10 in 10 with MetaOptics – From early adoption to commercial deployment",
+            "title": "10 in 10 with MetaOptics \u2013 From early adoption to commercial deployment",
+            "desc": "10 in 10 with MetaOptics \u2013 From early adoption to commercial deployment",
             "date": "Jun 16, 2026",
             "image": "/news/MOT.webp",
             "thumbnail": "/news/MOT.webp",
@@ -617,28 +582,26 @@
             "external": false,
             "details": {
                 "contentPath": "/content/news/10-10-metaoptics-early-adoption-commercial-deployment.mdx",
-                "relatedNews": [
-                    
-                ]
+                "relatedNews": []
             },
             "mod": "production"
         },
-
         {
             "id": 30,
-            "slug": "metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizona",
-            "title": "MetaOptics to Deploy its Direct Laser Writer at the University of Arizona's Center of Semiconductor Manufacturing to Advance its U.S. Expansion",
-            "desc": "MetaOptics announced that it has entered into an agreement to deploy its key metalens Direct Laser Writer (DLW) system at the University of Arizona's Center of Semiconductor Manufacturing.",
-            "date": "Jul 22, 2026",
-            "image": "/news/MOT.webp",
-            "thumbnail": "/news/MOT.webp",
-            "path": "https://www.prnewswire.com/apac/news-releases/metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizonas-center-of-semiconductor-manufacturing-to-advance-its-us-expansion-302830627.html",
+            "slug": "beyond-the-camera-bump-an-interview-with-metaoptics",
+            "title": "Beyond the camera bump - An interview with MetaOptics",
+            "desc": "Mark Thng, Executive Chairman of MetaOptics, on how wafer-scale metalenses are reshaping smartphone camera design and biometrics.",
+            "date": "Aug 03, 2026",
+            "image": "/news/beyond-the-camera-bump-an-interview-with-metaoptics.jpg",
+            "thumbnail": "/news/beyond-the-camera-bump-an-interview-with-metaoptics.jpg",
+            "path": "https://www.yolegroup.com/player-interviews/beyond-the-camera-bump-an-interview-with-metaoptics/",
             "external": false,
             "details": {
-                "contentPath": "/content/news/metaoptics-to-deploy-its-direct-laser-writer-at-the-university-of-arizona.mdx",
-                "relatedNews": [
-                    
-                ]
+                "images": [
+                    "/news/beyond-the-camera-bump-an-interview-with-metaoptics.jpg"
+                ],
+                "contentPath": "/content/news/beyond-the-camera-bump-an-interview-with-metaoptics.mdx",
+                "relatedNews": []
             },
             "mod": "production"
         }
