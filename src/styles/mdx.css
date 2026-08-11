@@ -17,8 +17,29 @@
   @apply w-full max-w-4xl mx-auto rounded-lg shadow-lg mb-4;
 }
 
+.mdx-figure {
+  @apply flex flex-col items-center gap-2 my-8;
+}
+
+.mdx-figure img {
+  @apply max-w-full h-auto rounded-lg;
+}
+
 .mdx-image-caption {
-  @apply text-center text-sm text-gray-600 mt-2 mb-8;
+  @apply text-center text-sm text-gray-600 mt-2 mb-8 max-w-3xl mx-auto;
+}
+
+.mdx-figure .mdx-image-caption {
+  @apply mb-0;
+}
+
+/* Interview Q/A */
+.mdx-question {
+  @apply mb-3 mt-10 font-bold leading-relaxed text-[#D44C39];
+}
+
+.mdx-answer {
+  @apply mb-6 leading-relaxed;
 }
 
 /* Text Content */
