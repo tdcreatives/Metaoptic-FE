@@ -27,6 +27,7 @@ const AnnouncementDetailContent = () => {
     }
 
     const { details } = announcement;
+    const hideMeetingExtras = announcement.category === 'Financial Statements';
 
     const toggleSection = (section) => {
         setExpandedSections(prev => ({
@@ -330,7 +331,7 @@ const AnnouncementDetailContent = () => {
                     </div>                
                 )}
 
-                {details?.attachments && (                
+                {!hideMeetingExtras && details?.eventVenues?.length > 0 && (                
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
@@ -369,7 +370,7 @@ const AnnouncementDetailContent = () => {
                 )}
 
 
-                {details?.additional && (
+                {!hideMeetingExtras && details?.additional && (
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
