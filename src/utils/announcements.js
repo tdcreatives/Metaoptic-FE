@@ -6,6 +6,7 @@ export const ANNOUNCEMENT_CATEGORIES = [
     'Annual Reports',
     'AGM / EGM',
     'Equity & Listing',
+    'Financial Statements',
 ];
 
 export const ITEMS_PER_PAGE = 10;
@@ -63,8 +64,9 @@ export const splitAnnouncementDate = (value) => {
 
 export const normalizeAnnouncement = (item) => {
     const { filingDate, filingTime } = splitAnnouncementDate(item.date);
+    const announcement = item.details?.announcement || {};
     const displayTitle =
-        item.details?.announcement?.subTitle ||
+        announcement.subTitle ||
         item.title.replace(/::/g, ' - ');
 
     return {
@@ -75,7 +77,20 @@ export const normalizeAnnouncement = (item) => {
         filingTime,
         displayTitle,
         timestamp: parseAnnouncementDate(item.date),
-        searchText: `${displayTitle} ${item.title}`.toLowerCase(),
+        searchText: [
+            item.title,
+            item.desc,
+            item.category,
+            announcement.subTitle,
+            announcement.title,
+            announcement.reference,
+            announcement.submittedBy,
+            announcement.designation,
+            announcement.description,
+        ]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase(),
     };
 };
 

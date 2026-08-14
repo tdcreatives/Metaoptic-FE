@@ -2221,5 +2221,1003 @@
             ]
         },
         "category": "AGM / EGM"
+    },
+    {
+        "id": 44,
+        "title": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::Ceasing to be a Substantial Shareholder - Origgin Ventures Pte. Ltd.",
+        "title_btn": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::Ceasing to be a Substantial Shareholder - Origgin Ventures Pte. Ltd.",
+        "title_btn_sm": "DISCLOSURE OF INTEREST/ CHANGES IN INTEREST OF SUBSTANTIAL SHAREHOLDER(S)/ UNITHOLDER(S)::Ceasing to be a Substantial Shareholder - Origgin Ventures Pte. Ltd.",
+        "title_banner": "DISCLOSURE<br/>OF INTEREST",
+        "slug": "disclosure-of-interest-ceasing-to-be-a-substantial-shareholder-origgin-ventures-pte-ltd-20260421",
+        "desc": "",
+        "date": "21 Apr 2026 09:42 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Ceasing to be a Substantial Shareholder - Origgin Ventures Pte. Ltd.",
+                "title": "Disclosure of Interest/ Changes in Interest of Substantial Shareholder(s)/Unitholder(s)",
+                "dateTime": "21-Apr-2026 21:42:44",
+                "status": "New",
+                "reference": "SG260421OTHR8FS5",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman and Chief Executive Officer",
+                "description": "Please refer to the attachment.\n\nThis document has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis document has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this document, including the correctness of any of the statements or opinions made or reports contained in this document.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "ORIGGIN - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/ORIGGIN%20-%20Form%203.ashx?App=Announcement&FileID=884994"
+                },
+                {
+                    "name": "_ORIGGIN - Form 3.pdf",
+                    "url": "https://links.sgx.com/FileOpen/_ORIGGIN%20-%20Form%203.ashx?App=Announcement&FileID=884995"
+                }
+            ],
+            "additional": {
+                "description": "Person(s) giving notice: Substantial Shareholder(s)/Unitholder(s) (Form 3)\n\nDate of receipt of notice by Listed Issuer: 19/12/2025"
+            }
+        },
+        "category": "Disclosure of Interest"
+    },
+    {
+        "id": 45,
+        "title": "GENERAL ANNOUNCEMENT::MOT achieves a progressive milestone in securing design/evaluation orders from world-class customers",
+        "title_btn": "GENERAL ANNOUNCEMENT::MOT achieves a progressive milestone in securing design/evaluation orders from world-class customers",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::MOT achieves a progressive milestone in securing design/evaluation orders from world-class customers",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-mot-achieves-a-progressive-milestone-in-securing-design-evaluation-orders-from-world-class-customers",
+        "desc": "",
+        "date": "22 Apr 2026 07:41 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MOT achieves a progressive milestone in securing design/evaluation orders from world-class customers",
+                "title": "General Announcement",
+                "dateTime": "22-Apr-2026 19:41:38",
+                "status": "New",
+                "reference": "SG260422OTHRSGLJ",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Progressive milestone in securing design and evaluation orders from world-class customers.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Progressive%20milestone%20in%20securing%20design%20and%20evaluation%20orders%20from%20world-class%20customers.ashx?App=Announcement&FileID=885145"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 46,
+        "title": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_btn": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-update-on-the-proposed-dual-listing-on-the-nasdaq-stock-market-20260505",
+        "desc": "",
+        "date": "05 May 2026 07:32 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+                "title": "General Announcement",
+                "dateTime": "05-May-2026 07:32:28",
+                "status": "New",
+                "reference": "SG260505OTHRJ62M",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - SGX - Filing on SEC Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20SGX%20-%20Filing%20on%20SEC%20Announcement.ashx?App=Announcement&FileID=887557"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 47,
+        "title": "GENERAL ANNOUNCEMENT::MINUTES OF ANNUAL GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_btn": "GENERAL ANNOUNCEMENT::MINUTES OF ANNUAL GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::MINUTES OF ANNUAL GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-minutes-of-annual-general-meeting-held-on-10-april-2026",
+        "desc": "",
+        "date": "06 May 2026 06:44 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MINUTES OF ANNUAL GENERAL MEETING HELD ON 10 APRIL 2026",
+                "title": "General Announcement",
+                "dateTime": "06-May-2026 18:44:50",
+                "status": "New",
+                "reference": "SG260506OTHREH8A",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - AGM Minutes - 10 April 2026.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20AGM%20Minutes%20-%2010%20April%202026.ashx?App=Announcement&FileID=887795"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 48,
+        "title": "GENERAL ANNOUNCEMENT::MINUTES OF EXTRAORDINARY GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_btn": "GENERAL ANNOUNCEMENT::MINUTES OF EXTRAORDINARY GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::MINUTES OF EXTRAORDINARY GENERAL MEETING HELD ON 10 APRIL 2026",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-minutes-of-extraordinary-general-meeting-held-on-10-april-2026",
+        "desc": "",
+        "date": "06 May 2026 06:49 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MINUTES OF EXTRAORDINARY GENERAL MEETING HELD ON 10 APRIL 2026",
+                "title": "General Announcement",
+                "dateTime": "06-May-2026 18:49:14",
+                "status": "New",
+                "reference": "SG260506OTHR5KYO",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - EGM Minutes - 10 April 2026.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20EGM%20Minutes%20-%2010%20April%202026.ashx?App=Announcement&FileID=887797"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 49,
+        "title": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-update-on-the-proposed-dual-listing-on-the-nasdaq-stock-market-20260519",
+        "desc": "",
+        "date": "19 May 2026 07:04 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+                "title": "General Announcement",
+                "dateTime": "19-May-2026 07:04:53",
+                "status": "New",
+                "reference": "SG260519OTHRW6BK",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - SGX - Second Filing on SEC Announcement FINAL.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20SGX%20-%20Second%20Filing%20on%20SEC%20Announcement%20FINAL.ashx?App=Announcement&FileID=889331"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 50,
+        "title": "GENERAL ANNOUNCEMENT::METAOPTICS ESOS AND PSP 2026 - RECEIPT OF LISTING AND QUOTATION NOTICE FROM THE SGX-ST",
+        "title_btn": "GENERAL ANNOUNCEMENT::METAOPTICS ESOS AND PSP 2026 - RECEIPT OF LISTING AND QUOTATION NOTICE FROM THE SGX-ST",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::METAOPTICS ESOS AND PSP 2026 - RECEIPT OF LISTING AND QUOTATION NOTICE FROM THE SGX-ST",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-metaoptics-esos-and-psp-2026-receipt-of-listing-and-quotation-notice-from-the-sgx-st",
+        "desc": "",
+        "date": "25 May 2026 06:16 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "METAOPTICS ESOS AND PSP 2026 - RECEIPT OF LISTING AND QUOTATION NOTICE FROM THE SGX-ST",
+                "title": "General Announcement",
+                "dateTime": "25-May-2026 18:16:25",
+                "status": "New",
+                "reference": "SG260525OTHRABSR",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please see attached.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - ESOS PSP LQN Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20ESOS%20PSP%20LQN%20Announcement.ashx?App=Announcement&FileID=890146"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 51,
+        "title": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF LQN FROM THE SGX-ST",
+        "title_btn": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF LQN FROM THE SGX-ST",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF LQN FROM THE SGX-ST",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-proposed-dual-listing-on-the-nasdaq-stock-market-receipt-of-lqn-from-the-sgx-st",
+        "desc": "",
+        "date": "29 May 2026 06:07 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF LQN FROM THE SGX-ST",
+                "title": "General Announcement",
+                "dateTime": "29-May-2026 18:07:11",
+                "status": "New",
+                "reference": "SG260529OTHRK5E3",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - LQN Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20LQN%20Announcement.ashx?App=Announcement&FileID=890856"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 52,
+        "title": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_btn": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-update-on-the-proposed-dual-listing-on-the-nasdaq-stock-market-20260603",
+        "desc": "",
+        "date": "03 Jun 2026 09:29 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Update on the Proposed Dual Listing on the Nasdaq Stock Market",
+                "title": "General Announcement",
+                "dateTime": "03-Jun-2026 21:29:01",
+                "status": "New",
+                "reference": "SG260603OTHRUIM5",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - PR on 2nd Filing and LQN.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20PR%20on%202nd%20Filing%20and%20LQN.ashx?App=Announcement&FileID=891349"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 53,
+        "title": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-update-on-the-proposed-dual-listing-on-the-nasdaq-stock-market-20260611",
+        "desc": "",
+        "date": "11 Jun 2026 07:32 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+                "title": "General Announcement",
+                "dateTime": "11-Jun-2026 07:32:27",
+                "status": "New",
+                "reference": "SG260611OTHR6XEA",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - SGX - Third Filing on SEC Announcement - Updated ADS Size.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20SGX%20-%20Third%20Filing%20on%20SEC%20Announcement%20-%20Updated%20ADS%20Size.ashx?App=Announcement&FileID=891934"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 54,
+        "title": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF REVISED LQN FROM THE SGX-ST",
+        "title_btn": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF REVISED LQN FROM THE SGX-ST",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF REVISED LQN FROM THE SGX-ST",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-proposed-dual-listing-on-the-nasdaq-stock-market-receipt-of-revised-lqn-from-the-sgx-st",
+        "desc": "",
+        "date": "19 Jun 2026 05:36 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET - RECEIPT OF REVISED LQN FROM THE SGX-ST",
+                "title": "General Announcement",
+                "dateTime": "19-Jun-2026 17:36:14",
+                "status": "New",
+                "reference": "SG260619OTHRBAX4",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Revised LQN Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Revised%20LQN%20Announcement.ashx?App=Announcement&FileID=893688"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 55,
+        "title": "GENERAL ANNOUNCEMENT::Press Release - Shipment of Metalens Smartphone & AI Smart Glasses to Customers for Evaluation",
+        "title_btn": "GENERAL ANNOUNCEMENT::Press Release - Shipment of Metalens Smartphone & AI Smart Glasses to Customers for Evaluation",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Press Release - Shipment of Metalens Smartphone & AI Smart Glasses to Customers for Evaluation",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-press-release-shipment-of-metalens-smartphone-and-ai-smart-glasses-to-customers-for-evaluation",
+        "desc": "",
+        "date": "26 Jun 2026 05:21 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - Shipment of Metalens Smartphone & AI Smart Glasses to Customers for Evaluation",
+                "title": "General Announcement",
+                "dateTime": "26-Jun-2026 17:21:02",
+                "status": "New",
+                "reference": "SG260626OTHRJ9P7",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Shipment of Metalens Products.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Shipment%20of%20Metalens%20Products.ashx?App=Announcement&FileID=894452"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 56,
+        "title": "GENERAL ANNOUNCEMENT::MOT to Deploy its DLW at the University of Arizona to Advance US Expansion",
+        "title_btn": "GENERAL ANNOUNCEMENT::MOT to Deploy its DLW at the University of Arizona to Advance US Expansion",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::MOT to Deploy its DLW at the University of Arizona to Advance US Expansion",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-mot-to-deploy-its-dlw-at-the-university-of-arizona-to-advance-us-expansion",
+        "desc": "",
+        "date": "22 Jul 2026 07:16 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MOT to Deploy its DLW at the University of Arizona to Advance US Expansion",
+                "title": "General Announcement",
+                "dateTime": "22-Jul-2026 07:16:51",
+                "status": "New",
+                "reference": "SG260722OTHRKIQD",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MOT - University of Arizona DLW Deployment PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MOT%20-%20University%20of%20Arizona%20DLW%20Deployment%20PR.ashx?App=Announcement&FileID=896976"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 57,
+        "title": "GENERAL ANNOUNCEMENT::MetaOptics and Elsoft partner to scale next-generation semiconductor optics manufacturing equipment",
+        "title_btn": "GENERAL ANNOUNCEMENT::MetaOptics and Elsoft partner to scale next-generation semiconductor optics manufacturing equipment",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::MetaOptics and Elsoft partner to scale next-generation semiconductor optics manufacturing equipment",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-metaoptics-and-elsoft-partner-to-scale-next-generation-semiconductor-optics-manufacturing-equipment",
+        "desc": "",
+        "date": "30 Jul 2026 05:34 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "MetaOptics and Elsoft partner to scale next-generation semiconductor optics manufacturing equipment",
+                "title": "General Announcement",
+                "dateTime": "30-Jul-2026 17:34:47",
+                "status": "New",
+                "reference": "SG260730OTHRWJJB",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Elsoft Equipment Partnership PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Elsoft%20Equipment%20Partnership%20PR.ashx?App=Announcement&FileID=897926"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 58,
+        "title": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-update-on-the-proposed-dual-listing-on-the-nasdaq-stock-market-20260807",
+        "desc": "",
+        "date": "07 Aug 2026 10:09 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "UPDATE ON THE PROPOSED DUAL LISTING ON THE NASDAQ STOCK MARKET",
+                "title": "General Announcement",
+                "dateTime": "07-Aug-2026 22:09:15",
+                "status": "New",
+                "reference": "SG260807OTHRR7VP",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - SGX - Withdrawal of Nasdaq Listing Application.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20SGX%20-%20Withdrawal%20of%20Nasdaq%20Listing%20Application.ashx?App=Announcement&FileID=899205"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 59,
+        "title": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics Sharpens Focus on Metalens Commercialisation; Defers U.S. Dual Listing Plan",
+        "title_btn": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics Sharpens Focus on Metalens Commercialisation; Defers U.S. Dual Listing Plan",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics Sharpens Focus on Metalens Commercialisation; Defers U.S. Dual Listing Plan",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-press-release-metaoptics-sharpens-focus-on-metalens-commercialisation-defers-us-dual-listing-plan",
+        "desc": "",
+        "date": "07 Aug 2026 10:11 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MetaOptics Sharpens Focus on Metalens Commercialisation; Defers U.S. Dual Listing Plan",
+                "title": "General Announcement",
+                "dateTime": "07-Aug-2026 22:11:30",
+                "status": "New",
+                "reference": "SG260807OTHRQKFJ",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Business and Nasdaq Updates.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Business%20and%20Nasdaq%20Updates.ashx?App=Announcement&FileID=899206"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 60,
+        "title": "FINANCIAL STATEMENTS AND RELATED ANNOUNCEMENT::Half Yearly Results",
+        "title_btn": "FINANCIAL STATEMENTS AND RELATED ANNOUNCEMENT::Half Yearly Results",
+        "title_btn_sm": "FINANCIAL STATEMENTS AND RELATED ANNOUNCEMENT::Half Yearly Results",
+        "title_banner": "FINANCIAL<br/>STATEMENT",
+        "slug": "financial-statements-and-related-announcement-half-yearly-results",
+        "desc": "",
+        "date": "11 Aug 2026 06:27 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Half Yearly Results",
+                "title": "Financial Statements and Related Announcement",
+                "dateTime": "11-Aug-2026 18:27:39",
+                "status": "New",
+                "reference": "SG260811OTHR9M1Z",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MOL - 1H2026 Results Announcement.pdf",
+                    "url": ""
+                }
+            ],
+            "additional": {
+                "description": "For Financial Period Ended: 30/06/2026"
+            }
+        },
+        "category": "Financial Statements"
+    },
+    {
+        "id": 61,
+        "title": "GENERAL ANNOUNCEMENT::Press Release - MOT achieves 79% of FY2025 revenue, on track to fulfil key metalens equipment orders",
+        "title_btn": "GENERAL ANNOUNCEMENT::Press Release - MOT achieves 79% of FY2025 revenue, on track to fulfil key metalens equipment orders",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Press Release - MOT achieves 79% of FY2025 revenue, on track to fulfil key metalens equipment orders",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-press-release-mot-achieves-79-of-fy2025-revenue-on-track-to-fulfil-key-metalens-equipment-orders",
+        "desc": "",
+        "date": "11 Aug 2026 06:29 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MOT achieves 79% of FY2025 revenue, on track to fulfil key metalens equipment orders",
+                "title": "General Announcement",
+                "dateTime": "11-Aug-2026 18:29:27",
+                "status": "New",
+                "reference": "SG260811OTHRVTJA",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - 1H2026 Results PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MOL%20-%201H2026%20Results%20Announcement.ashx?App=Announcement&FileID=900349"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 62,
+        "title": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics to Deploy its Direct Laser Writer at the nano@stanford Facility",
+        "title_btn": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics to Deploy its Direct Laser Writer at the nano@stanford Facility",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::Press Release - MetaOptics to Deploy its Direct Laser Writer at the nano@stanford Facility",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-press-release-metaoptics-to-deploy-its-direct-laser-writer-at-the-nanostanford-facility",
+        "desc": "",
+        "date": "13 Aug 2026 07:21 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release - MetaOptics to Deploy its Direct Laser Writer at the nano@stanford Facility",
+                "title": "General Announcement",
+                "dateTime": "13-Aug-2026 07:21:33",
+                "status": "New",
+                "reference": "SG260813OTHROHXZ",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment.\n\nThis press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release.\n\nThe contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - nano at stanford DLW Deployment PR.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20nano%20at%20stanford%20DLW%20Deployment%20PR.ashx?App=Announcement&FileID=900747"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 63,
+        "title": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_btn": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::RESPONSE TO SUBSTANTIAL AND RELEVANT QUESTIONS RECEIVED FROM SIAS AND SHAREHOLDERS",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-response-to-substantial-and-relevant-questions-received-from-sias-and-shareholders-20260406",
+        "desc": "",
+        "date": "06 Apr 2026 06:33 AM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Response to Substantial and Relevant Questions Received from SIAS and Shareholders",
+                "title": "General Announcement",
+                "dateTime": "06-Apr-2026 06:33:36",
+                "status": "New",
+                "reference": "SG2604060THRDAMR",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attached.\n\nThis announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\").\n\nThis announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement.\n\nThe contact person for the Sponsor is Ms Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Responses to SIAS and Shareholders Queries.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Responses%20to%20SIAS%20and%20Shareholders%20Queries.ashx?App=Announcement&FileID=881956"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 64,
+        "title": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_btn": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_btn_sm": "REPL::ANNUAL GENERAL MEETING:: VOLUNTARY",
+        "title_banner": "ANNUAL GENERAL<br/>MEETING",
+        "slug": "repl-annual-general-meeting-voluntary-20260410",
+        "desc": "",
+        "date": "10 Apr 2026 07:16 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Annual General Meeting",
+                "dateTime": "10-Apr-2026 19:16:53",
+                "finalYearEnd": "31/12/2025",
+                "status": "Replacement",
+                "reference": "SG260326MEET20U5",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },
+            "eventNarrative": [
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. AGM Notice Booklet\n2. Depositor Proxy Form\n3. Corrigendum to the Depositor Proxy Form\n4. AGM Result Announcement"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The Depositor Proxy Form attached to this replacement announcement supersedes the earlier Depositor Proxy Form released. All other documents remain unchanged."
+                }
+            ],
+            "eventDates": {
+                "left": [
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 10:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 10:00:00"
+                    }
+                ]
+            },
+            "eventVenues": [
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+            ],
+            "attachments": [
+                {
+                    "name": "MetaOptics - AGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20AGM%20Notice%20Booklet.ashx?App=Announcement&FileID=883121"
+                },
+                {
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/Metaoptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=883122"
+                },
+                {
+                    "name": "MetaOptics - Corrigendum to Depositor Proxy Form for AGM.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Corrigendum%20to%20Depositor%20Proxy%20Form%20for%20AGM.ashx?App=Announcement&FileID=883123"
+                },
+                {
+                    "name": "MetaOptics - AGM Result Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20AGM%20Result%20Announcement.ashx?App=Announcement&FileID=883124"
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "26/03/2026 21:22:14",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/PFQQRLASKHEWUOA6"
+                },
+                {
+                    "name": "Related Announcements:",
+                    "text": "26/03/2026 07:31:47",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/UIS59OK0CHIQZXQM"
+                }
+            ]
+        },
+        "category": "AGM / EGM"
+    },
+    {
+        "id": 65,
+        "title": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_btn": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_btn_sm": "REPL::EXTRAORDINARY/ SPECIAL GENERAL MEETING::",
+        "title_banner": "GENERAL<br/>MEETING",
+        "slug": "repl-extraordinary-special-general-meeting-20260410",
+        "desc": "",
+        "date": "10 Apr 2026 07:22 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "",
+                "title": "Extraordinary/ Special General Meeting",
+                "dateTime": "10-Apr-2026 19:22:28",
+                "finalYearEnd": "31/12/2025",
+                "status": "Replacement",
+                "reference": "SG260319XMETNQZL",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman"
+            },
+            "eventNarrative": [
+                {
+                    "name": "Narrative Type",
+                    "text": "Narrative Text"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "Please refer to the attachments:\n1. EGM Notice Booklet\n2. Circular\n3. Depositor Proxy Form\n4. Corrigendum to the EGM Notice announcement"
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\")."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+                },
+                {
+                    "name": "Additional Text",
+                    "text": "The Circular attached to this replacement announcement supersedes the earlier Circular released. All other documents remain unchanged."
+                }
+            ],
+            "eventDates": {
+                "left": [
+                    {
+                        "name": "Meeting Date and Time:",
+                        "text": "10/04/2026 11:00:00"
+                    }
+                ],
+                "right": [
+                    {
+                        "name": "Response Deadline Date:",
+                        "text": "08/04/2026 11:00:00"
+                    }
+                ]
+            },
+            "eventVenues": [
+                {
+                    "name": "Venue(s)",
+                    "text": "Venue details"
+                },
+                {
+                    "name": "Meeting Venue",
+                    "text": "Raffles Town Club, Ballroom 1, 1 Plymouth Avenue, Singapore 297753"
+                }
+            ],
+            "attachments": [
+                {
+                    "name": "MetaOptics - EGM Notice Booklet.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20EGM%20Notice%20Booklet.ashx?App=Announcement&FileID=878725"
+                },
+                {
+                    "name": "MetaOptics - Circular.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Circular.ashx?App=Announcement&FileID=878726"
+                },
+                {
+                    "name": "MetaOptics - Depositor Proxy Form.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Depositor%20Proxy%20Form.ashx?App=Announcement&FileID=883127"
+                },
+                {
+                    "name": "MetaOptics - Corrigendum to Notice of EGM.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20Corrigendum%20to%20Notice%20of%20EGM.ashx?App=Announcement&FileID=883128"
+                },
+                {
+                    "name": "MetaOptics - EGM Result Announcement.pdf",
+                    "url": "https://links.sgx.com/FileOpen/MetaOptics%20-%20EGM%20Result%20Announcement.ashx?App=Announcement&FileID=883129"
+                }
+            ],
+            "related": [
+                {
+                    "name": "Related Announcements:",
+                    "text": "19/03/2026 08:22:20",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/X4PUSN5LF8WTEF5Z"
+                },
+                {
+                    "name": "Related Announcements:",
+                    "text": "19/03/2026 07:27:28",
+                    "url": "hthttps://links.sgx.com/1.0.0/corporate-announcements/GXYM35LKEQABAK3Y"
+                }
+            ]
+        },
+        "category": "AGM / EGM"
     }
 ]

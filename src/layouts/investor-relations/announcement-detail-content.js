@@ -556,8 +556,9 @@ const AnnouncementDetailContent = () => {
                                 <div
                                     key={index}
                                     className='xl:mt-[10px] pb-10'
+                                    data-download-url={item.url || undefined}
+                                    title={item.url || undefined}
                                 >
-                                    {/* Date */}
                                     <div className='flex items-center gap-2 py-2'>
                                         <span className='text-[20px] font-medium text-black leading-[1.2]'><Image src={downloadIcon} alt='arrow' width={32} height={32} /></span>
                                         <span className='text-[20px] font-medium text-black leading-[1.2]'>
@@ -565,13 +566,13 @@ const AnnouncementDetailContent = () => {
                                         </span>                           
                                     </div>
 
-                                    {/* Title Container */}
+                                    {/* download link tagged on wrapper: data-download-url + title */}
                                     <BaseButton
                                         label={'Download PDF'}
                                         classNameBtn='uppercase'
                                         bgDefault='#d34c39'
                                         className='!mt-[10px] !xl:justify-start !justify-start'                        
-                                        onClick={() => window.open(item?.url, '_blank')}
+                                        onClick={() => item?.url && window.open(item.url, '_blank')}
                                     />
                                 </div>
                             ))}
