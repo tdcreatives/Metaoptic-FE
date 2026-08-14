@@ -36,7 +36,7 @@ const AnnouncementRow = ({ item, striped }) => (
         <div className="border-b border-[#e0e1e0] h-full flex items-center px-4 py-4">
             <Link
                 href={`/company-announcement/${item.slug}`}
-                className="futura-medium text-[16px] md:text-[20px] text-[#231f20] leading-[30px] capitalize hover:text-[#d34c39] hover:underline transition-colors"
+                className="futura-medium text-[16px] md:text-[20px] text-[#231f20] leading-[30px] hover:text-[#d34c39] hover:underline transition-colors"
             >
                 {item.displayTitle}
             </Link>
@@ -61,7 +61,7 @@ export const AnnouncementTable = ({ items }) => {
     return (
         <div className="hidden lg:block w-full">
             <div className="grid grid-cols-[minmax(140px,192px)_1fr_minmax(160px,211px)]">
-                <TableHeader>Filling Date</TableHeader>
+                <TableHeader>Filing Date</TableHeader>
                 <TableHeader>Title</TableHeader>
                 <TableHeader>Category</TableHeader>
             </div>
@@ -86,7 +86,7 @@ export const AnnouncementCards = ({ items }) => {
             {items.map((item) => (
                 <div key={item.id} className="bg-[#f6f6f6] rounded-[12px] p-4 flex flex-col gap-3">
                     <div className="flex flex-col gap-1">
-                        <span className="futura-medium text-[12px] text-[#888888] uppercase">Filling Date</span>
+                        <span className="futura-medium text-[12px] text-[#888888] uppercase">Filing Date</span>
                         <span className="futura-medium text-[15px] text-[#231f20]">{item.filingDate}</span>
                         {item.filingTime && (
                             <span className="futura-medium text-[13px] text-[#a9a9a9]">{item.filingTime}</span>

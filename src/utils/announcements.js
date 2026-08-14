@@ -62,12 +62,21 @@ export const splitAnnouncementDate = (value) => {
     return { filingDate: value, filingTime: '' };
 };
 
+// ponytail: listing titles come ALL CAPS from SGX; CSS capitalize won't downcase
+export const toTitleCase = (value) => {
+    if (!value) return '';
+    return value
+        .toLowerCase()
+        .replace(/(^|[\s/&\-:])([a-z0-9])/g, (_, sep, char) => `${sep}${char.toUpperCase()}`);
+};
+
 export const normalizeAnnouncement = (item) => {
     const { filingDate, filingTime } = splitAnnouncementDate(item.date);
     const announcement = item.details?.announcement || {};
-    const displayTitle =
+    const rawTitle =
         announcement.subTitle ||
         item.title.replace(/::/g, ' - ');
+    const displayTitle = toTitleCase(rawTitle);
 
     return {
         id: item.id,
