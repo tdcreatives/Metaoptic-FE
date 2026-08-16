@@ -47,7 +47,7 @@ const AnnouncementDetailContent = () => {
                             {announcement.title}
                         </h1>
                     </div>
-                    <div className='w-full h-[2px] bg-[#111111] opacity-50'></div>
+                    <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                 </div>
 
                 {/* Issuer & Securities Section */}
@@ -58,7 +58,7 @@ const AnnouncementDetailContent = () => {
                                 Issuer & Securities
                             </h2>
                         </div>
-                        <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                     </div>
 
                     {expandedSections.issuer && (
@@ -106,7 +106,7 @@ const AnnouncementDetailContent = () => {
                                 Announcement Details
                             </h2>
                         </div>
-                        <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                     </div>
 
                     {expandedSections.announcement && (
@@ -215,7 +215,7 @@ const AnnouncementDetailContent = () => {
                                     )}
                                 </div>
                             </div>
-                            <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                            <div className='w-full h-px bg-[#CBCBCB]'></div>
 
                             {/* Description Section */}
                             {details?.announcement?.description && (
@@ -232,7 +232,7 @@ const AnnouncementDetailContent = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                                <div className='w-full h-px bg-[#CBCBCB]'></div>
                             </>
                             )}
 
@@ -256,7 +256,7 @@ const AnnouncementDetailContent = () => {
                                     Event Narrative
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>                                
                            
@@ -267,7 +267,7 @@ const AnnouncementDetailContent = () => {
                                         key={index}
                                         className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
                                             index < details.eventNarrative.length - 1
-                                                ? 'border-b border-[#A9A9A9]'
+                                                ? 'border-b border-[#CBCBCB]'
                                                 : ''
                                         }`}
                                     >
@@ -292,7 +292,7 @@ const AnnouncementDetailContent = () => {
                                 Event Dates
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
@@ -339,7 +339,7 @@ const AnnouncementDetailContent = () => {
                                 Event Venue(s)
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
@@ -353,7 +353,7 @@ const AnnouncementDetailContent = () => {
                                         key={index}
                                         className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
                                             index < details.eventVenues.length - 1
-                                                ? 'border-b border-[#A9A9A9]'
+                                                ? 'border-b border-[#CBCBCB]'
                                                 : ''
                                         }`}
                                     >
@@ -378,7 +378,7 @@ const AnnouncementDetailContent = () => {
                                     Additional Details
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>                                
                             {details?.additional?.description && (
@@ -550,7 +550,7 @@ const AnnouncementDetailContent = () => {
                                     Attachments
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
                             {details.attachments.map((item, index) => (
@@ -589,7 +589,7 @@ const AnnouncementDetailContent = () => {
                                     Related Announcements
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
                             {details.related.map((item, index) => (
