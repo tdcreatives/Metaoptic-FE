@@ -162,6 +162,7 @@
         {
             "id": 7,
             "slug": "metaoptics-deploys-direct-laser-writer-in-taiwan-to-power-prototyping-and-production",
+            "section": "sgx",
             "title": "MetaOptics Deploys Direct Laser Writer in Taiwan to Power Prototyping and Production",
             "desc": "MetaOptics Ltd (Catalist: 9MT), a leading-edge semiconductor optics company, has deployed its Direct Laser Writer system at Pin-Jye Nano Technologies Co., Ltd. in Taoyuan, Taiwan. The installation brings metalens prototyping and fabrication closer to the region\u02bcs semiconductor supply chain and marks an important step in MetaOptics\u02bc global expansion.",
             "date": "Sep 24, 2025",
@@ -178,6 +179,7 @@
         {
             "id": 8,
             "slug": "2025-asia-innovation-cup",
+            "section": "sgx",
             "title": "\u300a\u4e9e\u6d32\u5275\u65b0\u76c3\u300b\u6700\u4f73\u5275\u65b0\u734e\uff1aMetaOptics Ltd. \u651c\u624b\u81fa\u7063\u4f9b\u61c9\u93c8\u7784\u6e96\u6676\u7247\u5c01\u88dd\u5149\u5b78\u5546\u6a5f",
             "desc": "\u9996\u5c46\u300a\u4e9e\u6d32\u5275\u65b0\u76c3\u300b\u5f9e\u5168\u7403\u903e70\u7d44\u5718\u968a\u53c3\u8207\u5fb5\u4ef6\uff0c\u4f86\u81ea\u65b0\u52a0\u5761MetaOptics Technologies Pte Ltd\u52c7\u52c7\u596a\u6700\u4f73\u5275\u65b0\u734e\u3002",
             "date": "Nov 03, 2025",
@@ -330,6 +332,7 @@
         {
             "id": 16,
             "slug": "metaoptics-announces-strategic-share-placement-to-accelerate-growth-and-meet-rising-global-demand",
+            "section": "sgx",
             "title": "MetaOptics Announces Strategic Share Placement to Accelerate Growth and Meet Rising Global Demand ",
             "desc": "MetaOptics Ltd a leading-edge semiconductor optics company, announced that it is proposing to raise S$4.85 million through a placement of 6,685,028 new ordinary shares in the capital of the Company",
             "date": "Dec 01, 2025",
@@ -348,6 +351,7 @@
         {
             "id": 17,
             "slug": "metaoptics-provides-year-end-business-review-and-update",
+            "section": "sgx",
             "title": "MetaOptics Provides Year-End Business Review and Update",
             "desc": "As we approach the Christmas festive season and the close of 2025, MetaOptics would like to express its sincere appreciation to all stakeholders who have supported the Company's journey and growth.",
             "date": "Dec 17, 2025",
@@ -487,6 +491,7 @@
         {
             "id": 25,
             "slug": "metaoptics-announces-membership-in-stanford-engineerings-systemx-alliance-program-in-the-usa",
+            "section": "sgx",
             "title": "MetaOptics Announces Membership in Stanford Engineering's SystemX Alliance Program in the USA",
             "desc": "MetaOptics Announces Membership in Stanford Engineering's SystemX Alliance Program in the USA",
             "date": "Feb 10, 2026",
@@ -557,6 +562,7 @@
         {
             "id": 28,
             "slug": "metaoptics-update-on-proposed-nasdaq-dual-listing",
+            "section": "sgx",
             "title": "MetaOptics - Update on Proposed Nasdaq Dual Listing",
             "desc": "MetaOptics - Update on Proposed Nasdaq Dual Listing",
             "date": "May 05, 2026",
