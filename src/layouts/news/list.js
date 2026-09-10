@@ -55,7 +55,7 @@ const NewsList = () => {
                 <>
                     <BaseTitle
                         title='SGX OFFICIAL ANNOUNCEMENTS'
-                        className='!text-center futura-condensed-medium'
+                        className='!text-center futura-condensed-medium mt-16 xl:mt-[120px]'
                     />
                     <NewsCardGrid items={sgxNews} />
                 </>
