@@ -1454,6 +1454,12 @@
             "Video Input": "MIPI DSI"
           }
         },
+        "videoSection": {
+          "title": "Small projector, big experience",
+          "description": "Half the size of its predecessor, still bright enough for demos and on-the-go sharing. USB-C keeps setup simple, and the silent fanless design fits quiet rooms and personal spaces.",
+          "src": "/product-details/pico-projector-2nd-generation.mp4",
+          "poster": "/product-details/pico-projector-2nd-generation-poster.jpg"
+        },
         "relatedProducts": [
           {
             "name": "Ultra-wide FoV IR Metalens",
@@ -1527,6 +1533,12 @@
               }
             ]
           }
+        },
+        "videoSection": {
+          "title": "Step into the future with metalens",
+          "description": "An ultra-thin metalens camera stack removes the traditional bump, while a non-contact 3D fingerprint module unlocks through the display. Powered by the Qualcomm Dragonwing QCM6490 for 5G and edge workloads.",
+          "src": "/product-details/metalens-5g-smartphone.mp4",
+          "poster": "/product-details/metalens-5g-smartphone-poster.jpg"
         },
         "relatedProducts": [
           {
@@ -1623,6 +1635,12 @@
               }
             ]
           }
+        },
+        "videoSection": {
+          "title": "Step into the future with metalens",
+          "description": "Touchless gesture tracking handles volume and calls without reaching for the frame, on a sport ready build running the Qualcomm AR1 Snapdragon. Flat optics, light enough to wear all day.",
+          "src": "/product-details/metalens-ai-glasses.mp4",
+          "poster": "/product-details/metalens-ai-glasses-poster.jpg"
         },
         "relatedProducts": [
           {

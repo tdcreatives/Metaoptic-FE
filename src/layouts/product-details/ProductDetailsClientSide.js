@@ -14,6 +14,7 @@ import ProductDetailsSpecifications from "@/layouts/product-details/specificatio
 import ProductDetailsTestingCapabilities from "@/layouts/product-details/testing-capabilities";
 import ProductDetailsMeasuredParameters from "@/layouts/product-details/measured-parameters";
 import RelatedProducts from "@/layouts/product-details/related-products";
+import ProductDetailsVideoSection from "@/layouts/product-details/video-section";
 import ProductDetailsKeyFeatures from "@/layouts/product-details/key-features";
 import ProductDetailsKeyFeaturesGrid from "@/layouts/product-details/key-features-grid";
 import ProductDetailsDualColumnList from "@/layouts/product-details/dual-column-list";
@@ -118,6 +119,14 @@ const ProductDetailsClientSide = () => {
       {product?.details?.measuredParameters && (
         <ProductDetailsMeasuredParameters
           measuredParameters={product?.details?.measuredParameters}
+        />
+      )}
+
+      {product?.details?.videoSection && (
+        <ProductDetailsVideoSection
+          videoSection={product.details.videoSection}
+          buyNow={product.buyNow}
+          buyNowText={product.buyNowText}
         />
       )}
 
