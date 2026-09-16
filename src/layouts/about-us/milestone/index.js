@@ -140,6 +140,18 @@ const MileStone = () => {
                         Launched 3 new major products: Metalens 5G {isDesktop ? <br /> : ' '} 
                         Smartphone,  AI Smart Glasses, and Pico Projector 2.0
                     </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Completed deployment of the 4&quot; Direct Laser Writer and the 12&quot; {isDesktop ? <br /> : ' '}
+                        Automatic Metalens Tester on the Taiwan platform for rapid prototyping
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Successfully assembled the world&apos;s first rectangular metalens {isDesktop ? <br /> : ' '}
+                        into a 5MP color imaging camera
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Exhibited metalens smart devices at COMDEX, Suntec Singapore, {isDesktop ? <br /> : ' '}
+                        3 to 6 September
+                    </div>
                 </motion.div>
             ),
         },

@@ -62,12 +62,39 @@ export const splitAnnouncementDate = (value) => {
     return { filingDate: value, filingTime: '' };
 };
 
-// ponytail: listing titles come ALL CAPS from SGX; CSS capitalize won't downcase
+const TITLE_CAPITALIZATION = [
+    [/\bMetaoptics\b/gi, 'MetaOptics'],
+    [/\bSgx-St\b/gi, 'SGX-ST'],
+    [/\bSgx\b/gi, 'SGX'],
+    [/\bLqn\b/gi, 'LQN'],
+    [/\bDlw\b/gi, 'DLW'],
+    [/\bMot\b/gi, 'MOT'],
+    [/\bU\.s\.(?=\s|$|[),;:])/gi, 'U.S.'],
+    [/\bUs\b/gi, 'US'],
+    [/\bAi\b/gi, 'AI'],
+    [/\bIot\b/gi, 'IoT'],
+    [/\bFy(?=\d|\b)/gi, 'FY'],
+    [/\bCes\b/gi, 'CES'],
+    [/\bMou\b/gi, 'MOU'],
+    [/\bEgm\b/gi, 'EGM'],
+    [/\bNano@stanford\b/gi, 'nano@Stanford'],
+];
+
+// ponytail: SGX titles need readable title case, then one shared acronym pass.
 export const toTitleCase = (value) => {
     if (!value) return '';
-    return value
+    let title = value
         .toLowerCase()
         .replace(/(^|[\s/&\-:])([a-z0-9])/g, (_, sep, char) => `${sep}${char.toUpperCase()}`);
+
+    TITLE_CAPITALIZATION.forEach(([pattern, replacement]) => {
+        title = title.replace(pattern, replacement);
+    });
+
+    return title.replace(
+        /S\$(\d+(?:\.\d+)?)([mkb])?\b/gi,
+        (_, amount, suffix = '') => `S$${amount}${suffix.toUpperCase()}`
+    );
 };
 
 export const normalizeAnnouncement = (item) => {
