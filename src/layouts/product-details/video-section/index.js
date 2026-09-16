@@ -122,7 +122,7 @@ const ProductDetailsVideoSection = ({ videoSection, buyNow, buyNowText }) => {
                 className='pointer-events-none absolute bottom-0 left-0 z-0 hidden h-auto w-[240px] select-none opacity-10 xl:block'
             />
 
-            <div className='relative z-[1] mx-auto flex w-full flex-col items-center gap-[40px] px-[24px] py-[64px] xl:flex-row xl:items-center xl:gap-0 xl:px-0 xl:py-[96px]'>
+            <div className='relative z-[1] mx-auto flex w-full max-w-[1280px] flex-col items-center gap-[40px] px-[24px] py-[64px] xl:flex-row xl:items-center xl:gap-0 xl:px-0 xl:py-[96px]'>
                 {/* PC: 50% left — video centered in half */}
                 <div className='flex w-full justify-center xl:w-1/2'>
                     <div className='w-full max-w-[360px] xl:max-w-[420px]'>

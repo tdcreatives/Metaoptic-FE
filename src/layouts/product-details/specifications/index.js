@@ -35,6 +35,7 @@ const ProductDetailsSpecifications = ({
     brochure,
     userGuide,
     installer,
+    squareBottomCorners = false,
 }) => {
     const [isExpanded, setIsExpanded] = useState(true);
 
@@ -133,7 +134,10 @@ const ProductDetailsSpecifications = ({
     const hasButtons = brochure || userGuide || installer;
 
     return (
-        <div className='w-full bg-[#d34c39] lg:py-12 py-8 lg:px-10 px-6 rounded-[32px] text-white'>
+        <div
+            className={`w-full bg-[#d34c39] lg:py-12 py-8 lg:px-10 px-6 text-white ${
+                squareBottomCorners ? 'rounded-t-[32px]' : 'rounded-[32px]'
+            }`}>
             <div className='flex justify-between items-center mb-0'>
                 <div className='xl:text-[48px] lg:text-[40px] text-[32px] uppercase relative z-30 futura-condensed-medium lg:mt-0 mt-3 text-start'>
                     Specifications

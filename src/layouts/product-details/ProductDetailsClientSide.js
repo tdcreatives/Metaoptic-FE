@@ -105,6 +105,7 @@ const ProductDetailsClientSide = () => {
           brochure={product?.brochure}
           userGuide={product?.userGuide}
           installer={product?.installer}
+          squareBottomCorners={slug === "pico-projector-2nd-generation"}
         />
       )}
 
