@@ -27,7 +27,7 @@ const IRContacts = () => {
                 Investor Relations
             </h2>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16 xl:gap-20 mt-8 md:mt-10 lg:mt-12'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 xl:gap-20 mt-8 md:mt-10 lg:mt-12'>
                 <div>
                     <ColumnHeading>Headquarters</ColumnHeading>
                     <AddressBlock
@@ -46,24 +46,6 @@ const IRContacts = () => {
                             '94111',
                         ]}
                     />
-                </div>
-
-                <div>
-                    <ColumnHeading>Investor Relations</ColumnHeading>
-                    <div className='futura-medium font-medium text-[16px] md:text-[18px] xl:text-[20px] text-[#616161] leading-[1.8]'>
-                        <div>Gateway Group</div>
-                        <a
-                            href='mailto:MOT@gateway-grp.com'
-                            className='text-[#616161] underline hover:text-[#d34c39] transition-colors'
-                        >
-                            MOT@gateway-grp.com
-                        </a>
-                        <div>
-                            <a href='tel:+19495743860' className='hover:text-[#d34c39] transition-colors'>
-                                949-574-3860
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 <div>

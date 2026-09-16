@@ -17,13 +17,53 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/company-announcement',
+        destination: '/investor-relations/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/company-announcement/:slug',
+        destination: '/investor-relations/company-announcement/:slug',
+        permanent: true,
+      },
+      {
+        source: '/analyst-coverage',
+        destination: '/investor-relations/analyst-coverage',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/stock-info/analyst-coverage',
+        destination: '/investor-relations/analyst-coverage',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/financials/:path*',
+        destination: '/investor-relations/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/news/:path*',
+        destination: '/news',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/resources/email-alerts',
+        destination: '/investor-relations/resources/investor-faqs',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/stock-info/:path*',
+        destination: '/investor-relations',
+        permanent: true,
+      },
+      {
         source: '/annountcement',
-        destination: '/company-announcement',
+        destination: '/investor-relations/company-announcement',
         permanent: true,
       },
       {
         source: '/annountcement/:slug',
-        destination: '/company-announcement/:slug',
+        destination: '/investor-relations/company-announcement/:slug',
         permanent: true,
       },
       {
@@ -42,12 +82,6 @@ const nextConfig = {
         source: '/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera',
         destination:
           '/',
-        permanent: true,
-      },
-      {
-        source: '/investor-relations',
-        destination:
-          '/company-announcement',
         permanent: true,
       },
     ];

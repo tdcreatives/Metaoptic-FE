@@ -6,7 +6,8 @@
         "dev": "next dev -p 4444",
         "build": "NODE_ENV=production next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "check:ir": "node scripts/check-ir-ui.mjs"
     },
     "dependencies": {
         "@mdx-js/loader": "^3.1.0",

@@ -3,15 +3,6 @@ import { isIrSubItemVisible, isIrTabVisible } from '@/constants/ir-feature-flags
 const investorRelationsTabsBase = [
   { label: 'OVERVIEW', path: '/investor-relations', bannerTitle: 'INVESTOR<br/>RELATIONS' },
   {
-    label: 'NEWS',
-    path: '/investor-relations/news',
-    bannerTitle: 'NEWS',
-    subItems: [
-      { label: 'Press Releases', path: '/investor-relations/news/press-releases' },
-      { label: 'Media', path: '/investor-relations/news/media' },
-    ],
-  },
-  {
     label: 'EVENTS & PRESENTATION',
     path: '/investor-relations/events-and-presentation',
     bannerTitle: 'EVENTS &amp;<br/>PRESENTATION',
@@ -22,23 +13,14 @@ const investorRelationsTabsBase = [
     ],
   },
   {
-    label: 'STOCK INFO',
-    path: '/investor-relations/stock-info',
-    bannerTitle: 'STOCK INFO',
-    launchFlag: 'showStockInfo',
-    subItems: [
-      { label: 'Stock Quote', path: '/investor-relations/stock-info/stock-quote' },
-      { label: 'Analyst Coverage', path: '/investor-relations/stock-info/analyst-coverage', launchFlag: 'showAnalystCoverage' },
-    ],
+    label: 'SGX COMPANY ANNOUNCEMENT',
+    path: '/investor-relations/company-announcement',
+    bannerTitle: 'INVESTOR<br/>RELATIONS(SGX)',
   },
   {
-    label: 'FINANCIALS',
-    path: '/investor-relations/financials',
-    bannerTitle: 'FINANCIALS',
-    subItems: [
-      { label: 'SEC Filings', path: '/investor-relations/financials/sec-filings' },
-      { label: 'Quarterly Results', path: '/investor-relations/financials/quarterly-results' },
-    ],
+    label: 'ANALYST COVERAGE',
+    path: '/investor-relations/analyst-coverage',
+    bannerTitle: 'ANALYST COVERAGE',
   },
   {
     label: 'GOVERNANCE',
@@ -57,7 +39,6 @@ const investorRelationsTabsBase = [
     bannerTitle: 'RESOURCES',
     subItems: [
       { label: 'Investor FAQs', path: '/investor-relations/resources/investor-faqs' },
-      { label: 'Email Alerts', path: '/investor-relations/resources/email-alerts' },
       { label: 'Contact Us', path: '/investor-relations/resources/contact-us' },
     ],
   },

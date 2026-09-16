@@ -14,6 +14,7 @@ export const IR_LAUNCH_FLAGS = {
     showAnalystCoverage: true,
     showQuarterlyResults: false,
     showDocumentsAndCharters: false,
+    showEmailAlerts: false,
 };
 
 /** Parent redirect when Stock Info (entire section) is hidden */
@@ -60,34 +61,27 @@ export const getDefaultGovernancePath = () =>
         : '/investor-relations/governance/board-of-directors';
 
 /** Standalone SGX page: /analyst-coverage */
-export const getStandaloneAnalystCoverageRedirect = () => IR_STOCK_INFO_FALLBACK;
+export const getStandaloneAnalystCoverageRedirect = () => '/investor-relations/analyst-coverage';
 
 /** IR sub-page under Stock Info: /investor-relations/stock-info/analyst-coverage */
-export const getIrStockInfoAnalystCoverageRedirect = () => {
-    if (!IR_LAUNCH_FLAGS.showStockInfo) {
-        return IR_STOCK_INFO_FALLBACK;
-    }
-    return '/investor-relations/stock-info/stock-quote';
-};
+export const getIrStockInfoAnalystCoverageRedirect = () => '/investor-relations/analyst-coverage';
 
 export const IR_HIDDEN_PAGE_REDIRECTS = {
     '/investor-relations/stock-info': IR_STOCK_INFO_FALLBACK,
     '/investor-relations/stock-info/stock-quote': IR_STOCK_INFO_FALLBACK,
-    '/investor-relations/stock-info/analyst-coverage': IR_STOCK_INFO_FALLBACK,
-    '/investor-relations/financials/quarterly-results': '/investor-relations/financials/sec-filings',
+    '/investor-relations/stock-info/analyst-coverage': '/investor-relations/analyst-coverage',
+    '/investor-relations/financials/quarterly-results': '/investor-relations/company-announcement',
     '/investor-relations/governance/documents-and-charters': '/investor-relations/governance/board-of-directors',
-    '/analyst-coverage': IR_STOCK_INFO_FALLBACK,
+    '/analyst-coverage': '/investor-relations/analyst-coverage',
 };
 
 export const getIrHiddenPageRedirect = (pathname) => {
-    if (!IR_LAUNCH_FLAGS.showStockInfo && isStockInfoPath(pathname)) {
-        return IR_STOCK_INFO_FALLBACK;
+    if (pathname === '/investor-relations/stock-info/analyst-coverage') {
+        return getIrStockInfoAnalystCoverageRedirect();
     }
 
-    if (pathname === '/investor-relations/stock-info/analyst-coverage') {
-        if (!IR_LAUNCH_FLAGS.showStockInfo || !IR_LAUNCH_FLAGS.showAnalystCoverage) {
-            return getIrStockInfoAnalystCoverageRedirect();
-        }
+    if (!IR_LAUNCH_FLAGS.showStockInfo && isStockInfoPath(pathname)) {
+        return IR_STOCK_INFO_FALLBACK;
     }
 
     if (pathname === '/investor-relations/financials/quarterly-results' && !IR_LAUNCH_FLAGS.showQuarterlyResults) {

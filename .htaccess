@@ -1,23 +1,28 @@
 RewriteEngine On
 
 # ---------------------------------------------------------------------------
-# IR launch — hidden pages (server-side 301, no JS flash)
-# Keep in sync with src/constants/ir-feature-flags.js
-# Remove or comment out each rule when the matching flag is set to true.
+# IR legacy and removed routes (authoritative production redirects)
+# Keep in sync with next.config.js redirects and ir-feature-flags.js fallbacks.
 # ---------------------------------------------------------------------------
-RewriteRule ^investor-relations/stock-info/?$ /investor-relations [R=301,L,NC]
-RewriteRule ^investor-relations/stock-info/stock-quote/?$ /investor-relations [R=301,L,NC]
-RewriteRule ^investor-relations/stock-info/analyst-coverage/?$ /investor-relations [R=301,L,NC]
-RewriteRule ^investor-relations/financials/quarterly-results/?$ /investor-relations/financials/sec-filings [R=301,L,NC]
-RewriteRule ^investor-relations/governance/documents-and-charters/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
-RewriteRule ^investor-relations/governance/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
+RewriteRule ^company-announcement\.html/?$ /investor-relations/company-announcement [R=301,L,NC]
+RewriteRule ^company-announcement/([^/]+)\.html/?$ /investor-relations/company-announcement/$1 [R=301,L,NC]
+RewriteRule ^company-announcement/?$ /investor-relations/company-announcement [R=301,L,NC]
+RewriteRule ^company-announcement/([^/]+)/?$ /investor-relations/company-announcement/$1 [R=301,L,NC]
 
-# Legacy SGX announcement URLs (typo route annountcement → company-announcement)
-# Keep in sync with next.config.js redirects
-RewriteRule ^annountcement\.html$ /company-announcement [R=301,L,NC]
-RewriteRule ^annountcement/(.+)\.html$ /company-announcement/$1 [R=301,L,NC]
-RewriteRule ^annountcement/?$ /company-announcement [R=301,L,NC]
-RewriteRule ^annountcement/(.+)$ /company-announcement/$1 [R=301,L,NC]
+RewriteRule ^analyst-coverage(?:\.html)?/?$ /investor-relations/analyst-coverage [R=301,L,NC]
+RewriteRule ^investor-relations/stock-info/analyst-coverage(?:\.html)?/?$ /investor-relations/analyst-coverage [R=301,L,NC]
+RewriteRule ^investor-relations/financials(?:\.html|/.*)?/?$ /investor-relations/company-announcement [R=301,L,NC]
+RewriteRule ^investor-relations/news(?:\.html|/.*)?/?$ /news [R=301,L,NC]
+RewriteRule ^investor-relations/resources/email-alerts(?:\.html)?/?$ /investor-relations/resources/investor-faqs [R=301,L,NC]
+RewriteRule ^investor-relations/stock-info(?:\.html|/.*)?/?$ /investor-relations [R=301,L,NC]
+RewriteRule ^investor-relations/governance/documents-and-charters(?:\.html)?/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
+RewriteRule ^investor-relations/governance(?:\.html)?/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
+
+# Legacy SGX typo routes map directly to the nested canonical routes.
+RewriteRule ^annountcement\.html/?$ /investor-relations/company-announcement [R=301,L,NC]
+RewriteRule ^annountcement/([^/]+)\.html/?$ /investor-relations/company-announcement/$1 [R=301,L,NC]
+RewriteRule ^annountcement/?$ /investor-relations/company-announcement [R=301,L,NC]
+RewriteRule ^annountcement/([^/]+)/?$ /investor-relations/company-announcement/$1 [R=301,L,NC]
 
 # Redirect legacy product URL to new slug (static export + Apache hosting)
 RewriteRule ^verticals/metalens-foundry/iot-metalens-color-camera/?$ /verticals/metalens-products/development-kits/iot-metalens-color-camera [R=301,L,NC]
@@ -28,8 +33,6 @@ RewriteRule ^verticals/metalens-foundry/3d-biometrics-metalens-sensor/?$ /vertic
 
 RewriteRule ^/verticals/metalens-foundry/color-imaging-meta-lens / [R=301,L,NC]
 RewriteRule ^/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera / [R=301,L,NC]
-
-RewriteRule ^/investor-relations /company-announcement [R=301,L,NC]
 
 RewriteRule ^/verticals/metalens-foundry/color-imaging-meta-lens / [R=301,L,NC]
 

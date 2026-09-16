@@ -610,6 +610,9 @@ const Header = ({ background = "#F0F0F0" }) => {
     if (header.dropdownKey === "verticals") {
       return pathName === "/verticals" || pathName.startsWith("/verticals/");
     }
+    if (header.path === "/investor-relations") {
+      return pathName === "/investor-relations" || pathName.startsWith("/investor-relations/");
+    }
     if (header.dropdownKey) {
       const items = dropdownItems[header.dropdownKey];
       if (items) {
@@ -623,12 +626,8 @@ const Header = ({ background = "#F0F0F0" }) => {
           return false;
         });
       }
-      // Special case: company announcement detail pages (SGX)
-      if (header.dropdownKey === "investorRelations") {
-        return pathName.startsWith("/company-announcement/");
-      }
     }
-    return pathName === header.path || 
+    return pathName === header.path ||
            (header.path === "/verticals" && pathName.startsWith("/verticals/"));
   };
 

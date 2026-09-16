@@ -35,7 +35,7 @@ const AnnouncementRow = ({ item, striped }) => (
         </div>
         <div className="border-b border-[#e0e1e0] h-full flex items-center px-4 py-4">
             <Link
-                href={`/company-announcement/${item.slug}`}
+                href={`/investor-relations/company-announcement/${item.slug}`}
                 className="futura-medium text-[16px] md:text-[20px] text-[#231f20] leading-[30px] hover:text-[#d34c39] hover:underline transition-colors"
             >
                 {item.displayTitle}
@@ -95,7 +95,7 @@ export const AnnouncementCards = ({ items }) => {
                     <div className="flex flex-col gap-1">
                         <span className="futura-medium text-[12px] text-[#888888] uppercase">Title</span>
                         <Link
-                            href={`/company-announcement/${item.slug}`}
+                            href={`/investor-relations/company-announcement/${item.slug}`}
                             className="futura-medium text-[15px] text-[#231f20] hover:text-[#d34c39] hover:underline"
                         >
                             {item.displayTitle}

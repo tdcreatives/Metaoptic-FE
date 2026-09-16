@@ -1,10 +1,10 @@
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-const IR_FALLBACK_EMAIL =
-    process.env.NEXT_PUBLIC_IR_CONTACT_EMAIL || 'MOT@gateway-grp.com';
-
 const MAIN_FALLBACK_EMAIL =
     process.env.NEXT_PUBLIC_REPLY_TO || 'sales@metaoptics.com.sg';
+
+const IR_FALLBACK_EMAIL =
+    process.env.NEXT_PUBLIC_IR_CONTACT_EMAIL || MAIN_FALLBACK_EMAIL;
 
 /**
  * Submit a form to Web3Forms (works with static export — no backend required).
@@ -54,14 +54,10 @@ export const isValidEmail = (value) =>
 export const isValidPhone = (value) =>
     /^\+?[0-9\s\-().]{10,15}$/.test(String(value || '').trim());
 
-/** Main site — /contact-us
- *  Routes to MOT@gateway-grp.com via the IR access key (recipient inbox is set per
- *  access key in the Web3Forms dashboard). Falls back to the main-site key if unset. */
+/** Main site — /contact-us */
 export function buildMainContactPayload(formData) {
     return {
-        access_key:
-            process.env.NEXT_PUBLIC_IR_WEB3FORMS_ACCESS_KEY ||
-            process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
         subject: process.env.NEXT_PUBLIC_SUBJECT || 'MetaOptics - Contact Form',
         from_name: 'MetaOptics Website Contact',
         email: formData.email,
@@ -79,7 +75,7 @@ export function buildMainContactPayload(formData) {
 /** IR — Resources / Contact Us */
 export function buildIrContactPayload(form) {
     return {
-        access_key: process.env.NEXT_PUBLIC_IR_WEB3FORMS_ACCESS_KEY,
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
         subject: process.env.NEXT_PUBLIC_IR_CONTACT_SUBJECT || 'MetaOptics IR - Investor Contact',
         from_name: 'MetaOptics IR Contact',
         email: form.email,
