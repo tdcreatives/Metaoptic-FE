@@ -6,7 +6,7 @@ import clsx from 'clsx';
 const DEFAULT_DOCUMENTS = [
     {
         label: 'MetaOptics - Investor Presentation.pdf',
-        url: 'https://www.metaoptics.sg/download/MOT-Company-Presentation-May2026-FINAL.pdf',
+        url: 'https://www.metaoptics.sg/download/MOT-Company-Presentation-Sep2026.pdf',
     },
 ];
 
