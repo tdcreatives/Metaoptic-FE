@@ -23,12 +23,7 @@
         {
             "id": "stock-symbol",
             "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
-            "answer": "MetaOptics Ltd trades on the Nasdaq Stock Market under the ticker symbol MOT. The company is also listed on the Singapore Exchange (SGX), reflecting its dual listing as a Singapore-headquartered technology company with U.S. capital markets access."
-        },
-        {
-            "id": "depository-bank",
-            "question": "Who is MetaOptics Ltd's depository bank?",
-            "answer": "MetaOptics Ltd's depository bank is JPMorgan Chase Bank, N.A., which administers the company's American Depositary Receipt (ADR) program for U.S. investors."
+            "answer": "MetaOptics Ltd is listed on the Singapore Exchange (SGX) under stock code 9MT."
         },
         {
             "id": "independent-auditor",
@@ -44,11 +39,6 @@
             "id": "sg-legal-counsel",
             "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
             "answer": "MetaOptics Ltd's Singapore legal affairs are handled by Drew & Napier LLC, one of Singapore's most established full-service law firms with deep expertise in corporate and capital markets matters."
-        },
-        {
-            "id": "ir-contact",
-            "question": "What is MetaOptics Ltd's investor relations contact information?",
-            "answer": "Investor relations inquiries are managed by Gateway Group, MetaOptics Ltd's dedicated IR firm. The team can be reached at MOT@gateway-grp.com or by phone at 949-574-3860."
         }
     ]
 }

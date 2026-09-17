@@ -1,11 +1,9 @@
 // Navigation links array
-import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
-
 export const headers = [
   { label: "ABOUT US", path: "/about-us" },
   { label: "VERTICALS", path: "/verticals", dropdownKey: "verticals" },
   { label: "NEWS", path: "/news" },
-  { label: "INVESTOR RELATIONS", path: "/investor-relations", dropdownKey: "investorRelations" },
+  { label: "INVESTOR RELATIONS", path: "/investor-relations" },
   { label: "CONTACT", path: "/contact-us" },
   { label: "SHOP", path: "https://metaoptics.shop/" },
 ];
@@ -58,53 +56,11 @@ const dropdownItemsBase = {
       ],
     },
   },
-  // investorRelations: {
-  //   singaporeExchange: {
-  //     label: "SGX",
-  //     path: "#",
-  //     hasIndicator: true,
-  //     items: [
-  //       { label: "Company Announcements", path: "/company-announcement" },
-  //       { label: "Analyst Coverage", path: "/analyst-coverage" },
-  //     ],
-  //   },
-  //   nasdaq: {
-  //     label: "NASDAQ",
-  //     path: "/investor-relations",
-  //   },
-  // },
-  investorRelations: {
-    companyAnnouncements: {
-      label: "Company Announcements",
-      path: "/company-announcement",
-    },
-    analystCoverage: {
-      label: "Analyst Coverage",
-      path: "/analyst-coverage",
-    },
-  },
 };
 
 export const dropdownItems = dropdownItemsBase;
 
-export const getDropdownItems = () => {
-  if (IR_LAUNCH_FLAGS.showAnalystCoverage) {
-    return dropdownItemsBase;
-  }
-
-  return {
-    ...dropdownItemsBase,
-    investorRelations: {
-      ...dropdownItemsBase.investorRelations,
-      singaporeExchange: {
-        ...dropdownItemsBase.investorRelations.singaporeExchange,
-        items: dropdownItemsBase.investorRelations.singaporeExchange.items.filter(
-          (item) => item.path !== '/analyst-coverage'
-        ),
-      },
-    },
-  };
-};
+export const getDropdownItems = () => dropdownItemsBase;
 
 // Legacy export for backward compatibility
 export const productsDropdownItems = dropdownItemsBase.verticals;

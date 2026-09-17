@@ -141,47 +141,12 @@ const SendMessage = () => {
 
 const ContactUs = () => {
     return (
-        <>
-            <IRContainer className='py-12 md:py-16 lg:py-20'>
-                <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
-                    Send Us a Message
-                </h2>
-                <SendMessage />
-            </IRContainer>
-
-            <IRContainer className='py-12 md:py-16 lg:py-20'>
-                <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
-                    Investor Relations
-                </h2>
-
-                <div className='mt-8 md:mt-10'>
-                    <h3 className='futura-condensed-medium font-medium text-[22px] md:text-[24px] xl:text-[28px] text-[#d34c39]'>
-                        Gateway Group, Inc.
-                    </h3>
-
-                    <div className='futura-medium font-medium text-[14px] md:text-[16px] xl:text-[20px] text-[#111111] leading-[2] mt-4'>
-                        <div>
-                            Email:{' '}
-                            <a
-                                href='mailto:MOT@gateway-grp.com'
-                                className='text-[#111111] underline underline-offset-4 hover:text-[#d34c39] transition-colors'
-                            >
-                                MOT@gateway-grp.com
-                            </a>
-                        </div>
-                        <div>
-                            Phone:{' '}
-                            <a
-                                href='tel:+19495743860'
-                                className='text-[#111111] hover:text-[#d34c39] transition-colors'
-                            >
-                                949-574-3860
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </IRContainer>
-        </>
+        <IRContainer className='py-12 md:py-16 lg:py-20'>
+            <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
+                Send Us a Message
+            </h2>
+            <SendMessage />
+        </IRContainer>
     );
 };
 
