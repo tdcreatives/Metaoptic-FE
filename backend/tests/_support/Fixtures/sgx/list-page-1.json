@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "page": 1,
+  "pageSize": 2,
+  "total": 3,
+  "items": [
+    {
+      "id": "1001",
+      "title": "GENERAL ANNOUNCEMENT::METAOPTICS ENTERS MOU",
+      "date": "15 Sep 2025 09:30 AM",
+      "category": "General Announcement",
+      "url": "https://example.test/sgx/announcement/SG25010100ABCDE",
+      "details": {
+        "announcement": {
+          "reference": "SG25010100ABCDE",
+          "subTitle": "METAOPTICS ENTERS MOU",
+          "title": "GENERAL ANNOUNCEMENT",
+          "submittedBy": "MetaOptics Ltd",
+          "designation": "Company Secretary",
+          "description": "Body text"
+        }
+      }
+    },
+    {
+      "id": "1002",
+      "title": "FINANCIAL STATEMENTS::1H RESULTS",
+      "date": "01 Aug 2025 05:00 PM",
+      "category": "Financial Statements",
+      "url": "https://example.test/sgx/announcement/SG25080100FGHIJ",
+      "details": {
+        "announcement": {
+          "reference": "SG25080100FGHIJ",
+          "subTitle": "1H RESULTS",
+          "title": "FINANCIAL STATEMENTS",
+          "submittedBy": "MetaOptics Ltd",
+          "designation": "CFO",
+          "description": "Results"
+        }
+      }
+    }
+  ]
+}
