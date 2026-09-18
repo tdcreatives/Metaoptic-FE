@@ -126,6 +126,58 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertSame('Email worker not deployed', session('error'));
     }
 
+    public function test_archive_sets_state_and_audits(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'ARCH1',
+            'slug' => 'archive-one',
+            'title' => 'Archive Me',
+            'state' => 'published',
+            'needs_review' => 0,
+        ]);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/archive',
+            $this->withCsrf([])
+        );
+
+        $result->assertRedirectTo('/admin/announcements/' . $id);
+        $this->assertSame('Archived', session('message'));
+
+        $row = (new AnnouncementModel())->find($id);
+        $this->assertNotNull($row);
+        $this->assertSame('archived', $row['state']);
+
+        $audit = (new AuditLogModel())->where('action', 'archive')->first();
+        $this->assertNotNull($audit);
+        $this->assertSame('announcement', $audit['entity_type']);
+        $this->assertSame((string) $id, $audit['entity_id']);
+    }
+
+    public function test_archive_drops_item_from_public_api(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'ARCHAPI1',
+            'slug' => 'archive-from-api',
+            'title' => 'Public Then Archive',
+            'state' => 'published',
+            'needs_review' => 0,
+        ]);
+
+        $before = $this->get('/api/announcements');
+        $before->assertOK();
+        $this->assertStringContainsString('archive-from-api', $before->getBody());
+
+        $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/archive',
+            $this->withCsrf([])
+        );
+
+        $after = $this->get('/api/announcements');
+        $after->assertOK();
+        $this->assertStringNotContainsString('archive-from-api', $after->getBody());
+    }
+
     public function test_show_wires_csrf_publish_and_send_forms(): void
     {
         $id = $this->insertRow([
@@ -140,7 +192,8 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $body = $show->getBody();
         $this->assertStringContainsString('admin/announcements/' . $id . '/publish', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/send', $body);
-        $this->assertSame(3, substr_count($body, csrf_token()));
+        $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
+        $this->assertSame(4, substr_count($body, csrf_token()));
     }
 
     /** @param array<string, string> $fields */

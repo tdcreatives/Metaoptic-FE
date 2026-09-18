@@ -22,6 +22,7 @@ $routes->group('admin', static function ($routes) {
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
         $routes->post('announcements/(:num)/publish', 'Admin\Announcements::publish/$1');
         $routes->post('announcements/(:num)/send', 'Admin\Announcements::send/$1');
+        $routes->post('announcements/(:num)/archive', 'Admin\Announcements::archive/$1');
         $routes->post('campaigns/(:num)/retry-failed', 'Admin\Campaigns::retryFailed/$1');
         $routes->get('sync-runs', 'Admin\SyncRuns::index');
         $routes->get('settings/recipients', 'Admin\Settings::recipients');

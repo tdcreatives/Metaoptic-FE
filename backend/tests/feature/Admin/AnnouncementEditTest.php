@@ -24,6 +24,7 @@ final class AnnouncementEditTest extends CIUnitTestCase
         $this->get('/admin/announcements')->assertRedirectTo('/admin/login');
         $this->get('/admin/announcements/1')->assertRedirectTo('/admin/login');
         $this->post('/admin/announcements/1/summary', $this->withCsrf([]))->assertRedirectTo('/admin/login');
+        $this->post('/admin/announcements/1/archive', $this->withCsrf([]))->assertRedirectTo('/admin/login');
     }
 
     public function test_list_filters_by_state(): void

@@ -93,6 +93,15 @@ class Announcements extends BaseController
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Email queued');
     }
 
+    public function archive(int $id): RedirectResponse
+    {
+        $this->findOr404($id);
+        model(AnnouncementModel::class)->update($id, ['state' => 'archived']);
+        service('auditLogger')->write('archive', 'announcement', (string) $id, []);
+
+        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Archived');
+    }
+
     /** @return array<string, mixed> */
     private function findOr404(int $id): array
     {

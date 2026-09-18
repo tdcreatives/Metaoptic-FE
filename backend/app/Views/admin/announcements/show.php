@@ -45,4 +45,8 @@
     <?= csrf_field() ?>
     <button type="submit" <?= $row['state'] === 'published' ? '' : 'disabled' ?>>Send</button>
 </form>
+<form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/archive') ?>">
+    <?= csrf_field() ?>
+    <button type="submit">Archive</button>
+</form>
 <?= $this->endSection() ?>
