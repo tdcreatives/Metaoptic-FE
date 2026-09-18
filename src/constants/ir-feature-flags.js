@@ -6,6 +6,7 @@
  * so direct URLs redirect at the server (Apache) without a client-side flash.
  */
 export const IR_LAUNCH_FLAGS = {
+    useAnnouncementsApi: false,
     showMostRecentEvents: false,
     showLatestFinancialResults: false,
     showUpcomingEvents: false,

@@ -2,6 +2,8 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import rawItems from '@/constants/announcements.json';
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+import { fetchAnnouncementList, mapApiAnnouncementToLegacy } from '@/lib/announcements-api';
 import {
     ITEMS_PER_PAGE,
     filterAnnouncements,
@@ -21,8 +23,27 @@ const CompanyAnnouncementsSection = () => {
     const [dateTo, setDateTo] = useState('');
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [sourceItems, setSourceItems] = useState(rawItems);
 
-    const sortedItems = useMemo(() => sortAnnouncements(rawItems), []);
+    useEffect(() => {
+        if (!IR_LAUNCH_FLAGS.useAnnouncementsApi) return undefined;
+
+        let cancelled = false;
+        fetchAnnouncementList({ pageSize: 50 })
+            .then((payload) => {
+                if (cancelled) return;
+                setSourceItems((payload.data || []).map(mapApiAnnouncementToLegacy));
+            })
+            .catch(() => {
+                if (!cancelled) setSourceItems(rawItems);
+            });
+
+        return () => {
+            cancelled = true;
+        };
+    }, []);
+
+    const sortedItems = useMemo(() => sortAnnouncements(sourceItems), [sourceItems]);
     const categoryCounts = useMemo(() => getCategoryCounts(sortedItems), [sortedItems]);
 
     useEffect(() => {
