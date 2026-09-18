@@ -53,6 +53,7 @@ class Cookie extends BaseConfig
      * --------------------------------------------------------------------------
      *
      * Cookie will only be set if a secure HTTPS connection exists.
+     * Production sets this in the constructor (HTTPS-only session cookie).
      */
     public bool $secure = false;
 
@@ -87,7 +88,7 @@ class Cookie extends BaseConfig
      *
      * @var ''|'Lax'|'None'|'Strict'
      */
-    public string $samesite = 'Lax';
+    public string $samesite = 'Strict';
 
     /**
      * --------------------------------------------------------------------------
@@ -104,4 +105,12 @@ class Cookie extends BaseConfig
      * @see https://tools.ietf.org/html/rfc2616#section-2.2
      */
     public bool $raw = false;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->secure = ENVIRONMENT === 'production';
+        $this->httponly = true;
+        $this->samesite = 'Strict';
+    }
 }
