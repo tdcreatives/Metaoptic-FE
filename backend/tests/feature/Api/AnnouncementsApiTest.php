@@ -29,9 +29,16 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         $this->assertCount(1, $json['data']);
         $this->assertSame('published-mou', $json['data'][0]['slug']);
         $this->assertSame(['page' => 1, 'page_size' => 10, 'total' => 1], $json['meta']);
+        $this->assertSame(
+            ['id', 'slug', 'title', 'category', 'issuer', 'filed_at', 'source_url', 'summary', 'published_at'],
+            array_keys($json['data'][0])
+        );
         $this->assertArrayNotHasKey('source_payload', $json['data'][0]);
         $this->assertArrayNotHasKey('source_hash', $json['data'][0]);
         $this->assertArrayNotHasKey('needs_review', $json['data'][0]);
+        $this->assertArrayNotHasKey('state', $json['data'][0]);
+        $this->assertArrayNotHasKey('email_subject', $json['data'][0]);
+        $this->assertArrayNotHasKey('email_intro', $json['data'][0]);
     }
 
     public function test_show_by_slug_and_hides_pending(): void
@@ -82,6 +89,25 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         );
         $this->assertSame(1, $byDate['meta']['total']);
         $this->assertSame('fin-results', $byDate['data'][0]['slug']);
+    }
+
+    public function test_date_to_includes_filed_at_on_that_calendar_day(): void
+    {
+        $this->insertRow([
+            'sgx_reference' => 'EOD1',
+            'slug' => 'filed-on-date-to',
+            'title' => 'Filed late on date_to',
+            'category' => 'General Announcement',
+            'filed_at' => '2025-09-30 18:45:00',
+            'state' => 'published',
+        ]);
+
+        $json = json_decode(
+            (string) $this->get('/api/announcements?date_to=2025-09-30')->getJSON(),
+            true
+        );
+        $this->assertSame(1, $json['meta']['total']);
+        $this->assertSame('filed-on-date-to', $json['data'][0]['slug']);
     }
 
     public function test_cors_allows_configured_origin(): void

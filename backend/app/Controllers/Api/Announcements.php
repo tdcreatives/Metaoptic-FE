@@ -68,7 +68,12 @@ class Announcements extends BaseController
 
         $to = trim((string) ($this->request->getGet('date_to') ?? ''));
         if ($to !== '') {
-            $builder->where('filed_at <=', $to);
+            // Date-only YYYY-MM-DD must include that calendar day (SQL datetime vs date truncates to 00:00:00).
+            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $to) === 1) {
+                $builder->where('filed_at <', (new \DateTimeImmutable($to))->modify('+1 day')->format('Y-m-d'));
+            } else {
+                $builder->where('filed_at <=', $to);
+            }
         }
     }
 
