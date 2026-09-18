@@ -37,6 +37,9 @@ final class SgxHttpClient
             $pageItems = $decoded['items'];
             $total = $decoded['total'];
 
+            if ($page === 1 && $pageItems === []) {
+                throw new SgxFetchException('SGX empty first page');
+            }
             if ($pageItems === [] && $total > 0) {
                 throw new SgxFetchException('SGX empty items with total > 0');
             }

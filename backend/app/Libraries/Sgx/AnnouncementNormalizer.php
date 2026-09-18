@@ -49,8 +49,9 @@ final class AnnouncementNormalizer
     {
         $value = strtolower($value);
         $value = preg_replace('/[^a-z0-9]+/', '-', $value) ?? '';
+        $value = trim($value, '-') ?: 'announcement';
 
-        return trim($value, '-') ?: 'announcement';
+        return substr($value, 0, 191);
     }
 
     private function parseFiledAt(string $value): string
@@ -79,11 +80,12 @@ final class AnnouncementNormalizer
                 $minute
             );
         }
-        $ts = strtotime($value);
-        if ($ts === false) {
+        $sgt = new \DateTimeZone('Asia/Singapore');
+        $dt = date_create_immutable($value, $sgt);
+        if ($dt === false) {
             throw new \InvalidArgumentException("Unparseable date: {$value}");
         }
 
-        return gmdate('Y-m-d H:i:s', $ts);
+        return $dt->setTimezone($sgt)->format('Y-m-d H:i:s');
     }
 }

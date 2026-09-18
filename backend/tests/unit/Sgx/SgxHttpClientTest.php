@@ -32,6 +32,12 @@ final class SgxHttpClientTest extends CIUnitTestCase
         $this->clientForFixture('empty-ok-shape.json')->fetchAllPages();
     }
 
+    public function test_empty_first_page_with_total_zero_throws(): void
+    {
+        $this->expectException(SgxFetchException::class);
+        $this->clientForFixture('empty-ok-total-zero.json')->fetchAllPages();
+    }
+
     private function clientForFixture(?string $fixedFile): SgxHttpClient
     {
         $config = new Sgx();

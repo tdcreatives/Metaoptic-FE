@@ -59,6 +59,7 @@ final class SyncServiceTest extends CIUnitTestCase
 
         $model = new AnnouncementModel();
         $existing = $model->first();
+        $originalSlug = $existing['slug'];
         $model->update($existing['id'], ['summary' => 'Admin summary']);
 
         $item['details']['announcement']['subTitle'] = 'METAOPTICS ENTERS MOU (REVISED)';
@@ -69,6 +70,7 @@ final class SyncServiceTest extends CIUnitTestCase
 
         $updated = $model->find($existing['id']);
         $this->assertSame('Admin summary', $updated['summary']);
+        $this->assertSame($originalSlug, $updated['slug']);
         $this->assertSame(1, (int) $updated['needs_review']);
         $this->assertSame('METAOPTICS ENTERS MOU (REVISED)', $updated['title']);
         $this->assertSame('pending_review', $updated['state']);

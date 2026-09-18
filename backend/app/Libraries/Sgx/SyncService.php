@@ -105,7 +105,6 @@ final class SyncService
                     continue;
                 }
                 $this->announcements->update($existing['id'], [
-                    'slug' => $row['slug'],
                     'source_url' => $row['source_url'],
                     'title' => $row['title'],
                     'category' => $row['category'],

@@ -51,7 +51,12 @@ Digest send is out of scope (CMS/Email plans).
 ## FE flag on staging
 
 - [ ] Staging `.env` has `NEXT_PUBLIC_IR_API_BASE` set to the CI4 `public/` origin.
-- [ ] Default `useAnnouncementsApi` in `src/constants/ir-feature-flags.js` stays `false` until explicitly flipped for this staging deploy.
+- [ ] Keep `useAnnouncementsApi` **false** until slug/detail strategy is decided. Do not flip for merge or this staging deploy.
 - [ ] With flag **off**: company announcements still render from JSON fallback.
-- [ ] With flag **on** (staging only): list loads from `/api/announcements`; `filed_at` maps to Asia/Singapore date strings.
+- [ ] With flag **on** (only after that decision): list loads from `/api/announcements`; `filed_at` maps to Asia/Singapore date strings.
 - [ ] Flag-on failure (API down) does not leak unpublished/internal fields to the page.
+
+## Host / fetch contract
+
+- [ ] Verify `CI_ENVIRONMENT=production` on the staging/production host (not `development`).
+- [ ] Empty first page `{ok:true,total:0,items:[]}` **must fail** sync (`SgxFetchException`); never treat as success with zero items.

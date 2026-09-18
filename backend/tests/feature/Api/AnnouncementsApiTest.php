@@ -28,6 +28,8 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         $this->assertIsArray($json);
         $this->assertCount(1, $json['data']);
         $this->assertSame('published-mou', $json['data'][0]['slug']);
+        $this->assertSame('2025-09-15T09:30:00+08:00', $json['data'][0]['filed_at']);
+        $this->assertSame('2025-09-15T10:00:00+08:00', $json['data'][0]['published_at']);
         $this->assertSame(['page' => 1, 'page_size' => 10, 'total' => 1], $json['meta']);
         $this->assertSame(
             ['id', 'slug', 'title', 'category', 'issuer', 'filed_at', 'source_url', 'summary', 'published_at'],

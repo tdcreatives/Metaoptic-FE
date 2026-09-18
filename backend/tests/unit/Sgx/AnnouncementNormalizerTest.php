@@ -29,4 +29,41 @@ final class AnnouncementNormalizerTest extends CIUnitTestCase
         $this->assertSame('MetaOptics Ltd', $n['issuer']);
         $this->assertSame('2025-09-15 09:30:00', $n['filed_at']);
     }
+
+    public function test_parse_filed_at_strtotime_fallback_keeps_sgt_wall_clock(): void
+    {
+        $item = json_decode(
+            file_get_contents(SUPPORTPATH . 'Fixtures/sgx/list-page-1.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        )['items'][0];
+        $item['date'] = '2025-09-15 09:30:00';
+
+        $previous = date_default_timezone_get();
+        date_default_timezone_set('UTC');
+        try {
+            $n = (new AnnouncementNormalizer())->normalize($item);
+        } finally {
+            date_default_timezone_set($previous);
+        }
+
+        $this->assertSame('2025-09-15 09:30:00', $n['filed_at']);
+    }
+
+    public function test_slugify_caps_length_at_191(): void
+    {
+        $item = json_decode(
+            file_get_contents(SUPPORTPATH . 'Fixtures/sgx/list-page-1.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        )['items'][0];
+        $item['title'] = str_repeat('Word ', 80);
+        $item['details']['announcement']['subTitle'] = str_repeat('LongTitlePart', 20);
+
+        $n = (new AnnouncementNormalizer())->normalize($item);
+
+        $this->assertLessThanOrEqual(191, strlen($n['slug']));
+    }
 }

@@ -21,6 +21,7 @@ final class SgxSession
         if ($this->ready) {
             return;
         }
+        // TODO(TDC): cookie jar + real SGX URLs when production fetch is gated.
         ($this->transport)('GET', $this->config->baseURL . '/session', $this->requestHeaders());
         $this->ready = true;
     }

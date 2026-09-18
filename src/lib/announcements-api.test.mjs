@@ -9,10 +9,10 @@ const apiRow = {
     title: 'MetaOptics Enters MOU',
     category: 'General Announcement',
     issuer: 'MetaOptics Ltd',
-    filed_at: '2025-09-15T01:30:00Z',
+    filed_at: '2025-09-15T09:30:00+08:00',
     source_url: 'https://example.test/x',
     summary: 'Short',
-    published_at: '2025-09-15T02:00:00Z',
+    published_at: '2025-09-15T10:00:00+08:00',
 };
 
 test('mapApiAnnouncementToLegacy preserves slug and category', () => {

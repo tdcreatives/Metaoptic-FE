@@ -1,7 +1,11 @@
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function formatFiledAt(filedAt) {
-    const filed = new Date(filedAt);
+    const normalized = String(filedAt ?? '').replace(
+        /^(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2})([+-]\d{2}:\d{2}|Z)?$/,
+        (_, date, time, zone) => `${date}T${time}${zone || ''}`
+    );
+    const filed = new Date(normalized);
     if (Number.isNaN(filed.getTime())) return '';
 
     const parts = new Intl.DateTimeFormat('en-GB', {
