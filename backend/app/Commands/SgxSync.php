@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
+use App\Libraries\Admin\AdminDigestNotifier;
 use App\Libraries\Sgx\SyncLock;
 use App\Libraries\Sgx\SyncService;
 use CodeIgniter\CLI\BaseCommand;
@@ -35,6 +36,7 @@ class SgxSync extends BaseCommand
             ));
             if (!config('Sgx')->backfill && $result->newCount > 0) {
                 CLI::write('digest_pending new_count=' . $result->newCount);
+                (new AdminDigestNotifier())->notifyNewItems($result->newCount, []);
             }
             return EXIT_SUCCESS;
         } catch (\Throwable $e) {
