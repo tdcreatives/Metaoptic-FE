@@ -26,6 +26,14 @@ final class SendEmailGateTest extends CIUnitTestCase
             ->assertCanSend(['id' => 1, 'state' => 'pending_review']);
     }
 
+    public function test_queue_campaign_blocked_until_published(): void
+    {
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('not_published');
+        (new SendEmailGate(model(EmailCampaignModel::class)))
+            ->queueCampaign(['id' => 1, 'state' => 'pending_review']);
+    }
+
     public function test_second_campaign_blocked(): void
     {
         $row = $this->publishedRow();

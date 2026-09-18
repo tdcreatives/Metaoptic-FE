@@ -27,6 +27,8 @@ final class SendEmailGate
     /** @param array<string, mixed> $row */
     public function queueCampaign(array $row): int
     {
+        $this->assertCanSend($row);
+
         $id = $this->campaigns->insert([
             'announcement_id' => $row['id'],
             'subject' => $this->firstNonEmpty($row, 'email_subject', 'title'),
