@@ -8,7 +8,8 @@ use DomainException;
 
 final class PublishService
 {
-    public function publish(int $announcementId): void
+    /** @return bool true if state changed to published */
+    public function publish(int $announcementId): bool
     {
         $model = model(AnnouncementModel::class);
         $row = $model->find($announcementId);
@@ -18,10 +19,15 @@ final class PublishService
         if ($row['state'] === 'archived') {
             throw new DomainException('archived');
         }
+        if ($row['state'] === 'published') {
+            return false;
+        }
         $model->update($announcementId, [
             'state' => 'published',
             'published_at' => date('Y-m-d H:i:s'),
             'needs_review' => 0,
         ]);
+
+        return true;
     }
 }

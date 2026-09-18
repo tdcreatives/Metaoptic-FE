@@ -194,6 +194,30 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringContainsString('admin/announcements/' . $id . '/send', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
         $this->assertSame(4, substr_count($body, csrf_token()));
+        $this->assertStringContainsString('<button type="submit" disabled>Publish</button>', $body);
+    }
+
+    public function test_publish_without_csrf_does_not_mutate(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'CSRF1',
+            'slug' => 'csrf-publish',
+            'title' => 'CSRF Publish',
+            'state' => 'pending_review',
+            'needs_review' => 1,
+        ]);
+
+        $this->expectException(\CodeIgniter\Security\Exceptions\SecurityException::class);
+        try {
+            $this->withSession(['admin' => true])->post(
+                '/admin/announcements/' . $id . '/publish',
+                []
+            );
+        } finally {
+            $row = (new AnnouncementModel())->find($id);
+            $this->assertSame('pending_review', $row['state']);
+            $this->assertNull((new AuditLogModel())->where('action', 'publish')->first());
+        }
     }
 
     /** @param array<string, string> $fields */

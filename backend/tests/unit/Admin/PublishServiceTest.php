@@ -31,6 +31,22 @@ final class PublishServiceTest extends CIUnitTestCase
         $this->assertSame(0, (int) $row['needs_review']);
     }
 
+    public function test_publish_already_published_is_noop(): void
+    {
+        $id = $this->insertAnnouncement([
+            'state' => 'published',
+            'needs_review' => 0,
+            'published_at' => '2025-01-01 00:00:00',
+        ]);
+
+        $changed = (new PublishService())->publish($id);
+
+        $this->assertFalse($changed);
+        $row = (new AnnouncementModel())->find($id);
+        $this->assertSame('published', $row['state']);
+        $this->assertSame('2025-01-01 00:00:00', $row['published_at']);
+    }
+
     public function test_publish_not_found(): void
     {
         $this->expectException(DomainException::class);

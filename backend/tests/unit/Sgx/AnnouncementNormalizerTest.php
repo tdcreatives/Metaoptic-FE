@@ -66,4 +66,19 @@ final class AnnouncementNormalizerTest extends CIUnitTestCase
 
         $this->assertLessThanOrEqual(191, strlen($n['slug']));
     }
+
+    public function test_rejects_non_http_source_url(): void
+    {
+        $item = json_decode(
+            file_get_contents(SUPPORTPATH . 'Fixtures/sgx/list-page-1.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        )['items'][0];
+        $item['url'] = 'javascript:alert(1)';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid source_url scheme');
+        (new AnnouncementNormalizer())->normalize($item);
+    }
 }

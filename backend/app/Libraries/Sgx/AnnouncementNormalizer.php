@@ -32,17 +32,31 @@ final class AnnouncementNormalizer
 
         $slug = $this->slugify($category . '-' . $rawTitle . '-' . $reference);
         $payload = json_encode($item, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
+        $sourceUrl = $this->httpUrl((string) ($item['url'] ?? ''));
 
         return [
             'sgx_reference' => $reference,
             'slug' => $slug,
-            'source_url' => (string) ($item['url'] ?? ''),
+            'source_url' => $sourceUrl,
             'title' => $rawTitle,
             'category' => $category,
             'issuer' => (string) ($ann['submittedBy'] ?? ''),
             'filed_at' => $this->parseFiledAt((string) ($item['date'] ?? '')),
             'source_payload' => $payload,
         ];
+    }
+
+    private function httpUrl(string $url): string
+    {
+        if ($url === '') {
+            return '';
+        }
+        $scheme = strtolower((string) (parse_url($url, PHP_URL_SCHEME) ?? ''));
+        if ($scheme !== 'http' && $scheme !== 'https') {
+            throw new \InvalidArgumentException('Invalid source_url scheme');
+        }
+
+        return $url;
     }
 
     private function slugify(string $value): string

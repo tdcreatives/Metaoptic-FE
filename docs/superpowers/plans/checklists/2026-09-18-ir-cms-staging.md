@@ -11,8 +11,8 @@ Manual checks on a production-like staging host after SGX Mirror is green. Admin
 
 ## Cookie flags
 
-- [ ] Staging `CI_ENVIRONMENT=production`.
-- [ ] Session cookie is HttpOnly, Secure, SameSite=Strict.
+- [ ] Set `cookie.secure=true` in backend `.env` on HTTPS staging (does **not** require `CI_ENVIRONMENT=production`).
+- [ ] Session cookie is HttpOnly, Secure, SameSite=Strict (`Config\Cookie`).
 - [ ] Admin POSTs without CSRF token are rejected.
 
 ## Summary edit keeps source

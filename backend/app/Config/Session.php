@@ -125,29 +125,4 @@ class Session extends BaseConfig
      * seconds.
      */
     public int $lockMaxRetries = 300;
-
-    /**
-     * Session cookie Secure flag. On in production (HTTPS).
-     */
-    public bool $cookieSecure = false;
-
-    /**
-     * Session cookie HttpOnly flag.
-     */
-    public bool $cookieHTTPOnly = true;
-
-    /**
-     * Session cookie SameSite. Strict for admin sessions.
-     *
-     * @var ''|'Lax'|'None'|'Strict'
-     */
-    public string $cookieSameSite = 'Strict';
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->cookieSecure = ENVIRONMENT === 'production';
-        $this->cookieHTTPOnly = true;
-        $this->cookieSameSite = 'Strict';
-    }
 }

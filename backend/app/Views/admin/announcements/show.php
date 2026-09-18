@@ -39,7 +39,7 @@
 
 <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/publish') ?>">
     <?= csrf_field() ?>
-    <button type="submit">Publish</button>
+    <button type="submit" <?= $row['state'] === 'published' ? 'disabled' : '' ?>>Publish</button>
 </form>
 <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/send') ?>">
     <?= csrf_field() ?>

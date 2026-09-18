@@ -53,7 +53,8 @@ class Cookie extends BaseConfig
      * --------------------------------------------------------------------------
      *
      * Cookie will only be set if a secure HTTPS connection exists.
-     * Production sets this in the constructor (HTTPS-only session cookie).
+     * Set cookie.secure=true in .env for HTTPS (staging/production). Do not
+     * force from CI_ENVIRONMENT — parent::env mapping must win.
      */
     public bool $secure = false;
 
@@ -105,12 +106,4 @@ class Cookie extends BaseConfig
      * @see https://tools.ietf.org/html/rfc2616#section-2.2
      */
     public bool $raw = false;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->secure = ENVIRONMENT === 'production';
-        $this->httponly = true;
-        $this->samesite = 'Strict';
-    }
 }

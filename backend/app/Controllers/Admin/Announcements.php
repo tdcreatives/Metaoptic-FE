@@ -8,6 +8,7 @@ use App\Libraries\Admin\PublishService;
 use App\Libraries\Admin\SendEmailGate;
 use App\Models\AnnouncementModel;
 use App\Models\EmailCampaignModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\RedirectResponse;
 use DomainException;
@@ -62,7 +63,7 @@ class Announcements extends BaseController
     public function publish(int $id): RedirectResponse
     {
         try {
-            (new PublishService())->publish($id);
+            $changed = (new PublishService())->publish($id);
         } catch (DomainException $e) {
             if ($e->getMessage() === 'not_found') {
                 throw PageNotFoundException::forPageNotFound();
@@ -71,7 +72,9 @@ class Announcements extends BaseController
             return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
         }
 
-        service('auditLogger')->write('publish', 'announcement', (string) $id, []);
+        if ($changed) {
+            service('auditLogger')->write('publish', 'announcement', (string) $id, []);
+        }
 
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Published');
     }
@@ -86,6 +89,8 @@ class Announcements extends BaseController
             $campaignId = $gate->queueCampaign($row);
         } catch (DomainException $e) {
             return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+        } catch (DatabaseException $e) {
+            return redirect()->to('/admin/announcements/' . $id)->with('error', 'campaign_exists');
         }
 
         service('auditLogger')->write('send', 'announcement', (string) $id, ['campaign_id' => $campaignId]);
