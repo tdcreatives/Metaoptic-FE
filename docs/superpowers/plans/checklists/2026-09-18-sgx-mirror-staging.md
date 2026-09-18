@@ -15,7 +15,7 @@ Digest send is out of scope (CMS/Email plans).
 ## Dedupe
 
 - [ ] Run `php spark sgx:sync` again with unchanged SGX data.
-- [ ] No duplicate announcements (`source_id` unique).
+- [ ] No duplicate announcements (`sgx_reference` unique).
 - [ ] `new` count is 0; existing rows are not re-inserted.
 
 ## Incremental pending
