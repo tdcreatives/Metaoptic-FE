@@ -5,6 +5,9 @@
 <?php if (session('message')): ?>
     <p><?= esc((string) session('message')) ?></p>
 <?php endif; ?>
+<?php if (session('error')): ?>
+    <p><?= esc((string) session('error')) ?></p>
+<?php endif; ?>
 <p>State: <?= esc($row['state']) ?></p>
 <p>Category: <?= esc($row['category']) ?></p>
 <p>Issuer: <?= esc($row['issuer']) ?></p>
@@ -34,6 +37,12 @@
 <h2>Source payload</h2>
 <pre><?= esc($sourcePretty) ?></pre>
 
-<button type="button">Publish</button>
-<button type="button" <?= $row['state'] === 'published' ? '' : 'disabled' ?>>Send</button>
+<form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/publish') ?>">
+    <?= csrf_field() ?>
+    <button type="submit">Publish</button>
+</form>
+<form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/send') ?>">
+    <?= csrf_field() ?>
+    <button type="submit" <?= $row['state'] === 'published' ? '' : 'disabled' ?>>Send</button>
+</form>
 <?= $this->endSection() ?>

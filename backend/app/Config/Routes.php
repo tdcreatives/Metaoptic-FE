@@ -20,5 +20,8 @@ $routes->group('admin', static function ($routes) {
         $routes->get('announcements', 'Admin\Announcements::index');
         $routes->get('announcements/(:num)', 'Admin\Announcements::show/$1');
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
+        $routes->post('announcements/(:num)/publish', 'Admin\Announcements::publish/$1');
+        $routes->post('announcements/(:num)/send', 'Admin\Announcements::send/$1');
+        $routes->post('campaigns/(:num)/retry-failed', 'Admin\Campaigns::retryFailed/$1');
     });
 });

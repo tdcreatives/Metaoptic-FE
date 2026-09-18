@@ -5,6 +5,7 @@ namespace Tests\Feature\Admin;
 
 use App\Models\AnnouncementModel;
 use App\Models\AuditLogModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
@@ -109,6 +110,26 @@ final class AnnouncementEditTest extends CIUnitTestCase
         $this->assertNotNull($audit);
         $this->assertSame('announcement', $audit['entity_type']);
         $this->assertSame((string) $id, $audit['entity_id']);
+    }
+
+    public function test_update_summary_missing_id_is_404_and_does_not_audit(): void
+    {
+        $caught = false;
+        try {
+            $this->withSession(['admin' => true])->post(
+                '/admin/announcements/99999/summary',
+                $this->withCsrf([
+                    'summary' => 'Ghost',
+                    'email_subject' => 'Ghost subject',
+                    'email_intro' => 'Ghost intro',
+                ])
+            );
+        } catch (PageNotFoundException) {
+            $caught = true;
+        }
+
+        $this->assertTrue($caught);
+        $this->assertNull((new AuditLogModel())->where('action', 'summary_edit')->first());
     }
 
     /** @param array<string, string> $fields */
