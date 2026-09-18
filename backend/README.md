@@ -28,6 +28,16 @@ to your `app` folder. The affected files can be copied or merged from
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
 
+## SGX sync cron
+
+Daily 08:00 SGT:
+
+```
+0 8 * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark sgx:sync >> /var/log/sgx-sync.log 2>&1
+```
+
+First production import: set `sgx.backfill = true` in `.env`, run `php spark sgx:sync` once, then set `sgx.backfill = false`.
+
 ## Important Change with index.php
 
 `index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
