@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "page": 2,
+  "pageSize": 2,
+  "total": 3,
+  "items": [
+    {
+      "id": "1003",
+      "title": "GENERAL ANNOUNCEMENT::BOARD APPOINTMENT",
+      "date": "20 Jul 2025 10:00 AM",
+      "category": "General Announcement",
+      "url": "https://example.test/sgx/announcement/SG25072000KLMNO",
+      "details": {
+        "announcement": {
+          "reference": "SG25072000KLMNO",
+          "subTitle": "BOARD APPOINTMENT",
+          "title": "GENERAL ANNOUNCEMENT",
+          "submittedBy": "MetaOptics Ltd",
+          "designation": "Company Secretary",
+          "description": "Appointment"
+        }
+      }
+    }
+  ]
+}

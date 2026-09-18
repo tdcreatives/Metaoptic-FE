@@ -19,14 +19,18 @@ use CodeIgniter\Config\BaseService;
  */
 class Services extends BaseService
 {
-    /*
-     * public static function example($getShared = true)
-     * {
-     *     if ($getShared) {
-     *         return static::getSharedInstance('example');
-     *     }
-     *
-     *     return new \CodeIgniter\Example();
-     * }
+    /**
+     * @param (callable(string, string, array<string, string>): string)|null $transport
      */
+    public static function sgxClient($getShared = true, ?callable $transport = null)
+    {
+        if ($transport !== null) {
+            return new \App\Libraries\Sgx\SgxHttpClient(config('Sgx'), $transport);
+        }
+        if ($getShared) {
+            return static::getSharedInstance('sgxClient');
+        }
+
+        return new \App\Libraries\Sgx\SgxHttpClient(config('Sgx'));
+    }
 }
