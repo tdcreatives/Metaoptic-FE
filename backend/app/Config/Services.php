@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Libraries\Admin\AuditLogger;
 use CodeIgniter\Config\BaseService;
 
 /**
@@ -32,5 +33,14 @@ class Services extends BaseService
         }
 
         return new \App\Libraries\Sgx\SgxHttpClient(config('Sgx'));
+    }
+
+    public static function auditLogger($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('auditLogger');
+        }
+
+        return new AuditLogger();
     }
 }
