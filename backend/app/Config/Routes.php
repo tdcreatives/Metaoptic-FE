@@ -14,5 +14,11 @@ $routes->group('admin', static function ($routes) {
     $routes->get('login', 'Admin\AuthController::loginForm');
     $routes->post('login', 'Admin\AuthController::login');
     $routes->post('logout', 'Admin\AuthController::logout');
-    $routes->get('/', 'Admin\Dashboard::index', ['filter' => 'adminAuth']);
+
+    $routes->group('', ['filter' => 'adminAuth'], static function ($routes) {
+        $routes->get('/', 'Admin\Dashboard::index');
+        $routes->get('announcements', 'Admin\Announcements::index');
+        $routes->get('announcements/(:num)', 'Admin\Announcements::show/$1');
+        $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
+    });
 });
