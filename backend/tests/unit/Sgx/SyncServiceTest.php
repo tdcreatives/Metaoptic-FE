@@ -11,6 +11,7 @@ use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use Config\Sgx;
 use InvalidArgumentException;
+use RuntimeException;
 
 final class SyncServiceTest extends CIUnitTestCase
 {
@@ -87,6 +88,36 @@ final class SyncServiceTest extends CIUnitTestCase
             $this->assertNotNull($run);
             $this->assertSame('failed', $run['status']);
             $this->assertSame(2, (int) $run['fetched_count']);
+        }
+    }
+
+    public function test_mid_upsert_failure_rolls_back_and_marks_run_failed(): void
+    {
+        $items = $this->page1Items();
+        (new AnnouncementModel())->insert([
+            'sgx_reference' => 'PREEXISTING',
+            'slug' => 'financial-statements-1h-results-sg25080100fghij',
+            'source_url' => '',
+            'title' => 'blocker',
+            'category' => 'Financial Statements',
+            'issuer' => '',
+            'filed_at' => '2025-01-01 00:00:00',
+            'source_payload' => '{}',
+            'source_hash' => str_repeat('a', 64),
+            'state' => 'pending_review',
+            'needs_review' => 0,
+        ]);
+
+        $this->expectException(RuntimeException::class);
+        try {
+            $this->service(false)->run($items);
+        } finally {
+            $rows = (new AnnouncementModel())->findAll();
+            $this->assertCount(1, $rows);
+            $this->assertSame('PREEXISTING', $rows[0]['sgx_reference']);
+            $run = (new SyncRunModel())->first();
+            $this->assertNotNull($run);
+            $this->assertSame('failed', $run['status']);
         }
     }
 

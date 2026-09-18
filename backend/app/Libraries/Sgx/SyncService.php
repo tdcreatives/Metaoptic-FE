@@ -22,8 +22,8 @@ final class SyncService
     ) {
         $this->normalizer = new AnnouncementNormalizer();
         $this->hasher = new SourceHasher();
-        $this->announcements = new AnnouncementModel();
-        $this->syncRuns = new SyncRunModel();
+        $this->announcements = new AnnouncementModel($this->db);
+        $this->syncRuns = new SyncRunModel($this->db);
     }
 
     /** @param list<mixed> $rawItems */
@@ -90,35 +90,40 @@ final class SyncService
         $updatedCount = 0;
 
         $this->db->transStart();
-        foreach ($normalized as $row) {
-            $existing = $this->announcements->where('sgx_reference', $row['sgx_reference'])->first();
-            if ($existing === null) {
-                $row['state'] = $this->config->backfill ? 'published' : 'pending_review';
-                $row['published_at'] = $this->config->backfill ? $now : null;
-                $row['needs_review'] = 0;
-                $this->announcements->insert($row);
-                $newCount++;
-                continue;
+        try {
+            foreach ($normalized as $row) {
+                $existing = $this->announcements->where('sgx_reference', $row['sgx_reference'])->first();
+                if ($existing === null) {
+                    $row['state'] = $this->config->backfill ? 'published' : 'pending_review';
+                    $row['published_at'] = $this->config->backfill ? $now : null;
+                    $row['needs_review'] = 0;
+                    $this->announcements->insert($row);
+                    $newCount++;
+                    continue;
+                }
+                if (($existing['source_hash'] ?? '') === $row['source_hash']) {
+                    continue;
+                }
+                $this->announcements->update($existing['id'], [
+                    'slug' => $row['slug'],
+                    'source_url' => $row['source_url'],
+                    'title' => $row['title'],
+                    'category' => $row['category'],
+                    'issuer' => $row['issuer'],
+                    'filed_at' => $row['filed_at'],
+                    'source_payload' => $row['source_payload'],
+                    'source_hash' => $row['source_hash'],
+                    'needs_review' => 1,
+                ]);
+                $updatedCount++;
             }
-            if (($existing['source_hash'] ?? '') === $row['source_hash']) {
-                continue;
+            $this->db->transComplete();
+            if ($this->db->transStatus() === false) {
+                throw new \RuntimeException('Sync transaction failed');
             }
-            $this->announcements->update($existing['id'], [
-                'slug' => $row['slug'],
-                'source_url' => $row['source_url'],
-                'title' => $row['title'],
-                'category' => $row['category'],
-                'issuer' => $row['issuer'],
-                'filed_at' => $row['filed_at'],
-                'source_payload' => $row['source_payload'],
-                'source_hash' => $row['source_hash'],
-                'needs_review' => 1,
-            ]);
-            $updatedCount++;
-        }
-        $this->db->transComplete();
-        if ($this->db->transStatus() === false) {
-            throw new \RuntimeException('Sync transaction failed');
+        } catch (Throwable $e) {
+            $this->db->transRollback();
+            throw $e;
         }
 
         return [$newCount, $updatedCount];
