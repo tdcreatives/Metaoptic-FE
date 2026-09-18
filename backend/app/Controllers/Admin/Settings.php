@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\AdminRecipientModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\HTTP\RedirectResponse;
 
 class Settings extends BaseController
@@ -34,13 +35,43 @@ class Settings extends BaseController
             return redirect()->to('/admin/settings/recipients')->with('error', 'invalid_email');
         }
 
-        $id = (int) model(AdminRecipientModel::class)->insert([
-            'email' => $email,
-            'active' => 1,
-        ], true);
+        $model = model(AdminRecipientModel::class);
+        $existing = $model->where('email', $email)->first();
+        if ($existing !== null) {
+            return $this->existingEmail($existing);
+        }
+
+        try {
+            $id = (int) $model->insert([
+                'email' => $email,
+                'active' => 1,
+            ], true);
+        } catch (DatabaseException) {
+            $existing = $model->where('email', $email)->first();
+            if ($existing !== null) {
+                return $this->existingEmail($existing);
+            }
+
+            return redirect()->to('/admin/settings/recipients')->with('error', 'Could not add recipient');
+        }
+
         service('auditLogger')->write('settings_recipients', 'admin_recipient', (string) $id, ['action' => 'add']);
 
         return redirect()->to('/admin/settings/recipients')->with('message', 'Recipient added');
+    }
+
+    /** @param array<string, mixed> $row */
+    private function existingEmail(array $row): RedirectResponse
+    {
+        if ((int) $row['active'] === 0) {
+            $id = (int) $row['id'];
+            model(AdminRecipientModel::class)->update($id, ['active' => 1]);
+            service('auditLogger')->write('settings_recipients', 'admin_recipient', (string) $id, ['action' => 'reactivate']);
+
+            return redirect()->to('/admin/settings/recipients')->with('message', 'Recipient reactivated');
+        }
+
+        return redirect()->to('/admin/settings/recipients')->with('error', 'That email is already added');
     }
 
     private function deactivate(): RedirectResponse

@@ -52,6 +52,44 @@ final class AdminRecipientTest extends CIUnitTestCase
         $this->assertSame((string) $row['id'], $audit['entity_id']);
     }
 
+    public function test_duplicate_active_email_is_rejected(): void
+    {
+        (new AdminRecipientModel())->insert(['email' => 'ops@example.com', 'active' => 1]);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/settings/recipients',
+            $this->withCsrf(['email' => 'ops@example.com'])
+        );
+
+        $result->assertRedirectTo('/admin/settings/recipients');
+        $this->assertSame('That email is already added', session('error'));
+        $this->assertSame(1, (new AdminRecipientModel())->countAllResults());
+        $this->assertNull((new AuditLogModel())->where('action', 'settings_recipients')->first());
+    }
+
+    public function test_duplicate_inactive_email_is_reactivated_and_audited(): void
+    {
+        $id = (int) (new AdminRecipientModel())->insert([
+            'email' => 'ops@example.com',
+            'active' => 0,
+        ], true);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/settings/recipients',
+            $this->withCsrf(['email' => 'ops@example.com'])
+        );
+
+        $result->assertRedirectTo('/admin/settings/recipients');
+        $row = (new AdminRecipientModel())->find($id);
+        $this->assertSame(1, (int) $row['active']);
+        $this->assertSame(1, (new AdminRecipientModel())->countAllResults());
+
+        $audit = (new AuditLogModel())->where('action', 'settings_recipients')->first();
+        $this->assertNotNull($audit);
+        $this->assertSame((string) $id, $audit['entity_id']);
+        $this->assertStringContainsString('reactivate', (string) $audit['metadata_json']);
+    }
+
     public function test_deactivate_sets_inactive_and_audits(): void
     {
         $id = (int) (new AdminRecipientModel())->insert([
