@@ -26,11 +26,8 @@ final class AdminDigestNotifier
             return;
         }
 
-        $subject = sprintf('MetaOptics admin digest: %d new item(s)', $newCount);
-        $viewFile = APPPATH . 'Views/emails/admin_digest.php';
-        $body = is_file($viewFile)
-            ? (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs])
-            : sprintf('admin_digest new_count=%d refs=%s', $newCount, implode(',', $refs));
+        $subject = sprintf('[IR] %d new SGX announcement(s)', $newCount);
+        $body = (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs]);
 
         $mailer = Services::mailer();
         foreach ($emails as $to) {
