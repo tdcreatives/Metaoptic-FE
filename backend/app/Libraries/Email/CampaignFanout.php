@@ -36,7 +36,7 @@ final class CampaignFanout
         }
 
         $db->table('email_campaigns')->where('id', $campaignId)->update([
-            'recipient_count' => $inserted,
+            'recipient_count' => $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults(),
         ]);
 
         return $inserted;
@@ -68,19 +68,35 @@ final class CampaignFanout
                     'status' => 'queued',
                 ]);
                 $inserted++;
-            } catch (PDOException) {
-                // UNIQUE (campaign_id, subscriber_id)
+            } catch (PDOException $e) {
+                if (!$this->isUniqueViolation($e)) {
+                    throw $e;
+                }
             }
         }
 
+        $countStmt = $pdo->prepare(
+            'SELECT COUNT(*) FROM email_deliveries WHERE campaign_id = :id'
+        );
+        $countStmt->execute(['id' => $campaignId]);
         $update = $pdo->prepare(
             'UPDATE email_campaigns SET recipient_count = :count WHERE id = :id'
         );
         $update->execute([
-            'count' => $inserted,
+            'count' => (int) $countStmt->fetchColumn(),
             'id' => $campaignId,
         ]);
 
         return $inserted;
+    }
+
+    private function isUniqueViolation(PDOException $e): bool
+    {
+        $sqlState = (string) ($e->errorInfo[0] ?? $e->getCode());
+        if ($sqlState === '23000') {
+            return true;
+        }
+
+        return (int) ($e->errorInfo[1] ?? 0) === 19;
     }
 }

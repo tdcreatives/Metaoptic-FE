@@ -12,6 +12,8 @@ use App\Models\SubscriberCategoryModel;
 use App\Models\SubscriberModel;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
+use PDO;
+use PDOException;
 
 final class CampaignFanoutTest extends CIUnitTestCase
 {
@@ -56,6 +58,20 @@ final class CampaignFanoutTest extends CIUnitTestCase
         $this->assertSame(1, $fanout->fanout($db, $campaignId, 'General Announcement'));
         $this->assertSame(0, $fanout->fanout($db, $campaignId, 'General Announcement'));
         $this->assertSame(1, (new EmailDeliveryModel())->where('campaign_id', $campaignId)->countAllResults());
+        $this->assertSame(1, (int) (new EmailCampaignModel())->find($campaignId)['recipient_count']);
+    }
+
+    public function test_pdo_non_unique_errors_rethrow(): void
+    {
+        $pdo = new PDO('sqlite::memory:');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec('CREATE TABLE subscribers (id INTEGER PRIMARY KEY, status TEXT)');
+        $pdo->exec('CREATE TABLE subscriber_categories (subscriber_id INTEGER, category_key TEXT)');
+        $pdo->exec("INSERT INTO subscribers (id, status) VALUES (1, 'active')");
+        $pdo->exec("INSERT INTO subscriber_categories (subscriber_id, category_key) VALUES (1, 'General Announcement')");
+
+        $this->expectException(PDOException::class);
+        (new CampaignFanout())->fanout($pdo, 1, 'General Announcement');
     }
 
     /** @param list<string> $categories */
