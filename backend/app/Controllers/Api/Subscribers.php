@@ -29,11 +29,12 @@ class Subscribers extends BaseController
         }
 
         $cfg = config(EmailAlerts::class);
-        $service = new SubscribeService(
-            Services::mailer(),
-            new UnsubscribeToken((string) $cfg->unsubscribeSecret),
-        );
         try {
+            // ponytail: construct token inside try so empty secret → log + {ok:true}, same as Unsubscribe
+            $service = new SubscribeService(
+                Services::mailer(),
+                new UnsubscribeToken((string) $cfg->unsubscribeSecret),
+            );
             $service->subscribe(is_array($input) ? $input : []);
         } catch (\Throwable $e) {
             log_message('error', 'subscribers.create failed: ' . $e::class);
