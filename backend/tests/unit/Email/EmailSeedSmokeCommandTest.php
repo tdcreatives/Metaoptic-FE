@@ -16,9 +16,25 @@ final class EmailSeedSmokeCommandTest extends CIUnitTestCase
 
     public function test_refuses_when_ci_environment_is_not_staging(): void
     {
-        $this->assertNotSame('staging', getenv('CI_ENVIRONMENT') ?: ($_ENV['CI_ENVIRONMENT'] ?? ENVIRONMENT));
-        $cmd = new EmailSeedSmoke(service('logger'), service('commands'));
-        $this->assertSame('email:seed-smoke', $cmd->name);
-        $this->assertSame(EXIT_ERROR, $cmd->run([]));
+        $prev = getenv('CI_ENVIRONMENT');
+        $prevEnv = $_ENV['CI_ENVIRONMENT'] ?? null;
+        putenv('CI_ENVIRONMENT=testing');
+        $_ENV['CI_ENVIRONMENT'] = 'testing';
+        try {
+            $cmd = new EmailSeedSmoke(service('logger'), service('commands'));
+            $this->assertSame('email:seed-smoke', $cmd->name);
+            $this->assertSame(EXIT_ERROR, $cmd->run([]));
+        } finally {
+            if ($prev === false) {
+                putenv('CI_ENVIRONMENT');
+            } else {
+                putenv('CI_ENVIRONMENT=' . $prev);
+            }
+            if ($prevEnv === null) {
+                unset($_ENV['CI_ENVIRONMENT']);
+            } else {
+                $_ENV['CI_ENVIRONMENT'] = $prevEnv;
+            }
+        }
     }
 }
