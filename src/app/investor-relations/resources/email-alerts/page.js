@@ -2,7 +2,7 @@ import React from 'react';
 import IrLaunchRedirect from '@/layouts/investor-relations/ir-launch-redirect';
 import InvestorRelationsBanner from '@/layouts/investor-relations/banner';
 import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
-import EmailAlerts from '@/layouts/investor-relations/resources/email-alerts';
+import EmailAlertsForm from '@/layouts/investor-relations/email-alerts-form';
 import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
 
 export const metadata = {
@@ -18,7 +18,7 @@ const EmailAlertsPage = () => {
         <>
             <InvestorRelationsBanner bannerTitle='RESOURCES' />
             <InvestorRelationsTabBar />
-            <EmailAlerts />
+            <EmailAlertsForm />
         </>
     );
 };
