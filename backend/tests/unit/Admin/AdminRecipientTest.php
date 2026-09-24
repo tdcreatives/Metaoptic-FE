@@ -111,16 +111,31 @@ final class AdminRecipientTest extends CIUnitTestCase
         $this->assertSame((string) $id, $audit['entity_id']);
     }
 
-    public function test_notifier_uses_active_recipients_and_log_fallback(): void
+    public function test_notifier_uses_active_recipients_and_log_mailer(): void
     {
         (new AdminRecipientModel())->insert(['email' => 'active@example.com', 'active' => 1]);
         (new AdminRecipientModel())->insert(['email' => 'old@example.com', 'active' => 0]);
 
-        $this->assertTrue(method_exists(Services::class, 'mailer'));
+        $logPath = WRITEPATH . 'logs/mail-test-digest-' . bin2hex(random_bytes(4)) . '.log';
+        Services::injectMock('mailer', new \App\Libraries\Email\LogMailer($logPath));
 
-        $notifier = new AdminDigestNotifier();
-        $this->assertSame(['active@example.com'], $notifier->activeEmails());
-        // ponytail: notifyNewItems still calls mailer()->notifyNewItems; Task 8 switches it to send(MailMessage)
+        try {
+            $notifier = new AdminDigestNotifier();
+            $this->assertSame(['active@example.com'], $notifier->activeEmails());
+            $notifier->notifyNewItems(2, ['REF1']);
+
+            $this->assertFileExists($logPath);
+            $row = json_decode(trim((string) file_get_contents($logPath)), true);
+            $this->assertIsArray($row);
+            $this->assertSame('active@example.com', $row['to']);
+            $this->assertStringContainsString('2', (string) $row['textBody']);
+            $this->assertStringContainsString('REF1', (string) $row['textBody']);
+        } finally {
+            if (is_file($logPath)) {
+                unlink($logPath);
+            }
+            Services::reset(true);
+        }
     }
 
     /** @param array<string, string> $fields */

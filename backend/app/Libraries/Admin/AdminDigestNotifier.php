@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace App\Libraries\Admin;
 
+use App\Libraries\Email\MailMessage;
 use App\Models\AdminRecipientModel;
 use Config\Services;
+use Throwable;
 
 final class AdminDigestNotifier
 {
@@ -24,17 +26,25 @@ final class AdminDigestNotifier
             return;
         }
 
-        if (method_exists(Services::class, 'mailer')) {
-            Services::mailer()->notifyNewItems($newCount, $refs, $emails);
+        $subject = sprintf('MetaOptics admin digest: %d new item(s)', $newCount);
+        $viewFile = APPPATH . 'Views/emails/admin_digest.php';
+        $body = is_file($viewFile)
+            ? (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs])
+            : sprintf('admin_digest new_count=%d refs=%s', $newCount, implode(',', $refs));
 
-            return;
+        try {
+            $mailer = Services::mailer();
+            foreach ($emails as $to) {
+                $mailer->send(new MailMessage($to, $subject, $body));
+            }
+        } catch (Throwable) {
+            // ponytail: log whole batch on first failure OK
+            log_message('notice', sprintf(
+                'admin_digest new_count=%d refs=%s recipients=%d',
+                $newCount,
+                implode(',', $refs),
+                count($emails)
+            ));
         }
-
-        log_message('notice', sprintf(
-            'admin_digest new_count=%d refs=%s recipients=%d',
-            $newCount,
-            implode(',', $refs),
-            count($emails)
-        ));
     }
 }
