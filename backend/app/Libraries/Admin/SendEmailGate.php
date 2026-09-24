@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Libraries\Admin;
 
+use App\Libraries\Email\CampaignFanout;
 use App\Models\EmailCampaignModel;
 use DomainException;
 
@@ -29,14 +30,20 @@ final class SendEmailGate
     {
         $this->assertCanSend($row);
 
-        $id = $this->campaigns->insert([
+        $id = (int) $this->campaigns->insert([
             'announcement_id' => $row['id'],
             'subject' => $this->firstNonEmpty($row, 'email_subject', 'title'),
             'body_html' => $this->firstNonEmpty($row, 'email_intro', 'summary'),
             'status' => 'queued',
         ], true);
 
-        return (int) $id;
+        (new CampaignFanout())->fanout(
+            db_connect(),
+            $id,
+            (string) ($row['category'] ?? '')
+        );
+
+        return $id;
     }
 
     /** @param array<string, mixed> $row */
