@@ -10,6 +10,8 @@ $routes->group('api', static function ($routes) {
     $routes->get('announcements/(:segment)', 'Api\Announcements::show/$1');
 });
 
+$routes->post('api/subscribers', 'Api\Subscribers::create');
+
 $routes->group('admin', static function ($routes) {
     $routes->get('login', 'Admin\AuthController::loginForm');
     $routes->post('login', 'Admin\AuthController::login');
