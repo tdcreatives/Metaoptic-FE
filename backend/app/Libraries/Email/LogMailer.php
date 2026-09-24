@@ -14,7 +14,7 @@ final class LogMailer implements MailerInterface
         $id = bin2hex(random_bytes(8));
         $dir = dirname($this->logPath);
         if (! is_dir($dir)) {
-            mkdir($dir, 0777, true);
+            mkdir($dir, 0755, true);
         }
 
         $line = json_encode([

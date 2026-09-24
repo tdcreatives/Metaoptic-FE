@@ -32,19 +32,18 @@ final class AdminDigestNotifier
             ? (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs])
             : sprintf('admin_digest new_count=%d refs=%s', $newCount, implode(',', $refs));
 
-        try {
-            $mailer = Services::mailer();
-            foreach ($emails as $to) {
+        $mailer = Services::mailer();
+        foreach ($emails as $to) {
+            try {
                 $mailer->send(new MailMessage($to, $subject, $body));
+            } catch (Throwable) {
+                // ponytail: per-recipient catch so one send() failure does not skip the rest
+                log_message('notice', sprintf(
+                    'admin_digest send_failed new_count=%d refs=%s',
+                    $newCount,
+                    implode(',', $refs)
+                ));
             }
-        } catch (Throwable) {
-            // ponytail: log whole batch on first failure OK
-            log_message('notice', sprintf(
-                'admin_digest new_count=%d refs=%s recipients=%d',
-                $newCount,
-                implode(',', $refs),
-                count($emails)
-            ));
         }
     }
 }

@@ -138,6 +138,38 @@ final class AdminRecipientTest extends CIUnitTestCase
         }
     }
 
+    public function test_notifier_continues_after_one_send_failure(): void
+    {
+        (new AdminRecipientModel())->insert(['email' => 'first@example.com', 'active' => 1]);
+        (new AdminRecipientModel())->insert(['email' => 'second@example.com', 'active' => 1]);
+
+        $sent = [];
+        $mailer = new class ($sent) implements \App\Libraries\Email\MailerInterface {
+            /** @param list<string> $sent */
+            public function __construct(private array &$sent)
+            {
+            }
+
+            public function send(\App\Libraries\Email\MailMessage $message): string
+            {
+                $this->sent[] = $message->to;
+                if (count($this->sent) === 1) {
+                    throw new \RuntimeException('boom');
+                }
+
+                return 'ok';
+            }
+        };
+        Services::injectMock('mailer', $mailer);
+
+        try {
+            (new AdminDigestNotifier())->notifyNewItems(1, ['REF1']);
+            $this->assertSame(['first@example.com', 'second@example.com'], $sent);
+        } finally {
+            Services::reset(true);
+        }
+    }
+
     /** @param array<string, string> $fields */
     private function withCsrf(array $fields): array
     {

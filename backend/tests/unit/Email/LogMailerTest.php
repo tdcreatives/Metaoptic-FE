@@ -55,6 +55,24 @@ final class LogMailerTest extends CIUnitTestCase
         $this->assertSame($id, $row['id']);
     }
 
+    public function test_send_creates_missing_dir_with_0755(): void
+    {
+        $dir = WRITEPATH . 'logs/mail-mkdir-' . bin2hex(random_bytes(4));
+        $path = $dir . '/mail.log';
+        try {
+            (new LogMailer($path))->send(new MailMessage('a@example.com', 'S', 'b'));
+            $this->assertDirectoryExists($dir);
+            $this->assertSame(0755, fileperms($dir) & 0777);
+        } finally {
+            if (is_file($path)) {
+                unlink($path);
+            }
+            if (is_dir($dir)) {
+                rmdir($dir);
+            }
+        }
+    }
+
     public function test_two_sends_append_two_lines(): void
     {
         $mailer = new LogMailer($this->logPath);
