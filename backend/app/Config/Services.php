@@ -3,6 +3,9 @@
 namespace Config;
 
 use App\Libraries\Admin\AuditLogger;
+use App\Libraries\Email\LogMailer;
+use App\Libraries\Email\MailerInterface;
+use App\Libraries\Email\SmtpMailer;
 use CodeIgniter\Config\BaseService;
 
 /**
@@ -42,5 +45,19 @@ class Services extends BaseService
         }
 
         return new AuditLogger();
+    }
+
+    public static function mailer($getShared = true): MailerInterface
+    {
+        if ($getShared) {
+            return static::getSharedInstance('mailer');
+        }
+
+        $driver = env('MAIL_DRIVER', 'log');
+        if ($driver === 'smtp') {
+            return new SmtpMailer(config('Email'));
+        }
+
+        return new LogMailer(WRITEPATH . 'logs/mail.log');
     }
 }

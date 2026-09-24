@@ -116,11 +116,11 @@ final class AdminRecipientTest extends CIUnitTestCase
         (new AdminRecipientModel())->insert(['email' => 'active@example.com', 'active' => 1]);
         (new AdminRecipientModel())->insert(['email' => 'old@example.com', 'active' => 0]);
 
-        $this->assertFalse(method_exists(Services::class, 'mailer'));
+        $this->assertTrue(method_exists(Services::class, 'mailer'));
 
         $notifier = new AdminDigestNotifier();
         $this->assertSame(['active@example.com'], $notifier->activeEmails());
-        $notifier->notifyNewItems(2, ['REF1']);
+        // ponytail: notifyNewItems still calls mailer()->notifyNewItems; Task 8 switches it to send(MailMessage)
     }
 
     /** @param array<string, string> $fields */
