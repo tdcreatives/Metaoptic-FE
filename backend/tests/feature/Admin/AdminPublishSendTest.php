@@ -113,9 +113,9 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertSame(1, (new EmailCampaignModel())->where('announcement_id', $id)->countAllResults());
     }
 
-    public function test_retry_failed_without_deliveries_table_flashes_worker_missing(): void
+    public function test_retry_failed_requeues_when_deliveries_table_exists(): void
     {
-        $this->assertFalse(db_connect()->tableExists('email_deliveries'));
+        $this->assertTrue(db_connect()->tableExists('email_deliveries'));
 
         $result = $this->withSession(['admin' => true])->post(
             '/admin/campaigns/1/retry-failed',
@@ -123,7 +123,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
         );
 
         $result->assertRedirect();
-        $this->assertSame('Email worker not deployed', session('error'));
+        $this->assertSame('Retries queued', session('message'));
     }
 
     public function test_archive_sets_state_and_audits(): void
