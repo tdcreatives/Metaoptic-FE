@@ -61,6 +61,32 @@ final class CampaignFanoutTest extends CIUnitTestCase
         $this->assertSame(1, (int) (new EmailCampaignModel())->find($campaignId)['recipient_count']);
     }
 
+    public function test_queue_campaign_rolls_back_when_fanout_fails(): void
+    {
+        $fanout = new class extends CampaignFanout {
+            public function fanout(\PDO|\CodeIgniter\Database\BaseConnection $db, int $campaignId, string $announcementCategory): int
+            {
+                throw new \RuntimeException('fanout boom');
+            }
+        };
+        $row = $this->publishedRow();
+        try {
+            (new SendEmailGate(model(EmailCampaignModel::class), $fanout))->queueCampaign($row);
+            $this->fail('expected fanout failure');
+        } catch (\RuntimeException $e) {
+            $this->assertSame('fanout boom', $e->getMessage());
+        }
+        $this->assertSame(0, (new EmailCampaignModel())->where('announcement_id', $row['id'])->countAllResults());
+    }
+
+    public function test_bulk_insert_sql_is_present(): void
+    {
+        $src = (string) file_get_contents((new \ReflectionClass(CampaignFanout::class))->getFileName());
+        $this->assertStringContainsString('INSERT IGNORE', $src);
+        $this->assertStringContainsString('INSERT OR IGNORE', $src);
+        $this->assertStringContainsString('prefixTable', $src);
+    }
+
     public function test_pdo_non_unique_errors_rethrow(): void
     {
         $pdo = new PDO('sqlite::memory:');

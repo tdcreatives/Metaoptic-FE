@@ -8,6 +8,12 @@ export function buildSubscribePayload({ email, first_name, last_name, categories
     };
 }
 
+export function stripUnsubSearch(href) {
+    const url = new URL(href);
+    url.searchParams.delete('unsub');
+    return `${url.pathname}${url.search}${url.hash}`;
+}
+
 function irApiUrl(path) {
     const base = process.env.NEXT_PUBLIC_IR_API_BASE;
     if (!base) {

@@ -22,4 +22,28 @@ final class UnsubscribeTokenTest extends CIUnitTestCase
         $this->assertNotSame($tok->forSubscriber(1), $tok->forSubscriber(2));
         $this->assertFalse($tok->matches($tok->forSubscriber(1), $tok->hashPlain($tok->forSubscriber(2))));
     }
+
+    public function test_page_url_matches_delivery_shape(): void
+    {
+        $tok = new UnsubscribeToken('unit-test-secret-min-32-chars-long!!');
+        $cfg = config(\Config\EmailAlerts::class);
+        $cfg->publicSiteUrl = 'https://metaoptics.sg';
+        $plain = $tok->forSubscriber(7);
+        $this->assertSame(
+            'https://metaoptics.sg/investor-relations/resources/email-alerts?unsub=' . $plain,
+            $tok->pageUrl($plain)
+        );
+    }
+
+    public function test_empty_secret_throws(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new UnsubscribeToken('');
+    }
+
+    public function test_short_secret_throws(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new UnsubscribeToken(str_repeat('a', 31));
+    }
 }

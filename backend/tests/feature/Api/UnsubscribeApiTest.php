@@ -94,6 +94,17 @@ final class UnsubscribeApiTest extends CIUnitTestCase
         $denied->assertHeaderMissing('Access-Control-Allow-Origin');
     }
 
+    public function test_options_preflight_returns_204_cors(): void
+    {
+        $origin = config('Sgx')->corsOrigins[0] ?? 'https://metaoptics.sg';
+        $result = $this->withHeaders(['Origin' => $origin])->options('/api/unsubscribe');
+        $result->assertStatus(204);
+        $result->assertHeader('Access-Control-Allow-Origin', $origin);
+        $result->assertHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+        $result->assertHeader('Access-Control-Allow-Headers', 'Content-Type');
+        $result->assertHeader('Vary', 'Origin');
+    }
+
     private function insertActive(string $email, UnsubscribeToken $tokens): int
     {
         $id = (int) (new SubscriberModel())->insert([

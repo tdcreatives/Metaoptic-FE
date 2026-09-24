@@ -72,6 +72,24 @@ final class SendEmailGateTest extends CIUnitTestCase
         $this->assertSame('Fallback summary', $fallbackCampaign['body_html']);
     }
 
+    public function test_fanout_failure_rolls_back_campaign(): void
+    {
+        $fanout = new class extends \App\Libraries\Email\CampaignFanout {
+            public function fanout(\PDO|\CodeIgniter\Database\BaseConnection $db, int $campaignId, string $announcementCategory): int
+            {
+                throw new \RuntimeException('fanout boom');
+            }
+        };
+        $row = $this->publishedRow();
+        try {
+            (new SendEmailGate(model(EmailCampaignModel::class), $fanout))->queueCampaign($row);
+            $this->fail('expected fanout failure');
+        } catch (\RuntimeException $e) {
+            $this->assertSame('fanout boom', $e->getMessage());
+        }
+        $this->assertSame(0, (new EmailCampaignModel())->where('announcement_id', $row['id'])->countAllResults());
+    }
+
     /** @param array<string, mixed> $overrides */
     private function publishedRow(array $overrides = []): array
     {

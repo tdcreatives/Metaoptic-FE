@@ -162,4 +162,51 @@ final class SubscribeApiTest extends CIUnitTestCase
         $this->assertNull((new SubscriberModel())->where('email', 'u11@example.com')->first());
         $this->assertSame(10, (new SubscriberModel())->countAllResults());
     }
+
+    public function test_empty_categories_returns_ok_without_insert(): void
+    {
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'empty-cats@example.com',
+            'categories' => [],
+            'website' => '',
+        ]);
+        $result->assertStatus(200);
+        $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
+        $this->assertNull((new SubscriberModel())->where('email', 'empty-cats@example.com')->first());
+    }
+
+    public function test_options_preflight_returns_204_cors(): void
+    {
+        $origin = config('Sgx')->corsOrigins[0] ?? 'https://metaoptics.sg';
+        $result = $this->withHeaders(['Origin' => $origin])->options('/api/subscribers');
+        $result->assertStatus(204);
+        $result->assertHeader('Access-Control-Allow-Origin', $origin);
+        $result->assertHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+        $result->assertHeader('Access-Control-Allow-Headers', 'Content-Type');
+        $result->assertHeader('Vary', 'Origin');
+    }
+
+    public function test_mailer_failure_still_ok_and_logs_without_email(): void
+    {
+        $this->mailer = new class implements MailerInterface {
+            public function send(MailMessage $message): string
+            {
+                throw new \RuntimeException('smtp down');
+            }
+        };
+        Services::injectMock('mailer', $this->mailer);
+
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'fail@example.com',
+            'categories' => ['General Announcement'],
+            'website' => '',
+        ]);
+        $result->assertStatus(200);
+        $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
+        $this->assertLogContains('error', 'subscribers.create failed');
+        $this->assertFalse(
+            \CodeIgniter\Test\TestLogger::didLog('error', 'fail@example.com', false),
+            'log must not contain the subscriber email'
+        );
+    }
 }

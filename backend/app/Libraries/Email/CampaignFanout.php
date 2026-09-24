@@ -7,7 +7,7 @@ use CodeIgniter\Database\BaseConnection;
 use PDO;
 use PDOException;
 
-final class CampaignFanout
+class CampaignFanout
 {
     public function fanout(PDO|BaseConnection $db, int $campaignId, string $announcementCategory): int
     {
@@ -15,31 +15,25 @@ final class CampaignFanout
             return $this->fanoutPdo($db, $campaignId, $announcementCategory);
         }
 
-        $rows = $db->table('subscribers as s')
-            ->select('s.id')
-            ->join('subscriber_categories as sc', 'sc.subscriber_id = s.id')
-            ->where('s.status', 'active')
-            ->where('sc.category_key', $announcementCategory)
-            ->get()
-            ->getResultArray();
-
-        $inserted = 0;
-        foreach ($rows as $row) {
-            $db->table('email_deliveries')->ignore(true)->insert([
-                'campaign_id' => $campaignId,
-                'subscriber_id' => (int) $row['id'],
-                'status' => 'queued',
-            ]);
-            if ($db->affectedRows() > 0) {
-                $inserted++;
-            }
-        }
+        $before = $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults();
+        $ignore = ((string) $db->DBDriver === 'SQLite3') ? 'INSERT OR IGNORE' : 'INSERT IGNORE';
+        $deliveries = $db->prefixTable('email_deliveries');
+        $subscribers = $db->prefixTable('subscribers');
+        $categories = $db->prefixTable('subscriber_categories');
+        $db->query(
+            "{$ignore} INTO {$deliveries} (campaign_id, subscriber_id, status)
+             SELECT ?, s.id, ?
+             FROM {$subscribers} s
+             INNER JOIN {$categories} sc ON sc.subscriber_id = s.id
+             WHERE s.status = ? AND sc.category_key = ?",
+            [$campaignId, 'queued', 'active', $announcementCategory]
+        );
 
         $db->table('email_campaigns')->where('id', $campaignId)->update([
             'recipient_count' => $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults(),
         ]);
 
-        return $inserted;
+        return $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults() - $before;
     }
 
     private function fanoutPdo(PDO $pdo, int $campaignId, string $announcementCategory): int

@@ -8,7 +8,6 @@ use App\Libraries\Admin\PublishService;
 use App\Libraries\Admin\SendEmailGate;
 use App\Models\AnnouncementModel;
 use App\Models\EmailCampaignModel;
-use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\RedirectResponse;
 use DomainException;
@@ -89,8 +88,13 @@ class Announcements extends BaseController
             $campaignId = $gate->queueCampaign($row);
         } catch (DomainException $e) {
             return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
-        } catch (DatabaseException $e) {
-            return redirect()->to('/admin/announcements/' . $id)->with('error', 'campaign_exists');
+        } catch (\Throwable $e) {
+            if ($this->isDuplicateCampaign($e)) {
+                return redirect()->to('/admin/announcements/' . $id)->with('error', 'campaign_exists');
+            }
+            log_message('error', 'announcement send failed: ' . $e::class);
+
+            return redirect()->to('/admin/announcements/' . $id)->with('error', 'send_failed');
         }
 
         service('auditLogger')->write('send', 'announcement', (string) $id, ['campaign_id' => $campaignId]);
@@ -116,5 +120,13 @@ class Announcements extends BaseController
         }
 
         return $row;
+    }
+
+    private function isDuplicateCampaign(\Throwable $e): bool
+    {
+        $msg = $e->getMessage();
+
+        return str_contains($msg, 'email_campaigns.announcement_id')
+            || (str_contains($msg, 'Duplicate entry') && str_contains($msg, 'announcement_id'));
     }
 }

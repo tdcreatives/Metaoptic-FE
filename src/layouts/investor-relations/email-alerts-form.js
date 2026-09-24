@@ -5,7 +5,7 @@ import { IconCheck } from '@tabler/icons-react';
 import IRContainer from '@/layouts/investor-relations/container';
 import { ANNOUNCEMENT_CATEGORIES } from '@/utils/announcements';
 import { isValidEmail } from '@/lib/web3forms';
-import { postSubscribe, postUnsubscribe } from '@/lib/subscribe-api';
+import { postSubscribe, postUnsubscribe, stripUnsubSearch } from '@/lib/subscribe-api';
 
 const inputBaseClasses =
     'futura-medium font-medium text-[14px] md:text-[16px] xl:text-[18px] text-[#231F20] ' +
@@ -63,7 +63,10 @@ const EmailAlertsForm = () => {
         const token = new URLSearchParams(window.location.search).get('unsub');
         if (!token) return;
         postUnsubscribe(token)
-            .then(() => setFeedback('You have been unsubscribed.'))
+            .then(() => {
+                setFeedback('You have been unsubscribed.');
+                window.history.replaceState({}, '', stripUnsubSearch(window.location.href));
+            })
             .catch(() => setFeedback('Unable to unsubscribe. Please try again later.'));
     }, []);
 
@@ -189,7 +192,7 @@ const EmailAlertsForm = () => {
                 </button>
 
                 {feedback && (
-                    <div className='mt-4 futura-medium text-[14px] text-[#231F20]'>{feedback}</div>
+                    <div role="status" aria-live="polite" className='mt-4 futura-medium text-[14px] text-[#231F20]'>{feedback}</div>
                 )}
 
                 <p className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#A9A9A9] leading-[1.6] mt-4 max-w-[800px]'>

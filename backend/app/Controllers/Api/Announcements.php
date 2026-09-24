@@ -5,6 +5,7 @@ namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
 use App\Libraries\Sgx\AnnouncementPresenter;
+use App\Libraries\Http\CorsHeaders;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Database\BaseBuilder;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -13,7 +14,7 @@ class Announcements extends BaseController
 {
     public function index(): ResponseInterface
     {
-        $this->applyCors();
+        CorsHeaders::apply($this->request, $this->response);
         $page = max(1, (int) ($this->request->getGet('page') ?? 1));
         $size = min(50, max(1, (int) ($this->request->getGet('page_size') ?? 10)));
         $builder = $this->publishedBuilder();
@@ -30,7 +31,7 @@ class Announcements extends BaseController
 
     public function show(string $slug): ResponseInterface
     {
-        $this->applyCors();
+        CorsHeaders::apply($this->request, $this->response);
         $row = $this->publishedBuilder()->where('slug', $slug)->get()->getRowArray();
         if ($row === null) {
             return $this->response->setStatusCode(404)->setJSON(['error' => 'not_found']);
@@ -77,12 +78,4 @@ class Announcements extends BaseController
         }
     }
 
-    private function applyCors(): void
-    {
-        $origin = $this->request->getHeaderLine('Origin');
-        $this->response->removeHeader('Access-Control-Allow-Origin');
-        if ($origin !== '' && in_array($origin, config('Sgx')->corsOrigins, true)) {
-            $this->response->setHeader('Access-Control-Allow-Origin', $origin);
-        }
-    }
 }

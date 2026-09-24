@@ -5,7 +5,6 @@ namespace App\Libraries\Email;
 
 use App\Models\SubscriberCategoryModel;
 use App\Models\SubscriberModel;
-use Config\EmailAlerts;
 use InvalidArgumentException;
 
 final class SubscribeService
@@ -37,6 +36,9 @@ final class SubscribeService
             return;
         }
         $categories = array_values(array_unique(array_map(static fn ($k): string => (string) $k, $categories)));
+        if ($categories === []) {
+            return;
+        }
         try {
             CategoryCatalog::assertValid($categories);
         } catch (InvalidArgumentException) {
@@ -114,8 +116,7 @@ final class SubscribeService
 
     private function sendConfirmation(string $email, string $plainToken): void
     {
-        $base = rtrim((string) config(EmailAlerts::class)->publicSiteUrl, '/');
-        $url = $base . '/unsubscribe?token=' . rawurlencode($plainToken);
+        $url = $this->tokens->pageUrl($plainToken);
         $body = (string) view('emails/confirmation', ['unsubscribeUrl' => $url]);
         $this->mailer->send(new MailMessage(
             $email,

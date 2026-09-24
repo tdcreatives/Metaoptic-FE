@@ -102,3 +102,13 @@ SMTP_PORT = 587
 # email.SMTPPort = 587
 # email.SMTPCrypto = tls
 # email.protocol = smtp
+
+#--------------------------------------------------------------------
+# EMAIL ALERTS (Config\EmailAlerts via env())
+#--------------------------------------------------------------------
+# HMAC secret for unsubscribe tokens (min 32 characters). Generate e.g.:
+# php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
+# email.unsubscribeSecret = 'REPLACE_WITH_AT_LEAST_32_CHAR_SECRET'
+# Public site origin used in confirmation + campaign unsubscribe links
+# (path is always /investor-relations/resources/email-alerts?unsub=)
+# email.publicSiteURL = 'https://metaoptics.sg'

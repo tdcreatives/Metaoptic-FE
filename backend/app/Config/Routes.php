@@ -10,6 +10,7 @@ $routes->group('api', static function ($routes) {
     $routes->get('announcements/(:segment)', 'Api\Announcements::show/$1');
 });
 
+$routes->options('api/(:any)', 'Api\Preflight::options');
 $routes->post('api/subscribers', 'Api\Subscribers::create');
 $routes->post('api/unsubscribe', 'Api\Unsubscribe::create');
 

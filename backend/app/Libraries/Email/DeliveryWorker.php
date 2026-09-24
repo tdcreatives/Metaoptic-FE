@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Libraries\Email;
 
 use CodeIgniter\Database\BaseConnection;
-use Config\EmailAlerts;
 
 final class DeliveryWorker
 {
@@ -105,9 +104,7 @@ final class DeliveryWorker
             ->get()
             ->getRowArray() ?? [];
 
-        $site = rtrim((string) config(EmailAlerts::class)->publicSiteUrl, '/');
-        $unsub = $site . '/investor-relations/resources/email-alerts?unsub='
-            . $this->tokens->forSubscriber((int) $row['subscriber_id']);
+        $unsub = $this->tokens->pageUrl($this->tokens->forSubscriber((int) $row['subscriber_id']));
 
         $title = (string) ($ctx['title'] ?? $ctx['subject'] ?? '');
         $intro = (string) (($ctx['email_intro'] ?? '') !== '' ? $ctx['email_intro'] : ($ctx['body_html'] ?? ''));

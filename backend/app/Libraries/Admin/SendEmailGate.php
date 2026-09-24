@@ -9,8 +9,10 @@ use DomainException;
 
 final class SendEmailGate
 {
-    public function __construct(private readonly EmailCampaignModel $campaigns)
-    {
+    public function __construct(
+        private readonly EmailCampaignModel $campaigns,
+        private readonly CampaignFanout $fanout = new CampaignFanout(),
+    ) {
     }
 
     /** @param array<string, mixed> $row */
@@ -30,20 +32,29 @@ final class SendEmailGate
     {
         $this->assertCanSend($row);
 
-        $id = (int) $this->campaigns->insert([
-            'announcement_id' => $row['id'],
-            'subject' => $this->firstNonEmpty($row, 'email_subject', 'title'),
-            'body_html' => $this->firstNonEmpty($row, 'email_intro', 'summary'),
-            'status' => 'queued',
-        ], true);
+        $db = db_connect();
+        $db->transBegin();
+        try {
+            $id = (int) $this->campaigns->insert([
+                'announcement_id' => $row['id'],
+                'subject' => $this->firstNonEmpty($row, 'email_subject', 'title'),
+                'body_html' => $this->firstNonEmpty($row, 'email_intro', 'summary'),
+                'status' => 'queued',
+            ], true);
 
-        (new CampaignFanout())->fanout(
-            db_connect(),
-            $id,
-            (string) ($row['category'] ?? '')
-        );
+            $this->fanout->fanout(
+                $db,
+                $id,
+                (string) ($row['category'] ?? '')
+            );
 
-        return $id;
+            $db->transCommit();
+
+            return $id;
+        } catch (\Throwable $e) {
+            $db->transRollback();
+            throw $e;
+        }
     }
 
     /** @param array<string, mixed> $row */

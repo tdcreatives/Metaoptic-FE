@@ -82,6 +82,7 @@ final class SubscribeServiceTest extends CIUnitTestCase
         $this->assertSame('ir@metaoptics.sg', $mailer->sent[0]->to);
         $this->assertSame('Confirm your MetaOptics IR alerts subscription', $mailer->sent[0]->subject);
         $this->assertStringContainsString('unsubscribe', strtolower($mailer->sent[0]->textBody));
+        $this->assertStringContainsString('/investor-relations/resources/email-alerts?unsub=', $mailer->sent[0]->textBody);
         $this->assertStringContainsString($plain, $mailer->sent[0]->textBody);
     }
 
@@ -175,6 +176,19 @@ final class SubscribeServiceTest extends CIUnitTestCase
         $svc->subscribe(['email' => 'ok@example.com', 'categories' => ['Not A Real Category'], 'website' => '']);
 
         $this->assertSame([], (new SubscriberModel())->findAll());
+        $this->assertSame([], $mailer->sent);
+    }
+
+    public function test_empty_categories_is_noop(): void
+    {
+        $mailer = $this->mailer();
+        $this->service($mailer, new UnsubscribeToken(self::SECRET))->subscribe([
+            'email' => 'none@example.com',
+            'categories' => [],
+            'website' => '',
+        ]);
+
+        $this->assertNull((new SubscriberModel())->where('email', 'none@example.com')->first());
         $this->assertSame([], $mailer->sent);
     }
 
