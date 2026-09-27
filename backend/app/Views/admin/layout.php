@@ -10,10 +10,10 @@
 <body class="<?= $isLogin ? 'login-body' : 'admin-shell' ?>">
 <?php if ($isLogin): ?>
     <div class="login-wrap">
-        <div>
+        <main class="login-panel">
             <p class="admin-brand">MetaOptics IR Admin</p>
             <?= $this->renderSection('content') ?>
-        </div>
+        </main>
     </div>
 <?php else: ?>
     <header class="admin-header">
