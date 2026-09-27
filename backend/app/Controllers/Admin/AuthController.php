@@ -17,8 +17,8 @@ class AuthController extends BaseController
 
     public function login(): RedirectResponse
     {
-        $ip = $this->request->getIPAddress();
-        $key = 'admin_login_' . $ip;
+        // ponytail: md5 avoids CI4 reserved cache chars (IPv6 "::1" has ":")
+        $key = md5('admin_login:' . $this->request->getIPAddress());
         $fails = (int) cache()->get($key);
         if ($fails >= 5) {
             return redirect()->to('/admin/login')->with('error', 'Too many attempts');
