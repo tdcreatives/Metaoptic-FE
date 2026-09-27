@@ -11,6 +11,7 @@ import Footer from "@/layouts/main/footer";
 
 import ProductDetailsBanner from "@/layouts/product-details/banner";
 import ProductDetailsSpecifications from "@/layouts/product-details/specifications";
+import ProductDetailsSpecComparison from "@/layouts/product-details/spec-comparison";
 import ProductDetailsTestingCapabilities from "@/layouts/product-details/testing-capabilities";
 import ProductDetailsMeasuredParameters from "@/layouts/product-details/measured-parameters";
 import RelatedProducts from "@/layouts/product-details/related-products";
@@ -98,7 +99,15 @@ const ProductDetailsClientSide = () => {
         <ProductDetailsCtaBanner ctaBanner={product?.details?.ctaBanner} />
       )}
 
-      {product?.details?.specifications && (
+      {product?.details?.specComparison && (
+        <ProductDetailsSpecComparison
+          specComparison={product.details.specComparison}
+          brochureTitle={product?.name}
+          brochure={product?.brochure}
+        />
+      )}
+
+      {!product?.details?.specComparison && product?.details?.specifications && (
         <ProductDetailsSpecifications
           specifications={product?.details?.specifications}
           brochureTitle={product?.name}

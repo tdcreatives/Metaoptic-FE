@@ -17,7 +17,9 @@ const ProductDetailsBanner = ({ product }) => {
   const isExternalLink = product?.buyNow?.toLowerCase().startsWith("http");
   // Specs / testing sections already show userGuide + installer
   const hideDownloadsInBanner =
-    !!product?.details?.specifications || !!product?.details?.testingCapabilities;
+    !!product?.details?.specifications ||
+    !!product?.details?.specComparison ||
+    !!product?.details?.testingCapabilities;
   return (
     <div className="relative w-full lg:min-h-[calc(100vh-100px)] bg-[#F0F0F0] pb-[60px]">
       <div

@@ -43,5 +43,7 @@ package-lock.json
 
 # graphify
 /graphify-out/
-# Git worktrees (local isolation)
-.worktrees/
+
+.cursor/
+public/download/
+**/graphify-out/
