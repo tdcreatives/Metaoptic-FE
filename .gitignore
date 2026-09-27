@@ -43,3 +43,8 @@ package-lock.json
 
 # graphify
 /graphify-out/
+
+.cursor/
+backend/
+public/download/
+**/graphify-out/

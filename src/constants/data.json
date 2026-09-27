@@ -345,28 +345,39 @@
       "slug": "rectangular-rgb-metalens",
       "image": "/products/rectangular-rgb-metalens.png",
       "category": "Camera",
-      "brochure": "/download/rectangular-rgb-metalens-v2027July.pdf",
+      "brochure": "/download/brochure-Rectangular-RGB-Metalens-27Sep2026.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
         "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
-        "specifications": {
-          "substrateSpecifications": {
-            "length": "7.94 mm",
-            "width": "6.34 mm",
-            "thickness": "0.775 ± 0.02mm",
-            "substrateMaterial": "Glass"
-          },
-          "metalensSpecifications": {
-            "patternMaterial": "SiN",
-            "RGBTargetWavelength": "635, 540, 450nm ± 5nm",
-            "minimumCD(PillarDiameter)": "120nm",
-            "pillarHeight": "650nm",
-            "metalensSize(Effective)": "5.7 x 5.66mm",
-            "EFL(FocalLength)": "2.46mm",
-            "fieldOfView(HxV)": "120 x 45 Degrees",
-            "frontAperture(Target)": "0.7mm",
-            "imageArea": "5.737 x 4.312mm"
-          }
+        "specComparison": {
+          "columns": ["5MP", "12MP"],
+          "sections": [
+            {
+              "key": "substrateSpecifications",
+              "title": "Substrate Specifications",
+              "rows": [
+                { "label": "Length", "values": ["7.94 mm", "10 mm"] },
+                { "label": "Width", "values": ["6.34 mm", "10 mm"] },
+                { "label": "Thickness", "values": ["0.775 ± 0.02 mm", "0.775 ± 0.02 mm"] },
+                { "label": "Substrate Material", "values": ["Glass", "Glass"] }
+              ]
+            },
+            {
+              "key": "metalensSpecifications",
+              "title": "Metalens Specifications",
+              "rows": [
+                { "label": "Pattern Material", "values": ["SiN", "TiO₂"] },
+                { "label": "RGB Target Wavelength", "values": ["635, 540, 450 nm ± 5 nm", "635, 540, 450 nm ± 5 nm"] },
+                { "label": "Minimum CD (Pillar Diameter)", "values": ["120 nm", "100 nm"] },
+                { "label": "Pillar Height", "values": ["650 nm", "650 nm"] },
+                { "label": "Metalens Size (Effective)", "values": ["5.7 × 5.66 mm", "7.6 × 7.07 mm"] },
+                { "label": "EFL (Focal Length)", "values": ["2.46 mm", "4.02 mm"] },
+                { "label": "Field Of View (H×V)", "values": ["120 × 45 Degrees", "100 × 34 Degrees"] },
+                { "label": "Front Aperture (Target)", "values": ["0.7 mm", "1.6 mm"] },
+                { "label": "Image Area", "values": ["5.737 × 4.312 mm", "7.07 × 6.2 mm"] }
+              ]
+            }
+          ]
         },
         "relatedProducts": [
           {
