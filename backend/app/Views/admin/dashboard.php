@@ -1,18 +1,23 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
 <h1><?= esc($title) ?></h1>
-<ul>
-    <li>Pending <?= esc((string) $pending) ?></li>
-    <li>Published <?= esc((string) $published) ?></li>
-    <li>Needs review <?= esc((string) $needs_review) ?></li>
-</ul>
-<p>
-    <a href="<?= site_url('admin/announcements') ?>">Announcements</a>
-    <a href="<?= site_url('admin/sync-runs') ?>">Sync runs</a>
-    <a href="<?= site_url('admin/settings/recipients') ?>">Recipients</a>
+<div class="stat-grid">
+    <div class="stat-card">
+        <span class="label">Pending</span>
+        <span class="value"><?= esc((string) $pending) ?></span>
+    </div>
+    <div class="stat-card">
+        <span class="label">Published</span>
+        <span class="value"><?= esc((string) $published) ?></span>
+    </div>
+    <div class="stat-card">
+        <span class="label">Needs review</span>
+        <span class="value"><?= esc((string) $needs_review) ?></span>
+    </div>
+</div>
+<p class="btn-row">
+    <a class="btn btn-primary" href="<?= site_url('admin/announcements') ?>">Announcements</a>
+    <a class="btn btn-secondary" href="<?= site_url('admin/sync-runs') ?>">Sync history</a>
+    <a class="btn btn-secondary" href="<?= site_url('admin/settings/recipients') ?>">Settings</a>
 </p>
-<form method="post" action="<?= site_url('admin/logout') ?>">
-    <?= csrf_field() ?>
-    <button type="submit">Logout</button>
-</form>
 <?= $this->endSection() ?>
