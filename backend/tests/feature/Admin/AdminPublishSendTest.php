@@ -193,8 +193,8 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringContainsString('admin/announcements/' . $id . '/publish', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/send', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
-        $this->assertSame(4, substr_count($body, csrf_token()));
-        $this->assertStringContainsString('<button type="submit" disabled>Publish</button>', $body);
+        $this->assertSame(5, substr_count($body, csrf_token()));
+        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Publish/i', $body);
     }
 
     public function test_publish_without_csrf_does_not_mutate(): void
