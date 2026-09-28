@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Libraries\Admin\AlertDraftFromAnnouncementService;
 use App\Libraries\Admin\AnnouncementDeleteGuard;
 use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
@@ -82,7 +83,22 @@ class Announcements extends BaseController
             'title' => $row['title'],
             'row' => $row,
             'sourcePretty' => $pretty,
+            'offerAlert' => $this->request->getGet('offer_alert') === '1'
+                && ($row['state'] ?? '') === 'published',
         ]);
+    }
+
+    public function updateLayout(int $id): RedirectResponse
+    {
+        $this->findOr404($id);
+        $update = [];
+        foreach (['title_btn', 'title_btn_sm', 'title_banner'] as $field) {
+            $val = $this->request->getPost($field);
+            $update[$field] = ($val === null || $val === '') ? null : (string) $val;
+        }
+        model(AnnouncementModel::class)->update($id, $update);
+
+        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Saved');
     }
 
     public function updateSummary(int $id): RedirectResponse
@@ -113,9 +129,23 @@ class Announcements extends BaseController
 
         if ($changed) {
             service('auditLogger')->write('publish', 'announcement', (string) $id, []);
+
+            return redirect()->to('/admin/announcements/' . $id . '?offer_alert=1')->with('message', 'Published');
         }
 
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Published');
+    }
+
+    public function createAlertDraft(int $id): RedirectResponse
+    {
+        $this->findOr404($id);
+        try {
+            $alertId = (new AlertDraftFromAnnouncementService())->createDraft($id);
+        } catch (DomainException $e) {
+            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+        }
+
+        return redirect()->to('/admin/email-alerts/' . $alertId . '/edit');
     }
 
     public function archive(int $id): RedirectResponse

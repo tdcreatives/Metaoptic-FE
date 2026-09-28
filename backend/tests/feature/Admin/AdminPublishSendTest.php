@@ -34,7 +34,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
             '/admin/announcements/' . $id . '/publish',
             $this->withCsrf([])
         );
-        $publish->assertRedirectTo('/admin/announcements/' . $id);
+        $publish->assertRedirectTo('/admin/announcements/' . $id . '?offer_alert=1');
 
         $row = (new AnnouncementModel())->find($id);
         $this->assertNotNull($row);
@@ -129,7 +129,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringNotContainsString('admin/announcements/' . $id . '/send', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
-        $this->assertSame(5, substr_count($body, csrf_token()));
+        $this->assertSame(6, substr_count($body, csrf_token()));
         $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Publish/i', $body);
     }
 

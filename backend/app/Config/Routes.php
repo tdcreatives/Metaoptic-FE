@@ -26,7 +26,9 @@ $routes->group('admin', static function ($routes) {
         $routes->post('announcements', 'Admin\Announcements::create');
         $routes->get('announcements/(:num)', 'Admin\Announcements::show/$1');
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
+        $routes->post('announcements/(:num)/layout', 'Admin\Announcements::updateLayout/$1');
         $routes->post('announcements/(:num)/publish', 'Admin\Announcements::publish/$1');
+        $routes->post('announcements/(:num)/create-alert-draft', 'Admin\Announcements::createAlertDraft/$1');
         $routes->post('announcements/(:num)/archive', 'Admin\Announcements::archive/$1');
         $routes->post('announcements/(:num)/delete', 'Admin\Announcements::delete/$1');
         $routes->get('email-alerts', 'Admin\EmailAlerts::index');

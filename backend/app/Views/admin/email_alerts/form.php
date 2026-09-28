@@ -10,9 +10,9 @@
 $isEdit = is_array($alert);
 $action = $isEdit ? site_url('admin/email-alerts/' . $alert['id']) : site_url('admin/email-alerts');
 $name = (string) old('name', $isEdit ? ($alert['name'] ?? '') : '');
-$subject = (string) old('subject', $isEdit ? ($alert['subject'] ?? '') : '');
-$intro = (string) old('intro', $isEdit ? ($alert['intro'] ?? '') : '');
-$bodyHtml = (string) old('body_html', $isEdit ? ($alert['body_html'] ?? '') : '');
+$subject = (string) old('subject', $isEdit ? ($alert['subject'] ?? '') : ($prefill_subject ?? ''));
+$intro = (string) old('intro', $isEdit ? ($alert['intro'] ?? '') : ($prefill_intro ?? ''));
+$bodyHtml = (string) old('body_html', $isEdit ? ($alert['body_html'] ?? '') : ($prefill_body_html ?? ''));
 $oldIds = old('announcement_ids');
 $checked = is_array($oldIds) ? array_map('intval', $oldIds) : $selectedIds;
 ?>

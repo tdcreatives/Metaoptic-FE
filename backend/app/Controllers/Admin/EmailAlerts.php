@@ -189,6 +189,18 @@ class EmailAlerts extends BaseController
         }
         $categories = (new AudienceResolver())->categoryUnion($selected);
 
+        $prefillSubject = '';
+        $prefillIntro = '';
+        $prefillBodyHtml = '';
+        if ($alert === null && count($selectedIds) === 1) {
+            $ann = model(AnnouncementModel::class)->find($selectedIds[0]);
+            if (is_array($ann)) {
+                $prefillSubject = (string) ($ann['title'] ?? '');
+                $prefillIntro = (string) ($ann['summary'] ?? '');
+                $prefillBodyHtml = '<p>{{announcement}}</p>';
+            }
+        }
+
         return view('admin/email_alerts/form', [
             'title' => $title,
             'alert' => $alert,
@@ -196,6 +208,9 @@ class EmailAlerts extends BaseController
             'selectedIds' => $selectedIds,
             'categories' => $categories,
             'estimate' => (new AudienceResolver())->estimateSubscriberCount($categories),
+            'prefill_subject' => $prefillSubject,
+            'prefill_intro' => $prefillIntro,
+            'prefill_body_html' => $prefillBodyHtml,
         ]);
     }
 
