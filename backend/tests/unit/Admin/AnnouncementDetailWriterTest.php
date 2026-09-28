@@ -56,5 +56,33 @@ final class AnnouncementDetailWriterTest extends CIUnitTestCase
         $this->assertCount(1, $hydrated['_labeled_rows']);
         $this->assertSame('additional_left', $hydrated['_labeled_rows'][0]['section']);
         $this->assertSame([], $hydrated['_related']);
+
+        (new AnnouncementDetailWriter($db))->replace(
+            $id,
+            [
+                'ann_reference' => 'SG260911OTHR4TNS',
+                'issuer_name' => 'METAOPTICS LTD',
+                'state' => 'pending_review',
+                'slug' => 'hijacked',
+                'source_hash' => str_repeat('b', 64),
+                'title' => 'Hijacked',
+                'category' => 'Hijacked',
+            ],
+            [['name' => 'Other.pdf', 'url' => 'https://links.sgx.com/y', 'sort_order' => 0]],
+            [],
+            [],
+        );
+
+        $rowAfter = $db->table('announcements')->where('id', $id)->get()->getRowArray();
+        $this->assertSame('published', $rowAfter['state']);
+        $this->assertSame('press-release', $rowAfter['slug']);
+        $this->assertSame(str_repeat('a', 64), $rowAfter['source_hash']);
+        $this->assertSame('Press Release', $rowAfter['title']);
+        $this->assertSame('General Announcement', $rowAfter['category']);
+
+        $attachments = $db->table('announcement_attachments')->where('announcement_id', $id)->get()->getResultArray();
+        $this->assertCount(1, $attachments);
+        $this->assertSame('Other.pdf', $attachments[0]['name']);
+        $this->assertSame(0, $db->table('announcement_labeled_rows')->where('announcement_id', $id)->countAllResults());
     }
 }

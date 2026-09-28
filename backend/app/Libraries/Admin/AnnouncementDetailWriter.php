@@ -8,6 +8,35 @@ use RuntimeException;
 
 final class AnnouncementDetailWriter
 {
+    /** FE-parity detail/layout scalars only (Task 1). Never state/slug/source_*. */
+    private const SCALAR_ALLOWLIST = [
+        'title_btn' => true,
+        'title_btn_sm' => true,
+        'title_banner' => true,
+        'issuer_name' => true,
+        'securities_name' => true,
+        'stapled_security_name' => true,
+        'ann_title' => true,
+        'ann_subtitle' => true,
+        'ann_datetime' => true,
+        'ann_status' => true,
+        'ann_reference' => true,
+        'ann_submitted_by' => true,
+        'ann_designation' => true,
+        'ann_description' => true,
+        'ann_disclaimer' => true,
+        'ann_effective_start_date' => true,
+        'ann_report_type' => true,
+        'ann_final_year_end' => true,
+        'addl_description' => true,
+        'addl_name' => true,
+        'addl_age' => true,
+        'addl_date_cessation_known' => true,
+        'addl_date_of_appointment' => true,
+        'addl_date_cessation' => true,
+        'addl_country_of_principal_residence' => true,
+    ];
+
     public function __construct(private readonly BaseConnection $db)
     {
     }
@@ -20,11 +49,10 @@ final class AnnouncementDetailWriter
      */
     public function replace(int $announcementId, array $scalars, array $attachments, array $related, array $labeledRows): void
     {
-        $skip = ['id' => true, 'created_at' => true, 'updated_at' => true];
         $columns = array_flip($this->db->getFieldNames('announcements'));
         $update = [];
         foreach ($scalars as $key => $value) {
-            if (is_string($key) && isset($columns[$key]) && ! isset($skip[$key])) {
+            if (is_string($key) && isset(self::SCALAR_ALLOWLIST[$key]) && isset($columns[$key])) {
                 $update[$key] = $value;
             }
         }
