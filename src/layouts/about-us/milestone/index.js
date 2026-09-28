@@ -152,6 +152,16 @@ const MileStone = () => {
                         Exhibited metalens smart devices at COMDEX, Suntec Singapore, {isDesktop ? <br /> : ' '}
                         3 to 6 September
                     </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Presented MetaOptics at KL20 in Penang, September 2026
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Presented MetaOptics at the ANSYS event
+                    </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Launched an American Depositary Receipt (ADR) programme on OTCQX {isDesktop ? <br /> : ' '}
+                        in the U.S., with J.P. Morgan as the depositary bank.
+                    </div>
                 </motion.div>
             ),
         },

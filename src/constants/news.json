@@ -610,6 +610,25 @@
                 "relatedNews": []
             },
             "mod": "production"
+        },
+        {
+            "id": 31,
+            "slug": "metaoptics-featured-in-cna-report-on-singapores-semiconductor-rd-push",
+            "title": "MetaOptics Featured in CNA Report on Singapore's Semiconductor R&D Push",
+            "desc": "MetaOptics has been featured in a CNA report on Singapore's semiconductor ambitions, highlighting ASTAR support for SMEs developing flat optics and taking technology from lab to market.",
+            "date": "Sep 28, 2026",
+            "image": "/news/metaoptics-featured-in-cna-report-on-singapores-semiconductor-rd-push.jpg",
+            "thumbnail": "/news/metaoptics-featured-in-cna-report-on-singapores-semiconductor-rd-push.jpg",
+            "path": "https://www.youtube.com/watch?v=bHbklyLncDo&t=1s",
+            "external": false,
+            "details": {
+                "images": [
+                    "/news/metaoptics-featured-in-cna-report-on-singapores-semiconductor-rd-push.jpg"
+                ],
+                "contentPath": "/content/news/metaoptics-featured-in-cna-report-on-singapores-semiconductor-rd-push.mdx",
+                "relatedNews": []
+            },
+            "mod": "production"
         }
     ]
 }
