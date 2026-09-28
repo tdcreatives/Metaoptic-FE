@@ -128,7 +128,8 @@ final class AnnouncementCrudTest extends CIUnitTestCase
         $this->assertStringNotContainsString('name="email_subject"', $body);
         $this->assertStringNotContainsString('name="email_intro"', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
-        $this->assertStringNotContainsString('Create Email Alert', $body);
+        $this->assertStringContainsString('Create Email Alert with this', $body);
+        $this->assertStringContainsString('email-alerts/new?announcement_id=' . $id, $body);
     }
 
     /** @param array<string, string> $fields */

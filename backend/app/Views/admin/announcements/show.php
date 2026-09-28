@@ -46,6 +46,9 @@
             <?= csrf_field() ?>
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
+        <?php if (($row['state'] ?? '') === 'published'): ?>
+            <a class="btn btn-secondary" href="<?= site_url('admin/email-alerts/new?announcement_id=' . $row['id']) ?>">Create Email Alert with this</a>
+        <?php endif; ?>
     </div>
 </div>
 

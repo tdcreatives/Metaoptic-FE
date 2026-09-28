@@ -12,9 +12,12 @@ class Campaigns extends BaseController
     public function retryFailed(int $id): RedirectResponse
     {
         $campaign = model(EmailCampaignModel::class)->find($id);
-        $redirectTo = $campaign !== null
-            ? '/admin/announcements/' . $campaign['announcement_id']
-            : '/admin';
+        $redirectTo = '/admin';
+        if (is_array($campaign) && ! empty($campaign['email_alert_id'])) {
+            $redirectTo = '/admin/email-alerts/' . $campaign['email_alert_id'];
+        } elseif (is_array($campaign) && ! empty($campaign['announcement_id'])) {
+            $redirectTo = '/admin/announcements/' . $campaign['announcement_id'];
+        }
 
         $db = db_connect();
         if (! $db->tableExists('email_deliveries')) {
