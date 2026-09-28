@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
+use App\Libraries\Sgx\AnnouncementDetailHydrator;
 use App\Libraries\Sgx\AnnouncementPresenter;
 use App\Libraries\Http\CorsHeaders;
 use App\Models\AnnouncementModel;
@@ -24,7 +25,10 @@ class Announcements extends BaseController
         $rows = $builder->orderBy('filed_at', 'DESC')->limit($size, ($page - 1) * $size)->get()->getResultArray();
 
         return $this->response->setJSON([
-            'data' => array_map([AnnouncementPresenter::class, 'fromRow'], $rows),
+            'data' => array_map(
+                static fn (array $row): array => AnnouncementPresenter::fromRow(AnnouncementDetailHydrator::hydrate($row)),
+                $rows
+            ),
             'meta' => ['page' => $page, 'page_size' => $size, 'total' => $total],
         ]);
     }
@@ -36,6 +40,8 @@ class Announcements extends BaseController
         if ($row === null) {
             return $this->response->setStatusCode(404)->setJSON(['error' => 'not_found']);
         }
+
+        $row = AnnouncementDetailHydrator::hydrate($row);
 
         return $this->response->setJSON([
             'data' => AnnouncementPresenter::fromRow($row),
