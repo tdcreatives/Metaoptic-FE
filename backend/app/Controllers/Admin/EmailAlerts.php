@@ -47,6 +47,8 @@ class EmailAlerts extends BaseController
                 ->with('error', $e->getMessage());
         }
 
+        service('auditLogger')->write('create', 'email_alert', (string) $id, []);
+
         return redirect()->to('/admin/email-alerts/' . $id)->with('message', 'Draft saved');
     }
 
@@ -59,9 +61,17 @@ class EmailAlerts extends BaseController
         $estimate = (new AudienceResolver())->estimateSubscriberCount($categories);
         $campaignId = isset($alert['campaign_id']) ? (int) $alert['campaign_id'] : 0;
         $metrics = $this->deliveryMetrics($campaignId > 0 ? $campaignId : null);
-        $deliveries = $campaignId > 0
-            ? model(EmailDeliveryModel::class)->where('campaign_id', $campaignId)->orderBy('id', 'ASC')->findAll()
-            : [];
+        $deliveriesTotal = 0;
+        $deliveries = [];
+        if ($campaignId > 0) {
+            $deliveriesTotal = model(EmailDeliveryModel::class)
+                ->where('campaign_id', $campaignId)
+                ->countAllResults();
+            $deliveries = model(EmailDeliveryModel::class)
+                ->where('campaign_id', $campaignId)
+                ->orderBy('id', 'ASC')
+                ->findAll(200);
+        }
 
         return view('admin/email_alerts/show', [
             'title' => (string) $alert['subject'],
@@ -71,6 +81,7 @@ class EmailAlerts extends BaseController
             'estimate' => $estimate,
             'metrics' => $metrics,
             'deliveries' => $deliveries,
+            'deliveriesTotal' => $deliveriesTotal,
         ]);
     }
 
@@ -102,6 +113,8 @@ class EmailAlerts extends BaseController
             return redirect()->to('/admin/email-alerts/' . $id . '/edit')->with('error', $e->getMessage());
         }
 
+        service('auditLogger')->write('update', 'email_alert', (string) $id, []);
+
         return redirect()->to('/admin/email-alerts/' . $id)->with('message', 'Saved');
     }
 
@@ -113,6 +126,8 @@ class EmailAlerts extends BaseController
         } catch (DomainException $e) {
             return $this->redirectAlertError($id, $e);
         }
+
+        service('auditLogger')->write('schedule', 'email_alert', (string) $id, []);
 
         return redirect()->to('/admin/email-alerts/' . $id)->with('message', 'Scheduled');
     }
@@ -126,6 +141,8 @@ class EmailAlerts extends BaseController
             return $this->redirectAlertError($id, $e);
         }
 
+        service('auditLogger')->write('send_now', 'email_alert', (string) $id, []);
+
         return redirect()->to('/admin/email-alerts/' . $id)->with('message', 'Sent');
     }
 
@@ -138,6 +155,8 @@ class EmailAlerts extends BaseController
             return $this->redirectAlertError($id, $e);
         }
 
+        service('auditLogger')->write('cancel', 'email_alert', (string) $id, []);
+
         return redirect()->to('/admin/email-alerts/' . $id)->with('message', 'Cancelled');
     }
 
@@ -149,6 +168,8 @@ class EmailAlerts extends BaseController
         } catch (DomainException $e) {
             return $this->redirectAlertError($id, $e);
         }
+
+        service('auditLogger')->write('delete', 'email_alert', (string) $id, []);
 
         return redirect()->to('/admin/email-alerts')->with('message', 'Deleted');
     }

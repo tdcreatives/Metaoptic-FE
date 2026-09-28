@@ -7,6 +7,7 @@ use App\Libraries\Email\AlertDispatchService;
 use App\Libraries\Email\AlertLifecycleService;
 use CodeIgniter\CLI\BaseCommand;
 use CodeIgniter\CLI\CLI;
+use DomainException;
 
 class EmailDispatchScheduled extends BaseCommand
 {
@@ -20,11 +21,20 @@ class EmailDispatchScheduled extends BaseCommand
         $dispatch = new AlertDispatchService();
         $n = 0;
         foreach ($life->dueScheduled() as $row) {
+            $id = (int) $row['id'];
             try {
-                $dispatch->dispatch((int) $row['id']);
+                $dispatch->dispatch($id);
                 $n++;
+            } catch (DomainException $e) {
+                $reason = $e->getMessage();
+                log_message('error', 'scheduled alert ' . $id . ' failed: ' . $reason . '; demoted to draft');
+                CLI::error('alert ' . $id . ': ' . $reason . ' (demoted to draft)');
+                try {
+                    $life->cancelSchedule($id);
+                } catch (DomainException $ignored) {
+                }
             } catch (\Throwable $e) {
-                log_message('error', 'scheduled alert ' . (int) $row['id'] . ' failed: ' . $e->getMessage());
+                log_message('error', 'scheduled alert ' . $id . ' failed: ' . $e->getMessage());
             }
         }
         CLI::write("dispatched={$n}");

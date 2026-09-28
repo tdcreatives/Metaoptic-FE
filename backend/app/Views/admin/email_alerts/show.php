@@ -110,9 +110,11 @@
 
 <div class="card">
     <h2>Deliveries</h2>
+    <?php $deliveriesTotal = (int) ($deliveriesTotal ?? count($deliveries)); ?>
     <?php if ($deliveries === []): ?>
         <p class="empty">No deliveries</p>
     <?php else: ?>
+        <p>Showing first <?= esc((string) count($deliveries)) ?> of <?= esc((string) $deliveriesTotal) ?></p>
         <div class="table-wrap">
             <table class="table">
                 <thead>

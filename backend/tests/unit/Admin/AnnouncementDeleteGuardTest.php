@@ -26,7 +26,7 @@ final class AnnouncementDeleteGuardTest extends CIUnitTestCase
 
         $this->expectException(DomainException::class);
         $this->expectExceptionMessage('locked_sending');
-        (new AnnouncementDeleteGuard())->assertCanDelete($annId);
+        (new AnnouncementDeleteGuard())->prepareForDelete($annId);
     }
 
     public function test_draft_junction_is_removed(): void
@@ -34,7 +34,7 @@ final class AnnouncementDeleteGuardTest extends CIUnitTestCase
         $annId = $this->insertAnnouncement();
         $alertId = $this->insertAlert('draft', $annId);
 
-        (new AnnouncementDeleteGuard())->assertCanDelete($annId);
+        (new AnnouncementDeleteGuard())->prepareForDelete($annId);
 
         $this->assertSame(
             0,
@@ -49,7 +49,7 @@ final class AnnouncementDeleteGuardTest extends CIUnitTestCase
         $annId = $this->insertAnnouncement();
         $alertId = $this->insertAlert('sent', $annId);
 
-        (new AnnouncementDeleteGuard())->assertCanDelete($annId);
+        (new AnnouncementDeleteGuard())->prepareForDelete($annId);
         (new AnnouncementModel())->delete($annId);
 
         $row = (new EmailAlertAnnouncementModel())->where('email_alert_id', $alertId)->first();

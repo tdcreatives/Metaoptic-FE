@@ -85,6 +85,19 @@ final class AlertLifecycleServiceTest extends CIUnitTestCase
         $this->assertSame($campaignId, (int) $row['campaign_id']);
     }
 
+    public function test_schedule_invalid_datetime_throws(): void
+    {
+        $annId = $this->insertAnnouncement('published');
+        $id = (new AlertLifecycleService())->saveDraft([
+            'subject' => 'IR update',
+            'body_html' => '<p>hi</p>',
+        ], [$annId]);
+
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('invalid_scheduled_at');
+        (new AlertLifecycleService())->schedule($id, 'not-a-datetime');
+    }
+
     public function test_cancel_schedule_returns_to_draft(): void
     {
         $annId = $this->insertAnnouncement('published');

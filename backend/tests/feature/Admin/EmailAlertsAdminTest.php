@@ -50,6 +50,14 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
             str_contains($body, '—') || str_contains($body, '&mdash;'),
             'open/click metrics must display an em dash'
         );
+
+        $audit = db_connect()->table('audit_log')
+            ->where('action', 'create')
+            ->where('entity_type', 'email_alert')
+            ->where('entity_id', (string) $row['id'])
+            ->get()
+            ->getRowArray();
+        $this->assertNotNull($audit);
     }
 
     public function test_new_form_has_tinymce_and_preselects_announcement(): void

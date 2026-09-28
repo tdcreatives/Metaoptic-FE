@@ -13,7 +13,7 @@ final class AnnouncementDeleteGuard
     ) {
     }
 
-    public function assertCanDelete(int $announcementId): void
+    public function prepareForDelete(int $announcementId): void
     {
         $db = db_connect();
         $links = $db->table('email_alert_announcements eaa')

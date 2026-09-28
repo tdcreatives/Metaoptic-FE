@@ -69,7 +69,11 @@ final class AlertLifecycleService
         $now = new DateTimeImmutable('now', $tz);
         $at = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $scheduledAtSgt, $tz);
         if ($at === false) {
-            $at = new DateTimeImmutable($scheduledAtSgt, $tz);
+            try {
+                $at = new DateTimeImmutable($scheduledAtSgt, $tz);
+            } catch (\Exception $e) {
+                throw new DomainException('invalid_scheduled_at');
+            }
         }
         if ($at <= $now) {
             throw new DomainException('scheduled_at_not_future');

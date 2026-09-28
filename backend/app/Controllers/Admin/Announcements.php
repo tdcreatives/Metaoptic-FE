@@ -130,13 +130,20 @@ class Announcements extends BaseController
     public function delete(int $id): RedirectResponse
     {
         $this->findOr404($id);
+        $db = db_connect();
+        $db->transBegin();
         try {
-            (new AnnouncementDeleteGuard())->assertCanDelete($id);
+            (new AnnouncementDeleteGuard())->prepareForDelete($id);
+            model(AnnouncementModel::class)->delete($id);
+            $db->transCommit();
         } catch (DomainException $e) {
-            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
-        }
+            $db->transRollback();
 
-        model(AnnouncementModel::class)->delete($id);
+            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+        } catch (\Throwable $e) {
+            $db->transRollback();
+            throw $e;
+        }
         service('auditLogger')->write('delete', 'announcement', (string) $id, []);
 
         return redirect()->to('/admin/announcements')->with('message', 'Deleted');
