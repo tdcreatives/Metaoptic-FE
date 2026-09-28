@@ -249,6 +249,9 @@ Phases are sequential: Mirror first, then CMS, then Email.
 - [ ] Historical import: **JSON first** (`php spark announcements:import-json`), then SGX sync; published once, **no** investor emails  
 - [ ] FE JSON import (`php spark announcements:import-json`) seeds Published rows, keeps slugs, no alert prompts  
 - [ ] Public API shape matches site JSON; staging slug-diff (incl. placement press-release) before considering `useAnnouncementsApi`; flags stay off in repo  
+- [ ] After JSON import, eyeball CLI `skipped sgx_reference` lines (duplicate refs stay NULL and are invisible to SGX sync)  
+- [ ] Before flipping `useAnnouncementsApi`, FE list length equals `meta.total` (helper pages until total; API `page_size` cap is 100)  
+
 - [ ] New filings appear as Pending Review in CMS  
 - [ ] Only Published items show on the public IR site  
 
