@@ -49,8 +49,9 @@ class CreateEmailAlerts extends Migration
         $this->forge->createTable('email_alert_announcements', true);
 
         // Task 1 rebuilt announcements; SQLite may leave this FK pointing at temp_announcements.
-        $this->dropUniqueIndexOnColumn('email_campaigns', 'announcement_id');
+        // MySQL 1553: drop the FK before the unique index that backs it.
         $this->dropForeignKeysOnColumn('email_campaigns', 'announcement_id');
+        $this->dropUniqueIndexOnColumn('email_campaigns', 'announcement_id');
 
         $this->forge->modifyColumn('email_campaigns', [
             'announcement_id' => [
