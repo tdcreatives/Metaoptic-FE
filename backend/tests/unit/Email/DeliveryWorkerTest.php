@@ -105,8 +105,16 @@ final class DeliveryWorkerTest extends CIUnitTestCase
 
         $token = (new UnsubscribeToken(self::SECRET))->forSubscriber($subId);
         $expectedUrl = self::SITE . '/investor-relations/resources/email-alerts?unsub=' . $token;
-        $this->assertStringContainsString($expectedUrl, $mailer->sent[0]->textBody);
-        $this->assertStringContainsString('Published MOU', $mailer->sent[0]->textBody);
+        $html = (string) $mailer->sent[0]->htmlBody;
+        $text = $mailer->sent[0]->textBody;
+        $this->assertNotNull($mailer->sent[0]->htmlBody);
+        $this->assertStringContainsString('<p>', $html);
+        $this->assertStringContainsString('>Unsubscribe</a>', $html);
+        $this->assertStringContainsString($expectedUrl, $html);
+        $this->assertStringContainsString($expectedUrl, $text);
+        $this->assertStringContainsString('Published MOU', $text);
+        $this->assertStringContainsString('Intro copy', $text);
+        $this->assertStringNotContainsString('<p>', $text);
 
         $this->assertSame(0, $worker->processBatch(100));
         $this->assertCount(1, $mailer->sent);
@@ -143,7 +151,10 @@ final class DeliveryWorkerTest extends CIUnitTestCase
             $this->assertIsArray($logged);
             $this->assertSame('Q3 IR blast', $logged['subject']);
             $this->assertNotNull($logged['htmlBody']);
+            $this->assertStringContainsString('<p>', (string) $logged['htmlBody']);
             $this->assertStringContainsString('href="https://ex.test/1"', (string) $logged['htmlBody']);
+            $this->assertStringNotContainsString('<ul', (string) $logged['textBody']);
+            $this->assertStringContainsString('Item One', (string) $logged['textBody']);
         } finally {
             if (is_file($logPath)) {
                 unlink($logPath);

@@ -107,18 +107,22 @@ final class DeliveryWorker
         $unsub = $this->tokens->pageUrl($this->tokens->forSubscriber((int) $row['subscriber_id']));
 
         $title = (string) ($ctx['title'] ?? $ctx['subject'] ?? '');
-        $intro = (string) (($ctx['email_intro'] ?? '') !== '' ? $ctx['email_intro'] : ($ctx['body_html'] ?? ''));
-        $body = (string) view('emails/announcement', [
+        $fromAnnouncementIntro = ($ctx['email_intro'] ?? '') !== '';
+        $intro = (string) ($fromAnnouncementIntro ? $ctx['email_intro'] : ($ctx['body_html'] ?? ''));
+        $htmlBody = (string) view('emails/announcement', [
             'title' => $title,
             'intro' => $intro,
+            'introIsHtml' => ! $fromAnnouncementIntro && $intro !== '',
             'unsubscribeUrl' => $unsub,
         ]);
+        $plainIntro = trim(html_entity_decode(strip_tags($intro), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        $textBody = $title . "\n\n" . $plainIntro . "\n\nUnsubscribe: " . $unsub;
 
         return new MailMessage(
             (string) $subscriber['email'],
             (string) ($ctx['subject'] ?? $title),
-            $body,
-            $body,
+            $textBody,
+            $htmlBody,
         );
     }
 
