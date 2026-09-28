@@ -33,8 +33,8 @@ and any database settings.
 On a new environment, in this order:
 
 1. `php spark migrate`
-2. FE-parity baseline: `php spark announcements:import-json` (from `src/constants/announcements.json`) — this is the live-slug source of truth
-3. SGX sync (`php spark sgx:sync`) for ongoing/new items — does **not** replace the JSON baseline for matching live URLs; do **not** rely on `sgx.backfill` alone if you need FE-parity detail fields
+2. FE-parity baseline: `php spark announcements:import-json` (from `src/constants/announcements.json`) — this is the live-slug source of truth (full nested detail + attachments)
+3. SGX sync (`php spark sgx:sync`) for ongoing/new items — list API + **HTML detail parse** from `source_url` (`links.sgx.com/.../corporate-announcements/...`) for description, designation, status, additional rows, and attachments. Disable with `sgx.fetchDetailHtml = false` if needed. Sync never wipes children when HTML is skipped/fails. JSON import remains the baseline for historical live slugs.
 4. Staging: diff key slugs Presenter/API vs JSON (include the press-release placement slug)
 5. Only then consider flipping `useAnnouncementsApi` (still **off** in repo)
 
@@ -69,6 +69,30 @@ CMS **Email Alerts** are a separate entity from announcements (attach 1…N Publ
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:work >> /var/log/email-work.log 2>&1
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:dispatch-scheduled >> /var/log/email-dispatch.log 2>&1
 ```
+
+### SGX source (real website API)
+
+`sgx:sync` calls the same undocumented endpoints as [www.sgx.com](https://www.sgx.com/securities/company-announcements):
+
+1. Load `sgx.appConfigURL` (default `https://www.sgx.com/config/appconfig.json`)
+2. Fetch CMS token (`we_chat_qr_validator`, ROT13) → `authorizationToken` header
+3. `GET {sgx.baseURL}/company/count` and `/company` with `value`, `exactsearch`, `pagestart` (**0-based page index**), `pagesize`
+
+Example `.env`:
+
+```
+sgx.baseURL = 'https://api.sgx.com/announcements/v1.1'
+sgx.companyCode = 'METAOPTICS LTD'
+sgx.exactSearch = true
+sgx.pageSize = 20
+sgx.appConfigURL = 'https://www.sgx.com/config/appconfig.json'
+sgx.backfill = false
+sgx.fetchDetailHtml = true
+```
+
+`sgx.fetchDetailHtml` (default true): after the list fetch, sync GETs each item’s `url` on `links.sgx.com` and parses the announcement HTML (`dl/dt/dd` + attachment links) into FE detail fields. Soft-fails per item if HTML is unreachable.
+
+SGX may change or block this without notice; licensing must be confirmed for production.
 
 ## Important Change with index.php
 

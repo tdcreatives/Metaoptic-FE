@@ -54,13 +54,21 @@ final class PublishServiceTest extends CIUnitTestCase
         (new PublishService())->publish(99999);
     }
 
-    public function test_publish_archived_blocked(): void
+    public function test_publish_archived_restores_to_published(): void
     {
-        $id = $this->insertAnnouncement(['state' => 'archived']);
+        $id = $this->insertAnnouncement([
+            'state' => 'archived',
+            'needs_review' => 0,
+            'published_at' => '2025-01-01 00:00:00',
+        ]);
 
-        $this->expectException(DomainException::class);
-        $this->expectExceptionMessage('archived');
-        (new PublishService())->publish($id);
+        $changed = (new PublishService())->publish($id);
+
+        $this->assertTrue($changed);
+        $row = (new AnnouncementModel())->find($id);
+        $this->assertSame('published', $row['state']);
+        $this->assertNotSame('2025-01-01 00:00:00', $row['published_at']);
+        $this->assertSame(0, (int) $row['needs_review']);
     }
 
     public function test_audit_logger_writes_row(): void

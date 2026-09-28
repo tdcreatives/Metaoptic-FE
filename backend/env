@@ -72,8 +72,12 @@
 # SGX + CORS (Config\Sgx via env())
 #--------------------------------------------------------------------
 
-# sgx.baseURL = 'https://REPLACE_WITH_SGX_INTERNAL_BASE'
-# sgx.companyCode = 'REPLACE'
+# Real SGX website API (undocumented; requires CMS authorizationToken bootstrap).
+# sgx.baseURL = 'https://api.sgx.com/announcements/v1.1'
+# sgx.companyCode = 'METAOPTICS LTD'
+# sgx.exactSearch = true
+# sgx.pageSize = 20
+# sgx.appConfigURL = 'https://www.sgx.com/config/appconfig.json'
 # sgx.backfill = false
 # cors.allowedOrigins = 'https://metaoptics.sg,https://www.metaoptics.sg'
 

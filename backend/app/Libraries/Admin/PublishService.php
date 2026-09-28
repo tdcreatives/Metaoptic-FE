@@ -16,9 +16,7 @@ final class PublishService
         if ($row === null) {
             throw new DomainException('not_found');
         }
-        if ($row['state'] === 'archived') {
-            throw new DomainException('archived');
-        }
+        // pending_review and archived → published; already published is a no-op
         if ($row['state'] === 'published') {
             return false;
         }

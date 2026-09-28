@@ -301,3 +301,267 @@ textarea.input { min-height: 6rem; resize: vertical; }
 }
 
 .inline-form { display: inline; }
+
+/* —— Announcement CRUD layout —— */
+.page-head { margin-bottom: 1.25rem; }
+.page-back {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+.page-back:hover { color: var(--primary); }
+.page-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+.page-head-row h1 { margin: 0; }
+.page-head-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.form-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+.form-hint strong { color: var(--foreground); font-weight: 500; }
+
+.req { color: var(--primary); font-weight: 600; }
+
+.form-section { margin-bottom: 0; }
+.form-section + .form-section,
+.ann-form .form-section + .form-section,
+.form-section + details.form-section,
+.ann-form > .form-section + .card { margin-top: 1rem; }
+
+.form-section-head { margin-bottom: 1rem; }
+.form-section-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.form-section-head .form-hint { margin-top: 0.25rem; }
+
+.form-grid {
+  display: grid;
+  gap: 0 1rem;
+}
+.form-grid-2 {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .form-grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+.attachment-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.attachment-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+.attachment-row-head {
+  display: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+@media (min-width: 720px) {
+  .attachment-row { grid-template-columns: minmax(10rem, 0.4fr) 1fr; }
+  .attachment-row-head { display: grid; }
+}
+
+.form-disclosure > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  user-select: none;
+}
+.form-disclosure > summary::-webkit-details-marker { display: none; }
+.form-disclosure > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.4rem;
+  color: var(--muted-foreground);
+  transition: transform 0.12s ease;
+}
+.form-disclosure[open] > summary::before { transform: rotate(90deg); }
+.form-disclosure-title {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.form-disclosure > summary .form-hint { display: inline; margin: 0; }
+.form-disclosure-body { margin-top: 1rem; padding-top: 0.25rem; border-top: 1px solid var(--border); }
+
+.form-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 -4px 16px rgb(0 0 0 / 0.04);
+}
+
+.status-card { margin-bottom: 1rem; }
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+}
+@media (min-width: 720px) {
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+}
+.meta-grid dt {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+.meta-grid dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.875rem;
+  word-break: break-word;
+}
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+}
+.empty-inline { color: var(--muted-foreground); }
+
+.actions-card { margin-bottom: 1rem; }
+.btn-row-flush { margin-top: 0; }
+
+.badge-state-published {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.badge-state-pending_review {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+.badge-state-archived {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.modal-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  max-width: 28rem;
+  width: calc(100% - 2rem);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.12);
+}
+.modal-card::backdrop { background: rgb(24 24 27 / 0.45); }
+.modal-inner { padding: 1.25rem; }
+.modal-inner h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.125rem;
+}
+
+.ann-form { display: block; }
+
+/* Wider canvas for long announcement forms */
+.admin-main:has(.ann-form) { max-width: 880px; }
+
+/* —— Email alert detail —— */
+.badge-alert-draft {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+.badge-alert-scheduled {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+.badge-alert-sent,
+.badge-alert-sending {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.badge-alert-cancelled,
+.badge-alert-failed {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: var(--danger);
+}
+
+.schedule-panel {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.schedule-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.schedule-row .input {
+  flex: 1 1 14rem;
+  max-width: 20rem;
+}
+.schedule-field { margin-bottom: 0; }
+
+.content-preview {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--foreground);
+}
+.content-preview-html {
+  padding: 0.75rem;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  max-height: 20rem;
+  overflow-y: auto;
+}
+.content-preview-html img { max-width: 100%; height: auto; }
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  padding: 0.25rem 0;
+}
+.checkbox-row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.5rem 0.65rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.checkbox-row:hover { background: var(--muted); }
+.checkbox-row input { margin-top: 0.2rem; }
+.checkbox-title { display: block; font-weight: 500; }
+.checkbox-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: 0.1rem;
+}

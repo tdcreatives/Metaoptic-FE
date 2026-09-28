@@ -27,14 +27,19 @@ class SgxSync extends BaseCommand
         try {
             $client = Services::sgxClient();
             $items = $client->fetchAllPages();
-            $result = (new SyncService($db, config('Sgx')))->run($items);
+            $sgx = config('Sgx');
+            $fetcher = $sgx->fetchDetailHtml
+                ? static fn (string $url): string => $client->fetchHtml($url)
+                : null;
+            $result = (new SyncService($db, $sgx, $fetcher))->run($items);
             CLI::write(sprintf(
-                'OK fetched=%d new=%d updated=%d',
+                'OK fetched=%d new=%d updated=%d detail_html=%s',
                 $result->fetchedCount,
                 $result->newCount,
-                $result->updatedCount
+                $result->updatedCount,
+                $sgx->fetchDetailHtml ? 'on' : 'off'
             ));
-            if (!config('Sgx')->backfill && $result->newCount > 0) {
+            if (!$sgx->backfill && $result->newCount > 0) {
                 CLI::write('digest_pending new_count=' . $result->newCount);
                 (new AdminDigestNotifier())->notifyNewItems($result->newCount, []);
             }

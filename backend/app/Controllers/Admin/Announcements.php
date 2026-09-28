@@ -8,6 +8,7 @@ use App\Libraries\Admin\AlertDraftFromAnnouncementService;
 use App\Libraries\Admin\AnnouncementDeleteGuard;
 use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
+use App\Libraries\Sgx\AnnouncementDetailHydrator;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\RedirectResponse;
@@ -40,14 +41,9 @@ class Announcements extends BaseController
 
     public function create(): RedirectResponse
     {
-        $post = $this->request->getPost([
-            'title',
-            'category',
-            'filed_at',
-            'source_url',
-            'summary',
-            'body_html',
-        ]) ?? [];
+        $post = $this->announcementPost();
+        // Create never honors posted state — always pending_review
+        unset($post['state']);
 
         if (! $this->validateData($post, [
             'title' => 'required',
@@ -72,7 +68,7 @@ class Announcements extends BaseController
 
     public function show(int $id): string
     {
-        $row = $this->findOr404($id);
+        $row = AnnouncementDetailHydrator::hydrate($this->findOr404($id));
 
         $decoded = json_decode((string) $row['source_payload'], true);
         $pretty = is_array($decoded)
@@ -82,10 +78,39 @@ class Announcements extends BaseController
         return view('admin/announcements/show', [
             'title' => $row['title'],
             'row' => $row,
+            'attachments' => is_array($row['_attachments'] ?? null) ? $row['_attachments'] : [],
             'sourcePretty' => $pretty,
             'offerAlert' => $this->request->getGet('offer_alert') === '1'
                 && ($row['state'] ?? '') === 'published',
         ]);
+    }
+
+    public function updateDetail(int $id): RedirectResponse
+    {
+        $this->findOr404($id);
+        $post = $this->announcementPost();
+        unset($post['state']);
+
+        if (! $this->validateData($post, [
+            'title' => 'required',
+            'category' => 'required',
+            'filed_at' => 'required',
+        ])) {
+            return redirect()->to('/admin/announcements/' . $id)
+                ->withInput()
+                ->with('error', implode(' ', $this->validator->getErrors()));
+        }
+
+        try {
+            (new ManualAnnouncementService())->update($id, $post);
+        } catch (InvalidArgumentException $e) {
+            return redirect()->to('/admin/announcements/' . $id)
+                ->withInput()
+                ->with('error', $e->getMessage());
+        }
+        service('auditLogger')->write('detail_edit', 'announcement', (string) $id, []);
+
+        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Saved');
     }
 
     public function updateLayout(int $id): RedirectResponse
@@ -192,6 +217,31 @@ class Announcements extends BaseController
         }
 
         return $row;
+    }
+
+    /** @return array<string, mixed> */
+    private function announcementPost(): array
+    {
+        $keys = array_merge(
+            [
+                'title', 'category', 'filed_at', 'source_url', 'summary', 'body_html', 'state',
+                'attachment_name', 'attachment_url',
+            ],
+            ManualAnnouncementService::FE_SCALAR_FIELDS,
+        );
+        $post = $this->request->getPost($keys) ?? [];
+        if (! is_array($post)) {
+            $post = [];
+        }
+        // CI4 may omit empty array fields — keep keys so update replaces attachments
+        if (! array_key_exists('attachment_name', $post)) {
+            $post['attachment_name'] = $this->request->getPost('attachment_name') ?? [];
+        }
+        if (! array_key_exists('attachment_url', $post)) {
+            $post['attachment_url'] = $this->request->getPost('attachment_url') ?? [];
+        }
+
+        return $post;
     }
 
     private function sanitizeLayoutHtml(?string $val): ?string

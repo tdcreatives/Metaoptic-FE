@@ -56,7 +56,8 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
         );
         $show->assertOK();
         $body = $show->getBody();
-        $this->assertStringContainsString('Create Email Alert draft', $body);
+        $this->assertStringContainsString('Create Email Alert?', $body);
+        $this->assertStringContainsString('create-alert-draft', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/create-alert-draft', $body);
     }
 

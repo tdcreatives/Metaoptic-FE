@@ -46,10 +46,10 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
         $show->assertOK();
         $body = $show->getBody();
         $this->assertStringContainsString('Q3 IR blast', $body);
-        $this->assertTrue(
-            str_contains($body, '—') || str_contains($body, '&mdash;'),
-            'open/click metrics must display an em dash'
-        );
+        $this->assertStringContainsString('Workflow', $body);
+        $this->assertStringContainsString('Send now', $body);
+        $this->assertStringContainsString('Edit draft', $body);
+        $this->assertStringNotContainsString('>Open</span>', $body); // no fake open/click metric cards
 
         $audit = db_connect()->table('audit_log')
             ->where('action', 'create')
@@ -76,6 +76,17 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
         $this->assertStringContainsString('checked', $body);
     }
 
+    public function test_blank_new_form_prefills_sample_body(): void
+    {
+        $form = $this->withSession(['admin' => true])->get('/admin/email-alerts/new');
+        $form->assertOK();
+        $body = $form->getBody();
+        $this->assertStringContainsString('Dear Investor', $body);
+        $this->assertStringContainsString('{{announcement}}', $body);
+        $this->assertStringContainsString('MetaOptics Investor Relations', $body);
+        $this->assertMatchesRegularExpression('/name="subject"[^>]*value=""/', $body);
+    }
+
     public function test_published_announcement_links_to_new_alert(): void
     {
         $id = $this->insertPublished();
@@ -83,7 +94,7 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
         $show = $this->withSession(['admin' => true])->get('/admin/announcements/' . $id);
         $show->assertOK();
         $body = $show->getBody();
-        $this->assertStringContainsString('Create Email Alert with this', $body);
+        $this->assertStringContainsString('Create Email Alert', $body);
         $this->assertStringContainsString('email-alerts/new?announcement_id=' . $id, $body);
     }
 

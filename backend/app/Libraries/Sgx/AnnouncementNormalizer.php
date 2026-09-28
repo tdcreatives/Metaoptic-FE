@@ -59,8 +59,11 @@ final class AnnouncementNormalizer
             'source_payload' => $payload,
         ];
 
-        // Flat SGX list (ref_id) is core-only — never emit empty detail keys that would wipe FE children.
-        if (! isset($item['ref_id']) && is_array($item['details'] ?? null)) {
+        if (isset($item['ref_id'])) {
+            // Flat list API: map every FE scalar the list payload actually carries.
+            // Never emit _attachments/_related/_labeled_rows — empty children would wipe CMS edits.
+            $row = array_merge($row, $this->feScalarsFromFlatList($item, $reference, $category, $rawTitle, $filedAt));
+        } elseif (is_array($item['details'] ?? null)) {
             $mapped = LegacyDetailMapper::fromNested($item, $item['details']);
             $row = array_merge($row, $mapped['scalars'], [
                 '_attachments' => $mapped['attachments'],
@@ -70,6 +73,46 @@ final class AnnouncementNormalizer
         }
 
         return $row;
+    }
+
+    /**
+     * List-derived FE fields only (api.sgx.com /company). Rich description/attachments stay null until
+     * JSON import or admin edit — those are not on the list endpoint.
+     *
+     * @param array<string, mixed> $item
+     * @return array<string, mixed>
+     */
+    private function feScalarsFromFlatList(
+        array $item,
+        string $reference,
+        string $category,
+        string $rawTitle,
+        string $filedAt,
+    ): array {
+        $issuerName = trim((string) ($item['issuer_name'] ?? ''));
+        $securities = trim((string) ($item['security_name'] ?? ''));
+        $submittedBy = trim((string) ($item['submitted_by'] ?? ''));
+
+        return [
+            'issuer_name' => $issuerName !== '' ? $issuerName : null,
+            'securities_name' => $securities !== '' ? $securities : null,
+            'ann_title' => $category !== '' ? $category : null,
+            'ann_subtitle' => $rawTitle !== '' && $rawTitle !== 'Untitled' ? $rawTitle : null,
+            'ann_datetime' => $this->formatAnnDatetime($filedAt),
+            'ann_reference' => $reference !== '' ? $reference : null,
+            'ann_submitted_by' => $submittedBy !== '' ? $submittedBy : null,
+        ];
+    }
+
+    /** FE announcement.dateTime style, e.g. 15-Sep-2025 09:30:00 */
+    private function formatAnnDatetime(string $filedAt): ?string
+    {
+        $dt = date_create_immutable($filedAt, new \DateTimeZone('Asia/Singapore'));
+        if ($dt === false) {
+            return null;
+        }
+
+        return $dt->format('d-M-Y H:i:s');
     }
 
     private function titleFromApi(string $title): string

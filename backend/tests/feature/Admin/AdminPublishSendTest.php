@@ -129,8 +129,29 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringNotContainsString('admin/announcements/' . $id . '/send', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
-        $this->assertSame(6, substr_count($body, csrf_token()));
-        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Publish/i', $body);
+        $this->assertSame(5, substr_count($body, csrf_token()));
+        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Published/i', $body);
+    }
+
+    public function test_publish_from_archived_restores_live(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'REPUB1',
+            'slug' => 'republish-one',
+            'title' => 'Restore Me',
+            'state' => 'archived',
+            'published_at' => '2025-01-01 00:00:00',
+        ]);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/publish',
+            $this->withCsrf([])
+        );
+        $result->assertRedirectTo('/admin/announcements/' . $id . '?offer_alert=1');
+
+        $row = (new AnnouncementModel())->find($id);
+        $this->assertSame('published', $row['state']);
+        $this->assertNotSame('2025-01-01 00:00:00', $row['published_at']);
     }
 
     public function test_publish_without_csrf_does_not_mutate(): void

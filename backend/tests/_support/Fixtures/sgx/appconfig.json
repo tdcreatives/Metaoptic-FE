@@ -1,0 +1,7 @@
+{
+  "endpoints": {
+    "CMS_API_URL": "https://example.test/cms",
+    "ANNOUNCEMENTS_API_URL": "https://example.test/sgx/"
+  },
+  "CMS_VERSION": "testversion"
+}

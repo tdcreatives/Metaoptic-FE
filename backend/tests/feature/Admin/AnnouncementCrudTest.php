@@ -59,6 +59,65 @@ final class AnnouncementCrudTest extends CIUnitTestCase
         $this->assertNull($row['published_at']);
     }
 
+    public function test_create_and_update_fe_detail_fields(): void
+    {
+        $create = $this->withSession(['admin' => true])->post(
+            '/admin/announcements',
+            $this->withCsrf([
+                'title' => 'FE Form Note',
+                'category' => 'General Announcement',
+                'filed_at' => '2026-09-28 12:00:00',
+                'issuer_name' => 'MetaOptics Ltd',
+                'ann_title' => 'Created Ann Title',
+                'ann_description' => 'Created desc',
+                'attachment_name' => ['A.pdf'],
+                'attachment_url' => ['https://example.test/a.pdf'],
+            ])
+        );
+        $create->assertRedirect();
+
+        $row = (new AnnouncementModel())->where('title', 'FE Form Note')->first();
+        $this->assertNotNull($row);
+        $id = (int) $row['id'];
+        $this->assertSame('MetaOptics Ltd', $row['issuer_name']);
+        $this->assertSame('Created Ann Title', $row['ann_title']);
+
+        $show = $this->withSession(['admin' => true])->get('/admin/announcements/' . $id);
+        $show->assertOK();
+        $body = $show->getBody();
+        $this->assertStringContainsString('name="ann_title"', $body);
+        $this->assertStringContainsString('name="issuer_name"', $body);
+        $this->assertStringContainsString('admin/announcements/' . $id . '/update', $body);
+        $this->assertStringContainsString('Created Ann Title', $body);
+
+        $update = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/update',
+            $this->withCsrf([
+                'title' => 'FE Form Note',
+                'category' => 'General Announcement',
+                'filed_at' => '2026-09-28 12:00:00',
+                'issuer_name' => 'Updated Issuer',
+                'ann_title' => 'Updated Ann Title',
+                'ann_description' => 'Updated desc',
+                'attachment_name' => ['B.pdf'],
+                'attachment_url' => ['https://example.test/b.pdf'],
+            ])
+        );
+        $update->assertRedirectTo('/admin/announcements/' . $id);
+
+        $fresh = (new AnnouncementModel())->find($id);
+        $this->assertSame('Updated Issuer', $fresh['issuer_name']);
+        $this->assertSame('Updated Ann Title', $fresh['ann_title']);
+        $this->assertSame('Updated desc', $fresh['ann_description']);
+
+        $atts = db_connect()->table('announcement_attachments')
+            ->where('announcement_id', $id)
+            ->get()
+            ->getResultArray();
+        $this->assertCount(1, $atts);
+        $this->assertSame('B.pdf', $atts[0]['name']);
+    }
+
     public function test_send_route_gone(): void
     {
         $id = $this->insertRow([
@@ -128,7 +187,7 @@ final class AnnouncementCrudTest extends CIUnitTestCase
         $this->assertStringNotContainsString('name="email_subject"', $body);
         $this->assertStringNotContainsString('name="email_intro"', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
-        $this->assertStringContainsString('Create Email Alert with this', $body);
+        $this->assertStringContainsString('Create Email Alert', $body);
         $this->assertStringContainsString('email-alerts/new?announcement_id=' . $id, $body);
     }
 

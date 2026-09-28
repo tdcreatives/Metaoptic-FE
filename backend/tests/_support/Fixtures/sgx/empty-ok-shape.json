@@ -1,7 +1,10 @@
 {
-  "ok": true,
-  "page": 1,
-  "pageSize": 20,
-  "total": 5,
-  "items": []
+  "meta": {
+    "code": "200",
+    "message": "success",
+    "totalPages": 1,
+    "totalItems": 0,
+    "requestTimestamp": 0
+  },
+  "data": []
 }

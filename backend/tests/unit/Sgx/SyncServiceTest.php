@@ -51,6 +51,44 @@ final class SyncServiceTest extends CIUnitTestCase
         $row = (new AnnouncementModel())->first();
         $this->assertSame('pending_review', $row['state']);
         $this->assertNull($row['published_at']);
+        $this->assertSame('METAOPTICS LTD', $row['issuer_name']);
+        $this->assertSame('METAOPTICS LTD', $row['securities_name']);
+        $this->assertSame('SG25010100ABCDE', $row['ann_reference']);
+        $this->assertSame('General Announcement', $row['ann_title']);
+        $this->assertSame('METAOPTICS ENTERS MOU', $row['ann_subtitle']);
+        $this->assertSame('MetaOptics Ltd', $row['ann_submitted_by']);
+        $this->assertSame('15-Sep-2025 09:30:00', $row['ann_datetime']);
+    }
+
+    public function test_same_hash_backfills_missing_list_fe_scalars(): void
+    {
+        $item = $this->page1Items()[0];
+        $this->service(false)->run([$item]);
+
+        $model = new AnnouncementModel();
+        $existing = $model->first();
+        $model->update($existing['id'], [
+            'issuer_name' => null,
+            'ann_reference' => null,
+            'ann_title' => null,
+            'ann_subtitle' => null,
+            'securities_name' => null,
+            'ann_submitted_by' => null,
+            'ann_datetime' => null,
+        ]);
+
+        $again = $this->service(false)->run([$item]);
+        $this->assertSame(0, $again->newCount);
+        $this->assertSame(0, $again->updatedCount);
+
+        $filled = $model->find($existing['id']);
+        $this->assertSame('METAOPTICS LTD', $filled['issuer_name']);
+        $this->assertSame('SG25010100ABCDE', $filled['ann_reference']);
+        $this->assertSame('General Announcement', $filled['ann_title']);
+        $this->assertSame(
+            0,
+            db_connect()->table('announcement_attachments')->where('announcement_id', $existing['id'])->countAllResults()
+        );
     }
 
     public function test_hash_change_sets_needs_review_and_keeps_summary(): void
@@ -185,12 +223,32 @@ final class SyncServiceTest extends CIUnitTestCase
         $lock->release('sgx_sync');
     }
 
-    private function service(bool $backfill): SyncService
+    public function test_html_enrichment_writes_description_and_attachments(): void
+    {
+        $item = $this->page1Items()[0];
+        $item['url'] = 'https://links.sgx.com/1.0.0/corporate-announcements/C4QY18LURFPWL4L5/hash';
+        $html = (string) file_get_contents(SUPPORTPATH . 'Fixtures/sgx/detail-disclosure.html');
+
+        $result = $this->service(false, static fn (string $url): string => $html)->run([$item]);
+        $this->assertSame(1, $result->newCount);
+
+        $row = (new AnnouncementModel())->first();
+        $this->assertSame('SG25010100ABCDE', $row['ann_reference']);
+        $this->assertSame('Executive Chairman', $row['ann_designation']);
+        $this->assertStringContainsString('Please refer to the attachment.', (string) $row['ann_description']);
+        $this->assertSame(
+            2,
+            db_connect()->table('announcement_attachments')->where('announcement_id', $row['id'])->countAllResults()
+        );
+    }
+
+    private function service(bool $backfill, ?callable $htmlFetcher = null): SyncService
     {
         $config = new Sgx();
         $config->backfill = $backfill;
+        $config->fetchDetailHtml = $htmlFetcher !== null;
 
-        return new SyncService(db_connect(), $config);
+        return new SyncService(db_connect(), $config, $htmlFetcher);
     }
 
     /** @return list<array<string, mixed>> */

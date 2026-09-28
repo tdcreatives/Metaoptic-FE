@@ -25,6 +25,7 @@ $routes->group('admin', static function ($routes) {
         $routes->get('announcements/new', 'Admin\Announcements::createForm');
         $routes->post('announcements', 'Admin\Announcements::create');
         $routes->get('announcements/(:num)', 'Admin\Announcements::show/$1');
+        $routes->post('announcements/(:num)/update', 'Admin\Announcements::updateDetail/$1');
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
         $routes->post('announcements/(:num)/layout', 'Admin\Announcements::updateLayout/$1');
         $routes->post('announcements/(:num)/publish', 'Admin\Announcements::publish/$1');

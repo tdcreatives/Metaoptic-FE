@@ -33,7 +33,9 @@ final class AlertDraftFromAnnouncementServiceTest extends CIUnitTestCase
         $this->assertNull($alert['name']);
         $this->assertSame('Board Update', $alert['subject']);
         $this->assertSame('Short intro', $alert['intro']);
-        $this->assertSame('<p>{{announcement}}</p>', $alert['body_html']);
+        $this->assertStringContainsString('Dear Investor', (string) $alert['body_html']);
+        $this->assertStringContainsString('{{announcement}}', (string) $alert['body_html']);
+        $this->assertStringContainsString('MetaOptics Investor Relations', (string) $alert['body_html']);
 
         $attach = db_connect()->table('email_alert_announcements')
             ->where('email_alert_id', $alertId)

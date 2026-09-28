@@ -12,14 +12,44 @@ use Throwable;
 
 final class SyncService
 {
+    /** FE scalars from list API and/or HTML detail page. */
+    private const FE_SCALAR_FIELDS = [
+        'issuer_name',
+        'securities_name',
+        'stapled_security_name',
+        'ann_title',
+        'ann_subtitle',
+        'ann_datetime',
+        'ann_status',
+        'ann_reference',
+        'ann_submitted_by',
+        'ann_designation',
+        'ann_description',
+        'ann_disclaimer',
+        'ann_effective_start_date',
+        'ann_report_type',
+        'ann_final_year_end',
+        'addl_description',
+        'addl_name',
+        'addl_age',
+        'addl_date_cessation_known',
+        'addl_date_of_appointment',
+        'addl_date_cessation',
+        'addl_country_of_principal_residence',
+    ];
+
     private AnnouncementNormalizer $normalizer;
     private SourceHasher $hasher;
     private AnnouncementModel $announcements;
     private SyncRunModel $syncRuns;
 
+    /**
+     * @param (callable(string): string)|null $htmlFetcher GET announcement HTML by source_url
+     */
     public function __construct(
         private readonly BaseConnection $db,
         private readonly Sgx $config,
+        private readonly mixed $htmlFetcher = null,
     ) {
         $this->normalizer = new AnnouncementNormalizer();
         $this->hasher = new SourceHasher();
@@ -94,6 +124,14 @@ final class SyncService
         try {
             foreach ($normalized as $row) {
                 $existing = $this->announcements->where('sgx_reference', $row['sgx_reference'])->first();
+                $needHtml = $existing === null
+                    || ($existing['source_hash'] ?? '') !== ($row['source_hash'] ?? '')
+                    || $this->missingRichDetail($existing);
+
+                if ($needHtml) {
+                    $row = $this->enrichFromHtml($row);
+                }
+
                 [$core, $details] = $this->splitDetails($row);
                 if ($existing === null) {
                     $core['source'] = 'sgx';
@@ -108,10 +146,28 @@ final class SyncService
                     continue;
                 }
                 if (($existing['source_hash'] ?? '') === $core['source_hash']) {
+                    // Same list payload: backfill FE fields / HTML detail left empty by older syncs.
+                    if ($details !== null) {
+                        $this->writeDetails((int) $existing['id'], $core, $details);
+                    } else {
+                        $fill = [];
+                        foreach (self::FE_SCALAR_FIELDS as $field) {
+                            if (
+                                array_key_exists($field, $core)
+                                && $core[$field] !== null
+                                && ($existing[$field] ?? null) === null
+                            ) {
+                                $fill[$field] = $core[$field];
+                            }
+                        }
+                        if ($fill !== []) {
+                            $this->announcements->update($existing['id'], $fill);
+                        }
+                    }
                     continue;
                 }
-                // Hash change: update core only, keep slug, do not wipe FE children unless nested details arrived.
-                $this->announcements->update($existing['id'], [
+                // Hash change: update core + FE scalars; keep slug; replace children only when detail payload present.
+                $update = [
                     'source_url' => $core['source_url'],
                     'title' => $core['title'],
                     'category' => $core['category'],
@@ -120,7 +176,13 @@ final class SyncService
                     'source_payload' => $core['source_payload'],
                     'source_hash' => $core['source_hash'],
                     'needs_review' => 1,
-                ]);
+                ];
+                foreach (self::FE_SCALAR_FIELDS as $field) {
+                    if (array_key_exists($field, $core) && $core[$field] !== null) {
+                        $update[$field] = $core[$field];
+                    }
+                }
+                $this->announcements->update($existing['id'], $update);
                 if ($details !== null) {
                     $this->writeDetails((int) $existing['id'], $core, $details);
                 }
@@ -137,6 +199,61 @@ final class SyncService
         }
 
         return [$newCount, $updatedCount];
+    }
+
+    /** @param array<string, mixed>|null $row */
+    private function missingRichDetail(?array $row): bool
+    {
+        if ($row === null) {
+            return true;
+        }
+        if (($row['ann_description'] ?? null) === null || ($row['ann_description'] ?? '') === '') {
+            return true;
+        }
+        $n = $this->db->table('announcement_attachments')
+            ->where('announcement_id', (int) $row['id'])
+            ->countAllResults();
+
+        return $n === 0;
+    }
+
+    /**
+     * Soft-fail: list fields stay if HTML fetch/parse fails.
+     *
+     * @param array<string, mixed> $row
+     * @return array<string, mixed>
+     */
+    private function enrichFromHtml(array $row): array
+    {
+        if (! $this->config->fetchDetailHtml || ! is_callable($this->htmlFetcher)) {
+            return $row;
+        }
+        // Nested JSON/fixture already carried children — do not re-fetch.
+        if (array_key_exists('_attachments', $row)) {
+            return $row;
+        }
+        $url = (string) ($row['source_url'] ?? '');
+        if ($url === '' || ! str_contains(strtolower($url), 'links.sgx.com')) {
+            return $row;
+        }
+
+        try {
+            $html = ($this->htmlFetcher)($url);
+            $parsed = SgxAnnouncementHtmlParser::parse($html, $url);
+        } catch (Throwable) {
+            return $row;
+        }
+
+        foreach ($parsed['scalars'] as $key => $value) {
+            if ($value !== null && $value !== '') {
+                $row[$key] = $value;
+            }
+        }
+        $row['_attachments'] = $parsed['attachments'];
+        $row['_related'] = $parsed['related'];
+        $row['_labeled_rows'] = $parsed['labeled_rows'];
+
+        return $row;
     }
 
     /**

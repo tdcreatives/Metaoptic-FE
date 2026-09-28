@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Libraries\Email\AlertBodyDefaults;
 use App\Libraries\Email\AlertLifecycleService;
 use App\Libraries\Email\AudienceResolver;
 use App\Models\AnnouncementModel;
@@ -191,13 +192,13 @@ class EmailAlerts extends BaseController
 
         $prefillSubject = '';
         $prefillIntro = '';
-        $prefillBodyHtml = '';
+        // ponytail: blank New still seeds sample body; subject/attach stay empty until announcement chosen
+        $prefillBodyHtml = $alert === null ? AlertBodyDefaults::sampleHtml() : '';
         if ($alert === null && count($selectedIds) === 1) {
             $ann = model(AnnouncementModel::class)->find($selectedIds[0]);
             if (is_array($ann)) {
                 $prefillSubject = (string) ($ann['title'] ?? '');
                 $prefillIntro = (string) ($ann['summary'] ?? '');
-                $prefillBodyHtml = '<p>{{announcement}}</p>';
             }
         }
 

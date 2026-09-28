@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Libraries\Admin;
 
+use App\Libraries\Email\AlertBodyDefaults;
 use App\Libraries\Email\AlertLifecycleService;
 use App\Models\AnnouncementModel;
 use DomainException;
@@ -31,7 +32,7 @@ final class AlertDraftFromAnnouncementService
             'name' => null,
             'subject' => (string) $row['title'],
             'intro' => $summary !== '' ? $summary : null,
-            'body_html' => '<p>{{announcement}}</p>',
+            'body_html' => AlertBodyDefaults::sampleHtml(),
         ], [$announcementId]);
     }
 }

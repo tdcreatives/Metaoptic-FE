@@ -1,10 +1,5 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
-<p><a href="<?= site_url('admin/email-alerts') ?>">← Back to list</a></p>
-<h1><?= esc($title) ?></h1>
-<?php if (session('error')): ?>
-    <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
-<?php endif; ?>
 
 <?php
 $isEdit = is_array($alert);
@@ -17,47 +12,103 @@ $oldIds = old('announcement_ids');
 $checked = is_array($oldIds) ? array_map('intval', $oldIds) : $selectedIds;
 ?>
 
-<div class="card">
-    <form method="post" action="<?= $action ?>">
-        <?= csrf_field() ?>
-        <div class="form-group">
-            <label class="label" for="name">Name (optional)</label>
-            <input class="input" id="name" type="text" name="name" value="<?= esc($name) ?>">
+<header class="page-head">
+    <a class="page-back" href="<?= $isEdit
+        ? site_url('admin/email-alerts/' . $alert['id'])
+        : site_url('admin/email-alerts') ?>">← <?= $isEdit ? 'Alert detail' : 'Email Alerts' ?></a>
+    <div class="page-head-row">
+        <h1><?= esc($title) ?></h1>
+        <?php if ($isEdit): ?>
+            <div class="page-head-meta">
+                <span class="badge badge-state badge-alert-draft">draft</span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <p class="form-hint">Compose the email, attach published announcements, then return to the detail page to send or schedule.</p>
+</header>
+
+<?php if (session('error')): ?>
+    <div class="flash flash-error" role="alert"><?= esc((string) session('error')) ?></div>
+<?php endif; ?>
+
+<form class="ann-form" method="post" action="<?= $action ?>">
+    <?= csrf_field() ?>
+
+    <section class="form-section card" aria-labelledby="sec-compose">
+        <div class="form-section-head">
+            <h2 id="sec-compose">Compose</h2>
+            <p class="form-hint">Subject is required. Use <code class="mono">{{announcement}}</code> in the body to insert attached items.</p>
         </div>
         <div class="form-group">
-            <label class="label" for="subject">Subject</label>
+            <label class="label" for="name">Internal name</label>
+            <input class="input" id="name" type="text" name="name" value="<?= esc($name) ?>" placeholder="Optional — for admin list only">
+        </div>
+        <div class="form-group">
+            <label class="label" for="subject">Subject <span class="req" aria-hidden="true">*</span></label>
             <input class="input" id="subject" type="text" name="subject" value="<?= esc($subject) ?>" required>
         </div>
         <div class="form-group">
-            <label class="label" for="intro">Intro (optional)</label>
-            <textarea class="input" id="intro" name="intro"><?= esc($intro) ?></textarea>
+            <label class="label" for="intro">Intro</label>
+            <textarea class="input" id="intro" name="intro" rows="3" placeholder="Optional short intro above the body"><?= esc($intro) ?></textarea>
         </div>
         <div class="form-group">
             <label class="label" for="body_html">Body</label>
             <textarea id="body_html" name="body_html"><?= esc($bodyHtml) ?></textarea>
         </div>
-        <div class="form-group">
-            <p class="label">Attach published announcements</p>
-            <?php if ($published === []): ?>
-                <p class="empty">No published announcements</p>
-            <?php else: ?>
+    </section>
+
+    <section class="form-section card" aria-labelledby="sec-attach-edit">
+        <div class="form-section-head">
+            <h2 id="sec-attach-edit">Attach announcements</h2>
+            <p class="form-hint">Only published announcements can be attached. Audience is the union of their categories.</p>
+        </div>
+        <?php if ($published === []): ?>
+            <p class="empty">No published announcements yet</p>
+        <?php else: ?>
+            <div class="checkbox-list">
                 <?php foreach ($published as $row): ?>
-                    <label>
+                    <label class="checkbox-row">
                         <input type="checkbox" name="announcement_ids[]" value="<?= esc((string) $row['id'], 'attr') ?>"
                             <?= in_array((int) $row['id'], $checked, true) ? 'checked' : '' ?>>
-                        <?= esc($row['title']) ?> (<?= esc((string) $row['filed_at']) ?>)
+                        <span>
+                            <span class="checkbox-title"><?= esc($row['title']) ?></span>
+                            <span class="checkbox-meta"><?= esc((string) $row['filed_at']) ?><?php if (! empty($row['category'])): ?> · <?= esc((string) $row['category']) ?><?php endif; ?></span>
+                        </span>
                     </label>
-                    <br>
                 <?php endforeach; ?>
-            <?php endif; ?>
+            </div>
+        <?php endif; ?>
+    </section>
+
+    <section class="form-section card" aria-labelledby="sec-audience">
+        <div class="form-section-head">
+            <h2 id="sec-audience">Audience preview</h2>
+            <p class="form-hint">Recalculated after save from the attached announcements’ categories.</p>
         </div>
-        <div class="card">
-            <p><strong>Audience (union of categories):</strong> <?= $categories === [] ? '—' : esc(implode(', ', $categories)) ?></p>
-            <p><strong>Estimated subscribers:</strong> <?= esc((string) $estimate) ?></p>
-        </div>
-        <button class="btn btn-primary" type="submit"><?= $isEdit ? 'Save' : 'Create draft' ?></button>
-    </form>
-</div>
+        <dl class="meta-grid">
+            <div>
+                <dt>Categories</dt>
+                <dd><?php if ($categories === []): ?>
+                    <span class="empty-inline">—</span>
+                <?php else: ?>
+                    <?= esc(implode(', ', $categories)) ?>
+                <?php endif; ?></dd>
+            </div>
+            <div>
+                <dt>Estimated subscribers</dt>
+                <dd><?= esc((string) $estimate) ?></dd>
+            </div>
+        </dl>
+    </section>
+
+    <div class="form-actions">
+        <a class="btn btn-secondary" href="<?= $isEdit
+            ? site_url('admin/email-alerts/' . $alert['id'])
+            : site_url('admin/email-alerts') ?>">Cancel</a>
+        <button class="btn btn-primary" type="submit"><?= $isEdit ? 'Save draft' : 'Create draft' ?></button>
+    </div>
+</form>
+
 <script src="https://cdn.jsdelivr.net/npm/tinymce@7/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="<?= base_url('js/admin-alert-editor.js') ?>"></script>
 <?= $this->endSection() ?>

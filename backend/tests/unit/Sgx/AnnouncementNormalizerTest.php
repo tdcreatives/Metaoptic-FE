@@ -81,7 +81,7 @@ final class AnnouncementNormalizerTest extends CIUnitTestCase
         (new AnnouncementNormalizer())->normalize($item);
     }
 
-    public function test_flat_api_item_omits_detail_wipe_keys(): void
+    public function test_flat_api_item_maps_list_fe_scalars_without_wipe_keys(): void
     {
         $item = json_decode(
             file_get_contents(SUPPORTPATH . 'Fixtures/sgx/list-page-1.json'),
@@ -95,8 +95,13 @@ final class AnnouncementNormalizerTest extends CIUnitTestCase
         $this->assertArrayNotHasKey('_attachments', $n);
         $this->assertArrayNotHasKey('_related', $n);
         $this->assertArrayNotHasKey('_labeled_rows', $n);
-        $this->assertArrayNotHasKey('ann_reference', $n);
-        $this->assertArrayNotHasKey('issuer_name', $n);
+        $this->assertSame('SG25010100ABCDE', $n['ann_reference']);
+        $this->assertSame('METAOPTICS LTD', $n['issuer_name']);
+        $this->assertSame('METAOPTICS LTD', $n['securities_name']);
+        $this->assertSame('General Announcement', $n['ann_title']);
+        $this->assertSame('METAOPTICS ENTERS MOU', $n['ann_subtitle']);
+        $this->assertSame('MetaOptics Ltd', $n['ann_submitted_by']);
+        $this->assertSame('15-Sep-2025 09:30:00', $n['ann_datetime']);
     }
 
     public function test_nested_details_return_scalars_and_children(): void
