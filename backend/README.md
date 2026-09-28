@@ -38,6 +38,19 @@ Daily 08:00 SGT:
 
 First production import: set `sgx.backfill = true` in `.env`, run `php spark sgx:sync` once, then set `sgx.backfill = false`.
 
+## FE announcements JSON import
+
+One-shot seed of Published CMS rows from the live site contract (`src/constants/announcements.json`). Keeps JSON slugs; does **not** prompt for Email Alerts.
+
+```
+cd backend && php spark announcements:import-json
+# or: php spark announcements:import-json /absolute/path/to/announcements.json
+```
+
+Public API (`GET /api/announcements`, `GET /api/announcements/{slug}`) emits that same nested JSON shape. Frontend flags `useAnnouncementsApi` and `showEmailAlerts` stay **false** until staging diffs key slugs against the bundled JSON.
+
+After **Publish to Website**, CMS may offer a prefilled Email Alert **draft** (attach + subject/intro + `{{announcement}}`). Declining or a draft failure leaves the announcement Published. Re-opening an already-published item does not auto-offer.
+
 ## Email workers
 
 CMS **Email Alerts** are a separate entity from announcements (attach 1…N Published items, then schedule or Send now). `email:dispatch-scheduled` picks due scheduled alerts; `email:work` sends queued deliveries.

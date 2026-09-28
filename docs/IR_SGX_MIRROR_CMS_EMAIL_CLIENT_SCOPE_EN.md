@@ -2,7 +2,7 @@
 
 **Product areas:** SGX Mirror · Internal CMS · Email Alerts  
 **Audience:** Client   
-**Date:** 18 September 2026 (revised 28 September 2026 — Email Alerts decoupled from announcement detail)  
+**Date:** 18 September 2026 (revised 28 September 2026 — FE–CMS announcement parity; Email Alerts remain a separate entity)  
 **Purpose:** Confirm what the delivers — workflows, features, and screens — without deep technical detail.
 
 ---
@@ -29,7 +29,7 @@ SGX filings
     ▼  Daily sync (08:00 Singapore time)
 New / changed filings land in CMS
     │
-    ├─ First-time history import ──► Published on website (no emails)
+    ├─ First-time history import (SGX backfill and/or FE JSON import) ──► Published on website (no emails)
     │
     └─ Ongoing new filings ──► Pending Review
                 │
@@ -39,6 +39,7 @@ New / changed filings land in CMS
                 ├─ Edits website summary (optional)
                 └─ Publish to Website ──► Visible on IR site
                          │
+                         ├─ Optional: “Create Email Alert draft?” (prefilled; not required)
                          ▼
          Email Alerts (separate CMS entity)
                 │
@@ -51,7 +52,7 @@ New / changed filings land in CMS
               One-click unsubscribe always available
 ```
 
-**Important rule:** **Publish to Website** and **Email Alerts** are separate. An announcement is not emailed from its detail page. Only **Published** items can be attached to an alert; send/schedule requires at least one attach.
+**Important rule:** **Publish to Website** and **Email Alerts** are separate. Publish may **offer** a prefilled Email Alert **draft**; declining leaves the item published with no email. There is no Send on announcement detail. Only **Published** items can be attached to an alert; send/schedule requires at least one attach.
 
 ---
 
@@ -67,12 +68,13 @@ New / changed filings land in CMS
 
 | Scenario | What happens on the website | Emails to investors |
 |----------|-----------------------------|---------------------|
-| **Initial history import** | All available history is marked **Published** | None (suppressed) |
+| **Initial history import** | SGX backfill and/or one-shot FE JSON import (`announcements.json`) marked **Published** | None (suppressed; import does not prompt for alerts) |
 | **Daily new filings** | Items arrive as **Pending Review** | None until admin publishes, then attaches the item to an Email Alert and schedules or sends |
 
 ### What the public website shows
 
 - Only **Published** announcements appear on the IR Company Announcements pages.  
+- Public API payload matches the live site JSON shape (`announcements.json`). The site keeps using bundled JSON until launch flags are switched on after staging diff QA.  
 - Visitors can browse, filter by category, search, and open detail pages as they do today.  
 - Pending or archived items never appear publicly.
 
@@ -122,7 +124,7 @@ Email subject and intro are **not** edited on announcement detail. Compose happe
 
 **Actions (separate buttons):**
 
-1. **Publish to Website** — makes the item live on IR pages  
+1. **Publish to Website** — makes the item live on IR pages; may then offer a prefilled Email Alert draft  
 2. **Archive** — removes the item from the public website; history kept for audit  
 3. **Delete** — when the item is not locked by an in-flight alert  
 4. **Create Email Alert with this** — shortcut when Published (opens a new Email Alert with this item attached)
@@ -220,9 +222,9 @@ Subscribers only receive alerts for categories they selected. Audience for an Em
 
 | Area | Behaviour |
 |------|-----------|
-| IR Company Announcements list | Shows published filings; filters / search remain |
-| Announcement detail | Shows published content; links to SGX source where available |
-| Email Alerts page | Hidden or gated until subscription is switched on for production |
+| IR Company Announcements list | Shows published filings; filters / search remain. Live JSON until `useAnnouncementsApi` is enabled after staging QA |
+| Announcement detail | Shows published content; links to SGX source where available. Same flag gate as the list |
+| Email Alerts page | Hidden or gated (`showEmailAlerts`) until subscription is switched on for production |
 | Other IR tabs | Unchanged by this scope (Financials, Governance, etc.) |
 
 ---
@@ -245,6 +247,8 @@ Phases are sequential: Mirror first, then CMS, then Email.
 
 - [ ] Daily sync runs at 08:00 SGT  
 - [ ] Historical import published once, with **no** investor emails  
+- [ ] FE JSON import (`php spark announcements:import-json`) seeds Published rows, keeps slugs, no alert prompts  
+- [ ] Public API shape matches site JSON; `useAnnouncementsApi` / `showEmailAlerts` stay off until staging slug-diff QA  
 - [ ] New filings appear as Pending Review in CMS  
 - [ ] Only Published items show on the public IR site  
 
@@ -253,6 +257,7 @@ Phases are sequential: Mirror first, then CMS, then Email.
 - [ ] Admin can log in and see Pending / Published  
 - [ ] Admin can edit summary without changing SGX source text  
 - [ ] **Publish** makes the item live on the website  
+- [ ] After a successful Publish, CMS may offer a prefilled Email Alert **draft** (optional; failure does not un-publish)  
 - [ ] Announcement detail has **no Send**; email is composed on Email Alerts  
 - [ ] Archive removes the item from the public site  
 - [ ] Digest recipient list can be maintained in Settings  
