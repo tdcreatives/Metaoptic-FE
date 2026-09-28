@@ -32,6 +32,7 @@ final class SyncServiceTest extends CIUnitTestCase
 
         $rows = (new AnnouncementModel())->findAll();
         $this->assertCount(2, $rows);
+        $this->assertSame('sgx', $rows[0]['source']);
         $this->assertSame('published', $rows[0]['state']);
         $this->assertNotNull($rows[0]['published_at']);
         $this->assertSame('published', $rows[1]['state']);

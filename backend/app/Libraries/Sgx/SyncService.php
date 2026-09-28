@@ -94,6 +94,7 @@ final class SyncService
             foreach ($normalized as $row) {
                 $existing = $this->announcements->where('sgx_reference', $row['sgx_reference'])->first();
                 if ($existing === null) {
+                    $row['source'] = 'sgx';
                     $row['state'] = $this->config->backfill ? 'published' : 'pending_review';
                     $row['published_at'] = $this->config->backfill ? $now : null;
                     $row['needs_review'] = 0;
@@ -122,6 +123,7 @@ final class SyncService
             }
         } catch (Throwable $e) {
             $this->db->transRollback();
+            $this->db->resetTransStatus();
             throw $e;
         }
 

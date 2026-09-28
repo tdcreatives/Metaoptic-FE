@@ -37,7 +37,18 @@ class AlterAnnouncementsForCrud extends Migration
 
     public function down(): void
     {
-        $this->forge->dropColumn('announcements', ['source', 'body_html']);
+        $this->db->resetTransStatus();
+        foreach (['source', 'body_html'] as $column) {
+            if ($this->db->fieldExists($column, 'announcements')) {
+                $this->forge->dropColumn('announcements', $column);
+            }
+        }
+
+        // ponytail: SQLite table rebuild cannot SET NOT NULL while manual rows have NULL sgx_reference
+        if ($this->db->table('announcements')->where('sgx_reference', null)->countAllResults() > 0) {
+            return;
+        }
+
         $this->forge->modifyColumn('announcements', [
             'sgx_reference' => [
                 'name' => 'sgx_reference',
