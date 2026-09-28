@@ -17,7 +17,8 @@ class Announcements extends BaseController
     {
         CorsHeaders::apply($this->request, $this->response);
         $page = max(1, (int) ($this->request->getGet('page') ?? 1));
-        $size = min(50, max(1, (int) ($this->request->getGet('page_size') ?? 10)));
+        // Cap 100: FE list loops pages until meta.total; keep a bound on a single request.
+        $size = min(100, max(1, (int) ($this->request->getGet('page_size') ?? 10)));
         $builder = $this->publishedBuilder();
         $this->applyFilters($builder);
 

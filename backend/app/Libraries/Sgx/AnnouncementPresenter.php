@@ -312,14 +312,14 @@ final class AnnouncementPresenter
 
         $dt = $dt->setTimezone($sgt);
         $month = self::MONTHS[(int) $dt->format('n') - 1];
-        $hour = (int) $dt->format('g');
 
+        // Pad hour to match announcements.json (`09:54 AM`, not `9:54 AM`).
         return sprintf(
-            '%s %s %s %d:%s %s',
+            '%s %s %s %s:%s %s',
             $dt->format('d'),
             $month,
             $dt->format('Y'),
-            $hour,
+            $dt->format('h'),
             $dt->format('i'),
             $dt->format('A')
         );

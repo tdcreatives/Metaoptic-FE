@@ -28,7 +28,7 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         $this->assertIsArray($json);
         $this->assertCount(1, $json['data']);
         $this->assertSame('published-mou', $json['data'][0]['slug']);
-        $this->assertSame('15 Sep 2025 9:30 AM', $json['data'][0]['date']);
+        $this->assertSame('15 Sep 2025 09:30 AM', $json['data'][0]['date']);
         $this->assertSame('GENERAL<br/>ANNOUNCEMENT', $json['data'][0]['title_banner']);
         $this->assertSame('SGXPUB', $json['data'][0]['details']['announcement']['reference']);
         $this->assertSame(['page' => 1, 'page_size' => 10, 'total' => 1], $json['meta']);
@@ -131,11 +131,11 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         $denied->assertHeaderMissing('Access-Control-Allow-Origin');
     }
 
-    public function test_page_size_is_capped_at_50(): void
+    public function test_page_size_is_capped_at_100(): void
     {
         $this->seedPair();
-        $json = json_decode((string) $this->get('/api/announcements?page_size=100')->getJSON(), true);
-        $this->assertSame(50, $json['meta']['page_size']);
+        $json = json_decode((string) $this->get('/api/announcements?page_size=200')->getJSON(), true);
+        $this->assertSame(100, $json['meta']['page_size']);
     }
 
     private function seedPair(): void

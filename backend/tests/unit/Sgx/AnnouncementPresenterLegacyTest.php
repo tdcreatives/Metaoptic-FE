@@ -46,7 +46,7 @@ final class AnnouncementPresenterLegacyTest extends CIUnitTestCase
             ['id', 'title', 'title_btn', 'title_btn_sm', 'title_banner', 'slug', 'desc', 'date', 'details', 'category'],
             array_keys($out)
         );
-        $this->assertSame('11 Sep 2026 8:43 PM', $out['date']);
+        $this->assertSame('11 Sep 2026 08:43 PM', $out['date']);
         $this->assertSame($out['title'], $out['title_btn']);
         $this->assertArrayNotHasKey('additional', $out['details']);
         $this->assertArrayNotHasKey('related', $out['details']);
