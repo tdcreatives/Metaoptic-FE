@@ -9,24 +9,31 @@ use PDOException;
 
 class CampaignFanout
 {
-    public function fanout(PDO|BaseConnection $db, int $campaignId, string $announcementCategory): int
+    /** @param list<string> $categories */
+    public function fanout(PDO|BaseConnection $db, int $campaignId, array $categories): int
     {
+        $categories = array_values(array_filter($categories, static fn ($c) => $c !== ''));
+        if ($categories === []) {
+            return 0;
+        }
+
         if ($db instanceof PDO) {
-            return $this->fanoutPdo($db, $campaignId, $announcementCategory);
+            return $this->fanoutPdo($db, $campaignId, $categories);
         }
 
         $before = $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults();
         $ignore = ((string) $db->DBDriver === 'SQLite3') ? 'INSERT OR IGNORE' : 'INSERT IGNORE';
         $deliveries = $db->prefixTable('email_deliveries');
         $subscribers = $db->prefixTable('subscribers');
-        $categories = $db->prefixTable('subscriber_categories');
+        $categoryTable = $db->prefixTable('subscriber_categories');
+        $placeholders = implode(',', array_fill(0, count($categories), '?'));
         $db->query(
             "{$ignore} INTO {$deliveries} (campaign_id, subscriber_id, status)
-             SELECT ?, s.id, ?
+             SELECT DISTINCT ?, s.id, ?
              FROM {$subscribers} s
-             INNER JOIN {$categories} sc ON sc.subscriber_id = s.id
-             WHERE s.status = ? AND sc.category_key = ?",
-            [$campaignId, 'queued', 'active', $announcementCategory]
+             INNER JOIN {$categoryTable} sc ON sc.subscriber_id = s.id
+             WHERE s.status = ? AND sc.category_key IN ({$placeholders})",
+            array_merge([$campaignId, 'queued', 'active'], $categories)
         );
 
         $db->table('email_campaigns')->where('id', $campaignId)->update([
@@ -36,17 +43,16 @@ class CampaignFanout
         return $db->table('email_deliveries')->where('campaign_id', $campaignId)->countAllResults() - $before;
     }
 
-    private function fanoutPdo(PDO $pdo, int $campaignId, string $announcementCategory): int
+    /** @param list<string> $categories */
+    private function fanoutPdo(PDO $pdo, int $campaignId, array $categories): int
     {
+        $placeholders = implode(',', array_fill(0, count($categories), '?'));
         $select = $pdo->prepare(
-            'SELECT s.id FROM subscribers s
+            "SELECT DISTINCT s.id FROM subscribers s
              INNER JOIN subscriber_categories sc ON sc.subscriber_id = s.id
-             WHERE s.status = :status AND sc.category_key = :category'
+             WHERE s.status = ? AND sc.category_key IN ({$placeholders})"
         );
-        $select->execute([
-            'status' => 'active',
-            'category' => $announcementCategory,
-        ]);
+        $select->execute(array_merge(['active'], $categories));
         $ids = $select->fetchAll(PDO::FETCH_COLUMN);
 
         $insert = $pdo->prepare(
@@ -63,7 +69,7 @@ class CampaignFanout
                 ]);
                 $inserted++;
             } catch (PDOException $e) {
-                if (!$this->isUniqueViolation($e)) {
+                if (! $this->isUniqueViolation($e)) {
                     throw $e;
                 }
             }
