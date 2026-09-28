@@ -5,6 +5,7 @@
     <a href="<?= site_url('admin/announcements') ?>">All</a>
     <a href="<?= site_url('admin/announcements?state=pending_review') ?>">Pending</a>
     <a href="<?= site_url('admin/announcements?state=published') ?>">Published</a>
+    <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">New announcement</a>
 </p>
 <?php if ($announcements === [] || count($announcements) === 0): ?>
     <p class="empty">No announcements</p>
@@ -14,6 +15,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Source</th>
                 <th>State</th>
                 <th>Filed</th>
             </tr>
@@ -22,6 +24,7 @@
             <?php foreach ($announcements as $row): ?>
                 <tr>
                     <td><a href="<?= site_url('admin/announcements/' . $row['id']) ?>"><?= esc($row['title']) ?></a></td>
+                    <td><span class="badge"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span></td>
                     <td><span class="badge"><?= esc($row['state']) ?></span></td>
                     <td><?= esc((string) $row['filed_at']) ?></td>
                 </tr>

@@ -5,7 +5,6 @@ namespace Tests\Feature\Admin;
 
 use App\Models\AnnouncementModel;
 use App\Models\AuditLogModel;
-use App\Models\EmailCampaignModel;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
@@ -19,27 +18,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
     protected $refresh = true;
     protected $namespace = 'App';
 
-    public function test_send_before_publish_is_rejected(): void
-    {
-        $id = $this->insertRow([
-            'sgx_reference' => 'SEND1',
-            'slug' => 'send-pending',
-            'title' => 'Pending Send',
-            'state' => 'pending_review',
-        ]);
-
-        $result = $this->withSession(['admin' => true])->post(
-            '/admin/announcements/' . $id . '/send',
-            $this->withCsrf([])
-        );
-
-        $result->assertRedirectTo('/admin/announcements/' . $id);
-        $this->assertSame('not_published', session('error'));
-        $this->assertSame(0, (new EmailCampaignModel())->where('announcement_id', $id)->countAllResults());
-        $this->assertNull((new AuditLogModel())->where('action', 'send')->first());
-    }
-
-    public function test_publish_then_send_creates_one_campaign(): void
+    public function test_publish_sets_state_and_audits(): void
     {
         $id = $this->insertRow([
             'sgx_reference' => 'PUBSEND1',
@@ -67,50 +46,6 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertNotNull($publishAudit);
         $this->assertSame('announcement', $publishAudit['entity_type']);
         $this->assertSame((string) $id, $publishAudit['entity_id']);
-
-        $send = $this->withSession(['admin' => true])->post(
-            '/admin/announcements/' . $id . '/send',
-            $this->withCsrf([])
-        );
-        $send->assertRedirectTo('/admin/announcements/' . $id);
-        $this->assertSame('Email queued', session('message'));
-
-        $campaigns = (new EmailCampaignModel())->where('announcement_id', $id)->findAll();
-        $this->assertCount(1, $campaigns);
-        $this->assertSame('queued', $campaigns[0]['status']);
-        $this->assertSame('Email subject', $campaigns[0]['subject']);
-        $this->assertSame('Email intro', $campaigns[0]['body_html']);
-
-        $sendAudit = (new AuditLogModel())->where('action', 'send')->first();
-        $this->assertNotNull($sendAudit);
-        $this->assertSame((string) $id, $sendAudit['entity_id']);
-        $this->assertStringContainsString((string) $campaigns[0]['id'], (string) $sendAudit['metadata_json']);
-    }
-
-    public function test_second_send_is_blocked(): void
-    {
-        $id = $this->insertRow([
-            'sgx_reference' => 'PUBSEND2',
-            'slug' => 'second-send-blocked',
-            'title' => 'Second Send',
-            'state' => 'published',
-            'needs_review' => 0,
-        ]);
-
-        $first = $this->withSession(['admin' => true])->post(
-            '/admin/announcements/' . $id . '/send',
-            $this->withCsrf([])
-        );
-        $first->assertRedirectTo('/admin/announcements/' . $id);
-        $this->assertSame(1, (new EmailCampaignModel())->where('announcement_id', $id)->countAllResults());
-
-        $second = $this->withSession(['admin' => true])->post(
-            '/admin/announcements/' . $id . '/send',
-            $this->withCsrf([])
-        );
-        $second->assertRedirectTo('/admin/announcements/' . $id);
-        $this->assertSame('campaign_exists', session('error'));
-        $this->assertSame(1, (new EmailCampaignModel())->where('announcement_id', $id)->countAllResults());
     }
 
     public function test_retry_failed_requeues_when_deliveries_table_exists(): void
@@ -178,7 +113,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringNotContainsString('archive-from-api', $after->getBody());
     }
 
-    public function test_show_wires_csrf_publish_and_send_forms(): void
+    public function test_show_wires_csrf_publish_archive_and_delete_forms(): void
     {
         $id = $this->insertRow([
             'sgx_reference' => 'FORMS1',
@@ -191,8 +126,9 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $show->assertOK();
         $body = $show->getBody();
         $this->assertStringContainsString('admin/announcements/' . $id . '/publish', $body);
-        $this->assertStringContainsString('admin/announcements/' . $id . '/send', $body);
+        $this->assertStringNotContainsString('admin/announcements/' . $id . '/send', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
+        $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
         $this->assertSame(5, substr_count($body, csrf_token()));
         $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Publish/i', $body);
     }

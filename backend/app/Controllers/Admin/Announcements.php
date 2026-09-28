@@ -4,13 +4,14 @@ declare(strict_types=1);
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Libraries\Admin\AnnouncementDeleteGuard;
+use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
-use App\Libraries\Admin\SendEmailGate;
 use App\Models\AnnouncementModel;
-use App\Models\EmailCampaignModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\RedirectResponse;
 use DomainException;
+use InvalidArgumentException;
 
 class Announcements extends BaseController
 {
@@ -27,6 +28,46 @@ class Announcements extends BaseController
             'announcements' => $model->orderBy('filed_at', 'DESC')->findAll(),
             'state' => $state,
         ]);
+    }
+
+    public function createForm(): string
+    {
+        return view('admin/announcements/form', [
+            'title' => 'New announcement',
+        ]);
+    }
+
+    public function create(): RedirectResponse
+    {
+        $post = $this->request->getPost([
+            'title',
+            'category',
+            'filed_at',
+            'source_url',
+            'summary',
+            'body_html',
+            'state',
+        ]) ?? [];
+
+        if (! $this->validateData($post, [
+            'title' => 'required',
+            'category' => 'required',
+            'filed_at' => 'required',
+        ])) {
+            return redirect()->to('/admin/announcements/new')
+                ->withInput()
+                ->with('error', implode(' ', $this->validator->getErrors()));
+        }
+
+        try {
+            $id = (new ManualAnnouncementService())->create($post);
+        } catch (InvalidArgumentException $e) {
+            return redirect()->to('/admin/announcements/new')
+                ->withInput()
+                ->with('error', $e->getMessage());
+        }
+
+        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Created');
     }
 
     public function show(int $id): string
@@ -78,30 +119,6 @@ class Announcements extends BaseController
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Published');
     }
 
-    public function send(int $id): RedirectResponse
-    {
-        $row = $this->findOr404($id);
-
-        try {
-            $gate = new SendEmailGate(model(EmailCampaignModel::class));
-            $gate->assertCanSend($row);
-            $campaignId = $gate->queueCampaign($row);
-        } catch (DomainException $e) {
-            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
-        } catch (\Throwable $e) {
-            if ($this->isDuplicateCampaign($e)) {
-                return redirect()->to('/admin/announcements/' . $id)->with('error', 'campaign_exists');
-            }
-            log_message('error', 'announcement send failed: ' . $e::class);
-
-            return redirect()->to('/admin/announcements/' . $id)->with('error', 'send_failed');
-        }
-
-        service('auditLogger')->write('send', 'announcement', (string) $id, ['campaign_id' => $campaignId]);
-
-        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Email queued');
-    }
-
     public function archive(int $id): RedirectResponse
     {
         $this->findOr404($id);
@@ -109,6 +126,21 @@ class Announcements extends BaseController
         service('auditLogger')->write('archive', 'announcement', (string) $id, []);
 
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Archived');
+    }
+
+    public function delete(int $id): RedirectResponse
+    {
+        $this->findOr404($id);
+        try {
+            (new AnnouncementDeleteGuard())->assertCanDelete($id);
+        } catch (DomainException $e) {
+            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+        }
+
+        model(AnnouncementModel::class)->delete($id);
+        service('auditLogger')->write('delete', 'announcement', (string) $id, []);
+
+        return redirect()->to('/admin/announcements')->with('message', 'Deleted');
     }
 
     /** @return array<string, mixed> */
@@ -120,13 +152,5 @@ class Announcements extends BaseController
         }
 
         return $row;
-    }
-
-    private function isDuplicateCampaign(\Throwable $e): bool
-    {
-        $msg = $e->getMessage();
-
-        return str_contains($msg, 'email_campaigns.announcement_id')
-            || (str_contains($msg, 'Duplicate entry') && str_contains($msg, 'announcement_id'));
     }
 }

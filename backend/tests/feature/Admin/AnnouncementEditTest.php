@@ -53,7 +53,7 @@ final class AnnouncementEditTest extends CIUnitTestCase
         $this->assertStringNotContainsString('Published Title', $pending->getBody());
     }
 
-    public function test_show_escapes_and_disables_send_until_published(): void
+    public function test_show_escapes_and_has_no_send_form(): void
     {
         $id = $this->insertRow([
             'sgx_reference' => 'XSS1',
@@ -70,7 +70,7 @@ final class AnnouncementEditTest extends CIUnitTestCase
         $this->assertStringNotContainsString('<script>alert(1)</script>', $body);
         $this->assertStringContainsString('&lt;script&gt;alert(1)&lt;/script&gt;', $body);
         $this->assertStringContainsString('"k": "v"', $body);
-        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\\s*Send/i', $body);
+        $this->assertStringNotContainsString('admin/announcements/' . $id . '/send', $body);
     }
 
     public function test_update_summary_does_not_change_source_payload(): void

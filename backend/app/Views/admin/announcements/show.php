@@ -11,11 +11,12 @@
 
 <div class="card">
     <ul class="meta-list">
+        <li><strong>Source:</strong> <span class="badge"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span></li>
         <li><strong>State:</strong> <span class="badge"><?= esc($row['state']) ?></span></li>
         <li><strong>Category:</strong> <?= esc($row['category']) ?></li>
         <li><strong>Issuer:</strong> <?= esc($row['issuer']) ?></li>
         <li><strong>Filed:</strong> <?= esc((string) $row['filed_at']) ?></li>
-        <li><strong>Source:</strong> <a href="<?= esc($row['source_url'], 'attr') ?>"><?= esc($row['source_url']) ?></a></li>
+        <li><strong>Source URL:</strong> <a href="<?= esc($row['source_url'], 'attr') ?>"><?= esc($row['source_url']) ?></a></li>
     </ul>
 </div>
 
@@ -25,14 +26,6 @@
         <div class="form-group">
             <label class="label" for="summary">Summary</label>
             <textarea class="input" id="summary" name="summary"><?= esc($row['summary'] ?? '') ?></textarea>
-        </div>
-        <div class="form-group">
-            <label class="label" for="email_subject">Email subject</label>
-            <input class="input" id="email_subject" type="text" name="email_subject" value="<?= esc($row['email_subject'] ?? '') ?>">
-        </div>
-        <div class="form-group">
-            <label class="label" for="email_intro">Email intro</label>
-            <textarea class="input" id="email_intro" name="email_intro"><?= esc($row['email_intro'] ?? '') ?></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
@@ -45,13 +38,13 @@
             <?= csrf_field() ?>
             <button class="btn btn-primary" type="submit" <?= $row['state'] === 'published' ? 'disabled' : '' ?>>Publish</button>
         </form>
-        <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/send') ?>">
-            <?= csrf_field() ?>
-            <button class="btn btn-secondary" type="submit" <?= $row['state'] === 'published' ? '' : 'disabled' ?>>Send</button>
-        </form>
         <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/archive') ?>">
             <?= csrf_field() ?>
             <button class="btn btn-danger" type="submit">Archive</button>
+        </form>
+        <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/delete') ?>">
+            <?= csrf_field() ?>
+            <button class="btn btn-danger" type="submit">Delete</button>
         </form>
     </div>
 </div>
