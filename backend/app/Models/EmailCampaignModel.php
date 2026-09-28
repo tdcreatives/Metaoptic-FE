@@ -10,7 +10,7 @@ class EmailCampaignModel extends Model
     protected $table = 'email_campaigns';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'announcement_id', 'subject', 'body_html', 'status',
+        'announcement_id', 'email_alert_id', 'subject', 'body_html', 'status',
         'recipient_count', 'created_at', 'sent_at',
     ];
     protected $useTimestamps = true;
