@@ -74,7 +74,7 @@ final class JsonAnnouncementImporter
                 'source_payload' => $payload,
                 'source_hash' => $hasher->hash($payload),
                 'source' => $reference !== '' ? 'sgx' : 'manual',
-                'sgx_reference' => $reference !== '' ? $reference : null,
+                'sgx_reference' => $this->sgxReferenceIfUnused($model, $slug, $reference),
                 'state' => 'published',
                 'needs_review' => 0,
             ];
@@ -276,6 +276,23 @@ final class JsonAnnouncementImporter
         }
 
         return '';
+    }
+
+    /**
+     * UNIQUE sgx_reference: first slug to claim a ref keeps it; later slugs still import with NULL.
+     * Live announcements.json has duplicate details.announcement.reference values.
+     */
+    private function sgxReferenceIfUnused(AnnouncementModel $model, string $slug, string $reference): ?string
+    {
+        if ($reference === '') {
+            return null;
+        }
+        $owner = $model->where('sgx_reference', $reference)->first();
+        if ($owner !== null && (string) $owner['slug'] !== $slug) {
+            return null;
+        }
+
+        return $reference;
     }
 
     private function parseDate(string $date): string
