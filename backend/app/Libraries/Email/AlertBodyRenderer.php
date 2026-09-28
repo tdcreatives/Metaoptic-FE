@@ -31,7 +31,8 @@ final class AlertBodyRenderer
         foreach ($items as $item) {
             $title = esc((string) ($item['title'] ?? ''));
             $filedAt = esc((string) ($item['filed_at'] ?? ''));
-            $url = esc((string) ($item['url'] ?? ''), 'url');
+            // ponytail: CI4 esc(..., 'attr') hex-encodes :/; htmlspecialchars keeps a literal href.
+            $url = htmlspecialchars((string) ($item['url'] ?? ''), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
             $lis .= '<li><a href="' . $url . '">' . $title . '</a> (' . $filedAt . ')</li>';
         }
 

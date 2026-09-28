@@ -99,7 +99,7 @@ final class DeliveryWorker
     {
         $ctx = $this->db->table('email_campaigns as c')
             ->select('c.subject, c.body_html, a.title, a.email_intro')
-            ->join('announcements as a', 'a.id = c.announcement_id')
+            ->join('announcements as a', 'a.id = c.announcement_id', 'left')
             ->where('c.id', $row['campaign_id'])
             ->get()
             ->getRowArray() ?? [];
@@ -117,6 +117,7 @@ final class DeliveryWorker
         return new MailMessage(
             (string) $subscriber['email'],
             (string) ($ctx['subject'] ?? $title),
+            $body,
             $body,
         );
     }

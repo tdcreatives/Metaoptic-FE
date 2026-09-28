@@ -4,11 +4,13 @@ declare(strict_types=1);
 namespace Tests\Unit\Email;
 
 use App\Libraries\Email\DeliveryWorker;
+use App\Libraries\Email\LogMailer;
 use App\Libraries\Email\MailerInterface;
 use App\Libraries\Email\MailMessage;
 use App\Libraries\Email\TemporaryMailException;
 use App\Libraries\Email\UnsubscribeToken;
 use App\Models\AnnouncementModel;
+use App\Models\EmailAlertModel;
 use App\Models\EmailCampaignModel;
 use App\Models\EmailDeliveryModel;
 use App\Models\SubscriberModel;
@@ -111,6 +113,42 @@ final class DeliveryWorkerTest extends CIUnitTestCase
         $row = (new EmailDeliveryModel())->find($deliveryId);
         $this->assertSame('sent', $row['status']);
         $this->assertSame(1, (int) $row['attempts']);
+    }
+
+    public function test_alert_campaign_log_mailer_has_subject_and_href(): void
+    {
+        $logPath = WRITEPATH . 'logs/mail-alert-' . bin2hex(random_bytes(4)) . '.log';
+        try {
+            $subId = $this->insertSubscriber('alert@example.com', 'active');
+            $alertId = (int) (new EmailAlertModel())->insert([
+                'subject' => 'Q3 IR blast',
+                'body_html' => '<p>x</p>',
+                'status' => 'sent',
+            ], true);
+            $campaignId = (int) (new EmailCampaignModel())->insert([
+                'announcement_id' => null,
+                'email_alert_id' => $alertId,
+                'subject' => 'Q3 IR blast',
+                'body_html' => '<ul><li><a href="https://ex.test/1">Item One</a></li></ul>',
+                'status' => 'queued',
+                'recipient_count' => 1,
+            ], true);
+            $this->insertDelivery($campaignId, $subId, 'queued');
+
+            $n = $this->worker(new LogMailer($logPath))->processBatch(100);
+            $this->assertSame(1, $n);
+
+            $line = trim((string) file_get_contents($logPath));
+            $logged = json_decode($line, true);
+            $this->assertIsArray($logged);
+            $this->assertSame('Q3 IR blast', $logged['subject']);
+            $this->assertNotNull($logged['htmlBody']);
+            $this->assertStringContainsString('href="https://ex.test/1"', (string) $logged['htmlBody']);
+        } finally {
+            if (is_file($logPath)) {
+                unlink($logPath);
+            }
+        }
     }
 
     private function worker(MailerInterface $mailer): DeliveryWorker

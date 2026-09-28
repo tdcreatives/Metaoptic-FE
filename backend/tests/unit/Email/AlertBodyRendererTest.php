@@ -45,5 +45,6 @@ final class AlertBodyRendererTest extends CIUnitTestCase
             strpos($html, '<p>Hello</p>'),
             strpos($html, 'Item One'),
         );
+        $this->assertStringContainsString('href="https://ex.test/1"', $html);
     }
 }
