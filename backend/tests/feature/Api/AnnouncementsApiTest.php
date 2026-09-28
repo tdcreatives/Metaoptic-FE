@@ -28,13 +28,18 @@ final class AnnouncementsApiTest extends CIUnitTestCase
         $this->assertIsArray($json);
         $this->assertCount(1, $json['data']);
         $this->assertSame('published-mou', $json['data'][0]['slug']);
-        $this->assertSame('2025-09-15T09:30:00+08:00', $json['data'][0]['filed_at']);
-        $this->assertSame('2025-09-15T10:00:00+08:00', $json['data'][0]['published_at']);
+        $this->assertSame('15 Sep 2025 9:30 AM', $json['data'][0]['date']);
+        $this->assertSame('GENERAL<br/>ANNOUNCEMENT', $json['data'][0]['title_banner']);
+        $this->assertSame('SGXPUB', $json['data'][0]['details']['announcement']['reference']);
         $this->assertSame(['page' => 1, 'page_size' => 10, 'total' => 1], $json['meta']);
         $this->assertSame(
-            ['id', 'slug', 'title', 'category', 'issuer', 'filed_at', 'source_url', 'summary', 'published_at'],
+            ['id', 'title', 'title_btn', 'title_btn_sm', 'title_banner', 'slug', 'desc', 'date', 'details', 'category'],
             array_keys($json['data'][0])
         );
+        $this->assertArrayNotHasKey('filed_at', $json['data'][0]);
+        $this->assertArrayNotHasKey('published_at', $json['data'][0]);
+        $this->assertArrayNotHasKey('source_url', $json['data'][0]);
+        $this->assertArrayNotHasKey('summary', $json['data'][0]);
         $this->assertArrayNotHasKey('source_payload', $json['data'][0]);
         $this->assertArrayNotHasKey('source_hash', $json['data'][0]);
         $this->assertArrayNotHasKey('needs_review', $json['data'][0]);
