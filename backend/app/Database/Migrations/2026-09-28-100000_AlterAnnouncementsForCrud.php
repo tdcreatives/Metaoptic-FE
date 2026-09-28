@@ -38,15 +38,16 @@ class AlterAnnouncementsForCrud extends Migration
     public function down(): void
     {
         $this->db->resetTransStatus();
+
+        // ponytail: refuse rollback while manual rows exist — SQLite rebuild cannot SET NOT NULL on NULL sgx_reference
+        if ($this->db->table('announcements')->where('sgx_reference', null)->countAllResults() > 0) {
+            return;
+        }
+
         foreach (['source', 'body_html'] as $column) {
             if ($this->db->fieldExists($column, 'announcements')) {
                 $this->forge->dropColumn('announcements', $column);
             }
-        }
-
-        // ponytail: SQLite table rebuild cannot SET NOT NULL while manual rows have NULL sgx_reference
-        if ($this->db->table('announcements')->where('sgx_reference', null)->countAllResults() > 0) {
-            return;
         }
 
         $this->forge->modifyColumn('announcements', [
