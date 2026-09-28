@@ -29,7 +29,7 @@ SGX filings
     ▼  Daily sync (08:00 Singapore time)
 New / changed filings land in CMS
     │
-    ├─ First-time history import (SGX backfill and/or FE JSON import) ──► Published on website (no emails)
+    ├─ First-time history import (FE JSON first; SGX sync after — not backfill-only) ──► Published on website (no emails)
     │
     └─ Ongoing new filings ──► Pending Review
                 │
@@ -68,13 +68,13 @@ New / changed filings land in CMS
 
 | Scenario | What happens on the website | Emails to investors |
 |----------|-----------------------------|---------------------|
-| **Initial history import** | SGX backfill and/or one-shot FE JSON import (`announcements.json`) marked **Published** | None (suppressed; import does not prompt for alerts) |
+| **Initial history import** | **FE JSON import first** (`announcements.json` — live slugs/detail). Then daily SGX sync for new items. SGX backfill alone does **not** replace that baseline. Marked **Published** | None (suppressed; import does not prompt for alerts) |
 | **Daily new filings** | Items arrive as **Pending Review** | None until admin publishes, then attaches the item to an Email Alert and schedules or sends |
 
 ### What the public website shows
 
 - Only **Published** announcements appear on the IR Company Announcements pages.  
-- Public API payload matches the live site JSON shape (`announcements.json`). The site keeps using bundled JSON until launch flags are switched on after staging diff QA.  
+- Public API payload matches the live site JSON shape (`announcements.json`). Launch order: migrate → JSON import → SGX sync. Diff key slugs on staging (including the placement press-release) before considering `useAnnouncementsApi`. The site keeps using bundled JSON until that flag is switched on.  
 - Visitors can browse, filter by category, search, and open detail pages as they do today.  
 - Pending or archived items never appear publicly.
 
@@ -246,9 +246,9 @@ Phases are sequential: Mirror first, then CMS, then Email.
 ### Mirror + website
 
 - [ ] Daily sync runs at 08:00 SGT  
-- [ ] Historical import published once, with **no** investor emails  
+- [ ] Historical import: **JSON first** (`php spark announcements:import-json`), then SGX sync; published once, **no** investor emails  
 - [ ] FE JSON import (`php spark announcements:import-json`) seeds Published rows, keeps slugs, no alert prompts  
-- [ ] Public API shape matches site JSON; `useAnnouncementsApi` / `showEmailAlerts` stay off until staging slug-diff QA  
+- [ ] Public API shape matches site JSON; staging slug-diff (incl. placement press-release) before considering `useAnnouncementsApi`; flags stay off in repo  
 - [ ] New filings appear as Pending Review in CMS  
 - [ ] Only Published items show on the public IR site  
 

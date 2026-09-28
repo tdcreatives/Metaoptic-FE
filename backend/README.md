@@ -28,15 +28,25 @@ to your `app` folder. The affected files can be copied or merged from
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
 
+## FE-parity launch order
+
+On a new environment, in this order:
+
+1. `php spark migrate`
+2. FE-parity baseline: `php spark announcements:import-json` (from `src/constants/announcements.json`) — this is the live-slug source of truth
+3. SGX sync (`php spark sgx:sync`) for ongoing/new items — does **not** replace the JSON baseline for matching live URLs; do **not** rely on `sgx.backfill` alone if you need FE-parity detail fields
+4. Staging: diff key slugs Presenter/API vs JSON (include the press-release placement slug)
+5. Only then consider flipping `useAnnouncementsApi` (still **off** in repo)
+
 ## SGX sync cron
 
-Daily 08:00 SGT:
+Daily 08:00 SGT (step 3 ongoing, not a substitute for step 2):
 
 ```
 0 8 * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark sgx:sync >> /var/log/sgx-sync.log 2>&1
 ```
 
-First production import: set `sgx.backfill = true` in `.env`, run `php spark sgx:sync` once, then set `sgx.backfill = false`.
+Optional extra SGX history: set `sgx.backfill = true`, run `php spark sgx:sync` once, then set `sgx.backfill = false`. This does not replace the JSON baseline.
 
 ## FE announcements JSON import
 
