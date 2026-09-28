@@ -40,6 +40,8 @@ First production import: set `sgx.backfill = true` in `.env`, run `php spark sgx
 
 ## Email workers
 
+CMS **Email Alerts** are a separate entity from announcements (attach 1…N Published items, then schedule or Send now). `email:dispatch-scheduled` picks due scheduled alerts; `email:work` sends queued deliveries.
+
 ```
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:work >> /var/log/email-work.log 2>&1
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:dispatch-scheduled >> /var/log/email-dispatch.log 2>&1

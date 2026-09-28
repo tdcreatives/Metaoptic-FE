@@ -2,7 +2,7 @@
 
 **Product areas:** SGX Mirror · Internal CMS · Email Alerts  
 **Audience:** Client   
-**Date:** 18 September 2026  
+**Date:** 18 September 2026 (revised 28 September 2026 — Email Alerts decoupled from announcement detail)  
 **Purpose:** Confirm what the delivers — workflows, features, and screens — without deep technical detail.
 
 ---
@@ -13,7 +13,7 @@ Today, SGX announcements for MetaOptics are mirrored on the Investor Relations w
 
 1. **Pull announcements from SGX automatically** each day  
 2. Let an **internal admin review and publish** them to the website  
-3. Optionally **send email alerts** to investors who have subscribed  
+3. Optionally compose **Email Alerts** (a separate CMS item) that can include **one or more Published** announcements, then **schedule** or **Send now** to subscribers  
 
 Website visitors continue to use the existing IR pages. Admins use a separate, password-protected CMS. Investors use a subscription form (Email Alerts page) when that feature is switched on.
 
@@ -36,18 +36,22 @@ New / changed filings land in CMS
                 ▼
          Admin opens CMS
                 │
-                ├─ Edits summary / email wording (optional)
-                ├─ Publish to Website ──► Visible on IR site
-                └─ Send Email Alert   ──► Only after Publish
+                ├─ Edits website summary (optional)
+                └─ Publish to Website ──► Visible on IR site
                          │
                          ▼
-              Matching subscribers receive one email
+         Email Alerts (separate CMS entity)
+                │
+                ├─ Attach 1…N Published announcements
+                ├─ Compose body (WYSIWYG; {{announcement}} insert)
+                ├─ Schedule (Singapore time)  or  Send now
+                └─ Matching subscribers receive one email
                          │
                          ▼
               One-click unsubscribe always available
 ```
 
-**Important rule:** Publish to Website and Send Email Alert are **two separate actions**. Email cannot be sent until the item is published.
+**Important rule:** **Publish to Website** and **Email Alerts** are separate. An announcement is not emailed from its detail page. Only **Published** items can be attached to an alert; send/schedule requires at least one attach.
 
 ---
 
@@ -64,7 +68,7 @@ New / changed filings land in CMS
 | Scenario | What happens on the website | Emails to investors |
 |----------|-----------------------------|---------------------|
 | **Initial history import** | All available history is marked **Published** | None (suppressed) |
-| **Daily new filings** | Items arrive as **Pending Review** | None until admin publishes and explicitly sends |
+| **Daily new filings** | Items arrive as **Pending Review** | None until admin publishes, then attaches the item to an Email Alert and schedules or sends |
 
 ### What the public website shows
 
@@ -96,8 +100,9 @@ Internal operators only (single shared admin login for MVP). Not public.
 |--------|---------|
 | **Login** | Username + password; secure session; limited retries if password is wrong |
 | **Dashboard** | Snapshot counts: Pending Review, Published, items flagged for re-review |
-| **Announcements list** | Filter by status (Pending / Published / Archived); open any item |
+| **Announcements list** | Filter by status (Pending / Published / Archived); create manual items; open any item |
 | **Announcement detail** | Full review workspace (see below) |
+| **Email Alerts** | Separate list / compose / detail: attach Published announcements, schedule or Send now, delivery report |
 | **Sync history** | Recent automatic sync runs and outcomes |
 | **Settings → Digest recipients** | Who gets notified when new SGX items arrive |
 
@@ -111,16 +116,18 @@ Internal operators only (single shared admin login for MVP). Not public.
 **Editable by admin:**
 
 - **Summary** — short text used for the website / listing context  
-- **Email subject** — used when sending an alert  
-- **Email intro** — short intro body for the alert  
+- Manual items also have title, category, filing time, optional source URL / body  
+
+Email subject and intro are **not** edited on announcement detail. Compose happens on the **Email Alert**.
 
 **Actions (separate buttons):**
 
 1. **Publish to Website** — makes the item live on IR pages  
-2. **Send Email Alert** — queues one email campaign (disabled until Published)  
-3. **Archive** — removes the item from the public website; history kept for audit  
+2. **Archive** — removes the item from the public website; history kept for audit  
+3. **Delete** — when the item is not locked by an in-flight alert  
+4. **Create Email Alert with this** — shortcut when Published (opens a new Email Alert with this item attached)
 
-Once an email campaign has been created for an announcement, **Send cannot create a second campaign** (retry of failed deliveries only — see Email Alerts).
+There is **no Send on announcement detail**. One announcement may appear on **many** Email Alerts over time.
 
 ### New-item admin notification
 
@@ -133,7 +140,7 @@ When the daily sync brings in **new** filings (not the first history import):
 - Password-protected CMS  
 - Session cookies hardened for admin use  
 - Forms protected against forged requests  
-- Changes of consequence (login, edits, publish, send, archive, settings) are recorded in an audit trail  
+- Changes of consequence (login, edits, publish, archive, Email Alert compose/schedule/send, settings) are recorded in an audit trail  
 
 ### Client / TDC dependencies
 
@@ -178,25 +185,26 @@ Fixed list (labels may be refined when TDC finalises the official list):
 - Equity & Listing  
 - Financial Statements  
 
-Subscribers only receive alerts for categories they selected, matched to the announcement’s category.
+Subscribers only receive alerts for categories they selected. Audience for an Email Alert is the **union of categories** of the attached Published announcements.
 
-### Admin send flow (after Publish)
+### Admin Email Alert flow (separate from announcement detail)
 
-1. Admin reviews email subject / intro on the CMS detail page  
-2. Clicks **Send Email Alert**  
-3. System builds **one campaign** for that announcement  
-4. Emails go out to active subscribers whose categories match  
-5. Temporary delivery failures can be **retried**; permanent failures are visible for ops  
-6. A second “Send” for the same announcement is **blocked**
+1. Admin publishes one or more announcements to the website  
+2. Opens **Email Alerts** (or “Create Email Alert with this” from a Published item)  
+3. Attaches **1…N Published** announcements; composes subject, intro, and WYSIWYG body (`{{announcement}}` inserts the attached list)  
+4. **Schedule** a one-shot send (Singapore time) **or** **Send now** (confirm)  
+5. Subscribers whose categories match the audience union receive **one email per alert**  
+6. Detail **report**: queued / sent / failed counts; open/click shown as n/a until the email provider supports tracking  
+7. Draft alerts can be deleted; sending/sent content is protected (sent keeps a snapshot). Temporary delivery failures can be **retried** without creating a new alert
 
 ### What is intentionally out of scope (MVP)
 
 - Marketing / non-SGX newsletters  
 - Drag-and-drop email designer  
 - Multiple admin roles / permissions matrix  
-- Daily or weekly digests to investors (alerts are per published announcement)  
-- Advanced analytics dashboards  
-- Auto-send email the moment SGX sync imports a filing (always requires Publish + Send)
+- Daily or weekly digests to investors (each Email Alert is a one-shot send)  
+- Full analytics (open/click wait on the email provider)  
+- Auto-send email the moment SGX sync imports a filing (always requires Publish, then an Email Alert schedule or Send now)
 
 ### Client / TDC dependencies (block production email)
 
@@ -225,7 +233,7 @@ Subscribers only receive alerts for categories they selected, matched to the ann
 |-------|----------|---------------------|
 | **1 — SGX Mirror** | Daily sync, history import, published list on site via backend | New SGX filings appear after publish path; history present without spam email |
 | **2 — CMS** | Admin login, review, edit, publish, archive, sync history, digest recipients | Operators can review Pending → Publish without developer help |
-| **3 — Email Alerts** | Subscribe form, confirmation, unsubscribe, Send campaign + delivery | End-to-end: subscribe → publish → send → receive → unsubscribe |
+| **3 — Email Alerts** | Subscribe form, confirmation, unsubscribe; CMS Email Alert entity (attach Published, schedule / Send now, report) | End-to-end: subscribe → publish → compose alert → send → receive → unsubscribe |
 
 Phases are sequential: Mirror first, then CMS, then Email.
 
@@ -243,10 +251,9 @@ Phases are sequential: Mirror first, then CMS, then Email.
 ### CMS
 
 - [ ] Admin can log in and see Pending / Published  
-- [ ] Admin can edit summary and email copy without changing SGX source text  
+- [ ] Admin can edit summary without changing SGX source text  
 - [ ] **Publish** makes the item live on the website  
-- [ ] **Send** stays disabled until Published  
-- [ ] **Send** creates at most one campaign per announcement  
+- [ ] Announcement detail has **no Send**; email is composed on Email Alerts  
 - [ ] Archive removes the item from the public site  
 - [ ] Digest recipient list can be maintained in Settings  
 
@@ -254,9 +261,11 @@ Phases are sequential: Mirror first, then CMS, then Email.
 
 - [ ] Investor can subscribe and choose categories  
 - [ ] Confirmation email arrives  
-- [ ] Matching subscribers receive the alert after admin Send  
+- [ ] Admin can attach **many Published** announcements to one Email Alert  
+- [ ] Admin can **schedule** (SGT) or **Send now**; matching subscribers receive that alert  
+- [ ] Report shows queued / sent / failed; open/click n/a until provider tracking  
 - [ ] Unsubscribe stops future sends  
-- [ ] Failed temporary deliveries can be retried without creating a second campaign  
+- [ ] Failed temporary deliveries can be retried without creating a duplicate alert  
 
 ---
 
@@ -274,8 +283,8 @@ Phases are sequential: Mirror first, then CMS, then Email.
 
 This MVP gives MetaOptics a controlled pipeline:
 
-**SGX → Admin review → Website publish → Optional investor email**
+**SGX → Admin review → Website publish → Optional Email Alert (many Published items, schedule or Send now)**
 
-with clear separation between “live on website” and “notify subscribers,” protection against duplicate campaigns, and a simple public subscribe / unsubscribe experience.
+with clear separation between “live on website” and “notify subscribers,” and a simple public subscribe / unsubscribe experience.
 
-Please confirm this scope matches expectations, especially the **Publish before Send** rule and the **single opt-in** subscription model.
+Please confirm this scope matches expectations, especially **Publish before attach/send**, **Email Alert as its own entity**, and the **single opt-in** subscription model.
