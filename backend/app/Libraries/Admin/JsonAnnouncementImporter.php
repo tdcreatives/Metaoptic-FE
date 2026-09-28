@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Libraries\Admin;
 
+use App\Libraries\Sgx\LegacyDetailMapper;
 use App\Libraries\Sgx\SourceHasher;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Database\BaseConnection;
@@ -21,9 +22,9 @@ final class JsonAnnouncementImporter
     }
 
     /**
-     * @return array{inserted: int, updated: int}
+     * @return array{inserted: int, updated: int, skipped_refs: list<array{slug: string, reference: string}>}
      */
-    public function import(string $absolutePath): array
+    public function import(string $absolutePath, bool $force = false): array
     {
         if (! is_file($absolutePath) || ! is_readable($absolutePath)) {
             throw new InvalidArgumentException('JSON file not found: ' . $absolutePath);
@@ -40,6 +41,7 @@ final class JsonAnnouncementImporter
         $now = (new DateTimeImmutable('now', new DateTimeZone(self::SGT)))->format('Y-m-d H:i:s');
         $inserted = 0;
         $updated = 0;
+        $skippedRefs = [];
 
         $this->db->transException(true);
         $this->db->transStart();
@@ -61,7 +63,11 @@ final class JsonAnnouncementImporter
             $details = is_array($item['details'] ?? null) ? $item['details'] : [];
             $ann = is_array($details['announcement'] ?? null) ? $details['announcement'] : [];
             $reference = trim((string) ($ann['reference'] ?? ''));
-            $issuerName = $this->nestedName($details['issuer'] ?? null);
+            $issuerName = LegacyDetailMapper::nestedName($details['issuer'] ?? null);
+            $sgxRef = $this->sgxReferenceIfUnused($model, $slug, $reference);
+            if ($reference !== '' && $sgxRef === null) {
+                $skippedRefs[] = ['slug' => $slug, 'reference' => $reference];
+            }
 
             $core = [
                 'slug' => $slug,
@@ -69,18 +75,25 @@ final class JsonAnnouncementImporter
                 'category' => (string) ($item['category'] ?? 'General Announcement'),
                 'issuer' => $issuerName ?? '',
                 'filed_at' => $this->parseDate((string) ($item['date'] ?? '')),
-                'summary' => (string) ($item['desc'] ?? ''),
                 'source_url' => $this->sourceUrl($details),
                 'source_payload' => $payload,
                 'source_hash' => $hasher->hash($payload),
                 'source' => $reference !== '' ? 'sgx' : 'manual',
-                'sgx_reference' => $this->sgxReferenceIfUnused($model, $slug, $reference),
-                'state' => 'published',
-                'needs_review' => 0,
+                'sgx_reference' => $sgxRef,
             ];
 
             $existing = $model->where('slug', $slug)->first();
-            if ($existing === null) {
+            $isInsert = $existing === null;
+            $writeLayout = $isInsert || $force;
+            if ($isInsert || $force) {
+                $core['summary'] = (string) ($item['desc'] ?? '');
+                $core['state'] = 'published';
+                $core['needs_review'] = 0;
+            }
+
+            $mapped = LegacyDetailMapper::fromNested($item, $details, $writeLayout);
+
+            if ($isInsert) {
                 $core['published_at'] = $now;
                 $model->insert($core);
                 $id = (int) $model->getInsertID();
@@ -96,10 +109,10 @@ final class JsonAnnouncementImporter
 
             $writer->replace(
                 $id,
-                $this->scalars($item, $details, $ann, $issuerName, $reference),
-                $this->attachments($details),
-                $this->related($details),
-                $this->labeledRows($details),
+                $mapped['scalars'],
+                $mapped['attachments'],
+                $mapped['related'],
+                $mapped['labeled_rows'],
             );
         }
 
@@ -108,158 +121,18 @@ final class JsonAnnouncementImporter
             throw new RuntimeException('announcement JSON import failed');
         }
 
-        return ['inserted' => $inserted, 'updated' => $updated];
-    }
+        service('auditLogger')->write('import_json', 'announcement', null, [
+            'inserted' => $inserted,
+            'updated' => $updated,
+            'skipped_refs' => count($skippedRefs),
+            'force' => $force,
+        ]);
 
-    /**
-     * @param array<string, mixed> $item
-     * @param array<string, mixed> $details
-     * @param array<string, mixed> $ann
-     * @return array<string, mixed>
-     */
-    private function scalars(array $item, array $details, array $ann, ?string $issuerName, string $reference): array
-    {
-        $additional = is_array($details['additional'] ?? null) ? $details['additional'] : [];
-        $scalars = [
-            'issuer_name' => $issuerName,
-            'securities_name' => $this->nestedName($details['securities'] ?? null),
-            'stapled_security_name' => $this->nestedName($details['stapledSecurity'] ?? null),
-            'ann_title' => $ann['title'] ?? null,
-            'ann_subtitle' => $ann['subTitle'] ?? null,
-            'ann_datetime' => $ann['dateTime'] ?? null,
-            'ann_status' => $ann['status'] ?? null,
-            'ann_reference' => $reference !== '' ? $reference : null,
-            'ann_submitted_by' => $ann['submittedBy'] ?? null,
-            'ann_designation' => $ann['designation'] ?? null,
-            'ann_description' => $ann['description'] ?? null,
-            'ann_disclaimer' => $ann['disclaimer'] ?? null,
-            'ann_effective_start_date' => $ann['effectiveStartDate'] ?? null,
-            'ann_report_type' => $ann['reportType'] ?? null,
-            'ann_final_year_end' => $ann['finalYearEnd'] ?? null,
-            'addl_description' => $additional['description'] ?? null,
-            'addl_name' => $additional['name'] ?? null,
-            'addl_age' => $additional['age'] ?? null,
-            'addl_date_cessation_known' => $additional['dateCessationKnown'] ?? null,
-            'addl_date_of_appointment' => $additional['dateOfAppointment'] ?? null,
-            'addl_date_cessation' => $additional['dateCessation'] ?? null,
-            'addl_country_of_principal_residence' => $additional['countryOfPrincipalResidence'] ?? null,
+        return [
+            'inserted' => $inserted,
+            'updated' => $updated,
+            'skipped_refs' => $skippedRefs,
         ];
-        foreach (['title_btn', 'title_btn_sm', 'title_banner'] as $key) {
-            if (array_key_exists($key, $item)) {
-                $scalars[$key] = $item[$key];
-            }
-        }
-
-        return $scalars;
-    }
-
-    /**
-     * @param array<string, mixed> $details
-     * @return list<array<string, mixed>>
-     */
-    private function attachments(array $details): array
-    {
-        $rows = [];
-        foreach ($details['attachments'] ?? [] as $i => $row) {
-            if (! is_array($row)) {
-                continue;
-            }
-            $rows[] = [
-                'name' => $row['name'] ?? null,
-                'url' => $row['url'] ?? null,
-                'sort_order' => $i,
-            ];
-        }
-
-        return $rows;
-    }
-
-    /**
-     * @param array<string, mixed> $details
-     * @return list<array<string, mixed>>
-     */
-    private function related(array $details): array
-    {
-        $rows = [];
-        foreach ($details['related'] ?? [] as $i => $row) {
-            if (! is_array($row)) {
-                continue;
-            }
-            $rows[] = [
-                'name' => $row['name'] ?? null,
-                'text' => $row['text'] ?? null,
-                'url' => $row['url'] ?? null,
-                'sort_order' => $i,
-            ];
-        }
-
-        return $rows;
-    }
-
-    /**
-     * @param array<string, mixed> $details
-     * @return list<array<string, mixed>>
-     */
-    private function labeledRows(array $details): array
-    {
-        $rows = [];
-        $additional = is_array($details['additional'] ?? null) ? $details['additional'] : [];
-        $this->appendNameText($rows, 'additional_left', $additional['left'] ?? []);
-        $this->appendNameText($rows, 'additional_right', $additional['right'] ?? []);
-        $this->appendNameText($rows, 'additional_row', $additional['rowItems'] ?? []);
-        foreach ($additional['otherDirectorships'] ?? [] as $row) {
-            if (! is_array($row)) {
-                continue;
-            }
-            $detailsList = $row['details'] ?? [];
-            $text = is_array($detailsList) ? implode("\n", array_map(static fn ($v) => (string) $v, $detailsList)) : (string) $detailsList;
-            $rows[] = [
-                'section' => 'other_directorship',
-                'name' => $row['name'] ?? null,
-                'text' => $text,
-                'sort_order' => count($rows),
-            ];
-        }
-        $this->appendNameText($rows, 'event_narrative', $details['eventNarrative'] ?? []);
-        $eventDates = is_array($details['eventDates'] ?? null) ? $details['eventDates'] : [];
-        $this->appendNameText($rows, 'event_date_left', $eventDates['left'] ?? []);
-        $this->appendNameText($rows, 'event_date_right', $eventDates['right'] ?? []);
-        $this->appendNameText($rows, 'event_venue', $details['eventVenues'] ?? []);
-
-        return $rows;
-    }
-
-    /**
-     * @param list<array<string, mixed>> $rows
-     * @param mixed $items
-     */
-    private function appendNameText(array &$rows, string $section, mixed $items): void
-    {
-        if (! is_array($items)) {
-            return;
-        }
-        foreach ($items as $row) {
-            if (! is_array($row)) {
-                continue;
-            }
-            $rows[] = [
-                'section' => $section,
-                'name' => $row['name'] ?? null,
-                'text' => $row['text'] ?? null,
-                'sort_order' => count($rows),
-            ];
-        }
-    }
-
-    /** @param mixed $block */
-    private function nestedName(mixed $block): ?string
-    {
-        if (! is_array($block)) {
-            return null;
-        }
-        $name = $block['name'] ?? null;
-
-        return $name === null || $name === '' ? null : (string) $name;
     }
 
     /** @param array<string, mixed> $details */

@@ -25,6 +25,7 @@ final class JsonAnnouncementImporterTest extends CIUnitTestCase
         $result = $importer->import($path);
         $this->assertSame(1, $result['inserted']);
         $this->assertSame(0, $result['updated']);
+        $this->assertSame([], $result['skipped_refs']);
 
         $row = model(AnnouncementModel::class)->where(
             'slug',
@@ -61,5 +62,56 @@ final class JsonAnnouncementImporterTest extends CIUnitTestCase
         $this->assertNull($second['sgx_reference']);
         $this->assertSame('SG-DUP-SHARED-REF', $second['ann_reference']);
         $this->assertSame('sgx', $second['source']);
+        $this->assertSame(
+            [['slug' => 'dup-ref-second', 'reference' => 'SG-DUP-SHARED-REF']],
+            $result['skipped_refs']
+        );
+    }
+
+    public function test_update_preserves_curated_fields_unless_force(): void
+    {
+        $path = SUPPORTPATH . 'Fixtures/announcements/fe-parity-one.json';
+        $importer = new JsonAnnouncementImporter(db_connect());
+        $importer->import($path);
+
+        $model = model(AnnouncementModel::class);
+        $row = $model->where(
+            'slug',
+            'general-announcement-press-release-mot-announces-s1-1m-placement-for-full-automation-of-metalens-camera-modules-assembly'
+        )->first();
+        $model->update((int) $row['id'], [
+            'state' => 'archived',
+            'needs_review' => 1,
+            'summary' => 'Admin curated',
+            'title_banner' => 'ADMIN<br/>BANNER',
+            'title_btn' => 'Admin btn',
+            'title_btn_sm' => 'Admin sm',
+        ]);
+
+        $importer->import($path);
+        $again = $model->find((int) $row['id']);
+        $this->assertSame('archived', $again['state']);
+        $this->assertSame(1, (int) $again['needs_review']);
+        $this->assertSame('Admin curated', $again['summary']);
+        $this->assertSame('ADMIN<br/>BANNER', $again['title_banner']);
+        $this->assertSame('Admin btn', $again['title_btn']);
+        $this->assertSame('Admin sm', $again['title_btn_sm']);
+
+        $importer->import($path, true);
+        $forced = $model->find((int) $row['id']);
+        $this->assertSame('published', $forced['state']);
+        $this->assertSame(0, (int) $forced['needs_review']);
+        $this->assertSame('', $forced['summary']);
+        $this->assertSame('GENERAL<br/>ANNOUNCEMENT', $forced['title_banner']);
+    }
+
+    public function test_import_writes_audit_once_per_run(): void
+    {
+        $path = SUPPORTPATH . 'Fixtures/announcements/fe-parity-one.json';
+        (new JsonAnnouncementImporter(db_connect()))->import($path);
+
+        $logs = db_connect()->table('audit_log')->where('action', 'import_json')->get()->getResultArray();
+        $this->assertCount(1, $logs);
+        $this->assertSame('announcement', $logs[0]['entity_type']);
     }
 }
