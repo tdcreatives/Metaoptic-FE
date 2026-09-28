@@ -97,6 +97,40 @@ test('fetchAnnouncementList reads NEXT_PUBLIC_IR_API_BASE and query params', asy
     }
 });
 
+test('fetchAnnouncementList without page follows meta.total across pages', async () => {
+    const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    const calls = [];
+    const previousFetch = globalThis.fetch;
+    globalThis.fetch = async (url) => {
+        const requested = new URL(String(url));
+        const page = requested.searchParams.get('page');
+        calls.push(page);
+        const data = page === '1'
+            ? [{ ...apiRow, id: 1, slug: 'a' }, { ...apiRow, id: 2, slug: 'b' }]
+            : [{ ...apiRow, id: 3, slug: 'c' }];
+        return {
+            ok: true,
+            json: async () => ({ data, meta: { page: Number(page), page_size: 2, total: 3 } }),
+        };
+    };
+
+    try {
+        const payload = await fetchAnnouncementList({ pageSize: 2 });
+        assert.deepEqual(calls, ['1', '2']);
+        assert.equal(payload.data.length, 3);
+        assert.equal(payload.meta.total, 3);
+        assert.deepEqual(payload.data.map((row) => row.slug), ['a', 'b', 'c']);
+    } finally {
+        globalThis.fetch = previousFetch;
+        if (previous === undefined) {
+            delete process.env.NEXT_PUBLIC_IR_API_BASE;
+        } else {
+            process.env.NEXT_PUBLIC_IR_API_BASE = previous;
+        }
+    }
+});
+
 test('fetchAnnouncementBySlug GETs /api/announcements/{slug}', async () => {
     const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
     process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';

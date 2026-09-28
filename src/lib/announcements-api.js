@@ -62,7 +62,7 @@ export function mapApiAnnouncementToLegacy(row) {
     };
 }
 
-export async function fetchAnnouncementList({ page = 1, pageSize = 50, category, q } = {}) {
+async function fetchAnnouncementPage({ page = 1, pageSize = 50, category, q } = {}) {
     const base = process.env.NEXT_PUBLIC_IR_API_BASE;
     if (!base) {
         throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
@@ -79,6 +79,35 @@ export async function fetchAnnouncementList({ page = 1, pageSize = 50, category,
         throw new Error(`announcements API ${res.status}`);
     }
     return res.json();
+}
+
+/** Omit `page` to follow pages until meta.total is collected (API page_size is capped). */
+export async function fetchAnnouncementList({ page, pageSize = 50, category, q } = {}) {
+    if (page != null) {
+        return fetchAnnouncementPage({ page, pageSize, category, q });
+    }
+
+    const first = await fetchAnnouncementPage({ page: 1, pageSize, category, q });
+    const rows = [...(first.data || [])];
+    const total = Number(first.meta?.total ?? rows.length);
+    const size = Math.max(1, Number(first.meta?.page_size ?? pageSize) || pageSize);
+    const maxPages = Math.max(1, Math.ceil(total / size) + 1);
+    let currentPage = 1;
+
+    while (rows.length < total && currentPage < maxPages) {
+        currentPage += 1;
+        const next = await fetchAnnouncementPage({ page: currentPage, pageSize, category, q });
+        const chunk = next.data || [];
+        if (chunk.length === 0) {
+            break;
+        }
+        rows.push(...chunk);
+    }
+
+    return {
+        data: rows,
+        meta: { ...(first.meta || {}), page: 1, page_size: size, total },
+    };
 }
 
 export async function fetchAnnouncementBySlug(slug) {

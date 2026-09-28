@@ -69,7 +69,7 @@ const AnnouncementDetailContent = ({ announcement: announcementProp } = {}) => {
                                     Issuer/ Manager:
                                 </div>
                                 <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                    {details.issuer.name}
+                                    {details?.issuer?.name}
                                 </div>
                             </div>
                         
@@ -79,7 +79,7 @@ const AnnouncementDetailContent = ({ announcement: announcementProp } = {}) => {
                                     Securities:
                                 </div>
                                 <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                    {details.securities.name}
+                                    {details?.securities?.name}
                                 </div>
                             </div>
                         
@@ -90,7 +90,7 @@ const AnnouncementDetailContent = ({ announcement: announcementProp } = {}) => {
                                         Stapled Security:
                                     </div>
                                     <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                        {details.stapledSecurity.name}
+                                        {details?.stapledSecurity?.name}
                                     </div>
                                 </div>
                             )}
