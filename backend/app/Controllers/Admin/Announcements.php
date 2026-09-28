@@ -46,7 +46,6 @@ class Announcements extends BaseController
             'source_url',
             'summary',
             'body_html',
-            'state',
         ]) ?? [];
 
         if (! $this->validateData($post, [

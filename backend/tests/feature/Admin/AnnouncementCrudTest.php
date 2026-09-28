@@ -39,6 +39,26 @@ final class AnnouncementCrudTest extends CIUnitTestCase
         $result->assertRedirectTo('/admin/announcements/' . $row['id']);
     }
 
+    public function test_create_ignores_posted_state(): void
+    {
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements',
+            $this->withCsrf([
+                'title' => 'State Override Attempt',
+                'category' => 'General Announcement',
+                'filed_at' => '2026-09-28 11:00:00',
+                'state' => 'published',
+            ])
+        );
+
+        $result->assertRedirect();
+
+        $row = (new AnnouncementModel())->where('title', 'State Override Attempt')->first();
+        $this->assertNotNull($row);
+        $this->assertSame('pending_review', $row['state']);
+        $this->assertNull($row['published_at']);
+    }
+
     public function test_send_route_gone(): void
     {
         $id = $this->insertRow([
