@@ -20,6 +20,13 @@ final class EmailAlertsMigrationTest extends CIUnitTestCase
         $this->assertTrue($db->tableExists('email_alerts'));
         $this->assertTrue($db->tableExists('email_alert_announcements'));
         $this->assertTrue($db->fieldExists('email_alert_id', 'email_campaigns'));
+        $nullable = false;
+        foreach ($db->getFieldData('email_alert_announcements') as $field) {
+            if ($field->name === 'announcement_id') {
+                $nullable = (bool) $field->nullable;
+            }
+        }
+        $this->assertTrue($nullable);
 
         $announcementId = $this->insertAnnouncement($db, 'alert-attach-slug');
 

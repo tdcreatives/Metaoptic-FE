@@ -38,6 +38,13 @@ Daily 08:00 SGT:
 
 First production import: set `sgx.backfill = true` in `.env`, run `php spark sgx:sync` once, then set `sgx.backfill = false`.
 
+## Email workers
+
+```
+* * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:work >> /var/log/email-work.log 2>&1
+* * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:dispatch-scheduled >> /var/log/email-dispatch.log 2>&1
+```
+
 ## Important Change with index.php
 
 `index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
