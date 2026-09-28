@@ -8,14 +8,14 @@ import downloadIcon from '@/assets/images/download.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const AnnouncementDetailContent = () => {
+const AnnouncementDetailContent = ({ announcement: announcementProp } = {}) => {
     const { slug } = useParams();
     const [expandedSections, setExpandedSections] = useState({
         issuer: true,
         announcement: true
     });
 
-    const announcement = items.find((item) => item.slug === slug);
+    const announcement = announcementProp ?? items.find((item) => item.slug === slug);
 
     if (!announcement || !announcement.details) {
         return (

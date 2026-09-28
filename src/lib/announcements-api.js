@@ -26,17 +26,34 @@ function formatFiledAt(filedAt) {
 }
 
 export function mapApiAnnouncementToLegacy(row) {
+    if (row?.details?.announcement) {
+        return {
+            ...row,
+            id: String(row.id),
+            date: row.date || formatFiledAt(row.filed_at),
+            desc: row.desc ?? row.summary ?? '',
+            details: {
+                ...row.details,
+                announcement: { ...row.details.announcement },
+            },
+        };
+    }
+
+    const reference = row.ann_reference || row.sgx_reference || '';
     return {
         id: String(row.id),
         slug: row.slug,
         category: row.category,
         title: row.title,
         desc: row.summary || '',
-        date: formatFiledAt(row.filed_at),
+        date: row.date || formatFiledAt(row.filed_at),
         url: row.source_url || '',
+        title_banner: row.title_banner,
+        title_btn: row.title_btn,
+        title_btn_sm: row.title_btn_sm,
         details: {
             announcement: {
-                reference: row.slug,
+                reference,
                 subTitle: row.title,
                 submittedBy: row.issuer || '',
                 description: row.summary || '',
@@ -62,4 +79,19 @@ export async function fetchAnnouncementList({ page = 1, pageSize = 50, category,
         throw new Error(`announcements API ${res.status}`);
     }
     return res.json();
+}
+
+export async function fetchAnnouncementBySlug(slug) {
+    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
+    if (!base) {
+        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
+    }
+
+    const url = new URL(`/api/announcements/${encodeURIComponent(slug)}`, base);
+    const res = await fetch(url.toString(), { next: { revalidate: 300 } });
+    if (!res.ok) {
+        throw new Error(`announcements API ${res.status}`);
+    }
+    const payload = await res.json();
+    return payload.data ?? payload;
 }

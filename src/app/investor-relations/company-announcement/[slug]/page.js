@@ -2,6 +2,8 @@ import React from 'react';
 
 import metadataJson from '@/constants/metadata.json';
 import items from '@/constants/announcements.json';
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+import { fetchAnnouncementBySlug, mapApiAnnouncementToLegacy } from '@/lib/announcements-api';
 
 import AnnouncementDetailContent from '@/layouts/investor-relations/announcement-detail-content';
 import AnnouncementBanner from '@/layouts/investor-relations/announcement-banner';
@@ -9,6 +11,19 @@ import InvestorRelationsTabBar from '@/layouts/investor-relations/tab-bar';
 
 const baseMeta = metadataJson.companyAnnouncements;
 const SITE_ORIGIN = 'https://metaoptics.sg';
+
+const fromJson = (slug) => items.find((item) => item.slug === slug);
+
+async function loadAnnouncement(slug) {
+    if (!IR_LAUNCH_FLAGS.useAnnouncementsApi) {
+        return fromJson(slug);
+    }
+    try {
+        return mapApiAnnouncementToLegacy(await fetchAnnouncementBySlug(slug));
+    } catch {
+        return fromJson(slug);
+    }
+}
 
 const formatAnnouncementTitle = (announcement) => {
     const subTitle = announcement?.details?.announcement?.subTitle;
@@ -45,7 +60,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props) {
     const params = await props.params;
-    const announcement = items.find((item) => item.slug === params.slug);
+    const announcement = await loadAnnouncement(params.slug);
 
     if (!announcement) {
         return {
@@ -86,13 +101,13 @@ export async function generateMetadata(props) {
 
 const CompanyAnnouncementDetailPage = async (props) => {
     const params = await props.params;
-    const announcement = items.find((item) => item.slug === params.slug);
+    const announcement = await loadAnnouncement(params.slug);
 
     return (
         <>
             <AnnouncementBanner bannerTitle={announcement?.title_banner} />
             <InvestorRelationsTabBar />
-            <AnnouncementDetailContent />
+            <AnnouncementDetailContent announcement={announcement} />
         </>
     );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 
 import metadataJson from '@/constants/metadata.json';
 import items from '@/constants/announcements.json';
+import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
+import { fetchAnnouncementBySlug, mapApiAnnouncementToLegacy } from '@/lib/announcements-api';
 
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
@@ -10,6 +12,19 @@ import AnnouncementBanner from '@/layouts/investor-relations/announcement-banner
 
 const baseMeta = metadataJson.companyAnnouncements;
 const SITE_ORIGIN = 'https://metaoptics.sg';
+
+const fromJson = (slug) => items.find((item) => item.slug === slug);
+
+async function loadAnnouncement(slug) {
+    if (!IR_LAUNCH_FLAGS.useAnnouncementsApi) {
+        return fromJson(slug);
+    }
+    try {
+        return mapApiAnnouncementToLegacy(await fetchAnnouncementBySlug(slug));
+    } catch {
+        return fromJson(slug);
+    }
+}
 
 const formatAnnouncementTitle = (announcement) => {
     const subTitle = announcement?.details?.announcement?.subTitle;
@@ -46,7 +61,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props) {
     const params = await props.params;
-    const announcement = items.find((item) => item.slug === params.slug);
+    const announcement = await loadAnnouncement(params.slug);
 
     if (!announcement) {
         return {
@@ -84,13 +99,12 @@ export async function generateMetadata(props) {
 
 const CompanyAnnouncementDetail = async (props) => {
     const params = await props.params;
-
-    const announcement = items.find((item) => item.slug === params.slug);
+    const announcement = await loadAnnouncement(params.slug);
     return (
         <>
             <Header />
             <AnnouncementBanner bannerTitle={announcement?.title_banner} />
-            <AnnouncementDetailContent />
+            <AnnouncementDetailContent announcement={announcement} />
             <Footer />
         </>
     );
