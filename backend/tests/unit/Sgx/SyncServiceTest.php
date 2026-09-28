@@ -63,7 +63,7 @@ final class SyncServiceTest extends CIUnitTestCase
         $originalSlug = $existing['slug'];
         $model->update($existing['id'], ['summary' => 'Admin summary']);
 
-        $item['details']['announcement']['subTitle'] = 'METAOPTICS ENTERS MOU (REVISED)';
+        $item['title'] = 'General Announcement::METAOPTICS ENTERS MOU (REVISED)';
         $result = $this->service(false)->run([$item]);
 
         $this->assertSame(0, $result->newCount);
@@ -80,7 +80,7 @@ final class SyncServiceTest extends CIUnitTestCase
     public function test_normalize_failure_marks_sync_run_failed_and_writes_nothing(): void
     {
         $valid = $this->page1Items()[0];
-        $invalid = ['title' => 'bad', 'date' => '15 Sep 2025 09:30 AM', 'details' => ['announcement' => []]];
+        $invalid = ['title' => 'bad', 'category_name' => 'General Announcement'];
 
         $this->expectException(InvalidArgumentException::class);
         try {
@@ -124,6 +124,60 @@ final class SyncServiceTest extends CIUnitTestCase
         }
     }
 
+    public function test_hash_change_keeps_slug_and_existing_attachment_when_api_item_has_no_details(): void
+    {
+        $item = $this->page1Items()[0];
+        $this->service(true)->run([$item]);
+
+        $db = db_connect();
+        $model = new AnnouncementModel();
+        $existing = $model->first();
+        $slug = $existing['slug'];
+        $db->table('announcement_attachments')->insert([
+            'announcement_id' => $existing['id'],
+            'name' => 'Keep.pdf',
+            'url' => 'https://example.test/keep.pdf',
+            'sort_order' => 0,
+        ]);
+
+        $item['title'] = 'General Announcement::METAOPTICS ENTERS MOU (REVISED)';
+        $result = $this->service(true)->run([$item]);
+
+        $this->assertSame(0, $result->newCount);
+        $this->assertSame(1, $result->updatedCount);
+
+        $updated = $model->find($existing['id']);
+        $this->assertSame($slug, $updated['slug']);
+        $this->assertSame(1, (int) $updated['needs_review']);
+        $this->assertSame('published', $updated['state']);
+        $this->assertSame(
+            1,
+            $db->table('announcement_attachments')->where('announcement_id', $existing['id'])->countAllResults()
+        );
+    }
+
+    public function test_nested_fixture_item_writes_ann_reference_and_attachment(): void
+    {
+        $item = json_decode(
+            (string) file_get_contents(SUPPORTPATH . 'Fixtures/announcements/fe-parity-one.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        )[0];
+
+        $result = $this->service(false)->run([$item]);
+        $this->assertSame(1, $result->newCount);
+
+        $row = (new AnnouncementModel())->first();
+        $this->assertSame('SG260911OTHR4TNS', $row['sgx_reference']);
+        $this->assertSame('SG260911OTHR4TNS', $row['ann_reference']);
+        $this->assertSame('pending_review', $row['state']);
+        $this->assertSame(
+            1,
+            db_connect()->table('announcement_attachments')->where('announcement_id', $row['id'])->countAllResults()
+        );
+    }
+
     public function test_sync_lock_acquire_is_true_on_sqlite(): void
     {
         $lock = new SyncLock(db_connect());
@@ -149,6 +203,6 @@ final class SyncServiceTest extends CIUnitTestCase
             JSON_THROW_ON_ERROR
         );
 
-        return $decoded['items'];
+        return $decoded['data'];
     }
 }

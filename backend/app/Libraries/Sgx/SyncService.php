@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Libraries\Sgx;
 
+use App\Libraries\Admin\AnnouncementDetailWriter;
 use App\Models\AnnouncementModel;
 use App\Models\SyncRunModel;
 use CodeIgniter\Database\BaseConnection;
@@ -93,28 +94,36 @@ final class SyncService
         try {
             foreach ($normalized as $row) {
                 $existing = $this->announcements->where('sgx_reference', $row['sgx_reference'])->first();
+                [$core, $details] = $this->splitDetails($row);
                 if ($existing === null) {
-                    $row['source'] = 'sgx';
-                    $row['state'] = $this->config->backfill ? 'published' : 'pending_review';
-                    $row['published_at'] = $this->config->backfill ? $now : null;
-                    $row['needs_review'] = 0;
-                    $this->announcements->insert($row);
+                    $core['source'] = 'sgx';
+                    $core['state'] = $this->config->backfill ? 'published' : 'pending_review';
+                    $core['published_at'] = $this->config->backfill ? $now : null;
+                    $core['needs_review'] = 0;
+                    $id = (int) $this->announcements->insert($core, true);
+                    if ($details !== null) {
+                        $this->writeDetails($id, $core, $details);
+                    }
                     $newCount++;
                     continue;
                 }
-                if (($existing['source_hash'] ?? '') === $row['source_hash']) {
+                if (($existing['source_hash'] ?? '') === $core['source_hash']) {
                     continue;
                 }
+                // Hash change: update core only, keep slug, do not wipe FE children unless nested details arrived.
                 $this->announcements->update($existing['id'], [
-                    'source_url' => $row['source_url'],
-                    'title' => $row['title'],
-                    'category' => $row['category'],
-                    'issuer' => $row['issuer'],
-                    'filed_at' => $row['filed_at'],
-                    'source_payload' => $row['source_payload'],
-                    'source_hash' => $row['source_hash'],
+                    'source_url' => $core['source_url'],
+                    'title' => $core['title'],
+                    'category' => $core['category'],
+                    'issuer' => $core['issuer'],
+                    'filed_at' => $core['filed_at'],
+                    'source_payload' => $core['source_payload'],
+                    'source_hash' => $core['source_hash'],
                     'needs_review' => 1,
                 ]);
+                if ($details !== null) {
+                    $this->writeDetails((int) $existing['id'], $core, $details);
+                }
                 $updatedCount++;
             }
             $this->db->transComplete();
@@ -128,5 +137,37 @@ final class SyncService
         }
 
         return [$newCount, $updatedCount];
+    }
+
+    /**
+     * @param array<string, mixed> $row
+     * @return array{0: array<string, mixed>, 1: ?array{attachments: list<array<string, mixed>>, related: list<array<string, mixed>>, labeled: list<array<string, mixed>>}}
+     */
+    private function splitDetails(array $row): array
+    {
+        $hasDetails = array_key_exists('_attachments', $row);
+        $details = $hasDetails ? [
+            'attachments' => is_array($row['_attachments'] ?? null) ? $row['_attachments'] : [],
+            'related' => is_array($row['_related'] ?? null) ? $row['_related'] : [],
+            'labeled' => is_array($row['_labeled_rows'] ?? null) ? $row['_labeled_rows'] : [],
+        ] : null;
+        unset($row['_attachments'], $row['_related'], $row['_labeled_rows']);
+
+        return [$row, $details];
+    }
+
+    /**
+     * @param array<string, mixed> $core
+     * @param array{attachments: list<array<string, mixed>>, related: list<array<string, mixed>>, labeled: list<array<string, mixed>>} $details
+     */
+    private function writeDetails(int $id, array $core, array $details): void
+    {
+        (new AnnouncementDetailWriter($this->db))->replace(
+            $id,
+            $core,
+            $details['attachments'],
+            $details['related'],
+            $details['labeled'],
+        );
     }
 }
