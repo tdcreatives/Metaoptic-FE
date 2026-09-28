@@ -94,9 +94,10 @@ class Announcements extends BaseController
         $update = [];
         foreach (['title_btn', 'title_btn_sm', 'title_banner'] as $field) {
             $val = $this->request->getPost($field);
-            $update[$field] = ($val === null || $val === '') ? null : (string) $val;
+            $update[$field] = $this->sanitizeLayoutHtml($val === null ? null : (string) $val);
         }
         model(AnnouncementModel::class)->update($id, $update);
+        service('auditLogger')->write('layout_edit', 'announcement', (string) $id, []);
 
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Saved');
     }
@@ -144,6 +145,9 @@ class Announcements extends BaseController
         } catch (DomainException $e) {
             return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
         }
+        service('auditLogger')->write('alert_draft', 'email_alert', (string) $alertId, [
+            'announcement_id' => $id,
+        ]);
 
         return redirect()->to('/admin/email-alerts/' . $alertId . '/edit');
     }
@@ -188,5 +192,15 @@ class Announcements extends BaseController
         }
 
         return $row;
+    }
+
+    private function sanitizeLayoutHtml(?string $val): ?string
+    {
+        if ($val === null || $val === '') {
+            return null;
+        }
+        $stripped = strip_tags($val, '<br>');
+
+        return $stripped === '' ? null : $stripped;
     }
 }

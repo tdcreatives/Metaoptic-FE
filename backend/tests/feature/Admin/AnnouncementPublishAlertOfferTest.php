@@ -78,6 +78,10 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
         $alert = (new EmailAlertModel())->where('subject', 'Placement Notice')->first();
         $this->assertNotNull($alert);
         $result->assertRedirectTo('/admin/email-alerts/' . $alert['id'] . '/edit');
+        $audit = db_connect()->table('audit_log')->where('action', 'alert_draft')->get()->getRowArray();
+        $this->assertNotNull($audit);
+        $this->assertSame('email_alert', $audit['entity_type']);
+        $this->assertSame((string) $alert['id'], $audit['entity_id']);
     }
 
     public function test_create_alert_draft_without_csrf_does_not_mutate(): void
@@ -119,6 +123,33 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
         $this->assertNull($row['title_btn']);
         $this->assertNull($row['title_btn_sm']);
         $this->assertNull($row['title_banner']);
+        $audit = db_connect()->table('audit_log')->where('action', 'layout_edit')->get()->getRowArray();
+        $this->assertNotNull($audit);
+        $this->assertSame('announcement', $audit['entity_type']);
+        $this->assertSame((string) $id, $audit['entity_id']);
+    }
+
+    public function test_layout_strips_tags_except_br(): void
+    {
+        $id = $this->insertRow([
+            'state' => 'published',
+            'needs_review' => 0,
+        ]);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/layout',
+            $this->withCsrf([
+                'title_btn' => '<b>Keep</b><br/>text',
+                'title_btn_sm' => '<em>plain</em>',
+                'title_banner' => 'GENERAL<br/>ANNOUNCEMENT',
+            ])
+        );
+
+        $result->assertRedirectTo('/admin/announcements/' . $id);
+        $row = (new AnnouncementModel())->find($id);
+        $this->assertSame('Keep<br/>text', $row['title_btn']);
+        $this->assertSame('plain', $row['title_btn_sm']);
+        $this->assertSame('GENERAL<br/>ANNOUNCEMENT', $row['title_banner']);
     }
 
     public function test_new_alert_form_prefills_from_single_announcement(): void
