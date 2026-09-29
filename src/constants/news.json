@@ -628,6 +628,25 @@
                 "relatedNews": []
             },
             "mod": "production"
+        },
+        {
+            "id": 32,
+            "slug": "metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly",
+            "title": "MetaOptics expands U.S. investor reach with OTCQX debut under ticker MOTLY",
+            "desc": "MetaOptics Technologies CFO Alex Chu joined Steve Darling from Proactive to discuss the company’s OTCQX debut under ticker MOTLY, while maintaining its primary listing on SGX Catalist as 9MT.",
+            "date": "Sep 28, 2026",
+            "image": "/news/metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly.jpg",
+            "thumbnail": "/news/metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly.jpg",
+            "path": "https://www.proactiveinvestors.com/companies/news/1099243/metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly.html",
+            "external": false,
+            "details": {
+                "images": [
+                    "/news/metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly.jpg"
+                ],
+                "contentPath": "/content/news/metaoptics-expands-us-investor-reach-with-otcqx-debut-under-ticker-motly.mdx",
+                "relatedNews": []
+            },
+            "mod": "production"
         }
     ]
 }
