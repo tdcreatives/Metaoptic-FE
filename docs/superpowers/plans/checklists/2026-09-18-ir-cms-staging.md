@@ -1,6 +1,6 @@
 # IR CMS staging checklist (CI4)
 
-Manual checks on a production-like staging host after SGX Mirror is green. Admin: `/admin/*`. Public API: `GET /api/announcements`. Digest mailer is still `log_message` until the Email plan.
+Manual checks on a production-like staging host after SGX Mirror is green. Admin: `/admin/*`. Public API: `GET /api/announcements`. Email Alerts are a separate CMS entity; Publish and investor email are independent workflows.
 
 ## Login rate limit
 
@@ -17,9 +17,10 @@ Manual checks on a production-like staging host after SGX Mirror is green. Admin
 
 ## Summary edit keeps source
 
-- [ ] Open a pending announcement; note `source_payload` JSON.
-- [ ] POST summary / email subject / intro with extra fields (`source_payload`, `state`, `title`).
-- [ ] Only `summary`, `email_subject`, `email_intro` change; source JSON, title, and state are unchanged.
+- [ ] Open a pending announcement; note `source_payload` JSON and SGX source title.
+- [ ] POST summary / FE layout fields via the detail update with extra forbidden fields (`source_payload`, `state`, `title`).
+- [ ] FE fields and summary save; `source_payload` and SGX source title remain immutable; `state` unchanged.
+- [ ] Email subject/intro are **not** on announcement detail — compose lives on Email Alert.
 - [ ] `audit_log` has `summary_edit` for that announcement id.
 
 ## Publish → public API
@@ -29,16 +30,34 @@ Manual checks on a production-like staging host after SGX Mirror is green. Admin
 - [ ] `GET /api/announcements` includes that slug; pending/archived rows stay absent.
 - [ ] Source payload / `needs_review` never appear on the public API.
 
-## Send gate
+## Publish may offer Email Alert draft
 
-- [ ] Send on a non-published item flashes `not_published` and creates no `email_campaigns` row.
-- [ ] Send button is disabled until `state === published`.
-- [ ] After publish, Send queues one campaign (`status=queued`) and audits `send`.
+- [ ] After a successful Publish, CMS **may** offer a prefilled Email Alert **draft** (optional).
+- [ ] Declining the offer, or draft creation failure, does **not** un-publish the announcement.
+- [ ] Published state and public API row remain regardless of draft outcome.
 
-## One campaign
+## Announcement detail has no Send
 
-- [ ] Second Send on the same announcement flashes `campaign_exists`.
-- [ ] `email_campaigns.announcement_id` remains unique (still one row).
+- [ ] Announcement detail has **no Send** button or send action.
+- [ ] No investor-email send endpoint on announcement detail (`/admin/announcements/:id`).
+
+## Create Email Alert with this (Published only)
+
+- [ ] On a non-Published item, **Create Email Alert with this** is absent or disabled.
+- [ ] On a Published item, the shortcut opens a new Email Alert with this announcement attached.
+
+## Email Alerts compose
+
+- [ ] **Email Alerts** list / compose / detail is separate from announcement detail.
+- [ ] Attach **1…N Published** announcements; non-Published items cannot be attached.
+- [ ] Compose subject, intro, and WYSIWYG body on the Email Alert (not on announcement detail).
+- [ ] **Schedule** (Singapore time) or **Send now** queues/sends the alert.
+- [ ] Delivery report shows queued / sent / failed for that alert.
+
+## One announcement, many alerts
+
+- [ ] The same Published announcement can be attached to **many** Email Alerts over time.
+- [ ] No unique-one-alert constraint per announcement.
 
 ## Recipients audited
 
