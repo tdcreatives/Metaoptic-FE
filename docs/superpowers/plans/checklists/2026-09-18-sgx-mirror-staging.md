@@ -4,7 +4,17 @@ Manual checks on a production-like staging host. Backend: `php spark sgx:sync` f
 
 Digest send is out of scope (CMS/Email plans).
 
-## Backfill once
+## JSON-first history
+
+- [ ] Run `php spark announcements:import-json /absolute/path/to/announcements.json` **before** relying on SGX for baseline history.
+- [ ] Imported rows land `published` with `published_at` set; slugs match the FE JSON fixture.
+- [ ] No digest/campaign/investor email is created during import.
+- [ ] After import, eyeball CLI `skipped sgx_reference` lines (duplicate refs stay NULL and are invisible to SGX sync).
+- [ ] Then run daily/incremental `php spark sgx:sync` for new SGX filings (see **Incremental pending** below).
+
+## Backfill once (legacy / optional)
+
+> Prefer **JSON-first history** above. Use SGX backfill only when JSON import is unavailable.
 
 - [ ] Set `sgx.backfill = true` in backend `.env`.
 - [ ] Run `php spark sgx:sync` **once**.
@@ -42,8 +52,8 @@ Digest send is out of scope (CMS/Email plans).
 
 - [ ] `GET /api/announcements` → `{ data: [...], meta: { page, page_size, total } }`.
 - [ ] `GET /api/announcements/:slug` works for a published slug.
-- [ ] Query params: `page`, `page_size` (max 50), `category`, `q`, `date_from`, `date_to`.
-- [ ] Each `data[]` row has: `id`, `slug`, `title`, `category`, `issuer`, `filed_at`, `source_url`, `summary`, `published_at`.
+- [ ] Query params: `page`, `page_size` (max **100**), `category`, `q`, `date_from`, `date_to`.
+- [ ] Each `data[]` row matches Presenter FE shape: `id`, `title`, `title_btn`, `title_btn_sm`, `title_banner`, `slug`, `desc`, `date`, `details`, `category`.
 - [ ] Response never includes `source_payload`, `source_hash`, `needs_review`, subscriber data, secrets, or internal errors.
 - [ ] Pending/review rows are absent from the public list.
 - [ ] CORS: allowed MetaOptics `Origin` gets `Access-Control-Allow-Origin`; others do not.
@@ -51,9 +61,9 @@ Digest send is out of scope (CMS/Email plans).
 ## FE flag on staging
 
 - [ ] Staging `.env` has `NEXT_PUBLIC_IR_API_BASE` set to the CI4 `public/` origin.
-- [ ] Keep `useAnnouncementsApi` **false** until slug/detail strategy is decided. Do not flip for merge or this staging deploy.
+- [ ] Keep `useAnnouncementsApi` **false** until slug-diff on staging (incl. placement press-release). Do not flip for merge or this staging deploy.
 - [ ] With flag **off**: company announcements still render from JSON fallback.
-- [ ] With flag **on** (only after that decision): list loads from `/api/announcements`; `filed_at` maps to Asia/Singapore date strings.
+- [ ] With flag **on** (only after slug-diff passes): list loads from `/api/announcements`; `date` maps to Asia/Singapore date strings.
 - [ ] Flag-on failure (API down) does not leak unpublished/internal fields to the page.
 
 ## Host / fetch contract
