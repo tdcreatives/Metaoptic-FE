@@ -1,10 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
     fetchAnnouncementBySlug,
     fetchAnnouncementList,
     mapApiAnnouncementToLegacy,
 } from './announcements-api.js';
+import {
+    FORBIDDEN_KEYS,
+    LEGACY_KEYS,
+    LIST_KEYS,
+    syntheticPresenterRow,
+} from '../../scripts/check-announcement-api-parity.mjs';
 import { parseAnnouncementDate } from '../utils/announcements.js';
 
 const apiRow = {
@@ -128,6 +137,28 @@ test('fetchAnnouncementList without page follows meta.total across pages', async
         } else {
             process.env.NEXT_PUBLIC_IR_API_BASE = previous;
         }
+    }
+});
+
+test('JSON fixture list items have FE list keys', () => {
+    const jsonPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '../constants/announcements.json');
+    const items = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    assert.ok(Array.isArray(items) && items.length > 0);
+    for (const item of items) {
+        for (const key of LIST_KEYS) {
+            assert.ok(Object.hasOwn(item, key), `list item ${item.id} missing ${key}`);
+        }
+    }
+});
+
+test('synthetic Presenter row maps to legacy FE keys without forbidden fields', () => {
+    const row = syntheticPresenterRow();
+    const legacy = mapApiAnnouncementToLegacy(row);
+    for (const key of LEGACY_KEYS) {
+        assert.ok(legacy[key] != null, `mapped legacy missing ${key}`);
+    }
+    for (const key of FORBIDDEN_KEYS) {
+        assert.equal(Object.hasOwn(legacy, key), false, `mapped legacy must not include ${key}`);
     }
 });
 
