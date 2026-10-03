@@ -6,7 +6,8 @@
  * so direct URLs redirect at the server (Apache) without a client-side flash.
  */
 export const IR_LAUNCH_FLAGS = {
-    useAnnouncementsApi: false,
+    // Local test: needs NEXT_PUBLIC_IR_API_BASE + backend CORS for this origin.
+    useAnnouncementsApi: true,
     showMostRecentEvents: false,
     showLatestFinancialResults: false,
     showUpcomingEvents: false,
@@ -15,7 +16,8 @@ export const IR_LAUNCH_FLAGS = {
     showAnalystCoverage: true,
     showQuarterlyResults: false,
     showDocumentsAndCharters: false,
-    showEmailAlerts: false,
+    // Local test: also remove email-alerts redirects in next.config.js / .htaccess.
+    showEmailAlerts: true,
 };
 
 /** Parent redirect when Stock Info (entire section) is hidden */

@@ -13,7 +13,8 @@ RewriteRule ^analyst-coverage(?:\.html)?/?$ /investor-relations/analyst-coverage
 RewriteRule ^investor-relations/stock-info/analyst-coverage(?:\.html)?/?$ /investor-relations/analyst-coverage [R=301,L,NC]
 RewriteRule ^investor-relations/financials(?:\.html|/.*)?/?$ /investor-relations/company-announcement [R=301,L,NC]
 RewriteRule ^investor-relations/news(?:\.html|/.*)?/?$ /news [R=301,L,NC]
-RewriteRule ^investor-relations/resources/email-alerts(?:\.html)?/?$ /investor-relations/resources/investor-faqs [R=301,L,NC]
+# Email Alerts enabled for local/staging test (showEmailAlerts). Re-enable redirect for prod hide.
+# RewriteRule ^investor-relations/resources/email-alerts(?:\.html)?/?$ /investor-relations/resources/investor-faqs [R=301,L,NC]
 RewriteRule ^investor-relations/stock-info(?:\.html|/.*)?/?$ /investor-relations [R=301,L,NC]
 RewriteRule ^investor-relations/governance/documents-and-charters(?:\.html)?/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]
 RewriteRule ^investor-relations/governance(?:\.html)?/?$ /investor-relations/governance/board-of-directors [R=301,L,NC]

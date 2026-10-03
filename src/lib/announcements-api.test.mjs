@@ -4,8 +4,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+    announcementStaticParamsFrom,
     fetchAnnouncementBySlug,
     fetchAnnouncementList,
+    fetchAnnouncementPreview,
     mapApiAnnouncementToLegacy,
 } from './announcements-api.js';
 import {
@@ -162,6 +164,42 @@ test('synthetic Presenter row maps to legacy FE keys without forbidden fields', 
     }
 });
 
+test('announcementStaticParamsFrom unions API slugs when includeApi', async () => {
+    const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    const previousFetch = globalThis.fetch;
+    globalThis.fetch = async () => ({
+        ok: true,
+        json: async () => ({
+            data: [{ ...apiRow, slug: 'api-only-slug' }, { ...apiRow, slug: 'mou-sg25010100abcde' }],
+            meta: { page: 1, page_size: 100, total: 2 },
+        }),
+    });
+
+    try {
+        const jsonOnly = await announcementStaticParamsFrom(
+            [{ slug: 'mou-sg25010100abcde' }, { slug: 'dup' }, { slug: 'dup' }],
+            { includeApi: false }
+        );
+        assert.deepEqual(jsonOnly, [{ slug: 'mou-sg25010100abcde' }, { slug: 'dup' }]);
+
+        const merged = await announcementStaticParamsFrom([{ slug: 'mou-sg25010100abcde' }], {
+            includeApi: true,
+        });
+        assert.deepEqual(
+            merged.map((p) => p.slug).sort(),
+            ['api-only-slug', 'mou-sg25010100abcde']
+        );
+    } finally {
+        globalThis.fetch = previousFetch;
+        if (previous === undefined) {
+            delete process.env.NEXT_PUBLIC_IR_API_BASE;
+        } else {
+            process.env.NEXT_PUBLIC_IR_API_BASE = previous;
+        }
+    }
+});
+
 test('fetchAnnouncementBySlug GETs /api/announcements/{slug}', async () => {
     const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
     process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
@@ -182,6 +220,38 @@ test('fetchAnnouncementBySlug GETs /api/announcements/{slug}', async () => {
         const requested = new URL(calls[0].url);
         assert.equal(requested.origin, 'https://ir-api.example.test');
         assert.equal(requested.pathname, `/api/announcements/${apiRow.slug}`);
+    } finally {
+        globalThis.fetch = previousFetch;
+        if (previous === undefined) {
+            delete process.env.NEXT_PUBLIC_IR_API_BASE;
+        } else {
+            process.env.NEXT_PUBLIC_IR_API_BASE = previous;
+        }
+    }
+});
+
+test('fetchAnnouncementPreview GETs /api/announcements/preview?t=', async () => {
+    const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    const calls = [];
+    const previousFetch = globalThis.fetch;
+    globalThis.fetch = async (url, init) => {
+        calls.push({ url: String(url), init });
+        return {
+            ok: true,
+            json: async () => ({ data: apiRow, meta: { preview: true, state: 'pending_review' } }),
+        };
+    };
+
+    try {
+        const payload = await fetchAnnouncementPreview('1.9999999999.abcdef');
+        assert.equal(payload.data.slug, apiRow.slug);
+        assert.equal(payload.meta.preview, true);
+        assert.equal(calls.length, 1);
+        const requested = new URL(calls[0].url);
+        assert.equal(requested.pathname, '/api/announcements/preview');
+        assert.equal(requested.searchParams.get('t'), '1.9999999999.abcdef');
+        assert.equal(calls[0].init?.cache, 'no-store');
     } finally {
         globalThis.fetch = previousFetch;
         if (previous === undefined) {

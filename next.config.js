@@ -46,11 +46,7 @@ const nextConfig = {
         destination: '/news',
         permanent: true,
       },
-      {
-        source: '/investor-relations/resources/email-alerts',
-        destination: '/investor-relations/resources/investor-faqs',
-        permanent: true,
-      },
+      // Email Alerts live when showEmailAlerts is true — do not redirect away.
       {
         source: '/investor-relations/stock-info/:path*',
         destination: '/investor-relations',

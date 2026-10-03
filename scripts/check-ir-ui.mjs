@@ -15,7 +15,7 @@ const EXPECTED_TAB_LABELS = [
   'Resources',
 ];
 
-const FORBIDDEN_TAB_LABELS = ['News', 'Stock Info', 'Financials', 'Email Alerts'];
+const FORBIDDEN_TAB_LABELS = ['News', 'Stock Info', 'Financials'];
 
 const EXPECTED_TAB_PATHS = [
   '/investor-relations',
@@ -42,7 +42,6 @@ const EXPECTED_NEXT_REDIRECTS = [
   ['/investor-relations/stock-info/analyst-coverage', '/investor-relations/analyst-coverage'],
   ['/investor-relations/financials/:path*', '/investor-relations/company-announcement'],
   ['/investor-relations/news/:path*', '/news'],
-  ['/investor-relations/resources/email-alerts', '/investor-relations/resources/investor-faqs'],
   ['/investor-relations/stock-info/:path*', '/investor-relations'],
   ['/annountcement', '/investor-relations/company-announcement'],
   ['/annountcement/:slug', '/investor-relations/company-announcement/:slug'],
@@ -63,7 +62,6 @@ const APACHE_REDIRECT_CASES = [
   ['investor-relations/financials/sec-filings.html', '/investor-relations/company-announcement'],
   ['investor-relations/news/', '/news'],
   ['investor-relations/news/media.html', '/news'],
-  ['investor-relations/resources/email-alerts.html', '/investor-relations/resources/investor-faqs'],
   ['investor-relations/stock-info', '/investor-relations'],
   ['investor-relations/stock-info/stock-quote.html', '/investor-relations'],
   ['investor-relations/governance/documents-and-charters', '/investor-relations/governance/board-of-directors'],
@@ -323,8 +321,9 @@ function checkFaqStockListingCopy() {
 
 function checkDeferredEmailAlerts() {
   const flagsSource = read('src/constants/ir-feature-flags.js');
-  if (!/showEmailAlerts:\s*false/.test(flagsSource)) {
-    fail('Email Alerts must remain disabled behind showEmailAlerts: false');
+  // Local/staging test: showEmailAlerts may be true. Gate + form must remain.
+  if (!/showEmailAlerts:\s*(true|false)/.test(flagsSource)) {
+    fail('Email Alerts flag showEmailAlerts must be defined');
   }
 
   const pageSource = read('src/app/investor-relations/resources/email-alerts/page.js');
@@ -334,14 +333,14 @@ function checkDeferredEmailAlerts() {
     !/return <IrLaunchRedirect to=['"]\/investor-relations\/resources\/investor-faqs['"] \/>/.test(pageSource) ||
     /from ['"]next\/navigation['"]/.test(pageSource)
   ) {
-    fail('Disabled Email Alerts page must use IrLaunchRedirect to Investor FAQs');
+    fail('Email Alerts page must keep IrLaunchRedirect gate for when flag is off');
   }
 
-  if (!read('src/layouts/investor-relations/resources/email-alerts.js').includes('buildIrEmailAlertsPayload')) {
-    fail('Deferred Email Alerts implementation must be preserved');
+  if (!read('src/layouts/investor-relations/email-alerts-form.js').includes('postSubscribe')) {
+    fail('Email Alerts form must post via subscribe-api');
   }
   if (!read('src/lib/web3forms.js').includes('buildIrEmailAlertsPayload')) {
-    fail('Deferred Email Alerts payload builder must be preserved');
+    fail('Legacy Email Alerts payload builder must be preserved');
   }
 }
 
@@ -504,9 +503,7 @@ function checkBuiltOutput() {
   if (/Recent Press Releases/i.test(launchPages)) {
     fail('Built IR launch pages must not expose Recent Press Releases');
   }
-  if (/Email Alerts/i.test(launchPages)) {
-    fail('Built IR launch pages must not expose Email Alerts');
-  }
+  // Email Alerts may appear in nav/pages when showEmailAlerts is true.
   if (GATEWAY_PATTERNS.some((pattern) => pattern.test(launchPages))) {
     fail('Built IR launch pages must not expose Gateway contact content');
   }

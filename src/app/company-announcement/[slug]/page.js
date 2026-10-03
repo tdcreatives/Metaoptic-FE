@@ -3,7 +3,11 @@ import React from 'react';
 import metadataJson from '@/constants/metadata.json';
 import items from '@/constants/announcements.json';
 import { IR_LAUNCH_FLAGS } from '@/constants/ir-feature-flags';
-import { fetchAnnouncementBySlug, mapApiAnnouncementToLegacy } from '@/lib/announcements-api';
+import {
+    announcementStaticParamsFrom,
+    fetchAnnouncementBySlug,
+    mapApiAnnouncementToLegacy,
+} from '@/lib/announcements-api';
 
 import Header from '@/layouts/main/header';
 import Footer from '@/layouts/main/footer';
@@ -54,9 +58,9 @@ const getAnnouncementDescription = (announcement) => {
 };
 
 export async function generateStaticParams() {
-    return items.map((item) => ({
-        slug: item.slug,
-    }));
+    return announcementStaticParamsFrom(items, {
+        includeApi: IR_LAUNCH_FLAGS.useAnnouncementsApi,
+    });
 }
 
 export async function generateMetadata(props) {

@@ -40,6 +40,7 @@ const investorRelationsTabsBase = [
     subItems: [
       { label: 'Investor FAQs', path: '/investor-relations/resources/investor-faqs' },
       { label: 'Contact Us', path: '/investor-relations/resources/contact-us' },
+      { label: 'Email Alerts', path: '/investor-relations/resources/email-alerts', launchFlag: 'showEmailAlerts' },
     ],
   },
 ];
