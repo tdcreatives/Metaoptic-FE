@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "code": "200",
+    "message": "success",
+    "totalPages": 2,
+    "totalItems": 2,
+    "requestTimestamp": 0
+  },
+  "data": [
+    {
+      "ref_id": "SG25010100ABCDE",
+      "category_name": "General Announcement",
+      "submitted_by": "MetaOptics Ltd",
+      "title": "General Announcement::METAOPTICS ENTERS MOU",
+      "security_name": "METAOPTICS LTD",
+      "url": "https://example.test/sgx/announcement/SG25010100ABCDE",
+      "issuer_name": "METAOPTICS LTD",
+      "broadcast_date_time": 1757899800000,
+      "id": "ABCDE1001"
+    },
+    {
+      "ref_id": "SG25080100FGHIJ",
+      "category_name": "Financial Statements",
+      "submitted_by": "MetaOptics Ltd",
+      "title": "Financial Statements::1H RESULTS",
+      "security_name": "METAOPTICS LTD",
+      "url": "https://example.test/sgx/announcement/SG25080100FGHIJ",
+      "issuer_name": "METAOPTICS LTD",
+      "broadcast_date_time": 1754038800000,
+      "id": "FGHIJ1002"
+    }
+  ]
+}

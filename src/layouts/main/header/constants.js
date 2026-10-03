@@ -3,67 +3,64 @@ export const headers = [
   { label: "ABOUT US", path: "/about-us" },
   { label: "VERTICALS", path: "/verticals", dropdownKey: "verticals" },
   { label: "NEWS", path: "/news" },
-  { label: "INVESTOR RELATIONS", path: "/investor-relations", dropdownKey: "investorRelations" },
+  { label: "INVESTOR RELATIONS", path: "/investor-relations" },
   { label: "CONTACT", path: "/contact-us" },
   { label: "SHOP", path: "https://metaoptics.shop/" },
 ];
 
 // Dropdown items configuration
-export const dropdownItems = {
+const dropdownItemsBase = {
   verticals: {
-    metalensEquipment: {
-      label: "Metalens Capital Equipment",
-      path: "/verticals/metalens-capital-equipment",
-      hasIndicator: true,
+    metaOpticsEquipment: {
+      label: "MetaOptics Equipment",
+      icon: "/common/equipment.svg",
+      path: "/verticals/equipment/overview",
       items: [
-        { label: "Direct Laser Writer", path: "/verticals/metalens-capital-equipment/direct-laser-writer" },
-        { label: "Manual Tester", path: "/verticals/metalens-capital-equipment/manual-tester" },
-        { label: "Automatic Tester", path: "/verticals/metalens-capital-equipment/metalens-automatic-tester" },
-        { label: "Automatic Assembler & Tester", path: "/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system" },
+        { label: "Overview", path: "/verticals/equipment/overview" },
+        { label: "Lithography", path: "/verticals/equipment/lithography" },
+        { label: "Testing", path: "/verticals/equipment/testing" },
+        { label: "Assembly", path: "/verticals/equipment/assembly" },
       ],
     },
-    metalensFoundry: {
-      label: "Metalens Foundry",
-      path: "/verticals/metalens-foundry",
-      hasIndicator: true,
+    metaOpticsFoundry: {
+      label: "MetaOptics Foundry",
+      icon: "/common/foundary.svg",
+      path: "/verticals/foundary/overview",
       items: [
-        { label: "4\" & 12\" Platforms", path: "/verticals/metalens-foundry/4in-12in-platforms" },
-        // { label: "Color Imaging Metalens", path: "/verticals/metalens-foundry/color-imaging-meta-lens" },
-        { label: "Round RGB Metalens", path: "/verticals/metalens-foundry/round-rgb-metalens" },
-        { label: "Rectangular RGB Metalens", path: "/verticals/metalens-foundry/rectangular-rgb-metalens" },
-        { label: "Ultra-wide FOV IR Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-ir-metalens" },
-        // { label: "Ultra-Wide fov Metalens", path: "/verticals/metalens-foundry/ultra-wide-fov-metalens-monochromatic-ir-camera" },
-        { label: "CPO", path: "/verticals/metalens-foundry/co-packaged-optics" },
+        { label: "Overview", path: "/verticals/foundary/overview" },
+        { label: "VIS Metalens", path: "/verticals/foundary/vis-metalens" },
+        { label: "NIR & SWIR Metalenses", path: "/verticals/foundary/nir-swir-metalens" },
+        { label: "Photonic Integrations", path: "/verticals/foundary/photonics-integration" },
       ],
-    },  
-    metalensProducts: {
-      label: "Metalens Products",
-      path: "/verticals/metalens-products",
-      hasIndicator: true,
+    },
+    metaOpticsProducts: {
+      label: "MetaOptics Products",
+      icon: "/common/products.svg",
+      path: "/verticals/product/overview",
       items: [
-        { label: "Metalens 5G Smartphone", path: "/verticals/metalens-products/metalens-5g-smartphone" },
-        { label: "Pico Projector (2nd generation)", path: "/verticals/metalens-products/pico-projector-2nd-generation" },
-        { label: "Metalens AI Smart Glasses", path: "/verticals/metalens-products/metalens-ai-glasses" },
-        { label: "Development Kits", path: "/verticals/metalens-products/development-kits" },
+        { label: "Overview", path: "/verticals/product/overview" },
+        { label: "Consumer Devices", path: "/verticals/product/consumer-devices" },
+        { label: "Projection Modules", path: "/verticals/product/projection-modules" },
+        { label: "Camera Modules", path: "/verticals/product/camera-modules" },
+        { label: "Development Kits", path: "/verticals/product/development-kits" },
       ],
     },
     metaOpticsAi: {
       label: "MetaOptics AI",
-      path: "/verticals/metaoptics-ai",
-      isHighlighted: true,
-    },
-  },
-  investorRelations: {
-    companyAnnouncements: {
-      label: "Company Announcements",
-      path: "/investor-relations",
-    },
-    analystCoverage: {
-      label: "Analyst Coverage",
-      path: "/analyst-coverage",
+      icon: "/common/ai.svg",
+      path: "/verticals/ai/overview",
+      items: [
+        { label: "Overview", path: "/verticals/ai/overview" },
+        { label: "MOTViewer", path: "/verticals/ai/motviewer" },
+        { label: "AI Models & Algorithms", path: "/verticals/ai/ai-models" },
+      ],
     },
   },
 };
 
+export const dropdownItems = dropdownItemsBase;
+
+export const getDropdownItems = () => dropdownItemsBase;
+
 // Legacy export for backward compatibility
-export const productsDropdownItems = dropdownItems.verticals;
+export const productsDropdownItems = dropdownItemsBase.verticals;

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "code": "200",
+    "message": "success",
+    "totalPages": 2,
+    "totalItems": 1,
+    "requestTimestamp": 0
+  },
+  "data": [
+    {
+      "ref_id": "SG25072000KLMNO",
+      "category_name": "General Announcement",
+      "submitted_by": "MetaOptics Ltd",
+      "title": "General Announcement::BOARD APPOINTMENT",
+      "security_name": "METAOPTICS LTD",
+      "url": "https://example.test/sgx/announcement/SG25072000KLMNO",
+      "issuer_name": "METAOPTICS LTD",
+      "broadcast_date_time": 1752976800000,
+      "id": "KLMNO1003"
+    }
+  ]
+}

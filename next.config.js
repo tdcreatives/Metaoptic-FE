@@ -17,9 +17,55 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/company-announcement',
+        destination: '/investor-relations/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/company-announcement/:slug',
+        destination: '/investor-relations/company-announcement/:slug',
+        permanent: true,
+      },
+      {
+        source: '/analyst-coverage',
+        destination: '/investor-relations/analyst-coverage',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/stock-info/analyst-coverage',
+        destination: '/investor-relations/analyst-coverage',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/financials/:path*',
+        destination: '/investor-relations/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/investor-relations/news/:path*',
+        destination: '/news',
+        permanent: true,
+      },
+      // Email Alerts live when showEmailAlerts is true — do not redirect away.
+      {
+        source: '/investor-relations/stock-info/:path*',
+        destination: '/investor-relations',
+        permanent: true,
+      },
+      {
+        source: '/annountcement',
+        destination: '/investor-relations/company-announcement',
+        permanent: true,
+      },
+      {
+        source: '/annountcement/:slug',
+        destination: '/investor-relations/company-announcement/:slug',
+        permanent: true,
+      },
+      {
         source: '/verticals/metalens-foundry/iot-metalens-color-camera',
         destination:
-          '/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera',
+          '/verticals/metalens-products/development-kits/iot-metalens-color-camera',
         permanent: true,
       },
       {
@@ -34,7 +80,6 @@ const nextConfig = {
           '/',
         permanent: true,
       },
-      
     ];
   },
 };

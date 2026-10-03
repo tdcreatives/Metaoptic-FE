@@ -5,19 +5,20 @@
     overflow: hidden;
 }
 
-/* Background logo animations */
+/* Background logo — decorative only, no hover state */
 .banner-logo {
-    transition: all 0.3s ease-in-out;
-}
-
-.banner-logo:hover {
-    opacity: 0.3;
-    transform: scale(1.05);
+    pointer-events: none;
 }
 
 /* Text animations */
 .banner-text {
     animation: fadeInUp 0.8s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-text {
+        animation: none;
+    }
 }
 
 @keyframes fadeInUp {

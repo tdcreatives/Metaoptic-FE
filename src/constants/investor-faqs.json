@@ -1,0 +1,44 @@
+{
+    "faqs": [
+        {
+            "id": "hq-location",
+            "question": "Where is MetaOptics Ltd headquartered?",
+            "answer": "MetaOptics Ltd is headquartered in Singapore, where its primary research, development, and operational functions are based. The company's Singapore office is located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
+        },
+        {
+            "id": "us-office",
+            "question": "Where is MetaOptics Ltd's U.S. office?",
+            "answer": "MetaOptics maintains a U.S. office in San Francisco, California, supporting its North American investor relations and business development activities. The U.S. office is located at 1 Ferry Building, Suite 201, San Francisco, CA 94111."
+        },
+        {
+            "id": "incorporation",
+            "question": "Where was MetaOptics Ltd incorporated?",
+            "answer": "MetaOptics Ltd is incorporated in the Cayman Islands, a common jurisdiction for international technology companies seeking operational and structural flexibility across global markets."
+        },
+        {
+            "id": "fiscal-year-end",
+            "question": "When is MetaOptics Ltd's fiscal year end?",
+            "answer": "MetaOptics Ltd's fiscal year ends on December 31. Annual financial results are reported in accordance with this calendar-year schedule and filed with the relevant regulatory authorities."
+        },
+        {
+            "id": "stock-symbol",
+            "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
+            "answer": "MetaOptics Ltd is listed on the Singapore Exchange (SGX) under stock code 9MT."
+        },
+        {
+            "id": "independent-auditor",
+            "question": "Who is MetaOptics Ltd's independent auditor?",
+            "answer": "MetaOptics Ltd's financial statements are audited by PricewaterhouseCoopers LLP, one of the world's leading professional services and audit firms, recognized for its expertise in technology and high-growth companies."
+        },
+        {
+            "id": "us-legal-counsel",
+            "question": "Who is MetaOptics Ltd's outside U.S. legal counsel?",
+            "answer": "MetaOptics Ltd is represented in the United States by Norton Rose Fulbright, a global law firm with extensive experience advising public companies on securities law, capital markets matters, and regulatory compliance."
+        },
+        {
+            "id": "sg-legal-counsel",
+            "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
+            "answer": "MetaOptics Ltd's Singapore legal affairs are handled by Drew & Napier LLC, one of Singapore's most established full-service law firms with deep expertise in corporate and capital markets matters."
+        }
+    ]
+}
