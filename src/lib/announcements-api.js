@@ -124,3 +124,65 @@ export async function fetchAnnouncementBySlug(slug) {
     const payload = await res.json();
     return payload.data ?? payload;
 }
+
+/** Client-side preview of unpublished announcement via signed token (no cache). */
+export async function fetchAnnouncementPreview(token) {
+    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
+    if (!base) {
+        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
+    }
+    if (!token) {
+        throw new Error('preview token required');
+    }
+
+    const url = new URL('/api/announcements/preview', base);
+    url.searchParams.set('t', token);
+    const res = await fetch(url.toString(), { cache: 'no-store' });
+    if (!res.ok) {
+        const err = new Error(`announcements preview API ${res.status}`);
+        err.status = res.status;
+        throw err;
+    }
+    const payload = await res.json();
+    return {
+        data: payload.data ?? payload,
+        meta: payload.meta ?? { preview: true },
+    };
+}
+
+/**
+ * Slugs for `generateStaticParams` under `output: 'export'`.
+ * When `includeApi` is true, union JSON slugs with published API slugs so
+ * API-only filings are routable (dev + static build with API reachable).
+ */
+export async function announcementStaticParamsFrom(jsonItems, { includeApi = false } = {}) {
+    const params = [];
+    const seen = new Set();
+
+    for (const item of jsonItems || []) {
+        const slug = item?.slug;
+        if (typeof slug === 'string' && slug !== '' && !seen.has(slug)) {
+            seen.add(slug);
+            params.push({ slug });
+        }
+    }
+
+    if (!includeApi) {
+        return params;
+    }
+
+    try {
+        const { data } = await fetchAnnouncementList({ pageSize: 100 });
+        for (const row of data || []) {
+            const slug = row?.slug;
+            if (typeof slug === 'string' && slug !== '' && !seen.has(slug)) {
+                seen.add(slug);
+                params.push({ slug });
+            }
+        }
+    } catch {
+        // ponytail: offline/build without API — JSON params only; API-only slugs stay unroutable
+    }
+
+    return params;
+}
