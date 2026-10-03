@@ -3,12 +3,9 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use App\Libraries\Admin\AdminDigestNotifier;
-use App\Libraries\Sgx\SyncLock;
-use App\Libraries\Sgx\SyncService;
+use App\Libraries\Sgx\SgxSyncRunner;
 use CodeIgniter\CLI\BaseCommand;
 use CodeIgniter\CLI\CLI;
-use Config\Services;
 
 class SgxSync extends BaseCommand
 {
@@ -18,37 +15,19 @@ class SgxSync extends BaseCommand
 
     public function run(array $params): int
     {
-        $db = db_connect();
-        $lock = new SyncLock($db);
-        if (!$lock->acquire('sgx_sync')) {
-            CLI::error('Another sync is running');
+        $out = (new SgxSyncRunner())->run();
+        if (! $out['ok']) {
+            CLI::error($out['message']);
+
             return EXIT_ERROR;
         }
-        try {
-            $client = Services::sgxClient();
-            $items = $client->fetchAllPages();
-            $sgx = config('Sgx');
-            $fetcher = $sgx->fetchDetailHtml
-                ? static fn (string $url): string => $client->fetchHtml($url)
-                : null;
-            $result = (new SyncService($db, $sgx, $fetcher))->run($items);
-            CLI::write(sprintf(
-                'OK fetched=%d new=%d updated=%d detail_html=%s',
-                $result->fetchedCount,
-                $result->newCount,
-                $result->updatedCount,
-                $sgx->fetchDetailHtml ? 'on' : 'off'
-            ));
-            if (!$sgx->backfill && $result->newCount > 0) {
-                CLI::write('digest_pending new_count=' . $result->newCount);
-                (new AdminDigestNotifier())->notifyNewItems($result->newCount, []);
-            }
-            return EXIT_SUCCESS;
-        } catch (\Throwable $e) {
-            CLI::error('SYNC_FAILED: ' . substr($e->getMessage(), 0, 500));
-            return EXIT_ERROR;
-        } finally {
-            $lock->release('sgx_sync');
+
+        CLI::write($out['message']);
+        $result = $out['result'];
+        if ($result !== null && $result->newCount > 0 && ! config('Sgx')->backfill) {
+            CLI::write('digest_pending new_count=' . $result->newCount);
         }
+
+        return EXIT_SUCCESS;
     }
 }

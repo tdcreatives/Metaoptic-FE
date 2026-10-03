@@ -7,6 +7,8 @@ $routes->get('/', 'Home::index');
 
 $routes->group('api', static function ($routes) {
     $routes->get('announcements', 'Api\Announcements::index');
+    // Before (:segment) so "preview" is not treated as a slug.
+    $routes->get('announcements/preview', 'Api\Announcements::preview');
     $routes->get('announcements/(:segment)', 'Api\Announcements::show/$1');
 });
 
@@ -25,6 +27,7 @@ $routes->group('admin', static function ($routes) {
         $routes->get('announcements/new', 'Admin\Announcements::createForm');
         $routes->post('announcements', 'Admin\Announcements::create');
         $routes->get('announcements/(:num)', 'Admin\Announcements::show/$1');
+        $routes->get('announcements/(:num)/preview', 'Admin\Announcements::preview/$1');
         $routes->post('announcements/(:num)/update', 'Admin\Announcements::updateDetail/$1');
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
         $routes->post('announcements/(:num)/layout', 'Admin\Announcements::updateLayout/$1');
@@ -42,8 +45,12 @@ $routes->group('admin', static function ($routes) {
         $routes->post('email-alerts/(:num)/send-now', 'Admin\EmailAlerts::sendNow/$1');
         $routes->post('email-alerts/(:num)/cancel', 'Admin\EmailAlerts::cancel/$1');
         $routes->post('email-alerts/(:num)/delete', 'Admin\EmailAlerts::delete/$1');
+        $routes->get('subscribers', 'Admin\Subscribers::index');
+        $routes->get('subscribers/export', 'Admin\Subscribers::export');
+        $routes->post('subscribers/(:num)/unsubscribe', 'Admin\Subscribers::unsubscribe/$1');
         $routes->post('campaigns/(:num)/retry-failed', 'Admin\Campaigns::retryFailed/$1');
         $routes->get('sync-runs', 'Admin\SyncRuns::index');
+        $routes->post('sync-runs/run-now', 'Admin\SyncRuns::runNow');
         $routes->get('settings/recipients', 'Admin\Settings::recipients');
         $routes->post('settings/recipients', 'Admin\Settings::updateRecipients');
     });

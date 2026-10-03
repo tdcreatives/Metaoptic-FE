@@ -321,9 +321,12 @@ function checkFaqStockListingCopy() {
 
 function checkDeferredEmailAlerts() {
   const flagsSource = read('src/constants/ir-feature-flags.js');
-  // Local/staging test: showEmailAlerts may be true. Gate + form must remain.
-  if (!/showEmailAlerts:\s*(true|false)/.test(flagsSource)) {
-    fail('Email Alerts flag showEmailAlerts must be defined');
+  // showEmailAlerts may come from NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS. Gate + form must remain.
+  if (!/showEmailAlerts:\s*parseEnvFlag\(process\.env\.NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS\)/.test(flagsSource)) {
+    fail('Email Alerts flag showEmailAlerts must read NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS');
+  }
+  if (!/useAnnouncementsApi:\s*parseEnvFlag\(process\.env\.NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API\)/.test(flagsSource)) {
+    fail('Announcements API flag must read NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API');
   }
 
   const pageSource = read('src/app/investor-relations/resources/email-alerts/page.js');

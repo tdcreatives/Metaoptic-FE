@@ -6,6 +6,8 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Libraries\Admin\AlertDraftFromAnnouncementService;
 use App\Libraries\Admin\AnnouncementDeleteGuard;
+use App\Libraries\Admin\AnnouncementPreviewToken;
+use App\Libraries\Admin\ArchiveService;
 use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
 use App\Libraries\Sgx\AnnouncementDetailHydrator;
@@ -82,7 +84,32 @@ class Announcements extends BaseController
             'sourcePretty' => $pretty,
             'offerAlert' => $this->request->getGet('offer_alert') === '1'
                 && ($row['state'] ?? '') === 'published',
+            'canPreview' => in_array((string) ($row['state'] ?? ''), ['pending_review', 'archived'], true),
         ]);
+    }
+
+    /** Mint a short-lived token and open the real FE preview page. */
+    public function preview(int $id): RedirectResponse
+    {
+        $row = $this->findOr404($id);
+        $state = (string) ($row['state'] ?? '');
+        if (! in_array($state, ['pending_review', 'archived'], true)) {
+            return redirect()->to('/admin/announcements/' . $id)
+                ->with('error', 'Preview is only available for pending or archived announcements. Published items are already live on the site.');
+        }
+
+        try {
+            $tokens = AnnouncementPreviewToken::fromConfig();
+            $url = $tokens->pageUrl($tokens->mint($id));
+        } catch (InvalidArgumentException $e) {
+            $hint = str_contains($e->getMessage(), 'fe_origin')
+                ? 'Set admin.fePublicOrigin (or email.publicSiteURL) to your FE origin, e.g. http://localhost:3000.'
+                : 'Set admin.previewSecret or email.unsubscribeSecret (min 32 chars).';
+
+            return redirect()->to('/admin/announcements/' . $id)->with('error', 'Preview unavailable. ' . $hint);
+        }
+
+        return redirect()->to($url);
     }
 
     public function updateDetail(int $id): RedirectResponse
@@ -143,6 +170,8 @@ class Announcements extends BaseController
 
     public function publish(int $id): RedirectResponse
     {
+        $returnToList = $this->wantsListReturn();
+
         try {
             $changed = (new PublishService())->publish($id);
         } catch (DomainException $e) {
@@ -150,12 +179,21 @@ class Announcements extends BaseController
                 throw PageNotFoundException::forPageNotFound();
             }
 
-            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+            return redirect()
+                ->to($returnToList ? '/admin/announcements' : '/admin/announcements/' . $id)
+                ->with('error', $e->getMessage());
         }
 
         if ($changed) {
             service('auditLogger')->write('publish', 'announcement', (string) $id, []);
+        }
 
+        if ($returnToList) {
+            return redirect()->to('/admin/announcements')
+                ->with('message', 'Published — now live on the public IR website.');
+        }
+
+        if ($changed) {
             return redirect()->to('/admin/announcements/' . $id . '?offer_alert=1')->with('message', 'Published');
         }
 
@@ -179,11 +217,34 @@ class Announcements extends BaseController
 
     public function archive(int $id): RedirectResponse
     {
-        $this->findOr404($id);
-        model(AnnouncementModel::class)->update($id, ['state' => 'archived']);
-        service('auditLogger')->write('archive', 'announcement', (string) $id, []);
+        try {
+            $changed = (new ArchiveService())->archive($id);
+        } catch (DomainException $e) {
+            if ($e->getMessage() === 'not_found') {
+                throw PageNotFoundException::forPageNotFound();
+            }
+
+            return redirect()
+                ->to($this->wantsListReturn() ? '/admin/announcements' : '/admin/announcements/' . $id)
+                ->with('error', $e->getMessage());
+        }
+
+        if ($changed) {
+            service('auditLogger')->write('archive', 'announcement', (string) $id, []);
+        }
+
+        if ($this->wantsListReturn()) {
+            return redirect()->to('/admin/announcements')
+                ->with('message', 'Archived — hidden from the public IR website.');
+        }
 
         return redirect()->to('/admin/announcements/' . $id)->with('message', 'Archived');
+    }
+
+    private function wantsListReturn(): bool
+    {
+        return $this->request->getPost('return_to') === 'list'
+            || $this->request->getGet('return_to') === 'list';
     }
 
     public function delete(int $id): RedirectResponse

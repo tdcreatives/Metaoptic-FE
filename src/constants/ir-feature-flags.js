@@ -1,13 +1,31 @@
 /**
  * IR launch visibility flags.
- * Set a flag to true when the section/page is ready to go live.
+ *
+ * API / Email Alerts gates read NEXT_PUBLIC_* at build time (static export).
+ * Other section flags stay code defaults until they need env too.
  *
  * When toggling page-level flags, also update .htaccess IR launch redirect rules
  * so direct URLs redirect at the server (Apache) without a client-side flash.
  */
+
+/** @param {string|undefined} raw @param {boolean} [fallback=false] */
+export function parseEnvFlag(raw, fallback = false) {
+    if (raw === undefined || raw === '') {
+        return fallback;
+    }
+    const v = String(raw).trim().toLowerCase();
+    if (v === 'true' || v === '1' || v === 'yes') {
+        return true;
+    }
+    if (v === 'false' || v === '0' || v === 'no') {
+        return false;
+    }
+    return fallback;
+}
+
 export const IR_LAUNCH_FLAGS = {
-    // Local test: needs NEXT_PUBLIC_IR_API_BASE + backend CORS for this origin.
-    useAnnouncementsApi: true,
+    // NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API + NEXT_PUBLIC_IR_API_BASE + CORS
+    useAnnouncementsApi: parseEnvFlag(process.env.NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API),
     showMostRecentEvents: false,
     showLatestFinancialResults: false,
     showUpcomingEvents: false,
@@ -16,8 +34,8 @@ export const IR_LAUNCH_FLAGS = {
     showAnalystCoverage: true,
     showQuarterlyResults: false,
     showDocumentsAndCharters: false,
-    // Local test: also remove email-alerts redirects in next.config.js / .htaccess.
-    showEmailAlerts: true,
+    // NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS — also keep next.config / .htaccess in sync when hiding
+    showEmailAlerts: parseEnvFlag(process.env.NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS),
 };
 
 /** Parent redirect when Stock Info (entire section) is hidden */

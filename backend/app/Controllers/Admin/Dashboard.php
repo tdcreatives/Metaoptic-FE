@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Libraries\Admin\SubscriberDirectory;
 
 class Dashboard extends BaseController
 {
@@ -31,6 +32,7 @@ class Dashboard extends BaseController
             'alert_scheduled' => (int) ($alerts['alert_scheduled'] ?? 0),
             'alert_sending' => (int) ($alerts['alert_sending'] ?? 0),
             'alert_sent' => (int) ($alerts['alert_sent'] ?? 0),
+            'subscribers_active' => (new SubscriberDirectory())->countActive(),
         ]);
     }
 }

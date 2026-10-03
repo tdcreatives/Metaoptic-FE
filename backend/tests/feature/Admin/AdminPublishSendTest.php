@@ -154,6 +154,53 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertNotSame('2025-01-01 00:00:00', $row['published_at']);
     }
 
+    public function test_list_state_toggle_publish_returns_to_list(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'LISTPUB1',
+            'slug' => 'list-publish',
+            'title' => 'List Publish',
+            'state' => 'pending_review',
+        ]);
+
+        $list = $this->withSession(['admin' => true])->get('/admin/announcements');
+        $list->assertOK();
+        $body = $list->getBody();
+        $this->assertStringContainsString('badge-state-toggle', $body);
+        $this->assertStringContainsString('return_to', $body);
+        $this->assertStringContainsString('admin-confirm-dialog', $body);
+        $this->assertStringContainsString('data-confirm-open', $body);
+        $this->assertStringContainsString('admin-confirm-dialog.js', $body);
+        $this->assertStringNotContainsString('onsubmit="return confirm(', $body);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/publish',
+            $this->withCsrf(['return_to' => 'list'])
+        );
+        $result->assertRedirectTo('/admin/announcements');
+        $this->assertStringContainsString('live on the public', (string) session('message'));
+        $this->assertSame('published', (new AnnouncementModel())->find($id)['state']);
+    }
+
+    public function test_list_state_toggle_archive_returns_to_list(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'LISTARCH1',
+            'slug' => 'list-archive',
+            'title' => 'List Archive',
+            'state' => 'published',
+            'needs_review' => 0,
+        ]);
+
+        $result = $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/archive',
+            $this->withCsrf(['return_to' => 'list'])
+        );
+        $result->assertRedirectTo('/admin/announcements');
+        $this->assertStringContainsString('hidden from the public', (string) session('message'));
+        $this->assertSame('archived', (new AnnouncementModel())->find($id)['state']);
+    }
+
     public function test_publish_without_csrf_does_not_mutate(): void
     {
         $id = $this->insertRow([

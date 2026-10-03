@@ -55,6 +55,7 @@ final class AdminLayoutTest extends CIUnitTestCase
         $result->assertSee('css/admin.css');
         $result->assertSee('MetaOptics IR Admin');
         $result->assertSee('Announcements');
+        $result->assertSee('Subscribers');
         $result->assertSee('Sync history');
         $result->assertSee('Settings');
         $result->assertSee('Logout');

@@ -106,6 +106,14 @@ $isArchived = $state === 'archived';
                 <?php endif; ?>
             </button>
         </form>
+        <?php if (! empty($canPreview)): ?>
+            <a
+                class="btn btn-secondary"
+                href="<?= site_url('admin/announcements/' . $row['id'] . '/preview') ?>"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Preview on website</a>
+        <?php endif; ?>
         <?php if ($isPublished): ?>
             <a class="btn btn-secondary" href="<?= site_url('admin/email-alerts/new?announcement_id=' . $row['id']) ?>">Create Email Alert</a>
         <?php endif; ?>

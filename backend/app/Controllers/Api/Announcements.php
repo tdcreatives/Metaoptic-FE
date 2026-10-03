@@ -4,12 +4,14 @@ declare(strict_types=1);
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
+use App\Libraries\Admin\AnnouncementPreviewToken;
 use App\Libraries\Sgx\AnnouncementDetailHydrator;
 use App\Libraries\Sgx\AnnouncementPresenter;
 use App\Libraries\Http\CorsHeaders;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Database\BaseBuilder;
 use CodeIgniter\HTTP\ResponseInterface;
+use InvalidArgumentException;
 
 class Announcements extends BaseController
 {
@@ -46,6 +48,43 @@ class Announcements extends BaseController
 
         return $this->response->setJSON([
             'data' => AnnouncementPresenter::fromRow($row),
+        ]);
+    }
+
+    /** Signed-token preview of unpublished (or any) announcement — not listed publicly. */
+    public function preview(): ResponseInterface
+    {
+        CorsHeaders::apply($this->request, $this->response);
+        $token = trim((string) ($this->request->getGet('t') ?? ''));
+        if ($token === '') {
+            return $this->response->setStatusCode(404)->setJSON(['error' => 'not_found']);
+        }
+
+        try {
+            $id = AnnouncementPreviewToken::fromConfig()->parse($token);
+        } catch (InvalidArgumentException $e) {
+            $msg = $e->getMessage();
+            if (str_contains($msg, 'preview secret')) {
+                return $this->response->setStatusCode(503)->setJSON(['error' => 'preview_unavailable']);
+            }
+            $code = $msg === 'expired' ? 410 : 404;
+
+            return $this->response->setStatusCode($code)->setJSON(['error' => $msg]);
+        }
+
+        $row = model(AnnouncementModel::class)->find($id);
+        if ($row === null) {
+            return $this->response->setStatusCode(404)->setJSON(['error' => 'not_found']);
+        }
+
+        $row = AnnouncementDetailHydrator::hydrate($row);
+
+        return $this->response->setJSON([
+            'data' => AnnouncementPresenter::fromRow($row),
+            'meta' => [
+                'preview' => true,
+                'state' => (string) ($row['state'] ?? ''),
+            ],
         ]);
     }
 

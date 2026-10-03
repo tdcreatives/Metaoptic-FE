@@ -14,6 +14,9 @@ Options -Indexes
 	# If you installed CodeIgniter in a subfolder, you will need to
 	# change the following line to match the subfolder you need.
 	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
+	# Local (spark serve / vhost at /): leave commented.
+	# Prod Option A (document root alias public_html/backend → this public/):
+	# RewriteBase /backend/
 	# RewriteBase /
 
 	# Redirect Trailing Slashes...

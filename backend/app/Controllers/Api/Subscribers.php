@@ -37,7 +37,9 @@ class Subscribers extends BaseController
             );
             $service->subscribe(is_array($input) ? $input : []);
         } catch (\Throwable $e) {
-            log_message('error', 'subscribers.create failed: ' . $e::class);
+            // Include InvalidArgumentException message (e.g. short unsubscribe secret); avoid dumping other throwables (may contain PII).
+            $detail = $e instanceof \InvalidArgumentException ? (': ' . $e->getMessage()) : '';
+            log_message('error', 'subscribers.create failed: ' . $e::class . $detail);
         }
 
         return $this->ok();

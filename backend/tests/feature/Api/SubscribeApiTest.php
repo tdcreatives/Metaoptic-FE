@@ -209,4 +209,46 @@ final class SubscribeApiTest extends CIUnitTestCase
             'log must not contain the subscriber email'
         );
     }
+
+    public function test_empty_env_secret_still_persists_via_config_fallback(): void
+    {
+        putenv('email.unsubscribeSecret');
+        unset($_ENV['email.unsubscribeSecret'], $_SERVER['email.unsubscribeSecret']);
+        $cfg = new EmailAlerts();
+        Factories::injectMock('config', EmailAlerts::class, $cfg);
+        Factories::injectMock('config', 'EmailAlerts', $cfg);
+        $this->assertNotSame('', $cfg->unsubscribeSecret);
+        $this->assertGreaterThanOrEqual(32, strlen($cfg->unsubscribeSecret));
+
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'fallback-secret@example.com',
+            'first_name' => 'Fallback',
+            'categories' => ['General Announcement'],
+            'website' => '',
+        ]);
+        $result->assertStatus(200);
+        $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
+
+        $row = (new SubscriberModel())->where('email', 'fallback-secret@example.com')->first();
+        $this->assertNotNull($row, 'empty email.unsubscribeSecret must not silently skip DB write in testing/development');
+        $this->assertSame('active', $row['status']);
+    }
+
+    public function test_short_secret_returns_ok_without_insert_and_logs_reason(): void
+    {
+        $cfg = new EmailAlerts();
+        $cfg->unsubscribeSecret = 'too-short';
+        Factories::injectMock('config', EmailAlerts::class, $cfg);
+        Factories::injectMock('config', 'EmailAlerts', $cfg);
+
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'short-secret@example.com',
+            'categories' => ['General Announcement'],
+            'website' => '',
+        ]);
+        $result->assertStatus(200);
+        $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
+        $this->assertNull((new SubscriberModel())->where('email', 'short-secret@example.com')->first());
+        $this->assertLogContains('error', 'unsubscribe secret must be at least 32 characters');
+    }
 }

@@ -33,4 +33,15 @@ final class EmailAlertsConfigTest extends CIUnitTestCase
         $this->assertSame('unit-test-secret-min-32-chars-long!!', $cfg->unsubscribeSecret);
         $this->assertSame('https://metaoptics.sg', $cfg->publicSiteUrl);
     }
+
+    public function test_empty_secret_falls_back_in_testing(): void
+    {
+        putenv('email.unsubscribeSecret');
+        unset($_ENV['email.unsubscribeSecret'], $_SERVER['email.unsubscribeSecret']);
+
+        $cfg = new EmailAlerts();
+
+        $this->assertGreaterThanOrEqual(32, strlen($cfg->unsubscribeSecret));
+        $this->assertStringStartsWith('dev-only-', $cfg->unsubscribeSecret);
+    }
 }

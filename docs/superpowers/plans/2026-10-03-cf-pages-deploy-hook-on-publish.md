@@ -55,7 +55,8 @@ Trong Pages project → **Settings** → **Environment variables** (Production /
 | Variable | Giá trị | Ghi chú |
 |----------|---------|---------|
 | `NEXT_PUBLIC_IR_API_BASE` | `https://xxxx/backend` | Origin CI4 `public/` — **build phải gọi được** API này từ CF build workers |
-| (flags) | — | `useAnnouncementsApi` hiện hardcode trong `src/constants/ir-feature-flags.js`; bật `true` trên branch deploy CF trước khi rely hook |
+| `NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API` | `true` | Bật list/detail API + static params từ API (cần khi dùng deploy hook) |
+| `NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS` | `true` / `false` | Bật trang Email Alerts (tuỳ ship) |
 
 **Build command / output** (Pages):
 
@@ -156,7 +157,7 @@ Hook chỉ lo **rebuild HTML**. List/subscribe vẫn cần API + CORS đúng.
 - [ ] URL chỉ nằm trong `backend/.env` production
 - [ ] `curl -X POST <hook>` tạo được deployment
 - [ ] Pages env: `NEXT_PUBLIC_IR_API_BASE` trỏ API prod reachable từ CF build
-- [ ] `useAnnouncementsApi: true` trên branch CF deploy
+- [ ] Pages env: `NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API=true`
 - [ ] BE gọi hook sau Publish (và Archive nếu đã chọn)
 - [ ] Publish thử 1 item → build Success → detail 200
 - [ ] Document nội bộ: ai rotate hook khi leak

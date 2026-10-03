@@ -30,10 +30,15 @@
         <span class="label">Alert sent</span>
         <span class="value"><?= esc((string) $alert_sent) ?></span>
     </div>
+    <div class="stat-card">
+        <span class="label">Active subscribers</span>
+        <span class="value"><?= esc((string) $subscribers_active) ?></span>
+    </div>
 </div>
 <p class="btn-row">
     <a class="btn btn-primary" href="<?= site_url('admin/announcements') ?>">Announcements</a>
     <a class="btn btn-secondary" href="<?= site_url('admin/email-alerts') ?>">Email Alerts</a>
+    <a class="btn btn-secondary" href="<?= site_url('admin/subscribers') ?>">Subscribers</a>
     <a class="btn btn-secondary" href="<?= site_url('admin/sync-runs') ?>">Sync history</a>
     <a class="btn btn-secondary" href="<?= site_url('admin/settings/recipients') ?>">Settings</a>
 </p>

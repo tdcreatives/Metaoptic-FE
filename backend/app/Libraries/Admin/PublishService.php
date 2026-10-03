@@ -8,6 +8,10 @@ use DomainException;
 
 final class PublishService
 {
+    public function __construct(private readonly ?FeDeployHook $deployHook = null)
+    {
+    }
+
     /** @return bool true if state changed to published */
     public function publish(int $announcementId): bool
     {
@@ -25,6 +29,8 @@ final class PublishService
             'published_at' => date('Y-m-d H:i:s'),
             'needs_review' => 0,
         ]);
+
+        ($this->deployHook ?? FeDeployHook::fromConfig())->trigger('publish');
 
         return true;
     }
