@@ -162,6 +162,10 @@ const MileStone = () => {
                         Launched an American Depositary Receipt (ADR) programme on OTCQX {isDesktop ? <br /> : ' '}
                         in the U.S., with J.P. Morgan as the depositary bank.
                     </div>
+                    <div className='text-[#A7A9AC] xl:text-[24px] mt-6 text-[18px]'>
+                        Expanded into Malaysia with the incorporation of wholly owned {isDesktop ? <br /> : ' '}
+                        subsidiary MetaOptics Technologies Sdn. Bhd. in Penang.
+                    </div>
                 </motion.div>
             ),
         },
