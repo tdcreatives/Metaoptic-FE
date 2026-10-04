@@ -24,6 +24,11 @@ $deliveriesTotal = (int) ($deliveriesTotal ?? count($deliveries));
     <?php endif; ?>
 </header>
 
+<aside class="page-guide" aria-label="Email alert detail tips">
+    <span class="page-guide-label">Tip</span>
+    <p>Drafts can still be edited. <strong>Send now</strong> queues emails immediately; <strong>Schedule</strong> waits for the workers. Check <strong>Deliveries</strong> below after sending. To change who receives alerts, use the Subscribers page — not this screen.</p>
+</aside>
+
 <?php if (session('message')): ?>
     <div class="flash flash-success" role="status"><?= esc((string) session('message')) ?></div>
 <?php endif; ?>

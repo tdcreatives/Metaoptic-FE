@@ -44,7 +44,8 @@ final class AdminLayoutTest extends CIUnitTestCase
         $result = $this->get('/admin/login');
         $result->assertOK();
         $result->assertSee('css/admin.css');
-        $result->assertSee('MetaOptics IR Admin');
+        $result->assertSee('MetaOptics Admin');
+        $result->assertSee('page-guide');
         $result->assertDontSee('Sync history');
     }
 
@@ -53,11 +54,13 @@ final class AdminLayoutTest extends CIUnitTestCase
         $result = $this->withSession(['admin' => true])->get('/admin');
         $result->assertOK();
         $result->assertSee('css/admin.css');
-        $result->assertSee('MetaOptics IR Admin');
+        $result->assertSee('MetaOptics Admin');
         $result->assertSee('Announcements');
         $result->assertSee('Subscribers');
         $result->assertSee('Sync history');
         $result->assertSee('Settings');
         $result->assertSee('Logout');
+        $result->assertSee('Quick start');
+        $result->assertSee('page-guide');
     }
 }

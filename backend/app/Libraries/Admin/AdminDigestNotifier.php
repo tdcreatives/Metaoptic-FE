@@ -27,12 +27,15 @@ final class AdminDigestNotifier
         }
 
         $subject = sprintf('[IR] %d new SGX announcement(s)', $newCount);
-        $body = (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs]);
+        $htmlBody = (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs]);
+        $textBody = sprintf("%d new SGX announcement(s)\n\n", $newCount)
+            . implode("\n", $refs)
+            . "\n\nSign in to MetaOptics Admin to review and publish.";
 
         $mailer = Services::mailer();
         foreach ($emails as $to) {
             try {
-                $mailer->send(new MailMessage($to, $subject, $body));
+                $mailer->send(new MailMessage($to, $subject, $textBody, $htmlBody));
             } catch (Throwable) {
                 // ponytail: per-recipient catch so one send() failure does not skip the rest
                 log_message('notice', sprintf(

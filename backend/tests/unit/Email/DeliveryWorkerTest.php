@@ -108,7 +108,7 @@ final class DeliveryWorkerTest extends CIUnitTestCase
         $html = (string) $mailer->sent[0]->htmlBody;
         $text = $mailer->sent[0]->textBody;
         $this->assertNotNull($mailer->sent[0]->htmlBody);
-        $this->assertStringContainsString('<p>', $html);
+        $this->assertStringContainsString('<p style=', $html);
         $this->assertStringContainsString('>Unsubscribe</a>', $html);
         $this->assertStringContainsString($expectedUrl, $html);
         $this->assertStringContainsString($expectedUrl, $text);
@@ -151,7 +151,7 @@ final class DeliveryWorkerTest extends CIUnitTestCase
             $this->assertIsArray($logged);
             $this->assertSame('Q3 IR blast', $logged['subject']);
             $this->assertNotNull($logged['htmlBody']);
-            $this->assertStringContainsString('<p>', (string) $logged['htmlBody']);
+            $this->assertStringContainsString('<table role="presentation"', (string) $logged['htmlBody']);
             $this->assertStringContainsString('href="https://ex.test/1"', (string) $logged['htmlBody']);
             $this->assertStringNotContainsString('<ul', (string) $logged['textBody']);
             $this->assertStringContainsString('Item One', (string) $logged['textBody']);

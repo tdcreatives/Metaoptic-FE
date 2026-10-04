@@ -117,11 +117,14 @@ final class SubscribeService
     private function sendConfirmation(string $email, string $plainToken): void
     {
         $url = $this->tokens->pageUrl($plainToken);
-        $body = (string) view('emails/confirmation', ['unsubscribeUrl' => $url]);
+        $htmlBody = (string) view('emails/confirmation', ['unsubscribeUrl' => $url]);
+        $textBody = "You are subscribed to MetaOptics IR email alerts.\n\n"
+            . "Unsubscribe: {$url}";
         $this->mailer->send(new MailMessage(
             $email,
             'Confirm your MetaOptics IR alerts subscription',
-            $body,
+            $textBody,
+            $htmlBody,
         ));
     }
 

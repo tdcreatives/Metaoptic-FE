@@ -33,7 +33,13 @@ final class SyncRunsAdminTest extends CIUnitTestCase
         $body = $page->getBody();
         $this->assertStringContainsString('Sync data now', $body);
         $this->assertStringContainsString('sync-runs/run-now', $body);
-        $this->assertStringContainsString('confirm(', $body);
+        $this->assertStringContainsString('sync-now-dialog', $body);
+        $this->assertStringContainsString('admin-sync-now.js', $body);
+        $this->assertStringContainsString('modal-card-sync', $body);
+        $this->assertStringContainsString('Takes a few minutes', $body);
+        $this->assertStringContainsString('Do not close or refresh this browser tab', $body);
+        $this->assertStringContainsString('sync-now-step-busy', $body);
+        $this->assertStringNotContainsString('confirm(', $body);
     }
 
     public function test_run_now_triggers_sync_and_audits(): void
@@ -79,6 +85,49 @@ final class SyncRunsAdminTest extends CIUnitTestCase
         $audit = (new AuditLogModel())->where('action', 'sync_now')->first();
         $this->assertNotNull($audit);
         $this->assertStringContainsString('"ok":true', (string) $audit['metadata_json']);
+    }
+
+    public function test_run_now_json_returns_payload(): void
+    {
+        $cfg = config(Sgx::class);
+        $cfg->fetchDetailHtml = false;
+        $cfg->backfill = true;
+
+        $items = json_decode(
+            (string) file_get_contents(SUPPORTPATH . 'Fixtures/sgx/list-page-1.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        )['data'];
+
+        Services::injectMock('sgxClient', new class ($items) {
+            public function __construct(private readonly array $items)
+            {
+            }
+
+            public function fetchAllPages(): array
+            {
+                return $this->items;
+            }
+
+            public function fetchHtml(string $url): string
+            {
+                return '';
+            }
+        });
+
+        $result = $this->withSession(['admin' => true])
+            ->withHeaders([
+                'Accept' => 'application/json',
+                'X-Requested-With' => 'XMLHttpRequest',
+            ])
+            ->post('/admin/sync-runs/run-now', $this->withCsrf([]));
+
+        $result->assertOK();
+        $payload = json_decode((string) $result->getJSON(), true, 512, JSON_THROW_ON_ERROR);
+        $this->assertTrue($payload['ok']);
+        $this->assertFalse($payload['locked']);
+        $this->assertStringContainsString('Sync OK', (string) $payload['message']);
     }
 
     /** @param array<string, string> $fields */

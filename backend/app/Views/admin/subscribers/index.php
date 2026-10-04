@@ -16,8 +16,17 @@ $queryBase = array_filter([
             <span class="badge badge-sub-active"><?= esc((string) $activeCount) ?> active</span>
         </div>
     </div>
-    <p class="form-hint">Investors who signed up on the public Email Alerts form. Unsubscribe tokens are never shown here.</p>
 </div>
+
+<aside class="page-guide" aria-label="Subscribers tips">
+    <span class="page-guide-label">How to use</span>
+    <ul>
+        <li>These are investors who opted in on the public Email Alerts form. <strong>Active</strong> can receive campaigns.</li>
+        <li>Filter by status/category or search email. <strong>Export CSV</strong> uses the current filters.</li>
+        <li><strong>Unsubscribe</strong> marks them inactive here — they will not get future alerts. Tokens are never shown for privacy.</li>
+        <li>If the list is empty after a signup test, confirm the public form posted successfully and <code class="mono">email.unsubscribeSecret</code> is set on the API host.</li>
+    </ul>
+</aside>
 
 <?php if (session('message')): ?>
     <div class="flash flash-success"><?= esc((string) session('message')) ?></div>

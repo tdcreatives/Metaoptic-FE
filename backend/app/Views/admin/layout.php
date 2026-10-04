@@ -20,13 +20,13 @@ $navClass = static function (string $prefix) use ($uri): string {
 <?php if ($isLogin): ?>
     <div class="login-wrap">
         <main class="login-panel">
-            <p class="admin-brand">MetaOptics IR Admin</p>
+            <p class="admin-brand">MetaOptics Admin</p>
             <?= $this->renderSection('content') ?>
         </main>
     </div>
 <?php else: ?>
     <header class="admin-header">
-        <a class="admin-brand" href="<?= site_url('admin') ?>">MetaOptics IR Admin</a>
+        <a class="admin-brand" href="<?= site_url('admin') ?>">MetaOptics Admin</a>
         <nav class="admin-nav" aria-label="Admin">
             <a class="<?= esc($navClass('admin'), 'attr') ?>" href="<?= site_url('admin') ?>">Dashboard</a>
             <a class="<?= esc($navClass('admin/announcements'), 'attr') ?>" href="<?= site_url('admin/announcements') ?>">Announcements</a>

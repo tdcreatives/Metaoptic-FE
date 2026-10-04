@@ -27,6 +27,16 @@ $checked = is_array($oldIds) ? array_map('intval', $oldIds) : $selectedIds;
     <p class="form-hint">Compose the email, attach published announcements, then return to the detail page to send or schedule.</p>
 </header>
 
+<aside class="page-guide" aria-label="Compose tips">
+    <span class="page-guide-label">Tip</span>
+    <ul>
+        <li>Only <strong>published</strong> announcements can be attached.</li>
+        <li>Put <code class="mono">{{announcement}}</code> in the HTML body where the attached items should appear.</li>
+        <li>Estimated audience is the union of categories from attached announcements — check Subscribers if the count looks wrong.</li>
+        <li>Saving keeps a <strong>draft</strong>. Sending/scheduling happens on the next screen.</li>
+    </ul>
+</aside>
+
 <?php if (session('error')): ?>
     <div class="flash flash-error" role="alert"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>

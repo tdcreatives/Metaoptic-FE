@@ -40,6 +40,11 @@ if (is_array($oldNames) || is_array($oldUrls)) {
     <p class="form-hint">Creates a manual announcement in <strong>pending review</strong>. Publish from the detail page when ready.</p>
 </header>
 
+<aside class="page-guide" aria-label="New announcement tips">
+    <span class="page-guide-label">Tip</span>
+    <p>Fill listing fields first (title, category, filed date). Detail / attachments can be completed next. Nothing appears on the public site until you <strong>Publish</strong> from the detail page.</p>
+</aside>
+
 <?php if (session('error')): ?>
     <div class="flash flash-error" role="alert"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>

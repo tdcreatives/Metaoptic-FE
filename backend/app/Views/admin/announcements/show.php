@@ -50,6 +50,11 @@ $isArchived = $state === 'archived';
     </div>
 </header>
 
+<aside class="page-guide" aria-label="Announcement detail tips">
+    <span class="page-guide-label">Tip</span>
+    <p>Edit fields below, use <strong>Preview on website</strong> before going live, then <strong>Publish</strong>. Investor emails are separate — use <strong>Create Email Alert</strong> only after the item is published.</p>
+</aside>
+
 <?php if (session('message')): ?>
     <div class="flash flash-success" role="status"><?= esc((string) session('message')) ?></div>
 <?php endif; ?>

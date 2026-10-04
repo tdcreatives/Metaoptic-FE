@@ -1,13 +1,28 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
 <?php $state = (string) ($state ?? ''); ?>
-<h1><?= esc($title) ?></h1>
+<div class="page-head">
+    <div class="page-head-row">
+        <h1><?= esc($title) ?></h1>
+    </div>
+</div>
 <?php if (session('message')): ?>
     <div class="flash flash-success"><?= esc((string) session('message')) ?></div>
 <?php endif; ?>
 <?php if (session('error')): ?>
     <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>
+
+<aside class="page-guide" aria-label="Announcements tips">
+    <span class="page-guide-label">How to use</span>
+    <ol>
+        <li>Filter by <strong>Pending</strong> for new SGX / manual items waiting for review.</li>
+        <li>Open a row to edit listing &amp; detail fields, or use <strong>Preview</strong> to see the real website layout (signed link, expires ~30 min).</li>
+        <li>Click the <strong>State</strong> badge to Publish (live on the site) or Archive (hide). Confirm in the dialog first.</li>
+        <li>After Publish, create an <strong>Email Alert</strong> from the detail page if investors should be notified.</li>
+    </ol>
+</aside>
+
 <p class="filter-row">
     <a class="<?= $state === '' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements') ?>">All</a>
     <a class="<?= $state === 'pending_review' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?state=pending_review') ?>">Pending</a>
@@ -15,7 +30,6 @@
     <a class="<?= $state === 'archived' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?state=archived') ?>">Archived</a>
     <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">New announcement</a>
 </p>
-<p class="form-hint">Click a row’s <strong>State</strong> badge to publish (live) or archive (hide). A confirmation dialog will appear first. <strong>Preview</strong> opens the real FE page for pending/archived items (signed link, short-lived).</p>
 <?php if ($announcements === [] || count($announcements) === 0): ?>
     <p class="empty">No announcements</p>
 <?php else: ?>

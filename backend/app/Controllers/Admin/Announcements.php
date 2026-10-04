@@ -190,7 +190,7 @@ class Announcements extends BaseController
 
         if ($returnToList) {
             return redirect()->to('/admin/announcements')
-                ->with('message', 'Published — now live on the public IR website.');
+                ->with('message', 'Published — it on process to be live on the public MOT website - it take arround 5-10 minutes.');
         }
 
         if ($changed) {
