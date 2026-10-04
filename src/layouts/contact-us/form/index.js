@@ -3,12 +3,9 @@
 import React, { useState } from 'react';
 import BaseButton from '@/components/BaseButton';
 import BaseInput from '@/components/BaseInput';
-import {
-    buildMainContactPayload,
-    isValidEmail,
-    isValidPhone,
-    submitIrWeb3Form,
-} from '@/lib/web3forms';
+import TurnstileField from '@/components/TurnstileField';
+import { postContact } from '@/lib/contact-api';
+import { isValidEmail, isValidPhone } from '@/lib/web3forms';
 
 const ContactUsForm = () => {
     const [formData, setFormData] = useState({
@@ -24,6 +21,8 @@ const ContactUsForm = () => {
         message: '',
         isSuccess: false,
     });
+    const [turnstileToken, setTurnstileToken] = useState('');
+    const [formKey, setFormKey] = useState(0);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -66,7 +65,23 @@ const ContactUsForm = () => {
 
         if (!validateForm()) return;
 
-        const result = await submitIrWeb3Form(buildMainContactPayload(formData));
+        if (!turnstileToken) {
+            setStatus({
+                message: 'Please complete the captcha.',
+                isSuccess: false,
+            });
+            return;
+        }
+
+        const result = await postContact({
+            channel: 'main',
+            turnstileToken,
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+        });
 
         if (result.ok) {
             setStatus({
@@ -81,6 +96,8 @@ const ContactUsForm = () => {
                 message: '',
                 phone: '',
             });
+            setTurnstileToken('');
+            setFormKey((k) => k + 1);
         } else {
             setStatus({
                 message: result.error || 'Oops! Something went wrong. Please try submitting the form again.',
@@ -164,6 +181,12 @@ const ContactUsForm = () => {
                         }
                     />
                 </div>
+
+                <TurnstileField
+                    key={formKey}
+                    onToken={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                />
 
                 <BaseButton label='SUBMIT' type='submit' />
 

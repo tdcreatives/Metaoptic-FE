@@ -2,7 +2,9 @@
 
 import React, { useState } from 'react';
 import IRContainer from '@/layouts/investor-relations/container';
-import { buildIrContactPayload, isValidEmail, submitIrWeb3Form } from '@/lib/web3forms';
+import TurnstileField from '@/components/TurnstileField';
+import { postContact } from '@/lib/contact-api';
+import { isValidEmail } from '@/lib/web3forms';
 
 const inputBaseClasses =
     'futura-medium font-medium text-[14px] md:text-[16px] xl:text-[18px] text-[#231F20] ' +
@@ -47,6 +49,8 @@ const SendMessage = () => {
     const [form, setForm] = useState({ fullName: '', email: '', phone: '', subject: '', message: '' });
     const [submitting, setSubmitting] = useState(false);
     const [feedback, setFeedback] = useState('');
+    const [turnstileToken, setTurnstileToken] = useState('');
+    const [formKey, setFormKey] = useState(0);
 
     const update = (key) => (val) => setForm((prev) => ({ ...prev, [key]: val }));
 
@@ -60,15 +64,29 @@ const SendMessage = () => {
             setFeedback('Please enter a valid email address.');
             return;
         }
+        if (!turnstileToken) {
+            setFeedback('Please complete the captcha.');
+            return;
+        }
 
         setSubmitting(true);
         setFeedback('');
 
-        const result = await submitIrWeb3Form(buildIrContactPayload(form));
+        const result = await postContact({
+            channel: 'ir',
+            turnstileToken,
+            fullName: form.fullName,
+            email: form.email,
+            phone: form.phone,
+            subject: form.subject,
+            message: form.message,
+        });
 
         if (result.ok) {
             setFeedback('Thank you! Your message has been received.');
             setForm({ fullName: '', email: '', phone: '', subject: '', message: '' });
+            setTurnstileToken('');
+            setFormKey((k) => k + 1);
         } else {
             setFeedback(result.error);
         }
@@ -123,6 +141,13 @@ const SendMessage = () => {
             </div>
 
             <div className='border-b border-[#E0E1E0] my-8 md:my-10' />
+
+            <TurnstileField
+                key={formKey}
+                onToken={setTurnstileToken}
+                onExpire={() => setTurnstileToken('')}
+                className='mb-4'
+            />
 
             <button
                 type='submit'
