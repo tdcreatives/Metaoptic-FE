@@ -65,12 +65,42 @@ After **Publish to Website**, CMS may offer a prefilled Email Alert **draft** (a
 
 CMS **Email Alerts** are a separate entity from announcements (attach 1…N Published items, then schedule or Send now). `email:dispatch-scheduled` picks due scheduled alerts; `email:work` sends queued deliveries.
 
-Public contact (`POST /api/contact`) needs Cloudflare Turnstile (`turnstile.secretKey`) and Web3Forms keys: `web3forms.mainAccessKey` (optional fallback `NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN`) and `web3forms.irAccessKey` for the IR channel.
-
 ```
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:work >> /var/log/email-work.log 2>&1
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:dispatch-scheduled >> /var/log/email-dispatch.log 2>&1
 ```
+
+## Public form captcha
+
+Public contact (`POST /api/contact`) and IR subscribe (`POST /api/subscribers`) require Cloudflare Turnstile (Managed). The site key is public; the secret stays on the PHP host only. Do not commit real keys.
+
+**Operator — create the widget** (Cloudflare Dashboard; this is not done in git):
+
+1. Turnstile → Add widget.
+2. Hostnames: `metaoptics.sg`, `www.metaoptics.sg`, `localhost:4444` (local FE), plus `*.pages.dev` if preview deploys submit forms.
+3. Widget mode: **Managed**.
+4. Copy Site Key → Cloudflare Pages / local FE `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
+5. Copy Secret Key → PHP host (and local backend `.env`) `turnstile.secretKey`.
+6. Rebuild/redeploy Pages after setting the site key.
+
+PHP host `.env` (placeholders only):
+
+```
+turnstile.secretKey = '<from CF dashboard>'
+web3forms.mainAccessKey = '<existing Web3Forms key>'
+web3forms.irAccessKey = '<IR key or same as main>'
+```
+
+`web3forms.mainAccessKey` may fall back to `NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN` if unset. Empty `turnstile.secretKey` skips verify only when `ENVIRONMENT` is `development` or `testing`; production with an empty secret **fails closed** (reject).
+
+Cloudflare Pages (build-time):
+
+```
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=<site key>
+NEXT_PUBLIC_IR_API_BASE=https://metaoptics.sg/backend
+```
+
+Smoke: `docs/superpowers/plans/checklists/2026-10-04-turnstile-smoke.md`.
 
 ### SGX source (real website API)
 
