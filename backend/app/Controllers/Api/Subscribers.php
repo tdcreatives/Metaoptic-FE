@@ -28,6 +28,13 @@ class Subscribers extends BaseController
             $input = $this->request->getPost();
         }
 
+        $token = is_array($input) ? (string) ($input['turnstileToken'] ?? '') : '';
+        $verifier = Services::turnstileVerifier();
+        if (! $verifier->verify($token, (string) $this->request->getIPAddress())) {
+            log_message('warning', 'subscribers.create turnstile failed');
+            return $this->ok();
+        }
+
         $cfg = config(EmailAlerts::class);
         try {
             // ponytail: construct token inside try so empty secret → log + {ok:true}, same as Unsubscribe

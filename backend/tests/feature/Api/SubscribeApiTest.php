@@ -5,6 +5,7 @@ namespace Tests\Feature\Api;
 
 use App\Libraries\Email\MailerInterface;
 use App\Libraries\Email\MailMessage;
+use App\Libraries\Http\TurnstileVerifier;
 use App\Models\SubscriberModel;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\Test\CIUnitTestCase;
@@ -12,6 +13,7 @@ use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 use Config\EmailAlerts;
 use Config\Services;
+use Config\Turnstile;
 
 final class SubscribeApiTest extends CIUnitTestCase
 {
@@ -48,6 +50,15 @@ final class SubscribeApiTest extends CIUnitTestCase
             }
         };
         Services::injectMock('mailer', $this->mailer);
+
+        $tcfg = new Turnstile();
+        $tcfg->secretKey = 'test-secret';
+        Factories::injectMock('config', Turnstile::class, $tcfg);
+        Factories::injectMock('config', 'Turnstile', $tcfg);
+        $verifier = new TurnstileVerifier($tcfg, static function (string $url, array $fields): array {
+            return ['success' => ($fields['response'] ?? '') === 'valid-token'];
+        });
+        Services::injectMock('turnstileVerifier', $verifier);
     }
 
     protected function tearDown(): void
@@ -72,6 +83,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'first_name' => 'Jo',
             'categories' => ['General Announcement'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
 
         $result->assertStatus(200);
@@ -89,6 +101,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'trap@example.com',
             'categories' => ['General Announcement'],
             'website' => 'http://bots.example',
+            'turnstileToken' => 'valid-token',
         ]);
 
         $result->assertStatus(200);
@@ -103,6 +116,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'nope',
             'categories' => ['General Announcement'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $bad->assertStatus(200);
         $this->assertSame(['ok' => true], json_decode((string) $bad->getJSON(), true));
@@ -111,6 +125,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'ok@example.com',
             'categories' => ['Nope'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $cat->assertStatus(200);
         $this->assertSame([], (new SubscriberModel())->findAll());
@@ -125,6 +140,7 @@ final class SubscribeApiTest extends CIUnitTestCase
                 'email' => 'cors@example.com',
                 'categories' => ['General Announcement'],
                 'website' => '',
+                'turnstileToken' => 'valid-token',
             ]);
         $allowed->assertStatus(200);
         $allowed->assertHeader('Access-Control-Allow-Origin', $origin);
@@ -135,6 +151,7 @@ final class SubscribeApiTest extends CIUnitTestCase
                 'email' => 'cors2@example.com',
                 'categories' => ['General Announcement'],
                 'website' => '',
+                'turnstileToken' => 'valid-token',
             ]);
         $denied->assertStatus(200);
         $denied->assertHeaderMissing('Access-Control-Allow-Origin');
@@ -147,6 +164,7 @@ final class SubscribeApiTest extends CIUnitTestCase
                 'email' => "u{$i}@example.com",
                 'categories' => ['General Announcement'],
                 'website' => '',
+                'turnstileToken' => 'valid-token',
             ])->assertStatus(200);
         }
 
@@ -169,6 +187,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'empty-cats@example.com',
             'categories' => [],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $result->assertStatus(200);
         $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
@@ -200,6 +219,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'fail@example.com',
             'categories' => ['General Announcement'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $result->assertStatus(200);
         $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
@@ -225,6 +245,7 @@ final class SubscribeApiTest extends CIUnitTestCase
             'first_name' => 'Fallback',
             'categories' => ['General Announcement'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $result->assertStatus(200);
         $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
@@ -245,10 +266,35 @@ final class SubscribeApiTest extends CIUnitTestCase
             'email' => 'short-secret@example.com',
             'categories' => ['General Announcement'],
             'website' => '',
+            'turnstileToken' => 'valid-token',
         ]);
         $result->assertStatus(200);
         $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
         $this->assertNull((new SubscriberModel())->where('email', 'short-secret@example.com')->first());
         $this->assertLogContains('error', 'unsubscribe secret must be at least 32 characters');
+    }
+
+    public function test_missing_turnstile_returns_ok_without_insert(): void
+    {
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'notoken@example.com',
+            'categories' => ['General Announcement'],
+            'website' => '',
+        ]);
+        $result->assertStatus(200);
+        $this->assertNull((new SubscriberModel())->where('email', 'notoken@example.com')->first());
+        $this->assertSame([], $this->mailer->sent);
+    }
+
+    public function test_invalid_turnstile_returns_ok_without_insert(): void
+    {
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'badtok@example.com',
+            'categories' => ['General Announcement'],
+            'website' => '',
+            'turnstileToken' => 'nope',
+        ]);
+        $result->assertStatus(200);
+        $this->assertNull((new SubscriberModel())->where('email', 'badtok@example.com')->first());
     }
 }
