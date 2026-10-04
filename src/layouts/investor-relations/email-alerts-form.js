@@ -6,6 +6,7 @@ import IRContainer from '@/layouts/investor-relations/container';
 import { ANNOUNCEMENT_CATEGORIES } from '@/utils/announcements';
 import { isValidEmail } from '@/lib/web3forms';
 import { postSubscribe, postUnsubscribe, stripUnsubSearch } from '@/lib/subscribe-api';
+import TurnstileField from '@/components/TurnstileField';
 
 const inputBaseClasses =
     'futura-medium font-medium text-[14px] md:text-[16px] xl:text-[18px] text-[#231F20] ' +
@@ -55,6 +56,8 @@ const EmailAlertsForm = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [website, setWebsite] = useState('');
+    const [turnstileToken, setTurnstileToken] = useState('');
+    const [formKey, setFormKey] = useState(0);
     const [selected, setSelected] = useState([ANNOUNCEMENT_CATEGORIES[0]]);
     const [submitting, setSubmitting] = useState(false);
     const [feedback, setFeedback] = useState('');
@@ -84,6 +87,10 @@ const EmailAlertsForm = () => {
             setFeedback('Please enter a valid email address.');
             return;
         }
+        if (!turnstileToken) {
+            setFeedback('Please complete the captcha.');
+            return;
+        }
 
         setSubmitting(true);
         setFeedback('');
@@ -95,12 +102,15 @@ const EmailAlertsForm = () => {
                 last_name: lastName,
                 categories: selected,
                 website,
+                turnstileToken,
             });
             setFeedback('Thank you! Please check your inbox for a confirmation email.');
             setFirstName('');
             setLastName('');
             setEmail('');
             setWebsite('');
+            setTurnstileToken('');
+            setFormKey((k) => k + 1);
             setSelected([ANNOUNCEMENT_CATEGORIES[0]]);
         } catch {
             setFeedback('Something went wrong. Please try again later.');
@@ -182,6 +192,13 @@ const EmailAlertsForm = () => {
                 </div>
 
                 <div className='pb-6 border-b border-[#E0E1E0] mt-8 md:mt-10' />
+
+                <TurnstileField
+                    key={formKey}
+                    onToken={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                    className='mt-6'
+                />
 
                 <button
                     type='submit'

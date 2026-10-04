@@ -1,12 +1,13 @@
 import { irApiUrl } from './ir-api-url.js';
 
-export function buildSubscribePayload({ email, first_name, last_name, categories, website }) {
+export function buildSubscribePayload({ email, first_name, last_name, categories, website, turnstileToken }) {
     return {
         email,
         first_name,
         last_name,
         categories,
         website: website ?? '',
+        turnstileToken: turnstileToken ?? '',
     };
 }
 
