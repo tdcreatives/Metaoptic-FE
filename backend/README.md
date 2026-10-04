@@ -65,6 +65,8 @@ After **Publish to Website**, CMS may offer a prefilled Email Alert **draft** (a
 
 CMS **Email Alerts** are a separate entity from announcements (attach 1…N Published items, then schedule or Send now). `email:dispatch-scheduled` picks due scheduled alerts; `email:work` sends queued deliveries.
 
+Public contact (`POST /api/contact`) needs Cloudflare Turnstile (`turnstile.secretKey`) and Web3Forms keys: `web3forms.mainAccessKey` (optional fallback `NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN`) and `web3forms.irAccessKey` for the IR channel.
+
 ```
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:work >> /var/log/email-work.log 2>&1
 * * * * * TZ=Asia/Singapore cd /var/www/metaoptics-ir/backend && php spark email:dispatch-scheduled >> /var/log/email-dispatch.log 2>&1

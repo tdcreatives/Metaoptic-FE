@@ -15,6 +15,7 @@ $routes->group('api', static function ($routes) {
 $routes->options('api/(:any)', 'Api\Preflight::options');
 $routes->post('api/subscribers', 'Api\Subscribers::create');
 $routes->post('api/unsubscribe', 'Api\Unsubscribe::create');
+$routes->post('api/contact', 'Api\Contact::create');
 
 $routes->group('admin', static function ($routes) {
     $routes->get('login', 'Admin\AuthController::loginForm');

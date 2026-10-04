@@ -69,4 +69,19 @@ class Services extends BaseService
 
         return new \App\Libraries\Http\TurnstileVerifier(config('Turnstile'));
     }
+
+    /**
+     * @param null|callable(array): array{ok:bool,error?:string} $transport
+     */
+    public static function web3FormsClient($getShared = true, ?callable $transport = null): \App\Libraries\Http\Web3FormsClient
+    {
+        if ($transport !== null) {
+            return new \App\Libraries\Http\Web3FormsClient($transport);
+        }
+        if ($getShared) {
+            return static::getSharedInstance('web3FormsClient');
+        }
+
+        return new \App\Libraries\Http\Web3FormsClient();
+    }
 }
