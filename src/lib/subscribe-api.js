@@ -1,3 +1,5 @@
+import { irApiUrl } from './ir-api-url.js';
+
 export function buildSubscribePayload({ email, first_name, last_name, categories, website }) {
     return {
         email,
@@ -12,14 +14,6 @@ export function stripUnsubSearch(href) {
     const url = new URL(href);
     url.searchParams.delete('unsub');
     return `${url.pathname}${url.search}${url.hash}`;
-}
-
-function irApiUrl(path) {
-    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
-    if (!base) {
-        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
-    }
-    return new URL(path, base).toString();
 }
 
 export async function postSubscribe(fields) {

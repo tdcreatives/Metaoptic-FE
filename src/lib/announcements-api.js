@@ -1,3 +1,5 @@
+import { irApiUrl } from './ir-api-url.js';
+
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function formatFiledAt(filedAt) {
@@ -63,12 +65,7 @@ export function mapApiAnnouncementToLegacy(row) {
 }
 
 async function fetchAnnouncementPage({ page = 1, pageSize = 50, category, q } = {}) {
-    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
-    if (!base) {
-        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
-    }
-
-    const url = new URL('/api/announcements', base);
+    const url = new URL(irApiUrl('/api/announcements'));
     url.searchParams.set('page', String(page));
     url.searchParams.set('page_size', String(pageSize));
     if (category) url.searchParams.set('category', category);
@@ -111,13 +108,8 @@ export async function fetchAnnouncementList({ page, pageSize = 50, category, q }
 }
 
 export async function fetchAnnouncementBySlug(slug) {
-    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
-    if (!base) {
-        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
-    }
-
-    const url = new URL(`/api/announcements/${encodeURIComponent(slug)}`, base);
-    const res = await fetch(url.toString(), { next: { revalidate: 300 } });
+    const url = irApiUrl(`/api/announcements/${encodeURIComponent(slug)}`);
+    const res = await fetch(url, { next: { revalidate: 300 } });
     if (!res.ok) {
         throw new Error(`announcements API ${res.status}`);
     }
@@ -127,15 +119,11 @@ export async function fetchAnnouncementBySlug(slug) {
 
 /** Client-side preview of unpublished announcement via signed token (no cache). */
 export async function fetchAnnouncementPreview(token) {
-    const base = process.env.NEXT_PUBLIC_IR_API_BASE;
-    if (!base) {
-        throw new Error('NEXT_PUBLIC_IR_API_BASE is not set');
-    }
     if (!token) {
         throw new Error('preview token required');
     }
 
-    const url = new URL('/api/announcements/preview', base);
+    const url = new URL(irApiUrl('/api/announcements/preview'));
     url.searchParams.set('t', token);
     const res = await fetch(url.toString(), { cache: 'no-store' });
     if (!res.ok) {

@@ -76,7 +76,7 @@ test('mapApiAnnouncementToLegacy flat map uses ann_reference not slug', () => {
 
 test('fetchAnnouncementList reads NEXT_PUBLIC_IR_API_BASE and query params', async () => {
     const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
-    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://metaoptics.sg/backend';
     const calls = [];
     const previousFetch = globalThis.fetch;
     globalThis.fetch = async (url, init) => {
@@ -92,8 +92,8 @@ test('fetchAnnouncementList reads NEXT_PUBLIC_IR_API_BASE and query params', asy
         assert.equal(payload.data.length, 1);
         assert.equal(calls.length, 1);
         const requested = new URL(calls[0].url);
-        assert.equal(requested.origin, 'https://ir-api.example.test');
-        assert.equal(requested.pathname, '/api/announcements');
+        assert.equal(requested.origin, 'https://metaoptics.sg');
+        assert.equal(requested.pathname, '/backend/api/announcements');
         assert.equal(requested.searchParams.get('page'), '2');
         assert.equal(requested.searchParams.get('page_size'), '20');
         assert.equal(requested.searchParams.get('category'), 'Placements');
