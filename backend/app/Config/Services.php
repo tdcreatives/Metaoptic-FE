@@ -60,4 +60,13 @@ class Services extends BaseService
 
         return new LogMailer(WRITEPATH . 'logs/mail.log');
     }
+
+    public static function turnstileVerifier($getShared = true): \App\Libraries\Http\TurnstileVerifier
+    {
+        if ($getShared) {
+            return static::getSharedInstance('turnstileVerifier');
+        }
+
+        return new \App\Libraries\Http\TurnstileVerifier(config('Turnstile'));
+    }
 }
