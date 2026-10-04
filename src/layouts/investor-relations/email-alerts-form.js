@@ -109,12 +109,12 @@ const EmailAlertsForm = () => {
             setLastName('');
             setEmail('');
             setWebsite('');
-            setTurnstileToken('');
-            setFormKey((k) => k + 1);
             setSelected([ANNOUNCEMENT_CATEGORIES[0]]);
         } catch {
             setFeedback('Something went wrong. Please try again later.');
         }
+        setTurnstileToken('');
+        setFormKey((k) => k + 1);
 
         setSubmitting(false);
     };

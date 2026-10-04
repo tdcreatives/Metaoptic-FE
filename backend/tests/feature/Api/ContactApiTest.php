@@ -22,6 +22,9 @@ final class ContactApiTest extends CIUnitTestCase
     {
         parent::setUp();
         $this->forwarded = [];
+        putenv('web3forms.mainSubject');
+        putenv('NEXT_PUBLIC_SUBJECT');
+        unset($_ENV['web3forms.mainSubject'], $_ENV['NEXT_PUBLIC_SUBJECT']);
         $_ENV['web3forms.mainAccessKey'] = 'main-key';
         $_ENV['web3forms.irAccessKey'] = 'ir-key';
         putenv('web3forms.mainAccessKey=main-key');
@@ -41,7 +44,14 @@ final class ContactApiTest extends CIUnitTestCase
     {
         putenv('web3forms.mainAccessKey');
         putenv('web3forms.irAccessKey');
-        unset($_ENV['web3forms.mainAccessKey'], $_ENV['web3forms.irAccessKey']);
+        putenv('web3forms.mainSubject');
+        putenv('NEXT_PUBLIC_SUBJECT');
+        unset(
+            $_ENV['web3forms.mainAccessKey'],
+            $_ENV['web3forms.irAccessKey'],
+            $_ENV['web3forms.mainSubject'],
+            $_ENV['NEXT_PUBLIC_SUBJECT']
+        );
         Services::reset(true);
         parent::tearDown();
     }
@@ -86,5 +96,32 @@ final class ContactApiTest extends CIUnitTestCase
         $this->assertTrue($body['ok']);
         $this->assertCount(1, $this->forwarded);
         $this->assertSame('main-key', $this->forwarded[0]['payload']['access_key']);
+        $this->assertSame('New Enquiry from Metaoptic', $this->forwarded[0]['payload']['subject']);
+    }
+
+    public function test_main_subject_prefers_env(): void
+    {
+        $_ENV['web3forms.mainSubject'] = 'Custom Main Subject';
+        putenv('web3forms.mainSubject=Custom Main Subject');
+
+        $test = $this;
+        Services::injectMock(
+            'web3FormsClient',
+            new Web3FormsClient(static function (array $payload) use ($test): array {
+                $test->forwarded[] = ['url' => 'https://api.web3forms.com/submit', 'payload' => $payload];
+
+                return ['ok' => true];
+            })
+        );
+
+        $result = $this->withBodyFormat('json')->post('/api/contact', [
+            'channel' => 'main',
+            'turnstileToken' => 'valid-token',
+            'fullName' => 'A',
+            'email' => 'a@example.com',
+            'message' => 'Hi',
+        ]);
+        $result->assertStatus(200);
+        $this->assertSame('Custom Main Subject', $this->forwarded[0]['payload']['subject']);
     }
 }

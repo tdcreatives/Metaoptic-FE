@@ -77,7 +77,7 @@ class Contact extends BaseController
 
         return [
             'access_key' => (string) (env('web3forms.mainAccessKey') ?: env('NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN') ?: ''),
-            'subject' => 'MetaOptics - Contact Form',
+            'subject' => (string) (env('web3forms.mainSubject') ?: env('NEXT_PUBLIC_SUBJECT') ?: 'New Enquiry from Metaoptic'),
             'from_name' => 'MetaOptics Website Contact',
             'email' => $email,
             'phone' => $phone,

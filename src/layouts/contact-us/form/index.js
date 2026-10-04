@@ -96,14 +96,14 @@ const ContactUsForm = () => {
                 message: '',
                 phone: '',
             });
-            setTurnstileToken('');
-            setFormKey((k) => k + 1);
         } else {
             setStatus({
                 message: result.error || 'Oops! Something went wrong. Please try submitting the form again.',
                 isSuccess: false,
             });
         }
+        setTurnstileToken('');
+        setFormKey((k) => k + 1);
     };
 
     return (

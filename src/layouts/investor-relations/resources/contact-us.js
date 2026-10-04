@@ -85,11 +85,11 @@ const SendMessage = () => {
         if (result.ok) {
             setFeedback('Thank you! Your message has been received.');
             setForm({ fullName: '', email: '', phone: '', subject: '', message: '' });
-            setTurnstileToken('');
-            setFormKey((k) => k + 1);
         } else {
             setFeedback(result.error);
         }
+        setTurnstileToken('');
+        setFormKey((k) => k + 1);
 
         setSubmitting(false);
     };
