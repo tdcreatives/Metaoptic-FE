@@ -10,6 +10,7 @@ use App\Libraries\Admin\AnnouncementPreviewToken;
 use App\Libraries\Admin\ArchiveService;
 use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
+use App\Libraries\Email\CategoryCatalog;
 use App\Libraries\Sgx\AnnouncementDetailHydrator;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
@@ -27,10 +28,21 @@ class Announcements extends BaseController
             $model->where('state', $state);
         }
 
+        $categories = CategoryCatalog::all();
+        $category = trim((string) $this->request->getGet('category'));
+        // ponytail: ignore unknown category query instead of 400
+        if ($category !== '' && in_array($category, $categories, true)) {
+            $model->where('category', $category);
+        } else {
+            $category = '';
+        }
+
         return view('admin/announcements/index', [
             'title' => 'Announcements',
             'announcements' => $model->orderBy('filed_at', 'DESC')->findAll(),
             'state' => $state,
+            'category' => $category,
+            'categories' => $categories,
         ]);
     }
 

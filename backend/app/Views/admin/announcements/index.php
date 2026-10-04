@@ -1,6 +1,13 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
-<?php $state = (string) ($state ?? ''); ?>
+<?php
+$state = (string) ($state ?? '');
+$category = (string) ($category ?? '');
+$categories = $categories ?? [];
+$stateQuery = array_filter([
+    'category' => $category !== '' ? $category : null,
+]);
+?>
 <div class="page-head">
     <div class="page-head-row">
         <h1><?= esc($title) ?></h1>
@@ -16,28 +23,51 @@
 <aside class="page-guide" aria-label="Announcements tips">
     <span class="page-guide-label">How to use</span>
     <ol>
-        <li>Filter by <strong>Pending</strong> for new SGX / manual items waiting for review.</li>
+        <li>Filter by <strong>State</strong> (Pending / Published / …) and optionally by <strong>Category</strong> to narrow the list.</li>
         <li>Open a row to edit listing &amp; detail fields, or use <strong>Preview</strong> to see the real website layout (signed link, expires ~30 min).</li>
         <li>Click the <strong>State</strong> badge to Publish (live on the site) or Archive (hide). Confirm in the dialog first.</li>
         <li>After Publish, create an <strong>Email Alert</strong> from the detail page if investors should be notified.</li>
     </ol>
 </aside>
 
-<p class="filter-row">
-    <a class="<?= $state === '' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements') ?>">All</a>
-    <a class="<?= $state === 'pending_review' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?state=pending_review') ?>">Pending</a>
-    <a class="<?= $state === 'published' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?state=published') ?>">Published</a>
-    <a class="<?= $state === 'archived' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?state=archived') ?>">Archived</a>
+<p class="filter-row" role="navigation" aria-label="Filter by state">
+    <a class="<?= $state === '' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements' . ($stateQuery !== [] ? '?' . http_build_query($stateQuery) : '')) ?>">All</a>
+    <a class="<?= $state === 'pending_review' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'pending_review'])) ?>">Pending</a>
+    <a class="<?= $state === 'published' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'published'])) ?>">Published</a>
+    <a class="<?= $state === 'archived' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'archived'])) ?>">Archived</a>
     <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">New announcement</a>
 </p>
+
+<form class="card filter-bar" method="get" action="<?= site_url('admin/announcements') ?>" aria-label="Filter by category">
+    <?php if ($state !== ''): ?>
+        <input type="hidden" name="state" value="<?= esc($state, 'attr') ?>">
+    <?php endif; ?>
+    <div class="form-group">
+        <label class="label" for="category">Category</label>
+        <select class="input" id="category" name="category">
+            <option value="">All categories</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?= esc($cat, 'attr') ?>" <?= $category === $cat ? 'selected' : '' ?>><?= esc($cat) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="filter-bar-actions">
+        <button type="submit" class="btn btn-primary">Apply</button>
+        <?php if ($category !== ''): ?>
+            <a class="btn btn-secondary" href="<?= site_url('admin/announcements' . ($state !== '' ? '?' . http_build_query(['state' => $state]) : '')) ?>">Clear category</a>
+        <?php endif; ?>
+    </div>
+</form>
+
 <?php if ($announcements === [] || count($announcements) === 0): ?>
-    <p class="empty">No announcements</p>
+    <p class="empty">No announcements match.</p>
 <?php else: ?>
 <div class="table-wrap">
     <table class="table">
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Source</th>
                 <th>State</th>
                 <th>Filed</th>
@@ -52,9 +82,15 @@
                 $rowId = (int) $row['id'];
                 $titleShort = mb_strimwidth((string) $row['title'], 0, 80, '…');
                 $canPreview = in_array($rowState, ['pending_review', 'archived'], true);
+                $rowCategory = trim((string) ($row['category'] ?? ''));
                 ?>
                 <tr>
                     <td><a href="<?= site_url('admin/announcements/' . $rowId) ?>"><?= esc($row['title']) ?></a></td>
+                    <td><?php if ($rowCategory !== ''): ?>
+                        <?= esc($rowCategory) ?>
+                    <?php else: ?>
+                        <span class="empty-inline">—</span>
+                    <?php endif; ?></td>
                     <td><span class="badge"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span></td>
                     <td>
                         <?php if ($rowState === 'published'): ?>

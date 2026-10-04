@@ -53,6 +53,50 @@ final class AnnouncementEditTest extends CIUnitTestCase
         $this->assertStringNotContainsString('Published Title', $pending->getBody());
     }
 
+    public function test_list_filters_by_category_and_keeps_state(): void
+    {
+        $this->insertRow([
+            'sgx_reference' => 'CAT-GEN',
+            'slug' => 'cat-general',
+            'title' => 'General Only Title',
+            'category' => 'General Announcement',
+            'state' => 'published',
+        ]);
+        $this->insertRow([
+            'sgx_reference' => 'CAT-FIN',
+            'slug' => 'cat-financial',
+            'title' => 'Financial Only Title',
+            'category' => 'Financial Statements',
+            'state' => 'published',
+        ]);
+        $this->insertRow([
+            'sgx_reference' => 'CAT-PEND',
+            'slug' => 'cat-pending-fin',
+            'title' => 'Pending Financial Title',
+            'category' => 'Financial Statements',
+            'state' => 'pending_review',
+        ]);
+
+        $list = $this->withSession(['admin' => true])->get('/admin/announcements?category=Financial%20Statements');
+        $list->assertOK();
+        $body = $list->getBody();
+        $this->assertStringContainsString('Financial Only Title', $body);
+        $this->assertStringContainsString('Pending Financial Title', $body);
+        $this->assertStringNotContainsString('General Only Title', $body);
+        $this->assertStringContainsString('<th>Category</th>', $body);
+
+        $combo = $this->withSession(['admin' => true])->get(
+            '/admin/announcements?state=published&category=Financial%20Statements'
+        );
+        $combo->assertOK();
+        $comboBody = $combo->getBody();
+        $this->assertStringContainsString('Financial Only Title', $comboBody);
+        $this->assertStringNotContainsString('Pending Financial Title', $comboBody);
+        $this->assertStringNotContainsString('General Only Title', $comboBody);
+        $this->assertStringContainsString('name="category"', $comboBody);
+        $this->assertStringContainsString('state=published', $comboBody);
+    }
+
     public function test_show_escapes_and_has_no_send_form(): void
     {
         $id = $this->insertRow([
