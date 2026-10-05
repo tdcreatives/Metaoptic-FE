@@ -108,6 +108,8 @@ final class DeliveryWorkerTest extends CIUnitTestCase
         $html = (string) $mailer->sent[0]->htmlBody;
         $text = $mailer->sent[0]->textBody;
         $this->assertNotNull($mailer->sent[0]->htmlBody);
+        $this->assertStringContainsString('img/logo.png', $html);
+        $this->assertStringContainsString('alt="MetaOptics"', $html);
         $this->assertStringContainsString('<p style=', $html);
         $this->assertStringContainsString('>Unsubscribe</a>', $html);
         $this->assertStringContainsString($expectedUrl, $html);

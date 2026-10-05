@@ -7,6 +7,7 @@ use App\Controllers\BaseController;
 use App\Libraries\Email\AlertBodyDefaults;
 use App\Libraries\Email\AlertLifecycleService;
 use App\Libraries\Email\AudienceResolver;
+use App\Libraries\Email\CategoryCatalog;
 use App\Models\AnnouncementModel;
 use App\Models\EmailAlertModel;
 use App\Models\EmailDeliveryModel;
@@ -18,9 +19,19 @@ class EmailAlerts extends BaseController
 {
     public function index(): string
     {
+        $model = model(EmailAlertModel::class);
+        $status = trim((string) ($this->request->getGet('status') ?? ''));
+        // ponytail: ignore unknown status query instead of 400
+        if (in_array($status, ['draft', 'scheduled', 'sending', 'sent'], true)) {
+            $model->where('status', $status);
+        } else {
+            $status = '';
+        }
+
         return view('admin/email_alerts/index', [
             'title' => 'Email Alerts',
-            'alerts' => model(EmailAlertModel::class)->orderBy('id', 'DESC')->findAll(),
+            'alerts' => $model->orderBy('id', 'DESC')->findAll(),
+            'status' => $status,
         ]);
     }
 
@@ -178,6 +189,7 @@ class EmailAlerts extends BaseController
     /** @param list<int> $selectedIds */
     private function formView(string $title, ?array $alert, array $selectedIds): string
     {
+        // Attach picker: published only (pending/archived never listed)
         $published = model(AnnouncementModel::class)
             ->where('state', 'published')
             ->orderBy('filed_at', 'DESC')
@@ -190,13 +202,22 @@ class EmailAlerts extends BaseController
         }
         $categories = (new AudienceResolver())->categoryUnion($selected);
 
+        // Filter dropdown: SGX catalog + any category already on published rows
+        $filterCategories = CategoryCatalog::all();
+        foreach ($published as $row) {
+            $cat = trim((string) ($row['category'] ?? ''));
+            if ($cat !== '' && ! in_array($cat, $filterCategories, true)) {
+                $filterCategories[] = $cat;
+            }
+        }
+
         $prefillSubject = '';
         $prefillIntro = '';
         // ponytail: blank New still seeds sample body; subject/attach stay empty until announcement chosen
         $prefillBodyHtml = $alert === null ? AlertBodyDefaults::sampleHtml() : '';
         if ($alert === null && count($selectedIds) === 1) {
             $ann = model(AnnouncementModel::class)->find($selectedIds[0]);
-            if (is_array($ann)) {
+            if (is_array($ann) && ($ann['state'] ?? '') === 'published') {
                 $prefillSubject = (string) ($ann['title'] ?? '');
                 $prefillIntro = (string) ($ann['summary'] ?? '');
             }
@@ -208,6 +229,7 @@ class EmailAlerts extends BaseController
             'published' => $published,
             'selectedIds' => $selectedIds,
             'categories' => $categories,
+            'filterCategories' => $filterCategories,
             'estimate' => (new AudienceResolver())->estimateSubscriberCount($categories),
             'prefill_subject' => $prefillSubject,
             'prefill_intro' => $prefillIntro,

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { IconCheck } from '@tabler/icons-react';
+import React, { useCallback, useEffect, useId, useState } from 'react';
+import { IconCheck, IconX } from '@tabler/icons-react';
 import IRContainer from '@/layouts/investor-relations/container';
 import { ANNOUNCEMENT_CATEGORIES } from '@/utils/announcements';
 import { isValidEmail } from '@/lib/web3forms';
@@ -51,6 +51,80 @@ const PreferenceCheckbox = ({ preference, checked, onChange }) => (
     </label>
 );
 
+/** Click-outside / Esc dismissible notice (success + errors). */
+const FeedbackToast = ({ notice, onClose }) => {
+    const titleId = useId();
+    const isSuccess = notice?.tone === 'success';
+
+    useEffect(() => {
+        if (!notice) return undefined;
+        const onKey = (e) => {
+            if (e.key === 'Escape') onClose();
+        };
+        document.addEventListener('keydown', onKey);
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.removeEventListener('keydown', onKey);
+            document.body.style.overflow = prev;
+        };
+    }, [notice, onClose]);
+
+    if (!notice) return null;
+
+    return (
+        <div
+            className='fixed inset-0 z-[9999] bg-black/50 flex items-center justify-center p-4'
+            onClick={onClose}
+            role='presentation'
+        >
+            <div
+                role='alertdialog'
+                aria-modal='true'
+                aria-labelledby={titleId}
+                className='relative w-full max-w-[420px] bg-white rounded-md shadow-lg border border-[#E0E1E0] p-6 md:p-8'
+                onClick={(e) => e.stopPropagation()}
+            >
+                <button
+                    type='button'
+                    onClick={onClose}
+                    className='absolute right-3 top-3 text-[#71717a] hover:text-[#231F20] p-1'
+                    aria-label='Close notification'
+                >
+                    <IconX size={22} stroke={2.25} />
+                </button>
+                <div
+                    className={`mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full ${
+                        isSuccess ? 'bg-[#f0fdf4] text-[#166534]' : 'bg-[#fef2f2] text-[#b91c1c]'
+                    }`}
+                    aria-hidden='true'
+                >
+                    {isSuccess ? <IconCheck size={26} strokeWidth={2.5} /> : <IconX size={26} strokeWidth={2.5} />}
+                </div>
+                <h3
+                    id={titleId}
+                    className='futura-medium font-medium text-center text-[18px] md:text-[20px] text-[#231F20]'
+                >
+                    {notice.title}
+                </h3>
+                <p className='futura-medium mt-3 text-center text-[14px] md:text-[16px] text-[#52525b] leading-[1.55]'>
+                    {notice.message}
+                </p>
+                <button
+                    type='button'
+                    onClick={onClose}
+                    className='mt-6 w-full bg-[#d34c39] hover:bg-[#231f20] text-white uppercase tracking-wider futura-medium font-medium text-[14px] py-3 rounded-full transition-colors'
+                >
+                    OK
+                </button>
+                <p className='mt-3 text-center text-[12px] text-[#A9A9A9] futura-medium'>
+                    Click outside to dismiss
+                </p>
+            </div>
+        </div>
+    );
+};
+
 const EmailAlertsForm = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -60,17 +134,20 @@ const EmailAlertsForm = () => {
     const [formKey, setFormKey] = useState(0);
     const [selected, setSelected] = useState([ANNOUNCEMENT_CATEGORIES[0]]);
     const [submitting, setSubmitting] = useState(false);
-    const [feedback, setFeedback] = useState('');
+    const [notice, setNotice] = useState(null);
+
+    const showNotice = (tone, title, message) => setNotice({ tone, title, message });
+    const closeNotice = useCallback(() => setNotice(null), []);
 
     useEffect(() => {
         const token = new URLSearchParams(window.location.search).get('unsub');
         if (!token) return;
         postUnsubscribe(token)
             .then(() => {
-                setFeedback('You have been unsubscribed.');
+                showNotice('success', 'Unsubscribed', 'You have been unsubscribed from MetaOptics email alerts.');
                 window.history.replaceState({}, '', stripUnsubSearch(window.location.href));
             })
-            .catch(() => setFeedback('Unable to unsubscribe. Please try again later.'));
+            .catch(() => showNotice('error', 'Unsubscribe failed', 'Unable to unsubscribe. Please try again later.'));
     }, []);
 
     const togglePref = (id, checked) => {
@@ -80,20 +157,19 @@ const EmailAlertsForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!email || selected.length === 0) {
-            setFeedback('Please enter your email and select at least one preference.');
+            showNotice('error', 'Almost there', 'Please enter your email and select at least one alert preference.');
             return;
         }
         if (!isValidEmail(email)) {
-            setFeedback('Please enter a valid email address.');
+            showNotice('error', 'Invalid email', 'Please enter a valid email address.');
             return;
         }
         if (!turnstileToken) {
-            setFeedback('Please complete the captcha.');
+            showNotice('error', 'Captcha required', 'Please complete the captcha before subscribing.');
             return;
         }
 
         setSubmitting(true);
-        setFeedback('');
 
         try {
             await postSubscribe({
@@ -104,14 +180,18 @@ const EmailAlertsForm = () => {
                 website,
                 turnstileToken,
             });
-            setFeedback('Thank you! Please check your inbox for a confirmation email.');
+            showNotice(
+                'success',
+                'Subscription received',
+                'Thank you for signing up. Please check your inbox and confirm your email to activate alerts.',
+            );
             setFirstName('');
             setLastName('');
             setEmail('');
             setWebsite('');
             setSelected([ANNOUNCEMENT_CATEGORIES[0]]);
         } catch {
-            setFeedback('Something went wrong. Please try again later.');
+            showNotice('error', 'Something went wrong', 'We could not complete your subscription. Please try again later.');
         }
         setTurnstileToken('');
         setFormKey((k) => k + 1);
@@ -208,14 +288,12 @@ const EmailAlertsForm = () => {
                     {submitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
 
-                {feedback && (
-                    <div role="status" aria-live="polite" className='mt-4 futura-medium text-[14px] text-[#231F20]'>{feedback}</div>
-                )}
-
                 <p className='futura-medium font-medium text-[13px] md:text-[14px] xl:text-[16px] text-[#A9A9A9] leading-[1.6] mt-4 max-w-[800px]'>
                     By subscribing, you agree to receive email communications from MetaOptics Ltd. You can unsubscribe at any time. Your information will not be shared with third parties.
                 </p>
             </form>
+
+            <FeedbackToast notice={notice} onClose={closeNotice} />
         </IRContainer>
     );
 };

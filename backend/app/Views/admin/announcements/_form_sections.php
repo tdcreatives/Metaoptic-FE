@@ -11,6 +11,11 @@ $v = static function (string $key) use ($values): string {
     return esc((string) ($values[$key] ?? ''));
 };
 $extraSlots = max(0, 3 - count($attachments));
+$categories = \App\Libraries\Email\CategoryCatalog::all();
+$customMarker = \App\Libraries\Email\CategoryCatalog::customMarker();
+$currentCategory = (string) ($values['category'] ?? '');
+$categoryIsCustom = $currentCategory !== '' && ! in_array($currentCategory, $categories, true);
+$categorySelect = $categoryIsCustom ? $customMarker : $currentCategory;
 ?>
 
 <section class="form-section card" aria-labelledby="sec-core">
@@ -24,8 +29,27 @@ $extraSlots = max(0, 3 - count($attachments));
     </div>
     <div class="form-grid form-grid-2">
         <div class="form-group">
-            <label class="label" for="category">Category <span class="req" aria-hidden="true">*</span></label>
-            <input class="input" id="category" type="text" name="category" value="<?= $v('category') ?>" required>
+            <label class="label" for="category_select">Category <span class="req" aria-hidden="true">*</span></label>
+            <select class="input" id="category_select" name="category_select" required>
+                <?php foreach ($categories as $cat): ?>
+                    <option value="<?= esc($cat, 'attr') ?>" <?= $categorySelect === $cat ? 'selected' : '' ?>><?= esc($cat) ?></option>
+                <?php endforeach; ?>
+                <option value="<?= esc($customMarker, 'attr') ?>" <?= $categorySelect === $customMarker ? 'selected' : '' ?>>Custom...</option>
+            </select>
+            <div id="category_custom_wrap" class="form-group" style="margin-top:0.5rem;" <?= $categoryIsCustom ? '' : 'hidden' ?>>
+                <label class="label" for="category_custom">Custom category</label>
+                <input
+                    class="input"
+                    id="category_custom"
+                    type="text"
+                    name="category_custom"
+                    value="<?= $categoryIsCustom ? esc($currentCategory) : '' ?>"
+                    placeholder="Type a new SGX category"
+                    autocomplete="off"
+                    <?= $categoryIsCustom ? 'required' : '' ?>
+                >
+                <p class="form-hint">Saved to the dropdown for next time after you save this announcement.</p>
+            </div>
         </div>
         <div class="form-group">
             <label class="label" for="filed_at">Filed at (SGT) <span class="req" aria-hidden="true">*</span></label>
@@ -208,3 +232,19 @@ $extraSlots = max(0, 3 - count($attachments));
         </div>
     </div>
 </details>
+
+<script>
+(function () {
+  var sel = document.getElementById('category_select');
+  var wrap = document.getElementById('category_custom_wrap');
+  var custom = document.getElementById('category_custom');
+  if (!sel || !wrap || !custom) return;
+  function sync() {
+    var isCustom = sel.value === <?= json_encode($customMarker) ?>;
+    wrap.hidden = !isCustom;
+    custom.required = isCustom;
+  }
+  sel.addEventListener('change', sync);
+  sync();
+})();
+</script>

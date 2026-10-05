@@ -17,6 +17,8 @@ $footerNote = (string) ($footerNote ?? '');
 $isInternal = ! empty($isInternal);
 $siteUrl = rtrim((string) (config('EmailAlerts')->publicSiteUrl ?? ''), '/');
 $safeTitle = $emailTitle !== '' ? $emailTitle : 'MetaOptics Investor Relations';
+// PNG for Outlook/Gmail; absolute URL so images load when mail is opened off-site
+$logoUrl = base_url('img/logo.png');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,8 +38,8 @@ $safeTitle = $emailTitle !== '' ? $emailTitle : 'MetaOptics Investor Relations';
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #e4e4e7;border-radius:8px;">
 <tr>
 <td style="padding:24px 32px 16px;border-bottom:3px solid #d44c39;">
-<p style="margin:0;font-size:20px;font-weight:600;line-height:1.3;color:#18181b;">MetaOptics</p>
-<p style="margin:4px 0 0;font-size:13px;line-height:1.4;color:#71717a;">
+<img src="<?= htmlspecialchars($logoUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" width="180" alt="MetaOptics" style="display:block;border:0;outline:none;text-decoration:none;height:auto;max-width:180px;">
+<p style="margin:10px 0 0;font-size:13px;line-height:1.4;color:#71717a;">
 <?= $isInternal ? 'Internal · Investor Relations' : 'Investor Relations' ?>
 </p>
 </td>

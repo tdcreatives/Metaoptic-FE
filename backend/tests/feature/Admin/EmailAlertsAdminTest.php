@@ -74,6 +74,36 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
         $this->assertStringContainsString('name="announcement_ids[]"', $body);
         $this->assertStringContainsString('value="' . $id . '"', $body);
         $this->assertStringContainsString('checked', $body);
+        $this->assertStringContainsString('id="attach_q"', $body);
+        $this->assertStringContainsString('id="attach_category"', $body);
+        $this->assertStringContainsString('Published only', $body);
+    }
+
+    public function test_attach_list_shows_published_not_pending(): void
+    {
+        $pubId = $this->insertPublished();
+        (new AnnouncementModel())->insert([
+            'sgx_reference' => 'PENDING-ATTACH',
+            'slug' => 'pending-attach',
+            'source_url' => 'https://example.test/pending',
+            'title' => 'Pending Must Stay Hidden',
+            'category' => 'General Announcement',
+            'issuer' => 'MetaOptics Ltd',
+            'filed_at' => '2026-09-28 09:00:00',
+            'source_payload' => '{}',
+            'source_hash' => str_repeat('b', 64),
+            'source' => 'manual',
+            'summary' => 'Summary',
+            'state' => 'pending_review',
+            'needs_review' => 1,
+        ]);
+
+        $form = $this->withSession(['admin' => true])->get('/admin/email-alerts/new');
+        $form->assertOK();
+        $body = $form->getBody();
+        $this->assertStringContainsString('value="' . $pubId . '"', $body);
+        $this->assertStringContainsString('Published for alert', $body);
+        $this->assertStringNotContainsString('Pending Must Stay Hidden', $body);
     }
 
     public function test_blank_new_form_prefills_sample_body(): void

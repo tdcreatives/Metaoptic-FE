@@ -39,6 +39,45 @@ final class AnnouncementCrudTest extends CIUnitTestCase
         $result->assertRedirectTo('/admin/announcements/' . $row['id']);
     }
 
+    public function test_create_form_has_category_dropdown_with_custom(): void
+    {
+        $form = $this->withSession(['admin' => true])->get('/admin/announcements/new');
+        $form->assertOK();
+        $body = $form->getBody();
+        $this->assertStringContainsString('name="category_select"', $body);
+        $this->assertStringContainsString('name="category_custom"', $body);
+        $this->assertStringContainsString('Custom...', $body);
+        $this->assertStringContainsString('General Announcement', $body);
+    }
+
+    public function test_create_with_custom_category_persists_to_catalog(): void
+    {
+        $tmp = WRITEPATH . 'email/test-custom-cats-' . bin2hex(random_bytes(4)) . '.json';
+        \App\Libraries\Email\CategoryCatalog::setCustomPathForTests($tmp);
+        try {
+            $result = $this->withSession(['admin' => true])->post(
+                '/admin/announcements',
+                $this->withCsrf([
+                    'title' => 'Custom Cat Note',
+                    'category_select' => \App\Libraries\Email\CategoryCatalog::customMarker(),
+                    'category_custom' => 'SGX Brand New Type',
+                    'filed_at' => '2026-09-28 11:00:00',
+                ])
+            );
+            $result->assertRedirect();
+
+            $row = (new AnnouncementModel())->where('title', 'Custom Cat Note')->first();
+            $this->assertNotNull($row);
+            $this->assertSame('SGX Brand New Type', $row['category']);
+            $this->assertContains('SGX Brand New Type', \App\Libraries\Email\CategoryCatalog::all());
+        } finally {
+            \App\Libraries\Email\CategoryCatalog::setCustomPathForTests(null);
+            if (is_file($tmp)) {
+                @unlink($tmp);
+            }
+        }
+    }
+
     public function test_create_ignores_posted_state(): void
     {
         $result = $this->withSession(['admin' => true])->post(

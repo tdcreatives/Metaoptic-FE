@@ -63,4 +63,16 @@ final class AdminLayoutTest extends CIUnitTestCase
         $result->assertSee('Quick start');
         $result->assertSee('page-guide');
     }
+
+    public function test_dashboard_stat_cards_link_to_filtered_lists(): void
+    {
+        $result = $this->withSession(['admin' => true])->get('/admin');
+        $result->assertOK();
+        $body = $result->getBody();
+        $this->assertStringContainsString('admin/announcements?state=pending_review', $body);
+        $this->assertStringContainsString('admin/announcements?state=published', $body);
+        $this->assertStringContainsString('admin/announcements?needs_review=1', $body);
+        $this->assertStringContainsString('admin/email-alerts?status=draft', $body);
+        $this->assertStringContainsString('admin/subscribers?status=active', $body);
+    }
 }

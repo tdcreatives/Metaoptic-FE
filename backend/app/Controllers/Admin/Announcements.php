@@ -37,12 +37,18 @@ class Announcements extends BaseController
             $category = '';
         }
 
+        $needsReview = (string) $this->request->getGet('needs_review') === '1';
+        if ($needsReview) {
+            $model->where('needs_review', 1);
+        }
+
         return view('admin/announcements/index', [
             'title' => 'Announcements',
             'announcements' => $model->orderBy('filed_at', 'DESC')->findAll(),
             'state' => $state,
             'category' => $category,
             'categories' => $categories,
+            'needs_review' => $needsReview,
         ]);
     }
 
@@ -312,6 +318,20 @@ class Announcements extends BaseController
         }
         if (! array_key_exists('attachment_url', $post)) {
             $post['attachment_url'] = $this->request->getPost('attachment_url') ?? [];
+        }
+
+        $select = trim((string) ($this->request->getPost('category_select') ?? ''));
+        $custom = trim((string) ($this->request->getPost('category_custom') ?? ''));
+        if ($select === CategoryCatalog::customMarker()) {
+            $post['category'] = $custom;
+        } elseif ($select !== '') {
+            $post['category'] = $select;
+        }
+
+        $category = trim((string) ($post['category'] ?? ''));
+        if ($category !== '') {
+            $post['category'] = $category;
+            CategoryCatalog::remember($category);
         }
 
         return $post;

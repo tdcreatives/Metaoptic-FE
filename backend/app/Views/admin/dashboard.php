@@ -18,38 +18,38 @@
 </aside>
 
 <div class="stat-grid">
-    <div class="stat-card">
+    <a class="stat-card" href="<?= site_url('admin/announcements?state=pending_review') ?>">
         <span class="label">Pending</span>
         <span class="value"><?= esc((string) $pending) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/announcements?state=published') ?>">
         <span class="label">Published</span>
         <span class="value"><?= esc((string) $published) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/announcements?needs_review=1') ?>">
         <span class="label">Needs review</span>
         <span class="value"><?= esc((string) $needs_review) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/email-alerts?status=draft') ?>">
         <span class="label">Alert drafts</span>
         <span class="value"><?= esc((string) $alert_draft) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/email-alerts?status=scheduled') ?>">
         <span class="label">Alert scheduled</span>
         <span class="value"><?= esc((string) $alert_scheduled) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/email-alerts?status=sending') ?>">
         <span class="label">Alert sending</span>
         <span class="value"><?= esc((string) $alert_sending) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/email-alerts?status=sent') ?>">
         <span class="label">Alert sent</span>
         <span class="value"><?= esc((string) $alert_sent) ?></span>
-    </div>
-    <div class="stat-card">
+    </a>
+    <a class="stat-card" href="<?= site_url('admin/subscribers?status=active') ?>">
         <span class="label">Active subscribers</span>
         <span class="value"><?= esc((string) $subscribers_active) ?></span>
-    </div>
+    </a>
 </div>
 <p class="btn-row">
     <a class="btn btn-primary" href="<?= site_url('admin/announcements') ?>">Announcements</a>
