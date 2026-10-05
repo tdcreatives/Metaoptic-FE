@@ -458,7 +458,7 @@
       "slug": "pico-projector",
       "image": "/products/product-5.png",
       "category": "Projector",
-      "buyNow": "https://www.kickstarter.com/projects/metaoptics-sg/metaoptics-pico-projector",
+      "buyNow": "https://www.kickstarter.com/projects/metaoptics/pico-projector-an-80-in-screen-that-travels-in-your-pocket",
       "brochure": "/download/pico-projector-v2027July.pdf",
       "userGuide": {
         "name": "User guide",
@@ -1429,7 +1429,7 @@
       "slug": "pico-projector-2nd-generation",
       "image": "/products/pico-projector-2nd-generation.png",
       "category": "Projector",
-      "buyNow": "https://www.kickstarter.com/projects/metaoptics-sg/metaoptics-pico-projector",
+      "buyNow": "https://www.kickstarter.com/projects/metaoptics/pico-projector-an-80-in-screen-that-travels-in-your-pocket",
       "buyNowText": "Buy Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
       "userGuide": {
@@ -1501,7 +1501,7 @@
       "bannerTag": "Prototyping, sampling only",
       "image": "/products/metalens-5g-smartphone.png",
       "imageScale": 1.2,
-      "buyNow": "https://metaoptics.shop/products/metaoptics-metalens-5g-smartphone",
+      "buyNow": "https://metaphone.shop/",
       "buyNowText": "Buy Now",
       "category": "Smartphone",
       "brochure": "/download/metalens-5g-smartphone-v2027July.pdf",

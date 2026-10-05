@@ -647,6 +647,23 @@
                 "relatedNews": []
             },
             "mod": "production"
+        },
+        {
+            "id": 33,
+            "slug": "metaoptics-announces-strategic-expansion-into-malaysia-with-incorporation-of-wholly-owned-subsidiary",
+            "title": "MetaOptics Announces Strategic Expansion into Malaysia with Incorporation of Wholly-Owned Subsidiary",
+            "desc": "MetaOptics announced the incorporation of its wholly-owned Malaysian subsidiary, MetaOptics Technologies Sdn. Bhd., marking a key milestone in its global strategy.",
+            "date": "Oct 02, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://www.prnewswire.com/apac/news-releases/metaoptics-announces-strategic-expansion-into-malaysia-with-incorporation-of-wholly-owned-subsidiary-302897168.html",
+            "external": false,
+            "details": {
+                "images": ["/news/MOT.webp"],
+                "contentPath": "/content/news/metaoptics-announces-strategic-expansion-into-malaysia-with-incorporation-of-wholly-owned-subsidiary.mdx",
+                "relatedNews": []
+            },
+            "mod": "production"
         }
     ]
 }

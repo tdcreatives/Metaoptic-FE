@@ -1,44 +1,148 @@
 {
-    "faqs": [
+    "sections": [
         {
-            "id": "hq-location",
-            "question": "Where is MetaOptics Ltd headquartered?",
-            "answer": "MetaOptics Ltd is headquartered in Singapore, where its primary research, development, and operational functions are based. The company's Singapore office is located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
+            "id": "general",
+            "title": "General investor info",
+            "faqs": [
+                {
+                    "id": "hq-location",
+                    "question": "Where is MetaOptics Ltd headquartered?",
+                    "answer": "MetaOptics Ltd is headquartered in Singapore. The company operates from Metaoptics Technologies Pte Ltd, located at 81 Ayer Rajah Crescent, #01-45, Singapore 139967."
+                },
+                {
+                    "id": "us-office",
+                    "question": "Where is MetaOptics Ltd's U.S. office?",
+                    "answer": "MetaOptics maintains a U.S. office in San Francisco, California, supporting its North American investor relations and business development activities. The U.S. office is located at 1 Ferry Building, Suite 201, San Francisco, CA 94111."
+                },
+                {
+                    "id": "incorporation",
+                    "question": "Where was MetaOptics Ltd incorporated?",
+                    "answer": "MetaOptics Ltd is incorporated in the Cayman Islands, a common jurisdiction for international technology companies seeking operational and structural flexibility across global markets."
+                },
+                {
+                    "id": "fiscal-year-end",
+                    "question": "When is MetaOptics Ltd's fiscal year end?",
+                    "answer": "MetaOptics Ltd's fiscal year ends on December 31. Annual financial results are reported in accordance with this calendar-year schedule and filed with the relevant regulatory authorities."
+                },
+                {
+                    "id": "stock-symbol",
+                    "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
+                    "answer": "MetaOptics Ltd is listed on the Singapore Exchange (SGX) Catalist under stock code 9MT. Its American Depositary Receipts (ADRs) also trade on OTCQX under the ticker MOTLY."
+                },
+                {
+                    "id": "depository-bank",
+                    "question": "Who is MetaOptics Ltd's depository bank?",
+                    "answer": "JPMorgan Chase Bank, N.A. is the Depositary Bank for the MetaOptics Level 1 ADR program."
+                },
+                {
+                    "id": "independent-auditor",
+                    "question": "Who is MetaOptics Ltd's independent auditor?",
+                    "answer": "MetaOptics Ltd's financial statements are audited by PricewaterhouseCoopers LLP, one of the world's leading professional services and audit firms, recognized for its expertise in technology and high-growth companies."
+                },
+                {
+                    "id": "us-legal-counsel",
+                    "question": "Who is MetaOptics Ltd's outside U.S. legal counsel?",
+                    "answer": "MetaOptics Ltd is represented in the United States by Norton Rose Fulbright, a global law firm with extensive experience advising public companies on securities law, capital markets matters, and regulatory compliance."
+                },
+                {
+                    "id": "sg-legal-counsel",
+                    "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
+                    "answer": "MetaOptics Ltd's Singapore legal affairs are handled by Drew & Napier LLC, one of Singapore's most established full-service law firms with deep expertise in corporate and capital markets matters."
+                },
+                {
+                    "id": "ir-contact",
+                    "question": "What is MetaOptics Ltd's investor relations contact information?",
+                    "answer": "Email: MOT@gateway-grp.com. Phone: 949-574-3860."
+                }
+            ]
         },
         {
-            "id": "us-office",
-            "question": "Where is MetaOptics Ltd's U.S. office?",
-            "answer": "MetaOptics maintains a U.S. office in San Francisco, California, supporting its North American investor relations and business development activities. The U.S. office is located at 1 Ferry Building, Suite 201, San Francisco, CA 94111."
-        },
-        {
-            "id": "incorporation",
-            "question": "Where was MetaOptics Ltd incorporated?",
-            "answer": "MetaOptics Ltd is incorporated in the Cayman Islands, a common jurisdiction for international technology companies seeking operational and structural flexibility across global markets."
-        },
-        {
-            "id": "fiscal-year-end",
-            "question": "When is MetaOptics Ltd's fiscal year end?",
-            "answer": "MetaOptics Ltd's fiscal year ends on December 31. Annual financial results are reported in accordance with this calendar-year schedule and filed with the relevant regulatory authorities."
-        },
-        {
-            "id": "stock-symbol",
-            "question": "What is MetaOptics Ltd's stock symbol and exchange listing?",
-            "answer": "MetaOptics Ltd is listed on the Singapore Exchange (SGX) under stock code 9MT."
-        },
-        {
-            "id": "independent-auditor",
-            "question": "Who is MetaOptics Ltd's independent auditor?",
-            "answer": "MetaOptics Ltd's financial statements are audited by PricewaterhouseCoopers LLP, one of the world's leading professional services and audit firms, recognized for its expertise in technology and high-growth companies."
-        },
-        {
-            "id": "us-legal-counsel",
-            "question": "Who is MetaOptics Ltd's outside U.S. legal counsel?",
-            "answer": "MetaOptics Ltd is represented in the United States by Norton Rose Fulbright, a global law firm with extensive experience advising public companies on securities law, capital markets matters, and regulatory compliance."
-        },
-        {
-            "id": "sg-legal-counsel",
-            "question": "Who is MetaOptics Ltd's outside Singapore legal counsel?",
-            "answer": "MetaOptics Ltd's Singapore legal affairs are handled by Drew & Napier LLC, one of Singapore's most established full-service law firms with deep expertise in corporate and capital markets matters."
+            "id": "adr-level-1",
+            "title": "ADR Level 1 info",
+            "faqs": [
+                {
+                    "id": "what-is-adr",
+                    "question": "What is an ADR?",
+                    "answer": "An American Depositary Receipt (ADR) is an U.S. dollar-denominated security issued by an U.S. Depositary Bank that represents ordinary shares of a non-U.S. company.\n\nA sponsored Level 1 ADR program is established by the issuer and a Depositary Bank for trading of converted ADRs in the U.S. over-the-counter (OTC) market rather than on Nasdaq or the New York Stock Exchange. As there is no fund raising involved, no ADRs are issued during the initial establishment of the sponsored Level 1 ADR program."
+                },
+                {
+                    "id": "adr-established",
+                    "question": "When was the MetaOptics Level 1 ADR program established, and where does it trade?",
+                    "answer": "The MetaOptics Level 1 ADR program became effective on 24 September 2026. Further details can be found under https://adr.com/drprofile/590931101. Its ADRs trade on OTCQX under the ticker MOTLY. Further details can be found under https://www.otcmarkets.com/stock/MOTLY/overview."
+                },
+                {
+                    "id": "adr-ratio",
+                    "question": "What is the ADR-to-ordinary-share ratio?",
+                    "answer": "Each ADR (MOTLY) represents 10 ordinary shares of MetaOptics."
+                },
+                {
+                    "id": "adr-depositary-bank",
+                    "question": "Who is the depositary bank?",
+                    "answer": "JPMorgan Chase Bank, N.A. is the Depositary Bank for the MetaOptics Level 1 ADR program."
+                },
+                {
+                    "id": "adr-local-custodian",
+                    "question": "Who is the local custodian?",
+                    "answer": "The Development Bank of Singapore Ltd. acts as the local custodian for the ADR program."
+                },
+                {
+                    "id": "adr-buy-sell",
+                    "question": "How can investors buy or sell MetaOptics ADRs?",
+                    "answer": "Investors may trade MOTLY through a broker or trading platform that supports OTCQX securities. Investors should confirm availability, eligibility, commissions and settlement arrangements directly with their broker."
+                },
+                {
+                    "id": "adr-singapore-investors",
+                    "question": "Can Singapore-based investors trade the ADRs?",
+                    "answer": "Singapore-based investors may convert their ordinary shares into ADRs through their Singapore-based brokers and U.S. agents that support U.S. trading on the OTC market."
+                },
+                {
+                    "id": "adr-conversion",
+                    "question": "Can ordinary shares be converted into ADRs, and vice versa?",
+                    "answer": "The Level 1 ADR program enables issuances and cancellations of ADRs against the deposits and withdrawals of the underlying ordinary shares, subject to the Deposit Agreement, market procedures, applicable law and the investor's broker or custodian arrangements. Investors should ask their broker to coordinate with the Depositary Bank and local custodian."
+                },
+                {
+                    "id": "adr-dividends",
+                    "question": "How are dividends handled for ADR holders?",
+                    "answer": "If and when, MetaOptics declares a dividend and a distribution is practicable, the Depositary Bank would generally arrange for the underlying distribution to be converted and paid to ADR holders in U.S. dollars, net of applicable taxes, fees and expenses. The final treatment is governed by the Deposit Agreement and the terms of the distribution."
+                },
+                {
+                    "id": "adr-voting",
+                    "question": "How are voting materials handled?",
+                    "answer": "The Depositary Bank typically requests voting instructions from ADR holders whenever the underlying shares are eligible to vote. The mechanism in terms of ADR holder's voting right is governed by the Deposit Agreement and disclosed through F-6 registration statements."
+                },
+                {
+                    "id": "adr-price",
+                    "question": "What determines the ADR price?",
+                    "answer": "The market price of MOTLY may reflect the value of the underlying MetaOptics ordinary shares, factoring in the 1:10 ADR ratio, foreign-exchange movements as well as supply and demand in the OTC market."
+                },
+                {
+                    "id": "adr-fees",
+                    "question": "Are there ADR fees?",
+                    "answer": "There are different types of fees relating to ADR, depending on the circumstances, such as:",
+                    "list": [
+                        "Conversion fee (from ordinary shares to ADRs) charged by your custodian and/or broker. This is transaction based and solely for handling and administrative work. Please consult your partnered custodian and broker for more details.",
+                        "Issuance fee at US$5 per 100 ADRs or portion thereof for each ADR issuance request",
+                        "Cancellation fee at US$5 per 100 ADRs or portion thereof along with a Cancellation Transaction fee of US$15, charged on per transaction basis for each ADR cancellation request",
+                        "Admin fee of up-to US$0.05 per ADR, charged annually on the holdings as of a Record Date to be announced",
+                        "Dividend fee of up-to US$0.05 per ADR, deducted from the gross USD dividend amount prior to payment to ADR holders."
+                    ]
+                },
+                {
+                    "id": "adr-taxes",
+                    "question": "What taxes may apply?",
+                    "answer": "Withholding on dividends is governed by Singapore tax law and any applicable treaties; kindly consult your tax advisor for further guidance."
+                },
+                {
+                    "id": "adr-documents",
+                    "question": "Where can investors find the governing ADR documents?",
+                    "answer": "The Deposit Agreement and related exhibits are filed with the U.S. Securities and Exchange Commission as part of the Form F-6 registration materials. These documents govern the rights and obligations of the issuer, the Depositary Bank and ADR holders."
+                },
+                {
+                    "id": "adr-contact",
+                    "question": "Who should investors contact for ADR trading, settlement or conversion questions?",
+                    "answer": "Kindly refer enquiries to MetaOptics Investor Relations or your broker for trading/settlement inquiries. For depositary-receipt servicing information, investors may also refer to J.P. Morgan's ADR website at https://www.adr.com."
+                }
+            ]
         }
     ]
 }
