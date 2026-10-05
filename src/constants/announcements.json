@@ -3253,5 +3253,81 @@
             ]
         },
         "category": "General Announcement"
+    },
+    {
+        "id": 68,
+        "title": "GENERAL ANNOUNCEMENT::INCORPORATION OF A WHOLLY-OWNED SUBSIDIARY IN MALAYSIA",
+        "title_btn": "GENERAL ANNOUNCEMENT::INCORPORATION OF A WHOLLY-OWNED SUBSIDIARY IN MALAYSIA",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::INCORPORATION OF A WHOLLY-OWNED SUBSIDIARY IN MALAYSIA",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-incorporation-of-a-wholly-owned-subsidiary-in-malaysia-sg261002othrqxnq",
+        "desc": "",
+        "date": "02 Oct 2026 05:38 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "INCORPORATION OF A WHOLLY-OWNED SUBSIDIARY IN MALAYSIA",
+                "title": "General Announcement",
+                "dateTime": "02-Oct-2026 17:38:40",
+                "status": "New",
+                "reference": "SG261002OTHRQXNQ",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment. This announcement has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\"). This announcement has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this announcement, including the correctness of any of the statements or opinions made or reports contained in this announcement. The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - SGX - Incorporation of MY Subsidiary.pdf",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/3J5P4W2RS3SZ6GEW/905839_MetaOptics%20-%20SGX%20-%20Incorporation%20of%20MY%20Subsidiary.pdf"
+                }
+            ]
+        },
+        "category": "General Announcement"
+    },
+    {
+        "id": 69,
+        "title": "GENERAL ANNOUNCEMENT::PRESS RELEASE-MOT ANNOUNCES STRATEGIC EXPANSION INTO MALAYSIA WITH INCORPORATION OF SUBSIDIARY",
+        "title_btn": "GENERAL ANNOUNCEMENT::PRESS RELEASE-MOT ANNOUNCES STRATEGIC EXPANSION INTO MALAYSIA WITH INCORPORATION OF SUBSIDIARY",
+        "title_btn_sm": "GENERAL ANNOUNCEMENT::PRESS RELEASE-MOT ANNOUNCES STRATEGIC EXPANSION INTO MALAYSIA WITH INCORPORATION OF SUBSIDIARY",
+        "title_banner": "GENERAL<br/>ANNOUNCEMENT",
+        "slug": "general-announcement-press-release-mot-announces-strategic-expansion-into-malaysia-with-incorporation-of-subsidiary-sg261002othrxauo",
+        "desc": "",
+        "date": "02 Oct 2026 05:38 PM",
+        "details": {
+            "issuer": {
+                "name": "METAOPTICS LTD"
+            },
+            "securities": {
+                "name": "METAOPTICS LTD - KYG93Y1D1074 - 9MT"
+            },
+            "stapledSecurity": {
+                "name": "No"
+            },
+            "announcement": {
+                "subTitle": "Press Release-MOT Announces Strategic Expansion into Malaysia with Incorporation of Subsidiary",
+                "title": "General Announcement",
+                "dateTime": "02-Oct-2026 17:38:59",
+                "status": "New",
+                "reference": "SG261002OTHRXAUO",
+                "submittedBy": "Thng Chong Kim",
+                "designation": "Executive Chairman",
+                "description": "Please refer to the attachment. This press release has been reviewed by the Company's sponsor, ZICO Capital Pte. Ltd. (the \"Sponsor\"). This press release has not been examined or approved by the Singapore Exchange Securities Trading Limited (the \"SGX-ST\") and the SGX-ST assumes no responsibility for the contents of this press release, including the correctness of any of the statements or opinions made or reports contained in this press release. The contact person for the Sponsor is Ms. Goh Mei Xian, ZICO Capital Pte. Ltd. at 77 Robinson Road, #06-03 Robinson 77, Singapore 068896, telephone: (65) 6636 4201."
+            },
+            "attachments": [
+                {
+                    "name": "MetaOptics - Press Release on Incorporation of Malaysian Subsidiary.pdf",
+                    "url": "https://links.sgx.com/1.0.0/corporate-announcements/RT5PR60PJFSK7OMJ/905840_MetaOptics%20-%20Press%20Release%20on%20Incorporation%20of%20Malaysian%20Subsidiary.pdf"
+                }
+            ]
+        },
+        "category": "General Announcement"
     }
 ]
