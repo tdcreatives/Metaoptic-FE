@@ -82,20 +82,22 @@ const InvestorFAQs = () => {
 
     return (
         <IRContainer className='py-12 md:py-16 lg:py-20'>
-            <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-4 md:pb-5 lg:pb-6'>
+            <h2 className='futura-condensed-medium font-medium text-black uppercase text-[28px] md:text-[36px] xl:text-[48px] leading-tight border-b border-[#BFBFBF] pb-2 md:pb-2.5 lg:pb-3'>
                 Investor FAQs
             </h2>
 
             {!hasFaqs ? (
-                <div className='mt-6 md:mt-8 py-12 text-center text-[#888888] futura-medium'>
+                <div className='mt-12 md:mt-16 lg:mt-20 py-12 text-center text-[#888888] futura-medium'>
                     No FAQs available.
                 </div>
             ) : (
-                <div className='mt-6 md:mt-8 space-y-10 md:space-y-12 lg:space-y-14'>
+                // ponytail: spacing tuned to IR FAQ PDF — ~84px after page title,
+                // ~44px section title → first Q, ~100px between sections
+                <div className='mt-12 md:mt-16 lg:mt-20 space-y-16 md:space-y-20 lg:space-y-24'>
                     {sections.map((section) => (
                         <section key={section.id}>
                             {section.title ? (
-                                <h3 className='futura-condensed-medium font-medium text-black uppercase text-[22px] md:text-[28px] xl:text-[32px] leading-tight mb-2 md:mb-3'>
+                                <h3 className='futura-condensed-medium font-medium text-black uppercase text-[24px] md:text-[28px] xl:text-[36px] leading-tight mb-6 md:mb-8 lg:mb-10'>
                                     {section.title}
                                 </h3>
                             ) : null}
