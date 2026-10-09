@@ -1,0 +1,118 @@
+/**
+ * IR launch visibility flags.
+ *
+ * API / Email Alerts gates read NEXT_PUBLIC_* at build time (static export).
+ * Other section flags stay code defaults until they need env too.
+ *
+ * When toggling page-level flags, also update .htaccess IR launch redirect rules
+ * so direct URLs redirect at the server (Apache) without a client-side flash.
+ */
+
+/** @param {string|undefined} raw @param {boolean} [fallback=false] */
+export function parseEnvFlag(raw, fallback = false) {
+    if (raw === undefined || raw === '') {
+        return fallback;
+    }
+    const v = String(raw).trim().toLowerCase();
+    if (v === 'true' || v === '1' || v === 'yes') {
+        return true;
+    }
+    if (v === 'false' || v === '0' || v === 'no') {
+        return false;
+    }
+    return fallback;
+}
+
+export const IR_LAUNCH_FLAGS = {
+    // NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API + NEXT_PUBLIC_IR_API_BASE + CORS
+    useAnnouncementsApi: parseEnvFlag(process.env.NEXT_PUBLIC_IR_USE_ANNOUNCEMENTS_API),
+    showMostRecentEvents: false,
+    showLatestFinancialResults: false,
+    showUpcomingEvents: false,
+    showPastEvents: false,
+    showStockInfo: false,
+    showAnalystCoverage: true,
+    showQuarterlyResults: false,
+    showDocumentsAndCharters: false,
+    // NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS — also keep next.config / .htaccess in sync when hiding
+    showEmailAlerts: parseEnvFlag(process.env.NEXT_PUBLIC_IR_SHOW_EMAIL_ALERTS),
+};
+
+/** Parent redirect when Stock Info (entire section) is hidden */
+export const IR_STOCK_INFO_FALLBACK = '/investor-relations';
+
+const SUB_ITEM_VISIBILITY = {
+    '/investor-relations/stock-info/analyst-coverage': 'showAnalystCoverage',
+    '/investor-relations/financials/quarterly-results': 'showQuarterlyResults',
+    '/investor-relations/governance/documents-and-charters': 'showDocumentsAndCharters',
+};
+
+const STOCK_INFO_PATH_PREFIX = '/investor-relations/stock-info';
+
+export const isStockInfoPath = (pathname) =>
+    pathname === STOCK_INFO_PATH_PREFIX || pathname.startsWith(`${STOCK_INFO_PATH_PREFIX}/`);
+
+export const isIrTabVisible = (tab) => {
+    if (tab.launchFlag && !IR_LAUNCH_FLAGS[tab.launchFlag]) {
+        return false;
+    }
+    return true;
+};
+
+export const isIrSubItemVisible = (sub) => {
+    if (sub.launchFlag && !IR_LAUNCH_FLAGS[sub.launchFlag]) {
+        return false;
+    }
+
+    const path = typeof sub === 'string' ? sub : sub.path;
+    const basePath = path.split('#')[0];
+    const flagKey = SUB_ITEM_VISIBILITY[basePath];
+    if (!flagKey) return true;
+    return IR_LAUNCH_FLAGS[flagKey];
+};
+
+export const getDefaultStockInfoPath = () =>
+    IR_LAUNCH_FLAGS.showStockInfo
+        ? '/investor-relations/stock-info/stock-quote'
+        : IR_STOCK_INFO_FALLBACK;
+
+export const getDefaultGovernancePath = () =>
+    IR_LAUNCH_FLAGS.showDocumentsAndCharters
+        ? '/investor-relations/governance/documents-and-charters'
+        : '/investor-relations/governance/board-of-directors';
+
+/** Standalone SGX page: /analyst-coverage */
+export const getStandaloneAnalystCoverageRedirect = () => '/investor-relations/analyst-coverage';
+
+/** IR sub-page under Stock Info: /investor-relations/stock-info/analyst-coverage */
+export const getIrStockInfoAnalystCoverageRedirect = () => '/investor-relations/analyst-coverage';
+
+export const IR_HIDDEN_PAGE_REDIRECTS = {
+    '/investor-relations/stock-info': IR_STOCK_INFO_FALLBACK,
+    '/investor-relations/stock-info/stock-quote': IR_STOCK_INFO_FALLBACK,
+    '/investor-relations/stock-info/analyst-coverage': '/investor-relations/analyst-coverage',
+    '/investor-relations/financials/quarterly-results': '/investor-relations/company-announcement',
+    '/investor-relations/governance/documents-and-charters': '/investor-relations/governance/board-of-directors',
+    '/analyst-coverage': '/investor-relations/analyst-coverage',
+};
+
+export const getIrHiddenPageRedirect = (pathname) => {
+    if (pathname === '/investor-relations/stock-info/analyst-coverage') {
+        return getIrStockInfoAnalystCoverageRedirect();
+    }
+
+    if (!IR_LAUNCH_FLAGS.showStockInfo && isStockInfoPath(pathname)) {
+        return IR_STOCK_INFO_FALLBACK;
+    }
+
+    if (pathname === '/investor-relations/financials/quarterly-results' && !IR_LAUNCH_FLAGS.showQuarterlyResults) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    if (pathname === '/investor-relations/governance/documents-and-charters' && !IR_LAUNCH_FLAGS.showDocumentsAndCharters) {
+        return IR_HIDDEN_PAGE_REDIRECTS[pathname];
+    }
+    if (pathname === '/analyst-coverage' && !IR_LAUNCH_FLAGS.showAnalystCoverage) {
+        return getStandaloneAnalystCoverageRedirect();
+    }
+    return null;
+};

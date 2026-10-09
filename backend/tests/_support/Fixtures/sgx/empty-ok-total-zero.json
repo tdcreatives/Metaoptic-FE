@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "code": "200",
+    "message": "success",
+    "totalPages": 0,
+    "totalItems": 0,
+    "requestTimestamp": 0
+  },
+  "data": []
+}

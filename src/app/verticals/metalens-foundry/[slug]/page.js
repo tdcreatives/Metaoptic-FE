@@ -4,7 +4,6 @@ import { foundrySlugs } from '@/utils/product';
 import { redirect } from 'next/navigation';
 
 const LEGACY_IOT_CAMERA_SLUG = 'iot-metalens-color-camera';
-const RECTANGULAR_IOT_CAMERA_SLUG = 'iot-rectangular-metalens-color-camera';
 
 export const generateStaticParams = async () => {
     return [...foundrySlugs, LEGACY_IOT_CAMERA_SLUG].map((slug) => ({
@@ -14,8 +13,7 @@ export const generateStaticParams = async () => {
 
 export const generateMetadata = async (props) => {
     const params = await props.params;
-    const slug = params.slug === LEGACY_IOT_CAMERA_SLUG ? RECTANGULAR_IOT_CAMERA_SLUG : params.slug;
-    const product = data.products.find((item) => item.slug === slug);
+    const product = data.products.find((item) => item.slug === params.slug);
     return {
         title: product?.name,
         description: product?.details?.description,
@@ -26,7 +24,7 @@ const ProductDetailsPage = async (props) => {
     const params = await props.params;
     if (params.slug === LEGACY_IOT_CAMERA_SLUG) {
         redirect(
-            `/verticals/metalens-products/development-kits/${RECTANGULAR_IOT_CAMERA_SLUG}`
+            `/verticals/metalens-products/development-kits/${LEGACY_IOT_CAMERA_SLUG}`
         );
     }
 
