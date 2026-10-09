@@ -45,6 +45,48 @@ const RowBorder = ({
     </div>
 );
 
+const PlaceholderColumn = ({ placeholderColumn }) => {
+    if (!placeholderColumn?.label) return null;
+
+    const {
+        label,
+        title = 'DESIGN IN PROGRESS',
+        subtitle,
+        icon = '/product-details/design-in-progress.svg',
+    } = placeholderColumn;
+
+    return (
+        <div className='flex flex-col flex-1 min-w-[200px] min-h-[420px] rounded-[12px] border border-dashed border-white/80 px-4 pt-4 pb-6'>
+            <div className='h-[72px] flex items-center px-2 shrink-0'>
+                <div className='w-full h-14 flex items-center justify-center rounded-full border border-white'>
+                    <span className='futura-condensed-medium text-[20px] xl:text-[24px] text-center'>
+                        {label}
+                    </span>
+                </div>
+            </div>
+
+            <div className='flex-1 flex flex-col items-center justify-center gap-4 px-2 text-center'>
+                <Image
+                    src={icon}
+                    alt=''
+                    aria-hidden='true'
+                    width={88}
+                    height={88}
+                    className='w-[72px] h-[72px] xl:w-[88px] xl:h-[88px] object-contain'
+                />
+                <p className='futura-condensed-medium uppercase tracking-[1px] text-[16px] xl:text-[20px] leading-tight'>
+                    {title}
+                </p>
+                {subtitle && (
+                    <p className='futura-book text-[14px] xl:text-[16px] text-white/90'>
+                        {subtitle}
+                    </p>
+                )}
+            </div>
+        </div>
+    );
+};
+
 const ProductDetailsSpecComparison = ({
     specComparison,
     brochureTitle,
@@ -54,7 +96,7 @@ const ProductDetailsSpecComparison = ({
         return null;
     }
 
-    const { columns, sections } = specComparison;
+    const { columns, sections, placeholderColumn } = specComparison;
 
     return (
         <section className='w-full bg-[#d34c39] text-white rounded-[32px] pt-12 pb-16 px-6 lg:px-10 flex flex-col gap-8'>
@@ -135,7 +177,6 @@ const ProductDetailsSpecComparison = ({
                                 <div
                                     key={`${col}-${section.key || section.title}`}
                                     className={isFirstSection ? '' : 'pt-10'}>
-                                    {/* spacer aligns with section title row in label column */}
                                     <RowBorder
                                         className={`px-2 ${isFirstSection ? '' : 'min-h-12'}`}
                                         showBorder={isFirstSection}
@@ -162,6 +203,9 @@ const ProductDetailsSpecComparison = ({
                         })}
                     </div>
                 ))}
+
+                {/* Opt-in coming-soon column (24MP etc.) — only when data provides it */}
+                <PlaceholderColumn placeholderColumn={placeholderColumn} />
             </div>
 
             {brochure && (
