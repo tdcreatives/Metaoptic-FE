@@ -37,6 +37,8 @@ if (is_array($oldNames) || is_array($oldUrls)) {
 $state = (string) ($row['state'] ?? '');
 $isPublished = $state === 'published';
 $isArchived = $state === 'archived';
+$needsLiveSync = ! empty($needsLiveSync);
+$isLiveOnWebsite = ! empty($isLiveOnWebsite);
 ?>
 
 <header class="page-head">
@@ -46,14 +48,32 @@ $isArchived = $state === 'archived';
         <div class="page-head-meta">
             <span class="badge"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span>
             <span class="badge badge-state badge-state-<?= esc(preg_replace('/[^a-z0-9_]+/', '', strtolower($state)) ?: 'unknown', 'attr') ?>"><?= esc($state) ?></span>
+            <?php if ($needsLiveSync): ?>
+                <span class="badge badge-pending-sync">Pending sync</span>
+            <?php elseif ($isLiveOnWebsite): ?>
+                <span class="badge badge-live-site">On live website</span>
+            <?php endif; ?>
         </div>
     </div>
 </header>
 
 <aside class="page-guide" aria-label="Announcement detail tips">
     <span class="page-guide-label">Tip</span>
-    <p>Edit fields below, use <strong>Preview on website</strong> before going live, then <strong>Publish</strong>. Investor emails are separate — use <strong>Create Email Alert</strong> only after the item is published.</p>
+    <p><strong>Publish</strong> approves in CMS. <strong>Publish to live site</strong> (on the list page) rebuilds the public website. Email alerts are only for items already on the live website.</p>
 </aside>
+<?php if ($needsLiveSync): ?>
+    <div class="flash" role="status">
+        <?php if ($isPublished): ?>
+            <strong>Not on website yet</strong> — published in CMS
+            <?php if (! empty($row['published_at'])): ?>
+                (<?= esc((string) $row['published_at']) ?>)
+            <?php endif; ?>
+            but not on the live website. Open Announcements and click <strong>Publish to live site</strong>.
+        <?php else: ?>
+            <strong>Pending sync</strong> — still marked live until you click <strong>Publish to live site</strong> to update the public website.
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
 
 <?php if (session('message')): ?>
     <div class="flash flash-success" role="status"><?= esc((string) session('message')) ?></div>
@@ -84,6 +104,22 @@ $isArchived = $state === 'archived';
             <dt>Category</dt>
             <dd><?= esc((string) ($row['category'] ?? '')) ?></dd>
         </div>
+        <div>
+            <dt>Published in CMS</dt>
+            <dd><?php if (! empty($row['published_at'])): ?>
+                <?= esc((string) $row['published_at']) ?>
+            <?php else: ?>
+                <span class="empty-inline">—</span>
+            <?php endif; ?></dd>
+        </div>
+        <div>
+            <dt>On live website</dt>
+            <dd><?php if (! empty($row['live_at'])): ?>
+                <?= esc((string) $row['live_at']) ?>
+            <?php else: ?>
+                <span class="empty-inline">Not yet</span>
+            <?php endif; ?></dd>
+        </div>
     </dl>
 </section>
 
@@ -92,9 +128,9 @@ $isArchived = $state === 'archived';
         <h2 id="sec-actions">Workflow</h2>
         <p class="form-hint">
             <?php if ($isArchived): ?>
-                This announcement is archived (hidden from the website). Publish again to restore it live.
+                Archived in CMS. Use Publish to live site on the list if it still appears on the public website.
             <?php else: ?>
-                Publish when the listing is ready. Email alerts require a published announcement.
+                Publish in CMS when ready, then Publish to live site. Email alerts require the item to be on the live website.
             <?php endif; ?>
         </p>
     </div>
@@ -103,7 +139,7 @@ $isArchived = $state === 'archived';
             <?= csrf_field() ?>
             <button class="btn btn-primary" type="submit" <?= $isPublished ? 'disabled' : '' ?>>
                 <?php if ($isPublished): ?>
-                    Published
+                    Published (CMS)
                 <?php elseif ($isArchived): ?>
                     Publish again
                 <?php else: ?>
@@ -119,8 +155,10 @@ $isArchived = $state === 'archived';
                 rel="noopener noreferrer"
             >Preview on website</a>
         <?php endif; ?>
-        <?php if ($isPublished): ?>
+        <?php if ($isLiveOnWebsite): ?>
             <a class="btn btn-secondary" href="<?= site_url('admin/email-alerts/new?announcement_id=' . $row['id']) ?>">Create Email Alert</a>
+        <?php elseif ($isPublished): ?>
+            <span class="form-hint" style="align-self:center;">Email Alert available after Publish to live site</span>
         <?php endif; ?>
         <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/archive') ?>">
             <?= csrf_field() ?>
@@ -157,7 +195,7 @@ $isArchived = $state === 'archived';
 <dialog class="modal-card" open>
     <div class="modal-inner">
         <h2>Create Email Alert?</h2>
-        <p class="form-hint">Announcement is published. Open a draft alert with this announcement attached?</p>
+        <p class="form-hint">This announcement is on the live website. Open a draft alert with it attached?</p>
         <div class="btn-row btn-row-flush">
             <form method="post" action="<?= site_url('admin/announcements/' . $row['id'] . '/create-alert-draft') ?>">
                 <?= csrf_field() ?>

@@ -8,10 +8,6 @@ use DomainException;
 
 final class ArchiveService
 {
-    public function __construct(private readonly ?FeDeployHook $deployHook = null)
-    {
-    }
-
     /** @return bool true if state changed to archived */
     public function archive(int $announcementId): bool
     {
@@ -24,8 +20,8 @@ final class ArchiveService
             return false;
         }
 
+        // Keep live_at if set — still on website until Publish to live site
         $model->update($announcementId, ['state' => 'archived']);
-        ($this->deployHook ?? FeDeployHook::fromConfig())->trigger('archive');
 
         return true;
     }

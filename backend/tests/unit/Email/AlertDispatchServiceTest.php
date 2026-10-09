@@ -157,6 +157,7 @@ final class AlertDispatchServiceTest extends CIUnitTestCase
             'summary' => 'Summary',
             'state' => $state,
             'published_at' => $state === 'published' ? '2026-09-28 10:00:00' : null,
+            'live_at' => $state === 'published' ? '2026-09-28 10:00:00' : null,
             'needs_review' => 0,
         ], true);
     }

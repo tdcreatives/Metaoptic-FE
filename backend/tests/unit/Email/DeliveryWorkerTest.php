@@ -198,6 +198,7 @@ final class DeliveryWorkerTest extends CIUnitTestCase
             'email_intro' => 'Intro copy',
             'state' => 'published',
             'published_at' => '2025-09-15 10:00:00',
+            'live_at' => '2025-09-15 10:00:00',
             'needs_review' => 0,
         ], true);
 

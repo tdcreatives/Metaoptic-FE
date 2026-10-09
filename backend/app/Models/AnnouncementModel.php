@@ -13,7 +13,7 @@ class AnnouncementModel extends Model
         'sgx_reference', 'slug', 'source_url', 'title', 'category', 'issuer',
         'filed_at', 'source_payload', 'source_hash', 'source', 'body_html',
         'summary', 'email_subject',
-        'email_intro', 'state', 'published_at', 'needs_review',
+        'email_intro', 'state', 'published_at', 'live_at', 'needs_review',
         'title_btn', 'title_btn_sm', 'title_banner',
         'issuer_name', 'securities_name', 'stapled_security_name',
         'ann_title', 'ann_subtitle', 'ann_datetime', 'ann_status', 'ann_reference',

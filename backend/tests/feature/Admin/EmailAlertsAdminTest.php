@@ -169,6 +169,7 @@ final class EmailAlertsAdminTest extends CIUnitTestCase
             'summary' => 'Summary',
             'state' => 'published',
             'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:00:00',
             'needs_review' => 0,
         ]);
 

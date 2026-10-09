@@ -189,9 +189,10 @@ class EmailAlerts extends BaseController
     /** @param list<int> $selectedIds */
     private function formView(string $title, ?array $alert, array $selectedIds): string
     {
-        // Attach picker: published only (pending/archived never listed)
+        // Attach picker: live on website only (CMS-published without sync is excluded)
         $published = model(AnnouncementModel::class)
             ->where('state', 'published')
+            ->where('live_at IS NOT NULL', null, false)
             ->orderBy('filed_at', 'DESC')
             ->findAll();
         $selected = [];

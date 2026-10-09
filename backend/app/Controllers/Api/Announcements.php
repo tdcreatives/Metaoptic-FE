@@ -90,7 +90,10 @@ class Announcements extends BaseController
 
     private function publishedBuilder(): BaseBuilder
     {
-        return model(AnnouncementModel::class)->builder()->where('state', 'published');
+        // Live website only — CMS-published but not yet "Publish to live site" stays hidden
+        return model(AnnouncementModel::class)->builder()
+            ->where('state', 'published')
+            ->where('live_at IS NOT NULL', null, false);
     }
 
     private function applyFilters(BaseBuilder $builder): void

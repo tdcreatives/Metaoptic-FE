@@ -138,6 +138,7 @@ final class CampaignFanoutTest extends CIUnitTestCase
             'summary' => 'Public summary',
             'state' => 'published',
             'published_at' => '2025-09-15 10:00:00',
+            'live_at' => '2025-09-15 10:00:00',
             'needs_review' => 0,
         ], true);
 

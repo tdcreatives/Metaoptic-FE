@@ -93,28 +93,48 @@ Result: `https://downloads.metaoptics.sg/` → same MOT host.
 
 ### Step D — Resend domain verification (IR email alerts)
 
-Resend does **not** use one fixed universal record set. Values are shown in:
+Domain in Resend: **`metaoptics.sg`**  
+Docs: [Resend — Verified domains](https://resend.com/docs/dashboard/domains/introduction)
 
-**Resend Dashboard → Domains → Add domain** (e.g. `metaoptics.sg` or a send subdomain such as `alerts.metaoptics.sg`).
+Add **exactly** these three records at MochaHost / MySecureCloudHost (Zone Editor).  
+In cPanel, use the **Name / Host** column as shown (without appending `.metaoptics.sg` if the panel already adds the zone name).
 
-Typical records to add (copy **exact** Name + Value from Resend):
+#### DKIM
 
-| Purpose | Usual type | Example name (illustrative) | Notes |
+| Type | Name / Host | Value | TTL |
 | --- | --- | --- | --- |
-| Domain verify | TXT | `@` or host Resend shows | Required for verify |
-| DKIM | TXT or CNAME | e.g. `resend._domainkey` | Often one or more DKIM records |
-| Optional SPF | TXT on `@` | Must **merge** with existing SPF — do not create a second SPF | Current SPF already includes Outlook + hosting; Resend will ask for something like `include:amazonses.com` / Resend’s include — **append** into the single existing `v=spf1 …` string |
-| Optional DMARC | TXT | `_dmarc` | Recommended later if not already present |
+| **TXT** | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDHej+0Vo9SqRyJfgPyCRthUFEKY/QZesUwYhMJqISp/oGV6U+31qrUt7HeyKfCGZoYSO8cJI/vNH8lGYQkrfrsHTGGfb/W0l6JpKywGSyYuKmcyvW1aauqVl2mtkJo2ON9DMYMmWewJicvpRqmKYg2jxsdq1HEorzVi/sOIWJMwIDAQAB` | Auto / 3600 |
 
-**Do not delete** the existing MX (Outlook) or invent a second `v=spf1` TXT — mail will break.
+Some panels want the TXT wrapped in quotes; if verify fails, try:
 
-After records are live, click **Verify** in Resend. Propagation is often minutes–a few hours (up to 24–48h).
+`"p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDHej+0Vo9SqRyJfgPyCRthUFEKY/QZesUwYhMJqISp/oGV6U+31qrUt7HeyKfCGZoYSO8cJI/vNH8lGYQkrfrsHTGGfb/W0l6JpKywGSyYuKmcyvW1aauqVl2mtkJo2ON9DMYMmWewJicvpRqmKYg2jxsdq1HEorzVi/sOIWJMwIDAQAB"`
+
+Full hostname after save: `resend._domainkey.metaoptics.sg`
+
+#### SPF / return-path (Resend CNAMEs — do **not** edit the existing apex SPF TXT)
+
+Resend asks for these **CNAME** records (separate from Outlook / hosting SPF on `@`):
+
+| Type | Name / Host | Value / Points to | TTL |
+| --- | --- | --- | --- |
+| **CNAME** | `rsend` | `rsend-apne1.forge.rmta.net` | Auto / 3600 |
+| **CNAME** | `send` | `send.forge.rmta.net` | Auto / 3600 |
+
+Full hostnames: `rsend.metaoptics.sg` and `send.metaoptics.sg`
+
+**Safe with current mail**
+
+- **Do not delete** Outlook **MX**.  
+- **Do not create** a second apex `v=spf1` TXT for Resend — leave the existing `@` SPF as-is; Resend’s verify path here uses the `rsend` / `send` CNAMEs.  
+- After DNS propagates, open **Resend → Domains → metaoptics.sg → Verify**.
+
+Propagation: usually minutes to a few hours (up to 24–48h).
 
 ---
 
 ## 3) Suggested order
 
-1. **Resend** TXT/DKIM (no traffic impact).  
+1. **Resend** — DKIM TXT + `rsend` / `send` CNAMEs (no website traffic impact).  
 2. **`downloads` A** + ask host to add SSL/vhost.  
 3. Confirm **`cms` A**.  
 4. **Website → Pages** (Option A or B) — schedule a short cutover window; test `www` / apex before announcing.
@@ -131,7 +151,9 @@ dig A metaoptics.sg +short
 dig CNAME www.metaoptics.sg +short
 dig A cms.metaoptics.sg +short
 dig A downloads.metaoptics.sg +short
-dig TXT metaoptics.sg +short
+dig TXT resend._domainkey.metaoptics.sg +short
+dig CNAME rsend.metaoptics.sg +short
+dig CNAME send.metaoptics.sg +short
 ```
 
 | Expect after cutover | |
@@ -139,6 +161,9 @@ dig TXT metaoptics.sg +short
 | `www` → Pages | CNAME (or flattened A) resolving toward Cloudflare / `metaoptic.pages.dev` |
 | `cms` | `209.42.27.225` |
 | `downloads` | `209.42.27.225` |
+| `resend._domainkey` | TXT containing the `p=MIGf…` key above |
+| `rsend` | CNAME → `rsend-apne1.forge.rmta.net` |
+| `send` | CNAME → `send.forge.rmta.net` |
 | Resend | Dashboard shows domain **Verified** |
 
 Browser checks:
@@ -153,7 +178,7 @@ Browser checks:
 
 - [ ] Confirmation who has MochaHost / MySecureCloudHost Zone Editor login  
 - [ ] Choice for main site: **Option A** (move NS to Cloudflare) or **Option B** (`www` CNAME only)  
-- [ ] Screenshot or paste of Resend → Domains DNS rows (so we can confirm SPF merge)  
+- [ ] Confirmation the three Resend records (DKIM + `rsend` + `send`) are saved  
 - [ ] Ping when records are saved so we can re-check dig + Resend verify  
 
 ---
@@ -165,8 +190,10 @@ Browser checks:
 | `www` *(and apex if Option A)* | CNAME / CF Pages | `metaoptic.pages.dev` | Public website |
 | `cms` | A | `209.42.27.225` | IR CMS |
 | `downloads` | A | `209.42.27.225` | File downloads on MOT host |
-| *(from Resend UI)* | TXT / CNAME | *(Resend values)* | Send IR alerts via Resend |
+| `resend._domainkey` | TXT | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDHej+0Vo9SqRyJfgPyCRthUFEKY/QZesUwYhMJqISp/oGV6U+31qrUt7HeyKfCGZoYSO8cJI/vNH8lGYQkrfrsHTGGfb/W0l6JpKywGSyYuKmcyvW1aauqVl2mtkJo2ON9DMYMmWewJicvpRqmKYg2jxsdq1HEorzVi/sOIWJMwIDAQAB` | Resend DKIM |
+| `rsend` | CNAME | `rsend-apne1.forge.rmta.net` | Resend SPF / return-path |
+| `send` | CNAME | `send.forge.rmta.net` | Resend SPF / return-path |
 
 ---
 
-*Internal note: live lookup 2026-10-06 — NS `*.mysecurecloudhost.com`; apex & cms already on `209.42.27.225`; no `downloads` and no Resend verify records yet.*
+*Internal note: live lookup 2026-10-06 — NS `*.mysecurecloudhost.com`; apex & cms already on `209.42.27.225`; no `downloads` yet. Resend record values filled from Resend dashboard for `metaoptics.sg` (2026-10-06).*

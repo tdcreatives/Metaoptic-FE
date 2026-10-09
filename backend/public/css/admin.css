@@ -165,6 +165,19 @@ a.stat-card:focus-visible {
   outline-offset: 2px;
 }
 
+.badge-pending-sync {
+  background: #fff7ed;
+  border-color: #fdba74;
+  color: #9a3412;
+  margin-left: 0.35rem;
+}
+
+.badge-live-site {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
 .stat-card .label {
   display: block;
   font-size: 0.75rem;

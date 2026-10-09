@@ -6,6 +6,7 @@ namespace Tests\Unit\Admin;
 use App\Libraries\Admin\ArchiveService;
 use App\Libraries\Admin\FeDeployHook;
 use App\Libraries\Admin\PublishService;
+use App\Libraries\Admin\PublishToLiveSiteService;
 use App\Models\AnnouncementModel;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
@@ -49,7 +50,7 @@ final class FeDeployHookTest extends CIUnitTestCase
         $this->assertSame(3, $seen['timeout']);
     }
 
-    public function test_publish_triggers_hook_when_state_changes(): void
+    public function test_cms_publish_and_archive_do_not_trigger_hook(): void
     {
         $calls = 0;
         $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function () use (&$calls): array {
@@ -59,14 +60,14 @@ final class FeDeployHookTest extends CIUnitTestCase
         });
 
         $id = $this->insertAnnouncement(['state' => 'pending_review']);
-        $this->assertTrue((new PublishService($hook))->publish($id));
-        $this->assertSame(1, $calls);
+        $this->assertTrue((new PublishService())->publish($id));
+        $this->assertSame(0, $calls);
 
-        $this->assertFalse((new PublishService($hook))->publish($id));
-        $this->assertSame(1, $calls);
+        $this->assertTrue((new ArchiveService())->archive($id));
+        $this->assertSame(0, $calls);
     }
 
-    public function test_archive_triggers_hook_when_state_changes(): void
+    public function test_publish_to_live_site_triggers_hook_and_sets_live_at(): void
     {
         $calls = 0;
         $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function () use (&$calls): array {
@@ -75,24 +76,44 @@ final class FeDeployHookTest extends CIUnitTestCase
             return ['ok' => true, 'status' => 200];
         });
 
-        $id = $this->insertAnnouncement(['state' => 'published', 'needs_review' => 0]);
-        $this->assertTrue((new ArchiveService($hook))->archive($id));
-        $this->assertSame(1, $calls);
-        $this->assertSame('archived', (new AnnouncementModel())->find($id)['state']);
+        $pubId = $this->insertAnnouncement([
+            'state' => 'published',
+            'published_at' => '2026-10-01 10:00:00',
+            'live_at' => null,
+            'needs_review' => 0,
+        ]);
+        $archId = $this->insertAnnouncement([
+            'state' => 'archived',
+            'published_at' => '2026-09-01 10:00:00',
+            'live_at' => '2026-09-02 10:00:00',
+            'needs_review' => 0,
+        ]);
 
-        $this->assertFalse((new ArchiveService($hook))->archive($id));
+        $result = (new PublishToLiveSiteService($hook))->run();
         $this->assertSame(1, $calls);
+        $this->assertSame(1, $result['synced_published']);
+        $this->assertSame(1, $result['cleared']);
+
+        $pub = (new AnnouncementModel())->find($pubId);
+        $arch = (new AnnouncementModel())->find($archId);
+        $this->assertNotEmpty($pub['live_at']);
+        $this->assertNull($arch['live_at']);
     }
 
-    public function test_hook_failure_does_not_block_publish(): void
+    public function test_hook_failure_does_not_block_live_sync_db(): void
     {
         $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function (): array {
             return ['ok' => false, 'status' => 500, 'error' => 'boom'];
         });
 
-        $id = $this->insertAnnouncement(['state' => 'pending_review']);
-        $this->assertTrue((new PublishService($hook))->publish($id));
-        $this->assertSame('published', (new AnnouncementModel())->find($id)['state']);
+        $id = $this->insertAnnouncement([
+            'state' => 'published',
+            'published_at' => '2026-10-01 10:00:00',
+            'live_at' => null,
+            'needs_review' => 0,
+        ]);
+        (new PublishToLiveSiteService($hook))->run();
+        $this->assertNotEmpty((new AnnouncementModel())->find($id)['live_at']);
     }
 
     /** @param array<string, mixed> $overrides */

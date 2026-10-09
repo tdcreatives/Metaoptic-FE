@@ -64,6 +64,15 @@ final class AlertDraftFromAnnouncementServiceTest extends CIUnitTestCase
         (new AlertDraftFromAnnouncementService())->createDraft($id);
     }
 
+    public function test_create_draft_rejects_not_live_on_website(): void
+    {
+        $id = $this->insertAnnouncement('published', ['live_at' => null]);
+
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('not_live_on_website');
+        (new AlertDraftFromAnnouncementService())->createDraft($id);
+    }
+
     public function test_create_draft_rejects_missing(): void
     {
         $this->expectException(DomainException::class);
@@ -88,6 +97,7 @@ final class AlertDraftFromAnnouncementServiceTest extends CIUnitTestCase
             'summary' => 'Summary',
             'state' => $state,
             'published_at' => $state === 'published' ? '2026-09-28 10:00:00' : null,
+            'live_at' => $state === 'published' ? '2026-09-28 10:00:00' : null,
             'needs_review' => 0,
         ], $overrides), true);
     }

@@ -217,6 +217,8 @@ final class AnnouncementCrudTest extends CIUnitTestCase
             'title' => 'No Send',
             'source' => 'sgx',
             'state' => 'published',
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:00:00',
         ]);
 
         $show = $this->withSession(['admin' => true])->get('/admin/announcements/' . $id);

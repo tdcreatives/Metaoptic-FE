@@ -25,6 +25,10 @@ final class AlertDraftFromAnnouncementService
         if (($row['state'] ?? '') !== 'published') {
             throw new DomainException('not_published');
         }
+        $liveAt = $row['live_at'] ?? null;
+        if ($liveAt === null || $liveAt === '') {
+            throw new DomainException('not_live_on_website');
+        }
 
         $summary = (string) ($row['summary'] ?? '');
 

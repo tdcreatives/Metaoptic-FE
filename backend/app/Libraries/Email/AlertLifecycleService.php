@@ -162,6 +162,10 @@ final class AlertLifecycleService
             if (! isset($byId[$id]) || ($byId[$id]['state'] ?? '') !== 'published') {
                 throw new DomainException('not_published');
             }
+            $liveAt = $byId[$id]['live_at'] ?? null;
+            if ($liveAt === null || $liveAt === '') {
+                throw new DomainException('not_live_on_website');
+            }
         }
     }
 

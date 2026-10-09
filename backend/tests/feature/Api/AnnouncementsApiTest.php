@@ -162,13 +162,18 @@ final class AnnouncementsApiTest extends CIUnitTestCase
     /** @param array<string, mixed> $overrides */
     private function insertRow(array $overrides): void
     {
-        (new AnnouncementModel())->insert(array_merge([
+        $row = array_merge([
             'source_url' => 'https://example.test/a',
             'issuer' => 'MetaOptics Ltd',
             'source_payload' => '{"secret":true}',
             'source_hash' => str_repeat('b', 64),
             'summary' => null,
             'needs_review' => 1,
-        ], $overrides));
+        ], $overrides);
+        // Public API requires live_at — treat fixture published rows as already on the website
+        if (($row['state'] ?? '') === 'published' && ! array_key_exists('live_at', $row)) {
+            $row['live_at'] = $row['published_at'] ?? '2025-09-15 10:00:00';
+        }
+        (new AnnouncementModel())->insert($row);
     }
 }

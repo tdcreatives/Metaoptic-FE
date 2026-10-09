@@ -33,6 +33,7 @@ $routes->group('admin', static function ($routes) {
         $routes->post('announcements/(:num)/summary', 'Admin\Announcements::updateSummary/$1');
         $routes->post('announcements/(:num)/layout', 'Admin\Announcements::updateLayout/$1');
         $routes->post('announcements/(:num)/publish', 'Admin\Announcements::publish/$1');
+        $routes->post('announcements/publish-to-live-site', 'Admin\Announcements::publishToLiveSite');
         $routes->post('announcements/(:num)/create-alert-draft', 'Admin\Announcements::createAlertDraft/$1');
         $routes->post('announcements/(:num)/archive', 'Admin\Announcements::archive/$1');
         $routes->post('announcements/(:num)/delete', 'Admin\Announcements::delete/$1');

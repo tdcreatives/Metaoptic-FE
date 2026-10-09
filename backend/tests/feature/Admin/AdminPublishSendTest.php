@@ -34,13 +34,15 @@ final class AdminPublishSendTest extends CIUnitTestCase
             '/admin/announcements/' . $id . '/publish',
             $this->withCsrf([])
         );
-        $publish->assertRedirectTo('/admin/announcements/' . $id . '?offer_alert=1');
+        $publish->assertRedirectTo('/admin/announcements/' . $id);
+        $this->assertStringContainsString('not on the live website', (string) session('message'));
 
         $row = (new AnnouncementModel())->find($id);
         $this->assertNotNull($row);
         $this->assertSame('published', $row['state']);
         $this->assertSame(0, (int) $row['needs_review']);
         $this->assertNotEmpty($row['published_at']);
+        $this->assertNull($row['live_at']);
 
         $publishAudit = (new AuditLogModel())->where('action', 'publish')->first();
         $this->assertNotNull($publishAudit);
@@ -77,7 +79,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
         );
 
         $result->assertRedirectTo('/admin/announcements/' . $id);
-        $this->assertSame('Archived', session('message'));
+        $this->assertStringContainsString('Archived in CMS', (string) session('message'));
 
         $row = (new AnnouncementModel())->find($id);
         $this->assertNotNull($row);
@@ -96,6 +98,8 @@ final class AdminPublishSendTest extends CIUnitTestCase
             'slug' => 'archive-from-api',
             'title' => 'Public Then Archive',
             'state' => 'published',
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:00:00',
             'needs_review' => 0,
         ]);
 
@@ -111,6 +115,35 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $after = $this->get('/api/announcements');
         $after->assertOK();
         $this->assertStringNotContainsString('archive-from-api', $after->getBody());
+    }
+
+    public function test_cms_publish_hidden_from_api_until_live_sync(): void
+    {
+        $id = $this->insertRow([
+            'sgx_reference' => 'PENDLIVE1',
+            'slug' => 'pending-live-sync',
+            'title' => 'CMS Only',
+            'state' => 'pending_review',
+            'needs_review' => 1,
+        ]);
+        $this->withSession(['admin' => true])->post(
+            '/admin/announcements/' . $id . '/publish',
+            $this->withCsrf([])
+        );
+
+        $api = $this->get('/api/announcements');
+        $api->assertOK();
+        $this->assertStringNotContainsString('pending-live-sync', $api->getBody());
+
+        $this->withSession(['admin' => true])->post(
+            '/admin/announcements/publish-to-live-site',
+            $this->withCsrf([])
+        );
+        $this->assertNotEmpty((new AnnouncementModel())->find($id)['live_at']);
+
+        $after = $this->get('/api/announcements');
+        $after->assertOK();
+        $this->assertStringContainsString('pending-live-sync', $after->getBody());
     }
 
     public function test_show_wires_csrf_publish_archive_and_delete_forms(): void
@@ -130,10 +163,11 @@ final class AdminPublishSendTest extends CIUnitTestCase
         $this->assertStringContainsString('admin/announcements/' . $id . '/archive', $body);
         $this->assertStringContainsString('admin/announcements/' . $id . '/delete', $body);
         $this->assertSame(5, substr_count($body, csrf_token()));
-        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Published/i', $body);
+        $this->assertMatchesRegularExpression('/<button[^>]*disabled[^>]*>\s*Published \(CMS\)/i', $body);
+        $this->assertStringContainsString('publish-to-live-site', $this->withSession(['admin' => true])->get('/admin/announcements')->getBody());
     }
 
-    public function test_publish_from_archived_restores_live(): void
+    public function test_publish_from_archived_restores_cms_published(): void
     {
         $id = $this->insertRow([
             'sgx_reference' => 'REPUB1',
@@ -147,11 +181,12 @@ final class AdminPublishSendTest extends CIUnitTestCase
             '/admin/announcements/' . $id . '/publish',
             $this->withCsrf([])
         );
-        $result->assertRedirectTo('/admin/announcements/' . $id . '?offer_alert=1');
+        $result->assertRedirectTo('/admin/announcements/' . $id);
 
         $row = (new AnnouncementModel())->find($id);
         $this->assertSame('published', $row['state']);
         $this->assertNotSame('2025-01-01 00:00:00', $row['published_at']);
+        $this->assertNull($row['live_at']);
     }
 
     public function test_list_state_toggle_publish_returns_to_list(): void
@@ -178,7 +213,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
             $this->withCsrf(['return_to' => 'list'])
         );
         $result->assertRedirectTo('/admin/announcements');
-        $this->assertStringContainsString('live on the public', (string) session('message'));
+        $this->assertStringContainsString('not on the live website', (string) session('message'));
         $this->assertSame('published', (new AnnouncementModel())->find($id)['state']);
     }
 
@@ -189,6 +224,8 @@ final class AdminPublishSendTest extends CIUnitTestCase
             'slug' => 'list-archive',
             'title' => 'List Archive',
             'state' => 'published',
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:00:00',
             'needs_review' => 0,
         ]);
 
@@ -197,7 +234,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
             $this->withCsrf(['return_to' => 'list'])
         );
         $result->assertRedirectTo('/admin/announcements');
-        $this->assertStringContainsString('hidden from the public', (string) session('message'));
+        $this->assertStringContainsString('Publish to live site', (string) session('message'));
         $this->assertSame('archived', (new AnnouncementModel())->find($id)['state']);
     }
 
@@ -236,8 +273,7 @@ final class AdminPublishSendTest extends CIUnitTestCase
     /** @param array<string, mixed> $overrides */
     private function insertRow(array $overrides): int
     {
-        $model = new AnnouncementModel();
-        $model->insert(array_merge([
+        $row = array_merge([
             'source_url' => 'https://example.test/a',
             'title' => 'Item',
             'category' => 'General Announcement',
@@ -247,7 +283,13 @@ final class AdminPublishSendTest extends CIUnitTestCase
             'source_hash' => str_repeat('f', 64),
             'summary' => 'Summary',
             'needs_review' => 1,
-        ], $overrides));
+        ], $overrides);
+        if (($row['state'] ?? '') === 'published' && ! array_key_exists('live_at', $row)) {
+            $row['live_at'] = $row['published_at'] ?? '2025-09-15 10:00:00';
+            $row['published_at'] = $row['published_at'] ?? $row['live_at'];
+        }
+        $model = new AnnouncementModel();
+        $model->insert($row);
 
         return (int) $model->getInsertID();
     }

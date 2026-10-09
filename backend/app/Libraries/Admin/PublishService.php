@@ -8,10 +8,6 @@ use DomainException;
 
 final class PublishService
 {
-    public function __construct(private readonly ?FeDeployHook $deployHook = null)
-    {
-    }
-
     /** @return bool true if state changed to published */
     public function publish(int $announcementId): bool
     {
@@ -24,13 +20,13 @@ final class PublishService
         if ($row['state'] === 'published') {
             return false;
         }
+        // CMS publish only — live website updates via PublishToLiveSiteService
         $model->update($announcementId, [
             'state' => 'published',
             'published_at' => date('Y-m-d H:i:s'),
             'needs_review' => 0,
+            'live_at' => null,
         ]);
-
-        ($this->deployHook ?? FeDeployHook::fromConfig())->trigger('publish');
 
         return true;
     }

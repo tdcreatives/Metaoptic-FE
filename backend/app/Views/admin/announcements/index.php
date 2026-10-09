@@ -20,13 +20,14 @@ $stateQuery = array_filter([
     <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>
 
+<?php $pendingLiveSync = (int) ($pending_live_sync ?? 0); ?>
 <aside class="page-guide" aria-label="Announcements tips">
     <span class="page-guide-label">How to use</span>
     <ol>
         <li>Filter by <strong>State</strong> (Pending / Published / …) and optionally by <strong>Category</strong> to narrow the list.</li>
-        <li>Open a row to edit listing &amp; detail fields, or use <strong>Preview</strong> to see the real website layout (signed link, expires ~30 min).</li>
-        <li>Click the <strong>State</strong> badge to Publish (live on the site) or Archive (hide). Confirm in the dialog first.</li>
-        <li>After Publish, create an <strong>Email Alert</strong> from the detail page if investors should be notified.</li>
+        <li><strong>Publish</strong> in CMS first (approved). Items stay off the public site until you click <strong>Publish to live site</strong>.</li>
+        <li><strong>Publish to live site</strong> rebuilds Cloudflare Pages (usually 5–10 minutes) and updates what investors see.</li>
+        <li>Create an <strong>Email Alert</strong> only after the item is live on the website.</li>
     </ol>
 </aside>
 
@@ -36,7 +37,21 @@ $stateQuery = array_filter([
     <a class="<?= $state === 'published' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'published'])) ?>">Published</a>
     <a class="<?= $state === 'archived' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'archived'])) ?>">Archived</a>
     <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">New announcement</a>
+    <form class="inline-form" method="post" action="<?= site_url('admin/announcements/publish-to-live-site') ?>">
+        <?= csrf_field() ?>
+        <button
+            class="btn btn-primary"
+            type="submit"
+            title="Rebuild Cloudflare Pages and sync published/archived changes to the live website"
+            onclick="return confirm('Publish to live site now? This rebuilds the public website (usually 5–10 minutes).');"
+        >Publish to live site<?php if ($pendingLiveSync > 0): ?> (<?= esc((string) $pendingLiveSync) ?>)<?php endif; ?></button>
+    </form>
 </p>
+<?php if ($pendingLiveSync > 0): ?>
+    <div class="flash" role="status">
+        <?= esc((string) $pendingLiveSync) ?> item(s) need <strong>Publish to live site</strong> — published in CMS but not yet on the live website, or archived but still marked live.
+    </div>
+<?php endif; ?>
 
 <form class="card filter-bar" method="get" action="<?= site_url('admin/announcements') ?>" aria-label="Filter by category">
     <?php if ($state !== ''): ?>
@@ -83,6 +98,7 @@ $stateQuery = array_filter([
                 $titleShort = mb_strimwidth((string) $row['title'], 0, 80, '…');
                 $canPreview = in_array($rowState, ['pending_review', 'archived'], true);
                 $rowCategory = trim((string) ($row['category'] ?? ''));
+                $needsLiveSync = \App\Libraries\Admin\LiveSiteSync::needsSync($row);
                 ?>
                 <tr>
                     <td><a href="<?= site_url('admin/announcements/' . $rowId) ?>"><?= esc($row['title']) ?></a></td>
@@ -97,27 +113,30 @@ $stateQuery = array_filter([
                             <button
                                 type="button"
                                 class="badge badge-state-toggle <?= esc($badgeClass, 'attr') ?>"
-                                title="Click to archive (hide from website)"
+                                title="Click to archive in CMS"
                                 data-confirm-open
                                 data-action="<?= esc(site_url('admin/announcements/' . $rowId . '/archive'), 'attr') ?>"
                                 data-title="Archive this announcement?"
-                                data-body="<?= esc('“' . $titleShort . '” will be hidden from the public IR website immediately. Email alerts already sent are not affected.', 'attr') ?>"
+                                data-body="<?= esc('“' . $titleShort . '” will be archived in CMS. Run Publish to live site afterward to remove it from the public website.', 'attr') ?>"
                                 data-ok="Archive"
                                 data-ok-class="btn-danger"
                             ><?= esc($rowState) ?></button>
+                            <?php if ($needsLiveSync): ?>
+                                <span class="badge badge-pending-sync" title="Published in CMS; not on live website yet">Pending sync</span>
+                            <?php endif; ?>
                         <?php elseif ($rowState === 'pending_review' || $rowState === 'archived'): ?>
                             <?php
                             $isArchived = $rowState === 'archived';
                             $confirmTitle = $isArchived ? 'Publish again?' : 'Publish this announcement?';
                             $confirmBody = $isArchived
-                                ? '“' . $titleShort . '” will be restored and visible on the public IR website.'
-                                : '“' . $titleShort . '” will become visible on the public IR website. You can still compose an Email Alert afterward from the detail page.';
+                                ? '“' . $titleShort . '” will be published in CMS. Run Publish to live site to show it on the public website.'
+                                : '“' . $titleShort . '” will be published in CMS only. It will not appear on the live website until you click Publish to live site.';
                             $confirmOk = $isArchived ? 'Publish again' : 'Publish';
                             ?>
                             <button
                                 type="button"
                                 class="badge badge-state-toggle <?= esc($badgeClass, 'attr') ?>"
-                                title="Click to publish (show on website)"
+                                title="Click to publish in CMS"
                                 data-confirm-open
                                 data-action="<?= esc(site_url('admin/announcements/' . $rowId . '/publish'), 'attr') ?>"
                                 data-title="<?= esc($confirmTitle, 'attr') ?>"
@@ -125,6 +144,9 @@ $stateQuery = array_filter([
                                 data-ok="<?= esc($confirmOk, 'attr') ?>"
                                 data-ok-class="btn-primary"
                             ><?= esc($rowState) ?></button>
+                            <?php if ($needsLiveSync): ?>
+                                <span class="badge badge-pending-sync" title="Still on live website until Publish to live site">Pending sync</span>
+                            <?php endif; ?>
                         <?php else: ?>
                             <span class="badge <?= esc($badgeClass, 'attr') ?>"><?= esc($rowState) ?></span>
                         <?php endif; ?>

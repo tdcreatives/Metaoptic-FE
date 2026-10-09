@@ -8,8 +8,10 @@ use App\Libraries\Admin\AlertDraftFromAnnouncementService;
 use App\Libraries\Admin\AnnouncementDeleteGuard;
 use App\Libraries\Admin\AnnouncementPreviewToken;
 use App\Libraries\Admin\ArchiveService;
+use App\Libraries\Admin\LiveSiteSync;
 use App\Libraries\Admin\ManualAnnouncementService;
 use App\Libraries\Admin\PublishService;
+use App\Libraries\Admin\PublishToLiveSiteService;
 use App\Libraries\Email\CategoryCatalog;
 use App\Libraries\Sgx\AnnouncementDetailHydrator;
 use App\Models\AnnouncementModel;
@@ -49,6 +51,7 @@ class Announcements extends BaseController
             'category' => $category,
             'categories' => $categories,
             'needs_review' => $needsReview,
+            'pending_live_sync' => PublishToLiveSiteService::pendingCount(),
         ]);
     }
 
@@ -95,13 +98,16 @@ class Announcements extends BaseController
             ? (string) json_encode($decoded, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
             : (string) $row['source_payload'];
 
+        $isLive = LiveSiteSync::isLiveOnWebsite($row);
+
         return view('admin/announcements/show', [
             'title' => $row['title'],
             'row' => $row,
             'attachments' => is_array($row['_attachments'] ?? null) ? $row['_attachments'] : [],
             'sourcePretty' => $pretty,
-            'offerAlert' => $this->request->getGet('offer_alert') === '1'
-                && ($row['state'] ?? '') === 'published',
+            'offerAlert' => $this->request->getGet('offer_alert') === '1' && $isLive,
+            'needsLiveSync' => LiveSiteSync::needsSync($row),
+            'isLiveOnWebsite' => $isLive,
             'canPreview' => in_array((string) ($row['state'] ?? ''), ['pending_review', 'archived'], true),
         ]);
     }
@@ -206,16 +212,26 @@ class Announcements extends BaseController
             service('auditLogger')->write('publish', 'announcement', (string) $id, []);
         }
 
+        $msg = $changed
+            ? 'Published in CMS — not on the live website yet. Click Publish to live site when ready.'
+            : 'Already published in CMS.';
+
         if ($returnToList) {
-            return redirect()->to('/admin/announcements')
-                ->with('message', 'Published — it on process to be live on the public MOT website - it take arround 5-10 minutes.');
+            return redirect()->to('/admin/announcements')->with('message', $msg);
         }
 
-        if ($changed) {
-            return redirect()->to('/admin/announcements/' . $id . '?offer_alert=1')->with('message', 'Published');
-        }
+        return redirect()->to('/admin/announcements/' . $id)->with('message', $msg);
+    }
 
-        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Published');
+    public function publishToLiveSite(): RedirectResponse
+    {
+        $result = (new PublishToLiveSiteService())->run();
+        service('auditLogger')->write('publish_to_live_site', 'announcements', 'all', $result);
+
+        $msg = 'Publish to live site started. Cloudflare rebuild usually takes 5–10 minutes.'
+            . ' Marked ' . (string) $result['synced_published'] . ' published item(s) live.';
+
+        return redirect()->to('/admin/announcements')->with('message', $msg);
     }
 
     public function createAlertDraft(int $id): RedirectResponse
@@ -224,7 +240,11 @@ class Announcements extends BaseController
         try {
             $alertId = (new AlertDraftFromAnnouncementService())->createDraft($id);
         } catch (DomainException $e) {
-            return redirect()->to('/admin/announcements/' . $id)->with('error', $e->getMessage());
+            $err = $e->getMessage() === 'not_live_on_website'
+                ? 'Email alerts require the announcement to be on the live website. Use Publish to live site first.'
+                : $e->getMessage();
+
+            return redirect()->to('/admin/announcements/' . $id)->with('error', $err);
         }
         service('auditLogger')->write('alert_draft', 'email_alert', (string) $alertId, [
             'announcement_id' => $id,
@@ -251,12 +271,15 @@ class Announcements extends BaseController
             service('auditLogger')->write('archive', 'announcement', (string) $id, []);
         }
 
+        $msg = $changed
+            ? 'Archived in CMS. If it was on the live website, click Publish to live site to remove it from the site.'
+            : 'Already archived.';
+
         if ($this->wantsListReturn()) {
-            return redirect()->to('/admin/announcements')
-                ->with('message', 'Archived — hidden from the public IR website.');
+            return redirect()->to('/admin/announcements')->with('message', $msg);
         }
 
-        return redirect()->to('/admin/announcements/' . $id)->with('message', 'Archived');
+        return redirect()->to('/admin/announcements/' . $id)->with('message', $msg);
     }
 
     private function wantsListReturn(): bool

@@ -18,7 +18,7 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
     protected $refresh = true;
     protected $namespace = 'App';
 
-    public function test_publish_redirects_with_offer_alert_when_changed(): void
+    public function test_publish_does_not_offer_alert_until_live(): void
     {
         $id = $this->insertRow(['state' => 'pending_review', 'needs_review' => 1]);
 
@@ -27,7 +27,9 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
             $this->withCsrf([])
         );
 
-        $result->assertRedirectTo('/admin/announcements/' . $id . '?offer_alert=1');
+        $result->assertRedirectTo('/admin/announcements/' . $id);
+        $this->assertStringNotContainsString('offer_alert', (string) $result->getHeaderLine('Location'));
+        $this->assertStringContainsString('not on the live website', (string) session('message'));
     }
 
     public function test_publish_already_published_has_no_offer_alert(): void
@@ -36,6 +38,7 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
             'state' => 'published',
             'needs_review' => 0,
             'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:00:00',
         ]);
 
         $result = $this->withSession(['admin' => true])->post(
@@ -47,9 +50,14 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
         $this->assertStringNotContainsString('offer_alert', (string) $result->getHeaderLine('Location'));
     }
 
-    public function test_offer_alert_shows_modal_when_published(): void
+    public function test_offer_alert_shows_modal_when_live_on_website(): void
     {
-        $id = $this->insertRow(['state' => 'published', 'needs_review' => 0]);
+        $id = $this->insertRow([
+            'state' => 'published',
+            'needs_review' => 0,
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:05:00',
+        ]);
 
         $show = $this->withSession(['admin' => true])->get(
             '/admin/announcements/' . $id . '?offer_alert=1'
@@ -66,6 +74,8 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
         $id = $this->insertRow([
             'state' => 'published',
             'needs_review' => 0,
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:05:00',
             'title' => 'Placement Notice',
             'summary' => 'Investor summary',
         ]);
@@ -87,7 +97,12 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
 
     public function test_create_alert_draft_without_csrf_does_not_mutate(): void
     {
-        $id = $this->insertRow(['state' => 'published', 'needs_review' => 0]);
+        $id = $this->insertRow([
+            'state' => 'published',
+            'needs_review' => 0,
+            'published_at' => '2026-09-28 10:00:00',
+            'live_at' => '2026-09-28 10:05:00',
+        ]);
 
         $this->expectException(\CodeIgniter\Security\Exceptions\SecurityException::class);
         try {
@@ -184,8 +199,7 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
     /** @param array<string, mixed> $overrides */
     private function insertRow(array $overrides): int
     {
-        $model = new AnnouncementModel();
-        $model->insert(array_merge([
+        $row = array_merge([
             'sgx_reference' => 'PAO' . bin2hex(random_bytes(3)),
             'slug' => 'pao-' . bin2hex(random_bytes(3)),
             'source_url' => 'https://example.test/pao',
@@ -198,7 +212,13 @@ final class AnnouncementPublishAlertOfferTest extends CIUnitTestCase
             'source' => 'manual',
             'summary' => 'Summary',
             'needs_review' => 1,
-        ], $overrides));
+        ], $overrides);
+        if (($row['state'] ?? '') === 'published' && ! array_key_exists('live_at', $row)) {
+            $row['live_at'] = $row['published_at'] ?? '2026-09-28 10:00:00';
+            $row['published_at'] = $row['published_at'] ?? $row['live_at'];
+        }
+        $model = new AnnouncementModel();
+        $model->insert($row);
 
         return (int) $model->getInsertID();
     }
