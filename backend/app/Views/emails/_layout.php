@@ -28,18 +28,18 @@ $logoUrl = base_url('img/logo.png');
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?= esc($safeTitle) ?></title>
 </head>
-<body style="margin:0;padding:0;background-color:#fafafa;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#18181b;-webkit-text-size-adjust:100%;">
+<body style="margin:0;padding:0;background-color:#f4f5f7;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#161a1f;-webkit-text-size-adjust:100%;">
 <?php if ($preheader !== ''): ?>
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;"><?= esc($preheader) ?></div>
 <?php endif; ?>
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#fafafa;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f4f5f7;">
 <tr>
 <td align="center" style="padding:24px 16px;">
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #e4e4e7;border-radius:8px;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid #e6e8ec;border-radius:12px;">
 <tr>
-<td style="padding:24px 32px 16px;border-bottom:3px solid #d44c39;">
+<td style="padding:24px 32px 16px;border-bottom:3px solid #d8513c;">
 <img src="<?= htmlspecialchars($logoUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" width="180" alt="MetaOptics" style="display:block;border:0;outline:none;text-decoration:none;height:auto;max-width:180px;">
-<p style="margin:10px 0 0;font-size:13px;line-height:1.4;color:#71717a;">
+<p style="margin:10px 0 0;font-size:13px;line-height:1.4;color:#5b6572;">
 <?= $isInternal ? 'Internal · Investor Relations' : 'Investor Relations' ?>
 </p>
 </td>
@@ -47,7 +47,7 @@ $logoUrl = base_url('img/logo.png');
 <?php if ($emailTitle !== ''): ?>
 <tr>
 <td style="padding:24px 32px 0;">
-<h1 style="margin:0;font-size:22px;line-height:1.35;font-weight:600;color:#18181b;"><?= esc($emailTitle) ?></h1>
+<h1 style="margin:0;font-size:22px;line-height:1.35;font-weight:600;color:#161a1f;"><?= esc($emailTitle) ?></h1>
 </td>
 </tr>
 <?php endif; ?>
@@ -57,19 +57,19 @@ $logoUrl = base_url('img/logo.png');
 </td>
 </tr>
 <tr>
-<td style="padding:0 32px 24px;border-top:1px solid #e4e4e7;">
+<td style="padding:0 32px 24px;border-top:1px solid #e6e8ec;">
 <?php if ($unsubscribeUrl !== ''): ?>
-<p style="margin:24px 0 12px;font-size:14px;line-height:1.6;color:#71717a;">
-<a href="<?= htmlspecialchars($unsubscribeUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" style="color:#d44c39;text-decoration:underline;">Unsubscribe</a>
+<p style="margin:24px 0 12px;font-size:14px;line-height:1.6;color:#5b6572;">
+<a href="<?= htmlspecialchars($unsubscribeUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" style="color:#d8513c;text-decoration:underline;">Unsubscribe</a>
  or manage your email alert preferences.
 </p>
 <?php endif; ?>
 <?php if ($footerNote !== ''): ?>
-<p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#71717a;"><?= esc($footerNote) ?></p>
+<p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#5b6572;"><?= esc($footerNote) ?></p>
 <?php endif; ?>
 <?php if ($siteUrl !== '' && ! $isInternal): ?>
-<p style="margin:0;font-size:13px;line-height:1.5;color:#71717a;">
-<a href="<?= htmlspecialchars($siteUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" style="color:#71717a;text-decoration:underline;">metaoptics.sg</a>
+<p style="margin:0;font-size:13px;line-height:1.5;color:#5b6572;">
+<a href="<?= htmlspecialchars($siteUrl, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?>" style="color:#5b6572;text-decoration:underline;">metaoptics.sg</a>
 </p>
 <?php endif; ?>
 </td>

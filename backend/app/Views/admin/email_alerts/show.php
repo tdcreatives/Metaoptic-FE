@@ -9,25 +9,26 @@ $hasCampaign = ! empty($alert['campaign_id']);
 $intro = trim((string) ($alert['intro'] ?? ''));
 $bodyHtml = trim((string) ($alert['body_html'] ?? ''));
 $deliveriesTotal = (int) ($deliveriesTotal ?? count($deliveries));
+$pill = match ($status) {
+    'draft' => 'amber',
+    'scheduled', 'sending' => 'blue',
+    'sent' => 'green',
+    default => 'grey',
+};
 ?>
-
 <header class="page-head">
     <a class="page-back" href="<?= site_url('admin/email-alerts') ?>">← Email Alerts</a>
     <div class="page-head-row">
-        <h1><?= esc($title) ?></h1>
-        <div class="page-head-meta">
-            <span class="badge badge-state badge-alert-<?= esc($statusClass, 'attr') ?>"><?= esc($status) ?></span>
-        </div>
+        <h1><?= esc($title) ?> <span class="pill <?= esc($pill, 'attr') ?>"><span class="dot"></span><?= esc(ucfirst($status)) ?></span></h1>
     </div>
     <?php if (! empty($alert['name'])): ?>
-        <p class="form-hint">Internal name: <?= esc((string) $alert['name']) ?></p>
+        <p class="lead">Internal name: <?= esc((string) $alert['name']) ?></p>
     <?php endif; ?>
 </header>
 
-<aside class="page-guide" aria-label="Email alert detail tips">
-    <span class="page-guide-label">Tip</span>
-    <p>Drafts can still be edited. <strong>Send now</strong> queues emails immediately; <strong>Schedule</strong> waits for the workers. Check <strong>Deliveries</strong> below after sending. To change who receives alerts, use the Subscribers page — not this screen.</p>
-</aside>
+<div class="note">
+    Drafts can still be edited. <b>Send now</b> queues immediately; <b>Schedule</b> waits for workers. Audience is managed under <b>Subscribers</b>.
+</div>
 
 <?php if (session('message')): ?>
     <div class="flash flash-success" role="status"><?= esc((string) session('message')) ?></div>

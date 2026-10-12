@@ -9,24 +9,22 @@ $queryBase = array_filter([
     'q' => $q !== '' ? $q : null,
 ]);
 ?>
-<div class="page-head">
-    <div class="page-head-row">
-        <h1><?= esc($title) ?></h1>
-        <div class="page-head-meta">
-            <span class="badge badge-sub-active"><?= esc((string) $activeCount) ?> active</span>
-        </div>
+<div class="page-head page-head-row">
+    <div>
+        <h1>Subscribers <span class="pill green" style="vertical-align:middle"><span class="dot"></span><?= esc((string) $activeCount) ?> active</span></h1>
+        <p class="lead">Investors who opted in through the public Email Alerts form.</p>
     </div>
+    <div class="spacer"></div>
+    <a class="btn btn-secondary" href="<?= site_url('admin/subscribers/export?' . http_build_query(array_filter([
+        'status' => $status !== '' ? $status : null,
+        'category' => $category !== '' ? $category : null,
+        'q' => $q !== '' ? $q : null,
+    ]))) ?>">Export CSV</a>
 </div>
 
-<aside class="page-guide" aria-label="Subscribers tips">
-    <span class="page-guide-label">How to use</span>
-    <ul>
-        <li>These are investors who opted in on the public Email Alerts form. <strong>Active</strong> can receive campaigns.</li>
-        <li>Filter by status/category or search email. <strong>Export CSV</strong> uses the current filters.</li>
-        <li><strong>Unsubscribe</strong> marks them inactive here — they will not get future alerts. Tokens are never shown for privacy.</li>
-        <li>If the list is empty after a signup test, confirm the public form posted successfully and <code class="mono">email.unsubscribeSecret</code> is set on the API host.</li>
-    </ul>
-</aside>
+<div class="note">
+    <b>Active</b> subscribers can receive campaigns. <b>Unsubscribe</b> marks them inactive — they will not get future alerts.
+</div>
 
 <?php if (session('message')): ?>
     <div class="flash flash-success"><?= esc((string) session('message')) ?></div>
@@ -35,16 +33,13 @@ $queryBase = array_filter([
     <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>
 
-<p class="filter-row">
-    <a class="<?= $status === '' ? 'is-active' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase)) ?>">All</a>
-    <a class="<?= $status === 'active' ? 'is-active' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase + ['status' => 'active'])) ?>">Active</a>
-    <a class="<?= $status === 'unsubscribed' ? 'is-active' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase + ['status' => 'unsubscribed'])) ?>">Unsubscribed</a>
-    <a class="btn btn-secondary" href="<?= site_url('admin/subscribers/export?' . http_build_query(array_filter([
-        'status' => $status !== '' ? $status : null,
-        'category' => $category !== '' ? $category : null,
-        'q' => $q !== '' ? $q : null,
-    ]))) ?>">Export CSV</a>
-</p>
+<div class="filterbar">
+    <nav class="seg" aria-label="Filter by status">
+        <a class="<?= $status === '' ? 'is-on' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase)) ?>">All</a>
+        <a class="<?= $status === 'active' ? 'is-on' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase + ['status' => 'active'])) ?>">Active</a>
+        <a class="<?= $status === 'unsubscribed' ? 'is-on' : '' ?>" href="<?= site_url('admin/subscribers?' . http_build_query($queryBase + ['status' => 'unsubscribed'])) ?>">Unsubscribed</a>
+    </nav>
+</div>
 
 <form class="card filter-bar" method="get" action="<?= site_url('admin/subscribers') ?>">
     <?php if ($status !== ''): ?>

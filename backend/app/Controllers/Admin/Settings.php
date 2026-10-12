@@ -13,7 +13,7 @@ class Settings extends BaseController
     public function recipients(): string
     {
         return view('admin/settings/recipients', [
-            'title' => 'Digest recipients',
+            'title' => 'Settings',
             'recipients' => model(AdminRecipientModel::class)->orderBy('id', 'DESC')->findAll(),
         ]);
     }

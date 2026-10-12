@@ -1,20 +1,17 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
-<div class="page-head">
-    <div class="page-head-row">
-        <h1><?= esc($title) ?></h1>
+<div class="page-head page-head-row">
+    <div>
+        <h1>Sync history</h1>
+        <p class="lead">SGX filings pull automatically every morning. Run manually only if you need an immediate refresh.</p>
     </div>
+    <div class="spacer"></div>
+    <button type="button" class="btn btn-primary" id="sync-now-open">Sync data now</button>
 </div>
 
-<aside class="page-guide" aria-label="Sync history tips">
-    <span class="page-guide-label">How to use</span>
-    <ul>
-        <li>Daily cron usually pulls SGX filings automatically. Use <strong>Sync data now</strong> only for an immediate refresh.</li>
-        <li>A run can take a few minutes (list + HTML detail). Keep the tab open until the modal finishes.</li>
-        <li><strong>New</strong> items typically arrive as <em>pending review</em> — open Announcements to Preview and Publish.</li>
-        <li>If status is <em>failed</em>, read the Error column before retrying. Concurrent syncs are blocked safely.</li>
-    </ul>
-</aside>
+<div class="note">
+    New items arrive as <b>Needs review</b>. A run can take a few minutes — keep the tab open until the modal finishes. If status is <b>failed</b>, read the Error column before retrying.
+</div>
 
 <?php if (session('message')): ?>
     <div class="flash flash-success"><?= esc((string) session('message')) ?></div>
@@ -22,10 +19,6 @@
 <?php if (session('error')): ?>
     <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>
-
-<div class="filter-row">
-    <button type="button" class="btn btn-primary" id="sync-now-open">Sync data now</button>
-</div>
 
 <dialog
     id="sync-now-dialog"

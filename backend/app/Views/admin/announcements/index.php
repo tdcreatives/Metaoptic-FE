@@ -1,18 +1,42 @@
 <?= $this->extend('admin/layout') ?>
 <?= $this->section('content') ?>
 <?php
-$state = (string) ($state ?? '');
+use App\Libraries\Admin\AnnouncementWorkflowStatus;
+use App\Libraries\Admin\LiveSiteSync;
+
+$segment = (string) ($segment ?? '');
 $category = (string) ($category ?? '');
 $categories = $categories ?? [];
-$stateQuery = array_filter([
+$counts = $counts ?? ['total' => 0, 'needs_review' => 0, 'ready' => 0, 'live' => 0, 'archived' => 0];
+$pendingLiveSync = (int) ($pending_live_sync ?? 0);
+$readyPreview = $ready_preview ?? [];
+$q = (string) ($q ?? '');
+
+$baseQuery = array_filter([
     'category' => $category !== '' ? $category : null,
+    'q' => $q !== '' ? $q : null,
 ]);
+$segUrl = static function (string $seg) use ($baseQuery): string {
+    $params = $baseQuery;
+    if ($seg !== '') {
+        $params['segment'] = $seg;
+    }
+
+    return site_url('admin/announcements' . ($params !== [] ? '?' . http_build_query($params) : ''));
+};
 ?>
-<div class="page-head">
-    <div class="page-head-row">
-        <h1><?= esc($title) ?></h1>
+<div class="page-head page-head-row">
+    <div>
+        <h1>Announcements</h1>
+        <p class="lead">Review SGX filings, approve what investors should see, then publish to the live site.</p>
     </div>
+    <div class="spacer"></div>
+    <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        New announcement
+    </a>
 </div>
+
 <?php if (session('message')): ?>
     <div class="flash flash-success"><?= esc((string) session('message')) ?></div>
 <?php endif; ?>
@@ -20,148 +44,117 @@ $stateQuery = array_filter([
     <div class="flash flash-error"><?= esc((string) session('error')) ?></div>
 <?php endif; ?>
 
-<?php $pendingLiveSync = (int) ($pending_live_sync ?? 0); ?>
-<aside class="page-guide" aria-label="Announcements tips">
-    <span class="page-guide-label">How to use</span>
-    <ol>
-        <li>Filter by <strong>State</strong> (Pending / Published / …) and optionally by <strong>Category</strong> to narrow the list.</li>
-        <li><strong>Publish</strong> in CMS first (approved). Items stay off the public site until you click <strong>Publish to live site</strong>.</li>
-        <li><strong>Publish to live site</strong> rebuilds Cloudflare Pages (usually 5–10 minutes) and updates what investors see.</li>
-        <li>Create an <strong>Email Alert</strong> only after the item is live on the website.</li>
-    </ol>
-</aside>
-
-<p class="filter-row" role="navigation" aria-label="Filter by state">
-    <a class="<?= $state === '' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements' . ($stateQuery !== [] ? '?' . http_build_query($stateQuery) : '')) ?>">All</a>
-    <a class="<?= $state === 'pending_review' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'pending_review'])) ?>">Pending</a>
-    <a class="<?= $state === 'published' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'published'])) ?>">Published</a>
-    <a class="<?= $state === 'archived' ? 'is-active' : '' ?>" href="<?= site_url('admin/announcements?' . http_build_query($stateQuery + ['state' => 'archived'])) ?>">Archived</a>
-    <a class="btn btn-primary" href="<?= site_url('admin/announcements/new') ?>">New announcement</a>
-    <form class="inline-form" method="post" action="<?= site_url('admin/announcements/publish-to-live-site') ?>">
+<?php if ($pendingLiveSync > 0): ?>
+<div class="tray" role="region" aria-label="Publish to live site">
+    <div class="ic-wrap" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </div>
+    <div class="tray-body">
+        <div class="t"><?= esc((string) ($counts['ready'] ?? 0)) ?> approved — ready to go live</div>
+        <div class="s">One build (~5–10 min) takes all approved announcements live at once.</div>
+        <?php if ($readyPreview !== []): ?>
+            <div class="chips">
+                <?php foreach ($readyPreview as $chip): ?>
+                    <a class="chip" href="<?= site_url('admin/announcements/' . (int) $chip['id']) ?>"><?= esc(mb_strimwidth((string) ($chip['title'] ?? ''), 0, 42, '…')) ?></a>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <form class="tray-form" method="post" action="<?= site_url('admin/announcements/publish-to-live-site') ?>">
         <?= csrf_field() ?>
         <button
-            class="btn btn-primary"
+            class="btn go"
             type="submit"
-            title="Rebuild Cloudflare Pages and sync published/archived changes to the live website"
             onclick="return confirm('Publish to live site now? This rebuilds the public website (usually 5–10 minutes).');"
-        >Publish to live site<?php if ($pendingLiveSync > 0): ?> (<?= esc((string) $pendingLiveSync) ?>)<?php endif; ?></button>
+        >Publish to live site</button>
     </form>
-</p>
-<?php if ($pendingLiveSync > 0): ?>
-    <div class="flash" role="status">
-        <?= esc((string) $pendingLiveSync) ?> item(s) need <strong>Publish to live site</strong> — published in CMS but not yet on the live website, or archived but still marked live.
-    </div>
+</div>
 <?php endif; ?>
 
-<form class="card filter-bar" method="get" action="<?= site_url('admin/announcements') ?>" aria-label="Filter by category">
-    <?php if ($state !== ''): ?>
-        <input type="hidden" name="state" value="<?= esc($state, 'attr') ?>">
-    <?php endif; ?>
-    <div class="form-group">
-        <label class="label" for="category">Category</label>
-        <select class="input" id="category" name="category">
+<div class="filterbar">
+    <nav class="seg" aria-label="Filter by workflow status">
+        <a class="<?= $segment === '' ? 'is-on' : '' ?>" href="<?= esc($segUrl(''), 'attr') ?>">All <span class="c"><?= esc((string) $counts['total']) ?></span></a>
+        <a class="<?= $segment === 'needs_review' ? 'is-on' : '' ?>" href="<?= esc($segUrl('needs_review'), 'attr') ?>">Needs review <span class="c"><?= esc((string) $counts['needs_review']) ?></span></a>
+        <a class="<?= $segment === 'ready' ? 'is-on' : '' ?>" href="<?= esc($segUrl('ready'), 'attr') ?>">Ready <span class="c"><?= esc((string) $counts['ready']) ?></span></a>
+        <a class="<?= $segment === 'live' ? 'is-on' : '' ?>" href="<?= esc($segUrl('live'), 'attr') ?>">Live <span class="c"><?= esc((string) $counts['live']) ?></span></a>
+        <a class="<?= $segment === 'archived' ? 'is-on' : '' ?>" href="<?= esc($segUrl('archived'), 'attr') ?>">Archived <span class="c"><?= esc((string) $counts['archived']) ?></span></a>
+    </nav>
+    <div class="spacer"></div>
+    <form method="get" action="<?= site_url('admin/announcements') ?>" class="filterbar-cat">
+        <?php if ($segment !== ''): ?>
+            <input type="hidden" name="segment" value="<?= esc($segment, 'attr') ?>">
+        <?php endif; ?>
+        <?php if ($q !== ''): ?>
+            <input type="hidden" name="q" value="<?= esc($q, 'attr') ?>">
+        <?php endif; ?>
+        <label class="sr-only" for="category">Category</label>
+        <select class="select-ui" id="category" name="category" onchange="this.form.submit()">
             <option value="">All categories</option>
             <?php foreach ($categories as $cat): ?>
                 <option value="<?= esc($cat, 'attr') ?>" <?= $category === $cat ? 'selected' : '' ?>><?= esc($cat) ?></option>
             <?php endforeach; ?>
         </select>
+    </form>
+</div>
+
+<form id="bulk-approve-form" method="post" action="<?= site_url('admin/announcements/bulk-publish') ?>">
+    <?= csrf_field() ?>
+    <div class="bulkbar" id="bulkbar" hidden>
+        <span class="n"><span id="selcount">0</span> selected</span>
+        <button class="btn go sm" type="submit" onclick="return confirm('Approve selected announcements in CMS? They will not appear on the live website until you Publish to live site.');">Approve for website</button>
+        <button class="btn ghost sm" type="button" data-bulk-clear>Clear</button>
     </div>
-    <div class="filter-bar-actions">
-        <button type="submit" class="btn btn-primary">Apply</button>
-        <?php if ($category !== ''): ?>
-            <a class="btn btn-secondary" href="<?= site_url('admin/announcements' . ($state !== '' ? '?' . http_build_query(['state' => $state]) : '')) ?>">Clear category</a>
-        <?php endif; ?>
-    </div>
-</form>
 
 <?php if ($announcements === [] || count($announcements) === 0): ?>
     <p class="empty">No announcements match.</p>
 <?php else: ?>
 <div class="table-wrap">
-    <table class="table">
+    <table class="table tbl">
         <thead>
             <tr>
-                <th>Title</th>
+                <th style="width:34px"></th>
+                <th>Announcement</th>
                 <th>Category</th>
-                <th>Source</th>
-                <th>State</th>
-                <th>Filed</th>
+                <th>Status</th>
+                <th class="nowrap">Filed</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($announcements as $row): ?>
                 <?php
-                $rowState = (string) ($row['state'] ?? '');
-                $badgeClass = 'badge-state-' . (preg_replace('/[^a-z0-9_]+/', '', strtolower($rowState)) ?: 'unknown');
                 $rowId = (int) $row['id'];
+                $rowState = (string) ($row['state'] ?? '');
+                $wfKey = AnnouncementWorkflowStatus::key($row);
+                $pill = AnnouncementWorkflowStatus::pillClass($row);
+                $label = AnnouncementWorkflowStatus::label($row);
                 $titleShort = mb_strimwidth((string) $row['title'], 0, 80, '…');
                 $canPreview = in_array($rowState, ['pending_review', 'archived'], true);
+                $canSelect = $wfKey === AnnouncementWorkflowStatus::NEEDS_REVIEW
+                    || ((int) ($row['needs_review'] ?? 0) === 1 && $rowState === 'published');
                 $rowCategory = trim((string) ($row['category'] ?? ''));
-                $needsLiveSync = \App\Libraries\Admin\LiveSiteSync::needsSync($row);
+                $detailUrl = site_url('admin/announcements/' . $rowId);
                 ?>
                 <tr>
-                    <td><a href="<?= site_url('admin/announcements/' . $rowId) ?>"><?= esc($row['title']) ?></a></td>
-                    <td><?php if ($rowCategory !== ''): ?>
-                        <?= esc($rowCategory) ?>
-                    <?php else: ?>
-                        <span class="empty-inline">—</span>
-                    <?php endif; ?></td>
-                    <td><span class="badge"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span></td>
                     <td>
-                        <?php if ($rowState === 'published'): ?>
-                            <button
-                                type="button"
-                                class="badge badge-state-toggle <?= esc($badgeClass, 'attr') ?>"
-                                title="Click to archive in CMS"
-                                data-confirm-open
-                                data-action="<?= esc(site_url('admin/announcements/' . $rowId . '/archive'), 'attr') ?>"
-                                data-title="Archive this announcement?"
-                                data-body="<?= esc('“' . $titleShort . '” will be archived in CMS. Run Publish to live site afterward to remove it from the public website.', 'attr') ?>"
-                                data-ok="Archive"
-                                data-ok-class="btn-danger"
-                            ><?= esc($rowState) ?></button>
-                            <?php if ($needsLiveSync): ?>
-                                <span class="badge badge-pending-sync" title="Published in CMS; not on live website yet">Pending sync</span>
-                            <?php endif; ?>
-                        <?php elseif ($rowState === 'pending_review' || $rowState === 'archived'): ?>
-                            <?php
-                            $isArchived = $rowState === 'archived';
-                            $confirmTitle = $isArchived ? 'Publish again?' : 'Publish this announcement?';
-                            $confirmBody = $isArchived
-                                ? '“' . $titleShort . '” will be published in CMS. Run Publish to live site to show it on the public website.'
-                                : '“' . $titleShort . '” will be published in CMS only. It will not appear on the live website until you click Publish to live site.';
-                            $confirmOk = $isArchived ? 'Publish again' : 'Publish';
-                            ?>
-                            <button
-                                type="button"
-                                class="badge badge-state-toggle <?= esc($badgeClass, 'attr') ?>"
-                                title="Click to publish in CMS"
-                                data-confirm-open
-                                data-action="<?= esc(site_url('admin/announcements/' . $rowId . '/publish'), 'attr') ?>"
-                                data-title="<?= esc($confirmTitle, 'attr') ?>"
-                                data-body="<?= esc($confirmBody, 'attr') ?>"
-                                data-ok="<?= esc($confirmOk, 'attr') ?>"
-                                data-ok-class="btn-primary"
-                            ><?= esc($rowState) ?></button>
-                            <?php if ($needsLiveSync): ?>
-                                <span class="badge badge-pending-sync" title="Still on live website until Publish to live site">Pending sync</span>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <span class="badge <?= esc($badgeClass, 'attr') ?>"><?= esc($rowState) ?></span>
+                        <?php if ($canSelect): ?>
+                            <input type="checkbox" class="ck selbox" name="ids[]" value="<?= esc((string) $rowId, 'attr') ?>" aria-label="Select <?= esc($titleShort, 'attr') ?>">
                         <?php endif; ?>
                     </td>
-                    <td><?= esc((string) $row['filed_at']) ?></td>
+                    <td class="ttl">
+                        <a href="<?= esc($detailUrl, 'attr') ?>"><?= esc((string) $row['title']) ?></a>
+                        <span class="src"><?= esc((string) ($row['source'] ?? 'sgx')) ?></span>
+                    </td>
+                    <td class="muted"><?= $rowCategory !== '' ? esc($rowCategory) : '—' ?></td>
                     <td>
-                        <?php if ($canPreview): ?>
-                            <div class="table-actions">
-                                <a
-                                    class="btn btn-secondary"
-                                    href="<?= site_url('admin/announcements/' . $rowId . '/preview') ?>"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >Preview</a>
-                            </div>
+                        <span class="pill <?= esc($pill, 'attr') ?>"><span class="dot"></span><?= esc($label) ?></span>
+                    </td>
+                    <td class="muted nowrap"><?= esc((string) $row['filed_at']) ?></td>
+                    <td class="nowrap">
+                        <?php if ($wfKey === AnnouncementWorkflowStatus::NEEDS_REVIEW): ?>
+                            <a class="btn sm" href="<?= esc($detailUrl, 'attr') ?>">Review</a>
+                        <?php elseif ($canPreview): ?>
+                            <a class="btn sm btn-secondary" href="<?= site_url('admin/announcements/' . $rowId . '/preview') ?>" target="_blank" rel="noopener noreferrer">Preview</a>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -169,21 +162,7 @@ $stateQuery = array_filter([
         </tbody>
     </table>
 </div>
-
-<dialog id="admin-confirm-dialog" class="modal-card">
-    <div class="modal-inner">
-        <h2 id="admin-confirm-title">Confirm</h2>
-        <p class="form-hint modal-body-text" id="admin-confirm-body"></p>
-        <div class="btn-row btn-row-flush">
-            <form id="admin-confirm-form" method="post" action="#">
-                <?= csrf_field() ?>
-                <input type="hidden" name="return_to" value="list">
-                <button id="admin-confirm-ok" class="btn btn-primary" type="submit">Confirm</button>
-            </form>
-            <button type="button" class="btn btn-secondary" data-confirm-close>Cancel</button>
-        </div>
-    </div>
-</dialog>
-<script src="<?= esc(base_url('js/admin-confirm-dialog.js'), 'attr') ?>" defer></script>
+<p class="muted3" style="font-size:12.5px;margin-top:12px">Tick boxes on items that need review to approve several at once, then use <b>Publish to live site</b> above to build once.</p>
 <?php endif; ?>
+</form>
 <?= $this->endSection() ?>

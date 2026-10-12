@@ -16,11 +16,20 @@ final class PublishService
         if ($row === null) {
             throw new DomainException('not_found');
         }
-        // pending_review and archived → published; already published is a no-op
+        // Published + needs_review=1 → re-approve (Ready again until Publish to live site)
         if ($row['state'] === 'published') {
-            return false;
+            if ((int) ($row['needs_review'] ?? 0) !== 1) {
+                return false;
+            }
+            $model->update($announcementId, [
+                'needs_review' => 0,
+                'live_at' => null,
+            ]);
+
+            return true;
         }
-        // CMS publish only — live website updates via PublishToLiveSiteService
+
+        // pending_review and archived → published (CMS only; live via PublishToLiveSiteService)
         $model->update($announcementId, [
             'state' => 'published',
             'published_at' => date('Y-m-d H:i:s'),

@@ -16,6 +16,18 @@ $customMarker = \App\Libraries\Email\CategoryCatalog::customMarker();
 $currentCategory = (string) ($values['category'] ?? '');
 $categoryIsCustom = $currentCategory !== '' && ! in_array($currentCategory, $categories, true);
 $categorySelect = $categoryIsCustom ? $customMarker : $currentCategory;
+$hasLayoutOverrides = trim((string) ($values['title_btn'] ?? '') . (string) ($values['title_btn_sm'] ?? '') . (string) ($values['title_banner'] ?? '')) !== '';
+$hasPersonnel = false;
+foreach ([
+    'addl_description', 'addl_name', 'addl_age',
+    'addl_date_of_appointment', 'addl_date_cessation',
+    'addl_date_cessation_known', 'addl_country_of_principal_residence',
+] as $addlKey) {
+    if (trim((string) ($values[$addlKey] ?? '')) !== '') {
+        $hasPersonnel = true;
+        break;
+    }
+}
 ?>
 
 <section class="form-section card" aria-labelledby="sec-core">
@@ -173,7 +185,7 @@ $categorySelect = $categoryIsCustom ? $customMarker : $currentCategory;
     </div>
 </section>
 
-<details class="form-section card form-disclosure">
+<details class="form-section card form-disclosure"<?= $hasLayoutOverrides ? ' open' : '' ?>>
     <summary>
         <span class="form-disclosure-title">Website layout overrides</span>
         <span class="form-hint">Optional. Leave blank to auto-derive from title / category.</span>
@@ -194,7 +206,7 @@ $categorySelect = $categoryIsCustom ? $customMarker : $currentCategory;
     </div>
 </details>
 
-<details class="form-section card form-disclosure">
+<details class="form-section card form-disclosure"<?= $hasPersonnel ? ' open' : '' ?>>
     <summary>
         <span class="form-disclosure-title">Personnel / cessation fields</span>
         <span class="form-hint">Only used for appointment or cessation announcements.</span>

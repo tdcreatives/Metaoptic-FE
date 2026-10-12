@@ -7,6 +7,7 @@ use App\Controllers\BaseController;
 use App\Libraries\Admin\AlertDraftFromAnnouncementService;
 use App\Libraries\Admin\AnnouncementDeleteGuard;
 use App\Libraries\Admin\AnnouncementPreviewToken;
+use App\Libraries\Admin\AnnouncementWorkflowStatus;
 use App\Libraries\Admin\ArchiveService;
 use App\Libraries\Admin\LiveSiteSync;
 use App\Libraries\Admin\ManualAnnouncementService;
@@ -25,10 +26,25 @@ class Announcements extends BaseController
     public function index(): string
     {
         $model = model(AnnouncementModel::class);
+        $db = db_connect();
+
+        $segment = trim((string) $this->request->getGet('segment'));
         $state = (string) $this->request->getGet('state');
-        if ($state !== '') {
-            $model->where('state', $state);
+        // Legacy ?state= / ?needs_review=1 → segment
+        if ($segment === '' && $state === 'pending_review') {
+            $segment = AnnouncementWorkflowStatus::NEEDS_REVIEW;
+        } elseif ($segment === '' && $state === 'archived') {
+            $segment = AnnouncementWorkflowStatus::ARCHIVED;
+        } elseif ($segment === '' && $state === 'published') {
+            $segment = AnnouncementWorkflowStatus::LIVE;
+        } elseif ($segment === '' && (string) $this->request->getGet('needs_review') === '1') {
+            $segment = AnnouncementWorkflowStatus::READY;
         }
+        if (! AnnouncementWorkflowStatus::isSegment($segment)) {
+            $segment = '';
+        }
+
+        $this->applySegmentFilter($model, $segment);
 
         $categories = CategoryCatalog::all();
         $category = trim((string) $this->request->getGet('category'));
@@ -39,20 +55,82 @@ class Announcements extends BaseController
             $category = '';
         }
 
-        $needsReview = (string) $this->request->getGet('needs_review') === '1';
-        if ($needsReview) {
-            $model->where('needs_review', 1);
+        $q = trim((string) $this->request->getGet('q'));
+        if ($q !== '') {
+            $model->groupStart()
+                ->like('title', $q)
+                ->orLike('sgx_reference', $q)
+                ->orLike('ann_reference', $q)
+                ->groupEnd();
         }
+
+        $counts = $db->table('announcements')->select("
+  COUNT(*) AS total,
+  SUM(state='pending_review') AS needs_review,
+  SUM(state='published' AND (live_at IS NULL OR needs_review=1)) AS ready,
+  SUM(state='published' AND live_at IS NOT NULL AND needs_review=0) AS live,
+  SUM(state='archived') AS archived
+", false)->get()->getRowArray() ?? [];
+
+        $readyPreview = $db->table('announcements')
+            ->select('id, title')
+            ->where('state', 'published')
+            ->groupStart()
+                ->where('live_at IS NULL', null, false)
+                ->orWhere('needs_review', 1)
+            ->groupEnd()
+            ->orderBy('filed_at', 'DESC')
+            ->limit(5)
+            ->get()
+            ->getResultArray();
 
         return view('admin/announcements/index', [
             'title' => 'Announcements',
             'announcements' => $model->orderBy('filed_at', 'DESC')->findAll(),
             'state' => $state,
+            'segment' => $segment,
             'category' => $category,
             'categories' => $categories,
-            'needs_review' => $needsReview,
+            'q' => $q,
+            'counts' => [
+                'total' => (int) ($counts['total'] ?? 0),
+                'needs_review' => (int) ($counts['needs_review'] ?? 0),
+                'ready' => (int) ($counts['ready'] ?? 0),
+                'live' => (int) ($counts['live'] ?? 0),
+                'archived' => (int) ($counts['archived'] ?? 0),
+            ],
+            'ready_preview' => $readyPreview,
             'pending_live_sync' => PublishToLiveSiteService::pendingCount(),
         ]);
+    }
+
+    /** @param AnnouncementModel $model */
+    private function applySegmentFilter($model, string $segment): void
+    {
+        if ($segment === AnnouncementWorkflowStatus::NEEDS_REVIEW) {
+            $model->where('state', 'pending_review');
+
+            return;
+        }
+        if ($segment === AnnouncementWorkflowStatus::READY) {
+            $model->where('state', 'published')
+                ->groupStart()
+                    ->where('live_at IS NULL', null, false)
+                    ->orWhere('needs_review', 1)
+                ->groupEnd();
+
+            return;
+        }
+        if ($segment === AnnouncementWorkflowStatus::LIVE) {
+            $model->where('state', 'published')
+                ->where('live_at IS NOT NULL', null, false)
+                ->where('needs_review', 0);
+
+            return;
+        }
+        if ($segment === AnnouncementWorkflowStatus::ARCHIVED) {
+            $model->where('state', 'archived');
+        }
     }
 
     public function createForm(): string
@@ -232,6 +310,40 @@ class Announcements extends BaseController
             . ' Marked ' . (string) $result['synced_published'] . ' published item(s) live.';
 
         return redirect()->to('/admin/announcements')->with('message', $msg);
+    }
+
+    /** Bulk CMS Publish (= Approve for website) for selected pending / needs_review rows. */
+    public function bulkPublish(): RedirectResponse
+    {
+        $ids = $this->request->getPost('ids');
+        if (! is_array($ids)) {
+            $ids = [];
+        }
+        $ids = array_values(array_unique(array_filter(array_map('intval', $ids), static fn (int $id): bool => $id > 0)));
+        if ($ids === []) {
+            return redirect()->to('/admin/announcements')->with('error', 'Select at least one announcement to approve.');
+        }
+
+        $publisher = new PublishService();
+        $ok = 0;
+        $errors = 0;
+        foreach ($ids as $id) {
+            try {
+                if ($publisher->publish($id)) {
+                    $ok++;
+                    service('auditLogger')->write('publish', 'announcement', (string) $id, ['bulk' => true]);
+                }
+            } catch (DomainException) {
+                $errors++;
+            }
+        }
+
+        $msg = 'Approved ' . (string) $ok . ' announcement(s) in CMS.';
+        if ($errors > 0) {
+            $msg .= ' ' . (string) $errors . ' could not be approved.';
+        }
+
+        return redirect()->to('/admin/announcements?segment=ready')->with('message', $msg);
     }
 
     public function createAlertDraft(int $id): RedirectResponse
