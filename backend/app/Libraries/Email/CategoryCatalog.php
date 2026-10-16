@@ -17,6 +17,7 @@ final class CategoryCatalog
         'AGM / EGM',
         'Equity & Listing',
         'Financial Statements',
+        'Press Release',
     ];
 
     private const CUSTOM_MARKER = '__custom__';

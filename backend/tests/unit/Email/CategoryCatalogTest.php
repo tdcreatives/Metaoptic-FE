@@ -38,6 +38,7 @@ final class CategoryCatalogTest extends CIUnitTestCase
             'AGM / EGM',
             'Equity & Listing',
             'Financial Statements',
+            'Press Release',
         ], CategoryCatalog::all());
     }
 
@@ -66,5 +67,11 @@ final class CategoryCatalogTest extends CIUnitTestCase
         CategoryCatalog::remember('Placements');
         $this->assertFalse(is_file($this->tmpPath));
         $this->assertSame(CategoryCatalog::builtins(), CategoryCatalog::all());
+    }
+
+    public function test_builtins_include_press_release(): void
+    {
+        $this->assertContains('Press Release', CategoryCatalog::builtins());
+        $this->assertContains('Press Release', CategoryCatalog::all());
     }
 }
