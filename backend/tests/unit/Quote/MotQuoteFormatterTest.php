@@ -11,13 +11,16 @@ final class MotQuoteFormatterTest extends CIUnitTestCase
 {
     public function test_volume_and_change(): void
     {
-        $q = new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '2026-10-16T12:06:00');
+        $q = new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '20261016_120600');
         $f = new MotQuoteFormatter();
         $this->assertSame(86800, $f->volumeShares($q));
         $this->assertEqualsWithDelta(0.005, $f->changeAbs($q), 1e-9);
         $this->assertEqualsWithDelta(1.639344262, $f->changePct($q), 1e-6);
-        $this->assertStringContainsString('0.310', $f->subject($q, '4:00pm SGT'));
-        $this->assertStringContainsString('+', $f->changeLabel($q));
+        $this->assertSame(
+            'MetaOptics (9MT) — S$0.310 (+1.6%) as of 4:00pm SGT',
+            $f->subject($q, '4:00pm SGT'),
+        );
+        $this->assertStringContainsString('+0.005 (+1.6%)', $f->changeLabel($q));
     }
 
     public function test_unchanged_label(): void

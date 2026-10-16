@@ -32,13 +32,19 @@ final class MotQuoteFormatter
     public function subject(MotQuote $q, string $asOfLabel): string
     {
         $price = $this->formatPrice($q->last);
-        $change = $this->changeLabel($q);
+        $pct = $this->changePct($q);
+        if ($pct == 0.0) {
+            $changePart = 'unchanged';
+        } else {
+            $prefix = $pct > 0 ? '+' : '';
+            $changePart = sprintf('(%s%.1f%%)', $prefix, $pct);
+        }
 
         return sprintf(
-            'MetaOptics (%s) — S$%s (%s) as of %s',
+            'MetaOptics (%s) — S$%s %s as of %s',
             $q->code,
             $price,
-            $change,
+            $changePart,
             $asOfLabel,
         );
     }

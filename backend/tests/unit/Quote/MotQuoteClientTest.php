@@ -21,7 +21,7 @@ final class MotQuoteClientTest extends CIUnitTestCase
             'l' => 0.305,
             'vl' => 86.8,
             'v' => 26800,
-            'trading_time' => '2026-10-16T04:00:00',
+            'trading_time' => '20261016_054100',
         ];
     }
 
@@ -43,7 +43,7 @@ final class MotQuoteClientTest extends CIUnitTestCase
         $this->assertEqualsWithDelta(0.310, $q->last, 1e-9);
         $this->assertEqualsWithDelta(0.305, $q->priorClose, 1e-9);
         $this->assertEqualsWithDelta(86.8, $q->volumeThousands, 1e-9);
-        $this->assertSame('2026-10-16T04:00:00', $q->tradingTime);
+        $this->assertSame('20261016_054100', $q->tradingTime);
     }
 
     public function test_missing_9mt_throws(): void
@@ -70,6 +70,22 @@ final class MotQuoteClientTest extends CIUnitTestCase
     {
         $row = self::row9mt();
         $row['lt'] = 'n/a';
+        $this->expectException(MotQuoteFetchException::class);
+        (new MotQuoteClient(static fn () => self::envelope([$row])))->fetch9mt();
+    }
+
+    public function test_zero_lt_throws(): void
+    {
+        $row = self::row9mt();
+        $row['lt'] = 0;
+        $this->expectException(MotQuoteFetchException::class);
+        (new MotQuoteClient(static fn () => self::envelope([$row])))->fetch9mt();
+    }
+
+    public function test_zero_pv_throws(): void
+    {
+        $row = self::row9mt();
+        $row['pv'] = 0;
         $this->expectException(MotQuoteFetchException::class);
         (new MotQuoteClient(static fn () => self::envelope([$row])))->fetch9mt();
     }

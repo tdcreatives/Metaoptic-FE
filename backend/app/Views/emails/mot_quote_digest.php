@@ -1,5 +1,4 @@
 <?php
-/** @var \App\Libraries\Quote\MotQuote|null $quote */
 /** @var string $priceLabel */
 /** @var string $changeLabel */
 /** @var string $asOfLabel */
@@ -46,7 +45,7 @@ As of <?= esc($asOfLabel ?? '') ?> · Intraday (not official close)
 </tr>
 <tr>
 <th align="left" style="padding:10px 12px;border:1px solid #e4e4e7;background-color:#fafafa;font-weight:600;">Value (SGD)</th>
-<td style="padding:10px 12px;border:1px solid #e4e4e7;">$<?= esc($valueLabel ?? '') ?></td>
+<td style="padding:10px 12px;border:1px solid #e4e4e7;">S$<?= esc($valueLabel ?? '') ?></td>
 </tr>
 </table>
 <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#18181b;">

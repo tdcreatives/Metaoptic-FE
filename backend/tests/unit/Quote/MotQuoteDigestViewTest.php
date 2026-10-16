@@ -11,12 +11,11 @@ final class MotQuoteDigestViewTest extends CIUnitTestCase
 {
     public function test_mot_quote_digest_renders_session_pack(): void
     {
-        $quote = new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '2026-10-16T12:06:00');
+        $quote = new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '20261016_120600');
         $formatter = new MotQuoteFormatter();
         $unsubscribeUrl = 'https://example.test/unsub';
 
         $html = view('emails/mot_quote_digest', [
-            'quote' => $quote,
             'priceLabel' => 'S$' . $formatter->formatPrice($quote->last),
             'changeLabel' => $formatter->changeLabel($quote),
             'asOfLabel' => '4:00pm SGT',
@@ -40,5 +39,6 @@ final class MotQuoteDigestViewTest extends CIUnitTestCase
         $this->assertStringContainsString($unsubscribeUrl, $html);
         $this->assertStringNotContainsString('closing price', strtolower($html));
         $this->assertStringContainsString('Daily stock update', $html);
+        $this->assertStringContainsString('S$26,800.00', $html);
     }
 }

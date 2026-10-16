@@ -102,6 +102,12 @@ final class QuoteDigestService
                 }
             }
 
+            if ($sent === 0) {
+                throw new \RuntimeException(
+                    sprintf('All digest sends failed (%d recipients)', count($subs)),
+                );
+            }
+
             $this->finishRun($runs, $runId, array_merge($snapshot, [
                 'status' => 'success',
                 'recipient_count' => count($subs),
@@ -111,7 +117,7 @@ final class QuoteDigestService
             ]));
 
             return $this->result('success', $runId, sprintf('Sent to %d recipients', count($subs)));
-        } catch (MotQuoteFetchException|\Throwable $e) {
+        } catch (\Throwable $e) {
             $message = substr($e->getMessage(), 0, 1000);
             $this->finishRun($runs, $runId, [
                 'status' => 'failed',
@@ -212,11 +218,8 @@ final class QuoteDigestService
     private function asOfLabel(MotQuote $quote, \DateTimeImmutable $now): string
     {
         if ($quote->tradingTime !== null && $quote->tradingTime !== '') {
-            $dt = \DateTimeImmutable::createFromFormat(
-                'Y-m-d\TH:i:s',
-                $quote->tradingTime,
-                new \DateTimeZone(self::TZ),
-            );
+            $tz = new \DateTimeZone(self::TZ);
+            $dt = \DateTimeImmutable::createFromFormat('Ymd_His', $quote->tradingTime, $tz);
             if ($dt !== false) {
                 return $dt->format('g:ia') . ' SGT';
             }
@@ -229,7 +232,6 @@ final class QuoteDigestService
     private function viewVars(MotQuote $quote, string $asOfLabel, string $unsubscribeUrl): array
     {
         return [
-            'quote' => $quote,
             'priceLabel' => 'S$' . $this->formatter->formatPrice($quote->last),
             'changeLabel' => $this->formatter->changeLabel($quote),
             'asOfLabel' => $asOfLabel,

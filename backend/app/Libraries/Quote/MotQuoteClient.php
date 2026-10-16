@@ -77,8 +77,8 @@ final class MotQuoteClient
     /** @param array<string, mixed> $row */
     private function rowToQuote(array $row): MotQuote
     {
-        $last = $this->requireFiniteNumber($row['lt'] ?? null, 'lt');
-        $priorClose = $this->requireFiniteNumber($row['pv'] ?? null, 'pv');
+        $last = $this->requireFiniteNumber($row['lt'] ?? null, 'lt', true);
+        $priorClose = $this->requireFiniteNumber($row['pv'] ?? null, 'pv', true);
 
         $tradingTime = $row['trading_time'] ?? null;
 
@@ -95,13 +95,13 @@ final class MotQuoteClient
         );
     }
 
-    private function requireFiniteNumber(mixed $value, string $field): float
+    private function requireFiniteNumber(mixed $value, string $field, bool $mustBePositive = false): float
     {
         if (! is_int($value) && ! is_float($value) && ! (is_string($value) && is_numeric($value))) {
             throw new MotQuoteFetchException('SGX 9MT invalid ' . $field);
         }
         $n = (float) $value;
-        if (! is_finite($n)) {
+        if (! is_finite($n) || ($mustBePositive && $n <= 0.0)) {
             throw new MotQuoteFetchException('SGX 9MT invalid ' . $field);
         }
 

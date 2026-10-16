@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Quote;
 
 use App\Libraries\Email\LogMailer;
+use App\Libraries\Email\MailMessage;
 use App\Libraries\Email\MailerInterface;
 use App\Libraries\Email\UnsubscribeToken;
 use App\Libraries\Quote\MotQuote;
@@ -121,6 +122,28 @@ final class QuoteDigestServiceTest extends CIUnitTestCase
         $this->assertSame('ops@example.com', $ops[0]['to']);
     }
 
+    public function test_all_sends_fail_records_failed_status(): void
+    {
+        $this->insertSubscriber('digest@example.com', 'active', [QuoteDigestAudience::CATEGORY]);
+        $fri = new \DateTimeImmutable('2026-10-16 16:00:00', new \DateTimeZone('Asia/Singapore'));
+        $mailer = new class implements MailerInterface {
+            public function send(MailMessage $message): string
+            {
+                throw new \RuntimeException('SMTP down');
+            }
+        };
+
+        $out = $this->service(
+            client: $this->clientReturning($this->sampleQuote()),
+            mailer: $mailer,
+        )->run($fri);
+
+        $this->assertSame('failed', $out['status']);
+        $row = (new QuoteDigestRunModel())->where('digest_date', '2026-10-16')->first();
+        $this->assertSame('failed', $row['status']);
+        $this->assertStringContainsString('All digest sends failed', (string) $row['error_message']);
+    }
+
     public function test_success_same_day_second_run_is_noop(): void
     {
         $this->insertSubscriber('digest@example.com', 'active', [QuoteDigestAudience::CATEGORY]);
@@ -135,7 +158,7 @@ final class QuoteDigestServiceTest extends CIUnitTestCase
         $this->assertCount(1, $this->mailLogLines());
     }
 
-    private function service(?MotQuoteClient $client = null): QuoteDigestService
+    private function service(?MotQuoteClient $client = null, ?MailerInterface $mailer = null): QuoteDigestService
     {
         return new QuoteDigestService(
             gate: new TradingDayGate(),
@@ -144,14 +167,14 @@ final class QuoteDigestServiceTest extends CIUnitTestCase
             audience: new QuoteDigestAudience(),
             opsNotifier: new QuoteDigestOpsNotifier(),
             tokens: new UnsubscribeToken(self::SECRET),
-            mailer: Services::mailer(),
+            mailer: $mailer ?? Services::mailer(),
             runs: new QuoteDigestRunModel(),
         );
     }
 
     private function sampleQuote(): MotQuote
     {
-        return new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '2026-10-16T16:00:00');
+        return new MotQuote('9MT', 0.310, 0.305, 0.305, 0.315, 0.305, 86.8, 26800.0, '20261016_160000');
     }
 
     private function clientReturning(MotQuote $quote): MotQuoteClient
