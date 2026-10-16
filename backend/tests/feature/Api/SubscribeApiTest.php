@@ -6,6 +6,7 @@ namespace Tests\Feature\Api;
 use App\Libraries\Email\MailerInterface;
 use App\Libraries\Email\MailMessage;
 use App\Libraries\Http\TurnstileVerifier;
+use App\Models\SubscriberCategoryModel;
 use App\Models\SubscriberModel;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\Test\CIUnitTestCase;
@@ -76,6 +77,28 @@ final class SubscribeApiTest extends CIUnitTestCase
         parent::tearDown();
     }
 
+    public function test_post_press_release_category_persists(): void
+    {
+        $result = $this->withBodyFormat('json')->post('/api/subscribers', [
+            'email' => 'press-api@example.com',
+            'categories' => ['Press Release'],
+            'website' => '',
+            'turnstileToken' => 'valid-token',
+        ]);
+
+        $result->assertStatus(200);
+        $this->assertSame(['ok' => true], json_decode((string) $result->getJSON(), true));
+
+        $row = (new SubscriberModel())->where('email', 'press-api@example.com')->first();
+        $this->assertNotNull($row);
+        $this->assertSame('active', $row['status']);
+
+        $cats = (new SubscriberCategoryModel())->where('subscriber_id', $row['id'])->findAll();
+        $this->assertCount(1, $cats);
+        $this->assertSame('Press Release', $cats[0]['category_key']);
+        $this->assertCount(1, $this->mailer->sent);
+    }
+
     public function test_post_creates_active_and_always_returns_ok(): void
     {
         $result = $this->withBodyFormat('json')->post('/api/subscribers', [
@@ -129,6 +152,7 @@ final class SubscribeApiTest extends CIUnitTestCase
         ]);
         $cat->assertStatus(200);
         $this->assertSame([], (new SubscriberModel())->findAll());
+        $this->assertLogContains('warning', 'subscribe rejected invalid categories: Invalid category: Nope');
     }
 
     public function test_cors_allows_configured_origin(): void

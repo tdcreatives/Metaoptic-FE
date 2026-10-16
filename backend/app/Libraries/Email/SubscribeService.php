@@ -41,7 +41,9 @@ final class SubscribeService
         }
         try {
             CategoryCatalog::assertValid($categories);
-        } catch (InvalidArgumentException) {
+        } catch (InvalidArgumentException $e) {
+            log_message('warning', 'subscribe rejected invalid categories: ' . $e->getMessage());
+
             return;
         }
 

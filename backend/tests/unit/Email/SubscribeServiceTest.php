@@ -49,6 +49,25 @@ final class SubscribeServiceTest extends CIUnitTestCase
         parent::tearDown();
     }
 
+    public function test_press_release_category_persists(): void
+    {
+        $mailer = $this->mailer();
+        $this->service($mailer, new UnsubscribeToken(self::SECRET))->subscribe([
+            'email' => 'press@example.com',
+            'categories' => ['Press Release'],
+            'website' => '',
+        ]);
+
+        $row = (new SubscriberModel())->where('email', 'press@example.com')->first();
+        $this->assertNotNull($row);
+        $this->assertSame('active', $row['status']);
+
+        $cats = (new SubscriberCategoryModel())->where('subscriber_id', $row['id'])->findAll();
+        $this->assertCount(1, $cats);
+        $this->assertSame('Press Release', $cats[0]['category_key']);
+        $this->assertCount(1, $mailer->sent);
+    }
+
     public function test_creates_active_subscriber_categories_token_and_sends_confirmation(): void
     {
         $mailer = $this->mailer();
@@ -177,6 +196,7 @@ final class SubscribeServiceTest extends CIUnitTestCase
 
         $this->assertSame([], (new SubscriberModel())->findAll());
         $this->assertSame([], $mailer->sent);
+        $this->assertLogContains('warning', 'subscribe rejected invalid categories: Invalid category: Not A Real Category');
     }
 
     public function test_empty_categories_is_noop(): void
