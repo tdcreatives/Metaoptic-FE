@@ -54,6 +54,8 @@ $routes->group('admin', static function ($routes) {
         $routes->post('campaigns/(:num)/retry-failed', 'Admin\Campaigns::retryFailed/$1');
         $routes->get('sync-runs', 'Admin\SyncRuns::index');
         $routes->post('sync-runs/run-now', 'Admin\SyncRuns::runNow');
+        $routes->get('quote-digest-runs', 'Admin\QuoteDigestRuns::index');
+        $routes->get('quote-digest-runs/(:num)', 'Admin\QuoteDigestRuns::show/$1');
         $routes->get('settings/recipients', 'Admin\Settings::recipients');
         $routes->post('settings/recipients', 'Admin\Settings::updateRecipients');
     });

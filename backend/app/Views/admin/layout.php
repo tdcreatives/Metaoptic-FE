@@ -77,6 +77,7 @@
                 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
                 Email Alerts
             </a>
+            <a class="nav-item <?= esc($navClass('admin/quote-digest-runs'), 'attr') ?>" href="<?= site_url('admin/quote-digest-runs') ?>">Daily stock digest</a>
             <a class="nav-item <?= esc($navClass('admin/subscribers'), 'attr') ?>" href="<?= site_url('admin/subscribers') ?>">
                 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/></svg>
                 Subscribers
