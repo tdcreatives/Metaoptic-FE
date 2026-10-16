@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import BaseButton from '@/components/BaseButton';
 import BaseInput from '@/components/BaseInput';
+import TurnstileField from '@/components/TurnstileField';
+import { postContact } from '@/lib/contact-api';
+import { isValidEmail, isValidPhone } from '@/lib/web3forms';
 
 const ContactUsForm = () => {
     const [formData, setFormData] = useState({
@@ -18,6 +21,8 @@ const ContactUsForm = () => {
         message: '',
         isSuccess: false,
     });
+    const [turnstileToken, setTurnstileToken] = useState('');
+    const [formKey, setFormKey] = useState(0);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,8 +32,6 @@ const ContactUsForm = () => {
 
     const validateForm = () => {
         const { fullName, email, subject, message, phone } = formData;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneNumberRegex = /^\+?[0-9\s\-().]{10,15}$/;
 
         if (!fullName || !email || !subject || !message || !phone) {
             setStatus({
@@ -38,7 +41,7 @@ const ContactUsForm = () => {
             return false;
         }
 
-        if (!emailRegex.test(email)) {
+        if (!isValidEmail(email)) {
             setStatus({
                 message: 'Please enter a valid email address.',
                 isSuccess: false,
@@ -46,7 +49,7 @@ const ContactUsForm = () => {
             return false;
         }
 
-        if (!phoneNumberRegex.test(phone)) {
+        if (!isValidPhone(phone)) {
             setStatus({
                 message: 'Please enter a valid phone number.',
                 isSuccess: false,
@@ -62,56 +65,45 @@ const ContactUsForm = () => {
 
         if (!validateForm()) return;
 
-        const data = {
-            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_TOKEN,
+        if (!turnstileToken) {
+            setStatus({
+                message: 'Please complete the captcha.',
+                isSuccess: false,
+            });
+            return;
+        }
+
+        const result = await postContact({
+            channel: 'main',
+            turnstileToken,
+            fullName: formData.fullName,
             email: formData.email,
             phone: formData.phone,
-            subject: process.env.NEXT_PUBLIC_SUBJECT,
-            customer_subject: formData.subject || process.env.NEXT_PUBLIC_SUBJECT,
+            subject: formData.subject,
             message: formData.message,
-            replyto: process.env.NEXT_PUBLIC_REPLY_TO,
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            full_name: formData.fullName,
-            redirect: process.env.NEXT_PUBLIC_REDIRECT_URL,
-        };
+        });
 
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                setStatus({
-                    message:
-                        'Thank you for your submission!. <br/>Please give us up to 1-3 business days to get back to you.',
-                    isSuccess: true,
-                });
-                setFormData({
-                    fullName: '',
-                    email: '',
-                    subject: '',
-                    message: '',
-                    phone: '',
-                });
-            } else {
-                setStatus({
-                    message:
-                        'Oops! Something went wrong. Please try submitting the form again.',
-                    isSuccess: false,
-                });
-            }
-        } catch (error) {
-            console.error('Error:', error);
+        if (result.ok) {
             setStatus({
-                message: 'Something went wrong. Please try again.',
+                message:
+                    'Thank you for your submission!. <br/>Please give us up to 1-3 business days to get back to you.',
+                isSuccess: true,
+            });
+            setFormData({
+                fullName: '',
+                email: '',
+                subject: '',
+                message: '',
+                phone: '',
+            });
+        } else {
+            setStatus({
+                message: result.error || 'Oops! Something went wrong. Please try submitting the form again.',
                 isSuccess: false,
             });
         }
+        setTurnstileToken('');
+        setFormKey((k) => k + 1);
     };
 
     return (
@@ -189,6 +181,12 @@ const ContactUsForm = () => {
                         }
                     />
                 </div>
+
+                <TurnstileField
+                    key={formKey}
+                    onToken={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                />
 
                 <BaseButton label='SUBMIT' type='submit' />
 

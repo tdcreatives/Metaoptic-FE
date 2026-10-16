@@ -1,0 +1,143 @@
+#--------------------------------------------------------------------
+# Example Environment Configuration file
+#
+# This file can be used as a starting point for your own
+# custom .env files, and contains most of the possible settings
+# available in a default install.
+#
+# By default, all of the settings are commented out. If you want
+# to override the setting, you must un-comment it by removing the '#'
+# at the beginning of the line.
+#--------------------------------------------------------------------
+
+#--------------------------------------------------------------------
+# ENVIRONMENT
+#--------------------------------------------------------------------
+
+# CI_ENVIRONMENT = development
+
+#--------------------------------------------------------------------
+# APP
+#--------------------------------------------------------------------
+
+# app.baseURL = ''
+# If you have trouble with `.`, you could also use `_`.
+# app_baseURL = ''
+# app.forceGlobalSecureRequests = false
+# app.CSPEnabled = false
+
+#--------------------------------------------------------------------
+# DATABASE
+#--------------------------------------------------------------------
+
+# database.default.hostname = 127.0.0.1
+# database.default.database = metaoptics_ir
+# database.default.username = ir
+# database.default.password = changeme
+# database.default.DBDriver = MySQLi
+# database.default.DBPrefix =
+# database.default.port = 3306
+
+# If you use MySQLi as tests, first update the values of Config\Database::$tests.
+# database.tests.hostname = localhost
+# database.tests.database = ci4_test
+# database.tests.username = root
+# database.tests.password = root
+# database.tests.DBDriver = MySQLi
+# database.tests.DBPrefix =
+# database.tests.charset = utf8mb4
+# database.tests.DBCollat = utf8mb4_general_ci
+# database.tests.port = 3306
+
+#--------------------------------------------------------------------
+# ENCRYPTION
+#--------------------------------------------------------------------
+
+# encryption.key =
+
+#--------------------------------------------------------------------
+# SESSION
+#--------------------------------------------------------------------
+
+# session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
+# session.savePath = null
+
+#--------------------------------------------------------------------
+# LOGGER
+#--------------------------------------------------------------------
+
+# logger.threshold = 4
+
+#--------------------------------------------------------------------
+# SGX + CORS (Config\Sgx via env())
+#--------------------------------------------------------------------
+
+# Real SGX website API (undocumented; requires CMS authorizationToken bootstrap).
+# sgx.baseURL = 'https://api.sgx.com/announcements/v1.1'
+# sgx.companyCode = 'METAOPTICS LTD'
+# sgx.exactSearch = true
+# sgx.pageSize = 20
+# sgx.appConfigURL = 'https://www.sgx.com/config/appconfig.json'
+# sgx.backfill = false
+# cors.allowedOrigins = 'https://metaoptics.sg,https://www.metaoptics.sg'
+
+#--------------------------------------------------------------------
+# ADMIN (Config\Admin via env())
+#--------------------------------------------------------------------
+# Generate a password hash (do not commit the live password or hash):
+# php -r "echo password_hash('your-password', PASSWORD_DEFAULT), PHP_EOL;"
+# admin.username = ir-admin
+# admin.passwordHash = '$2y$10$REPLACE_WITH_PASSWORD_HASH'
+# FE origin for admin "Preview" (opens real Next.js detail). Local example:
+# admin.fePublicOrigin = 'http://localhost:3000'
+# Optional dedicated HMAC secret for preview tokens (min 32 chars).
+# If empty, falls back to email.unsubscribeSecret.
+# admin.previewSecret = 'REPLACE_WITH_AT_LEAST_32_CHAR_SECRET'
+
+#--------------------------------------------------------------------
+# MAIL (MAIL_DRIVER=log until SMTP/provider is chosen)
+#--------------------------------------------------------------------
+MAIL_DRIVER = log
+mail.from =
+SMTP_HOST =
+SMTP_USER =
+SMTP_PASS =
+SMTP_PORT = 587
+# email.fromEmail =
+# email.fromName =
+# email.SMTPHost =
+# email.SMTPUser =
+# email.SMTPPass =
+# email.SMTPPort = 587
+# email.SMTPCrypto = tls
+# email.protocol = smtp
+
+#--------------------------------------------------------------------
+# EMAIL ALERTS (Config\EmailAlerts via env())
+#--------------------------------------------------------------------
+# HMAC secret for unsubscribe tokens (min 32 characters). Generate e.g.:
+# php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
+# REQUIRED in production. If unset, development/testing use a local-only fallback;
+# production empty secret → subscribe API returns {ok:true} but writes nothing.
+# email.unsubscribeSecret = 'REPLACE_WITH_AT_LEAST_32_CHAR_SECRET'
+# Public site origin used in confirmation + campaign unsubscribe links
+# (path is always /investor-relations/resources/email-alerts?unsub=)
+# email.publicSiteURL = 'https://metaoptics.sg'
+
+#--------------------------------------------------------------------
+# FE DEPLOY HOOK (Config\FeDeploy — Cloudflare Pages rebuild on publish/archive)
+#--------------------------------------------------------------------
+# POST empty body to Cloudflare Pages Deploy Hook URL. Leave empty locally.
+# See docs/superpowers/plans/2026-10-03-cf-pages-deploy-hook-on-publish.md
+# fe.deployHookURL = 'https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/UUID'
+# fe.deployHookTimeout = 5
+
+#--------------------------------------------------------------------
+# PRODUCTION URL (Option A host layout)
+#--------------------------------------------------------------------
+# Local (spark serve / phpunit): app.baseURL = 'http://localhost:8080/'
+# Prod (public_html/backend → apps/ir-backend/public):
+#   app.baseURL = 'https://metaoptics.sg/backend/'
+#   app.indexPage = ''
+# FE build: NEXT_PUBLIC_IR_API_BASE=https://metaoptics.sg/backend
+# Deploy layout: docs/superpowers/plans/2026-10-03-backend-host-option-a.md

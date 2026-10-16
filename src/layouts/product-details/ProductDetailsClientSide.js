@@ -11,9 +11,11 @@ import Footer from "@/layouts/main/footer";
 
 import ProductDetailsBanner from "@/layouts/product-details/banner";
 import ProductDetailsSpecifications from "@/layouts/product-details/specifications";
+import ProductDetailsSpecComparison from "@/layouts/product-details/spec-comparison";
 import ProductDetailsTestingCapabilities from "@/layouts/product-details/testing-capabilities";
 import ProductDetailsMeasuredParameters from "@/layouts/product-details/measured-parameters";
 import RelatedProducts from "@/layouts/product-details/related-products";
+import ProductDetailsVideoSection from "@/layouts/product-details/video-section";
 import ProductDetailsKeyFeatures from "@/layouts/product-details/key-features";
 import ProductDetailsKeyFeaturesGrid from "@/layouts/product-details/key-features-grid";
 import ProductDetailsDualColumnList from "@/layouts/product-details/dual-column-list";
@@ -53,6 +55,7 @@ const ProductDetailsClientSide = () => {
       {product?.details?.keyFeatures && (
         <ProductDetailsKeyFeatures
           keyFeatures={product?.details?.keyFeatures}
+          productName={product?.name}
         />
       )}
 
@@ -82,6 +85,7 @@ const ProductDetailsClientSide = () => {
         <ProductDetailsSpecTable
           specTable={product?.details?.specTable}
           brochure={product?.brochure}
+          productName={product?.name}
         />
       )}
 
@@ -95,27 +99,44 @@ const ProductDetailsClientSide = () => {
         <ProductDetailsCtaBanner ctaBanner={product?.details?.ctaBanner} />
       )}
 
-      {product?.details?.specifications && (
+      {product?.details?.specComparison && (
+        <ProductDetailsSpecComparison
+          specComparison={product.details.specComparison}
+          brochureTitle={product?.name}
+          brochure={product?.brochure}
+        />
+      )}
+
+      {!product?.details?.specComparison && product?.details?.specifications && (
         <ProductDetailsSpecifications
           specifications={product?.details?.specifications}
           brochureTitle={product?.name}
           brochure={product?.brochure}
-          buttonLeft={product?.buttonLeft}
-          buttonRight={product?.buttonRight}
+          userGuide={product?.userGuide}
+          installer={product?.installer}
+          squareBottomCorners={slug === "pico-projector-2nd-generation"}
         />
       )}
 
       {product?.details?.testingCapabilities && (
         <ProductDetailsTestingCapabilities
           testingCapabilities={product?.details?.testingCapabilities}
-          buttonLeft={product?.buttonLeft}
-          buttonRight={product?.buttonRight}
+          buttonLeft={product?.userGuide}
+          buttonRight={product?.installer}
         />
       )}
 
       {product?.details?.measuredParameters && (
         <ProductDetailsMeasuredParameters
           measuredParameters={product?.details?.measuredParameters}
+        />
+      )}
+
+      {product?.details?.videoSection && (
+        <ProductDetailsVideoSection
+          videoSection={product.details.videoSection}
+          buyNow={product.buyNow}
+          buyNowText={product.buyNowText}
         />
       )}
 

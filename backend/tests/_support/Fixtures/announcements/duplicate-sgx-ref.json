@@ -1,0 +1,34 @@
+[
+    {
+        "title": "First slug claims the unique sgx_reference",
+        "title_banner": "FIRST",
+        "slug": "dup-ref-first",
+        "desc": "first",
+        "date": "11 Sep 2026 08:43 PM",
+        "category": "General Announcement",
+        "details": {
+            "announcement": {
+                "reference": "SG-DUP-SHARED-REF"
+            },
+            "attachments": [
+                { "name": "a.pdf", "url": "https://example.com/a.pdf" }
+            ]
+        }
+    },
+    {
+        "title": "Second slug shares JSON reference",
+        "title_banner": "SECOND",
+        "slug": "dup-ref-second",
+        "desc": "second",
+        "date": "11 Sep 2026 08:43 PM",
+        "category": "General Announcement",
+        "details": {
+            "announcement": {
+                "reference": "SG-DUP-SHARED-REF"
+            },
+            "attachments": [
+                { "name": "b.pdf", "url": "https://example.com/b.pdf" }
+            ]
+        }
+    }
+]

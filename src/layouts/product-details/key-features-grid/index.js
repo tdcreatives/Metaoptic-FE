@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ICONS = {
   maximize: (
     <svg
@@ -69,7 +71,11 @@ const ICONS = {
 
 const ProductDetailsKeyFeaturesGrid = ({ keyFeaturesGrid }) => {
   if (!keyFeaturesGrid) return null;
-  const { title, description, items } = keyFeaturesGrid;
+  const { title, description, items, columns = 4 } = keyFeaturesGrid;
+
+  const colClass =
+    { 2: "lg:grid-cols-2", 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" }[columns] ||
+    "lg:grid-cols-4";
 
   return (
     <section className="2xl:px-[104px] 2xl:py-[80px] xl:px-[50px] xl:py-[60px] lg:px-[40px] lg:py-[50px] py-10 px-6 bg-white">
@@ -84,21 +90,39 @@ const ProductDetailsKeyFeaturesGrid = ({ keyFeaturesGrid }) => {
           </p>
         )}
 
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 mt-10">
-          {items?.map((item, index) => (
-            <div
-              key={index}
-              className="rounded-[16px] bg-[#FDEEEC] p-6 flex flex-col gap-3"
-            >
-              <div className="w-8 h-8 text-[#d34c39]">{ICONS[item.icon]}</div>
-              <h3 className="xl:text-[24px] lg:text-[22px] text-[18px] futura-medium font-medium text-[#d34c39]">
-                {item.title}
-              </h3>
-              <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#676767] font-medium leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
+        <div className={`grid ${colClass} sm:grid-cols-2 grid-cols-1 gap-6 mt-10`}>
+          {items?.map((item, index) => {
+            const isImageIcon =
+              typeof item.icon === "string" &&
+              (item.icon.startsWith("/") || /\.(svg|png|jpe?g)$/i.test(item.icon));
+
+            return (
+              <div
+                key={index}
+                className="rounded-[16px] bg-[#FDEEEC] p-6 flex flex-col gap-3"
+              >
+                <div className="w-8 h-8 text-[#d34c39]">
+                  {isImageIcon ? (
+                    <Image
+                      src={item.icon}
+                      alt={item.title || ""}
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    ICONS[item.icon]
+                  )}
+                </div>
+                <h3 className="xl:text-[24px] lg:text-[22px] text-[18px] futura-medium font-medium text-[#d34c39]">
+                  {item.title}
+                </h3>
+                <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#676767] font-medium leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

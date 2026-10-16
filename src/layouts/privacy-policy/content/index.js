@@ -64,7 +64,11 @@ const Content = () => {
         },
         {
             title: 'Data Security',
-            content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.`,
+            // content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.`,
+            content: `We implement appropriate administrative, physical, and technical measures to safeguard your personal data against unauthorized access, misuse, disclosure, or alteration.
+
+            If you have any questions, concerns or complaints about our privacy practices, please contact us at <a href="mailto:dpo@metaoptics.sg" class="text-[#D34C39] hover:underline">dpo@metaoptics.sg</a>.`,
+
         },
     ];
 
@@ -93,7 +97,14 @@ const Content = () => {
         },
         {
             title: 'How to Report',
-            content: `If you have any questions, concerns or complaints about our privacy practices, please contact us at <a href="mailto:dpo@metaoptics.sg" class="text-[#D34C39] hover:underline">dpo@metaoptics.sg</a>.`,
+            // content: `If you have any questions, concerns or complaints about our privacy practices, please contact us at <a href="mailto:dpo@metaoptics.sg" class="text-[#D34C39] hover:underline">dpo@metaoptics.sg</a>.`,
+            content: `To ensure independence, reports can be directed to our dedicated channel:
+
+            • Email: <a href="mailto:ethics@metaoptics.sg" class="text-[#D34C39] hover:underline">ethics@metaoptics.sg</a>.
+
+            Please provide as much detail as possible (e.g., names, dates, nature of the incident) to facilitate an effective investigation.
+            All reports are reviewd by the Audit Committee or designated independent personnel.
+            `,
         }
     ];
 

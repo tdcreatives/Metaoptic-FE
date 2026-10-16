@@ -26,7 +26,7 @@ const ProductDetailsDualColumnList = ({ dualColumnList }) => {
             </h2>
 
             {col.subtitle && (
-              <p className="xl:text-[20px] lg:text-[18px] text-[14px] text-[#111] font-medium mt-6 leading-relaxed">
+              <p className="xl:text-[24px] lg:text-[20px] text-[16px] text-[#000] font-medium mt-6 leading-relaxed">
                 {col.subtitle}
               </p>
             )}
