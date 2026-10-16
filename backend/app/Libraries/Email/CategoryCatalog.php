@@ -9,6 +9,7 @@ final class CategoryCatalog
 {
     /** @var list<string> */
     private const KEYS = [
+        'Press Release',
         'General Announcement',
         'Disclosure of Interest',
         'Placements',
@@ -17,7 +18,6 @@ final class CategoryCatalog
         'AGM / EGM',
         'Equity & Listing',
         'Financial Statements',
-        'Press Release',
     ];
 
     private const CUSTOM_MARKER = '__custom__';

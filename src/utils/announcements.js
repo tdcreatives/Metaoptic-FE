@@ -1,4 +1,5 @@
 export const ANNOUNCEMENT_CATEGORIES = [
+    'Press Release',
     'General Announcement',
     'Disclosure of Interest',
     'Placements',
@@ -7,7 +8,6 @@ export const ANNOUNCEMENT_CATEGORIES = [
     'AGM / EGM',
     'Equity & Listing',
     'Financial Statements',
-    'Press Release',
 ];
 
 export const ITEMS_PER_PAGE = 10;

@@ -30,6 +30,7 @@ final class CategoryCatalogTest extends CIUnitTestCase
     public function test_all_matches_frontend_announcement_categories(): void
     {
         $this->assertSame([
+            'Press Release',
             'General Announcement',
             'Disclosure of Interest',
             'Placements',
@@ -38,7 +39,6 @@ final class CategoryCatalogTest extends CIUnitTestCase
             'AGM / EGM',
             'Equity & Listing',
             'Financial Statements',
-            'Press Release',
         ], CategoryCatalog::all());
     }
 
