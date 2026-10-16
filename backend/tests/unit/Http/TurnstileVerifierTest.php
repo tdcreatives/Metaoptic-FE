@@ -29,8 +29,9 @@ final class TurnstileVerifierTest extends CIUnitTestCase
     {
         $cfg = new Turnstile();
         $cfg->secretKey = 'test-secret';
-        $v = new TurnstileVerifier($cfg, static fn () => ['success' => false]);
+        $v = new TurnstileVerifier($cfg, static fn () => ['success' => false, 'error-codes' => ['invalid-input-response']]);
         $this->assertFalse($v->verify('tok'));
+        $this->assertSame('invalid-input-response', $v->failure());
     }
 
     public function test_transport_receives_secret_and_token(): void

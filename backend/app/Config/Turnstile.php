@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 class Turnstile extends BaseConfig
 {
     public string $secretKey = '';
-    public string $verifyURL = 'https://challenges.cloudflare.com/turnstile/siteverify';
+    public string $verifyURL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
     public function __construct()
     {

@@ -31,8 +31,9 @@ class Subscribers extends BaseController
         $token = is_array($input) ? (string) ($input['turnstileToken'] ?? '') : '';
         $verifier = Services::turnstileVerifier();
         if (! $verifier->verify($token, (string) $this->request->getIPAddress())) {
-            log_message('warning', 'subscribers.create turnstile failed');
-            return $this->ok();
+            log_message('warning', 'subscribers.create turnstile failed: ' . $verifier->failure());
+
+            return $this->response->setStatusCode(400)->setJSON(['ok' => false, 'error' => 'captcha']);
         }
 
         $cfg = config(EmailAlerts::class);

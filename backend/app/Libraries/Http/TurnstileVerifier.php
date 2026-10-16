@@ -8,11 +8,19 @@ use Config\Services;
 
 final class TurnstileVerifier
 {
+    private string $failure = '';
+
     /** @param null|callable(string, array<string, string>): array $transport */
     public function __construct(
         private readonly Turnstile $config,
         private $transport = null,
     ) {
+    }
+
+    /** Reason for the last failed verify(); empty after success or when captcha is not required. */
+    public function failure(): string
+    {
+        return $this->failure;
     }
 
     public function isRequired(): bool
@@ -26,11 +34,19 @@ final class TurnstileVerifier
 
     public function verify(string $token, ?string $remoteIp = null): bool
     {
+        $this->failure = '';
         if (! $this->isRequired()) {
             return true;
         }
         $token = trim($token);
-        if ($token === '' || $this->config->secretKey === '') {
+        if ($token === '') {
+            $this->failure = 'missing-token';
+
+            return false;
+        }
+        if ($this->config->secretKey === '') {
+            $this->failure = 'missing-secret';
+
             return false;
         }
 
@@ -45,10 +61,35 @@ final class TurnstileVerifier
         try {
             $data = ($this->transport ?? [$this, 'defaultTransport'])($this->config->verifyURL, $fields);
         } catch (\Throwable) {
+            $this->failure = 'transport';
+
             return false;
         }
 
-        return ($data['success'] ?? false) === true;
+        if (($data['success'] ?? false) === true) {
+            return true;
+        }
+
+        $this->failure = self::errorCodes($data);
+
+        return false;
+    }
+
+    /** @param array<string, mixed> $data */
+    private static function errorCodes(array $data): string
+    {
+        $codes = $data['error-codes'] ?? [];
+        if (! is_array($codes)) {
+            return 'rejected';
+        }
+        $safe = [];
+        foreach ($codes as $code) {
+            if (is_string($code) && preg_match('/^[a-z0-9_-]{1,40}$/', $code) === 1) {
+                $safe[] = $code;
+            }
+        }
+
+        return $safe !== [] ? implode(',', $safe) : 'rejected';
     }
 
     /** @param array<string, string> $fields @return array<string, mixed> */

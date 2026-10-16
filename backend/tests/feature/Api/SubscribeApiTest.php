@@ -298,19 +298,21 @@ final class SubscribeApiTest extends CIUnitTestCase
         $this->assertLogContains('error', 'unsubscribe secret must be at least 32 characters');
     }
 
-    public function test_missing_turnstile_returns_ok_without_insert(): void
+    public function test_missing_turnstile_returns_captcha_error_without_insert(): void
     {
         $result = $this->withBodyFormat('json')->post('/api/subscribers', [
             'email' => 'notoken@example.com',
             'categories' => ['General Announcement'],
             'website' => '',
         ]);
-        $result->assertStatus(200);
+        $result->assertStatus(400);
+        $this->assertSame(['ok' => false, 'error' => 'captcha'], json_decode((string) $result->getJSON(), true));
         $this->assertNull((new SubscriberModel())->where('email', 'notoken@example.com')->first());
         $this->assertSame([], $this->mailer->sent);
+        $this->assertLogContains('warning', 'subscribers.create turnstile failed: missing-token');
     }
 
-    public function test_invalid_turnstile_returns_ok_without_insert(): void
+    public function test_invalid_turnstile_returns_captcha_error_without_insert(): void
     {
         $result = $this->withBodyFormat('json')->post('/api/subscribers', [
             'email' => 'badtok@example.com',
@@ -318,7 +320,9 @@ final class SubscribeApiTest extends CIUnitTestCase
             'website' => '',
             'turnstileToken' => 'nope',
         ]);
-        $result->assertStatus(200);
+        $result->assertStatus(400);
+        $this->assertSame(['ok' => false, 'error' => 'captcha'], json_decode((string) $result->getJSON(), true));
         $this->assertNull((new SubscriberModel())->where('email', 'badtok@example.com')->first());
+        $this->assertLogContains('warning', 'subscribers.create turnstile failed: rejected');
     }
 }
