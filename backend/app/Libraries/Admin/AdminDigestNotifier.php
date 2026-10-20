@@ -19,18 +19,48 @@ final class AdminDigestNotifier
     }
 
     /** @param list<string> $refs */
-    public function notifyNewItems(int $newCount, array $refs): void
+    public function notifyNewItems(int $newCount, array $refs, string $mode = 'review'): void
     {
         $emails = $this->activeEmails();
         if ($newCount < 1 || $emails === []) {
             return;
         }
 
-        $subject = sprintf('[IR] %d new SGX announcement(s)', $newCount);
-        $htmlBody = (string) view('emails/admin_digest', ['newCount' => $newCount, 'refs' => $refs]);
-        $textBody = sprintf("%d new SGX announcement(s)\n\n", $newCount)
+        if (! in_array($mode, ['review', 'auto_published', 'auto_publish_failed'], true)) {
+            $mode = 'review';
+        }
+
+        [$subject, $preheader, $textIntro, $textFooter] = match ($mode) {
+            'auto_published' => [
+                sprintf('[IR] %d announcement(s) auto-published', $newCount),
+                'Auto-published · Cloudflare rebuild triggered',
+                sprintf("%d announcement(s) auto-published\n\n", $newCount),
+                'Cloudflare rebuild was triggered. You may unpublish in MetaOptics Admin CMS if needed.',
+            ],
+            'auto_publish_failed' => [
+                sprintf('[IR] %d announcement(s) need review (auto-publish failed)', $newCount),
+                'Auto-publish failed · review in Admin CMS',
+                sprintf("%d announcement(s) synced but auto-publish or rebuild failed\n\n", $newCount),
+                'Sign in to MetaOptics Admin to review and publish.',
+            ],
+            default => [
+                sprintf('[IR] %d new SGX announcement(s)', $newCount),
+                'Internal digest · review in Admin CMS',
+                sprintf("%d new SGX announcement(s)\n\n", $newCount),
+                'Sign in to MetaOptics Admin to review and publish.',
+            ],
+        };
+
+        $htmlBody = (string) view('emails/admin_digest', [
+            'newCount' => $newCount,
+            'refs' => $refs,
+            'mode' => $mode,
+            'preheader' => $preheader,
+        ]);
+        $textBody = $textIntro
             . implode("\n", $refs)
-            . "\n\nSign in to MetaOptics Admin to review and publish.";
+            . "\n\n"
+            . $textFooter;
 
         $mailer = Services::mailer();
         foreach ($emails as $to) {
