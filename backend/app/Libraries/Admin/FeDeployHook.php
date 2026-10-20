@@ -40,6 +40,17 @@ final class FeDeployHook
             return;
         }
 
+        $this->attempt($reason);
+    }
+
+    public function attempt(string $reason): bool
+    {
+        if ($this->url === '') {
+            log_message('error', 'fe.deployHook attempt failed reason=' . $reason . ' error=empty_url');
+
+            return false;
+        }
+
         try {
             $result = ($this->poster)($this->url, $this->timeoutSeconds);
             if (($result['ok'] ?? false) === true) {
@@ -48,7 +59,7 @@ final class FeDeployHook
                     'fe.deployHook ok reason=' . $reason . ' status=' . (string) ($result['status'] ?? '')
                 );
 
-                return;
+                return true;
             }
 
             log_message(
@@ -57,8 +68,12 @@ final class FeDeployHook
                 . ' status=' . (string) ($result['status'] ?? '')
                 . ' error=' . (string) ($result['error'] ?? 'unknown')
             );
+
+            return false;
         } catch (Throwable $e) {
             log_message('error', 'fe.deployHook exception reason=' . $reason . ': ' . $e->getMessage());
+
+            return false;
         }
     }
 
