@@ -48,6 +48,8 @@ Daily 08:00 SGT (step 3 ongoing, not a substitute for step 2):
 
 Optional extra SGX history: set `sgx.backfill = true`, run `php spark sgx:sync` once, then set `sgx.backfill = false`. This does not replace the JSON baseline.
 
+**Auto-publish (optional):** `sgx.autoPublish = false` by default — new SGX inserts stay `pending_review` and the admin digest asks for review. When `sgx.autoPublish = true`, only **new inserts in that run** are set live (`published`, `live_at`) and `fe.deployHookURL` triggers one Cloudflare Pages rebuild per successful run; hook failure rolls those rows back to `pending_review`. Existing `pending_review` backlog is not bulk-published when the flag is turned on. Backfill (`sgx.backfill = true`) ignores auto-publish. Staging checks: `docs/superpowers/plans/checklists/2026-10-20-sgx-auto-publish.md`.
+
 ## FE announcements JSON import
 
 One-shot seed of Published CMS rows from the live site contract (`src/constants/announcements.json`). Keeps JSON slugs; does **not** prompt for Email Alerts.
@@ -119,7 +121,10 @@ sgx.exactSearch = true
 sgx.pageSize = 20
 sgx.appConfigURL = 'https://www.sgx.com/config/appconfig.json'
 sgx.backfill = false
+# When true, NEW sgx:sync inserts go live + CF deploy hook; default false
+sgx.autoPublish = false
 sgx.fetchDetailHtml = true
+# fe.deployHookURL required when sgx.autoPublish = true (see backend/env)
 ```
 
 `sgx.fetchDetailHtml` (default true): after the list fetch, sync GETs each item’s `url` on `links.sgx.com` and parses the announcement HTML (`dl/dt/dd` + attachment links) into FE detail fields. Soft-fails per item if HTML is unreachable.
