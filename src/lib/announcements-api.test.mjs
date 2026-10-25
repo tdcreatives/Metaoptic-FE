@@ -200,6 +200,69 @@ test('announcementStaticParamsFrom unions API slugs when includeApi', async () =
     }
 });
 
+test('announcementStaticParamsFrom throws when IR_REQUIRE_ANNOUNCEMENTS_API and API fails', async () => {
+    const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
+    const previousReq = process.env.IR_REQUIRE_ANNOUNCEMENTS_API;
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    process.env.IR_REQUIRE_ANNOUNCEMENTS_API = 'true';
+    const previousFetch = globalThis.fetch;
+    globalThis.fetch = async () => {
+        throw new Error('network down');
+    };
+
+    try {
+        await assert.rejects(
+            () =>
+                announcementStaticParamsFrom([{ slug: 'mou-sg25010100abcde' }], {
+                    includeApi: true,
+                }),
+            /unreachable during build/
+        );
+    } finally {
+        globalThis.fetch = previousFetch;
+        if (previous === undefined) {
+            delete process.env.NEXT_PUBLIC_IR_API_BASE;
+        } else {
+            process.env.NEXT_PUBLIC_IR_API_BASE = previous;
+        }
+        if (previousReq === undefined) {
+            delete process.env.IR_REQUIRE_ANNOUNCEMENTS_API;
+        } else {
+            process.env.IR_REQUIRE_ANNOUNCEMENTS_API = previousReq;
+        }
+    }
+});
+
+test('announcementStaticParamsFrom falls back to JSON when API fails', async () => {
+    const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
+    const previousReq = process.env.IR_REQUIRE_ANNOUNCEMENTS_API;
+    process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';
+    delete process.env.IR_REQUIRE_ANNOUNCEMENTS_API;
+    const previousFetch = globalThis.fetch;
+    globalThis.fetch = async () => {
+        throw new Error('network down');
+    };
+
+    try {
+        const params = await announcementStaticParamsFrom([{ slug: 'mou-sg25010100abcde' }], {
+            includeApi: true,
+        });
+        assert.deepEqual(params, [{ slug: 'mou-sg25010100abcde' }]);
+    } finally {
+        globalThis.fetch = previousFetch;
+        if (previous === undefined) {
+            delete process.env.NEXT_PUBLIC_IR_API_BASE;
+        } else {
+            process.env.NEXT_PUBLIC_IR_API_BASE = previous;
+        }
+        if (previousReq === undefined) {
+            delete process.env.IR_REQUIRE_ANNOUNCEMENTS_API;
+        } else {
+            process.env.IR_REQUIRE_ANNOUNCEMENTS_API = previousReq;
+        }
+    }
+});
+
 test('fetchAnnouncementBySlug GETs /api/announcements/{slug}', async () => {
     const previous = process.env.NEXT_PUBLIC_IR_API_BASE;
     process.env.NEXT_PUBLIC_IR_API_BASE = 'https://ir-api.example.test';

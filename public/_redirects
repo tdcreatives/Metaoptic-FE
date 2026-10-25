@@ -1,0 +1,6 @@
+# Cloudflare Pages: existing static *.html wins. Missing announcement detail
+# files (API-only filings not baked by generateStaticParams) fall through to
+# the client SPA shell, which loads the filing from the announcements API.
+# Destinations match Next `output: 'export'` paths (…/page → ….html), not …/index.html.
+/investor-relations/company-announcement/*  /investor-relations/company-announcement-fallback  200
+/company-announcement/*  /company-announcement-fallback  200

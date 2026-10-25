@@ -142,6 +142,8 @@ export async function fetchAnnouncementPreview(token) {
  * Slugs for `generateStaticParams` under `output: 'export'`.
  * When `includeApi` is true, union JSON slugs with published API slugs so
  * API-only filings are routable (dev + static build with API reachable).
+ * If the API is down at build, JSON-only HTML still ships; CF `public/_redirects`
+ * SPA fallback serves API-only detail URLs at runtime.
  */
 export async function announcementStaticParamsFrom(jsonItems, { includeApi = false } = {}) {
     const params = [];
@@ -159,6 +161,7 @@ export async function announcementStaticParamsFrom(jsonItems, { includeApi = fal
         return params;
     }
 
+    const jsonCount = params.length;
     try {
         const { data } = await fetchAnnouncementList({ pageSize: 100 });
         for (const row of data || []) {
@@ -168,8 +171,23 @@ export async function announcementStaticParamsFrom(jsonItems, { includeApi = fal
                 params.push({ slug });
             }
         }
-    } catch {
-        // ponytail: offline/build without API — JSON params only; API-only slugs stay unroutable
+        console.info(
+            `[announcementStaticParamsFrom] ${params.length} slugs (${params.length - jsonCount} from API)`
+        );
+    } catch (err) {
+        const detail = err?.message || String(err);
+        // Opt-in hard fail (e.g. staging that must bake every slug).
+        if (process.env.IR_REQUIRE_ANNOUNCEMENTS_API === 'true') {
+            throw new Error(
+                `announcementStaticParamsFrom: announcements API unreachable during build (${detail}). ` +
+                    'Set NEXT_PUBLIC_IR_API_BASE to a URL the build can fetch, or unset IR_REQUIRE_ANNOUNCEMENTS_API.'
+            );
+        }
+        // ponytail: do not fail CF builds — public/_redirects SPA fallback covers API-only slugs
+        console.error(
+            `[announcementStaticParamsFrom] API fetch failed; baking ${jsonCount} JSON slugs only (${detail}). ` +
+                'API-only detail URLs need the CF _redirects SPA fallback.'
+        );
     }
 
     return params;

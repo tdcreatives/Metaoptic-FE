@@ -79,7 +79,8 @@
 # sgx.pageSize = 20
 # sgx.appConfigURL = 'https://www.sgx.com/config/appconfig.json'
 # sgx.backfill = false
-# cors.allowedOrigins = 'https://metaoptics.sg,https://www.metaoptics.sg'
+# cors.allowedOrigins = 'https://metaoptics.sg,https://www.metaoptics.sg,https://metaoptic.pages.dev,http://localhost:4444,http://127.0.0.1:4444'
+# cors.allowedOriginPatterns = 'https://*.pages.dev'
 
 #--------------------------------------------------------------------
 # ADMIN (Config\Admin via env())
