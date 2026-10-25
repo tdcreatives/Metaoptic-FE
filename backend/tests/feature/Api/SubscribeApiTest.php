@@ -224,8 +224,8 @@ final class SubscribeApiTest extends CIUnitTestCase
         $result = $this->withHeaders(['Origin' => $origin])->options('/api/subscribers');
         $result->assertStatus(204);
         $result->assertHeader('Access-Control-Allow-Origin', $origin);
-        $result->assertHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-        $result->assertHeader('Access-Control-Allow-Headers', 'Content-Type');
+        $result->assertHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        $result->assertHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
         $result->assertHeader('Vary', 'Origin');
     }
 

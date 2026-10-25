@@ -21,6 +21,8 @@ class Sgx extends BaseConfig
     public string $appConfigURL = 'https://www.sgx.com/config/appconfig.json';
     /** @var list<string> */
     public array $corsOrigins = [];
+    /** @var list<string> Simple wildcards, e.g. https://*.pages.dev */
+    public array $corsOriginPatterns = [];
 
     public function __construct()
     {
@@ -33,7 +35,12 @@ class Sgx extends BaseConfig
         $this->pageSize = max(1, (int) env('sgx.pageSize', 20));
         $this->fetchDetailHtml = filter_var(env('sgx.fetchDetailHtml', true), FILTER_VALIDATE_BOOLEAN);
         $this->appConfigURL = (string) env('sgx.appConfigURL', 'https://www.sgx.com/config/appconfig.json');
-        $origins = (string) env('cors.allowedOrigins', 'https://metaoptics.sg');
+        $origins = (string) env(
+            'cors.allowedOrigins',
+            'https://metaoptics.sg,https://www.metaoptics.sg,http://localhost:4444,http://127.0.0.1:4444'
+        );
         $this->corsOrigins = array_values(array_filter(array_map('trim', explode(',', $origins))));
+        $patterns = (string) env('cors.allowedOriginPatterns', 'https://*.pages.dev');
+        $this->corsOriginPatterns = array_values(array_filter(array_map('trim', explode(',', $patterns))));
     }
 }
