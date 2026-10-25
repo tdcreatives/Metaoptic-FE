@@ -1,0 +1,42 @@
+<?php
+declare(strict_types=1);
+
+namespace App\Libraries\Admin;
+
+use App\Models\AnnouncementModel;
+use DomainException;
+
+final class PublishService
+{
+    /** @return bool true if state changed to published */
+    public function publish(int $announcementId): bool
+    {
+        $model = model(AnnouncementModel::class);
+        $row = $model->find($announcementId);
+        if ($row === null) {
+            throw new DomainException('not_found');
+        }
+        // Published + needs_review=1 → re-approve (Ready again until Publish to live site)
+        if ($row['state'] === 'published') {
+            if ((int) ($row['needs_review'] ?? 0) !== 1) {
+                return false;
+            }
+            $model->update($announcementId, [
+                'needs_review' => 0,
+                'live_at' => null,
+            ]);
+
+            return true;
+        }
+
+        // pending_review and archived → published (CMS only; live via PublishToLiveSiteService)
+        $model->update($announcementId, [
+            'state' => 'published',
+            'published_at' => date('Y-m-d H:i:s'),
+            'needs_review' => 0,
+            'live_at' => null,
+        ]);
+
+        return true;
+    }
+}

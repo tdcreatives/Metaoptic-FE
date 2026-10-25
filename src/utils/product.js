@@ -2,18 +2,21 @@ export const equipmentSlugs = [
   'direct-laser-writer',
   'metalens-automatic-tester',
   'automated-metalens-camera-module-assembly-and-test-system',
-  'manual-tester'
+  'manual-tester',
+  'wafer-level-metalens-tester'
 ];
 export const foundrySlugs = [
-  'color-imaging-meta-lens',
+  // 'color-imaging-meta-lens',
   'round-rgb-metalens',
   'rectangular-rgb-metalens',
   'ultra-wide-fov-ir-metalens',
   'ultra-wide-fov-metalens-monochromatic-ir-camera',
-  'metalens-color-camera-module',
+  '2mp-rectangular-rgb-metalens-fc-module',
+  '5mp-rectangular-rgb-metalens-fc-module',
 ];
 
 export const developmentKitsSlugs = [
+  'iot-metalens-color-camera',
   'iot-rectangular-metalens-color-camera',
   '3d-biometrics-metalens-sensor',
 ];
@@ -30,6 +33,15 @@ export const staticPages = [
     'co-packaged-optics',
     'development-kits'
 ];
+
+// ponytail: filename for <a download>; ceiling = naive sanitize, upgrade if need unicode slugify
+export const toBrochureFileName = (productName) => {
+  const base = String(productName || "brochure")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[\\/:*?"<>|]/g, "");
+  return `${base}.pdf`;
+};
 
 export const getProductPath = (slug) => {
   if (equipmentSlugs.includes(slug)) {

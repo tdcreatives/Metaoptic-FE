@@ -8,14 +8,14 @@ import downloadIcon from '@/assets/images/download.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const AnnouncementDetailContent = () => {
+const AnnouncementDetailContent = ({ announcement: announcementProp } = {}) => {
     const { slug } = useParams();
     const [expandedSections, setExpandedSections] = useState({
         issuer: true,
         announcement: true
     });
 
-    const announcement = items.find((item) => item.slug === slug);
+    const announcement = announcementProp ?? items.find((item) => item.slug === slug);
 
     if (!announcement || !announcement.details) {
         return (
@@ -27,6 +27,7 @@ const AnnouncementDetailContent = () => {
     }
 
     const { details } = announcement;
+    const hideMeetingExtras = announcement.category === 'Financial Statements';
 
     const toggleSection = (section) => {
         setExpandedSections(prev => ({
@@ -46,7 +47,7 @@ const AnnouncementDetailContent = () => {
                             {announcement.title}
                         </h1>
                     </div>
-                    <div className='w-full h-[2px] bg-[#111111] opacity-50'></div>
+                    <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                 </div>
 
                 {/* Issuer & Securities Section */}
@@ -57,7 +58,7 @@ const AnnouncementDetailContent = () => {
                                 Issuer & Securities
                             </h2>
                         </div>
-                        <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                     </div>
 
                     {expandedSections.issuer && (
@@ -68,7 +69,7 @@ const AnnouncementDetailContent = () => {
                                     Issuer/ Manager:
                                 </div>
                                 <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                    {details.issuer.name}
+                                    {details?.issuer?.name}
                                 </div>
                             </div>
                         
@@ -78,7 +79,7 @@ const AnnouncementDetailContent = () => {
                                     Securities:
                                 </div>
                                 <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                    {details.securities.name}
+                                    {details?.securities?.name}
                                 </div>
                             </div>
                         
@@ -89,7 +90,7 @@ const AnnouncementDetailContent = () => {
                                         Stapled Security:
                                     </div>
                                     <div className='text-[14px] lg:text-[20px] font-medium text-[#111111] xl:leading-[1.5] leading-[17px] flex-grow'>
-                                        {details.stapledSecurity.name}
+                                        {details?.stapledSecurity?.name}
                                     </div>
                                 </div>
                             )}
@@ -105,7 +106,7 @@ const AnnouncementDetailContent = () => {
                                 Announcement Details
                             </h2>
                         </div>
-                        <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                        <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                     </div>
 
                     {expandedSections.announcement && (
@@ -214,7 +215,7 @@ const AnnouncementDetailContent = () => {
                                     )}
                                 </div>
                             </div>
-                            <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                            <div className='w-full h-px bg-[#CBCBCB]'></div>
 
                             {/* Description Section */}
                             {details?.announcement?.description && (
@@ -231,7 +232,7 @@ const AnnouncementDetailContent = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='w-full h-[2px] bg-[#a9a9a9] opacity-50'></div>
+                                <div className='w-full h-px bg-[#CBCBCB]'></div>
                             </>
                             )}
 
@@ -255,7 +256,7 @@ const AnnouncementDetailContent = () => {
                                     Event Narrative
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>                                
                            
@@ -266,7 +267,7 @@ const AnnouncementDetailContent = () => {
                                         key={index}
                                         className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
                                             index < details.eventNarrative.length - 1
-                                                ? 'border-b border-[#A9A9A9]'
+                                                ? 'border-b border-[#CBCBCB]'
                                                 : ''
                                         }`}
                                     >
@@ -291,7 +292,7 @@ const AnnouncementDetailContent = () => {
                                 Event Dates
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
@@ -330,7 +331,7 @@ const AnnouncementDetailContent = () => {
                     </div>                
                 )}
 
-                {details?.attachments && (                
+                {!hideMeetingExtras && details?.eventVenues?.length > 0 && (                
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
@@ -338,7 +339,7 @@ const AnnouncementDetailContent = () => {
                                 Event Venue(s)
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>
                             <div className='flex flex-col md:flex-row items-start md:items-center gap-4'>
@@ -352,7 +353,7 @@ const AnnouncementDetailContent = () => {
                                         key={index}
                                         className={`flex flex-col md:flex-row items-start md:items-center gap-4 ${
                                             index < details.eventVenues.length - 1
-                                                ? 'border-b border-[#A9A9A9]'
+                                                ? 'border-b border-[#CBCBCB]'
                                                 : ''
                                         }`}
                                     >
@@ -369,7 +370,7 @@ const AnnouncementDetailContent = () => {
                 )}
 
 
-                {details?.additional && (
+                {!hideMeetingExtras && details?.additional && (
                     <div className='mb-8'>
                         <div className='mb-6'>
                             <div className='flex justify-between items-center mb-4'>
@@ -377,7 +378,7 @@ const AnnouncementDetailContent = () => {
                                     Additional Details
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 gap-8'>                                
                             {details?.additional?.description && (
@@ -549,15 +550,16 @@ const AnnouncementDetailContent = () => {
                                     Attachments
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
                             {details.attachments.map((item, index) => (
                                 <div
                                     key={index}
                                     className='xl:mt-[10px] pb-10'
+                                    data-download-url={item.url || undefined}
+                                    title={item.url || undefined}
                                 >
-                                    {/* Date */}
                                     <div className='flex items-center gap-2 py-2'>
                                         <span className='text-[20px] font-medium text-black leading-[1.2]'><Image src={downloadIcon} alt='arrow' width={32} height={32} /></span>
                                         <span className='text-[20px] font-medium text-black leading-[1.2]'>
@@ -565,13 +567,13 @@ const AnnouncementDetailContent = () => {
                                         </span>                           
                                     </div>
 
-                                    {/* Title Container */}
+                                    {/* download link tagged on wrapper: data-download-url + title */}
                                     <BaseButton
                                         label={'Download PDF'}
                                         classNameBtn='uppercase'
                                         bgDefault='#d34c39'
                                         className='!mt-[10px] !xl:justify-start !justify-start'                        
-                                        onClick={() => window.open(item?.url, '_blank')}
+                                        onClick={() => item?.url && window.open(item.url, '_blank')}
                                     />
                                 </div>
                             ))}
@@ -587,7 +589,7 @@ const AnnouncementDetailContent = () => {
                                     Related Announcements
                                 </h2>
                             </div>
-                            <div className='w-full h-[2px] bg-[#A9A9A9] opacity-50'></div>
+                            <div className='w-full h-[2px] bg-[#A9A9A9]'></div>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
                             {details.related.map((item, index) => (

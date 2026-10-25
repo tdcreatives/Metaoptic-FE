@@ -7,13 +7,13 @@
       "image": "/products/product-1.png",
       "category": "Sensor",
       "buyNow": "https://metaoptics.shop/products/pocket-projector",
-      "brochure": "/download/3d-biometric-sensor.pdf",
+      "brochure": "/download/3d-biometrics-metalens-sensor-v2027July.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -58,7 +58,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -84,7 +84,7 @@
       "image": "/products/product-2.png",
       "category": "Projector",
       "buyNow": "",
-      "brochure": "/download/collimating-meta-lens.pdf",
+      "brochure": "/download/collimating-meta-lens-for-pico-projector-v2027July.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Collimating Meta Lens For Pico Projector",
         "description": "Leading edge mass producible collimating meta lens for pico projector working in visible light wavelengths (Color).",
@@ -109,9 +109,88 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
+          },
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IoT Metalens Color Camera",
+      "nameDom": "IoT Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
+      "slug": "iot-metalens-color-camera",
+      "image": "/products/iot-metalens-color-camera-jun2026.png",
+      "category": "Camera",
+      "buyNow": "https://metaoptics.shop/products/iot-metalens-color-camera",
+      "brochure": "/download/iot-metalens-color-camera-v2027July.pdf",
+      "userGuide": {
+        "name": "MOTViewer User Guide",
+        "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
+      },
+      "installer": {
+        "name": "MOT Viewer installer files",
+        "link": [
+          {
+            "name": "MOTViewer Installer Files",
+            "link": "/download/software/MOTviewer_v6.4.2_Setup.exe"
+          },
+          {
+            "name": "Thorlabs Scientific Imaging Software",
+            "link": "/download/software/Thorlabs Scientific Imaging Software x64.exe"
+          }
+        ]
+      },
+      "details": {
+        "subtitle": "Leading Edge Single Layer Meta Lens Color Camera",
+        "description": "Leading edge camera to capture a color image using meta lens. 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Customized for color imaging or non-contact fingerprint sensing. Inclusive of advanced software with AI image enhancement functions. Camera assembly process is tunable to fit applications.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "10mm",
+            "length": "47mm",
+            "width": "44mm"
+          },
+          "cameraSpecifications": {
+            "focalLength": "1.53mm",
+            "fieldOfView": "70 degrees",
+            "sensorType": "Monochrome CMOS",
+            "peakQuantumEfficiency": "65% @ 535 nm",
+            "resolution": "1.6 MP",
+            "activePixels": "1440 x 1080",
+            "pixelSize": "3.45 µm x 3.45 µm",
+            "imagingArea": "4.968 mm x 3.726 mm",
+            "adcResolution": "10 bits",
+            "sensorShutterType": "Global",
+            "exposureTime": "0.04 ms – 26.843 ms",
+            "usbPowerConsumption": "1.17 W",
+            "ambientOperatingTemperature": "10 °C – 40 °C",
+            "storageTemperature": "0 °C – 55 °C"
+          },
+          "metalensSpecifications": {
+            "minimumPillarDiameter": "120 nm",
+            "pitchBetweenPillars": "320 nm",
+            "heightOfPillars": "650 nm",
+            "lensDiameter": "2mm"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
           },
           {
             "name": "IoT Rectangular Metalens Color Camera",
@@ -132,16 +211,16 @@
       "name": "IoT Rectangular Metalens Color Camera",
       "nameDom": "IoT Rectangular Metalens<br /> <div class='name-dom-sensor'>Color Camera</div>",
       "slug": "iot-rectangular-metalens-color-camera",
-      "image": "/products/iot-metalens-color-camera.png",
+      "image": "/products/iot-metalens-color-camera-full.png",
       "category": "Camera",
       "buyNow": "https://metaoptics.shop/products/iot-rectangular-metalens-color-camera",
-      "brochure": "/download/IoT-Metalens-Color-Camera-v4.pdf",
+      "brochure": "/download/iot-rectangular-metalens-color-camera-v2027July.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -192,7 +271,7 @@
           },
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -241,7 +320,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -266,33 +345,44 @@
       "slug": "rectangular-rgb-metalens",
       "image": "/products/rectangular-rgb-metalens.png",
       "category": "Camera",
-      "brochure": "/download/Rectangular-RGB-Metalens.pdf",
+      "brochure": "/download/brochure-Rectangular-RGB-Metalens-27Sep2026.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
         "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
-        "specifications": {
-          "substrateSpecifications": {
-            "length": "7.94 mm",
-            "width": "6.34 mm",
-            "thickness": "0.775 ± 0.02mm",
-            "substrateMaterial": "Glass"
-          },
-          "metalensSpecifications": {
-            "patternMaterial": "SiN",
-            "RGBTargetWavelength": "635, 540, 450nm ± 5nm",
-            "minimumCD(PillarDiameter)": "120nm",
-            "pillarHeight": "650nm",
-            "metalensSize(Effective)": "5.7 x 5.66mm",
-            "EFL(FocalLength)": "2.46mm",
-            "fieldOfView(HxV)": "120 x 45 Degrees",
-            "frontAperture(Target)": "0.7mm",
-            "imageArea": "5.737 x 4.312mm"
-          }
+        "specComparison": {
+          "columns": ["5MP", "12MP"],
+          "sections": [
+            {
+              "key": "substrateSpecifications",
+              "title": "Substrate Specifications",
+              "rows": [
+                { "label": "Length", "values": ["7.94 mm", "10 mm"] },
+                { "label": "Width", "values": ["6.34 mm", "10 mm"] },
+                { "label": "Thickness", "values": ["0.775 ± 0.02 mm", "0.775 ± 0.02 mm"] },
+                { "label": "Substrate Material", "values": ["Glass", "Glass"] }
+              ]
+            },
+            {
+              "key": "metalensSpecifications",
+              "title": "Metalens Specifications",
+              "rows": [
+                { "label": "Pattern Material", "values": ["SiN", "TiO₂"] },
+                { "label": "RGB Target Wavelength", "values": ["635, 540, 450 nm ± 5 nm", "635, 540, 450 nm ± 5 nm"] },
+                { "label": "Minimum CD (Pillar Diameter)", "values": ["120 nm", "100 nm"] },
+                { "label": "Pillar Height", "values": ["650 nm", "650 nm"] },
+                { "label": "Metalens Size (Effective)", "values": ["5.7 × 5.66 mm", "7.6 × 7.07 mm"] },
+                { "label": "EFL (Focal Length)", "values": ["2.46 mm", "4.02 mm"] },
+                { "label": "Field Of View (H×V)", "values": ["120 × 45 Degrees", "100 × 34 Degrees"] },
+                { "label": "Front Aperture (Target)", "values": ["0.7 mm", "1.6 mm"] },
+                { "label": "Image Area", "values": ["5.737 × 4.312 mm", "7.07 × 6.2 mm"] }
+              ]
+            }
+          ]
         },
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -318,7 +408,7 @@
       "image": "/products/round-rgb-metalens.png",
       "category": "Camera",
       "buyNow": "",
-      "brochure": "/download/Round-RGB-Metalens.pdf",
+      "brochure": "/download/round-rgb-metalens-v2027July.pdf",
       "details": {
         "subtitle": "Leading Edge Single Layer Meta Lens For Color Imaging",
         "description": "Leading edge mass producible meta lens using 12'' Glass Wafer DUV Immersion Photolithography Manufacturing Process. Designed for color imaging or non-contact fingerprint sensing.",
@@ -343,7 +433,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -368,10 +458,10 @@
       "slug": "pico-projector",
       "image": "/products/product-5.png",
       "category": "Projector",
-      "buyNow": "https://metaoptics.shop/products/pico-projector",
-      "brochure": "/download/pico-projector.pdf",
+      "buyNow": "https://www.kickstarter.com/projects/metaoptics/pico-projector-an-80-in-screen-that-travels-in-your-pocket",
+      "brochure": "/download/pico-projector-v2027July.pdf",
       "userGuide": {
-        "name": "DOWNLOAD USER GUIDE",
+        "name": "User guide",
         "link": "/download/pico-projector-user-guiderev42.pdf"
       },
       "details": {
@@ -401,7 +491,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -427,7 +517,7 @@
       "image": "/products/product-6.png",
       "category": "3D",
       "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
-      "brochure": "/download/ultra-wide-fov-brochure.pdf",
+      "brochure": "/download/ultra-wide-fov-ir-metalens-v2027July.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
@@ -456,7 +546,7 @@
         "relatedProducts": [
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -482,7 +572,7 @@
       "image": "/products/product-7.png",
       "category": "3D",
       "buyNow": "",
-      "brochure": "/download/direct-laser-writer.pdf",
+      "brochure": "/download/direct-laser-writer-v2027July.pdf",
       "mobileImageScale": 0.7,
       "details": {
         "subtitle": "Leading Edge Deep UV Direct Laser Writer",
@@ -538,13 +628,13 @@
       "image": "/products/product-8.png",
       "category": "Camera",
       "buyNow": "https://metaoptics.shop/products/ultra-wide-ir-monochrome-metalens-camera",
-      "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera.pdf",
+      "brochure": "/download/ultra-wide-fov-metalens-monochromatic-ir-camera-v2027July.pdf",
       "userGuide": {
         "name": "MOTViewer User Guide",
         "link": "/download/MOTViewer-User-Guide_rev_3.3.pdf"
       },
       "installer": {
-        "name": "MOTViewer Installer File",
+        "name": "MOT Viewer installer files",
         "link": [
           {
             "name": "MOTViewer Installer Files",
@@ -597,7 +687,7 @@
           },
           {
             "name": "Metalens Color Camera Module",
-            "slug": "metalens-color-camera-module",
+            "slug": "2mp-rectangular-rgb-metalens-fc-module",
             "image": "/products/product-9.png",
             "category": "Camera"
           },
@@ -612,42 +702,81 @@
     },
     {
       "name": "Metalens Color Camera Module",
-      "nameDom": "Metalens <br /> <div class='name-dom-sensor'>Color Camera Module</div>",
-      "slug": "metalens-color-camera-module",
+      "nameDom": "Metalens Color<br /> <div class='name-dom-sensor'>Camera Module</div>",
+      "slug": "2mp-rectangular-rgb-metalens-fc-module",
       "image": "/products/product-9.png",
       "category": "Camera",
       "buyNow": "",
-      "brochure": "/download/metalens-color-camera-module.pdf",
+      "brochure": "/download/brochure-2mp-rectangular-rgb-metalens-fc-module.pdf",
       "details": {
-        "subtitle": "Single Layer Metalens Color Camera Module (2MP/5MP)",
-        "description": "12'' Glass Wafer DUV Immersion Photolithography Metalens Process. Camera assembly process is tunable to fit applications. Customized for color imaging or non-contact fingerprint sensing. Designed for image recognition and image for laptops and mobile phone applications.",
+        "subtitle": "2MP Single Layer Metalens Color Camera Module",
+        "description": "A single-layer metalens colour camera module for colour imaging and non-contact fingerprint recognition in laptops and phones.",
         "specifications": {
           "mechanicalDimensions": {
-            "thickness": "8.8mm",
-            "length": "16mm",
-            "width": "14mm"
+            "thickness": "~ 3 mm",
+            "length": "~ 12 mm",
+            "width": "~ 12 mm"
           },
           "cameraSpecifications": {
-            "focalLength": "3mm",
-            "fieldOfView": "85°",
+            "metalens: ": "RGB metalens",
+            "fieldOfView": "70°",
             "sensorType": "Monochrome CMOS",
-            "peakQuantumEfficiency": "70% @ 550 nm",
-            "resolution": "2MP / 5MP",
-            "activePixels": "1920 x 1080",
-            "pixelSize": "1.75 µm x 1.75 µm",
-            "imagingArea": "3.36 mm x 2.52 mm",
-            "adcResolution": "12 bits",
-            "sensorShutterType": "Global",
-            "exposureTime": "0.03 ms – 30.0 ms",
-            "usbPowerConsumption": "1.5 W",
-            "ambientOperatingTemperature": "5 °C – 40 °C",
-            "storageTemperature": "-20 °C – 60 °C"
+            "pixelResolution:": "2MP",
+            "pixelSize": "3 µm x 3 µm",
+            "activeArraySize:": "1600 x 1300",
+            "imageArea:": "4.858 mm x 3.956 mm",
+            "outputFormat:": "10-bit RAW"
+          }
+        },
+        "relatedProducts": [
+          {
+            "name": "3D Biometrics Metalens Sensor",
+            "slug": "3d-biometrics-metalens-sensor",
+            "image": "/products/product-1.png",
+            "category": "Sensor"
           },
-          "metalensSpecifications": {
-            "minimumPillarDiameter": "120nm",
-            "pitchBetweenPillars": "300nm",
-            "heightOfPillars": "450nm",
-            "lensDiameter": "3mm"
+          {
+            "name": "IoT Rectangular Metalens Color Camera",
+            "slug": "iot-rectangular-metalens-color-camera",
+            "image": "/products/iot-metalens-color-camera.png",
+            "category": "Camera"
+          },
+          {
+            "name": "Direct Laser Writer",
+            "slug": "direct-laser-writer",
+            "image": "/products/product-7.png",
+            "category": "3D"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Metalens Color Camera Module",
+      "nameDom": "Metalens Color<br /> <div class='name-dom-sensor'>Camera Module</div>",
+      "slug": "5mp-rectangular-rgb-metalens-fc-module",
+      "image": "/products/product-9.png",
+      "category": "Camera",
+      "buyNow": "",
+      "brochure": "/download/brochure-5mp-rectangular-rgb-metalens-fc-module.pdf",
+      "details": {
+        "subtitle": "5MP Single Layer Metalens Color Camera Module",
+        "description": "A single-layer metalens colour camera module for colour imaging and non-contact fingerprint recognition in laptops and phones.",
+        "specifications": {
+          "mechanicalDimensions": {
+            "thickness": "~ 3 mm",
+            "length": "~ 12 mm",
+            "width": "~ 12 mm"
+          },
+          "cameraSpecifications": {
+            "metalens: ": "Rectangular RGB metalens",
+            "fieldOfView": "70°",
+            "sensorType": "Monochrome CMOS",
+            "pixelResolution:": "70% @ 550 nm",
+            "resolution": "5MP",
+            "pixelSize": "2 µm x 2 µm",
+            "activeArraySize:": "1600 x 1300",
+            "imageArea:": "4.858 mm x 3.956 mm",
+            "outputFormat:": "10-bit RAW"
           }
         },
         "relatedProducts": [
@@ -679,7 +808,7 @@
       "image": "/products/product-10.png",
       "category": "3D",
       "buyNow": "",
-      "brochure": "/download/metalens-tester.pdf",
+      "brochure": "/download/metalens-automatic-tester-v2027July.pdf",
       "details": {
         "subtitle": "Precision Optical & Characterization System",
         "subtitleItems": [
@@ -772,13 +901,193 @@
       }
     },
     {
+      "name": "Wafer-Level Metalens Testing Platform",
+      "nameDom": "Wafer <br /> <div class='name-dom-metalens-tester--first'>Metalens</div> <br /> <div class='name-dom-metalens-tester--second'>Tester</div>",
+      "slug": "wafer-level-metalens-tester",
+      "image": "/product-details/wafer-level-metalens-tester/banner.png",
+      "imageScale": "1.25",
+      "mobileImageScale": "1.1",
+      "category": "3D",
+      "buyNow": "",
+      "brochure": "/download/wafer-level-metalens-testing-platform-v2027July.pdf",
+      "details": {
+        "subtitle": "Production-Throughput Metalens Characterization System",
+        "description": "A production-throughput platform for direct on-wafer metalens characterization. The MetaOptics Modular Wafer-Level Metalens Tester scales metalens test to 300 mm wafers at > 1000 UPH, while sharing the same optical modules and measurement methodology as the MetaOptics manual and automated benchtop testers — so teams ramping from R&D into volume production keep their methodology intact.",
+        "keyFeaturesGrid": {
+          "title": "Key Features",
+          "description": "Built on a highly modular architecture, the manual testing platform prioritizes flexibility and scalability. It provides a practical starting point for precise metalens characterization that is designed to grow alongside your lab's evolving testing requirements.",
+          "columns": 3,
+          "items": [
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-1.svg",
+              "title": "Production Throughput",
+              "description": "Built for volume manufacturing lines."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-2.svg",
+              "title": "Wafer-Scale Handling",
+              "description": "Direct on-wafer characterization."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-3.svg",
+              "title": "Modular Architecture",
+              "description": "Shared modules across the tester line."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-4.svg",
+              "title": "Multiple Modalities",
+              "description": "PSF, MTF, BFP and efficiency in one platform."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-5.svg",
+              "title": "Configurable to Your Part",
+              "description": "Tailored per application and sample."
+            },
+            {
+              "icon": "/product-details/wafer-level-metalens-tester/key-6.svg",
+              "title": "R&D to Production",
+              "description": "R&D to Production"
+            }
+          ]
+        },
+        "dualColumnList": {
+          "columns": [
+            {
+              "title": "Measurements",
+              "subtitle": "Direct on-wafer characterization of metalenses and metasurfaces, with per-die reporting:",
+              "items": [
+                {
+                  "label": "Point-Spread Function (PSF)",
+                  "children": ["MTF", "FWHM", "Peak intensity", "Relative efficiency"]
+                },
+                { "label": "Wavefront Error (WFE) estimation" },
+                { "label": "Free-space fiber coupling efficiency" },
+                { "label": "Transmission (T) and total efficiency" },
+                {
+                  "label": "Back-focal plane (BFP)",
+                  "children": ["Angular-resolved intensity", "Efficiency vs. AOI"]
+                }
+              ]
+            },
+            {
+              "title": "Typical Starter System",
+              "subtitle": "A representative wafer-level production system, configurable per application:",
+              "items": [
+                { "label": "Source module: single fiber-coupled laser diode (or switchable multi-LD)" },
+                { "label": "Illumination module: collimated normal-incidence — or bare SM fiber for fiber-coupling metalens devices" },
+                { "label": "Wafer handling: 300 mm vacuum chuck with air-cushion transport and pre-scan warpage map" },
+                { "label": "Collection module: 50x, NA 0.55 (other magnifications configurable across the 20x – 150x range)" },
+                {
+                  "label": "Measurement modules — up to four populated",
+                  "children": ["Imaging / PSF / MTF / WFE", "BFP module"]
+                }
+              ]
+            }
+          ]
+        },
+        "moduleGrid": {
+          "title": "Modular Ecosystem & Available Upgrades",
+          "columns": [
+            {
+              "title": "Source Modules",
+              "description": "Fiber-coupled, TEC-stabilized sources delivered to the illumination module via a single fiber output. Available variants:",
+              "items": [
+                "Single-line fiber-coupled LD",
+                "Switchable multi-line LD",
+                "Broadband filtered source",
+                "External fiber-fed source"
+              ]
+            },
+            {
+              "title": "Illumination Modules",
+              "description": "Conditions the beam that reaches the wafer. Common kinematic interface — any of the following drops into the same slot:",
+              "items": [
+                "Collimated normal-incidence illumination",
+                "Variable-AOI illumination",
+                "Bare SM fiber illumination for fiber-coupling metalens work",
+                "VCSEL-based illumination",
+                "Finite working distance variants on request"
+              ]
+            },
+            {
+              "title": "Wafer Handling",
+              "description": "Vacuum-clamped wafer chuck with air-cushion-assisted transport and per-die warpage compensation. Configurable for standard wafer sizes and coupon-scale samples:",
+              "items": [
+                "300 mm vacuum chuck (default)",
+                "Inserts for 200 / 150 / 100 mm wafers",
+                "Coupon and custom-sample inserts",
+                "Pre-scan warpage mapping with per-die Z correction",
+                "Application-specific fixtures on request"
+              ]
+            },
+            {
+              "title": "Measurement Modules",
+              "description": "Up to four independent stations populated around the objective. Available modules:",
+              "items": [
+                "Imaging / PSF / MTF / WFE",
+                "Back-focal plane (BFP) imaging",
+                "Transmission and fiber-coupling efficiency",
+                "Custom modules for customer-specific workflows"
+              ]
+            }
+          ]
+        },
+        "specTable": {
+          "title": "Configuration Range Specifications",
+          "headers": ["Specification", "VIS", "NIR-I", "NIR-II"],
+          "rows": [
+            {
+              "label": "Wavelength range",
+              "values": ["400 – 700 nm", "700 – 1100 nm", "1100 – 1600 nm"]
+            },
+            { "label": "Throughput", "merged": "> 1000 UPH" },
+            { "label": "Wafer compatibility", "merged": "Up to 300 mm" },
+            {
+              "label": "Source options",
+              "merged": "Single LD, Switchable Multi-LD, Broadband + Filter"
+            },
+            { "label": "Total magnification", "merged": "20x – 150x" },
+            { "label": "Supported focal lengths", "merged": "Up to 5 mm" },
+            { "label": "Angle of incidence", "merged": "Up to 60°" },
+            {
+              "label": "Typical Z-step",
+              "merged": "10 nm closed-loop piezo; 0.1 µm typical step in MTF / z-scan workflows"
+            },
+            { "label": "Maximum collected NA", "merged": "0.95" },
+            {
+              "label": "Measurement modalities",
+              "merged": "MTF · PSF · BFP · Transmission · Fiber-Coupling Efficiency · WFE Estimation"
+            },
+            { "label": "Upgradeable measurement stations", "merged": "Up to 4" }
+          ],
+          "note": "Configurations / enhancements outside these ranges can be discussed on request."
+        },
+        "upgradability": {
+          "title": "Platform Continuity",
+          "description": "The MetaOptics Wafer-Level Metalens Tester sits at the production end of a shared product line. The same source, illumination, and measurement modules run on the MetaOptics manual tester (R&D, prototyping) and the automated benchtop tester. A team that begins on the manual tester and ramps to wafer-level production carries its measurement methodology — and its modules — forward instead of starting from scratch.",
+          "cta": {
+            "label": "View Metalens Automatic Tester",
+            "link": "/verticals/metalens-capital-equipment/metalens-automatic-tester"
+          }
+        },
+        "ctaBanner": {
+          "background": "/product-details/wafer-level-metalens-tester/banner.png",
+          "title": "Request a Tailored Configuration Quote or a Remote Demo",
+          "cta": {
+            "label": "Request Now",
+            "link": "/contact-us"
+          }
+        }
+      }
+    },
+    {
       "name": "Automated Metalens Camera Module Assembly and Test System (A&T) 2026",
       "nameDom": "Automated <br /> <div class='name-dom-metalens-tester--first'>Assembly and Test</div> <br /> <div class='name-dom-metalens-tester--second'>System</div>",
       "slug": "automated-metalens-camera-module-assembly-and-test-system",
       "image": "/products/product-automated-metalens-camera-module-assembly-and-test-system.png",
       "category": "3D",
       "buyNow": "",
-      "brochure": "/download/automated-metalens-camera-module-assembly-and-test-system.pdf",
+      "brochure": "/download/automated-metalens-camera-module-assembly-and-test-system-aandt-2027-v2027July.pdf",
       "details": {
         "subtitle": "High Precision • Intelligent Automation • Scalable Performance",
         "subtitleItems": [],
@@ -919,7 +1228,7 @@
       "mobileImageScale": 0.85,
       "category": "3D",
       "buyNow": "",
-      "brochure": "https://metaoptics.sg/download/Manual-Metalens-Testing-Platform.pdf",
+      "brochure": "/download/manual-metalens-testing-platform-v2027July.pdf",
       "details": {
         "subtitle": "Metalens Prototyping & Characterization System",
         "description": "An upgrade-ready platform for metalens characterization in R&D, prototyping, and early process development. The MetaOptics Modular Manual Metalens Tester gives customers a practical starting point for metalens testing without committing to a full production tester. Systems can start with a simple, cost-efficient configuration and expand over time with additional source, illumination, sample-handling, and measurement modules.",
@@ -1120,9 +1429,13 @@
       "slug": "pico-projector-2nd-generation",
       "image": "/products/pico-projector-2nd-generation.png",
       "category": "Projector",
-      "buyNow": "https://metaoptics.shop/products/pico-projector-2nd-gen",
+      "buyNow": "https://www.kickstarter.com/projects/metaoptics/pico-projector-an-80-in-screen-that-travels-in-your-pocket",
       "buyNowText": "Buy Now",
       "brochure": "/download/MetaOptics-Pico-Projector-2nd-Gen.pdf",
+      "userGuide": {
+        "name": "User guide",
+        "link": "/download/Pico-Projector-User-Guide_rev_4_1.pdf"
+      },
       "details": {
         "subtitle": "Pocket sized projection, ready to travel.",
         "description": "The 2nd Generation MetaOptics Pico Projector debuts as one of the smallest and most portable projection solutions showcased at CES 2026. Approximately half the size of its predecessor, it is designed for easy carry in a bag or pocket while still delivering bright, clear projection for demos, presentations and on the go content sharing. USB C connectivity keeps setup simple with modern devices, and its silent, fanless design makes it suitable for quiet meeting rooms and personal spaces. With low power consumption, the projector sets a new benchmark for miniaturized projection technology and battery friendly use.",
@@ -1151,6 +1464,12 @@
             "Operating Temperature": "0 – 35 °C",
             "Video Input": "MIPI DSI"
           }
+        },
+        "videoSection": {
+          "title": "Small projector, big experience",
+          "description": "Half the size of its predecessor, still bright enough for demos and on-the-go sharing. USB-C keeps setup simple, and the silent fanless design fits quiet rooms and personal spaces.",
+          "src": "/product-details/pico-projector-2nd-generation.mp4",
+          "poster": "/product-details/pico-projector-2nd-generation-poster.jpg"
         },
         "relatedProducts": [
           {
@@ -1182,10 +1501,10 @@
       "bannerTag": "Prototyping, sampling only",
       "image": "/products/metalens-5g-smartphone.png",
       "imageScale": 1.2,
-      "buyNow": "https://metaoptics.shop/products/metaoptics-metalens-5g-smartphone",
+      "buyNow": "https://metaphone.shop/",
       "buyNowText": "Buy Now",
       "category": "Smartphone",
-      "brochure": "/download/MetaOptics-5G-Smartphone.pdf",
+      "brochure": "/download/metalens-5g-smartphone-v2027July.pdf",
       "details": {
         "subtitle": "5G Smartphone with Metalens",
         "description": "MetaOptics’ 5G Smartphone showcases how metalenses can completely redefine the mobile camera stack. <br /> The device features an ultra thin metalens optical module that removes the traditional camera bump, <br /> enabling a clean, seamless back cover while maintaining high quality imaging performance. <br /> The glass based metalens architecture is engineered for high thermal stability, making it suitable for <br /> intensive 5G and edge processing workloads.",
@@ -1201,7 +1520,11 @@
               "Qualcomm Dragonwing QCM6490 platform for 5G and IoT use cases",
               "Designed as a reference platform for OEM metalens integration"
             ],
-            "brochure": "/download/MetaOptics-5G-Smartphone.pdf"
+            "brochure": "/download/metalens-5g-smartphone-v2027July.pdf",
+            "userGuide": {
+              "name": "User guide",
+              "link": "/download/MetaOptics_App_Guide.pdf"
+            }
           },
           "rightSection": {
             "list": [
@@ -1221,6 +1544,12 @@
               }
             ]
           }
+        },
+        "videoSection": {
+          "title": "Step into the future with metalens",
+          "description": "An ultra-thin metalens camera stack removes the traditional bump, while a non-contact 3D fingerprint module unlocks through the display. Powered by the Qualcomm Dragonwing QCM6490 for 5G and edge workloads.",
+          "src": "/product-details/metalens-5g-smartphone.mp4",
+          "poster": "/product-details/metalens-5g-smartphone-poster.jpg"
         },
         "relatedProducts": [
           {
@@ -1256,7 +1585,7 @@
       "buyNow": "https://metaoptics.shop/products/metalens-ai-glasses",
       "buyNowText": "Buy Now",
       "category": "Glasses",
-      "brochure": "/download/MetaOptics-AI-Smart-Glasses.pdf",
+      "brochure": "/download/metalens-ai-glasses-v2027July.pdf",
       "details": {
         "subtitle": "Sport-ready AI glasses with metalens precision.",
         "description": "Powered  by  the  Qualcomm  AR1  Snapdragon,  the  AI  Smart  Glasses  feature MetaOptics’  compact <br /> color  metalens  camera  system  enabling  precise  tracking  and  image  capture  for an  intuitive,  gesture <br /> control user experience with our fingers. ",
@@ -1269,7 +1598,11 @@
               "Reference platform for AI eyewear",
               "Android Compatible"
             ],
-            "brochure": "/download/MetaOptics-AI-Smart-Glasses.pdf"
+            "brochure": "/download/metalens-ai-glasses-v2027July.pdf",
+            "userGuide": {
+              "name": "User guide",
+              "link": "/download/MetaOptics_App_Guide.pdf"
+            }
           },
           "rightSection": {
             "list": [
@@ -1313,6 +1646,12 @@
               }
             ]
           }
+        },
+        "videoSection": {
+          "title": "Step into the future with metalens",
+          "description": "Touchless gesture tracking handles volume and calls without reaching for the frame, on a sport ready build running the Qualcomm AR1 Snapdragon. Flat optics, light enough to wear all day.",
+          "src": "/product-details/metalens-ai-glasses.mp4",
+          "poster": "/product-details/metalens-ai-glasses-poster.jpg"
         },
         "relatedProducts": [
           {

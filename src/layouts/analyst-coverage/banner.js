@@ -20,9 +20,9 @@ const AnalystCoverageBanner = ({ bannerTitle = 'ANALYST COVERAGE' }) => {
             <div className='relative flex items-center justify-center px-4 md:px-8 lg:px-16 xl:px-[40px] py-8 md:py-12 lg:py-16 xl:py-[52px] w-full max-w-[1920px] mx-auto min-h-[400px] md:min-h-[500px] lg:min-h-[567px]'>
 
                 {/* Main text content */}
-                <div className='relative flex flex-col justify-center w-full max-w-[1200px]'>
+                <div className='relative flex flex-col justify-center items-center w-full max-w-[1200px]'>
                     <div 
-                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[140px] leading-[1.1] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-center md:text-left'
+                        className='text-black futura-condensed-medium font-medium text-[48px] md:text-[60px] lg:text-[100px] xl:text-[140px] leading-[1.1] md:tracking-[4%] lg:tracking-[6%] xl:tracking-[8%] uppercase tracking-[1rem] mb-4 md:mb-6 lg:mb-8 banner-text line1-width text-center'
                         dangerouslySetInnerHTML={{ __html: bannerTitle }}
                     />
                                     

@@ -28,15 +28,17 @@ const BaseNewsCard = ({ news, className = '' }) => {
                 />
             </motion.div>
 
-            <div className='flex flex-col gap-3 xl:text-start text-center'>
+            <div className='flex flex-col gap-3'>
                 <div className='text-[12px] text-[#d34c39] uppercase'>{news.date}</div>
 
-                <div className='xl:text-[28px] text-[24px] futura-condensed-medium xl:text-start text-center'>
+                <div className='xl:text-[28px] text-[24px] futura-condensed-medium'>
                     {news.title}
                 </div>
             </div>
 
-            <div className='xl:text-start text-center'>{news.desc}</div>
+            <div className='line-clamp-2 futura-medium font-medium text-[14px] md:text-[16px] text-[#231F20] leading-[1.5]'>
+                {news.desc}
+            </div>
         </>
     );
 

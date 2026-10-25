@@ -1,0 +1,34 @@
+{
+    "committees": [
+        { "id": "audit", "label": "Audit and Risk Management Committee" },
+        { "id": "compensation", "label": "Nominating Committee" },
+        { "id": "nominating", "label": "Remuneration Committee" }
+    ],
+    "members": [
+        {
+            "id": "yong-cheng-goh",
+            "name": "Goh Yong Cheng",
+            "roles": { "audit": "member", "nominating": "member" }
+        },
+        {
+            "id": "ng-thiam-chye",
+            "name": "Ng Thiam Chye",
+            "roles": { "audit": "member", "compensation": "member", "nominating": "chair"  }
+        },
+        {
+            "id": "sonny-yuen",
+            "name": "Sonny Yuen",
+            "roles": { "audit": "chair", "compensation": "member" }
+        },
+        {
+            "id": "sean-lee",
+            "name": "Sean Lee",
+            "roles": { "compensation": "chair", "nominating": "member" }
+        },        
+        {
+            "id": "wee-jene-jee",
+            "name": "Jee Wee Jene",
+            "roles": { "compensation": "member" }
+        }
+    ]
+}

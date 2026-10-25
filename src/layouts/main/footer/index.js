@@ -25,6 +25,18 @@ const Footer = () => {
               </div>
             </div>
 
+            <div className="flex gap-5 xl:flex-row flex-col text-white xl:text-[18px] text-[14px] futura-medium">
+              <div>
+                <a href="mailto:sales@metaoptics.sg">
+                  <p className="text-[#E0E1E0] mt-2">
+                    {" "}
+                    <span className="text-[#888888]">Investor Relations Email: </span>
+                    ir@metaoptics.sg
+                  </p>
+                </a>
+              </div>
+            </div>
+            
             <div className="flex xl:gap-8 gap-5 text-white xl:text-[18px] text-[14px] futura-medium">
               <div>
                 <a href="tel:+6582180482">
@@ -52,7 +64,7 @@ const Footer = () => {
             <p className="text-[#d44c39] futura-medium xl:text-[24px] text-[18px] xl:mt-[-16px] xl:mt-8 mt-4">
               United States
               <p className="text-[#E0E1E0]">
-                Metaoptics Inc. 1 Ferry Building, Suite 201 San Francisco, CA
+              Metaoptics Inc. (USA); 1 Ferry Building, Suite 201 San Francisco, CA
                 94111
               </p>
             </p>
