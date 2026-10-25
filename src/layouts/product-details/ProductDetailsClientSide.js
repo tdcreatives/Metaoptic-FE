@@ -5,6 +5,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import data from "@/constants/data.json";
+import { withDownloadUrls } from "@/utils/product";
 
 import Header from "@/layouts/main/header";
 import Footer from "@/layouts/main/footer";
@@ -28,7 +29,9 @@ import ProductDetailsCtaBanner from "@/layouts/product-details/cta-banner";
 const ProductDetailsClientSide = () => {
   const { slug } = useParams();
 
-  const product = data.products.find((item) => item.slug === slug);
+  const product = withDownloadUrls(
+    data.products.find((item) => item.slug === slug)
+  );
 
   if (!product) {
     return (

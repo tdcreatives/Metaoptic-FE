@@ -72,19 +72,19 @@ const PAST_EVENTS = [
 const EVENTS_PRESENTATION_DOCUMENTS = [
     {
         label: 'MetaOptics - Investor Presentation.pdf',
-        url: 'https://www.metaoptics.sg/download/MOT-Company-Presentation-Sep2026.pdf',
+        url: 'https://download.metaoptics.sg/MOT-Company-Presentation-Sep2026.pdf',
     },
     {
         label: 'MetaOptics DLW Whitepaper.pdf',
-        url: 'https://www.metaoptics.sg/download/MetaOptics-DLW-Whitepaper.pdf',
+        url: 'https://download.metaoptics.sg/MetaOptics-DLW-Whitepaper.pdf',
     },
     {
         label: 'MetaOptics Rectangular Metalenses Whitepaper.pdf',
-        url: 'https://www.metaoptics.sg/download/MetaOptics-Rectangular-Metalenses-Whitepaper.pdf',
+        url: 'https://download.metaoptics.sg/MetaOptics-Rectangular-Metalenses-Whitepaper.pdf',
     },
     {
         label: 'AI Algorithms for Metalens Cameras Whitepaper.pdf',
-        url: 'https://www.metaoptics.sg/download/MetaOptics-AI-Algorithms-for-Metalens-Cameras-Whitepaper.pdf',
+        url: 'https://download.metaoptics.sg/MetaOptics-AI-Algorithms-for-Metalens-Cameras-Whitepaper.pdf',
     },
 ];
 

@@ -1,21 +1,22 @@
 import BaseButton from "@/components/BaseButton";
-import { toBrochureFileName } from "@/utils/product";
+import { toBrochureFileName, toDownloadUrl } from "@/utils/product";
 
 const ProductDetailsSpecTable = ({ specTable, brochure, productName }) => {
   if (!specTable?.rows?.length) return null;
   const { title, headers, rows, note } = specTable;
 
   const handleDownloadBrochure = () => {
-    if (!brochure) return;
-    if (brochure.toLowerCase().endsWith(".pdf")) {
+    const url = toDownloadUrl(brochure);
+    if (!url) return;
+    if (url.toLowerCase().endsWith(".pdf")) {
       const link = document.createElement("a");
-      link.href = brochure;
+      link.href = url;
       link.download = toBrochureFileName(productName);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } else {
-      window.open(brochure, "_blank");
+      window.open(url, "_blank");
     }
   };
 

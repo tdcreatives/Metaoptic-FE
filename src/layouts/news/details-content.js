@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
+import { toDownloadUrl } from '@/utils/product';
 import '@/styles/mdx.css';
 
 const NewsDetailsContent = ({ news = {} }) => {
@@ -77,8 +78,8 @@ const NewsDetailsContent = ({ news = {} }) => {
             {news.path && (
                 <div className='xl:text-[20px] text-[16px] flex flex-wrap gap-4'>
                     <span className='font-bold'>Source:</span>
-                    <a href={news.path} target='_blank' rel='noopener noreferrer' className='mdx-link'>
-                        {news.path}
+                    <a href={toDownloadUrl(news.path)} target='_blank' rel='noopener noreferrer' className='mdx-link'>
+                        {toDownloadUrl(news.path)}
                     </a>
                 </div>
             )}            

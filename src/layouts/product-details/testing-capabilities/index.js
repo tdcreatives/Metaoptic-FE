@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 
 import BaseButton from '@/components/BaseButton';
+import { toDownloadUrl } from '@/utils/product';
 
 const ProductDetailsTestingCapabilities = ({
     testingCapabilities,
@@ -154,7 +155,7 @@ const ProductDetailsTestingCapabilities = ({
                             classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-0'
-                            onClick={() => window.open(buttonLeft?.link, '_blank')}
+                            onClick={() => window.open(toDownloadUrl(buttonLeft?.link), '_blank')}
                         />
                     )}
                 </div>
@@ -165,7 +166,7 @@ const ProductDetailsTestingCapabilities = ({
                             classNameBtn=' !text-[#d34c39] md:group-hover:!text-white'
                             bgDefault='#fff'
                             className='!mt-0'
-                            onClick={() => window.open(buttonRight?.link, '_blank')}
+                            onClick={() => window.open(toDownloadUrl(buttonRight?.link), '_blank')}
                         />
                     )}
                 </div>
