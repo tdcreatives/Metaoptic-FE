@@ -4,6 +4,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import BaseButton from "@/components/BaseButton";
 import { removeAllBrTags } from "@/utils";
+import { toDownloadUrl } from "@/utils/product";
 import "./index.scss";
 import useMobile from "@/hooks/useMobile";
 
@@ -151,15 +152,17 @@ const ProductDetailsBanner = ({ product }) => {
               bgDefault="#fff"
               className="!mb-0 !w-full"
               onClick={() => {
-                if (product?.userGuide?.link.toLowerCase().endsWith(".pdf")) {
+                const url = toDownloadUrl(product?.userGuide?.link);
+                if (!url) return;
+                if (url.toLowerCase().endsWith(".pdf")) {
                   const link = document.createElement("a");
-                  link.href = product?.userGuide?.link;
+                  link.href = url;
                   link.download = product?.userGuide?.name || "file";
                   document.body.appendChild(link);
                   link.click();
                   document.body.removeChild(link);
                 } else {
-                  window.open(product?.userGuide?.link, "_blank");
+                  window.open(url, "_blank");
                 }
               }}
             />
@@ -181,15 +184,17 @@ const ProductDetailsBanner = ({ product }) => {
                       key={index}
                       className="block w-full text-left px-4 py-2 text-[#d34c39] hover:bg-gray-100"
                       onClick={() => {
-                        if (item.link.toLowerCase().endsWith(".pdf")) {
+                        const url = toDownloadUrl(item.link);
+                        if (!url) return;
+                        if (url.toLowerCase().endsWith(".pdf")) {
                           const link = document.createElement("a");
-                          link.href = item.link;
+                          link.href = url;
                           link.download = item?.name || `file-${index + 1}`;
                           document.body.appendChild(link);
                           link.click();
                           document.body.removeChild(link);
                         } else {
-                          window.open(item.link, "_blank");
+                          window.open(url, "_blank");
                         }
                       }}
                     >
@@ -205,15 +210,17 @@ const ProductDetailsBanner = ({ product }) => {
                 bgDefault="#fff"
                 className="!mb-0 !w-full"
                 onClick={() => {
-                  if (product?.installer?.link.toLowerCase().endsWith(".pdf")) {
+                  const url = toDownloadUrl(product?.installer?.link);
+                  if (!url) return;
+                  if (url.toLowerCase().endsWith(".pdf")) {
                     const link = document.createElement("a");
-                    link.href = product?.installer?.link;
+                    link.href = url;
                     link.download = product?.installer?.name || "file";
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                   } else {
-                    window.open(product?.installer?.link, "_blank");
+                    window.open(url, "_blank");
                   }
                 }}
               />

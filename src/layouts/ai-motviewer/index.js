@@ -113,7 +113,7 @@ const AiMotviewer = () => {
                     imageHeight={105}
                     downloadButton={{
                         label: 'Download MOTviewer (v6.5.3)',
-                        href: 'https://metaoptics.sg//download/software/MOTviewer_v6.5.3_Core_Setup.zip',
+                        href: 'https://download.metaoptics.sg/software/MOTviewer_v6.5.3_Core_Setup.zip',
                     }}
                     background="#F9F9F9"
                 />

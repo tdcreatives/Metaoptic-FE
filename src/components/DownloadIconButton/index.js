@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
+import { toDownloadUrl } from "@/utils/product";
 
 const VARIANT_BG = {
   filled: "#d34c39",
@@ -63,20 +64,21 @@ const ButtonHoverLayers = ({ variant }) => (
 );
 
 const triggerDownload = (href, fileName) => {
-  if (!href) return;
+  const url = toDownloadUrl(href);
+  if (!url) return;
   if (
-    href.toLowerCase().endsWith(".pdf") ||
-    href.toLowerCase().endsWith(".exe") ||
-    href.toLowerCase().endsWith(".zip")
+    url.toLowerCase().endsWith(".pdf") ||
+    url.toLowerCase().endsWith(".exe") ||
+    url.toLowerCase().endsWith(".zip")
   ) {
     const link = document.createElement("a");
-    link.href = href;
+    link.href = url;
     link.download = fileName || "file";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   } else {
-    window.open(href, "_blank");
+    window.open(url, "_blank");
   }
 };
 

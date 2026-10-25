@@ -70,7 +70,7 @@ final class SyncService
 
         try {
             $normalized = $this->normalizeAll($rawItems);
-            [$newCount, $updatedCount] = $this->upsertAll($normalized, $now);
+            [$newCount, $updatedCount, $newIds] = $this->upsertAll($normalized, $now);
 
             $this->syncRuns->update($runId, [
                 'finished_at' => date('Y-m-d H:i:s'),
@@ -80,7 +80,7 @@ final class SyncService
                 'updated_count' => $updatedCount,
             ]);
 
-            return new SyncResult($fetchedCount, $newCount, $updatedCount);
+            return new SyncResult($fetchedCount, $newCount, $updatedCount, $newIds);
         } catch (Throwable $e) {
             $this->syncRuns->update($runId, [
                 'finished_at' => date('Y-m-d H:i:s'),
@@ -113,12 +113,13 @@ final class SyncService
 
     /**
      * @param list<array<string, mixed>> $normalized
-     * @return array{0: int, 1: int}
+     * @return array{0: int, 1: int, 2: list<int>}
      */
     private function upsertAll(array $normalized, string $now): array
     {
         $newCount = 0;
         $updatedCount = 0;
+        $newIds = [];
 
         $this->db->transStart();
         try {
@@ -142,6 +143,7 @@ final class SyncService
                     if ($details !== null) {
                         $this->writeDetails($id, $core, $details);
                     }
+                    $newIds[] = $id;
                     $newCount++;
                     continue;
                 }
@@ -198,7 +200,7 @@ final class SyncService
             throw $e;
         }
 
-        return [$newCount, $updatedCount];
+        return [$newCount, $updatedCount, $newIds];
     }
 
     /** @param array<string, mixed>|null $row */

@@ -40,6 +40,7 @@ final class SyncServiceTest extends CIUnitTestCase
         $again = $this->service(true)->run($items);
         $this->assertSame(0, $again->newCount);
         $this->assertSame(0, $again->updatedCount);
+        $this->assertSame([], $again->newIds);
         $this->assertCount(2, (new AnnouncementModel())->findAll());
     }
 
@@ -48,7 +49,9 @@ final class SyncServiceTest extends CIUnitTestCase
         $result = $this->service(false)->run([$this->page1Items()[0]]);
 
         $this->assertSame(1, $result->newCount);
+        $this->assertCount(1, $result->newIds);
         $row = (new AnnouncementModel())->first();
+        $this->assertSame([(int) $row['id']], $result->newIds);
         $this->assertSame('pending_review', $row['state']);
         $this->assertNull($row['published_at']);
         $this->assertSame('METAOPTICS LTD', $row['issuer_name']);

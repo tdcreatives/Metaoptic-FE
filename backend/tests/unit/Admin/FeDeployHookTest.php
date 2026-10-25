@@ -100,6 +100,34 @@ final class FeDeployHookTest extends CIUnitTestCase
         $this->assertNull($arch['live_at']);
     }
 
+    public function test_attempt_empty_url_returns_false(): void
+    {
+        $called = false;
+        $hook = new FeDeployHook('', 5, static function () use (&$called): array {
+            $called = true;
+
+            return ['ok' => true, 'status' => 200];
+        });
+        $this->assertFalse($hook->attempt('sgx_auto_publish'));
+        $this->assertFalse($called);
+    }
+
+    public function test_attempt_ok_returns_true(): void
+    {
+        $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function (): array {
+            return ['ok' => true, 'status' => 204];
+        });
+        $this->assertTrue($hook->attempt('sgx_auto_publish'));
+    }
+
+    public function test_attempt_http_fail_returns_false(): void
+    {
+        $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function (): array {
+            return ['ok' => false, 'status' => 500, 'error' => 'HTTP 500'];
+        });
+        $this->assertFalse($hook->attempt('sgx_auto_publish'));
+    }
+
     public function test_hook_failure_does_not_block_live_sync_db(): void
     {
         $hook = new FeDeployHook('https://hooks.example.test/deploy', 5, static function (): array {

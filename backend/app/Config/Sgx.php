@@ -12,6 +12,7 @@ class Sgx extends BaseConfig
     /** Company search value, e.g. METAOPTICS LTD */
     public string $companyCode = '';
     public bool $backfill = false;
+    public bool $autoPublish = false;
     public bool $exactSearch = true;
     public int $pageSize = 20;
     /** Fetch + parse links.sgx.com HTML for description / attachments / extra fields */
@@ -27,6 +28,7 @@ class Sgx extends BaseConfig
         $this->baseURL = rtrim((string) env('sgx.baseURL', 'https://api.sgx.com/announcements/v1.1'), '/');
         $this->companyCode = (string) env('sgx.companyCode', 'METAOPTICS LTD');
         $this->backfill = filter_var(env('sgx.backfill', false), FILTER_VALIDATE_BOOLEAN);
+        $this->autoPublish = filter_var(env('sgx.autoPublish', false), FILTER_VALIDATE_BOOLEAN);
         $this->exactSearch = filter_var(env('sgx.exactSearch', true), FILTER_VALIDATE_BOOLEAN);
         $this->pageSize = max(1, (int) env('sgx.pageSize', 20));
         $this->fetchDetailHtml = filter_var(env('sgx.fetchDetailHtml', true), FILTER_VALIDATE_BOOLEAN);

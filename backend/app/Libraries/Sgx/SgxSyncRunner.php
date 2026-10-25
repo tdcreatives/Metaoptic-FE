@@ -4,6 +4,9 @@ declare(strict_types=1);
 namespace App\Libraries\Sgx;
 
 use App\Libraries\Admin\AdminDigestNotifier;
+use App\Libraries\Admin\AutoPublishNewItems;
+use App\Libraries\Admin\FeDeployHook;
+use App\Models\AnnouncementModel;
 use CodeIgniter\Database\BaseConnection;
 use Config\Services;
 use Throwable;
@@ -16,6 +19,7 @@ final class SgxSyncRunner
     public function __construct(
         private readonly ?BaseConnection $db = null,
         private readonly mixed $client = null,
+        private readonly ?FeDeployHook $deployHook = null,
     ) {
     }
 
@@ -50,7 +54,16 @@ final class SgxSyncRunner
                 $result->updatedCount
             );
             if (! $sgx->backfill && $result->newCount > 0) {
-                (new AdminDigestNotifier())->notifyNewItems($result->newCount, []);
+                if ($sgx->autoPublish && $result->newIds !== []) {
+                    $hook = $this->deployHook ?? FeDeployHook::fromConfig();
+                    (new AutoPublishNewItems($hook))->run($result->newIds);
+                } else {
+                    (new AdminDigestNotifier())->notifyNewItems(
+                        $result->newCount,
+                        $this->refsForIds($result->newIds),
+                        'review',
+                    );
+                }
             }
 
             return [
@@ -69,5 +82,20 @@ final class SgxSyncRunner
         } finally {
             $lock->release('sgx_sync');
         }
+    }
+
+    /** @param list<int> $ids @return list<string> */
+    private function refsForIds(array $ids): array
+    {
+        if ($ids === []) {
+            return [];
+        }
+
+        $rows = model(AnnouncementModel::class)
+            ->whereIn('id', $ids)
+            ->orderBy('id', 'ASC')
+            ->findAll();
+
+        return array_values(array_map(static fn (array $row): string => (string) $row['sgx_reference'], $rows));
     }
 }

@@ -51,4 +51,41 @@ final class AdminDigestNotifierTest extends CIUnitTestCase
             Services::reset(true);
         }
     }
+
+    public function test_auto_published_mode_subject_and_body(): void
+    {
+        (new AdminRecipientModel())->insert(['email' => 'ops@example.com', 'active' => 1]);
+        $logPath = WRITEPATH . 'logs/mail-digest-ap-' . bin2hex(random_bytes(4)) . '.log';
+        Services::injectMock('mailer', new LogMailer($logPath));
+        try {
+            (new AdminDigestNotifier())->notifyNewItems(1, ['REF-A'], 'auto_published');
+            $row = json_decode((string) file_get_contents($logPath), true);
+            $this->assertSame('[IR] 1 announcement(s) auto-published', $row['subject']);
+            $this->assertStringContainsString('auto-published', strtolower((string) $row['textBody']));
+            $this->assertStringContainsString('REF-A', (string) $row['textBody']);
+        } finally {
+            if (is_file($logPath)) {
+                unlink($logPath);
+            }
+            Services::reset(true);
+        }
+    }
+
+    public function test_auto_publish_failed_mode_subject(): void
+    {
+        (new AdminRecipientModel())->insert(['email' => 'ops@example.com', 'active' => 1]);
+        $logPath = WRITEPATH . 'logs/mail-digest-af-' . bin2hex(random_bytes(4)) . '.log';
+        Services::injectMock('mailer', new LogMailer($logPath));
+        try {
+            (new AdminDigestNotifier())->notifyNewItems(2, ['REF-B'], 'auto_publish_failed');
+            $row = json_decode((string) file_get_contents($logPath), true);
+            $this->assertSame('[IR] 2 announcement(s) need review (auto-publish failed)', $row['subject']);
+            $this->assertStringContainsString('failed', strtolower((string) $row['textBody']));
+        } finally {
+            if (is_file($logPath)) {
+                unlink($logPath);
+            }
+            Services::reset(true);
+        }
+    }
 }
