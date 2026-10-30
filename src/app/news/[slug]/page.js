@@ -22,7 +22,7 @@ export const generateMetadata = async (props) => {
         title: news?.title,
         description: news?.desc,
         openGraph: {
-            images: ['https://metaoptics.sg' + news?.image],
+            images: ['https://www.metaoptics.sg' + news?.image],
         },
     };
 };
