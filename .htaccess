@@ -1,6 +1,13 @@
 RewriteEngine On
 
 # ---------------------------------------------------------------------------
+# Canonical host: apex → www. Cloudflare redirects at the edge; this rule
+# covers direct Apache/origin access so canonical URLs never 200 on the apex.
+# ---------------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^metaoptics\.sg$ [NC]
+RewriteRule ^ https://www.metaoptics.sg%{REQUEST_URI} [R=301,L]
+
+# ---------------------------------------------------------------------------
 # IR legacy and removed routes (authoritative production redirects)
 # Keep in sync with next.config.js redirects and ir-feature-flags.js fallbacks.
 # ---------------------------------------------------------------------------
