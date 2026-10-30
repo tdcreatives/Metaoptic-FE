@@ -15,7 +15,7 @@ import AnnouncementDetailContent from '@/layouts/investor-relations/announcement
 import AnnouncementBanner from '@/layouts/investor-relations/announcement-banner';
 
 const baseMeta = metadataJson.companyAnnouncements;
-const SITE_ORIGIN = 'https://metaoptics.sg';
+const SITE_ORIGIN = 'https://www.metaoptics.sg';
 
 const fromJson = (slug) => items.find((item) => item.slug === slug);
 

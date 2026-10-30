@@ -1,0 +1,86 @@
+# MetaOptics Technologies
+
+> MetaOptics Technologies is a Singapore-headquartered metalens and flat-optics company. It designs and mass-produces metalenses on 4-inch and 12-inch glass wafers, builds the metalens-based cameras, projection modules and development kits that use them, and supplies the lithography, testing and assembly equipment needed to manufacture them. The listed entity, MetaOptics Ltd, trades on SGX Catalist under the ticker MOT.
+
+MetaOptics Technologies Pte Ltd was incepted in June 2021. It launched its Direct Laser Writer in 2022, produced its first 12-inch glass wafer of color camera metalenses in 2023, shipped metalens IoT color cameras in 2024, and listed on SGX Catalist in 2025. Headquarters: 81 Ayer Rajah Crescent, #01-45, Singapore 139967. US office: Metaoptics Inc. (USA), 1 Ferry Building, Suite 201, San Francisco, CA 94111. Contact: sales@metaoptics.sg (sales), ir@metaoptics.sg (investors), +65 8218 0482.
+
+Canonical host is https://www.metaoptics.sg; the apex domain (no "www") 301-redirects here, so always cite the www URLs listed below. Product pages carry specifications, application notes and downloadable brochures; investor-relations pages mirror announcements filed on SGXNet. Legacy paths such as /company-announcement, /analyst-coverage and /verticals/metalens-foundry/iot-metalens-color-camera are aliases of the canonical pages listed below and should not be cited. Preview routes under /investor-relations/company-announcement/preview and the two -fallback shells are marked noindex.
+
+## Company
+
+- [Home](https://www.metaoptics.sg/): company overview, the four business verticals, awards and latest news.
+- [About Us](https://www.metaoptics.sg/about-us): mission, product milestones from 2021 to 2026, and Singapore and US locations.
+- [Contact Us](https://www.metaoptics.sg/contact-us): sales, partnership and general enquiry form.
+- [News](https://www.metaoptics.sg/news): press coverage and company news; individual articles live at /news/<slug>.
+- [All products](https://www.metaoptics.sg/verticals): index of products and services by business vertical.
+- [Privacy Policy](https://www.metaoptics.sg/privacy-policy): how personal data submitted through site forms is handled.
+
+## Business verticals
+
+- [Equipment overview](https://www.metaoptics.sg/verticals/equipment/overview): metalens manufacturing equipment spanning lithography, testing and assembly.
+- [Lithography](https://www.metaoptics.sg/verticals/equipment/lithography): direct laser writing and DUV immersion lithography for metalens patterning.
+- [Testing](https://www.metaoptics.sg/verticals/equipment/testing): manual, automatic and wafer-level metalens characterization platforms.
+- [Assembly](https://www.metaoptics.sg/verticals/equipment/assembly): automated camera module assembly and test.
+- [Foundry overview](https://www.metaoptics.sg/verticals/foundary/overview): in-house metalens design and wafer fabrication on 4-inch and 12-inch platforms.
+- [VIS Metalens](https://www.metaoptics.sg/verticals/foundary/vis-metalens): visible-band metalenses for color imaging and non-contact fingerprint sensing.
+- [NIR & SWIR Metalenses](https://www.metaoptics.sg/verticals/foundary/nir-swir-metalens): near- and short-wave infrared metalenses for sensing and imaging.
+- [Photonic Integration](https://www.metaoptics.sg/verticals/foundary/photonics-integration): co-packaged optics and metalens photonic integration.
+- [Products overview](https://www.metaoptics.sg/verticals/product/overview): metalens-enabled consumer devices, projection modules and camera modules.
+- [Consumer Devices](https://www.metaoptics.sg/verticals/product/consumer-devices): metalens 5G smartphone and AI smart glasses.
+- [Projection Modules](https://www.metaoptics.sg/verticals/product/projection-modules): pico projector modules and collimating metalenses.
+- [Camera Modules](https://www.metaoptics.sg/verticals/product/camera-modules): single-layer metalens color camera modules.
+- [Development Kits](https://www.metaoptics.sg/verticals/product/development-kits): evaluation kits bundling metalens hardware, software and documentation.
+- [AI overview](https://www.metaoptics.sg/verticals/ai/overview): imaging software and algorithms that pair with metalens cameras.
+- [MOTViewer](https://www.metaoptics.sg/verticals/ai/motviewer): capture and image-analysis software for metalens cameras.
+- [AI Models & Algorithms](https://www.metaoptics.sg/verticals/ai/ai-models): super-resolution, brightening, sharpening, non-contact recognition and finger-gesture models.
+
+## Products
+
+### Smartphones, glasses and projection
+
+- [Metalens 5G Smartphone](https://www.metaoptics.sg/verticals/metalens-products/metalens-5g-smartphone): 5G smartphone with an ultra-thin glass metalens camera module that removes the camera bump and improves thermal stability.
+- [Metalens AI Glasses](https://www.metaoptics.sg/verticals/metalens-products/metalens-ai-glasses): Qualcomm AR1-powered AI smart glasses with a compact color metalens camera for tracking, capture and finger-gesture control.
+- [Pico Projector](https://www.metaoptics.sg/verticals/metalens-products/pico-projector): 80 g auto-focus pico projector using a MEMS laser scanner.
+- [Pico Projector (2nd generation)](https://www.metaoptics.sg/verticals/metalens-products/pico-projector-2nd-generation): pocket-sized, fanless USB-C pico projector about half the size of its predecessor.
+- [Collimating Meta Lens for Pico Projector](https://www.metaoptics.sg/verticals/metalens-products/collimating-meta-lens-pico-projector): mass-producible single-layer visible-band collimating metalens for pico projectors.
+
+### Camera modules and sensors
+
+- [3D Biometrics Metalens Sensor](https://www.metaoptics.sg/verticals/metalens-products/development-kits/3d-biometrics-metalens-sensor): non-contact 3D fingerprint metalens camera with AI image enhancement, tunable assembly process.
+- [IoT Metalens Color Camera](https://www.metaoptics.sg/verticals/metalens-products/development-kits/iot-metalens-color-camera): single-layer color metalens camera made with 12-inch glass wafer DUV immersion photolithography.
+- [IoT Rectangular Metalens Color Camera](https://www.metaoptics.sg/verticals/metalens-products/development-kits/iot-rectangular-metalens-color-camera): rectangular single-layer color metalens camera for imaging or fingerprint sensing.
+- [2MP Metalens Color Camera Module](https://www.metaoptics.sg/verticals/metalens-foundry/2mp-rectangular-rgb-metalens-fc-module): 2 MP single-layer metalens color camera module for laptops and phones.
+- [5MP Metalens Color Camera Module](https://www.metaoptics.sg/verticals/metalens-foundry/5mp-rectangular-rgb-metalens-fc-module): 5 MP version of the single-layer metalens color camera module.
+
+### Metalens foundry
+
+- [Round RGB Metalens](https://www.metaoptics.sg/verticals/metalens-foundry/round-rgb-metalens): single-layer round color-imaging metalens produced with 12-inch glass wafer DUV immersion photolithography.
+- [Rectangular RGB Metalens](https://www.metaoptics.sg/verticals/metalens-foundry/rectangular-rgb-metalens): rectangular single-layer color-imaging metalens for imaging and non-contact fingerprint sensing.
+- [Ultra-wide FoV IR Metalens](https://www.metaoptics.sg/verticals/metalens-foundry/ultra-wide-fov-ir-metalens): 179-degree field of view at 740 nm for eye tracking, facial recognition and AR/VR.
+- [4-inch & 12-inch Platforms](https://www.metaoptics.sg/verticals/metalens-foundry/4in-12in-platforms): comparison of MetaOptics wafer platforms for metalens production.
+- [Co-Packaged Optics](https://www.metaoptics.sg/verticals/metalens-foundry/co-packaged-optics): metalens approach to co-packaged optics for data-center interconnect.
+
+### Manufacturing equipment
+
+- [Direct Laser Writer](https://www.metaoptics.sg/verticals/metalens-capital-equipment/direct-laser-writer): deep-UV direct laser writer for metalens prototyping and low-volume production on 4-inch glass wafers, with sub-100 nm spot size.
+- [Metalens Automatic Tester](https://www.metaoptics.sg/verticals/metalens-capital-equipment/metalens-automatic-tester): precision optical characterization system supporting infinite and finite working distances.
+- [Manual Metalens Testing Platform](https://www.metaoptics.sg/verticals/metalens-capital-equipment/manual-tester): modular, upgrade-ready bench-top tester for R&D and process development.
+- [Wafer-Level Metalens Tester](https://www.metaoptics.sg/verticals/metalens-capital-equipment/wafer-level-metalens-tester): production-throughput on-wafer characterization up to 300 mm wafers at more than 1000 units per hour.
+- [Automated Camera Module Assembly and Test System](https://www.metaoptics.sg/verticals/metalens-capital-equipment/automated-metalens-camera-module-assembly-and-test-system): automated metalens camera module assembly and test line.
+
+## Investor relations
+
+- [Investor Relations](https://www.metaoptics.sg/investor-relations): corporate overview, stock information, investor presentation and IR contacts for MetaOptics Ltd (SGX: MOT).
+- [Company Announcements](https://www.metaoptics.sg/investor-relations/company-announcement): SGXNet filings, results releases and financial documents; detail pages live at /investor-relations/company-announcement/<slug>.
+- [Analyst Coverage](https://www.metaoptics.sg/investor-relations/analyst-coverage): research coverage and analyst commentary.
+- [Events & Presentation](https://www.metaoptics.sg/investor-relations/events-and-presentation): investor presentations and corporate events.
+- [Board of Directors](https://www.metaoptics.sg/investor-relations/governance/board-of-directors): board composition and director profiles.
+- [Management Team](https://www.metaoptics.sg/investor-relations/governance/management-team): executive leadership profiles.
+- [Investor FAQs](https://www.metaoptics.sg/investor-relations/resources/investor-faqs): common investor questions about the business and listing.
+- [IR Contact](https://www.metaoptics.sg/investor-relations/resources/contact-us): investor enquiry form and IR contact details.
+
+## Optional
+
+- [Shop](https://metaoptics.shop/): external online store for MetaOptics products and evaluation kits.
+- [LinkedIn](https://www.linkedin.com/company/metaoptics-inc/): company page and product announcements.
+- [Corporate presentation (PDF)](https://download.metaoptics.sg/MOT-Company-Presentation-Sep2026.pdf): investor deck hosted on the MetaOptics download CDN.

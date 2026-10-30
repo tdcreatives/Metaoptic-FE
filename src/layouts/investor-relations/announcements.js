@@ -30,9 +30,9 @@ const SgxListingSection = () => {
                             ref={videoRef}
                             className="w-full"
                             controls
-                            poster="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.jpg"
+                            poster="https://download.metaoptics.sg/videos/Metaoptics-Event-Video_6.jpg"
                         >
-                            <source src="https://metaoptics.sg/videos/Metaoptics-Event-Video_6.mp4" type="video/mp4" />
+                            <source src="https://download.metaoptics.sg/videos/Metaoptics-Event-Video_6.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                         {!isPlaying && (
