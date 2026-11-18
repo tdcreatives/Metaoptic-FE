@@ -664,6 +664,23 @@
                 "relatedNews": []
             },
             "mod": "production"
+        },
+        {
+            "id": 34,
+            "slug": "metaoptics-partners-with-hong-kong-astri-to-develop-next-generation-nano-optics-imaging-system",
+            "title": "MetaOptics Partners with Hong Kong's ASTRI to Develop a Next-Generation Nano-Optics Imaging System",
+            "desc": "MetaOptics announced a collaboration with Hong Kong's ASTRI to jointly develop a compact nano-optics imaging system for advanced biometric security and smart sensing applications.",
+            "date": "Nov 18, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://en.prnasia.com/releases/apac/metaoptics-partners-with-hong-kong-s-astri-to-develop-a-next-generation-nano-optics-imaging-system-557032.shtml",
+            "external": false,
+            "details": {
+                "images": ["/news/MOT.webp"],
+                "contentPath": "/content/news/metaoptics-partners-with-hong-kong-astri-to-develop-next-generation-nano-optics-imaging-system.mdx",
+                "relatedNews": []
+            },
+            "mod": "production"
         }
     ]
 }
