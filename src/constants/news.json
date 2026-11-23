@@ -681,6 +681,23 @@
                 "relatedNews": []
             },
             "mod": "production"
+        },
+        {
+            "id": 35,
+            "slug": "metaoptics-ltd-secures-up-to-s-32-million-share-subscription-facility-from-gem-opportunities-fund-isa-ltd",
+            "title": "MetaOptics Ltd Secures up to S$32 Million Share Subscription Facility from GEM Opportunities Fund ISA Ltd.",
+            "desc": "MetaOptics entered into a share subscription facility agreement with GEM Opportunities Fund ISA Ltd. for an aggregate commitment of up to S$32 million, providing flexible growth capital drawn down at the Company's discretion.",
+            "date": "Nov 23, 2026",
+            "image": "/news/MOT.webp",
+            "thumbnail": "/news/MOT.webp",
+            "path": "https://en.prnasia.com/releases/apac/metaoptics-ltd-secures-up-to-s-32-million-share-subscription-facility-from-gem-opportunities-fund-isa-ltd--557626.shtml",
+            "external": false,
+            "details": {
+                "images": ["/news/MOT.webp"],
+                "contentPath": "/content/news/metaoptics-ltd-secures-up-to-s-32-million-share-subscription-facility-from-gem-opportunities-fund-isa-ltd.mdx",
+                "relatedNews": []
+            },
+            "mod": "production"
         }
     ]
 }
